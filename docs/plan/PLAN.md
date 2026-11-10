@@ -221,8 +221,9 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 
 ## Reader
 
-The edition as a usable reference for the owner with no company data loaded: pages that list their related pages, Sources without repeats, a frame without placeholder lines, and trust signals that say what is true. It needs no phase exit and runs beside the phases. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards.
+The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, pages that list their related pages, Sources without repeats, a frame without placeholder lines, trust signals that say what is true, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards.
 
+- corpus-job-speed: the `corpus` job in half its time, with a release binary and parallel harness pages, every check kept
 - design-r22-reader-pages: design revision 22: related and linked-from lists, one Sources row per claim, unbuilt navigation, the folded Company calibration part, the overdue notice on unreleased builds and the build link's target (owner review)
 - frame-unbuilt-entries: navigation entries a build does not hold stop filling the sidebar and tabs with "not available" lines
 - page-related-links: each page's rail lists its related pages and the pages that link to it, by title
@@ -232,6 +233,17 @@ The edition as a usable reference for the owner with no company data loaded: pag
 - ids-split: `ids.html` is an index, one page per id group, and claims in parts of 500 per area by the claims register's part rule
 - build-date-target: the top-bar build link reaches the 24px target, and the narrow check drops its exemption
 - review-by-basis: a page's `review_by` counts from its newest change note as well as `as_of`, by an ADR 0002 amendment (owner review)
+- zip-advisories: `zip` 9.0.5 or later and `rust_xlsxwriter` 0.101.x, which close five published `zip` advisories, with the deterministic zip and workbook bytes kept
+- adr-0006-glossary-units: an ADR 0006 amendment that lets the edition search index hold glossary term units, with the measured size and the plan for the cap (owner review)
+- kb-dcaa-dcma-guidance-sources: the missing Contract Audit Manual chapters, DCAA guidance for contractors and the Contract Pricing Reference Guides, byte-exact public sources
+- kb-rates-practitioner: wrap-rate build-up, pool and base structure, the billing-to-final-rate cycle and an incurred cost submission walkthrough
+- kb-hub-pages: the FAR 31.205 cost-principles overview, one page per contract type and the first Cost Accounting Standard hubs, in parts
+- search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
+- design-search-term-rows: a design revision after revision 22 that shows a glossary term row on the edition's search page and in the palette (owner review)
+- search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)
+- kb-fpa-core: budgeting, rolling forecast and variance analysis pages
+- kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
+- kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
 
 ## P4
 
@@ -276,7 +288,6 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - views-and-day-n: the CPY, CPT and PGM views, Day-N and the plan's today line
 - app-map: `map.html`
 - day30-strict-lints: the quote match and the number-unit lint become errors; proptest
-- rust-xlsxwriter-bump: `rust_xlsxwriter` 0.101.x with `zip` 9.0.5, and the `calamine` release that is on `zip` 9
 - release-0-2-0: the `v0.2.0` release pull request, with the Day-30 drill for the parts that merged
 - changes-page: `changes.html` with `edition-002`
 

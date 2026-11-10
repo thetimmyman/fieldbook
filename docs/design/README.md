@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 20) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 21) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 20
+## Current revision 21
+
+The `app.js` budget is 32 KB (AD-15, [ADR 0001](../decisions/0001-foundation.md)); `search.js` 10 KB, `assist.js` 20 KB and the 64 KB total are unchanged. The scripts' movement is decoration: where the browser stops running a movement, the element jumps to its end state, so the overlay sidebar opens even when its slide never plays, and never stays off-screen behind its scrim (`HANDOFF.md` section 6, Motion). The fix that needed the room is in `app.js`. No token, layout family, component geometry or mockup byte changes, so no study is needed. No browser, Rust or Edge check is claimed.
+
+## Revision 20 (historical)
 
 Every page of an unreleased build states its honest status in the build status banner: a `Banner` in its warn variant, first in the frame's existing banner slot under the crumbs row (`HANDOFF.md` section 3, Unreleased build status). It reads "This is an unreleased build, not an edition.", then "A of M claims are AI-drafted; U of M are unchecked.", with the counts the build computes from the claims register it renders (`drafted_by` is `codex` or `ai`; `verification` is `unchecked`), adds "S of M have been checked and found supported." only once a claim has left `unchecked`, and links to the claims register. It is never dismissible, never calls anything verified, is a region named "Build status" and not a live region, follows the warn tokens in dark and forced-colours modes, wraps at phone width, reads the same with scripts blocked, and prints on the first page while the print footer says "unreleased build" on every page. A released edition never shows it. A small OpenUI study compared this slot with a window-wide strip and with the header chip alone; its files are not part of this package. No token, layout family, component geometry or mockup byte changes. The implementation card is `unreleased-status-strip`. No browser, Rust or Edge check is claimed.
 
