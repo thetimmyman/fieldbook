@@ -118,7 +118,10 @@
       if (measures.innerWidth !== 375) {
         problems.push('the frame is ' + measures.innerWidth + ' px wide, not 375');
       }
-      if (measures.pageScrollWidth > measures.innerWidth) {
+      if (measures.clientWidth !== 375) {
+        problems.push('the page lays out at ' + measures.clientWidth + ' px, not 375 (a scrollbar or a margin takes width)');
+      }
+      if (measures.pageScrollWidth > measures.clientWidth) {
         problems.push('the page is ' + measures.pageScrollWidth + ' px wide in a 375px frame');
       }
     });
@@ -159,7 +162,11 @@
       for (var i = 0; i < measures.controls.length; i++) {
         var c = measures.controls[i];
         if (c.chip === true) {
-          notes.push('chip link "' + c.name + '" is ' + c.height + 'px tall, left out of the 32px rule');
+          if (c.height < 24) {
+            notes.push('known design failure: chip link "' + c.name + '" is ' + c.height + 'px tall, under the design\'s 24px --target-min for a linked chip (HANDOFF.md section 0, WCAG 2.5.8; section 5, Chip row); left for its own card');
+          } else {
+            notes.push('chip link "' + c.name + '" is ' + c.height + 'px tall, left out of the 32px rule (a linked chip has a 24px floor)');
+          }
           continue;
         }
         measured += 1;

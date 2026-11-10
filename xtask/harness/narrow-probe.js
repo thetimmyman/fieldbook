@@ -34,7 +34,8 @@
             name: name,
             tag: el.tagName.toLowerCase(),
             icon: el.classList.contains('icon-btn'),
-            chip: !!el.querySelector('.chip'),
+            // The one status link (a.build-date-link) is a linked chip, with a 24px design floor, left for its own card.
+            chip: el.tagName === 'A' && el.classList.contains('build-date-link') && !!el.querySelector('.chip'),
             width: Math.round(rect.width * 100) / 100,
             height: Math.round(rect.height * 100) / 100
           });
@@ -42,6 +43,7 @@
         result = {
           narrow: 1,
           innerWidth: window.innerWidth,
+          clientWidth: document.documentElement.clientWidth,
           pageScrollWidth: document.documentElement.scrollWidth,
           topbar: topbar,
           controls: controls

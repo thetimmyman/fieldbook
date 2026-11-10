@@ -1243,6 +1243,14 @@ pub(crate) fn judge_case_page(
     }
 }
 
+/// The note a case page put in square brackets after a case (`narrow` prints it on every run).
+fn case_note(text: &str) -> Option<&str> {
+    let trimmed = text.trim_end();
+    let without_trailing = trimmed.strip_suffix(']')?;
+    let start = without_trailing.find(" [")? + 2;
+    Some(&without_trailing[start..])
+}
+
 /// Opens each case page of `group` (`search`, under `search/`; `shortcut`, under
 /// `shortcuts/`; or `narrow`, under `narrow/`) and prints each case; returns the failures.
 fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) -> Vec<String> {
@@ -1269,6 +1277,9 @@ fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) 
             Ok(run) => {
                 for case in &run.cases {
                     println!("harness: {group}: {}: ok", case.id);
+                    if let Some(note) = case_note(&case.text) {
+                        println!("harness: {group}: {}: note: {note}", case.id);
+                    }
                 }
                 println!("harness: {group}: {name}: {}", run.summary);
             }
@@ -2371,7 +2382,7 @@ mod tests {
         let html = fs::read_to_string(&page.path).unwrap();
         assert!(
             html.contains(
-                "<iframe id=\"narrow-frame\" title=\"The page at 375px\" width=\"375\" height=\"800\" src=\"../edition/narrow-frame.html\">"
+                "<iframe id=\"narrow-frame\" title=\"The page at 375px\" scrolling=\"no\" width=\"375\" height=\"800\" src=\"../edition/narrow-frame.html\">"
             ),
             "{html}"
         );
@@ -2401,6 +2412,28 @@ mod tests {
                 "{id} not quoted in NARROW_CASES_JS"
             );
         }
+    }
+
+    #[test]
+    fn a_case_note_is_printed_not_only_dumped() {
+        assert_eq!(
+            case_note("id (x y): ok [known design failure: foo]"),
+            Some("known design failure: foo")
+        );
+        assert_eq!(case_note("id (x y): ok"), None);
+        assert_eq!(case_note("id (x y): bad thing"), None);
+    }
+
+    #[test]
+    fn narrow_checks_the_layout_width_not_only_the_frame() {
+        assert!(NARROW_PROBE_JS.contains("clientWidth: document.documentElement.clientWidth"));
+        assert!(NARROW_CASES_JS.contains("measures.clientWidth !== 375"));
+    }
+
+    #[test]
+    fn narrow_probe_exempts_only_build_date_link_chip() {
+        assert!(NARROW_PROBE_JS.contains("classList.contains('build-date-link')"));
+        assert!(!NARROW_PROBE_JS.contains("chip: !!el.querySelector"));
     }
 
     #[test]
