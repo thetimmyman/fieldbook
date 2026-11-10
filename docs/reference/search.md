@@ -545,7 +545,7 @@ expect_none = true
 | `id` | Unique, `rg-NNN` |
 | `query` | The text a person would type |
 | `expect` | Unit ids, usually page ids, each judged on [the page view](#the-page-view): an id holds when its page is within the first `top` page rows, or when an exact row stands for it. A section id `<page-id>#<anchor>` counts for its page. Each id must exist in the Corpus |
-| `top` | Default 5: how many page rows an expected page may be behind |
+| `top` | Default 5: how many leading page rows an expected page may appear in |
 | `expect_none` | The result list must be empty. Write the query so that none of its tokens appears anywhere in the Corpus |
 | `critical` | Default false. A miss on a critical case is an error; a miss on any other case is a warning |
 
