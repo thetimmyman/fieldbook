@@ -219,6 +219,21 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 - unreleased-status-strip: a strip on every unreleased page saying the build is not an edition and its claims are AI-drafted and unchecked, with counts computed from the claims
 - runner-contention: the deploy installs no tool into the runners' shared home folder, and the `corpus` job has room to finish beside another (owner review)
 
+## Reader
+
+The edition as a usable reference for the owner with no company data loaded: pages that list their related pages, Sources without repeats, a frame without placeholder lines, and trust signals that say what is true. It needs no phase exit and runs beside the phases.
+
+- design-r22-reader-pages: design revision 22: related and linked-from lists, one Sources row per claim, unbuilt navigation, the folded Company calibration part, the overdue notice on unreleased builds and the build link's target (owner review)
+- frame-unbuilt-entries: navigation entries a build does not hold stop filling the sidebar and tabs with "not available" lines
+- page-related-links: each page's rail lists its related pages and the pages that link to it, by title
+- sources-dedupe: a page's Sources hold one row per cited claim, with back-references to each marker
+- fold-company-sections: with no company overlay loaded, the Company calibration part is folded
+- overdue-banner-fold: an unreleased build shows the review notice in its build status banner, not on each page
+- ids-split: `ids.html` is an index, one page per id group and claims one page per area
+- build-date-target: the top-bar build link reaches the 24px target, and the narrow check drops its exemption
+- source-location-links: source pages link to the official location and each cited section, after the owner decides D-20 (owner review)
+- review-by-basis: a page's `review_by` counts from its newest change note as well as `as_of`, by an ADR 0002 amendment (owner review)
+
 ## P4
 
 Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), ending Day 30: the E1 gate whenever IT-9 is answered, and the Day-30 gate; `v0.2.0`.
