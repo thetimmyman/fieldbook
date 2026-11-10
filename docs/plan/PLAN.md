@@ -221,7 +221,7 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 
 ## Reader
 
-The edition as a usable reference for the owner with no company data loaded: pages that list their related pages, Sources without repeats, a frame without placeholder lines, and trust signals that say what is true. It needs no phase exit and runs beside the phases.
+The edition as a usable reference for the owner with no company data loaded: pages that list their related pages, Sources without repeats, a frame without placeholder lines, and trust signals that say what is true. It needs no phase exit and runs beside the phases. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards.
 
 - design-r22-reader-pages: design revision 22: related and linked-from lists, one Sources row per claim, unbuilt navigation, the folded Company calibration part, the overdue notice on unreleased builds and the build link's target (owner review)
 - frame-unbuilt-entries: navigation entries a build does not hold stop filling the sidebar and tabs with "not available" lines
@@ -229,9 +229,8 @@ The edition as a usable reference for the owner with no company data loaded: pag
 - sources-dedupe: a page's Sources hold one row per cited claim, with back-references to each marker
 - fold-company-sections: with no company overlay loaded, the Company calibration part is folded
 - overdue-banner-fold: an unreleased build shows the review notice in its build status banner, not on each page
-- ids-split: `ids.html` is an index, one page per id group and claims one page per area
+- ids-split: `ids.html` is an index, one page per id group, and claims in parts of 500 per area by the claims register's part rule
 - build-date-target: the top-bar build link reaches the 24px target, and the narrow check drops its exemption
-- source-location-links: source pages link to the official location and each cited section, after the owner decides D-20 (owner review)
 - review-by-basis: a page's `review_by` counts from its newest change note as well as `as_of`, by an ADR 0002 amendment (owner review)
 
 ## P4
@@ -254,6 +253,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - pipeline-ports: the Classifier, Correlator and Admit traits, `staged@1`, the contract suites
 - extract-csv-rows: the `csv-rows` extraction method for tables, FB0311
 - extract-xlsx-sheets: the `xlsx-sheets` extraction method for workbooks, read with `calamine`; `sheet` and `rec` locators on a workbook
+- source-location-links: a Reader card placed after `extract-xlsx-sheets`, whose source page it follows: source pages link to the official location and each cited section, after the owner decides D-20 and NFR-S-12 (owner review)
 - pipeline-rules-classify: `corpus/pipeline/rules.toml`, the `rules@1` classifier, FB0826
 - Write about 10 starting rules with examples in `corpus/pipeline/rules.toml`; `check` replays each on its example (lead)
 - pipeline-correlate: the `exact-ids+bm25@1` correlator

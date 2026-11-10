@@ -6,7 +6,7 @@
 
 ## Outcome
 
-Revision 22 of `docs/design/` is accepted, and it specifies the seven reader-page changes listed in Steps, each with its wording, position, states and tokens, so that the cards that build them invent nothing.
+Revision 22 of `docs/design/` is accepted, and it specifies the six reader-page changes of Steps 1 to 6, each with its wording, position, states and tokens, so that the cards that build them invent nothing.
 
 ## Why
 
@@ -44,21 +44,22 @@ Revision 22 of `docs/design/` is accepted, and it specifies the seven reader-pag
 3. Unbuilt navigation (section 3 Frame, section 5 `Sidebar`, `NavItem`, `SectionTabs`): on a build where an entry's target is not built, the entry is hidden or collapsed into one disclosure, with its wording; the rule for a tab; that no landing line is lost from the app map or the about page.
 4. Company calibration (section 2 part 6): with no company overlay loaded (the public `StoreContext`), part 6 is folded closed under its frozen heading, with the fold's summary wording, and stays in the part order, in the table of contents and in print.
 5. The overdue banner on an unreleased build (section 3 Unreleased build status, section 11 Review date passed): whether the page-level banner is suppressed when the build status banner shows, and what the build status banner then says about review dates, given that the build never reads the clock and `app.js` decides overdue in the browser.
-6. The build link (section 5 `BuildChip`, `Chip`): which element carries the 24px target at every width, and that no other top-bar control changes size.
+6. The build link (section 5, the `Chip` row; section 0, the targets row, WCAG 2.2 AA 2.5.8, with the `--target-min` token): the element under target is `a.build-date-link`, the linked `Chip` around the header's build date, not the `.build-chip` store-context chip; the revision says which element carries the 24px target at every width, and that no other top-bar control changes size.
 7. A revision paragraph at the top of `HANDOFF.md`, the README's current revision, the MAP rows that name the build cards in Out of scope, the study record in section 13, and `MANIFEST.txt` re-hashed.
 
 ## Acceptance
 
 ```sh
-cd docs/design && sha256sum -c MANIFEST.txt
+(cd docs/design && sha256sum -c MANIFEST.txt)
 typos docs/design
+just check
 ```
 
-Expected: each file prints `OK` and `sha256sum` exits 0; `typos` exits 0.
+Expected: each file prints `OK` and `sha256sum` exits 0; `typos` exits 0; `just check` exits 0.
 
 ## Negative control
 
-Change one byte of `HANDOFF.md` after hashing: `sha256sum -c MANIFEST.txt` must print `HANDOFF.md: FAILED` and exit 1. Restore it.
+Change one byte of `HANDOFF.md` after hashing: `(cd docs/design && sha256sum -c MANIFEST.txt)` must print `HANDOFF.md: FAILED` and exit 1. Restore it.
 
 ## Rollback
 
