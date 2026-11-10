@@ -877,10 +877,28 @@ const SHORTCUT_PAGES: [(&str, &[&str]); 2] = [
     ("storage-throws", &["storage_throwing_page_still_works"]),
 ];
 
-/// One harness page that runs cases (a search page or a shortcut page), ready to open.
+/// The template of the narrow page (`narrow-width-check`): `@FRAME@` is filled in.
+const NARROW_TEMPLATE: &str = include_str!("../harness/narrow.html");
+/// The cases the narrow page runs.
+const NARROW_CASES_JS: &str = include_str!("../harness/narrow.js");
+/// The probe injected into the framed page to measure and report geometry.
+const NARROW_PROBE_JS: &str = include_str!("../harness/narrow-probe.js");
+/// The file name of the probe script inside the harness copy.
+const NARROW_PROBE_NAME: &str = "narrow-probe.js";
+/// The file name of the framed copy of index.html with the probe injected.
+const NARROW_FRAME_NAME: &str = "narrow-frame.html";
+/// The cases the narrow page must report as passing.
+const NARROW_CASES: [&str; 3] = [
+    "page_does_not_scroll_sideways_at_375",
+    "top_bar_does_not_scroll_sideways_at_375",
+    "top_bar_buttons_keep_the_control_height",
+];
+
+/// One harness page that runs cases (a search page, a shortcut page, or a narrow page), ready to open.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct CasePage {
-    /// Search: `goldens`, `skeleton` or `version`; shortcuts: `shortcuts` or `storage-throws`.
+    /// Search: `goldens`, `skeleton` or `version`; shortcuts: `shortcuts` or `storage-throws`;
+    /// narrow: `narrow`.
     pub(crate) mode: &'static str,
     /// The generated page.
     pub(crate) path: PathBuf,
@@ -1081,6 +1099,57 @@ pub(crate) fn prepare_shortcut_pages(harness: &Path) -> Result<Vec<CasePage>, St
     Ok(pages)
 }
 
+/// The relative path from `<harness>/narrow/` to `<copy>/narrow-frame.html`.
+fn narrow_frame_src(copy: &Path, harness: &Path) -> Result<String, String> {
+    if copy.parent() == Some(harness) {
+        let name = copy
+            .file_name()
+            .and_then(OsStr::to_str)
+            .ok_or_else(|| format!("copy {} has no folder name", copy.display()))?;
+        Ok(format!("../{name}/{NARROW_FRAME_NAME}"))
+    } else {
+        Err(format!(
+            "copy {} must sit directly under the harness folder {}",
+            copy.display(),
+            harness.display()
+        ))
+    }
+}
+
+/// Writes the narrow-width harness page under `<harness>/narrow/narrow.html`, which frames
+/// `<copy>/narrow-frame.html` at 375px width (`narrow-width-check`).
+pub(crate) fn prepare_narrow_page(copy: &Path, harness: &Path) -> Result<CasePage, String> {
+    let frame_src = attribute_text(&narrow_frame_src(copy, harness)?);
+    let index_path = copy.join("index.html");
+    let html = fs::read_to_string(&index_path)
+        .map_err(|error| format!("cannot read {}: {error}", index_path.display()))?;
+    let frame_html = inject_script(&html, NARROW_PROBE_NAME)?;
+    write_file(&copy.join(NARROW_PROBE_NAME), NARROW_PROBE_JS.as_bytes())?;
+    write_file(&copy.join(NARROW_FRAME_NAME), frame_html.as_bytes())?;
+
+    let dir = harness.join("narrow");
+    if dir.exists() {
+        fs::remove_dir_all(&dir)
+            .map_err(|error| format!("cannot clear {}: {error}", dir.display()))?;
+    }
+    fs::create_dir_all(&dir)
+        .map_err(|error| format!("cannot create {}: {error}", dir.display()))?;
+    write_file(&dir.join("narrow.js"), NARROW_CASES_JS.as_bytes())?;
+    write_file(&dir.join("hold.js"), SEARCH_HOLD_JS.as_bytes())?;
+    write_file(&dir.join(SELFTEST_NAME), SELFTEST_JS.as_bytes())?;
+
+    let html = NARROW_TEMPLATE.replace("@FRAME@", &frame_src);
+    let path = dir.join("narrow.html");
+    let html = inject_script(&html, &selftest_src(&path, &dir)?)?;
+    write_file(&path, html.as_bytes())?;
+
+    Ok(CasePage {
+        mode: "narrow",
+        path,
+        required: NARROW_CASES.iter().map(|id| (*id).to_owned()).collect(),
+    })
+}
+
 /// One case a case page reported.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct SearchCase {
@@ -1105,8 +1174,9 @@ fn tag_attribute<'a>(tag: &'a str, name: &str) -> Option<&'a str> {
 }
 
 /// Reads a case page's dumped DOM: every `<li data-case data-ok>` and `#harness-summary`.
-/// Fails, naming `page`, its `group` (`search` or `shortcut`) and each case, when the page did
-/// not finish, a case failed, the failed count disagrees, or a `required` case did not run.
+/// Fails, naming `page`, its `group` (`search`, `shortcut` or `narrow`) and each case, when the
+/// page did not finish, a case failed, the failed count disagrees, or a `required` case did
+/// not run.
 pub(crate) fn judge_case_page(
     page: &str,
     group: &str,
@@ -1174,14 +1244,22 @@ pub(crate) fn judge_case_page(
     }
 }
 
-/// Opens each case page of `group` (`search`, under `search/`, or `shortcut`, under
-/// `shortcuts/`) and prints each case; returns the failures.
+/// The note a case page put in square brackets after a case (`narrow` prints it on every run).
+fn case_note(text: &str) -> Option<&str> {
+    let trimmed = text.trim_end();
+    let without_trailing = trimmed.strip_suffix(']')?;
+    let start = without_trailing.find(" [")? + 2;
+    Some(&without_trailing[start..])
+}
+
+/// Opens each case page of `group` (`search`, under `search/`; `shortcut`, under
+/// `shortcuts/`; or `narrow`, under `narrow/`) and prints each case; returns the failures.
 fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) -> Vec<String> {
     let mut failures = Vec::new();
-    let folder = if group == "search" {
-        "search"
-    } else {
-        "shortcuts"
+    let folder = match group {
+        "search" => "search",
+        "narrow" => "narrow",
+        _ => "shortcuts",
     };
     for page in pages {
         let name = format!("{folder}/{}.html", page.mode);
@@ -1200,6 +1278,9 @@ fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) 
             Ok(run) => {
                 for case in &run.cases {
                     println!("harness: {group}: {}: ok", case.id);
+                    if let Some(note) = case_note(&case.text) {
+                        println!("harness: {group}: {}: note: {note}", case.id);
+                    }
                 }
                 println!("harness: {group}: {name}: {}", run.summary);
             }
@@ -1329,6 +1410,14 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     ));
 
     let pages = prepare_copy(&edition, &copy)?;
+    // The narrow page: the built index page framed at 375px (`narrow-width-check`).
+    let narrow_page = prepare_narrow_page(&copy, &harness)?;
+    failures.extend(run_case_pages(
+        &browser.path,
+        &work,
+        "narrow",
+        std::slice::from_ref(&narrow_page),
+    ));
     let texts = renderable_originals(&originals, originals_count(&edition_toml)?)?;
     eprintln!(
         "harness: {} pages and {} renderable originals in {}",
@@ -2272,6 +2361,187 @@ mod tests {
         // would run after --dump-dom had written the page.
         assert!(SHORTCUT_CASES_JS.contains("document.addEventListener('DOMContentLoaded'"));
         assert!(!SHORTCUT_CASES_JS.contains("window.addEventListener('load'"));
+    }
+
+    #[test]
+    fn narrow_page_frames_the_copy_at_375() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let copy = harness.join("edition");
+        fs::create_dir_all(&copy).unwrap();
+        fs::write(
+            copy.join("index.html"),
+            "<!doctype html><html><head><meta charset=\"utf-8\"><script src=\"selftest.js\"></script></head><body></body></html>",
+        )
+        .unwrap();
+
+        let page = prepare_narrow_page(&harness.join("edition"), &harness).unwrap();
+        assert_eq!(page.mode, "narrow");
+        assert_eq!(page.path, harness.join("narrow/narrow.html"));
+        assert_eq!(page.required, ids(&NARROW_CASES));
+
+        let html = fs::read_to_string(&page.path).unwrap();
+        assert!(
+            html.contains(
+                "<iframe id=\"narrow-frame\" title=\"The page at 375px\" scrolling=\"no\" width=\"375\" height=\"800\" src=\"../edition/narrow-frame.html\">"
+            ),
+            "{html}"
+        );
+        assert!(html.contains("frame-src 'self'"), "{html}");
+        let selftest_tag = "<script src=\"selftest.js\"></script>";
+        let narrow_tag = "<script src=\"narrow.js\"></script>";
+        let selftest_pos = html
+            .find(selftest_tag)
+            .unwrap_or_else(|| panic!("{selftest_tag} missing"));
+        let narrow_pos = html
+            .find(narrow_tag)
+            .unwrap_or_else(|| panic!("{narrow_tag} missing"));
+        assert!(selftest_pos < narrow_pos, "{html}");
+
+        let narrow_dir = harness.join("narrow");
+        assert!(narrow_dir.join("narrow.js").is_file());
+        assert!(narrow_dir.join("hold.js").is_file());
+        assert!(narrow_dir.join("selftest.js").is_file());
+        assert_eq!(
+            fs::read_to_string(narrow_dir.join("narrow.js")).unwrap(),
+            NARROW_CASES_JS
+        );
+
+        for id in NARROW_CASES {
+            assert!(
+                NARROW_CASES_JS.contains(&format!("'{id}'")),
+                "{id} not quoted in NARROW_CASES_JS"
+            );
+        }
+    }
+
+    #[test]
+    fn a_case_note_is_printed_not_only_dumped() {
+        assert_eq!(
+            case_note("id (x y): ok [known design failure: foo]"),
+            Some("known design failure: foo")
+        );
+        assert_eq!(case_note("id (x y): ok"), None);
+        assert_eq!(case_note("id (x y): bad thing"), None);
+    }
+
+    #[test]
+    fn narrow_checks_the_layout_width_not_only_the_frame() {
+        assert!(NARROW_PROBE_JS.contains("clientWidth: document.documentElement.clientWidth"));
+        assert!(NARROW_CASES_JS.contains("measures.clientWidth !== 375"));
+    }
+
+    #[test]
+    fn narrow_probe_exempts_only_build_date_link_chip() {
+        assert!(NARROW_PROBE_JS.contains("classList.contains('build-date-link')"));
+        assert!(!NARROW_PROBE_JS.contains("chip: !!el.querySelector"));
+    }
+
+    #[test]
+    fn narrow_probe_is_injected_once() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let copy = harness.join("edition");
+        fs::create_dir_all(&copy).unwrap();
+        let original_html = "<!doctype html><html><head><meta charset=\"utf-8\"><script src=\"selftest.js\"></script></head><body></body></html>";
+        fs::write(copy.join("index.html"), original_html).unwrap();
+
+        prepare_narrow_page(&copy, &harness).unwrap();
+
+        let frame_html = fs::read_to_string(copy.join("narrow-frame.html")).unwrap();
+        assert_eq!(
+            frame_html
+                .matches("<script src=\"narrow-probe.js\"></script>")
+                .count(),
+            1,
+            "{frame_html}"
+        );
+        assert_eq!(
+            frame_html
+                .matches("<script src=\"selftest.js\"></script>")
+                .count(),
+            1,
+            "{frame_html}"
+        );
+
+        let probe_tag = "<script src=\"narrow-probe.js\"></script>";
+        let selftest_tag = "<script src=\"selftest.js\"></script>";
+        let head_pos = frame_html
+            .find("<head>")
+            .unwrap_or_else(|| panic!("<head> missing"));
+        let probe_pos = frame_html
+            .find(probe_tag)
+            .unwrap_or_else(|| panic!("{probe_tag} missing"));
+        let selftest_pos = frame_html
+            .find(selftest_tag)
+            .unwrap_or_else(|| panic!("{selftest_tag} missing"));
+        assert!(head_pos < probe_pos, "{frame_html}");
+        assert!(probe_pos < selftest_pos, "{frame_html}");
+
+        assert_eq!(
+            fs::read_to_string(copy.join("narrow-probe.js")).unwrap(),
+            NARROW_PROBE_JS
+        );
+
+        let index_html = fs::read_to_string(copy.join("index.html")).unwrap();
+        assert_eq!(index_html, original_html);
+        assert!(!index_html.contains("narrow-probe.js"));
+    }
+
+    #[test]
+    fn narrow_page_needs_the_copy_under_the_harness() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let copy = dir.path().join("outside/edition");
+        fs::create_dir_all(&copy).unwrap();
+        fs::write(
+            copy.join("index.html"),
+            "<!doctype html><html><head><meta charset=\"utf-8\"><script src=\"selftest.js\"></script></head><body></body></html>",
+        )
+        .unwrap();
+
+        let result = prepare_narrow_page(&copy, &harness);
+        assert!(result.is_err(), "{result:?}");
+    }
+
+    #[test]
+    fn a_failed_narrow_case_is_named_and_a_missing_one_fails() {
+        let passing = [
+            ("page_does_not_scroll_sideways_at_375", true),
+            ("top_bar_does_not_scroll_sideways_at_375", true),
+            ("top_bar_buttons_keep_the_control_height", true),
+        ];
+        let required = ids(&NARROW_CASES);
+        let dom = search_dom(&passing, true, 0);
+        let run = judge_case_page("narrow/narrow.html", "narrow", &dom, &required).unwrap();
+        assert_eq!(run.summary, "3 cases, 0 failed");
+
+        let failing = [
+            ("page_does_not_scroll_sideways_at_375", false),
+            ("top_bar_does_not_scroll_sideways_at_375", true),
+            ("top_bar_buttons_keep_the_control_height", true),
+        ];
+        let dom = search_dom(&failing, true, 1);
+        let failures =
+            judge_case_page("narrow/narrow.html", "narrow", &dom, &required).unwrap_err();
+        assert!(
+            failures[0].starts_with(
+                "narrow/narrow.html: narrow case page_does_not_scroll_sideways_at_375 failed: "
+            ),
+            "{failures:?}"
+        );
+
+        let empty = search_dom(&[], false, 0);
+        let failures =
+            judge_case_page("narrow/narrow.html", "narrow", &empty, &required).unwrap_err();
+        for id in NARROW_CASES {
+            assert!(
+                failures
+                    .iter()
+                    .any(|f| f == &format!("narrow/narrow.html: narrow case {id} did not run")),
+                "{failures:?}"
+            );
+        }
     }
 
     fn copy_dir(from: &Path, to: &Path) {

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; frame-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'">
+<title>narrow-width harness</title>
+<!-- The page harness.rs generates from this template: it frames the built site's index page at 375px width. -->
+<script src="narrow.js"></script>
+</head>
+<body data-harness="narrow">
+<iframe id="narrow-frame" title="The page at 375px" scrolling="no" width="375" height="800" src="@FRAME@"></iframe>
+<ol id="harness-results"></ol>
+<p id="harness-summary" data-done="false"></p>
+</body>
+</html>
