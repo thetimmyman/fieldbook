@@ -94,7 +94,8 @@ jobs:
     # The self-hosted runner persists between jobs: never run a fork's code on it.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: [self-hosted, Linux, X64, fieldbook]
-    timeout-minutes: 45
+    # 35 to 42 minutes alone; two runs at once on the shared runners need more room.
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

@@ -871,6 +871,7 @@ const SHORTCUT_PAGES: [(&str, &[&str]); 2] = [
             "palette_row_click_follows_its_link",
             "palette_backdrop_and_close_button_close",
             "palette_final_search_row",
+            "menu_opens_even_when_the_slide_stalls",
         ],
     ),
     ("storage-throws", &["storage_throwing_page_still_works"]),
