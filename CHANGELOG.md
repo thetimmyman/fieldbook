@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Fixed: the hosted deploy no longer installs a tool into the runner's shared home folder, so it cannot fail beside a CI run, and the `corpus` job has 75 minutes instead of 45 when two runs overlap.
 - Added: a deploy workflow that publishes the built edition, with its originals, as a static site on a Cloudflare Worker behind the owner's login; it fails when a file is over the host's 25 MiB limit or when the hostname answers without a login, and a run can roll the site back. The runbook is docs/runbooks/hosted-edition.md.
 - Changed: the claims register is an index page with one page per area part (500 claim numbers each), and every claim link, search result and All IDs entry points at its part.
 - Added: a search trigger, a command palette (Ctrl K or /) and a shortcuts dialog (?) on every page; single-key shortcuts can be turned off.
