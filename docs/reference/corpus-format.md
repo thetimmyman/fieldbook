@@ -1573,6 +1573,7 @@ One HTML file per page. A `#` is used only for anchors and for `search.html#q=`.
 - **Links.** Directory links name `index.html`. An original links to the sibling `originals/` folder, with the locator text beside the link. A page works without JavaScript; the budgets are in FB0605.
 - **Print.** `@page { size: Letter; margin: 0 }` with body padding. The footer shows product, edition, page id and "Check the current edition". Citations print as footnotes, and status words always print. No `file:` URL prints. A `brief` prints on one page (FB0607).
 - **Header.** The edition and its build date are written into every page at build. Without `SOURCE_DATE_EPOCH` or without a commit the page says "unreleased build".
+- **Build status.** On an unreleased build, the one the header chip says is unreleased, every page opens with a banner that says "This is an unreleased build, not an edition.", with the build's counts of AI-drafted and unchecked claims (and, once a claim is checked, of supported claims) and a link to the claims register. The build computes the counts from the claims register it renders (`BuildStatus` in `render::meta`) and writes the same numbers into every page; no page or program text holds a count. A released edition shows no banner.
 - **The zips.** The layout of the edition zip and the originals zip is in the repository layout section of ADR 0001. The edition zip holds `corpus/` without originals and without `AGENTS.md`.
 
 ### Workbooks and templates

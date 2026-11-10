@@ -21,6 +21,12 @@ mod frame {
     const APP_JS: &str = include_str!("../assets/app.js");
     const MINI_CORPUS_TOML: &str =
         include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
+    const SOURCES_CSV: &str =
+        include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/sources.csv");
+    const CLAIMS_CSV: &str =
+        include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/claims.csv");
+    const S_0002_V2_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
 
     fn edition_info(built: &str, number: u32) -> EditionInfo {
         EditionInfo {
@@ -98,6 +104,68 @@ mod frame {
 
     fn build_public_view() -> (Model, LabelledView) {
         build_public_view_from_tree(base_tree())
+    }
+
+    fn make_claim_row(id: &str, drafted_by: &str, verification: &str) -> String {
+        let template = if verification == "primary_source_supported" {
+            CLAIMS_CSV.lines().nth(1).unwrap()
+        } else {
+            CLAIMS_CSV.lines().nth(2).unwrap()
+        };
+        let mut cols: Vec<&str> = template.split(',').collect();
+        cols[0] = id;
+        cols[11] = drafted_by;
+        cols[12] = verification;
+        if verification == "unchecked" {
+            cols[28] = "";
+            cols[29] = "";
+        } else if verification == "primary_source_supported" {
+            cols[28] = "2026-02-10";
+            cols[29] = "owner";
+        }
+        cols[33] = "";
+        cols.join(",")
+    }
+
+    fn build_public_view_with_claims(claim_rows: &[String]) -> (Model, LabelledView) {
+        let mut tree = base_tree();
+        tree.insert_bytes(
+            "corpus/changes.md",
+            b"# Changes\n\nSynthetic changes log.\n\n## edition-001\n\n- Added: initial.\n",
+        );
+        tree.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+        let mut claims_content = format!("{claims_header}\n");
+        for row in claim_rows {
+            claims_content.push_str(row);
+            claims_content.push('\n');
+        }
+        tree.insert_bytes("corpus/registers/claims.csv", claims_content.into_bytes());
+
+        let today = CivilDate::parse("2026-03-01").unwrap();
+        let (model, report) = load(&Host::new(tree, today), &Options::new(false));
+        assert_eq!(
+            report.errors(),
+            0,
+            "tree must load cleanly:\n{}",
+            report.render_text()
+        );
+        let eff = EffectivePolicy::floor(false);
+        let now = Now::new(today, 0).unwrap();
+        let Decision::Allowed(allowed) =
+            check(&eff, &Dest::Edition, None, None, now, Shipped::Never)
+        else {
+            panic!("edition selection must succeed");
+        };
+        let view = LabelledView::new(&model, &allowed, &ReadableStores::corpus());
+        assert_eq!(
+            view.claims().len(),
+            claim_rows.len(),
+            "view claims count must match fixture rows"
+        );
+        (model, view)
     }
 
     fn parse_js_route_sections(js: &str) -> BTreeMap<String, (String, String)> {
@@ -740,5 +808,221 @@ mod frame {
             })
             .collect();
         assert_eq!(built_dests_mixed, built_dests_perm);
+    }
+
+    #[test]
+    fn unreleased_banner_ai_drafted_and_unchecked_counts() {
+        // 1. fixture with 4 claims: 2 `ai`, 1 `codex`, 1 `lead`, all unchecked
+        // => html contains "This is an unreleased build, not an edition.",
+        //    "3 of 4 claims are AI-drafted", "4 of 4 are unchecked",
+        //    and does NOT contain "checked and found supported".
+        let rows = vec![
+            make_claim_row("CL-CMP-0001", "ai", "unchecked"),
+            make_claim_row("CL-CMP-0002", "ai", "unchecked"),
+            make_claim_row("CL-CMP-0003", "codex", "unchecked"),
+            make_claim_row("CL-CMP-0004", "lead", "unchecked"),
+        ];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 4);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("This is an unreleased build, not an edition."));
+        assert!(html.contains("3 of 4 claims are AI-drafted"));
+        assert!(html.contains("4 of 4 are unchecked"));
+        assert!(!html.contains("checked and found supported"));
+    }
+
+    #[test]
+    fn unreleased_banner_supported_count_rendered_when_some_checked() {
+        // 2. fixture where exactly one claim is `primary_source_supported` and the others unchecked
+        //    (e.g. 3 claims: 1 supported, 2 unchecked)
+        // => contains "1 of 3 has been checked and found supported." and "2 of 3 are unchecked".
+        let rows = vec![
+            make_claim_row("CL-CMP-0001", "codex", "primary_source_supported"),
+            make_claim_row("CL-CMP-0002", "codex", "unchecked"),
+            make_claim_row("CL-CMP-0003", "ai", "unchecked"),
+        ];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 3);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("1 of 3 has been checked and found supported."));
+        assert!(html.contains("2 of 3 are unchecked"));
+    }
+
+    #[test]
+    fn unreleased_banner_no_claims_recorded() {
+        // 3. fixture with no claims => contains "No claims recorded." and not "found supported" and not " of 0".
+        let (_model, view) = build_public_view_with_claims(&[]);
+        assert_eq!(view.claims().len(), 0);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("No claims recorded."));
+        assert!(!html.contains("found supported"));
+        assert!(!html.contains(" of 0"));
+    }
+
+    #[test]
+    fn unreleased_banner_singular_noun_for_single_claim() {
+        // 4. fixture with exactly one claim (unchecked, codex)
+        // => contains "1 of 1 claim is AI-drafted; 1 of 1 is unchecked." (singular noun).
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("1 of 1 claim is AI-drafted; 1 of 1 is unchecked."));
+    }
+
+    #[test]
+    fn released_build_does_not_render_build_status_banner() {
+        // 5. a released build (edition_info with a built date) via render_page
+        // => the html does NOT contain `Build status`, `build-status` or "This is an unreleased build".
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let planned = PlannedPaths::of(&["index.html", "claims.html"]);
+        let nav = nav::build(&view, &planned);
+        let released = edition_info("2026-03-01", 1);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &released,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+
+        assert!(!html.contains("Build status"));
+        assert!(!html.contains("build-status"));
+        assert!(!html.contains("This is an unreleased build"));
+    }
+
+    #[test]
+    fn build_status_banner_slot_position_and_company_ordering() {
+        // 6. the banner is the first item of the banners slot and a region named "Build status":
+        // in the unreleased html, `html.find("aria-label=\"Build status\"")` is Some
+        // and comes after `id="fb:banners"` and before `<main id="fb:main"`;
+        // and for a StoreContext::Company view, assert the "Handling notice" region comes AFTER the "Build status" region.
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let planned = PlannedPaths::of(&["index.html", "claims.html"]);
+        let nav = nav::build(&view, &planned);
+        let unreleased = edition_info("", 0);
+
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &unreleased,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+
+        let banner_pos = html
+            .find("aria-label=\"Build status\"")
+            .expect("Build status region must exist");
+        let banners_pos = html
+            .find("id=\"fb:banners\"")
+            .expect("banners slot must exist");
+        let main_pos = html
+            .find("<main id=\"fb:main\"")
+            .expect("main element must exist");
+        assert!(
+            banner_pos > banners_pos,
+            "Build status region must come after id=\"fb:banners\""
+        );
+        assert!(
+            banner_pos < main_pos,
+            "Build status region must come before main element"
+        );
+
+        let bid3 = LabelId::parse("bid-0003").unwrap();
+        let np7 = LabelId::parse("np-0007").unwrap();
+        let company_store = StoreContext::Company {
+            effective_labels: LabelSet::from_ids([bid3, np7]),
+        };
+        let company_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &unreleased,
+            store: &company_store,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        let company_banner_pos = company_html
+            .find("aria-label=\"Build status\"")
+            .expect("Build status region must exist in company view");
+        let handling_pos = company_html
+            .find("aria-label=\"Handling notice\"")
+            .expect("Handling notice region must exist in company view");
+        assert!(
+            handling_pos > company_banner_pos,
+            "Handling notice region must come after Build status region"
+        );
+    }
+
+    #[test]
+    fn unreleased_banner_claims_link_relative_prefix_at_depths() {
+        // 7. the banner link is `<a href="claims.html">` at the root and `href="../claims.html"`
+        //    for a page one level down (e.g. render_page with output_path "p/fnd-0001.html").
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let planned = PlannedPaths::of(&["index.html", "claims.html", "p/fnd-0001.html"]);
+        let nav = nav::build(&view, &planned);
+        let unreleased = edition_info("", 0);
+
+        let root_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &unreleased,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        assert!(
+            root_html.contains("<a href=\"claims.html\">the claims register</a>"),
+            "root page must link to claims.html directly"
+        );
+
+        let nested_html = render_page(&FrameInput {
+            output_path: "p/fnd-0001.html",
+            title: PRODUCT_TITLE,
+            page_area: Some("fnd"),
+            edition: &unreleased,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        assert!(
+            nested_html.contains("<a href=\"../claims.html\">the claims register</a>"),
+            "nested page must link to ../claims.html"
+        );
     }
 }
