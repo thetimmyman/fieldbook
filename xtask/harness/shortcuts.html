@@ -6,7 +6,7 @@
 <title>search-palette harness</title>
 <!-- The page harness.rs generates from this template: it sets data-harness to shortcuts or
      storage-throws and copies the site's strings.js, search.js and app.js under assets/. The
-     frame below holds the same trigger, link and dialogs as base.html (tests/palette.rs pins
+     frame below holds the same menu button, sidebar close button, scrim, trigger, link and dialogs as base.html (tests/palette.rs pins
      those), and shortcuts.js runs first so that it can install its index, and for
      storage-throws its throwing storage, before app.js starts. -->
 <script src="shortcuts.js" defer></script>
@@ -16,15 +16,18 @@
 </head>
 <body data-harness="@MODE@">
 <header class="topbar">
+  <button class="btn ghost icon-btn menu-btn" id="fb:menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="fb:sidebar"></button>
   <div class="topbar-end">
     <a class="searchbox" id="fb:searchBtn" href="ids.html"><span>Search the library</span></a>
   </div>
 </header>
 <aside class="sidebar" id="fb:sidebar" aria-label="Navigation">
+  <button class="btn ghost icon-btn sidebar-close" id="fb:sidebarCloseBtn" type="button" aria-label="Close navigation"></button>
   <div class="side-foot">
     <button class="btn ghost sm keys-link" id="fb:keysBtn" type="button" hidden>Keyboard shortcuts <kbd>?</kbd></button>
   </div>
 </aside>
+<div class="scrim" id="fb:scrim" hidden></div>
 <main id="fb:main" tabindex="-1">
   <input type="text" id="harness-field" aria-label="A text field">
 </main>

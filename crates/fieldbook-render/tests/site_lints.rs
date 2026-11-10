@@ -78,7 +78,7 @@ mod site_lints {
     #[test]
     fn script_over_budget_is_fb0605() {
         let mut site = clean_site();
-        let oversized = usize::try_from(APP_JS).unwrap_or(30_000) + 1;
+        let oversized = usize::try_from(APP_JS).unwrap_or(32_000) + 1;
         site.insert("assets/app.js", vec![b'a'; oversized]);
         let diags = lint(&site, &OriginalNames::default());
         assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
@@ -208,8 +208,8 @@ mod site_lints {
             .unwrap_or_else(|| panic!("FB0605 row missing from corpus-format.md"));
 
         assert!(
-            fb0605_line.contains("`app.js` 30 KB") && APP_JS == 30_000,
-            "APP_JS must match `app.js` 30 KB (30,000 bytes)"
+            fb0605_line.contains("`app.js` 32 KB") && APP_JS == 32_000,
+            "APP_JS must match `app.js` 32 KB (32,000 bytes)"
         );
         assert!(
             fb0605_line.contains("`search.js` 10 KB") && SEARCH_JS == 10_000,
