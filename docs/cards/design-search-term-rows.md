@@ -42,15 +42,16 @@ A revision of `docs/design/` is accepted that specifies how a glossary term row 
 ## Acceptance
 
 ```sh
-cd docs/design && sha256sum -c MANIFEST.txt
+(cd docs/design && sha256sum -c MANIFEST.txt)
 typos docs/design
+just check
 ```
 
-Expected: each file prints `OK` and `sha256sum` exits 0; `typos` exits 0.
+Expected: each file prints `OK` and `sha256sum` exits 0; `typos` exits 0; `just check` exits 0.
 
 ## Negative control
 
-Change one byte of `HANDOFF.md` after hashing: `sha256sum -c MANIFEST.txt` must print `HANDOFF.md: FAILED` and exit 1. Restore it.
+Change one byte of `docs/design/HANDOFF.md` after hashing: `(cd docs/design && sha256sum -c MANIFEST.txt)` must print `HANDOFF.md: FAILED` and exit 1. Restore it.
 
 ## Rollback
 

@@ -6,13 +6,13 @@
 
 ## Outcome
 
-In the areas this part covers, about 250 pages listed in the pull request, the Edition date row of each clause card's rule table gives the clause's edition with a citation, or `Not established.` only where no source version in the register states it; `kb-edition-dates-2` and on carry the other areas.
+In the areas this part covers, listed in the pull request (as many pages as fit in about 600 changed lines), the Edition date row of each clause card's rule table gives the clause's edition with a citation, or `Not established.` only where no source version in the register states it; `kb-edition-dates-2` and on carry the other areas.
 
 ## Why
 
 - The measurement. 1,686 pages say `| Edition date | Not established. |`. The claims register has an `edition_date` column, filled on 2,286 claims, 2,266 of them from the RFO FAR 52 model (`S-0020`); a codified FAR or DFARS clause states its date in its heading, for example "(APR 1984)", which the register's original holds.
 - A date in a page cites a claim ([corpus/AGENTS.md](../../corpus/AGENTS.md#claims-quotes-and-citations)). Where a cited claim of the page already carries `edition_date`, the row cites it. Otherwise the card drafts a new claim at entry values whose statement gives the edition, at the clause heading locator, with the heading quoted exactly. Corpus work runs on `kb/edition-dates`.
-- Size: one line per page, so the card runs in parts by area ([Size and splitting](README.md#size-and-splitting)), about 250 pages per part with their claims.
+- Size: one line per page, so the card runs in parts by area ([Size and splitting](README.md#size-and-splitting)), as many pages per part, with their claims, as fit in about 600 changed lines.
 - Design: none.
 
 ## Scope
