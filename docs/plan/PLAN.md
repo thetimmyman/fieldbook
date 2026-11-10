@@ -219,6 +219,22 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 - unreleased-status-strip: a strip on every unreleased page saying the build is not an edition and its claims are AI-drafted and unchecked, with counts computed from the claims
 - runner-contention: the deploy installs no tool into the runners' shared home folder, and the `corpus` job has room to finish beside another (owner review)
 
+## Reader
+
+The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only.
+
+- zip-advisories: `zip` 9.0.5 or later and `rust_xlsxwriter` 0.101.x, which close five published `zip` advisories, with the deterministic zip and workbook bytes kept
+- adr-0006-glossary-units: an ADR 0006 amendment that lets the edition search index hold glossary term units, with the measured size and the plan for the cap (owner review)
+- kb-dcaa-dcma-guidance-sources: the missing Contract Audit Manual chapters, DCAA guidance for contractors and the Contract Pricing Reference Guides, byte-exact public sources
+- kb-rates-practitioner: wrap-rate build-up, pool and base structure, the billing-to-final-rate cycle and an incurred cost submission walkthrough
+- kb-hub-pages: the FAR 31.205 cost-principles overview, one page per contract type and one hub per Cost Accounting Standard
+- search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
+- search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)
+- kb-fpa-core: budgeting, rolling forecast and variance analysis pages
+- kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
+- kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
+- corpus-job-speed: the `corpus` job in half its time, with a release binary and parallel harness pages, every check kept
+
 ## P4
 
 Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), ending Day 30: the E1 gate whenever IT-9 is answered, and the Day-30 gate; `v0.2.0`.
