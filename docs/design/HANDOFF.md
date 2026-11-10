@@ -1,6 +1,8 @@
 # Handoff spec: Fieldbook, the finance-role workbench
 
-Design handoff, revision 20. Mockup: [mockup/index.html](mockup/index.html). It is a clickable prototype of the whole application, with sample content drawn from public sources and synthetic figures. Every id, status and figure in it is illustrative.
+Design handoff, revision 21. Mockup: [mockup/index.html](mockup/index.html). It is a clickable prototype of the whole application, with sample content drawn from public sources and synthetic figures. Every id, status and figure in it is illustrative.
+
+**Revision 21 — the `app.js` budget is 32 KB, and a stalled movement ends.** The `app.js` budget rises from 30 KB to 32 KB (AD-15); the other budgets and the 64 KB total are unchanged. A movement is decoration: where the browser stops running one, the element jumps to its end state, so the overlay sidebar opens even when its slide never plays (section 6, Motion). No token, layout family or component geometry changes, and the mockup bytes are unchanged.
 
 **Revision 20 — unreleased builds state their honest status.** Every page of an unreleased build opens with the build status banner, a `Banner` in its warn variant in the frame's existing banner slot, ahead of the handling notice (section 3, Unreleased build status). It says the build is not an edition and gives counts that the build computes from the claims register it renders: how many claims are AI-drafted, how many are unchecked and, once any claim has left unchecked, how many a person found supported. It never calls the build or its claims verified, cannot be dismissed, reads the same with scripts blocked, prints on the first page, and the printed footer names the unreleased build on every page. A released edition never shows it. No token, layout family or component geometry changes, and the mockup bytes are unchanged; the mockup stands for a sample edition, so it shows no build status banner.
 
@@ -125,7 +127,7 @@ These come from [ADR 0001](../decisions/0001-foundation.md): its decisions AD-01
 | NG-15 | No dashboards before there is data. Today's counts are derived from the registers at build time and are not live. |
 | NG-18, NG-19 | No fabricated citation or locator. Conflicting sources are shown side by side and never averaged. |
 | AD-12 (CSP) | Every page carries the CSP meta exactly as AD-12 in ADR 0001 gives it (section 12). No inline script and no `style=""` attribute. |
-| AD-15 (scripts) | Readable ES2020 classic scripts, with no framework, npm or web fonts. Budgets: `app.js` 30 KB, `search.js` 10 KB, `assist.js` 20 KB, 64 KB in total. Every page works without JS. |
+| AD-15 (scripts) | Readable ES2020 classic scripts, with no framework, npm or web fonts. Budgets: `app.js` 32 KB, `search.js` 10 KB, `assist.js` 20 KB, 64 KB in total. Every page works without JS. |
 | AD-15 (precedence) | ADR 0001 governs formats, tools and delivery; this spec governs layout, components and visual design. On a conflict, the implementer stops and asks the owner. |
 
 ### Frozen strings
@@ -1086,7 +1088,7 @@ Numbers in prose cite claims. Each claim citation becomes a numbered `CitationMa
 
 ### Motion
 
-Only these elements move. Reduced motion sets the movement durations to zero (section 4), so each ends at once.
+Only these elements move. Reduced motion sets the movement durations to zero (section 4), so each ends at once. A movement is decoration: where the browser stops running it, the element jumps to its end state, so the overlay sidebar never stays off-screen behind its scrim.
 
 | Element | Movement | Duration | Under reduced motion |
 |---|---|---|---|
@@ -1389,7 +1391,7 @@ This is `fieldbook cite-check` (`fieldbook-core::assist::cite_check`) with an in
 
 - **Build target:** `fieldbook build` writes one HTML file per page (AD-12; the route table in section 2). `#` is only for anchors and `search.html#q=`. Enhancements layer on top: palette, popovers, drawers, selection toolbar. The mockup is a single-file prototype for review only. Multi-page keeps NFR-P-06 (Tier 0 on `file://`), lets every page work with scripts blocked, and drops into a Tauri webview unchanged if that gate opens (AD-16).
 - **Delivery:** two zips per edition, extracted into `%LOCALAPPDATA%\Fieldbook\` (AD-12).
-- **No framework, npm or web fonts.** Readable ES2020 classic scripts (AD-15) within budget: `app.js` 30 KB, `search.js` 10 KB, `assist.js` 20 KB, 64 KB in total. Data files load on demand, 3 MB each at most on the edition, where `search-index.js` is at most 15 MB (ADR 0006); the overlay site's index shards are at most 8 MB. Every page works without JS.
+- **No framework, npm or web fonts.** Readable ES2020 classic scripts (AD-15) within budget: `app.js` 32 KB, `search.js` 10 KB, `assist.js` 20 KB, 64 KB in total. Data files load on demand, 3 MB each at most on the edition, where `search-index.js` is at most 15 MB (ADR 0006); the overlay site's index shards are at most 8 MB. Every page works without JS.
 - **CSP:** every page carries the AD-12 meta exactly: `default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'`. No inline script, no inline event handler and no `style=""` attribute; scripts change state through classes or the CSSOM. If the meta cannot hold, AD-12's fallback rungs apply: sha256 hashes, then no meta. The architecture contract says whether a model adapter needs a change to this meta; this spec does not change it.
 - **Tokens:** on `:root` in `assets/app.css`, with light, dark, print and forced-colors blocks (AD-15). An optional brand layer is a marked, removable block at its end.
 - **Charts:** the build writes each chart's SVG geometry into the page from the calc core and the registers; there is no chart script and no `style` attribute (section 5, Charts). In forced-colors mode marks fall back to `CanvasText` and the table fold carries the values. Print shows the chart and its table open.
