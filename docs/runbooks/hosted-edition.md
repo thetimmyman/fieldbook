@@ -63,7 +63,7 @@ Run this checklist after a deploy:
    - Preview URL (expect 404): `curl -sI https://<preview-url>/`
 4. **Edge rewriting stays off**: In the Cloudflare dashboard, confirm the hostname-scoped Configuration Rule for the site's host still turns off Email Obfuscation, Automatic HTTPS Rewrites, Rocket Loader, the Web Analytics (RUM) beacon, Zaraz and Apps; do this after any change of the zone's settings. In the page source of a signed-in read, no `/cdn-cgi/` script, no `cloudflareinsights` beacon and no rewritten link appears, and the browser console shows no script refused by the content security policy (a refused beacon is the sign that the rule is missing its RUM setting).
 
-A failed gate is an Access fault, not a fault of the files, so rolling the Worker back does not close it: the owner first detaches the custom domain from the Worker or fixes the Access application, then repeats the hostname probes, then re-runs the deploy.
+A failed gate is an Access fault, not a fault of the files, so rolling the Worker back does not close it: the owner first detaches the custom domain from the Worker or fixes the reader application, then repeats the hostname probes, then re-runs the deploy.
 
 ## 4. Roll back
 
@@ -87,7 +87,7 @@ The site has two Access applications. The reader application names the custom do
 
 1. Edit the reader group in the owner's Cloudflare Zero Trust dashboard under Access > Access groups.
 2. Add an email address, a list or an email domain to the group. Nothing in the repository changes, and no deploy is needed.
-3. Widening beyond the owner needs the owner's say-so.
+3. Widening beyond the owner is the owner's decision alone, never an agent's or the lead's, and it carries the owner-gated update of `docs/intake/` that ADR 0007 (Readers) names.
 4. Removing a reader: remove the identity from the group, then revoke active sessions in Access (sessions last 24 hours).
 
 ## 6. Rotate the deploy token
