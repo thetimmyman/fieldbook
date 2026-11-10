@@ -47,7 +47,8 @@ Workflow execution order:
 
 Runner notes:
 - The job runs on the self-hosted runner (section 1). Moving it to an ephemeral GitHub-hosted runner is the remedy for the residual risk that a persistent runner shared with branch CI could have its tool caches tampered with; do that when CI-01 ends ([ADR 0007](../decisions/0007-hosted-edition.md), risk table).
-- The first deploy cannot pass the limits step until the claims register is split (card `claims-register-split`), because `claims.html` is over the 25 MiB limit.
+- The claims register is split: `claims.html` is an index and the claims sit in `claims/<AREA>-<part>.html` pages, so it no longer blocks the limits step. The step still names any file over 25 MiB; read its output on the first deploy.
+- The controls that guard this workflow and its configuration are HO-04 to HO-09 in [controls.md](../controls.md) (the secrets and environment, the runner and job hardening, the identifier and unreleased checks, the wrangler configuration, and the triggers, pins and metrics setting of `hosted.yml`).
 - Only one deploy runs at a time, and a running deploy is never cancelled. GitHub keeps at most one run waiting in the concurrency group `deploy-hosted`: a newer waiting run replaces an older waiting one. A push to `main` that arrives while a deploy runs therefore replaces a queued rollback dispatch (see section 4).
 
 ## 3. Verify after a deploy
