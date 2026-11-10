@@ -1324,9 +1324,15 @@ pub(crate) fn jobs_for(cores: usize) -> usize {
 }
 
 /// The default number of worker threads: half the available cores, at least 1 and at most 8, so a
-/// loaded shared runner is not flooded.
+/// loaded shared runner is not flooded. On Windows it is 1: Edge there takes its profile folder
+/// from the known-folder API, not from the environment variables [`load`] sets, so two Edge
+/// processes at once would share one profile. `--jobs N` still asks for more.
 pub(crate) fn default_jobs() -> usize {
-    jobs_for(std::thread::available_parallelism().map_or(1, usize::from))
+    if cfg!(windows) {
+        1
+    } else {
+        jobs_for(std::thread::available_parallelism().map_or(1, usize::from))
+    }
 }
 
 /// The usage text for the harness command.
