@@ -16,8 +16,8 @@ The hosted edition serves the public edition (the same static pages `just site` 
 | Deploy workflow | [`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml) |
 | Asset limits check | `cargo --locked xtask hosted-limits` |
 | Custom domain in the owner's zone | Cloudflare account only |
-| Access application and reader group | Cloudflare account only |
-| Edge-rewriting rule (a hostname-scoped Configuration Rule that turns off Email Obfuscation, Automatic HTTPS Rewrites and Rocket Loader for the site's host) | Cloudflare account only |
+| Access reader application (the custom domain alone, Allow for the reader group), the blocking application (the `workers.dev` and preview hostnames, Block for everyone) and the reader group | Cloudflare account only |
+| Edge-rewriting rule (a hostname-scoped Configuration Rule that turns off Email Obfuscation, Automatic HTTPS Rewrites, Rocket Loader, the Web Analytics (RUM) beacon, Zaraz and Apps for the site's host) | Cloudflare account only |
 
 The three deploy values are secrets of the GitHub environment `hosted`. There are no repository-level secrets or variables.
 - `CLOUDFLARE_API_TOKEN`: account-owned token with permission to write Worker scripts and nothing else.
@@ -26,7 +26,7 @@ The three deploy values are secrets of the GitHub environment `hosted`. There ar
 - The environment's deployment-branch policy allows `main` alone, so a branch or pull-request run never receives the secrets. The owner reads the environment's secrets and branch policy whenever either changes.
 - The deploy job runs on the owner's self-hosted runner, with the labels of `ci.yml` (the owner's decision while CI-01 in [controls.md](../controls.md) stands). That runner persists between jobs and also runs branch CI, so the job takes its mitigations from the workflow: secrets only through the environment, a clean checkout with no stored credentials, a fresh `out/`, `cargo --locked`, `npm ci --ignore-scripts` from the committed lock, and no data root, store, overlay, policy file or state folder flag.
 - The broader setup token (Access, DNS, routes) never goes to CI and stays in the owner's vault.
-- Provider-side setting the owner keeps: the edge-rewriting rule named in the components table. Cloudflare can rewrite HTML at the edge (email obfuscation, HTTPS link rewrites, Rocket Loader), which would change the pages as built and conflict with their content security policy; the rule turns that off for the site's host only. Confirm it after any change of the zone's settings (section 3, step 4).
+- Provider-side setting the owner keeps: the edge-rewriting rule named in the components table. Cloudflare can rewrite HTML at the edge (email obfuscation, HTTPS link rewrites, Rocket Loader) or inject a script into it (the Web Analytics beacon, which Cloudflare adds to a proxied host when Web Analytics is on for the account, and Zaraz), which would change the pages as built and conflict with their content security policy; the rule turns that off for the site's host only. Confirm it after any change of the zone's settings (section 3, step 4).
 
 ## 2. Deploy
 
@@ -49,18 +49,19 @@ Runner notes:
 - The job runs on the self-hosted runner (section 1). Moving it to an ephemeral GitHub-hosted runner is the remedy for the residual risk that a persistent runner shared with branch CI could have its tool caches tampered with; do that when CI-01 ends ([ADR 0007](../decisions/0007-hosted-edition.md), risk table).
 - The claims register is split: `claims.html` is an index and the claims sit in `claims/<AREA>-<part>.html` pages, so it no longer blocks the limits step. The step still names any file over 25 MiB; read its output on the first deploy.
 - The controls that guard this workflow and its configuration are HO-04 to HO-09 in [controls.md](../controls.md) (the secrets and environment, the runner and job hardening, the identifier and unreleased checks, the wrangler configuration, and the triggers, pins and metrics setting of `hosted.yml`).
+- The deploy shares the runner's home folder with branch CI, and both use `taiki-e/install-action`, which writes its tools to one folder there. A deploy that starts while a CI job is installing `just` can fail at that step (curl error 23, a write that could not complete). Nothing was deployed; re-run the failed job once the CI job is past its install step.
 - Only one deploy runs at a time, and a running deploy is never cancelled. GitHub keeps at most one run waiting in the concurrency group `deploy-hosted`: a newer waiting run replaces an older waiting one. A push to `main` that arrives while a deploy runs therefore replaces a queued rollback dispatch (see section 4).
 
 ## 3. Verify after a deploy
 
 Run this checklist after a deploy:
 1. **Gate step**: Confirm the workflow gate step passed. It requests `/`, `/index.html` and `/assets/app.css` without a session and requires a redirect to the Access login host, or 401/403, with no edition content in the body.
-2. **Reader session**: Signed in as a member of the reader group, open the site at `FIELDBOOK_HOST`. Open a page, a source page and one original PDF (an original opens in the browser's PDF viewer under the same response headers; if a browser refuses to show a PDF because of the site's Content-Security-Policy or X-Frame-Options header, change the headers for `/originals/*` only, in its own pull request, never relax the page rule). Press Ctrl K and use the search page. Note that HTML pages redirect from `/page.html` to `/page` (307) because of the `auto-trailing-slash` setting, and that is expected.
+2. **Reader session**: Signed in as a member of the reader group, open the site at `FIELDBOOK_HOST`. Open a page, a source page and one original PDF (an original opens in the browser's PDF viewer under the same response headers; if a browser refuses to show a PDF because of the site's Content-Security-Policy or X-Frame-Options header, change the headers for `/originals/*` only, in its own pull request, never relax the page rule). Press Ctrl K and use the search page. Note that HTML pages redirect from `/page.html` to `/page` (307) because of the `auto-trailing-slash` setting, and that is expected. If the sign-in ends on a page that says there is nothing here yet, the reader application names a hostname that answers 404: Access signs a reader in to each hostname of an application in turn, so the reader application must name the custom domain alone (section 5).
 3. **Unauthenticated probes**: Probe the three hostname kinds from a shell without a session and expect no edition content from any of them:
    - Custom host (redirect to Access login): `curl -sI https://<custom-host>/`
    - The Worker's workers.dev name (expect 404, route is disabled): `curl -sI https://<workers-dev-name>/`
    - Preview URL (expect 404): `curl -sI https://<preview-url>/`
-4. **Edge rewriting stays off**: In the Cloudflare dashboard, confirm the hostname-scoped Configuration Rule for the site's host still turns off Email Obfuscation, Automatic HTTPS Rewrites and Rocket Loader; do this after any change of the zone's settings. In the page source of a signed-in read, no `/cdn-cgi/` script or rewritten link appears.
+4. **Edge rewriting stays off**: In the Cloudflare dashboard, confirm the hostname-scoped Configuration Rule for the site's host still turns off Email Obfuscation, Automatic HTTPS Rewrites, Rocket Loader, the Web Analytics (RUM) beacon, Zaraz and Apps; do this after any change of the zone's settings. In the page source of a signed-in read, no `/cdn-cgi/` script, no `cloudflareinsights` beacon and no rewritten link appears, and the browser console shows no script refused by the content security policy (a refused beacon is the sign that the rule is missing its RUM setting).
 
 A failed gate is an Access fault, not a fault of the files, so rolling the Worker back does not close it: the owner first detaches the custom domain from the Worker or fixes the Access application, then repeats the hostname probes, then re-runs the deploy.
 
@@ -76,10 +77,13 @@ To restore a previous deployment:
    Read the deploy token from the owner's vault into the environment of the one command (`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`); never print it, never write it to a file.
 2. Apply rollback via either route:
    - Workflow: run the deploy workflow ([`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)) from the Actions page with `rollback_to` set to that version id (skips the build, runs `wrangler rollback`, and runs a probe before and after). The concurrency group `deploy-hosted` keeps one waiting run: if a deploy is running when you dispatch, a push to `main` that arrives afterwards replaces your waiting rollback, and the Actions page shows it cancelled. Open the run after dispatching, confirm it started and was not replaced, and dispatch again if it was. Merge nothing to `main` until the rollback has run.
+   - The workflow route was tried at setup with a canary version: the rollback served the canary, and a roll-forward to the version from `main` restored the pages and headers. Re-run that drill after a change to `hosted.yml`.
    - Local: with the same environment as above, run `WRANGLER_SEND_METRICS=false npx --no-install wrangler rollback <version-id> --env-file=/dev/null --message "<reason>"`.
 3. Revert git history: a rollback changes what is served, not the repository. Follow it with a revert on `main`, or the next merge deploys the new code again.
 
 ## 5. Add a reader
+
+The site has two Access applications. The reader application names the custom domain alone and has one Allow policy whose only include is the reader group. The blocking application names the `workers.dev` hostname and the preview hostnames and has one Block policy for everyone. Never put the custom domain in the blocking application, and never add the `workers.dev` or preview hostnames to the reader application: it would send every sign-in through a hostname that answers 404. After any change to either application, repeat the probes of section 3.
 
 1. Edit the reader group in the owner's Cloudflare Zero Trust dashboard under Access > Access groups.
 2. Add an email address, a list or an email domain to the group. Nothing in the repository changes, and no deploy is needed.
@@ -129,7 +133,7 @@ Verify response headers locally without deploying and without credentials:
 
 - Never enable `workers_dev` or `preview_urls` in [`deploy/wrangler.jsonc`](../../deploy/wrangler.jsonc).
 - Never add `routes` or a custom domain, an account id or a host name to any file in the repository (the custom domain lives in the Cloudflare dashboard and a deploy without routes keeps it).
-- Never remove or loosen the Access application, or point it at fewer hostnames (the gate check exists to catch this, and a failing gate step is a stop: do not re-run, tell the owner).
+- Never remove or loosen either Access application, give the blocking application an Allow policy, or drop a hostname from either (the gate check exists to catch this for the custom domain, and a failing gate step is a stop: do not re-run, tell the owner).
 - Never deploy company, customer, personal or controlled material, or anything that is not in the public edition.
 - Never store the deploy token anywhere but the `hosted` environment secret and the owner's vault.
 - Never put the deploy secrets at repository level or in any other workflow.
