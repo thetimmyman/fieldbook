@@ -15,7 +15,7 @@ links = ["cmp-cas-applicability", "est-certified-cost-or-pricing-data"]
 
 ## Purpose
 
-Gives the two dollar thresholds that most often decide which acquisition procedures and clauses apply to an award.
+Gives the simplified acquisition threshold and the micro-purchase threshold, the two dollar thresholds that most often decide which acquisition procedures and clauses apply to an award.
 
 ## The rule
 
@@ -32,7 +32,7 @@ The simplified acquisition threshold means $350,000, except for the acquisitions
 
 ## How it works
 
-Both thresholds are defined in FAR 2.101 [@CL-FND-0001] [@CL-FND-0002].
+The simplified acquisition threshold and the micro-purchase threshold are both defined in FAR 2.101 [@CL-FND-0001] [@CL-FND-0002].
 
 ## Worked example
 
@@ -52,5 +52,6 @@ Not established.
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-10: Reworded the purpose and the how-it-works line to name both thresholds, so that a search for the micro-purchase threshold finds this page.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exceptions to both thresholds with cited amounts; cut uncited procedure inferences and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two acquisition thresholds.
