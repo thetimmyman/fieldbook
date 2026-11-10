@@ -70,21 +70,40 @@ fn identifier_files() -> Vec<(String, String)> {
     files
 }
 
-fn check_uses_pinned(action_ref: &str, line_num: usize) {
+fn check_uses_pinned(action_ref: &str, line_num: usize) -> Result<(), String> {
     let Some((_action, pin_and_comment)) = action_ref.split_once('@') else {
-        panic!("line {line_num}: uses line has no '@': {action_ref}");
+        return Err(format!(
+            "line {line_num}: uses line has no '@': {action_ref}"
+        ));
     };
     let Some((sha, comment)) = pin_and_comment.split_once(" # v") else {
-        panic!("line {line_num}: missing ' # v': {action_ref}");
+        return Err(format!("line {line_num}: missing ' # v': {action_ref}"));
     };
-    assert!(
-        sha.len() == 40 && sha.chars().all(|c| c.is_ascii_hexdigit()),
-        "line {line_num}: invalid SHA: {sha}"
-    );
-    assert!(
-        !comment.is_empty(),
-        "line {line_num}: empty version comment"
-    );
+    if sha.len() != 40 || !sha.chars().all(|c| c.is_ascii_hexdigit()) {
+        return Err(format!("line {line_num}: invalid SHA: {sha}"));
+    }
+    if comment.is_empty() {
+        return Err(format!("line {line_num}: empty version comment"));
+    }
+    Ok(())
+}
+
+fn check_all_uses_pinned(yml: &str) -> Result<(), String> {
+    let mut uses = 0;
+    for (i, line) in yml.lines().enumerate() {
+        let t = line.trim();
+        if let Some(r) = t
+            .strip_prefix("- uses:")
+            .or_else(|| t.strip_prefix("uses:"))
+        {
+            uses += 1;
+            check_uses_pinned(r.trim(), i + 1)?;
+        }
+    }
+    if uses < 4 {
+        return Err(format!("expected at least 4 uses lines, found {uses}"));
+    }
+    Ok(())
 }
 
 fn is_valid_secret_env_line(trimmed: &str) -> bool {
@@ -236,6 +255,83 @@ fn check_unreleased_gate(yml: &str) -> Result<(), String> {
     Ok(())
 }
 
+fn check_triggers(yml: &str) -> Result<(), String> {
+    let on_count = yml.lines().filter(|l| *l == "on:").count();
+    if on_count == 0 {
+        return Err("missing `on:` line at column 0".to_string());
+    }
+    if on_count != 1 {
+        return Err(format!(
+            "expected exactly one `on:` line at column 0, found {on_count}"
+        ));
+    }
+
+    let mut on_lines: Vec<&str> = Vec::new();
+    let mut after_on = false;
+    for line in yml.lines() {
+        if !after_on {
+            if line == "on:" {
+                after_on = true;
+            }
+        } else {
+            let trimmed = line.trim();
+            let is_blank_or_comment = trimmed.is_empty() || trimmed.starts_with('#');
+            let is_col0 = !line.starts_with(' ') && !line.starts_with('\t') && !line.is_empty();
+            if is_col0 && !is_blank_or_comment {
+                break;
+            }
+            on_lines.push(line);
+        }
+    }
+
+    let non_comment_lines: Vec<&str> = on_lines
+        .into_iter()
+        .filter(|l| {
+            let t = l.trim();
+            !t.is_empty() && !t.starts_with('#')
+        })
+        .collect();
+
+    let two_space_keys: Vec<&str> = non_comment_lines
+        .iter()
+        .filter(|l| l.starts_with("  ") && l.chars().nth(2).is_some_and(|c| !c.is_whitespace()))
+        .map(|l| l.trim())
+        .collect();
+
+    if two_space_keys != ["push:", "workflow_dispatch:"] {
+        return Err(format!(
+            "trigger keys at two spaces indent must be exactly `push:` and `workflow_dispatch:`, found {two_space_keys:?}"
+        ));
+    }
+
+    let Some(push_idx) = non_comment_lines.iter().position(|l| l.trim() == "push:") else {
+        return Err("missing `push:` trigger".to_string());
+    };
+    let Some(dispatch_idx) = non_comment_lines
+        .iter()
+        .position(|l| l.trim() == "workflow_dispatch:")
+    else {
+        return Err("missing `workflow_dispatch:` trigger".to_string());
+    };
+
+    if push_idx >= dispatch_idx {
+        return Err("`push:` must appear before `workflow_dispatch:`".to_string());
+    }
+
+    let between: Vec<&str> = non_comment_lines[push_idx + 1..dispatch_idx]
+        .iter()
+        .map(|l| l.trim())
+        .collect();
+
+    if between != ["branches: [main]"] {
+        return Err(format!(
+            "lines strictly between `push:` and `workflow_dispatch:` must be exactly [\"branches: [main]\"], found {between:?}"
+        ));
+    }
+
+    Ok(())
+}
+
 fn check_read_only_token(yml: &str) -> Result<(), String> {
     for line in yml.lines() {
         if line.contains(": write") || line.contains("write-all") {
@@ -250,13 +346,14 @@ fn check_read_only_token(yml: &str) -> Result<(), String> {
         if line == "permissions:" {
             found_permissions = true;
             for next_line in lines.by_ref() {
-                if next_line.is_empty() || !next_line.starts_with(' ') {
+                let trimmed = next_line.trim();
+                if trimmed.is_empty() || trimmed.starts_with('#') {
+                    continue;
+                }
+                if !next_line.starts_with(' ') {
                     break;
                 }
-                let trimmed = next_line.trim();
-                if !trimmed.is_empty() && !trimmed.starts_with('#') {
-                    block_lines.push(trimmed);
-                }
+                block_lines.push(trimmed);
             }
             break;
         }
@@ -296,6 +393,12 @@ fn check_job_hardening(yml: &str) -> Result<(), String> {
         .map(|(i, l)| (i, l.trim()))
         .filter(|(_, t)| !t.starts_with('#'))
         .collect();
+
+    for (_, t) in &code {
+        if t.contains("FIELDBOOK_STATE") {
+            return Err(format!("workflow references FIELDBOOK_STATE: `{t}`"));
+        }
+    }
 
     // The checkout step is clean and keeps no credentials.
     let mut checkouts = 0;
@@ -404,6 +507,25 @@ fn check_job_hardening(yml: &str) -> Result<(), String> {
     Ok(())
 }
 
+fn check_metrics(yml: &str) -> Result<(), String> {
+    let mut exact_count = 0;
+    let mut contain_count = 0;
+    for line in yml.lines() {
+        if line.contains("WRANGLER_SEND_METRICS") {
+            contain_count += 1;
+            if line.trim() == "WRANGLER_SEND_METRICS: \"false\"" {
+                exact_count += 1;
+            }
+        }
+    }
+    if exact_count != 1 || contain_count != 1 {
+        return Err(format!(
+            "expected exactly one `WRANGLER_SEND_METRICS: \"false\"` line and no other lines mentioning WRANGLER_SEND_METRICS, found {exact_count} exact matches out of {contain_count} total"
+        ));
+    }
+    Ok(())
+}
+
 fn has_workers_dev_label(content: &str) -> bool {
     let target = ".workers.dev";
     let mut search_from = 0;
@@ -430,7 +552,8 @@ fn has_access_team_domain(content: &str) -> bool {
         let abs = search_from + pos;
         let prefix = &lower[..abs];
         let before_dot = prefix
-            .strip_suffix(r"\.")
+            .strip_suffix(r"\\.")
+            .or_else(|| prefix.strip_suffix(r"\."))
             .or_else(|| prefix.strip_suffix('.'));
         if before_dot
             .and_then(|b| b.chars().next_back())
@@ -532,6 +655,65 @@ fn workflow_files_reads_yml_and_yaml() {
     assert_eq!(names, ["a.yml", "b.yaml"]);
 }
 
+// control: HO-09
+#[test]
+fn the_workflow_triggers_are_push_to_main_and_manual_dispatch() {
+    let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
+        .replace("\r\n", "\n");
+    let res = check_triggers(&yml);
+    assert!(res.is_ok(), "check_triggers failed: {res:?}");
+}
+
+// control: HO-09
+#[test]
+fn a_planted_extra_trigger_is_refused() {
+    let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
+        .replace("\r\n", "\n");
+
+    let extra_triggers = [
+        "  pull_request:",
+        "  pull_request_target:",
+        "  workflow_run:\n    workflows: [ci]\n    types: [completed]",
+        "  repository_dispatch:",
+    ];
+
+    for extra in extra_triggers {
+        let plant = real_yml.replace(
+            "  workflow_dispatch:",
+            &format!("{extra}\n  workflow_dispatch:"),
+        );
+        assert_ne!(
+            plant, real_yml,
+            "planted trigger `{extra}` must change text"
+        );
+        assert!(
+            check_triggers(&plant).is_err(),
+            "check_triggers must fail for planted trigger `{extra}`"
+        );
+    }
+
+    let plant_branches = real_yml.replace("    branches: [main]", "    branches: [main, dev]");
+    assert_ne!(plant_branches, real_yml, "plant_branches must change text");
+    assert!(
+        check_triggers(&plant_branches).is_err(),
+        "check_triggers must fail when branches are changed"
+    );
+
+    let plant_no_on = real_yml
+        .lines()
+        .filter(|l| *l != "on:")
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert_ne!(plant_no_on, real_yml, "plant_no_on must change text");
+    assert!(
+        check_triggers(&plant_no_on).is_err(),
+        "check_triggers must fail when on: line is removed"
+    );
+}
+
+// control: HO-09
 #[test]
 fn workflow_is_pinned_read_only_and_serialised() {
     let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
@@ -546,17 +728,10 @@ fn workflow_is_pinned_read_only_and_serialised() {
     assert!(yml.contains("group: deploy-hosted"));
     assert!(yml.contains("cancel-in-progress: false"));
     assert!(!yml.contains("set -x"));
+    assert!(check_all_uses_pinned(&yml).is_ok());
 
-    let mut uses = 0;
     for (i, line) in yml.lines().enumerate() {
         let t = line.trim();
-        if let Some(r) = t
-            .strip_prefix("- uses:")
-            .or_else(|| t.strip_prefix("uses:"))
-        {
-            uses += 1;
-            check_uses_pinned(r.trim(), i + 1);
-        }
         if line.contains("secrets.") {
             assert!(
                 is_valid_secret_env_line(t),
@@ -565,7 +740,30 @@ fn workflow_is_pinned_read_only_and_serialised() {
             );
         }
     }
-    assert!(uses >= 4, "expected >= 4 uses lines, found {uses}");
+}
+
+// control: HO-09
+#[test]
+fn a_planted_unpinned_action_is_refused() {
+    let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
+        .replace("\r\n", "\n");
+
+    // Plant 1: replace checkout reference with actions/checkout@v4
+    let plant1 = real_yml.replace(
+        "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1",
+        "actions/checkout@v4",
+    );
+    assert_ne!(plant1, real_yml, "plant1 must change text");
+    assert!(check_all_uses_pinned(&plant1).is_err());
+
+    // Plant 2: shorten the SHA to 39 hex chars
+    let plant2 = real_yml.replace(
+        "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1",
+        "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b # v7.0.1",
+    );
+    assert_ne!(plant2, real_yml, "plant2 must change text");
+    assert!(check_all_uses_pinned(&plant2).is_err());
 }
 
 // control: HO-05
@@ -589,9 +787,17 @@ fn a_planted_extra_token_scope_is_refused() {
     assert!(check_read_only_token(&plant2).is_err());
 
     // Plant 3: permissions: write-all appended on its own line
-    let mut plant3 = real_yml;
+    let mut plant3 = real_yml.clone();
     plant3.push_str("\npermissions: write-all\n");
     assert!(check_read_only_token(&plant3).is_err());
+
+    // Plant 4: extra token scope separated by blank line
+    let plant4 = real_yml.replace(
+        "  contents: read\n",
+        "  contents: read\n\n  actions: read\n",
+    );
+    assert_ne!(plant4, real_yml, "plant4 must change the text");
+    assert!(check_read_only_token(&plant4).is_err());
 }
 
 // control: HO-04
@@ -892,6 +1098,64 @@ fn a_planted_job_hardening_violation_is_refused() {
         planted("\"$ROLLBACK_TO\" --env-file=/dev/null", "\"$ROLLBACK_TO\""),
         "rollback without --env-file=/dev/null",
     );
+    for (text, what) in [
+        (
+            insert_after("WRANGLER_SEND_METRICS", "      FIELDBOOK_STATE: /srv/state"),
+            "FIELDBOOK_STATE in the job env",
+        ),
+        (
+            planted(
+                "          just site",
+                "          export FIELDBOOK_STATE=/srv/state\n          just site",
+            ),
+            "FIELDBOOK_STATE exported before the build",
+        ),
+    ] {
+        let err = check_job_hardening(&text).expect_err(what);
+        assert!(
+            err.contains("FIELDBOOK_STATE"),
+            "{what}: the error must name FIELDBOOK_STATE: {err}"
+        );
+    }
+}
+
+// control: HO-09
+#[test]
+fn a_planted_metrics_change_is_refused() {
+    let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
+        .replace("\r\n", "\n");
+
+    assert!(check_metrics(&real_yml).is_ok());
+
+    // Plant 1: delete the metrics line
+    let plant1 = real_yml
+        .lines()
+        .filter(|l| !l.contains("WRANGLER_SEND_METRICS"))
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert_ne!(plant1, real_yml, "plant1 must change text");
+    assert!(check_metrics(&plant1).is_err());
+
+    // Plant 2: replace WRANGLER_SEND_METRICS: "false" with WRANGLER_SEND_METRICS: "true"
+    let plant2 = real_yml.replace(
+        "WRANGLER_SEND_METRICS: \"false\"",
+        "WRANGLER_SEND_METRICS: \"true\"",
+    );
+    assert_ne!(plant2, real_yml, "plant2 must change text");
+    assert!(check_metrics(&plant2).is_err());
+
+    // Plant 3: duplicate the line
+    let mut plant3_lines = Vec::new();
+    for line in real_yml.lines() {
+        plant3_lines.push(line);
+        if line.contains("WRANGLER_SEND_METRICS: \"false\"") {
+            plant3_lines.push(line);
+        }
+    }
+    let plant3 = plant3_lines.join("\n");
+    assert_ne!(plant3, real_yml, "plant3 must change text");
+    assert!(check_metrics(&plant3).is_err());
 }
 
 // control: HO-06
@@ -914,6 +1178,7 @@ fn a_planted_identifier_shape_is_refused() {
         ("deploy/extra2.txt", "team.cloudflareaccess.com"),
         ("deploy/extra3.txt", "0123456789abcdef0123456789abcdef"),
         ("deploy/extra4.txt", "someone@example.org"),
+        ("deploy/extra6.txt", r"team\\.cloudflareaccess\\.com"),
     ];
     for (path, content) in plants {
         let mut files = real_files.clone();
@@ -963,8 +1228,12 @@ fn a_planted_identifier_shape_is_refused() {
     // Unit assertions for has_access_team_domain
     assert!(has_access_team_domain("team.cloudflareaccess.com"));
     assert!(has_access_team_domain(r"team\.cloudflareaccess\.com"));
+    assert!(has_access_team_domain(r"team\\.cloudflareaccess\\.com"));
     assert!(!has_access_team_domain(
         r"([A-Za-z0-9-]+\.)*cloudflareaccess\.com"
+    ));
+    assert!(!has_access_team_domain(
+        r"([A-Za-z0-9-]+\\.)*cloudflareaccess\.com"
     ));
     assert!(!has_access_team_domain("cloudflareaccess.com"));
     assert!(!has_access_team_domain("cloudflareaccess"));

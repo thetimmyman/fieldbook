@@ -213,6 +213,12 @@ fn check_wrangler(content: &str) -> Result<(), String> {
         .collect::<Vec<_>>()
         .join("\n");
 
+    if !stripped.contains("\"directory\": \"../out/hosted\"") {
+        return Err(
+            "wrangler configuration must contain `\"directory\": \"../out/hosted\"`".to_string(),
+        );
+    }
+
     if stripped.contains("\"workers_dev\": true") {
         return Err("wrangler configuration must not contain `\"workers_dev\": true`".to_string());
     }
@@ -238,6 +244,7 @@ fn check_wrangler(content: &str) -> Result<(), String> {
     Ok(())
 }
 
+// control: HO-08
 #[test]
 fn wrangler_config_disables_workers_dev_and_previews_and_names_no_account() {
     let wrangler_path = repo_root().join("deploy/wrangler.jsonc");
@@ -252,6 +259,7 @@ fn wrangler_config_disables_workers_dev_and_previews_and_names_no_account() {
     );
 }
 
+// control: HO-08
 #[test]
 fn a_planted_wrangler_violation_is_refused() {
     let wrangler_path = repo_root().join("deploy/wrangler.jsonc");
@@ -301,6 +309,29 @@ fn a_planted_wrangler_violation_is_refused() {
         "\"main\": \"src/index.js\",\n  \"compatibility_date\"",
     );
     assert_plant(&plant_main, "\"main\"");
+
+    // 6. the line containing "workers_dev": false deleted
+    let plant_no_workers_dev = content
+        .lines()
+        .filter(|l| !l.contains("\"workers_dev\": false"))
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert_plant(&plant_no_workers_dev, "\"workers_dev\"");
+
+    // 7. the line containing "preview_urls": false deleted
+    let plant_no_preview_urls = content
+        .lines()
+        .filter(|l| !l.contains("\"preview_urls\": false"))
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert_plant(&plant_no_preview_urls, "\"preview_urls\"");
+
+    // 8. "directory": "../out/hosted" replaced by "directory": "../out/edition"
+    let plant_directory = content.replace(
+        "\"directory\": \"../out/hosted\"",
+        "\"directory\": \"../out/edition\"",
+    );
+    assert_plant(&plant_directory, "\"directory\"");
 }
 
 fn assert_no_workers_dev_subdomain(content: &str, rel: &str) {
