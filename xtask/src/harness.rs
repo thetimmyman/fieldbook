@@ -1732,9 +1732,14 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
             text: true,
         });
     }
+    let opened = Instant::now();
     let tally = open_targets(&browser.path, &work, jobs, &targets, &|done| {
         progress(done, total);
     })?;
+    eprintln!(
+        "harness: opened {total} targets in {} seconds with {jobs} browser processes at once",
+        opened.elapsed().as_secs()
+    );
     failures.extend(tally.failures);
 
     let Some(negative) = negative else {
