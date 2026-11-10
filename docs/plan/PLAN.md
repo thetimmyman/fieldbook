@@ -211,6 +211,7 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 - hosted-deploy: the pinned deploy tool, the host configuration and response headers, and `cargo xtask hosted-limits`, the size check
 - hosted-gate: `deploy/check-login-gate.sh`, the probe that fails when the hostname answers without the login, with its tests
 - hosted-workflow: `hosted.yml`, the deploy workflow in the `hosted` environment, and its workflow controls
+- hosted-runbook: the hosted-edition runbook (deploy, verify, roll back, add a reader, rotate the token), its `AGENTS.md` link and the changelog line
 
 ## P4
 
