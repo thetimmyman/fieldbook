@@ -33,7 +33,7 @@
 
 ## Preconditions
 
-- Cards merged: `review-queue`, `ask-log`, `handoff-cite-check`, `guard-statuses`, `model-gate` (the `ENTRIES` table of `deterministic_verbs.rs`), `core-policy` (effective labels), `add-new-and-edition` (the shared label_context), `backup-snapshot` (the backup parser dispatch) and `calc-day1` (the seeded generator `tests/support/rng.rs` that the no-panic tests of step 12 include).
+- Cards merged: `review-queue`, `ask-log`, `handoff-cite-check`, `guard-statuses`, `model-gate` (the `ENTRIES` table of `deterministic_verbs.rs`), `core-policy` (effective labels), `add-new-and-edition` (the shared label_context), `backup-snapshot` (the backup parser dispatch) and `calc-day1` (the seeded generator `tests/support/rng.rs` that the no-panic tests of step 12 include) and `search-ranking-warnings` (it adds the page-view judgement to `eval.rs`, which this card extends).
 - `decide-port` names this card in its `Cards merged`, so it adds its `decision` row to `KINDS` and removes `decision` from the `NOT_YET_BUILT` list of `tests/queue.rs` after this card's rows and lines are there. This card leaves the `decision` row and its line alone.
 
 ## Steps
