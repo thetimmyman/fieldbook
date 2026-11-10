@@ -253,7 +253,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - pipeline-ports: the Classifier, Correlator and Admit traits, `staged@1`, the contract suites
 - extract-csv-rows: the `csv-rows` extraction method for tables, FB0311
 - extract-xlsx-sheets: the `xlsx-sheets` extraction method for workbooks, read with `calamine`; `sheet` and `rec` locators on a workbook
-- source-location-links: a Reader card placed after `extract-xlsx-sheets`, whose source page it follows: source pages link to the official location and each cited section, after the owner decides D-20 and NFR-S-12 (owner review)
+- source-location-links: a Reader card placed after `extract-xlsx-sheets`, whose source page it follows: source pages link to the official location and each cited section, as the owner decided, with the owner-approved intake wording (owner review)
 - pipeline-rules-classify: `corpus/pipeline/rules.toml`, the `rules@1` classifier, FB0826
 - Write about 10 starting rules with examples in `corpus/pipeline/rules.toml`; `check` replays each on its example (lead)
 - pipeline-correlate: the `exact-ids+bm25@1` correlator
