@@ -217,6 +217,7 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 - search-palette-design-items: the palette placeholder, the quoted search row, the named shortcuts dialog, the six tokenless values and the role checks left by `search-palette`
 - narrow-width-check: `just browser` frames a built page at 375px and fails when it scrolls sideways or a top-bar button is under the control height
 - unreleased-status-strip: a strip on every unreleased page saying the build is not an edition and its claims are AI-drafted and unchecked, with counts computed from the claims
+- runner-contention: the deploy installs no tool into the runners' shared home folder, and the `corpus` job has room to finish beside another (owner review)
 
 ## P4
 
