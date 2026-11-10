@@ -8,7 +8,7 @@ use crate::csp::CSP_STATIC;
 use crate::site::Site;
 
 /// Budget for `assets/app.js` in decimal bytes (`FB0605`).
-pub const APP_JS: u64 = 30_000;
+pub const APP_JS: u64 = 32_000;
 /// Budget for `assets/search.js` in decimal bytes (`FB0605`).
 pub const SEARCH_JS: u64 = 10_000;
 /// Budget for `assets/assist.js` in decimal bytes (`FB0605`).

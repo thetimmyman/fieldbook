@@ -460,6 +460,31 @@
     });
   }
 
+  // The sidebar's slide is decoration: where the browser's animation clock stops (a remote or
+  // GPU-less session can), an open sidebar must not stay off-screen behind the scrim, nor a
+  // closed one stay on screen. The paused animation stands in for a slide that never ends.
+  async function frameCases() {
+    await guarded('menu_opens_even_when_the_slide_stalls', async function (check) {
+      var side = $('fb:sidebar');
+      var stalled = function () {
+        var slide = side.animate([{ transform: 'translateX(-100%)' }, { transform: 'none' }], 60000);
+        slide.pause();
+        return slide;
+      };
+      $('fb:menuBtn').click();
+      check(side.classList.contains('open'), 'the menu button opens the sidebar');
+      check(!$('fb:scrim').hidden, 'the scrim shows');
+      var opening = stalled();
+      await new Promise(function (resolve) { window.setTimeout(resolve, 600); });
+      check(opening.playState === 'finished', differ('opening slide', 'finished', opening.playState));
+      $('fb:sidebarCloseBtn').click();
+      check(!side.classList.contains('open'), 'the close button closes the sidebar');
+      var closing = stalled();
+      await new Promise(function (resolve) { window.setTimeout(resolve, 600); });
+      check(closing.playState === 'finished', differ('closing slide', 'finished', closing.playState));
+    });
+  }
+
   async function storageCases() {
     await guarded('storage_throwing_page_still_works', async function (check) {
       key('/', {}, document.body);
@@ -488,6 +513,7 @@
     } else {
       await shortcutCases();
       await paletteCases();
+      await frameCases();
     }
     await closeAll();
     finished = true;

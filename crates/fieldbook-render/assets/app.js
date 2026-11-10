@@ -27,6 +27,7 @@ const ROUTE_SECTIONS = {
 let sessionTheme = null;
 let toastTimer = null;
 let lastTrigger = null;
+let slideTimer = null;
 
 // The frame element with id `fb:<name>`, or null.
 function fb(name) {
@@ -129,6 +130,11 @@ function setSidebar(open, restoreFocus) {
     lastTrigger = document.activeElement;
   }
   sidebar.classList.toggle('open', open);
+  // The slide is decoration: where the animation clock stops, end it so the sidebar shows.
+  clearTimeout(slideTimer);
+  slideTimer = setTimeout(function () {
+    sidebar.getAnimations().forEach(function (a) { a.finish(); });
+  }, 400);
   if (scrim) {
     scrim.hidden = !open;
     scrim.classList.toggle('open', open);
