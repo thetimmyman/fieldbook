@@ -209,6 +209,7 @@ Exit: see [Gates](../decisions/0001-foundation.md#gates), Day 1: the home gate h
 The edition as a static site behind the owner's login. It needs no phase exit and runs beside the phases; the site holds the public edition only.
 
 - hosted-deploy: the pinned deploy tool, the host configuration and response headers, and `cargo xtask hosted-limits`, the size check
+- hosted-gate: `deploy/check-login-gate.sh`, the probe that fails when the hostname answers without the login, with its tests
 
 ## P4
 
