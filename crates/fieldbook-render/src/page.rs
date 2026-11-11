@@ -11,10 +11,11 @@ use std::collections::BTreeSet;
 
 use askama::Template;
 use fieldbook_core::CivilDate;
+use fieldbook_core::assist::PackSource;
 use fieldbook_core::check::PageEntry;
 use fieldbook_core::cite::KeyKind;
 use fieldbook_core::date::{PartialDate, review_by};
-use fieldbook_core::egress::LabelledView;
+use fieldbook_core::egress::{Dest, LabelledView};
 use fieldbook_core::ids::{ClaimId, ConflictId};
 use fieldbook_core::review::{newest_change_note_date, page_review_by};
 use fieldbook_core::schema::{
@@ -190,6 +191,7 @@ struct PageTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    context_pack: String,
 }
 
 fn render_page_status_chip(status: PageStatus) -> String {
@@ -478,9 +480,24 @@ fn build_evidence_cards(
     out
 }
 
+/// Default character budget for context packs when unspecified in corpus settings (`HG-02`).
+const DEFAULT_PACK_BUDGET_CHARS: usize = 12_000;
+
 /// Render the inner `<main>` content (`templates/page.html`) for `page`.
 #[must_use]
 pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths) -> String {
+    let packs = PackSource::new(view);
+    render_main_with_packs(page, view, planned, &packs)
+}
+
+/// Render the inner `<main>` content (`templates/page.html`) for `page`, reusing pre-built context packs.
+#[must_use]
+pub fn render_main_with_packs(
+    page: &PageEntry,
+    view: &LabelledView,
+    planned: &PlannedPaths,
+    packs: &PackSource<'_>,
+) -> String {
     let from_path = format!("p/{}.html", page.id);
     let area_title = view
         .corpus()
@@ -688,6 +705,12 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         ]
     };
 
+    let budget = view
+        .corpus()
+        .and_then(|c| usize::try_from(c.assistant.pack_budget_chars).ok())
+        .unwrap_or(DEFAULT_PACK_BUDGET_CHARS);
+    let context_pack = packs.page_pack(&Dest::Edition, &page.id, budget).to_text();
+
     let common = crate::types::TypedPageCommon {
         area_chip_html,
         subarea: page.meta.subarea.clone(),
@@ -713,6 +736,7 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         change_entries,
         toc_items,
         evidence_cards,
+        context_pack,
     };
 
     if is_brief {
@@ -756,6 +780,7 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         change_entries: common.change_entries,
         toc_items: common.toc_items,
         evidence_cards: common.evidence_cards,
+        context_pack: common.context_pack,
     };
 
     tpl.render()
@@ -771,8 +796,22 @@ pub fn render_page(
     nav: &Navigation,
     planned: &PlannedPaths,
 ) -> String {
+    let packs = PackSource::new(view);
+    render_page_with_packs(page, view, ctx, nav, planned, &packs)
+}
+
+/// Render a complete `p/<page-id>.html` document wrapped in the global site frame, reusing pre-built context packs.
+#[must_use]
+pub fn render_page_with_packs(
+    page: &PageEntry,
+    view: &LabelledView,
+    ctx: &RenderContext,
+    nav: &Navigation,
+    planned: &PlannedPaths,
+    packs: &PackSource<'_>,
+) -> String {
     let page_path = format!("p/{}.html", page.id);
-    let main_html = render_main(page, view, planned);
+    let main_html = render_main_with_packs(page, view, planned, packs);
     let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,

@@ -532,6 +532,78 @@ Reviewer role: ____
 
     </section>
     
+    <details class="context-pack"><summary>context pack</summary><pre>rules_version = 1
+
+Synthetic assistant rules for the mini Corpus fixture.
+Use only the supplied context pack and cite every factual statement exactly as shown.
+If the context pack does not establish an answer, reply: Not established in the library.
+
+Labels: public
+
+--- page est-baseline-template ---
+Title: Synthetic fill-in template for a cost baseline update note
+As of: 2026-02-01
+Status: draft
+Text: Provide a blank text template for recording a synthetic cost baseline update.
+
+--- claim CL-EST-0003 ---
+Title: Synthetic rate review window is 10 days under current guidance.
+As of: 2026-02-01
+Status: unchecked
+Source: S-0002-v2, sec. 4
+Quote: &#34;Synthetic rate review window is 10 days.&#34;
+cite as: [@CL-EST-0003]
+
+--- page est-rate-reference#how-it-works ---
+Title: How it works
+As of: 2026-02-01
+Status: draft
+Text: Look up the synthetic parameter in the table before updating a cost baseline.
+
+--- page est-rate-window-brief#recommendation ---
+Title: Recommendation
+As of: 2026-02-01
+Status: draft
+Text: Adopt the synthetic 10 days rate window for all new synthetic cost baseline updates [@CL-EST-0003].
+
+--- term cost_baseline ---
+Title: cost baseline
+As of: unknown
+Status: general_practice
+Text: Synthetic time-phased budget basis used to measure synthetic estimating variance.
+
+--- page est-calc-01#company-calibration ---
+Title: Company calibration
+As of: 2026-02-01
+Status: draft
+Text: Confirm the rate structure and escalation basis for the cost baseline [@Q-002].
+
+--- source S-0001-v1 ---
+Title: Synthetic Cost Rule, made up for tests
+As of: 2026-02-01
+Status: active
+Text: Synthetic fixture source for automated tests.
+cite as: [@S-0001-v1]
+
+--- page est-calc-01#never-confuse ---
+Title: Never confuse
+As of: 2026-02-01
+Status: draft
+Text: Do not confuse a cost baseline build-up with margin pricing on selling price.
+
+--- page est-calc-01#change-note ---
+Title: Change note
+As of: 2026-02-01
+Status: draft
+
+--- page cmp-onboarding-checklist#worked-example ---
+Title: Worked example
+As of: 2026-02-01
+Status: draft
+Text: Synthetic example. The numbers are made up.
+
+Some records were omitted.
+</pre></details>
   </article>
 
   <aside class="rail" aria-label="Evidence and connections">

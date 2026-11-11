@@ -164,7 +164,7 @@ Each of these removes a moving part. The trigger is in AD-24, and the steps are 
 |---|---|---|
 | The nightly in `just lock` | `[registry] global-min-publish-age = "14 days"` in `.cargo/config.toml` | Rust 1.100 is pinned |
 | `--remap-path-prefix` flags for the workspace, vendor and `CARGO_HOME` paths (R2) | `trim-paths` | Rust 1.101 is pinned |
-| `rust_xlsxwriter` 0.99.1, `calamine` 0.36.1 and `zip` 8.6.0 | `rust_xlsxwriter` 0.101.x, `calamine` 0.37.x (the first on `zip` 9) and `zip` 9.0.5 or later, re-verified; all three move in one pull request, because the graph holds one `zip` | A Day-30 card; all are old enough by then |
+| `calamine` 0.36.1 (not in the graph yet; `rust_xlsxwriter` 0.101.0 and `zip` 9.0.5 or later moved with `zip-advisories`) | `calamine` 0.37.x, the first on `zip` 9, re-verified | `extract-xlsx-sheets` adds the reader |
 | `cargo-cyclonedx` | Another SBOM generator | IT requires CycloneDX 1.6, or `cargo-cyclonedx` goes 12 months without a release |
 | `rustc` 1.99.1 | The newest minor at least 14 days old | At most every 12 weeks, as its own card. The next candidate is 1.100, after Day 30 |
 
@@ -186,9 +186,9 @@ All come from crates.io. The two tables below are one table split for width: the
 | `askama` | 0.16.1 (2026-09-04) | `default-features = false`, `derive`, `std` | render | MIT OR Apache-2.0 | 1.88 |
 | `serde_json` | 1.0.151 (2026-07-20) | default | render, fieldbook, xtask | MIT OR Apache-2.0 | 1.71 |
 | `clap` | 4.6.7 (2026-09-14) | `default-features = false`, `std`, `derive`, `help`, `usage`, `error-context`, `suggestions` | fieldbook, xtask | MIT OR Apache-2.0 | 1.85 |
-| `rust_xlsxwriter` | 0.99.1 (2026-09-14) | none (the default set is empty); never `zlib` | render | MIT OR Apache-2.0 | 1.88 |
+| `rust_xlsxwriter` | 0.101.0 (2026-10-20) | none (the default set is empty); never `zlib` | render | MIT OR Apache-2.0 | 1.88 |
 | `calamine` (`extract-xlsx-sheets`) | 0.36.1 (2026-07-27) | `default-features = false`; never `chrono`, `dates` or `picture` | core | MIT | 1.88 |
-| `zip` (`extract-xlsx-sheets`) | 8.6.0 (2026-04-25) | `default-features = false`, `deflate` | core, xtask; render (tests) | MIT | 1.88 |
+| `zip` (`extract-xlsx-sheets`) | 9.0.5 (2026-10-17) | `default-features = false`, `deflate` | core, xtask; render (tests) | MIT | 1.88 |
 | `embed-resource` (R2) | 3.0.12 (2026-10-06) | default | `fieldbook` `build.rs`, Windows only | MIT | 1.76 |
 | `windows-sys` (`windows-facts`) | 0.61.2 (2025-10-06) | `default-features = false`, `Win32_Foundation`, `Win32_Security`, `Win32_Security_Authorization`, `Win32_Storage_FileSystem`, `Win32_Storage_CloudFilters`, `Win32_System_Com`, `Win32_System_RemoteDesktop`, `Win32_System_Threading`, `Win32_UI_Shell` | `fieldbook-win`, in `src/sys.rs`; Windows only | MIT OR Apache-2.0 | 1.71 |
 | `object` (`core-policy`) | 0.40.0 (2026-08-01) | `default-features = false`, `read_core`, `elf`, `pe` | `xtask`, in `binscan`; not shipped | MIT OR Apache-2.0 | 1.85 |
@@ -196,7 +196,7 @@ All come from crates.io. The two tables below are one table split for width: the
 | `rustls` (AI build) | 0.23.45 (proposed; lands with `net-stack-spike`) | `std`, `tls12`, `custom-provider`; optional | `fieldbook`, in `io/net`; AI build only | Confirmed by the spike | Confirmed by the spike |
 | `rustls-graviola` (AI build) | 0.4.0 with `graviola` 0.4.1 (proposed; lands with `net-stack-spike`) | optional | `fieldbook`, in `io/net`; AI build only | Confirmed by the spike | Confirmed by the spike |
 
-`sha2` 0.11 output has no `{:x}` formatting: use `fieldbook_core::hex::lower`. `askama` 0.16 custom filters use `#[askama::filter_fn]`. `rust_xlsxwriter` 0.99.1 brings `zip ^8.3` with only `deflate`, and `calamine` 0.36.1 needs `zip ^8.6`, which is why `zip` is pinned at 8.6.0 above and the graph holds one `zip`. `calamine` 0.37.0 is the first release on `zip` 9, which `rust-xlsxwriter-bump` moves to. `object` is the one row here that no shipped crate uses: only `xtask` (`binscan`, from `core-policy`) depends on it, so it is not among the 12, 14 and 17 below and review does not count it as a direct shipped crate.
+`sha2` 0.11 output has no `{:x}` formatting: use `fieldbook_core::hex::lower`. `askama` 0.16 custom filters use `#[askama::filter_fn]`. `rust_xlsxwriter` 0.101.0 brings `zip ^9.0` with only `deflate`, so the graph holds one `zip`, and the lock takes 9.1.3, the newest release that cleared the cooldown when it was resolved. `zip-advisories` moved `zip` to 9 and `rust_xlsxwriter` to 0.101.x, which closes the five advisories that named `zip` 8.6.0; `calamine` 0.37.0 is the first release on `zip` 9, and `extract-xlsx-sheets` pins it when it adds the reader. `object` is the one row here that no shipped crate uses: only `xtask` (`binscan`, from `core-policy`) depends on it, so it is not among the 12, 14 and 17 below and review does not count it as a direct shipped crate.
 
 That is 12 direct shipped crates at Day 1 in the silent build, 14 with the two rows marked `extract-xlsx-sheets` and still 14 at R2; one of the 12 is `windows-sys`, which only `fieldbook-win` uses. The AI build adds the three proposed rows: 17, past the review trigger of 15 (a direct crate of the AI build past the 15th needs a card whose Review is `owner`, which `extract-xlsx-sheets` is). The three rows are proposals until `net-stack-spike` has run: the card proves the stack on Linux and Windows, repeats the transitive counts, edits `deny.toml` and moves the rows out of "proposed". Proposed pins: `ureq` 3.4.2, `rustls` 0.23.45, `rustls-graviola` 0.4.0 (`graviola` 0.4.1) in Cargo.toml, plus transitive `rustls-platform-verifier` 0.7.1 via `ureq`, all to be confirmed at the spike; `just lock` decides the real pins.
 
@@ -387,6 +387,7 @@ Card `day1-dependencies-3` records actual pre-adoption baseline row 0 without ch
 | 1 | silent | default | 11 | 80 | Initial adoption; all-target count 90 (uncapped). The transitive cap is 80, leaving zero headroom. AI is inapplicable while `net` is absent. |
 | 2 | silent | default | 12 | 82 | Card `windows-facts`; adds `fieldbook-win` and `windows-sys` `0.61.2` (`windows-link` `0.2.1` on Windows); all-target count 92 (uncapped), `cargo tree --workspace -e normal` union 64 (62 Linux, 64 Windows, 65 `--target all`). AI is inapplicable while `net` is absent. |
 | 3 | silent | default | 12 | 83 | Card `core-policy`; adds `object` `0.40.0` in `xtask` (`memchr` `2.8.3` already in graph); all-target count 93 (uncapped), `cargo tree --workspace -e normal` union 66 (64 Linux, 66 Windows, 67 `--target all`). AI is inapplicable while `net` is absent. |
+| 4 | silent | default | 12 | 84 | Card `zip-advisories`; `rust_xlsxwriter` `0.99.1` to `0.101.0`, `zip` `8.6.0` to `9.1.3` (one `zip`), `typed-path` `0.12.3` to `0.13.0`; the one new pair in the closure is `getrandom` `0.4.3`, which `zip` 9.1.3 takes on every non-wasm target (it was in the lock already). Metadata closure 82 Linux, 83 Windows, union 84, within the silent cap of 100, raised from 80 in the Policy before this row was added. All-target count 97 (uncapped; 93 on the same basis in row 3). `cargo tree --workspace -e normal --target all` 76 (67 on main, the figure of row 3). AI is inapplicable while `net` is absent. |
 
 ### Initial resolution evidence
 

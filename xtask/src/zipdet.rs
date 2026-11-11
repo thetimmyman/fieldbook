@@ -261,7 +261,10 @@ pub fn read_and_verify_deterministic_zip(
         let mut file = archive
             .by_index(idx)
             .map_err(|e| format!("cannot read ZIP entry #{idx}: {e}"))?;
-        let full_name = file.name().to_owned();
+        let full_name = file
+            .name()
+            .map_err(|e| format!("cannot read the name of ZIP entry #{idx}: {e}"))?
+            .into_owned();
         if let Some(prev) = &prev_full_name
             && full_name.as_bytes() <= prev.as_bytes()
         {
