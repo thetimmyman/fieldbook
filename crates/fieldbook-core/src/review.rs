@@ -234,6 +234,7 @@ handling = ["public"]
         let meta = page::parse_meta(SAMPLE_PAGE_WITHOUT_VOL).expect("valid meta");
         let empty: [&ClaimRow; 0] = [];
         let body = r#"## Change note
+- COMPATIBLE_EXTENSION, 2026-02-15: Older.
 - COMPATIBLE_EXTENSION, 2026-03-01: Newer.
 - NEW_KNOWLEDGE, 2026-02-01: First draft.
 "#;
