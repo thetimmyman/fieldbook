@@ -172,3 +172,8 @@ jobs:
           BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
         run: cargo xtask guard-statuses "$BASE" "$HEAD"
+      - name: Scope
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: cargo xtask scope "$BASE" "$HEAD"
