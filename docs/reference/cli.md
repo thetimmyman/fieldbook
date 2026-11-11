@@ -69,6 +69,15 @@ Find an id or a word in the Corpus; list the versions of a source
 | `--units` | - | - | List every matching unit in rank order instead of grouping sections into their page |
 | `<QUERY>` | `QUERY` | - | The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-` |
 
+### `fieldbook verify`
+
+Record that the owner (or lead) verified a claim, at a terminal
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `<CLAIM-ID>` | `CLAIM-ID` | - | The claim to verify (`CL-AAA-nnnn`) |
+| `--on` | `YYYY-MM-DD` | - | The calendar date (YYYY-MM-DD) the original was read at the locator |
+
 ## Exit codes
 
 | Code | Meaning |

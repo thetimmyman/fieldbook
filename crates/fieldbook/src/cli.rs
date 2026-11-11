@@ -67,6 +67,20 @@ pub enum Commands {
     Audit(AuditArgs),
     /// Find an id or a word in the Corpus; list the versions of a source.
     Search(SearchArgs),
+    /// Record that the owner (or lead) verified a claim, at a terminal.
+    Verify(VerifyArgs),
+}
+
+/// Arguments for `fieldbook verify`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct VerifyArgs {
+    /// The claim to verify (`CL-AAA-nnnn`).
+    #[arg(value_name = "CLAIM-ID")]
+    pub claim: String,
+
+    /// The calendar date (YYYY-MM-DD) the original was read at the locator.
+    #[arg(long, value_name = "YYYY-MM-DD")]
+    pub on: CivilDate,
 }
 
 /// Arguments for `fieldbook search`.

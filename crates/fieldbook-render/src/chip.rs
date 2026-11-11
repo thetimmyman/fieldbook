@@ -19,7 +19,7 @@ pub const KEY_VERIFY: &str = "Record that the owner verified a claim";
 /// Whether the `verify` command exists. Until it does, a page shows its landing line, not a chip a
 /// reader could copy and fail to run. `verify-status-fmt` flips this one value, and a test in
 /// `crates/fieldbook/tests/chips.rs` fails while it disagrees with the command line.
-pub const VERIFY_LANDED: bool = false;
+pub const VERIFY_LANDED: bool = true;
 
 /// The thing the `verify` landing line names.
 pub const VERIFY_THING: &str = "The verify command";
