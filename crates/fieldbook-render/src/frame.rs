@@ -80,6 +80,12 @@ struct StoreBannerView {
     body: String,
 }
 
+struct BuildStatusView {
+    counts: String,
+    supported: Option<String>,
+    claims_href: Option<String>,
+}
+
 /// One breadcrumb item in `CrumbsRow`.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Crumb {
@@ -195,6 +201,7 @@ struct BaseTemplate<'a> {
     store_chip_title: &'a str,
     store_foot_lead: &'a str,
     store_foot_body: &'a str,
+    build_status_banner: Option<BuildStatusView>,
     store_banner: Option<StoreBannerView>,
     tabs: Vec<TabView<'a>>,
     groups: Vec<GroupView<'a>>,
@@ -264,6 +271,21 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         })
         .collect();
 
+    let build_status_banner = edition::built_date(input.edition).is_none().then(|| {
+        let claims_href = input
+            .nav
+            .entry("claims")
+            .and_then(|entry| match &entry.target {
+                NavTarget::Built { href } => Some(href.clone()),
+                NavTarget::Unbuilt { .. } => None,
+            });
+        BuildStatusView {
+            counts: input.nav.build_status.count_sentence(),
+            supported: input.nav.build_status.supported_sentence(),
+            claims_href,
+        }
+    });
+
     let tpl = BaseTemplate {
         csp: CSP_STATIC,
         product: PRODUCT_TITLE,
@@ -281,6 +303,7 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         store_chip_title: &store_pres.chip_title,
         store_foot_lead: &store_pres.foot_lead,
         store_foot_body: &store_pres.foot_body,
+        build_status_banner,
         store_banner: store_pres.banner,
         tabs,
         groups,

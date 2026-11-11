@@ -3,6 +3,7 @@
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::strings;
 
+use crate::meta::BuildStatus;
 use crate::site::PlannedPaths;
 
 /// `index.html#areas` is built (`build-home-and-areas`): All areas and Browse are aliases to it.
@@ -362,6 +363,8 @@ pub struct Navigation {
     pub tabs: Vec<SectionTab>,
     /// The six sidebar section groups in order.
     pub groups: Vec<SectionGroup>,
+    /// Build-time claim counts for the unreleased build status banner.
+    pub build_status: crate::meta::BuildStatus,
 }
 
 impl Navigation {
@@ -698,5 +701,9 @@ pub fn build(view: &LabelledView, planned: &PlannedPaths) -> Navigation {
         })
         .collect();
 
-    Navigation { tabs, groups }
+    Navigation {
+        tabs,
+        groups,
+        build_status: BuildStatus::from_view(view),
+    }
 }

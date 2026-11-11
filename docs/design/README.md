@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 21) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 22) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 21
+## Current revision 22
+
+Revision 22 applies seven changes to reader pages and the frame: the reader rail gains the `RelatedList` component for Related, Linked from and Read first; Sources renders one row per distinct cited target with numbered back-references; unbuilt navigation tabs and sidebar entries move into one closed "Not built yet" disclosure that preserves every landing line; and part 6 folds under its heading when no company overlay is loaded. On an unreleased build the page-level overdue banner is omitted and the build status banner adds a fixed review sentence, the header build date link carries the 24px target, and `s/` pages may link official locations and section locators to listed publishers in a new tab with `noopener noreferrer`. Two layout families changed (the reader rail and frame sidebar), both supported by studies in `HANDOFF.md` section 13. The mockup bytes changed to implement each change, design tokens are unchanged with no new token, and `MANIFEST.txt` lists the new hashes.
+
+## Revision 21 (historical)
 
 The `app.js` budget is 32 KB (AD-15, [ADR 0001](../decisions/0001-foundation.md)); `search.js` 10 KB, `assist.js` 20 KB and the 64 KB total are unchanged. The scripts' movement is decoration: where the browser stops running a movement, the element jumps to its end state, so the overlay sidebar opens even when its slide never plays, and never stays off-screen behind its scrim (`HANDOFF.md` section 6, Motion). The fix that needed the room is in `app.js`. No token, layout family, component geometry or mockup byte changes, so no study is needed. No browser, Rust or Edge check is claimed.
 
