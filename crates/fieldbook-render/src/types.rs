@@ -105,6 +105,8 @@ pub struct TypedPageCommon {
     pub toc_items: Vec<TocItem>,
     /// Right-rail cited claim cards.
     pub evidence_cards: Vec<EvidenceCardView>,
+    /// Right-rail related and linked-from HTML sections.
+    pub rail_lists_html: String,
     /// Serialized context pack plain text for the page.
     pub context_pack: String,
 }
@@ -133,6 +135,7 @@ struct BriefTemplate {
     sources_rows: Vec<NumberedSourceRow>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
     context_pack: String,
 }
 
@@ -164,6 +167,7 @@ struct ChecklistTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
     context_pack: String,
 }
 
@@ -194,6 +198,7 @@ struct ReferenceTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
     context_pack: String,
 }
 
@@ -225,6 +230,7 @@ struct CaseTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
     context_pack: String,
 }
 
@@ -256,6 +262,7 @@ struct ClauseCardTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
     context_pack: String,
 }
 
@@ -761,6 +768,7 @@ pub fn render_brief(common: TypedPageCommon, mut brief_parts: Vec<RenderedPart>)
         sources_rows: common.sources_rows,
         toc_items: common.toc_items,
         evidence_cards: common.evidence_cards,
+        rail_lists_html: common.rail_lists_html,
         context_pack: common.context_pack,
     };
     tpl.render()
@@ -813,6 +821,7 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
                 context_pack: common.context_pack,
             };
             Ok(tpl
@@ -845,6 +854,7 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
                 context_pack: common.context_pack,
             };
             Ok(tpl
@@ -878,6 +888,7 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
                 context_pack: common.context_pack,
             };
             Ok(tpl
@@ -913,6 +924,7 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
                 context_pack: common.context_pack,
             };
             Ok(tpl

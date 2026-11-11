@@ -478,6 +478,9 @@ Some records were omitted.
       </ul>
     </nav>
 
+    <section class="rail-sec rail-list" aria-label="Related"><div class="rail-head">Related</div><p class="rail-empty">No related pages listed.</p></section>
+<section class="rail-sec rail-list" aria-label="Linked from"><div class="rail-head">Linked from <span class="rail-n">(2)</span></div><ul><li><a class="plink" href="est-rate-window-brief.html" data-pv="page:est-rate-window-brief" data-pv-title="Synthetic decision brief on forward pricing rate review window" data-pv-body="Should the synthetic pricing team adopt the 10 days rate window for baseline updates ?">Synthetic decision brief on forward pricing rate review window</a></li><li><a class="plink" href="cmp-review-steps.html" data-pv="page:cmp-review-steps" data-pv-title="Synthetic procedure for running a business-system review" data-pv-body="Describe the synthetic step-by-step procedure for completing a system review.">Synthetic procedure for running a business-system review</a></li></ul></section>
+
     <section class="rail-sec" aria-label="Cited claims">
       <div class="rail-head">Cited claims (2)</div>
       

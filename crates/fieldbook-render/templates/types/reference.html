@@ -116,6 +116,8 @@
       </ul>
     </nav>
 
+    {{ rail_lists_html|safe }}
+
     <section class="rail-sec" aria-label="Cited claims">
       <div class="rail-head">Cited claims ({{ evidence_cards.len() }})</div>
       {% if evidence_cards.is_empty() %}

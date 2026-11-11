@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: each page lists its related pages and the pages that link to it, by title.
 - Changed: navigation entries that a build does not hold no longer fill the sidebar and tabs with "not available" lines.
 - Added: a context pack on each page.
 - Added: the verify command, for the owner at a terminal.

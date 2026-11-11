@@ -191,6 +191,7 @@ struct PageTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
     context_pack: String,
 }
 
@@ -487,7 +488,8 @@ const DEFAULT_PACK_BUDGET_CHARS: usize = 12_000;
 #[must_use]
 pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths) -> String {
     let packs = PackSource::new(view);
-    render_main_with_packs(page, view, planned, &packs)
+    let links = crate::related::LinkIndex::new(view);
+    render_main_with_packs(page, view, planned, &packs, &links)
 }
 
 /// Render the inner `<main>` content (`templates/page.html`) for `page`, reusing pre-built context packs.
@@ -497,6 +499,7 @@ pub fn render_main_with_packs(
     view: &LabelledView,
     planned: &PlannedPaths,
     packs: &PackSource<'_>,
+    links: &crate::related::LinkIndex,
 ) -> String {
     let from_path = format!("p/{}.html", page.id);
     let area_title = view
@@ -710,6 +713,7 @@ pub fn render_main_with_packs(
         .and_then(|c| usize::try_from(c.assistant.pack_budget_chars).ok())
         .unwrap_or(DEFAULT_PACK_BUDGET_CHARS);
     let context_pack = packs.page_pack(&Dest::Edition, &page.id, budget).to_text();
+    let rail_lists_html = crate::related::render_rail_lists(page, view, planned, links);
 
     let common = crate::types::TypedPageCommon {
         area_chip_html,
@@ -736,6 +740,7 @@ pub fn render_main_with_packs(
         change_entries,
         toc_items,
         evidence_cards,
+        rail_lists_html,
         context_pack,
     };
 
@@ -780,6 +785,7 @@ pub fn render_main_with_packs(
         change_entries: common.change_entries,
         toc_items: common.toc_items,
         evidence_cards: common.evidence_cards,
+        rail_lists_html: common.rail_lists_html,
         context_pack: common.context_pack,
     };
 
@@ -797,7 +803,8 @@ pub fn render_page(
     planned: &PlannedPaths,
 ) -> String {
     let packs = PackSource::new(view);
-    render_page_with_packs(page, view, ctx, nav, planned, &packs)
+    let links = crate::related::LinkIndex::new(view);
+    render_page_with_packs(page, view, ctx, nav, planned, &packs, &links)
 }
 
 /// Render a complete `p/<page-id>.html` document wrapped in the global site frame, reusing pre-built context packs.
@@ -809,9 +816,10 @@ pub fn render_page_with_packs(
     nav: &Navigation,
     planned: &PlannedPaths,
     packs: &PackSource<'_>,
+    links: &crate::related::LinkIndex,
 ) -> String {
     let page_path = format!("p/{}.html", page.id);
-    let main_html = render_main_with_packs(page, view, planned, packs);
+    let main_html = render_main_with_packs(page, view, planned, packs, links);
     let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
