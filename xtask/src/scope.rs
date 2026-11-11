@@ -158,6 +158,10 @@ pub fn declared_paths(card_text: &str) -> (Vec<ScopePath>, Vec<String>) {
 }
 
 /// Check the scope of changes in the git revision range `base..head`.
+///
+/// The range is taken from the merge base of BASE and HEAD, so a base that is ahead of
+/// the branch point (main gained a card after the branch point) does not count that card
+/// as deleted.
 pub fn run(root: &Path, base: &str, head: &str) -> Result<ScopeOutcome, String> {
     if is_empty_or_zeros(base) {
         return Ok(ScopeOutcome::Skipped);
@@ -167,6 +171,10 @@ pub fn run(root: &Path, base: &str, head: &str) -> Result<ScopeOutcome, String> 
             return Err(format!("`{rev}` is not a revision"));
         }
     }
+
+    let merge_base = crate::proc::git(root, &["merge-base", base, head])
+        .map_err(|e| format!("cannot find a merge base of {base} and {head}: {e}"))?;
+    let base = merge_base.trim();
 
     let diff_d = crate::proc::git(
         root,
@@ -786,5 +794,64 @@ mod tests {
         ];
         let undeclared = check_paths(&declared, &changed, "docs/cards/demo.md");
         assert_eq!(undeclared, vec!["unlisted.rs".to_owned()]);
+    }
+
+    #[test]
+    fn merge_base_ignores_a_card_main_gained_after_the_branch_point() {
+        let repo = TestRepo::new();
+        repo.write(
+            "docs/cards/demo.md",
+            "# demo\n\n## Scope\n\n- Files: `src/a.rs`.\n",
+        );
+        repo.write("src/a.rs", "fn a() {}\n");
+        let fork = repo.commit("initial");
+
+        repo.git(&["checkout", "-b", "branch", &fork]);
+        repo.write("src/a.rs", "fn a_changed() {}\n");
+        let head = repo.commit("change a on branch");
+
+        repo.git(&["checkout", "main"]);
+        repo.write(
+            "docs/cards/other.md",
+            "# other\n\n## Scope\n\n- Files: `src/other.rs`.\n",
+        );
+        let base = repo.commit("add other card on main");
+
+        let outcome = run(repo.path(), &base, &head).expect("run");
+        assert_eq!(outcome, ScopeOutcome::Skipped);
+    }
+
+    #[test]
+    fn merge_base_with_the_branch_closing_its_own_card_is_ok() {
+        let repo = TestRepo::new();
+        repo.write(
+            "docs/cards/demo.md",
+            "# demo\n\n## Scope\n\n- Files: `src/a.rs`.\n",
+        );
+        repo.write("src/a.rs", "fn a() {}\n");
+        let fork = repo.commit("initial");
+
+        repo.git(&["checkout", "-b", "branch", &fork]);
+        repo.write("src/a.rs", "fn a_changed() {}\n");
+        let _c1 = repo.commit("change a on branch");
+
+        repo.remove("docs/cards/demo.md");
+        let head = repo.commit("delete card on branch");
+
+        repo.git(&["checkout", "main"]);
+        repo.write(
+            "docs/cards/other.md",
+            "# other\n\n## Scope\n\n- Files: `src/other.rs`.\n",
+        );
+        let base = repo.commit("add other card on main");
+
+        let outcome = run(repo.path(), &base, &head).expect("run");
+        assert_eq!(
+            outcome,
+            ScopeOutcome::Ok {
+                slug: "demo".to_owned(),
+                paths: 2,
+            }
+        );
     }
 }
