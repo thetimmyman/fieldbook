@@ -2464,6 +2464,81 @@ Text.
     }
 
     #[test]
+    fn completed_slugs_refuses_a_shallow_clone() {
+        let source_temp = tempfile::tempdir().unwrap();
+        let source_root = source_temp.path();
+        let clone_temp = tempfile::tempdir().unwrap();
+        let clone_path = clone_temp.path().join("clone");
+
+        assert!(
+            std::process::Command::new("git")
+                .arg("init")
+                .current_dir(source_root)
+                .status()
+                .unwrap()
+                .success()
+        );
+
+        let run_git = |args: &[&str]| {
+            assert!(
+                std::process::Command::new("git")
+                    .args([
+                        "-c",
+                        "user.name=Agent",
+                        "-c",
+                        "user.email=agent@example.invalid",
+                        "-c",
+                        "commit.gpgsign=false",
+                    ])
+                    .args(args)
+                    .current_dir(source_root)
+                    .status()
+                    .unwrap()
+                    .success()
+            );
+        };
+
+        let file_path = source_root.join("note.txt");
+        std::fs::write(&file_path, "first").unwrap();
+        run_git(&["add", "."]);
+        run_git(&["commit", "-m", "first"]);
+
+        std::fs::write(&file_path, "second").unwrap();
+        run_git(&["add", "."]);
+        run_git(&["commit", "-m", "second"]);
+
+        let source_url = format!("file://{}", source_root.display());
+        assert!(
+            std::process::Command::new("git")
+                .args([
+                    "-c",
+                    "user.name=Agent",
+                    "-c",
+                    "user.email=agent@example.invalid",
+                    "-c",
+                    "commit.gpgsign=false",
+                ])
+                .args(["clone", "--depth", "1", &source_url])
+                .arg(&clone_path)
+                .status()
+                .unwrap()
+                .success()
+        );
+
+        let rev_parse = std::process::Command::new("git")
+            .args(["rev-parse", "--is-shallow-repository"])
+            .current_dir(&clone_path)
+            .output()
+            .unwrap();
+        assert!(rev_parse.status.success());
+        assert_eq!(String::from_utf8_lossy(&rev_parse.stdout).trim(), "true");
+
+        let err = completed_slugs(&clone_path).unwrap_err();
+        assert!(err.contains("history is shallow"));
+        assert!(completed_slugs(source_root).is_ok());
+    }
+
+    #[test]
     fn test_plan_items() {
         let plan = r#"# Plan
 

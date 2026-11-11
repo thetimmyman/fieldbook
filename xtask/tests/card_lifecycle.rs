@@ -1035,3 +1035,47 @@ fn closing_an_unknown_slug_simulates() {
     );
     assert!(stdout.contains("cards: ok"));
 }
+
+#[test]
+fn cards_check_fails_in_a_shallow_clone() {
+    let fix = fixture();
+    fix.write_file("note.txt", "x");
+    fix.commit("second");
+
+    let clone_dir = tempfile::tempdir().unwrap_or_else(|e| panic!("tempdir: {e}"));
+    let clone = clone_dir.path().join("clone");
+    let source_url = format!("file://{}", fix.path().display());
+
+    let clone_out = Command::new("git")
+        .args(["clone", "--depth", "1", &source_url])
+        .arg(&clone)
+        .output()
+        .unwrap_or_else(|e| panic!("git clone failed: {e}"));
+    assert!(
+        clone_out.status.success(),
+        "git clone failed:\nstdout: {}\nstderr: {}",
+        String::from_utf8_lossy(&clone_out.stdout),
+        String::from_utf8_lossy(&clone_out.stderr)
+    );
+
+    let out = Command::new(env!("CARGO_BIN_EXE_xtask"))
+        .current_dir(&clone)
+        .env("XTASK_REPO_ROOT", &clone)
+        .args(["cards", "--check"])
+        .output()
+        .unwrap_or_else(|e| panic!("failed to run xtask cards --check: {e}"));
+
+    let code = out.status.code().unwrap_or(-1);
+    assert_ne!(
+        code,
+        0,
+        "cards --check must fail in a shallow clone, got {code}:\nstdout: {}\nstderr: {}",
+        String::from_utf8_lossy(&out.stdout),
+        String::from_utf8_lossy(&out.stderr)
+    );
+    let stderr = String::from_utf8_lossy(&out.stderr);
+    assert!(
+        stderr.contains("history is shallow"),
+        "stderr must mention shallow history, got:\n{stderr}"
+    );
+}
