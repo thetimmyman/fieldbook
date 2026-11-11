@@ -233,6 +233,12 @@ mod pack {
             for line in &mut sources_out {
                 if line.starts_with("S-0002,2,") {
                     *line = line.replace(",active,S-0002-v1,", ",quarantined,S-0002-v1,");
+                    // The row's own title holds the marker too, so that a unit built from the
+                    // held row would rank first and print it.
+                    *line = line.replace(
+                        "\"Synthetic Pricing Guide v2, made up for tests\"",
+                        &format!("\"{TITLE} {MARKER_HELD}\""),
+                    );
                 }
             }
             tree.insert_bytes(
