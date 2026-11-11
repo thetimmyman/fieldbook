@@ -221,9 +221,18 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 
 ## Reader
 
-The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only.
+The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, pages that list their related pages, Sources without repeats, a frame without placeholder lines, trust signals that say what is true, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards.
 
 - corpus-job-speed: the `corpus` job in half its time, with a release binary and parallel harness pages, every check kept
+- design-r22-reader-pages: design revision 22: related and linked-from lists, one Sources row per claim, unbuilt navigation, the folded Company calibration part, the overdue notice on unreleased builds and the build link's target (owner review)
+- frame-unbuilt-entries: navigation entries a build does not hold stop filling the sidebar and tabs with "not available" lines
+- page-related-links: each page's rail lists its related pages and the pages that link to it, by title
+- sources-dedupe: a page's Sources hold one row per cited claim, with back-references to each marker
+- fold-company-sections: with no company overlay loaded, the Company calibration part is folded
+- overdue-banner-fold: an unreleased build shows the review notice in its build status banner, not on each page
+- ids-split: `ids.html` is an index, one page per id group, and claims in parts of 500 per area by the claims register's part rule
+- build-date-target: the top-bar build link reaches the 24px target, and the narrow check drops its exemption
+- review-by-basis: a page's `review_by` counts from its newest change note as well as `as_of`, by an ADR 0002 amendment (owner review)
 - zip-advisories: `zip` 9.0.5 or later and `rust_xlsxwriter` 0.101.x, which close five published `zip` advisories, with the deterministic zip and workbook bytes kept
 - adr-0006-glossary-units: an ADR 0006 amendment that lets the edition search index hold glossary term units, with the measured size and the plan for the cap (owner review)
 - kb-dcaa-dcma-guidance-sources: the missing Contract Audit Manual chapters, DCAA guidance for contractors and the Contract Pricing Reference Guides, byte-exact public sources
@@ -256,6 +265,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - pipeline-ports: the Classifier, Correlator and Admit traits, `staged@1`, the contract suites
 - extract-csv-rows: the `csv-rows` extraction method for tables, FB0311
 - extract-xlsx-sheets: the `xlsx-sheets` extraction method for workbooks, read with `calamine`; `sheet` and `rec` locators on a workbook
+- source-location-links: a Reader card placed after `extract-xlsx-sheets`, whose source page it follows: source pages link to the official location and each cited section, as the owner decided, with the owner-approved intake wording (owner review)
 - pipeline-rules-classify: `corpus/pipeline/rules.toml`, the `rules@1` classifier, FB0826
 - Write about 10 starting rules with examples in `corpus/pipeline/rules.toml`; `check` replays each on its example (lead)
 - pipeline-correlate: the `exact-ids+bm25@1` correlator
