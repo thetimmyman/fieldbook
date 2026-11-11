@@ -16,7 +16,7 @@ links = ["ctf-limitation-of-cost", "ctf-financing-overview"]
 
 ## Purpose
 
-Explains how the contract type changes billing, risk and the rules finance must watch.
+Explains how the contract type, such as cost-reimbursement or fixed-price, changes billing, risk and the rules finance must watch.
 
 ## The rule
 
@@ -44,5 +44,6 @@ The contract mix by type, and which contracts are incrementally funded with noti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-10: Reworded the purpose to name the cost-reimbursement contract type, so that a search for it finds this page.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the fixed-price risk sentence to firm-fixed-price and cited progress payment support.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 page on contract types.

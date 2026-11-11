@@ -1297,7 +1297,7 @@ Every check has a code: `FB` and four digits. A code never changes meaning and i
 | FB0124 | error | `changes.md` is malformed: a `##` heading that is not `## edition-NNN`, numbers not newest first, a bullet that does not start `- Added:`, `- Changed:` or `- Verified:`, or a date | `## edition-1` |
 | FB0125 | error | A rule file is out of form: `ASSISTANT.md` is missing, longer than 40 lines, or does not begin with `rules_version = <integer>`; or `corpus/AGENTS.md` is longer than 40 lines | A 41-line `ASSISTANT.md` |
 | FB0126 | error | `eval/regression.toml` is malformed, repeats a case `id`, or names an expected unit id that does not exist | `expect = ["cmp-nope"]` |
-| FB0127 | warning | A regression case misses: an expected id is not within `top`, or an `expect_none` query returns results | A non-critical case that ranks its answer sixth |
+| FB0127 | warning | A regression case misses: an expected page is not within the first `top` page rows of the search page view, or an `expect_none` query returns results | A non-critical case whose page is the sixth page row |
 | FB0128 | error | A regression case marked `critical` misses | A critical case whose answer is absent from the top 3 |
 | FB0130 | error | The part headings are not exactly the type's parts in order, a `#` heading is present, or a heading is deeper than `###` | `## Rule` for `## The rule` |
 | FB0131 | error | A part other than Sources is blank | `## Purpose` followed at once by another heading |
