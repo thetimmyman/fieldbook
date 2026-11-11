@@ -2200,7 +2200,10 @@ mod tests {
         let repo = fixture_repo();
         let (res, _) = run(repo.path());
         let pkg = res.expect("package");
-        for path in ["ASSISTANT.md", "evidence/corpus-support.toml"] {
+        for path in [
+            fieldbook_core::strings::PATHS[6],
+            "evidence/corpus-support.toml",
+        ] {
             let d = rebuilt(&pkg, true, |e, _| {
                 e.remove(path);
             });
@@ -2766,7 +2769,7 @@ mod tests {
         }
 
         let added_paths: BTreeSet<&str> = [
-            "ASSISTANT.md",
+            fieldbook_core::strings::PATHS[6],
             "README.txt",
             "TRANSFER-STATEMENT.txt",
             "SHA256SUMS",
