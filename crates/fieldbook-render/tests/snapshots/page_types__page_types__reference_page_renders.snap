@@ -597,6 +597,84 @@ expression: html
 </div>
 
     </section>
+    <details class="context-pack"><summary>context pack</summary><pre>rules_version = 1
+
+Synthetic assistant rules for the mini Corpus fixture.
+Use only the supplied context pack and cite every factual statement exactly as shown.
+If the context pack does not establish an answer, reply: Not established in the library.
+
+Labels: public
+
+--- page est-rate-reference ---
+Title: Synthetic reference table of pricing rate windows and placeholders
+As of: 2026-02-01
+Status: draft
+Text: Provide a synthetic lookup table of pricing rate review parameters.
+
+--- claim CL-EST-0003 ---
+Title: Synthetic rate review window is 10 days under current guidance.
+As of: 2026-02-01
+Status: unchecked
+Source: S-0002-v2, sec. 4
+Quote: &#34;Synthetic rate review window is 10 days.&#34;
+cite as: [@CL-EST-0003]
+
+--- claim CL-EST-0001 ---
+Title: Synthetic escalation placeholder is 3 percent per year for fixture examples.
+As of: 2026-02-01
+Status: unchecked
+cite as: [@CL-EST-0001]
+
+--- term rate_window ---
+Title: rate window
+As of: unknown
+Status: public_reference
+Text: Synthetic period allowed to complete a forward pricing rate check.
+
+--- page est-rate-window-brief ---
+Title: Synthetic decision brief on forward pricing rate review window
+As of: 2026-02-01
+Status: draft
+Text: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?
+
+--- page est-rate-window-brief#question ---
+Title: Question
+As of: 2026-02-01
+Status: draft
+Text: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?
+
+--- page cmp-system-review#the-rule ---
+Title: The rule
+As of: 2026-02-01
+Status: draft
+Text: A synthetic system review runs on a recurring cycle of 30 days [@CL-CMP-0001]. When a synthetic deficiency remains open, the synthetic billing withhold rate…
+
+--- page cmp-withhold-case#how-it-works ---
+Title: How it works
+As of: 2026-02-01
+Status: draft
+Text: The synthetic review board recorded a 30 days cycle [@CL-CMP-0001] and a 5 percent billing withhold threshold [@CL-CMP-0002].
+
+--- page cmp-onboarding-checklist#purpose ---
+Title: Purpose
+As of: 2026-02-01
+Status: draft
+Text: Track synthetic compliance onboarding steps across relative-day windows.
+
+--- page cmp-onboarding-checklist ---
+Title: Synthetic compliance onboarding checklist across two windows
+As of: 2026-02-01
+Status: draft
+Text: Track synthetic compliance onboarding steps across relative-day windows.
+
+--- page est-calc-01#company-calibration ---
+Title: Company calibration
+As of: 2026-02-01
+Status: draft
+Text: Confirm the rate structure and escalation basis for the cost baseline [@Q-002].
+
+Some records were omitted.
+</pre></details>
   </article>
 
   <aside class="rail" aria-label="Evidence and connections">

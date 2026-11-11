@@ -3075,3 +3075,7 @@ dialog.dlg .note:empty {
     animation: none;
   }
 }
+
+.context-pack { margin-top: var(--space-4); border-top: var(--border-w) solid var(--color-border); }
+.context-pack > summary { cursor: pointer; padding: var(--space-1) 0; font-size: var(--text-sm); color: var(--color-muted); }
+.context-pack pre { margin: var(--space-2) 0 0; padding: var(--space-2-5) var(--space-3); font-family: var(--font-mono); font-size: var(--text-xs); background-color: var(--color-surface-2); border-radius: var(--radius-md); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 28rem; overflow: auto; }

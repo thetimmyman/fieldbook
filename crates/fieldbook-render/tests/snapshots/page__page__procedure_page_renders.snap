@@ -528,6 +528,72 @@ expression: html
 
     </section>
     
+    <details class="context-pack"><summary>context pack</summary><pre>rules_version = 1
+
+Synthetic assistant rules for the mini Corpus fixture.
+Use only the supplied context pack and cite every factual statement exactly as shown.
+If the context pack does not establish an answer, reply: Not established in the library.
+
+Labels: public
+
+--- page cmp-review-steps ---
+Title: Synthetic procedure for running a business-system review
+As of: 2026-02-01
+Status: draft
+Text: Describe the synthetic step-by-step procedure for completing a system review.
+
+--- claim CL-CMP-0001 ---
+Title: Synthetic compliance reviews occur every 30 days under the synthetic rule.
+As of: 2026-02-01
+Status: primary_source_supported
+Source: S-0001-v1, sec. 1
+Quote: &#34;Synthetic compliance reviews occur every 30 days.&#34;
+cite as: [@CL-CMP-0001]
+
+--- term system_review ---
+Title: system review
+As of: unknown
+Status: public_reference
+Text: Synthetic periodic assessment of business-system control operation.
+
+--- page cmp-system-review ---
+Title: Synthetic business-system review and withholding overview
+As of: 2026-02-01
+Status: draft
+Text: Explain how a synthetic system review interacts with a synthetic billing withhold.
+
+--- question Q-001 ---
+Title: Which synthetic business-system control owner approves the monthly compliance review?
+As of: unknown
+Status: open
+Text: Synthetic withholding exposure depends on timely review sign-off.
+cite as: [@Q-001]
+
+--- page cmp-system-review#change-note ---
+Title: Change note
+As of: 2026-02-01
+Status: draft
+
+--- page cmp-system-review#purpose ---
+Title: Purpose
+As of: 2026-02-01
+Status: draft
+Text: Explain how a synthetic system review interacts with a synthetic billing withhold.
+
+--- page cmp-system-review#never-confuse ---
+Title: Never confuse
+As of: 2026-02-01
+Status: draft
+Text: Do not confuse a synthetic system review or a synthetic billing withhold with a final contract closeout audit.
+
+--- page cmp-system-review#the-rule ---
+Title: The rule
+As of: 2026-02-01
+Status: draft
+Text: A synthetic system review runs on a recurring cycle of 30 days [@CL-CMP-0001]. When a synthetic deficiency remains open, the synthetic billing withhold rate…
+
+Some records were omitted.
+</pre></details>
   </article>
 
   <aside class="rail" aria-label="Evidence and connections">

@@ -611,6 +611,80 @@ expression: html
 </div>
 
     </section>
+    <details class="context-pack"><summary>context pack</summary><pre>rules_version = 1
+
+Synthetic assistant rules for the mini Corpus fixture.
+Use only the supplied context pack and cite every factual statement exactly as shown.
+If the context pack does not establish an answer, reply: Not established in the library.
+
+Labels: public
+
+--- page cmp-onboarding-checklist ---
+Title: Synthetic compliance onboarding checklist across two windows
+As of: 2026-02-01
+Status: draft
+Text: Track synthetic compliance onboarding steps across relative-day windows.
+
+--- claim CL-CMP-0001 ---
+Title: Synthetic compliance reviews occur every 30 days under the synthetic rule.
+As of: 2026-02-01
+Status: primary_source_supported
+Source: S-0001-v1, sec. 1
+Quote: &#34;Synthetic compliance reviews occur every 30 days.&#34;
+cite as: [@CL-CMP-0001]
+
+--- claim CL-CMP-0002 ---
+Title: Synthetic withholding threshold is 5 percent of billed amounts.
+As of: 2026-02-01
+Status: unchecked
+Source: S-0001-v1, sec. 2
+Quote: &#34;Synthetic withholding threshold is 5 percent.&#34;
+cite as: [@CL-CMP-0002]
+
+--- page cmp-review-steps#company-calibration ---
+Title: Company calibration
+As of: 2026-02-01
+Status: draft
+Text: Verify which role signs the synthetic review checklist [@Q-001].
+
+--- page est-rate-reference ---
+Title: Synthetic reference table of pricing rate windows and placeholders
+As of: 2026-02-01
+Status: draft
+Text: Provide a synthetic lookup table of pricing rate review parameters.
+
+--- page cmp-review-steps#worked-example ---
+Title: Worked example
+As of: 2026-02-01
+Status: draft
+Text: Synthetic example. The numbers are made up.
+
+--- page est-rate-window-brief#options ---
+Title: Options
+As of: 2026-02-01
+Status: draft
+
+--- clause cmp-clause-9900-101 ---
+Title: Synthetic clause card for 48 CFR 9900.101 compliance review
+As of: 2026-02-01
+Status: draft
+Text: Summarize the synthetic clause governing recurring business-system reviews.
+
+--- question Q-001 ---
+Title: Which synthetic business-system control owner approves the monthly compliance review?
+As of: unknown
+Status: open
+Text: Synthetic withholding exposure depends on timely review sign-off.
+cite as: [@Q-001]
+
+--- page cmp-withhold-case#the-rule ---
+Title: The rule
+As of: 2026-02-01
+Status: draft
+Text: Synthetic compliance reviews occur every 30 days [@CL-CMP-0001], and unresolved deficiencies trigger a 5 percent billing withhold [@CL-CMP-0002].
+
+Some records were omitted.
+</pre></details>
   </article>
 
   <aside class="rail" aria-label="Evidence and connections">
