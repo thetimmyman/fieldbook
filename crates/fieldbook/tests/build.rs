@@ -170,7 +170,8 @@ mod build {
             "the home page has its area index"
         );
         assert!(index_html.contains("<nav aria-label=\"Sections\">"));
-        assert!(index_html.contains("class=\"not-available\""));
+        assert!(index_html.contains("<details class=\"fold nav-more\">"));
+        assert!(!index_html.contains("class=\"not-available\""));
     }
 
     #[test]

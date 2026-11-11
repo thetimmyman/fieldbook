@@ -660,7 +660,8 @@ fn run_edition_surface() {
     let index_disk = std::fs::read_to_string(plan.edition_dir.join("index.html"))
         .unwrap_or_else(|e| panic!("{e}"));
     assert!(index_disk.contains("<nav aria-label=\"Sections\">"));
-    assert!(index_disk.contains("class=\"not-available\""));
+    assert!(index_disk.contains("<details class=\"fold nav-more\">"));
+    assert!(!index_disk.contains("class=\"not-available\""));
     build_home_and_areas_counts_use_the_permitted_view(&plan.edition_dir);
     build_about_counts_use_the_permitted_view(&plan.edition_dir);
 
