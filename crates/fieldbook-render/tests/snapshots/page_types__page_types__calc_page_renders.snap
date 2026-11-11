@@ -450,6 +450,9 @@ Some records were omitted.
       </ul>
     </nav>
 
+    <section class="rail-sec rail-list" aria-label="Related"><div class="rail-head">Related</div><p class="rail-empty">No related pages listed.</p></section>
+<section class="rail-sec rail-list" aria-label="Linked from"><div class="rail-head">Linked from</div><p class="rail-empty">No page links here.</p></section>
+
     <section class="rail-sec" aria-label="Cited claims">
       <div class="rail-head">Cited claims (0)</div>
       

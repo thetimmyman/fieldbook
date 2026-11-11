@@ -22,6 +22,7 @@ pub mod nav;
 pub mod page;
 pub mod plan;
 pub mod register;
+pub mod related;
 pub mod search_index;
 pub mod search_page;
 pub mod site;

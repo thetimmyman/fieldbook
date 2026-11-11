@@ -409,6 +409,243 @@ mod page {
         );
     }
 
+    fn rail_section(html: &str, label: &str) -> String {
+        let start_tag = format!("<section class=\"rail-sec rail-list\" aria-label=\"{label}\">");
+        let Some(start_idx) = html.find(&start_tag) else {
+            panic!("missing rail section with label `{label}` in html:\n{html}");
+        };
+        let rest = &html[start_idx..];
+        let end_tag = "</section>";
+        let Some(end_idx) = rest.find(end_tag) else {
+            panic!(
+                "missing closing tag `{end_tag}` for rail section with label `{label}` in html:\n{html}"
+            );
+        };
+        rest[..end_idx + end_tag.len()].to_owned()
+    }
+
+    #[test]
+    fn related_lists_links_with_titles() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "est-rate-window-brief")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Related");
+        assert!(
+            sec.contains("<a class=\"plink\" href=\"cmp-system-review.html\""),
+            "expected link to cmp-system-review.html in Related section, got:\n{sec}"
+        );
+        let expected_title = "Synthetic business-system review and withholding overview";
+        assert!(
+            sec.contains(&format!(">{expected_title}</a>")),
+            "expected link text to be full title of cmp-system-review, got:\n{sec}"
+        );
+        assert!(
+            sec.contains("(1)"),
+            "expected count (1) in Related section, got:\n{sec}"
+        );
+    }
+
+    #[test]
+    fn linked_from_lists_inbound_pages() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Linked from");
+
+        let brief_title = "Synthetic decision brief on forward pricing rate review window";
+        let steps_title = "Synthetic procedure for running a business-system review";
+
+        let brief_link = "<a class=\"plink\" href=\"est-rate-window-brief.html\"";
+        let steps_link = "<a class=\"plink\" href=\"cmp-review-steps.html\"";
+
+        assert!(
+            sec.contains(brief_link),
+            "expected link to est-rate-window-brief in Linked from, got:\n{sec}"
+        );
+        assert!(
+            sec.contains(&format!(">{brief_title}</a>")),
+            "expected est-rate-window-brief title in Linked from, got:\n{sec}"
+        );
+        assert!(
+            sec.contains(steps_link),
+            "expected link to cmp-review-steps in Linked from, got:\n{sec}"
+        );
+        assert!(
+            sec.contains(&format!(">{steps_title}</a>")),
+            "expected cmp-review-steps title in Linked from, got:\n{sec}"
+        );
+
+        let pos_brief = sec.find(brief_link).unwrap();
+        let pos_steps = sec.find(steps_link).unwrap();
+        assert!(
+            pos_brief < pos_steps,
+            "decision brief must precede procedure in title order"
+        );
+
+        assert!(
+            sec.contains("(2)"),
+            "expected count (2) in Linked from, got:\n{sec}"
+        );
+
+        assert!(
+            !sec.contains("cmp-system-review.html"),
+            "Linked from must not list cmp-system-review itself"
+        );
+        assert!(
+            !sec.contains("Synthetic business-system review and withholding overview"),
+            "Linked from must not contain page title itself"
+        );
+    }
+
+    #[test]
+    fn linked_from_is_capped() {
+        let mut tree = fixture_tree();
+        let mut planned_paths: Vec<String> =
+            SNAPSHOT_PLANNED.iter().map(|&s| s.to_owned()).collect();
+
+        for i in 1..=12 {
+            let id = format!("est-fan-{i:02}");
+            let title = format!("Synthetic fan-in page {i:02}");
+            let content = EST_RATE_WINDOW_BRIEF_MD
+                .replace("id = \"est-rate-window-brief\"", &format!("id = \"{id}\""))
+                .replace(
+                    "title = \"Synthetic decision brief on forward pricing rate review window\"",
+                    &format!("title = \"{title}\""),
+                );
+            tree.insert_bytes(
+                format!("corpus/pages/estimating/pricing/{id}.md"),
+                content.into_bytes(),
+            );
+            planned_paths.push(format!("p/{id}.html"));
+        }
+
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::from_owned(planned_paths);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Linked from");
+
+        assert!(
+            sec.contains("(14)"),
+            "expected count (14) in Linked from, got:\n{sec}"
+        );
+
+        let fold_split: Vec<&str> = sec.split("<details class=\"fold\">").collect();
+        assert_eq!(
+            fold_split.len(),
+            2,
+            "expected exactly one <details class=\"fold\"> in Linked from section, got:\n{sec}"
+        );
+        let outside = fold_split[0];
+        let inside = fold_split[1];
+
+        assert_eq!(
+            outside.matches("<li>").count(),
+            10,
+            "expected exactly 10 <li> rows outside the fold, got:\n{outside}"
+        );
+
+        assert!(
+            inside.starts_with("<summary><b>4 more</b></summary>"),
+            "expected summary <b>4 more</b> at start of fold, got:\n{inside}"
+        );
+        assert_eq!(
+            inside.matches("<li>").count(),
+            4,
+            "expected exactly 4 <li> rows inside the fold, got:\n{inside}"
+        );
+
+        let details_start = sec.find("<details").expect("<details element");
+        let details_end = sec[details_start..].find('>').expect("details tag end");
+        let details_tag = &sec[details_start..details_start + details_end + 1];
+        assert_eq!(details_tag, "<details class=\"fold\">");
+        assert!(
+            !details_tag.contains("open"),
+            "<details> must not have an open attribute, got: {details_tag}"
+        );
+    }
+
+    #[test]
+    fn related_target_not_planned_is_text() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(&[
+            "p/cmp-review-steps.html",
+            "p/est-calc-01.html",
+            "p/est-rate-window-brief.html",
+        ]);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "est-rate-window-brief")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Related");
+
+        let expected_title = "Synthetic business-system review and withholding overview";
+        assert!(
+            sec.contains("<span class=\"plink\""),
+            "expected unbuilt target to render as <span class=\"plink\", got:\n{sec}"
+        );
+        assert!(
+            sec.contains(expected_title),
+            "expected title text in unbuilt target span, got:\n{sec}"
+        );
+        assert!(
+            !sec.contains("<a "),
+            "Related section must contain no <a> element when target is unbuilt, got:\n{sec}"
+        );
+    }
+
+    #[test]
+    fn related_lists_are_empty_state_when_none() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "est-calc-01")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+
+        let related_sec = rail_section(&html, "Related");
+        assert!(
+            related_sec.contains("No related pages listed."),
+            "Related empty state text missing, got:\n{related_sec}"
+        );
+        assert!(
+            !related_sec.contains("<ul>"),
+            "Related empty state must not contain <ul>, got:\n{related_sec}"
+        );
+        assert!(
+            !related_sec.contains('('),
+            "Related empty state must not contain '(' count, got:\n{related_sec}"
+        );
+
+        let linked_from_sec = rail_section(&html, "Linked from");
+        assert!(
+            linked_from_sec.contains("No page links here."),
+            "Linked from empty state text missing, got:\n{linked_from_sec}"
+        );
+        assert!(
+            !linked_from_sec.contains("<ul>"),
+            "Linked from empty state must not contain <ul>, got:\n{linked_from_sec}"
+        );
+    }
+
     #[test]
     fn purpose_summary_drops_citation_markers() {
         let plain =

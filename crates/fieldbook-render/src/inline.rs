@@ -272,7 +272,7 @@ fn find_whole_word_prelowered(
     None
 }
 
-fn parse_md_link_target(dest_url: &str) -> Option<(&str, Option<&str>)> {
+pub(crate) fn parse_md_link_target(dest_url: &str) -> Option<(&str, Option<&str>)> {
     if dest_url.contains("://") || dest_url.starts_with('#') || dest_url.starts_with('/') {
         return None;
     }
