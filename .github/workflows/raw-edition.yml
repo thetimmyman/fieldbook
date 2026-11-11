@@ -1,0 +1,132 @@
+# Raw edition floor delivery (docs/runbooks/release.md#raw-edition-floor).
+# The delivery job runs only for an edition-* tag whose committed edition-release.toml selects raw.
+# Pull requests and manual runs run the trial job: the same packaging and lifecycle code against
+# temporary synthetic tagged repositories. This workflow never calls a Site handler, a renderer or a
+# browser. It builds the fieldbook program, and the packaging step runs only that program's
+# strict check verb. The owner alone creates tags and retrieves the artifacts, and sends the
+# four files the raw README names; the loose corpus-support.toml is a retention copy.
+#
+# OWNER ITEM, deliberately not done here: the packaging step needs the security contact text in
+# the environment variable FIELDBOOK_SECURITY_CONTACT (control IN-01). A repository secret or
+# variable is an owner-only decision, so this file binds none. Until the owner adds an `env:`
+# entry to the "Package the raw edition" step, `edition-raw` refuses with IN-01 and the delivery
+# job fails closed, which is the safe failure. The workflow test in xtask/src/raw_release.rs pins
+# the absence of any secret reference and is edited by the owner together with that binding.
+name: raw-edition
+
+on:
+  push:
+    tags: ["edition-*"]
+  pull_request:
+    paths: [".github/workflows/raw-edition.yml", "xtask/src/edition_raw.rs", "xtask/src/raw_release.rs"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  select:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      raw: ${{ steps.mode.outputs.raw }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Read the delivery kind committed at the tagged commit
+        id: mode
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
+        run: |
+          set -euo pipefail
+          raw=false
+          if [ "$EVENT_NAME" = push ] && [ "$REF_TYPE" = tag ]; then
+            if git cat-file -e "$GITHUB_SHA:edition-release.toml" 2>/dev/null; then
+              mode="$(git show "$GITHUB_SHA:edition-release.toml")"
+              if grep -qx 'kind = "raw"' <<<"$mode"; then
+                raw=true
+              elif grep -qi 'raw' <<<"$mode"; then
+                # Any other mention of raw, in any case or spelling, fails rather than skipping
+                # delivery silently.
+                echo '::error::edition-release.toml mentions raw but lacks the exact line kind = "raw"'
+                exit 1
+              fi
+            fi
+          fi
+          echo "raw=$raw" >> "$GITHUB_OUTPUT"
+
+  trial:
+    needs: [select]
+    if: ${{ github.event_name != 'push' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: ${{ github.ref == 'refs/heads/main' }}
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        with:
+          tool: cargo-nextest@0.9.148
+      - name: Run the raw packaging and lifecycle tests on synthetic tagged repositories
+        run: |
+          cargo nextest run --locked -p xtask edition_raw:: raw_release::
+
+  deliver:
+    needs: [select]
+    if: ${{ needs.select.outputs.raw == 'true' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      CARGO_INCREMENTAL: "0"
+      EDITION_TAG: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      - name: Build the program
+        run: cargo build --locked --release --package fieldbook
+      - name: Check the tag, the baseline and compatibility, and collect the public evidence
+        run: cargo xtask raw-edition-check "$EDITION_TAG" --base release-baseline.toml --evidence-out out/raw-evidence
+      - name: Package the raw edition
+        run: cargo xtask edition-raw --out out/dist --fieldbook target/release/fieldbook
+      - name: Name the artifacts
+        id: names
+        run: echo "number=${EDITION_TAG#edition-}" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fieldbook-edition-${{ steps.names.outputs.number }}-raw
+          path: |
+            out/dist/fieldbook-edition-${{ steps.names.outputs.number }}.zip
+            out/dist/fieldbook-originals-${{ steps.names.outputs.number }}.zip
+            out/dist/SHA256SUMS
+            out/dist/corpus-support.toml
+            out/dist/corpus-support.sha256
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fieldbook-edition-${{ steps.names.outputs.number }}-raw-evidence
+          path: out/raw-evidence
+          if-no-files-found: error
+          retention-days: 90

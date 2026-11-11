@@ -969,6 +969,7 @@ dependencies = [
  "fieldbook-calc",
  "fieldbook-core",
  "fieldbook-render",
+ "flate2",
  "object",
  "pulldown-cmark",
  "serde",

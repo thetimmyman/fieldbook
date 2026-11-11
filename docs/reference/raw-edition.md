@@ -1,0 +1,60 @@
+# Raw edition
+
+The delivered file set, the content rules and the verification contract of the raw edition, the floor delivery that ships plain public files only. The procedure (tag, artifacts, archive, rollback) is in the [release runbook](../runbooks/release.md#raw-edition-floor); how the files reach the laptop is in the [transfer runbook](../runbooks/transfer.md). Code: `xtask/src/edition_raw.rs` (packaging), `xtask/src/raw_release.rs` (tag check, evidence, archive verifier) and the Raw profile of `xtask/src/allowlist.rs`.
+
+## Commands
+
+| Command | What it does |
+|---|---|
+| `cargo xtask edition-raw --out DIR [--fieldbook PROGRAM]` | Packages the clean commit into `DIR`. Refuses a dirty tree (including an ignored file under `corpus/`, a tracked file marked skip-worktree or assume-unchanged, and a sparse checkout) and a blank or missing `FIELDBOOK_SECURITY_CONTACT` (control IN-01). Writes nothing to `DIR` until every check has passed |
+| `cargo xtask raw-edition-check TAG --base FILE --evidence-out DIR` | Validates an owner-created `edition-NNN` tag whose committed `edition-release.toml` says `kind = "raw"`, a clean checkout at the tagged commit (the same clean-tree rule as `edition-raw`), and a `--base` identical to the committed baseline; collects the public compatibility evidence |
+| `cargo xtask raw-edition-compare LOCAL DOWNLOADED` | Requires the downloaded workflow artifact to hold the same file names with the same bytes as the pair built locally at the tagged commit, and to verify on its own: zip hashes against `SHA256SUMS`, each zip's internal sums, and the catalogue against its digest |
+
+The program run for the check is `fieldbook check --strict --json`; without `--fieldbook`, `edition-raw` starts it through `cargo run`. Nothing builds a site, starts a renderer or opens a browser.
+
+## Delivered files
+
+`edition-raw` writes five files. Four are sent; the fifth is kept.
+
+| File | Sent | Route |
+|---|---|---|
+| `fieldbook-edition-NNN.zip` | Yes | The approved transfer channel |
+| `fieldbook-originals-NNN.zip` | Yes | The approved transfer channel |
+| `SHA256SUMS` (two lines, one per zip) | Yes | The separate hash route |
+| `corpus-support.sha256` (one line) | Yes | The separate hash route |
+| `corpus-support.toml` | No | Retention copy for the independent archive. The catalogue that is checked on the laptop is `edition\evidence\corpus-support.toml`, extracted from the edition zip, against `corpus-support.sha256` |
+
+Each zip is deterministic: entries sorted by path, the commit time, fixed permissions, deflate only. Each holds one top folder (`edition/` or `originals/`) and its own `SHA256SUMS`.
+
+## What the zips may hold
+
+Both trees are checked against the Raw allowlist profile before anything is written (FB0601, FB0602, FB0608).
+
+- **Edition zip.** Only fixed paths: the shipped Corpus (`corpus/corpus.toml`, `corpus/eval/regression.toml`, the five registers, pages, `corpus/sources/text/` when extraction exists), the assistant rules, `edition.toml`, `README.txt`, `TRANSFER-STATEMENT.txt`, `evidence/check.json`, `evidence/regression.json`, `evidence/corpus-support.toml`, and four files under `intake/`. The extensions that result are `.md`, `.toml`, `.csv`, `.json` and `.txt`. No site file, script, markup, state folder or quarantined payload.
+- **Originals zip.** Only registered originals whose bytes match their `sources.csv` hash, and only with the extensions `.pdf`, `.txt` and `.csv` (the constant `RAW_ORIGINAL_EXTENSIONS`). HTML, HTM, XHTML and SVG originals ship with an added `.txt` and their bytes unchanged, so a saved web page keeps its page scripts as text. Any other extension, and any original that begins like a Windows or Linux executable, is refused. A quarantined version ships nothing.
+- PDF originals are third-party public documents shipped byte for byte. The build looks in each one only for embedded files (attachments): it searches the raw bytes and every stream that inflates with zlib (FlateDecode) for `/EmbeddedFile`. Other encodings and encrypted streams are not decoded, so the count is a lower bound. Nothing else in a PDF is inspected.
+
+## Evidence in the edition zip
+
+- `evidence/check.json`: the strict check report, exactly as the program printed it. Zero errors is required.
+- `evidence/regression.json`: `cases` and `critical_cases` (counted from `regression.toml`), `critical_misses`, `misses` (the non-critical `FB0127` warnings, each listed), `passed`, the edition, commit and date, and `check_sha256`, the SHA-256 of the exact `check.json` bytes, which binds the two reports together. A miss of a critical case (`FB0128`) or a malformed set (`FB0126`) stops the packaging. A set with no critical case passes that test vacuously; the counts are written so that a reader sees it.
+- `evidence/corpus-support.toml`: the support-file catalogue, and its digest is `corpus-support.sha256`. This is evidence of bytes, not proof that any file is public or admitted.
+
+## The generated texts
+
+`README.txt`, `TRANSFER-STATEMENT.txt` and `intake/integrity-guide.md` and `intake/network-silence.md` are written by the build from templates in `edition_raw.rs`, with every figure counted from the packed files. The other two intake files are the repository's, with a raw-edition note first. A placeholder left unfilled stops the run (IN-01). The texts make no network claim and no browser-test claim. They say that the build adds no site, JavaScript or style sheet of its own, and they state three counted figures: the saved web pages and drawings shipped as `.txt` (and how many hold a `<script>` tag), the PDF originals that hold an embedded file (named), and the support files of the catalogue by role. They tell the reader to open a register CSV in Excel through Data > From Text/CSV with File origin 65001 (UTF-8); the registers themselves ship unchanged. Section 6 of the transfer statement says that this tool version has no Handoff step and no AI build, and the note before each inherited intake file says the same. Tests pin that the texts agree with the delivered file set above and with the transfer runbook.
+
+## Verification contract
+
+`cargo xtask archive-release --kind raw` (release runbook, raw step 3) checks, before it publishes anything:
+
+- the zip hashes against the external `SHA256SUMS`, and every file against the internal `SHA256SUMS`;
+- the edition identity and commit, the Raw allowlist (which requires both reports to be present), and the catalogue bytes against the sidecar digest;
+- the committed mode descriptor and the compatibility evidence. The baseline it archives is the `release-baseline.toml` of the downloaded evidence; `--base`, when given, must be byte-identical to it, or nothing is archived;
+- then it runs the Raw provider on the staged folder (below). `--intake` is refused for a raw archive. Only when every check passes is the immutable `edition-NNN-<commit12>` folder published, with `archive.toml` last.
+
+The Raw provider runs again at `cargo xtask verify-archive` (raw step 4). It checks the exact provider file set (the pair, the three sidecars, `archive.toml` and exactly the retained evidence); that the archived mode descriptor selects `raw`; that `check.json` is a clean strict version 1 report (zero errors, no `FB0126` or `FB0128`) whose bytes `regression.json` names by `check_sha256`; that `regression.json` records a passed regression for this edition and commit; and it restores both trees and checks them against the Raw allowlist. With `--previous` it also verifies the predecessor pair that the archived baseline binds. No Site provider and no executable runs for a raw archive.
+
+## Not covered
+
+No signing, no browser test, no network-silence test, no inspection of PDF content beyond the attachment count, and no check by a second party of the strict-check evidence. `fieldbook-render` is compiled into `xtask` through the `fieldbook` crate, which holds the Corpus reader, but the raw path never calls it; a test pins that the raw code names no render or build entry.

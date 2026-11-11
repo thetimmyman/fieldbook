@@ -11,6 +11,9 @@
 //! - `scope BASE HEAD`: fail when a pull request that deletes a card changes a path the card does not list.
 //! - `guard-statuses BASE HEAD`: fail when an agent's commits certify their own work.
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
+//! - `edition-raw --out DIR`: package the raw edition floor from a clean commit.
+//! - `raw-edition-check TAG --base FILE --evidence-out DIR`: check a raw edition tag and collect its evidence.
+//! - `raw-edition-compare LOCAL DOWNLOADED`: require a downloaded raw delivery set to equal the local one.
 //! - `harness [--edition DIR]`: open every page of an edition in headless Edge (or Chromium) with a net-log.
 //! - `hosted-limits DIR`: fail if a file in DIR is over 25 MiB or DIR holds more than 20,000 files (Cloudflare Workers static assets limits).
 //!
@@ -77,13 +80,7 @@ mod deps_metadata;
 mod deps_references;
 mod docs;
 mod docs_lints;
-#[cfg_attr(
-    not(test),
-    expect(
-        dead_code,
-        reason = "raw-edition and release-workflow register their archive providers next"
-    )
-)]
+mod edition_raw;
 mod edition_release;
 mod errors;
 mod golden_wrap;
@@ -97,6 +94,7 @@ mod links;
 #[cfg(test)]
 mod literals;
 mod proc;
+mod raw_release;
 mod scope;
 mod tools;
 #[cfg_attr(
@@ -124,6 +122,11 @@ const USAGE: &str = "usage: cargo xtask <command>
   binscan EXE --build silent|ai     check imported OS symbols of EXE against its allowlist and group bans
   archive-release [FLAGS]           copy a verified release set and compatibility evidence into a durable archive
   verify-archive DIR [FLAGS]        reopen and verify a durable archive and its stream predecessor
+  edition-raw --out DIR [FLAGS]     package the raw edition floor (paired archives) from a clean commit
+  raw-edition-check TAG --base FILE --evidence-out DIR
+                                    check an owner-created raw edition tag and collect its evidence
+  raw-edition-compare LOCAL DOWNLOADED
+                                    require a downloaded raw delivery set to equal the local one
   edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version
   harness [--edition DIR]           open every page and renderable original in headless Edge (or Chromium) with a net-log
   hosted-limits DIR                 fail if a file in DIR is over 25 MiB or DIR holds more than 20,000 files (Cloudflare Workers static assets limits)";
@@ -131,6 +134,10 @@ const USAGE: &str = "usage: cargo xtask <command>
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
     let root = std::env::var_os("XTASK_REPO_ROOT").map_or_else(proc::repo_root, PathBuf::from);
+    if let Err(message) = raw_release::register_raw_provider() {
+        eprintln!("error: {message}");
+        return ExitCode::from(3);
+    }
     let result = match args
         .iter()
         .map(String::as_str)
@@ -153,6 +160,9 @@ fn main() -> ExitCode {
         ["binscan", exe, "--build", build] => binscan::command(&root, &PathBuf::from(exe), build),
         ["archive-release", rest @ ..] => edition_release::command_archive_release(rest),
         ["verify-archive", rest @ ..] => edition_release::command_verify_archive(rest),
+        ["edition-raw", rest @ ..] => edition_raw::command_edition_raw(&root, rest),
+        ["raw-edition-check", rest @ ..] => raw_release::command_raw_edition_check(&root, rest),
+        ["raw-edition-compare", rest @ ..] => raw_release::command_raw_edition_compare(rest),
         ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
         ["harness", rest @ ..] => harness::command(&root, rest),
         ["hosted-limits", dir] => hosted::command(&PathBuf::from(dir)),
