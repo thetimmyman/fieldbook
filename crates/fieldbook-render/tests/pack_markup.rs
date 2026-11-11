@@ -134,9 +134,14 @@ mod pack_markup {
 
     /// The pack part of `html`: from its `<details>` to its `</details>`.
     fn pack_part(html: &str) -> &str {
-        let start = html.find(PACK_OPEN).expect("the page has a context pack");
+        let start = html
+            .find(PACK_OPEN)
+            .unwrap_or_else(|| panic!("the page has a context pack"));
         let rest = &html[start..];
-        let end = rest.find("</details>").expect("the pack part is closed") + "</details>".len();
+        let end = rest
+            .find("</details>")
+            .unwrap_or_else(|| panic!("the pack part is closed"))
+            + "</details>".len();
         &rest[..end]
     }
 

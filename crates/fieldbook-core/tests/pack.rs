@@ -21,6 +21,7 @@ mod pack {
     use fieldbook_core::ids::PageId;
     use fieldbook_core::labels::{LabelAllow, LabelId, OWNER_SUPPLIED, PUBLIC};
     use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
+    use fieldbook_core::strings;
 
     const FIXTURE_POLICY: &str = include_str!("../../../tests/fixtures/policy/policy.toml");
     const TODAY_RAW: &str = include_str!("../../../tests/fixtures/corpus-mini/TODAY");
@@ -487,7 +488,7 @@ mod pack {
         let full = pack_of(&view, &Dest::Edition, PAGE, BUDGET);
         let everything = block_ids(full.blocks());
         assert!(full.left_out_budget().is_empty());
-        assert!(!full.to_text().contains("Left out (budget)"));
+        assert!(!full.to_text().contains(strings::left_out_budget()));
 
         // Room for the preamble, the page and a little more.
         let budget = ASSISTANT_MD.chars().count() + full.blocks()[0].text.chars().count() + 40;
@@ -502,7 +503,9 @@ mod pack {
         assert_eq!(seen, everything, "every block is kept or listed, in order");
 
         let text = small.to_text();
-        let heading = text.find("\nLeft out (budget)\n").unwrap();
+        let heading = text
+            .find(&format!("\n{}\n", strings::left_out_budget()))
+            .unwrap();
         let last = text.rfind("\nSome records were omitted.\n").unwrap();
         let first_dropped = &small.left_out_budget()[0];
         let entry = format!("- {} {}", first_dropped.kind, first_dropped.id);
@@ -563,7 +566,9 @@ mod pack {
 
         let text = pack.to_text();
         let last_block = text.rfind("\n--- ").unwrap();
-        let heading = text.find("\nLeft out (budget)\n").unwrap();
+        let heading = text
+            .find(&format!("\n{}\n", strings::left_out_budget()))
+            .unwrap();
         let claim = text
             .find("- claim CL-CMP-0001\n- conflict XC-01\n- claim CL-CMP-0002\n")
             .unwrap();
