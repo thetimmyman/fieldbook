@@ -232,7 +232,7 @@ expression: html
     <section class="part" aria-labelledby="the-rule">
       <h2 id="the-rule">The rule</h2>
       
-      <p>Synthetic compliance reviews occur every 30 days <a class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 1">1</a>, and unresolved deficiencies trigger a 5 percent <span class="term" data-pv="term:billing_withhold" data-pv-title="billing withhold" data-pv-body="Synthetic retention of a percentage of interim payments pending system correction.">billing withhold</span> <a class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-CMP-0002" data-pv-body="Synthetic withholding threshold is 5 percent of billed amounts." aria-label="Source 2">2</a>.</p>
+      <p>Synthetic compliance reviews occur every 30 days <a id="cite-ref-1-1" class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 1">1</a>, and unresolved deficiencies trigger a 5 percent <span class="term" data-pv="term:billing_withhold" data-pv-title="billing withhold" data-pv-body="Synthetic retention of a percentage of interim payments pending system correction.">billing withhold</span> <a id="cite-ref-2-1" class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-CMP-0002" data-pv-body="Synthetic withholding threshold is 5 percent of billed amounts." aria-label="Source 2">2</a>.</p>
 
       
     </section>
@@ -247,7 +247,7 @@ expression: html
             <h3 id="public-record">Public record</h3>
           </div>
           <div class="case-body">
-            <p>The synthetic review board recorded a 30 days cycle <a class="cite-n" href="#cite-3" data-pv="cite:3" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 3">3</a> and a 5 percent billing withhold threshold <a class="cite-n" href="#cite-4" data-pv="cite:4" data-pv-title="CL-CMP-0002" data-pv-body="Synthetic withholding threshold is 5 percent of billed amounts." aria-label="Source 4">4</a>.</p>
+            <p>The synthetic review board recorded a 30 days cycle <a id="cite-ref-1-2" class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 1">1</a> and a 5 percent billing withhold threshold <a id="cite-ref-2-2" class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-CMP-0002" data-pv-body="Synthetic withholding threshold is 5 percent of billed amounts." aria-label="Source 2">2</a>.</p>
 
           </div>
         </div>
@@ -294,7 +294,7 @@ expression: html
     <section class="part" aria-labelledby="sources">
       <h2 id="sources">Sources</h2>
       
-<ol class="sources-list">
+<ol class="sources-list" aria-label="Sources cited on this page">
 
   <li id="cite-1" class="source-row">
     <span class="source-num">1.</span>
@@ -316,6 +316,9 @@ expression: html
         <span>Verified <time datetime="2026-02-10">2026-02-10</time> (owner)</span>
         
       </div>
+    
+    
+      <div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-1-1" aria-label="Back to citation a of 2 in the text">a</a> <a href="#cite-ref-1-2" aria-label="Back to citation b of 2 in the text">b</a></div>
     
     </div>
   </li>
@@ -341,53 +344,8 @@ expression: html
         
       </div>
     
-    </div>
-  </li>
-
-  <li id="cite-3" class="source-row">
-    <span class="source-num">3.</span>
-    <div class="source-body">
     
-      <div class="source-chips">
-        <span class="claim-mark ok" data-claim="CL-CMP-0001" aria-label="Claim CL-CMP-0001: Primary-source supported" title="CL-CMP-0001 · Primary-source supported"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>CL-CMP-0001</span></span>
-        <span class="chip ok"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>Primary-source supported</span></span>
-        <span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 1</span> <span class="meta-only-tag">Metadata only</span></span>
-      </div>
-      
-      <p class="source-stmt">Synthetic compliance reviews occur every 30 days under the synthetic rule.</p>
-      
-      
-      <blockquote class="source-quote">“Synthetic compliance reviews occur every 30 days.”</blockquote>
-      
-      <div class="source-meta">
-        
-        <span>Verified <time datetime="2026-02-10">2026-02-10</time> (owner)</span>
-        
-      </div>
-    
-    </div>
-  </li>
-
-  <li id="cite-4" class="source-row">
-    <span class="source-num">4.</span>
-    <div class="source-body">
-    
-      <div class="source-chips">
-        <span class="claim-mark warn" data-claim="CL-CMP-0002" aria-label="Claim CL-CMP-0002: Unchecked" title="CL-CMP-0002 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-CMP-0002</span></span>
-        <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span>
-        <span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 2</span> <span class="meta-only-tag">Metadata only</span></span>
-      </div>
-      
-      <p class="source-stmt">Synthetic withholding threshold is 5 percent of billed amounts.</p>
-      
-      
-      <blockquote class="source-quote">“Synthetic withholding threshold is 5 percent.”</blockquote>
-      
-      <div class="source-meta">
-        
-        <span class="unver">Never verified</span>
-        
-      </div>
+      <div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-2-1" aria-label="Back to citation a of 2 in the text">a</a> <a href="#cite-ref-2-2" aria-label="Back to citation b of 2 in the text">b</a></div>
     
     </div>
   </li>

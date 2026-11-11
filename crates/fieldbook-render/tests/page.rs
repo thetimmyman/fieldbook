@@ -211,10 +211,10 @@ mod page {
     }
 
     #[test]
-    fn markers_number_in_reading_order_and_match_sources_rows() {
+    fn repeated_claim_has_one_row() {
         let mut tree = fixture_tree();
         let custom_md = format!(
-            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@S-0001-v1, sec. 1].\n\n## {}\n\nRepeat the supported claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
+            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@CL-CMP-0001].\n\n## {}\n\nRepeat the supported claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
             strings::parts()[0],
             strings::parts()[1],
             strings::parts()[2],
@@ -237,20 +237,178 @@ mod page {
             .unwrap();
         let html = render_main(page, &view, &planned);
 
-        let m1 = html.find("href=\"#cite-1\"").expect("marker 1");
-        let m2 = html.find("href=\"#cite-2\"").expect("marker 2");
-        let m3 = html.find("href=\"#cite-3\"").expect("marker 3");
+        assert_eq!(
+            html.matches("aria-label=\"Source 1\">1</a>").count(),
+            3,
+            "exactly three markers for Source 1 must exist"
+        );
+        assert_eq!(
+            html.matches("id=\"cite-1\"").count(),
+            1,
+            "exactly one cite-1 row must exist"
+        );
+        assert!(!html.contains("id=\"cite-2\""), "no cite-2 row must exist");
+        assert!(
+            !html.contains("href=\"#cite-2\""),
+            "no href to cite-2 must exist"
+        );
+
+        assert_eq!(
+            html.matches("id=\"cite-ref-1-1\"").count(),
+            1,
+            "cite-ref-1-1 marker id must appear once"
+        );
+        assert_eq!(
+            html.matches("id=\"cite-ref-1-2\"").count(),
+            1,
+            "cite-ref-1-2 marker id must appear once"
+        );
+        assert_eq!(
+            html.matches("id=\"cite-ref-1-3\"").count(),
+            1,
+            "cite-ref-1-3 marker id must appear once"
+        );
+
+        let m1 = html.find("id=\"cite-ref-1-1\"").expect("marker 1-1");
+        let m2 = html.find("id=\"cite-ref-1-2\"").expect("marker 1-2");
+        let m3 = html.find("id=\"cite-ref-1-3\"").expect("marker 1-3");
         assert!(
             m1 < m2 && m2 < m3,
-            "markers 1, 2, 3 must appear in reading order"
+            "marker ids must appear in reading order"
         );
-        assert!(html.contains("aria-label=\"Source 1\">1</a>"));
-        assert!(html.contains("aria-label=\"Source 2\">2</a>"));
-        assert!(html.contains("aria-label=\"Source 3\">3</a>"));
+    }
+
+    #[test]
+    fn back_references_link_each_marker() {
+        let mut tree = fixture_tree();
+        let custom_md = format!(
+            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@CL-CMP-0001] and standard version [@S-0001-v1, sec. 1].\n\n## {}\n\nRepeat the supported claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
+            strings::parts()[0],
+            strings::parts()[1],
+            strings::parts()[2],
+            strings::parts()[3],
+            strings::parts()[4],
+            strings::parts()[5],
+            strings::parts()[6],
+            strings::parts()[7],
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-system-review.md",
+            custom_md.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+
+        let r1 = html.find("id=\"cite-1\"").expect("row 1");
+        let r2 = html.find("id=\"cite-2\"").expect("row 2");
+        assert!(r1 < r2, "Sources rows 1, 2 must appear in order");
+
+        let row1_slice = &html[r1..r2];
+        let row2_slice = &html[r2..];
+
         assert!(
-            !html.contains("href=\"#cite-4\""),
-            "Q-001 and XC-01 must be RefChips, not numbered markers"
+            row1_slice.contains("Back to text:"),
+            "row 1 footer must contain `Back to text:`"
         );
+        assert!(
+            row1_slice.contains("href=\"#cite-ref-1-1\""),
+            "row 1 footer must link to marker 1-1"
+        );
+        assert!(
+            row1_slice.contains("href=\"#cite-ref-1-2\""),
+            "row 1 footer must link to marker 1-2"
+        );
+        assert!(
+            row1_slice.contains("href=\"#cite-ref-1-3\""),
+            "row 1 footer must link to marker 1-3"
+        );
+        assert!(
+            row1_slice.contains("aria-label=\"Back to citation a of 3 in the text\""),
+            "row 1 link a aria-label"
+        );
+        assert!(
+            row1_slice.contains("aria-label=\"Back to citation b of 3 in the text\""),
+            "row 1 link b aria-label"
+        );
+        assert!(
+            row1_slice.contains("aria-label=\"Back to citation c of 3 in the text\""),
+            "row 1 link c aria-label"
+        );
+
+        assert!(
+            row2_slice.contains("href=\"#cite-ref-2-1\""),
+            "row 2 footer must link to marker 2-1"
+        );
+        assert!(
+            row2_slice.contains("aria-label=\"Back to the citation in the text\""),
+            "row 2 single link aria-label"
+        );
+        assert!(
+            row2_slice.contains("Back to text"),
+            "row 2 footer must contain `Back to text`"
+        );
+
+        let prefix = "href=\"#cite-ref-";
+        let mut rest = html.as_str();
+        let mut back_ref_targets = Vec::new();
+        while let Some(idx) = rest.find(prefix) {
+            let after = &rest[idx + prefix.len()..];
+            let quote_end = after.find('"').expect("closing quote after href");
+            let marker_id = format!("cite-ref-{}", &after[..quote_end]);
+            back_ref_targets.push(marker_id);
+            rest = &after[quote_end..];
+        }
+        assert_eq!(
+            back_ref_targets.len(),
+            4,
+            "must have exactly 4 back-reference links"
+        );
+        for target in &back_ref_targets {
+            let expected_id = format!("id=\"{target}\"");
+            assert!(
+                html.contains(&expected_id),
+                "target id `{expected_id}` must exist in html"
+            );
+        }
+
+        assert!(
+            html.contains("aria-label=\"Sources cited on this page\""),
+            "sources list must have accessible label"
+        );
+    }
+
+    #[test]
+    fn claim_and_version_rows_stay_separate() {
+        let mut tree = fixture_tree();
+        let custom_md = format!(
+            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@S-0001-v1, sec. 1] and verify again [@S-0001-v1, sec. 1].\n\n## {}\n\nReview subsection [@S-0001-v1, sec. 2], repeat claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
+            strings::parts()[0],
+            strings::parts()[1],
+            strings::parts()[2],
+            strings::parts()[3],
+            strings::parts()[4],
+            strings::parts()[5],
+            strings::parts()[6],
+            strings::parts()[7],
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-system-review.md",
+            custom_md.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
 
         let r1 = html.find("id=\"cite-1\"").expect("row 1");
         let r2 = html.find("id=\"cite-2\"").expect("row 2");
@@ -263,13 +421,104 @@ mod page {
         let row1_slice = &html[r1..r2];
         let row2_slice = &html[r2..r3];
         let row3_slice = &html[r3..];
-        assert!(row1_slice.contains("CL-CMP-0001"));
-        assert!(row2_slice.contains("S-0001-v1"));
+
+        // Row 1 is the claim: contains CL-CMP-0001, has data-claim=.
+        assert!(
+            row1_slice.contains("CL-CMP-0001"),
+            "row 1 must contain CL-CMP-0001"
+        );
+        assert!(
+            row1_slice.contains("data-claim="),
+            "row 1 claim row must have data-claim="
+        );
+
+        // Row 2 is the version with locator sec. 1: no data-claim=, back to text lists two links a and b.
+        assert!(
+            row2_slice.contains("S-0001-v1"),
+            "row 2 must contain version S-0001-v1"
+        );
+        assert!(
+            row2_slice.contains("sec. 1"),
+            "row 2 must contain locator sec. 1"
+        );
         assert!(
             !row2_slice.contains("data-claim="),
             "direct source-version row must not invent a claim"
         );
-        assert!(row3_slice.contains("CL-CMP-0001"));
+        assert!(
+            row2_slice.contains("Back to text:"),
+            "row 2 footer must contain `Back to text:`"
+        );
+        assert!(
+            row2_slice.contains("href=\"#cite-ref-2-1\""),
+            "row 2 footer must link to marker 2-1"
+        );
+        assert!(
+            row2_slice.contains("href=\"#cite-ref-2-2\""),
+            "row 2 footer must link to marker 2-2"
+        );
+        assert!(
+            row2_slice.contains(">a</a>"),
+            "row 2 footer must have link a"
+        );
+        assert!(
+            row2_slice.contains(">b</a>"),
+            "row 2 footer must have link b"
+        );
+
+        // Row 3 is the version with the other locator: one link.
+        assert!(
+            row3_slice.contains("S-0001-v1"),
+            "row 3 must contain version S-0001-v1"
+        );
+        assert!(
+            row3_slice.contains("sec. 2"),
+            "row 3 must contain locator sec. 2"
+        );
+        assert!(
+            row3_slice.contains("href=\"#cite-ref-3-1\""),
+            "row 3 footer must link to marker 3-1"
+        );
+        assert!(
+            row3_slice.contains("aria-label=\"Back to the citation in the text\""),
+            "row 3 footer must have single back-to-text aria-label"
+        );
+        assert!(
+            row3_slice.contains("Back to text"),
+            "row 3 footer must contain `Back to text`"
+        );
+        assert!(
+            !row3_slice.contains("href=\"#cite-ref-3-2\""),
+            "row 3 must not have a second link"
+        );
+
+        // There is no id="cite-4".
+        assert!(!html.contains("id=\"cite-4\""), "no cite-4 row must exist");
+        assert!(
+            !html.contains("href=\"#cite-4\""),
+            "no href to cite-4 must exist"
+        );
+
+        // The second claim marker shows number 1 (id="cite-ref-1-2").
+        assert!(
+            html.contains("id=\"cite-ref-1-2\""),
+            "second claim marker must have id cite-ref-1-2"
+        );
+        let m_claim2 = html
+            .find("id=\"cite-ref-1-2\"")
+            .expect("second claim marker");
+        let m_claim2_end = html[m_claim2..]
+            .find("</a>")
+            .expect("second claim marker closing tag");
+        let m_claim2_slice = &html[m_claim2..m_claim2 + m_claim2_end + 4];
+        assert!(
+            m_claim2_slice.contains("href=\"#cite-1\""),
+            "second claim marker must link to #cite-1"
+        );
+        assert!(
+            m_claim2_slice.contains("aria-label=\"Source 1\">1</a>"),
+            "second claim marker must show number 1"
+        );
     }
 
     #[test]

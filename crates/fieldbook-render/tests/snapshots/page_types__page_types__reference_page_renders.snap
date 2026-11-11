@@ -236,8 +236,8 @@ expression: html
         <div class="table-wrap"><table>
 <thead><tr><th scope="col">Parameter</th><th scope="col">Value</th><th scope="col">Basis</th></tr></thead>
 <tbody>
-<tr data-as-of="2026-02-01"><td>Rate review window</td><td>10 days <a class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 1">1</a></td><td>Current synthetic pricing guidance <a class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 2">2</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
-<tr data-as-of="2026-02-01"><td>Escalation placeholder</td><td>3 percent <a class="cite-n" href="#cite-3" data-pv="cite:3" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 3">3</a></td><td>Synthetic multi-year assumption <a class="cite-n" href="#cite-4" data-pv="cite:4" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 4">4</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
+<tr data-as-of="2026-02-01"><td>Rate review window</td><td>10 days <a id="cite-ref-1-1" class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 1">1</a></td><td>Current synthetic pricing guidance <a id="cite-ref-1-2" class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 1">1</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
+<tr data-as-of="2026-02-01"><td>Escalation placeholder</td><td>3 percent <a id="cite-ref-2-1" class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 2">2</a></td><td>Synthetic multi-year assumption <a id="cite-ref-2-2" class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 2">2</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
 </tbody></table></div>
 
       </div>
@@ -281,7 +281,7 @@ expression: html
     <section class="part" aria-labelledby="sources">
       <h2 id="sources">Sources</h2>
       
-<ol class="sources-list">
+<ol class="sources-list" aria-label="Sources cited on this page">
 
   <li id="cite-1" class="source-row">
     <span class="source-num">1.</span>
@@ -304,6 +304,9 @@ expression: html
         
       </div>
     
+    
+      <div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-1-1" aria-label="Back to citation a of 2 in the text">a</a> <a href="#cite-ref-1-2" aria-label="Back to citation b of 2 in the text">b</a></div>
+    
     </div>
   </li>
 
@@ -312,30 +315,6 @@ expression: html
     <div class="source-body">
     
       <div class="source-chips">
-        <span class="claim-mark warn" data-claim="CL-EST-0003" aria-label="Claim CL-EST-0003: Unchecked" title="CL-EST-0003 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-EST-0003</span></span>
-        <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span>
-        <span class="cite" data-pv="src:S-0002-v2" data-pv-title="Synthetic Pricing Guide v2, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v2</span> <span class="loc">sec. 4</span></span>
-      </div>
-      
-      <p class="source-stmt">Synthetic rate review window is 10 days under current guidance.</p>
-      
-      
-      <blockquote class="source-quote">“Synthetic rate review window is 10 days.”</blockquote>
-      
-      <div class="source-meta">
-        
-        <span class="unver">Never verified</span>
-        
-      </div>
-    
-    </div>
-  </li>
-
-  <li id="cite-3" class="source-row">
-    <span class="source-num">3.</span>
-    <div class="source-body">
-    
-      <div class="source-chips">
         <span class="claim-mark warn" data-claim="CL-EST-0001" aria-label="Claim CL-EST-0001: Unchecked" title="CL-EST-0001 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-EST-0001</span></span>
         <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span> <span class="chip info"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 8.5v5"/></svg><span>Assumption</span></span>
         <span class="cite neutral">No source yet</span>
@@ -350,27 +329,8 @@ expression: html
         
       </div>
     
-    </div>
-  </li>
-
-  <li id="cite-4" class="source-row">
-    <span class="source-num">4.</span>
-    <div class="source-body">
     
-      <div class="source-chips">
-        <span class="claim-mark warn" data-claim="CL-EST-0001" aria-label="Claim CL-EST-0001: Unchecked" title="CL-EST-0001 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-EST-0001</span></span>
-        <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span> <span class="chip info"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 8.5v5"/></svg><span>Assumption</span></span>
-        <span class="cite neutral">No source yet</span>
-      </div>
-      
-      <p class="source-stmt">Synthetic escalation placeholder is 3 percent per year for fixture examples.</p>
-      
-      
-      <div class="source-meta">
-        
-        <span class="unver">Never verified</span>
-        
-      </div>
+      <div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-2-1" aria-label="Back to citation a of 2 in the text">a</a> <a href="#cite-ref-2-2" aria-label="Back to citation b of 2 in the text">b</a></div>
     
     </div>
   </li>

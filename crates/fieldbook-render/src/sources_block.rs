@@ -1,9 +1,12 @@
 //! Part 7 (`Sources`) model builder (`sources_block.rs`).
 //!
-//! **Responsibility.** Build one numbered `Sources` row per [`CitationMarker`] in exact
-//! marker reading order (`1..=K`), handling both claim citations (`[@CL-...]`) and direct
-//! source-version citations (`[@S-nnnn-v<k> ...]`) without inventing claims, verification
-//! statuses, or quotes on direct source rows.
+//! **Responsibility.** Build one numbered `Sources` row per distinct cited target
+//! (`1..=K`) in order of first citation, handling both claim citations (`[@CL-...]`)
+//! and direct source-version citations (`[@S-nnnn-v<k> ...]`) with back-references to
+//! markers in reading order, without inventing claims, verification statuses, or quotes
+//! on direct source rows.
+
+use std::collections::BTreeMap;
 
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::ClaimId;
@@ -108,6 +111,30 @@ pub enum SourceRowKind {
     Version(DirectVersionSourceRow),
 }
 
+/// Format 1-based index `k` as bijective base-26 lowercase letters (`a..z`, `aa..ab`, etc.).
+fn cite_letter(mut k: usize) -> String {
+    let mut chars = Vec::new();
+    while k > 0 {
+        let rem: u8 = u8::try_from((k - 1) % 26).unwrap_or_default();
+        let ch = char::from(b'a' + rem);
+        chars.push(ch);
+        k = (k - 1) / 26;
+    }
+    chars.reverse();
+    chars.into_iter().collect()
+}
+
+/// A back-reference link from a Sources row to a citation marker in the text.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct BackRef {
+    /// Anchor link target (`#cite-ref-{n}-{k}`).
+    pub href: String,
+    /// Short letter label (`a`..`z`, `aa`, `ab`, ...) representing 1-based marker position `k`.
+    pub letter: String,
+    /// Accessible name for the link (`aria-label`).
+    pub label: String,
+}
+
 /// One numbered `<li id="cite-{number}">` entry in Part 7 (`Sources`).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct NumberedSourceRow {
@@ -115,10 +142,14 @@ pub struct NumberedSourceRow {
     pub number: usize,
     /// Claim or direct source-version row payload.
     pub kind: SourceRowKind,
+    /// Back-references to markers citing this row in reading order.
+    pub back_refs: Vec<BackRef>,
 }
 
 /// Build the ordered list of [`NumberedSourceRow`]s for Part 7 (`Sources`) from `markers`.
 ///
+/// Distinct targets are assigned one row per number in number order, each with
+/// back-references to its citation markers in reading order.
 /// `availability` says which source versions have a shipped original, so a `p.` or `pp.`
 /// citation of a PDF links to the original at its first page.
 #[must_use]
@@ -129,9 +160,36 @@ pub fn build_sources_rows(
     planned: &PlannedPaths,
     availability: &OriginalAvailability,
 ) -> Vec<NumberedSourceRow> {
-    let mut rows = Vec::with_capacity(markers.len());
+    let mut grouped: BTreeMap<usize, Vec<&CitationMarker>> = BTreeMap::new();
     for marker in markers {
-        let kind = match &marker.target {
+        grouped.entry(marker.number).or_default().push(marker);
+    }
+
+    let mut rows = Vec::with_capacity(grouped.len());
+    for (number, row_markers) in grouped {
+        let Some(&first_marker) = row_markers.first() else {
+            continue;
+        };
+
+        let count = row_markers.len();
+        let back_refs = row_markers
+            .iter()
+            .map(|m| {
+                let letter = cite_letter(m.position);
+                let label = if count == 1 {
+                    "Back to the citation in the text".to_owned()
+                } else {
+                    format!("Back to citation {letter} of {count} in the text")
+                };
+                BackRef {
+                    href: format!("#cite-ref-{number}-{}", m.position),
+                    letter,
+                    label,
+                }
+            })
+            .collect();
+
+        let kind = match &first_marker.target {
             CitationTarget::Claim(claim_id) => SourceRowKind::Claim(build_claim_row(
                 from_path,
                 claim_id,
@@ -163,8 +221,9 @@ pub fn build_sources_rows(
             }
         };
         rows.push(NumberedSourceRow {
-            number: marker.number,
+            number,
             kind,
+            back_refs,
         });
     }
     rows
