@@ -14,6 +14,7 @@
 mod leak_matrix {
     use std::collections::BTreeSet;
 
+    use fieldbook_core::assist::page_pack;
     use fieldbook_core::audit::{
         Actor, DestKind, EventEnvelope, Kind, Now, Principal, Role, Via, ZERO_HASH, sample_payload,
         seal_body,
@@ -22,6 +23,7 @@ mod leak_matrix {
     use fieldbook_core::check::{Code, Host, Model, Options, Tree, load};
     use fieldbook_core::date::CivilDate;
     use fieldbook_core::egress::{DEST_KINDS, Decision, Dest, LabelledView, Shipped, check};
+    use fieldbook_core::ids::PageId;
     use fieldbook_core::labels::{
         LabelAllow, LabelContext, LabelId, LabelSet, MarkingRules, OWNER_SUPPLIED, PUBLIC, StoreId,
         StoreRule, admit, for_text,
@@ -60,6 +62,17 @@ mod leak_matrix {
 
     fn render_view_text(view: &LabelledView, dest: &Dest) -> String {
         view.render_summary(dest)
+    }
+
+    /// The public page whose context pack the `page_pack_*` rows build, and the title that every
+    /// planted page shares so that its pack ranks them all as related units.
+    const PACK_PAGE: &str = "cmp-leak-fixture";
+    const PACK_TITLE: &str = "Leak matrix fixture page";
+    /// The default `[assistant] pack_budget_chars`.
+    const PACK_BUDGET: usize = 12_000;
+
+    fn render_page_pack_text(view: &LabelledView, dest: &Dest) -> String {
+        page_pack(view, dest, &PageId::parse(PACK_PAGE).unwrap(), PACK_BUDGET).to_text()
     }
 
     /// Const table of output paths exercised by the label-leak matrix (`core-policy` step 10).
@@ -118,6 +131,18 @@ mod leak_matrix {
             name: "view:audit",
             kind: DestKind::Audit,
             render: render_view_text,
+        },
+        // The page context pack (`page-context-packs`): the public edition view that the site
+        // build packs, and the handoff view that the same builder serves later.
+        OutputPath {
+            name: "page_pack_edition",
+            kind: DestKind::Edition,
+            render: render_page_pack_text,
+        },
+        OutputPath {
+            name: "page_pack_handoff",
+            kind: DestKind::Handoff,
+            render: render_page_pack_text,
         },
     ];
 
@@ -191,6 +216,17 @@ mod leak_matrix {
         }
     }
 
+    /// A page that carries `canary` as its only text, under the title every pack row ranks.
+    fn canary_page(id: &str, title: &str, handling: &str, canary: &str) -> (String, Vec<u8>) {
+        let md = format!(
+            "+++\nid = \"{id}\"\ntitle = \"{title}\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [{handling}]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n{canary}\n"
+        );
+        (
+            format!("corpus/pages/compliance/business-systems/{id}.md"),
+            md.into_bytes(),
+        )
+    }
+
     fn build_model_from_records(records: &[PlantedRecord], include_marked: bool) -> Model {
         let mut tree = Tree::new();
         tree.insert_dir("corpus");
@@ -202,6 +238,22 @@ mod leak_matrix {
         tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
         tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
         insert_register_headers(&mut tree);
+
+        // The page the pack rows build, and one page per planted label holding its canary.
+        let (path, bytes) =
+            canary_page(PACK_PAGE, PACK_TITLE, "\"public\"", "Public fixture text.");
+        tree.insert_dir("corpus/pages/compliance");
+        tree.insert_dir("corpus/pages/compliance/business-systems");
+        tree.insert_bytes(path, bytes);
+        for (idx, rec) in records.iter().enumerate() {
+            if rec.label == "marked" {
+                continue;
+            }
+            let id = format!("cmp-leak-{idx}");
+            let (path, bytes) =
+                canary_page(&id, PACK_TITLE, &format!("\"{}\"", rec.label), &rec.canary);
+            tree.insert_bytes(path, bytes);
+        }
 
         for rec in records {
             if rec.label == "marked" && !include_marked {
@@ -287,7 +339,17 @@ mod leak_matrix {
                 spec.kind.as_str()
             );
         }
-        assert_eq!(OUTPUT_PATHS.len(), DEST_KINDS.len());
+        // One `view:` column per kind, and the page pack rows beside them.
+        assert_eq!(
+            OUTPUT_PATHS
+                .iter()
+                .filter(|p| p.name.starts_with("view:"))
+                .count(),
+            DEST_KINDS.len()
+        );
+        assert!(OUTPUT_PATHS.iter().any(|p| p.name == "page_pack_edition"));
+        assert!(OUTPUT_PATHS.iter().any(|p| p.name == "page_pack_handoff"));
+        assert_eq!(OUTPUT_PATHS.len(), DEST_KINDS.len() + 2);
     }
 
     // control: LB-01
@@ -301,6 +363,13 @@ mod leak_matrix {
         // Include a mixed record (`public` + `ctl-0002`) so replacing the subset check by an overlap check fails.
         let model_with_mixed = {
             let mut tree = model.tree().clone();
+            let (path, bytes) = canary_page(
+                "cmp-leak-mixed",
+                PACK_TITLE,
+                "\"public\", \"ctl-0002\"",
+                "CANARY_MIXED_PUBLIC_CTL_0002",
+            );
+            tree.insert_bytes(path, bytes);
             tree.insert_bytes(
                 "overlay/records/fnd-leak-mixed-ctl.toml",
                 b"id = \"fnd-leak-mixed-ctl\"\nhandling = [\"public\", \"ctl-0002\"]\ncanary = \"CANARY_MIXED_PUBLIC_CTL_0002\"\n",
