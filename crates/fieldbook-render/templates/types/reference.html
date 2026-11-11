@@ -1,9 +1,11 @@
 <div class="reader" id="fb:reader">
   <article class="prose">
+    {% if meta_row.overdue_banner %}
     <div class="banner warn" id="fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="{{ meta_row.review_by }}" hidden>
       <div class="body"><b>Review overdue.</b> Review date <time datetime="{{ meta_row.review_by }}">{{ meta_row.review_by }}</time> has passed; re-check cited sources before relying on this page.</div>
       {{ meta_row.due_claims_html|safe }}
     </div>
+    {% endif %}
     {% if is_synthetic_now %}
     <div class="banner" role="region" aria-label="Readiness notice">
       <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>
@@ -87,10 +89,17 @@
 
     <section class="part" aria-labelledby="{{ company_calibration.anchor }}">
       <h2 id="{{ company_calibration.anchor }}">{{ company_calibration.heading }}</h2>
+      {% if let Some(fold) = company_calibration.fold %}
+      <details class="fold company-fold">
+        <summary><b>Company questions</b>{% if fold.question_count > 0 %} <span class="meta">{{ fold.question_count }} to settle with company data</span>{% endif %}</summary>
+      {% endif %}
       {% if company_calibration.is_empty %}
       <p class="empty-part">{{ empty_part_text }}</p>
       {% else %}
       {{ company_calibration.body_html|safe }}
+      {% endif %}
+      {% if company_calibration.fold.is_some() %}
+      </details>
       {% endif %}
     </section>
 
@@ -103,6 +112,7 @@
       <h2 id="{{ change_note_part.anchor }}">{{ change_note_part.heading }}</h2>
       {% include "parts/change_note.html" %}
     </section>
+    {% include "parts/context_pack.html" %}
   </article>
 
   <aside class="rail" aria-label="Evidence and connections">
@@ -114,6 +124,8 @@
         {% endfor %}
       </ul>
     </nav>
+
+    {{ rail_lists_html|safe }}
 
     <section class="rail-sec" aria-label="Cited claims">
       <div class="rail-head">Cited claims ({{ evidence_cards.len() }})</div>

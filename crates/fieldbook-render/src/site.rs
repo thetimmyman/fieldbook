@@ -145,6 +145,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
+    paths.extend(register::claims_part_paths(view));
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
     }
@@ -177,14 +178,29 @@ pub fn render_with_context(
         let html = register::render_page(reg, view, ctx, &navigation, &planned);
         site.insert(reg_path, html.into_bytes());
     }
+    let parts = register::claims_parts(view);
+    for (i, part) in parts.iter().enumerate() {
+        let html = register::render_claims_part_page(&parts, i, view, ctx, &navigation, &planned);
+        site.insert(&part.route, html.into_bytes());
+    }
     let ids_html = ids::render_page(view, ctx, &navigation, &planned);
     site.insert(ids::OUTPUT_PATH, ids_html.into_bytes());
     let about_html = about::render_page(view, ctx, profile, &navigation, &planned);
     site.insert(about::OUTPUT_PATH, about_html.into_bytes());
     site.insert(edition::OUTPUT_PATH, edition::toml_bytes(ctx));
+    let packs = fieldbook_core::assist::PackSource::new(view);
+    let links = crate::related::LinkIndex::new(view);
     for page in view.pages() {
         let page_path = format!("p/{}.html", page.id);
-        let html = crate::page::render_page(page, view, ctx, &navigation, &planned);
+        let html = crate::page::render_page_with_packs(
+            page,
+            view,
+            ctx,
+            &navigation,
+            &planned,
+            &packs,
+            &links,
+        );
         site.insert(&page_path, html.into_bytes());
     }
     let availability = OriginalAvailability::from_view(view);

@@ -21,6 +21,12 @@ mod frame {
     const APP_JS: &str = include_str!("../assets/app.js");
     const MINI_CORPUS_TOML: &str =
         include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
+    const SOURCES_CSV: &str =
+        include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/sources.csv");
+    const CLAIMS_CSV: &str =
+        include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/claims.csv");
+    const S_0002_V2_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
 
     fn edition_info(built: &str, number: u32) -> EditionInfo {
         EditionInfo {
@@ -100,6 +106,68 @@ mod frame {
         build_public_view_from_tree(base_tree())
     }
 
+    fn make_claim_row(id: &str, drafted_by: &str, verification: &str) -> String {
+        let template = if verification == "primary_source_supported" {
+            CLAIMS_CSV.lines().nth(1).unwrap()
+        } else {
+            CLAIMS_CSV.lines().nth(2).unwrap()
+        };
+        let mut cols: Vec<&str> = template.split(',').collect();
+        cols[0] = id;
+        cols[11] = drafted_by;
+        cols[12] = verification;
+        if verification == "unchecked" {
+            cols[28] = "";
+            cols[29] = "";
+        } else if verification == "primary_source_supported" {
+            cols[28] = "2026-02-10";
+            cols[29] = "owner";
+        }
+        cols[33] = "";
+        cols.join(",")
+    }
+
+    fn build_public_view_with_claims(claim_rows: &[String]) -> (Model, LabelledView) {
+        let mut tree = base_tree();
+        tree.insert_bytes(
+            "corpus/changes.md",
+            b"# Changes\n\nSynthetic changes log.\n\n## edition-001\n\n- Added: initial.\n",
+        );
+        tree.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+        let mut claims_content = format!("{claims_header}\n");
+        for row in claim_rows {
+            claims_content.push_str(row);
+            claims_content.push('\n');
+        }
+        tree.insert_bytes("corpus/registers/claims.csv", claims_content.into_bytes());
+
+        let today = CivilDate::parse("2026-03-01").unwrap();
+        let (model, report) = load(&Host::new(tree, today), &Options::new(false));
+        assert_eq!(
+            report.errors(),
+            0,
+            "tree must load cleanly:\n{}",
+            report.render_text()
+        );
+        let eff = EffectivePolicy::floor(false);
+        let now = Now::new(today, 0).unwrap();
+        let Decision::Allowed(allowed) =
+            check(&eff, &Dest::Edition, None, None, now, Shipped::Never)
+        else {
+            panic!("edition selection must succeed");
+        };
+        let view = LabelledView::new(&model, &allowed, &ReadableStores::corpus());
+        assert_eq!(
+            view.claims().len(),
+            claim_rows.len(),
+            "view claims count must match fixture rows"
+        );
+        (model, view)
+    }
+
     fn parse_js_route_sections(js: &str) -> BTreeMap<String, (String, String)> {
         let marker = "const ROUTE_SECTIONS = {";
         let Some(start) = js.find(marker) else {
@@ -165,6 +233,32 @@ mod frame {
             rest = &after_a[close_idx + 1..];
         }
         out
+    }
+
+    /// The opening `<a ...>` tag that carries `marker`, if the marker sits inside an anchor.
+    fn anchor_tag_of<'a>(html: &'a str, marker: &str) -> Option<&'a str> {
+        let at = html.find(marker)?;
+        let start = html[..at].rfind('<')?;
+        let tag = &html[start..];
+        let end = tag.find('>')?;
+        let tag = &tag[..=end];
+        tag.starts_with("<a ").then_some(tag)
+    }
+
+    fn split_disclosure(html: &str) -> (&str, &str, &str) {
+        let marker = "<details class=\"fold nav-more\"";
+        let start = html.find(marker).unwrap();
+        let before = &html[..start];
+        let rest = &html[start..];
+        let end_marker = "</details>";
+        let end = rest.find(end_marker).unwrap();
+        let disclosure = &rest[..end + end_marker.len()];
+        let after = &rest[end + end_marker.len()..];
+        (before, disclosure, after)
+    }
+
+    fn disclosure(html: &str) -> &str {
+        split_disclosure(html).1
     }
 
     #[test]
@@ -251,9 +345,9 @@ mod frame {
     }
 
     #[test]
-    fn unbuilt_entries_show_the_landing_line() {
+    fn unbuilt_entries_follow_revision_22() {
         let (_model, view) = build_public_view();
-        let planned = PlannedPaths::of(&["index.html"]);
+        let planned = site::planned_paths(&view);
         let navigation = nav::build(&view, &planned);
         let html = render_page(&FrameInput {
             output_path: "index.html",
@@ -267,8 +361,65 @@ mod frame {
         });
 
         assert!(
-            html.contains("class=\"not-available\""),
-            "unbuilt entries must render with class=\"not-available\""
+            !html.contains("class=\"not-available\""),
+            "page must not contain class=\"not-available\""
+        );
+
+        for chunk in html.split("title=\"").skip(1) {
+            let title_val = chunk.split('"').next().unwrap();
+            assert!(
+                !title_val.contains("is not available until"),
+                "title attribute must not carry a landing line: `{title_val}`"
+            );
+        }
+
+        let (before, disc, after) = split_disclosure(&html);
+        assert!(
+            !before.contains("is not available until"),
+            "substring 'is not available until' must not appear before the disclosure"
+        );
+        assert!(
+            !after.contains("is not available until"),
+            "substring 'is not available until' must not appear after the disclosure"
+        );
+        assert!(
+            disc.contains("is not available until"),
+            "substring 'is not available until' must appear inside the disclosure"
+        );
+
+        let open_tag = &disc[..disc.find('>').unwrap() + 1];
+        assert!(
+            !open_tag.contains(" open") && !open_tag.contains("open="),
+            "disclosure opening tag must not have open attribute: `{open_tag}`"
+        );
+        assert!(
+            disc.contains("<summary><b>Not built yet</b>"),
+            "disclosure must contain `<summary><b>Not built yet</b>`"
+        );
+        assert!(
+            !disc.contains("<a "),
+            "disclosure must contain no `<a>` tag"
+        );
+
+        let summary_start = disc.find("<summary>").unwrap();
+        let summary_end = disc.find("</summary>").unwrap();
+        let summary_content = &disc[summary_start..summary_end];
+        let badge_prefix = "<span class=\"fold-d\">";
+        let badge_start = summary_content.find(badge_prefix).unwrap() + badge_prefix.len();
+        let badge_end = summary_content[badge_start..].find("</span>").unwrap();
+        let summary_count: usize = summary_content[badge_start..badge_start + badge_end]
+            .trim()
+            .parse()
+            .unwrap();
+        let expected_unbuilt = navigation.unbuilt_count();
+        let nav_line_count = disc.matches("<p class=\"nav-line\">").count();
+        assert_eq!(
+            summary_count, expected_unbuilt,
+            "summary count must equal navigation.unbuilt_count()"
+        );
+        assert_eq!(
+            summary_count, nav_line_count,
+            "summary count must equal number of `<p class=\"nav-line\">` in disclosure"
         );
 
         for tab in &navigation.tabs {
@@ -276,36 +427,224 @@ mod frame {
                 let amp = landing_line.replace('&', "&amp;");
                 let num = landing_line.replace('&', "&#38;");
                 assert!(
-                    html.contains(landing_line) || html.contains(&amp) || html.contains(&num),
-                    "unbuilt tab `{}` must include landing line `{landing_line}`",
+                    disc.contains(landing_line) || disc.contains(&amp) || disc.contains(&num),
+                    "unbuilt tab `{}` landing line `{landing_line}` must appear inside disclosure",
+                    tab.label
+                );
+            }
+        }
+        for group in &navigation.groups {
+            for entry in &group.entries {
+                if let NavTarget::Unbuilt { landing_line } = &entry.target {
+                    let amp = landing_line.replace('&', "&amp;");
+                    let num = landing_line.replace('&', "&#38;");
+                    assert!(
+                        disc.contains(landing_line) || disc.contains(&amp) || disc.contains(&num),
+                        "unbuilt entry `{}` landing line `{landing_line}` must appear inside disclosure",
+                        entry.id
+                    );
+                }
+            }
+        }
+
+        let map_path = fieldbook_core::strings::paths()[5];
+        for href in extract_anchor_hrefs(&html) {
+            let clean = href.split('#').next().unwrap_or(&href);
+            assert!(
+                !clean.ends_with(map_path) && clean != map_path,
+                "map.html must not be a link target anywhere, found `{href}`"
+            );
+        }
+        assert!(
+            disc.contains("The app map is not available until Day 30."),
+            "app map landing line must be inside disclosure"
+        );
+
+        let planned_with_map =
+            PlannedPaths::of(&["index.html", fieldbook_core::strings::paths()[5]]);
+        let nav_with_map = nav::build(&view, &planned_with_map);
+        let html_with_map = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav_with_map,
+        });
+
+        let map_link_exists = extract_anchor_hrefs(&html_with_map)
+            .iter()
+            .any(|href| href.ends_with(map_path));
+        assert!(
+            map_link_exists,
+            "App map entry must appear as an `<a ` link whose href ends with `{map_path}`"
+        );
+        assert!(
+            !html_with_map.contains("The app map is not available until Day 30."),
+            "app map landing line must not appear anywhere in html when map is built"
+        );
+    }
+
+    #[test]
+    fn built_entries_still_link() {
+        let (_model, view) = build_public_view();
+        let planned = site::planned_paths(&view);
+        let navigation = nav::build(&view, &planned);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+
+        let anchor_hrefs = extract_anchor_hrefs(&html);
+
+        let top_bar = &html[html.find("<nav aria-label=\"Sections\">").unwrap()..];
+        for tab in &navigation.tabs {
+            if let NavTarget::Built { href } = &tab.target {
+                assert!(
+                    anchor_hrefs.contains(href),
+                    "built tab `{}` href `{href}` must appear in anchor hrefs",
+                    tab.label
+                );
+                let marker = format!("data-sec=\"{}\"", tab.key);
+                assert!(
+                    anchor_tag_of(top_bar, &marker)
+                        .is_some_and(|tag| tag.contains(&format!("href=\"{href}\""))),
+                    "built tab `{}` must be an <a> carrying href `{href}`",
                     tab.label
                 );
             }
         }
 
+        let side_bar = &html[html.find("<aside class=\"sidebar\"").unwrap()..];
         for group in &navigation.groups {
             for entry in &group.entries {
-                match &entry.target {
-                    NavTarget::Built { href } => {
-                        assert!(
-                            href == "index.html" || href == "index.html#areas",
-                            "only the planned index.html and its areas alias are built, got `{href}`"
-                        );
-                    }
-                    NavTarget::Unbuilt { landing_line } => {
-                        let amp = landing_line.replace('&', "&amp;");
-                        let num = landing_line.replace('&', "&#38;");
-                        assert!(
-                            html.contains(landing_line)
-                                || html.contains(&amp)
-                                || html.contains(&num),
-                            "unbuilt entry `{}` must render its landing line `{landing_line}`",
-                            entry.id
-                        );
-                    }
+                if let NavTarget::Built { href } = &entry.target {
+                    assert!(
+                        anchor_hrefs.contains(href),
+                        "built entry `{}` href `{href}` must appear in anchor hrefs",
+                        entry.id
+                    );
+                    let expected_data_item = format!("data-item=\"{}\"", entry.id);
+                    assert!(
+                        anchor_tag_of(side_bar, &expected_data_item)
+                            .is_some_and(|tag| tag.contains(&format!("href=\"{href}\""))),
+                        "built entry `{}` must be an <a> carrying href `{href}`",
+                        entry.id
+                    );
+                    assert!(
+                        html.contains(&entry.label),
+                        "built entry `{}` label `{}` must appear in html",
+                        entry.id,
+                        entry.label
+                    );
                 }
             }
         }
+
+        for sec in [SectionId::Today, SectionId::Areas, SectionId::Library] {
+            let group = navigation
+                .group(sec)
+                .unwrap_or_else(|| panic!("group `{sec:?}` must exist"));
+            let built_count = group
+                .entries
+                .iter()
+                .filter(|e| matches!(e.target, NavTarget::Built { .. }))
+                .count();
+            assert!(
+                built_count >= 1,
+                "tested group `{sec:?}` must have at least one built entry, found {built_count}"
+            );
+        }
+    }
+
+    #[test]
+    fn unbuilt_tab_follows_revision_22() {
+        let (_model, view) = build_public_view();
+        let planned = PlannedPaths::of(&["index.html", "a/cmp.html", "claims.html"]);
+        let navigation = nav::build(&view, &planned);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+
+        let topbar_start = html
+            .find("<nav aria-label=\"Sections\">")
+            .expect("top bar sections nav must exist");
+        let topbar_end = html[topbar_start..]
+            .find("</nav>")
+            .expect("closing top bar nav must exist");
+        let topbar_nav = &html[topbar_start..topbar_start + topbar_end + "</nav>".len()];
+
+        assert!(
+            topbar_nav.contains("data-sec=\"today\""),
+            "top bar sections nav must contain data-sec=\"today\""
+        );
+        assert!(
+            !topbar_nav.contains("data-sec=\"assistant\""),
+            "top bar sections nav must not contain unbuilt data-sec=\"assistant\""
+        );
+        assert!(
+            !topbar_nav.contains("data-sec=\"work\""),
+            "top bar sections nav must not contain unbuilt data-sec=\"work\""
+        );
+        assert!(
+            !topbar_nav.contains("data-sec=\"plan\""),
+            "top bar sections nav must not contain unbuilt data-sec=\"plan\""
+        );
+
+        let switch_start = html
+            .find("id=\"fb:secSwitch\"")
+            .expect("secSwitch element must exist");
+        let switch_end = html[switch_start..]
+            .find("</div>")
+            .expect("closing secSwitch div must exist");
+        let sec_switch = &html[switch_start..switch_start + switch_end + "</div>".len()];
+
+        assert!(
+            sec_switch.contains("data-secpick=\"today\""),
+            "#fb:secSwitch must contain data-secpick=\"today\""
+        );
+        assert!(
+            !sec_switch.contains("data-secpick=\"assistant\""),
+            "#fb:secSwitch must not contain data-secpick=\"assistant\""
+        );
+        assert!(
+            !sec_switch.contains("data-secpick=\"work\""),
+            "#fb:secSwitch must not contain data-secpick=\"work\""
+        );
+        assert!(
+            !sec_switch.contains("data-secpick=\"plan\""),
+            "#fb:secSwitch must not contain data-secpick=\"plan\""
+        );
+
+        let disc = disclosure(&html);
+        assert!(
+            disc.contains("The assistant is not available until Day 30."),
+            "assistant tab landing line must appear inside disclosure"
+        );
+        assert!(
+            disc.contains("The 90-day plan is not available until Day 1."),
+            "plan tab landing line must appear inside disclosure"
+        );
+
+        assert!(
+            !html.contains("<div class=\"nav-group\" data-sec=\"work\""),
+            "no nav-group with data-sec=\"work\" must be rendered"
+        );
     }
 
     #[test]
@@ -740,5 +1079,293 @@ mod frame {
             })
             .collect();
         assert_eq!(built_dests_mixed, built_dests_perm);
+    }
+
+    #[test]
+    fn unreleased_banner_ai_drafted_and_unchecked_counts() {
+        // 1. fixture with 4 claims: 2 `ai`, 1 `codex`, 1 `lead`, all unchecked
+        // => html contains "This is an unreleased build, not an edition.",
+        //    "3 of 4 claims are AI-drafted", "4 of 4 are unchecked",
+        //    and does NOT contain "checked and found supported".
+        let rows = vec![
+            make_claim_row("CL-CMP-0001", "ai", "unchecked"),
+            make_claim_row("CL-CMP-0002", "ai", "unchecked"),
+            make_claim_row("CL-CMP-0003", "codex", "unchecked"),
+            make_claim_row("CL-CMP-0004", "lead", "unchecked"),
+        ];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 4);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("This is an unreleased build, not an edition."));
+        assert!(html.contains("3 of 4 claims are AI-drafted"));
+        assert!(html.contains("4 of 4 are unchecked"));
+        assert!(!html.contains("checked and found supported"));
+    }
+
+    #[test]
+    fn unreleased_banner_supported_count_rendered_when_some_checked() {
+        // 2. fixture where exactly one claim is `primary_source_supported` and the others unchecked
+        //    (e.g. 3 claims: 1 supported, 2 unchecked)
+        // => contains "1 of 3 has been checked and found supported." and "2 of 3 are unchecked".
+        let rows = vec![
+            make_claim_row("CL-CMP-0001", "codex", "primary_source_supported"),
+            make_claim_row("CL-CMP-0002", "codex", "unchecked"),
+            make_claim_row("CL-CMP-0003", "ai", "unchecked"),
+        ];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 3);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("1 of 3 has been checked and found supported."));
+        assert!(html.contains("2 of 3 are unchecked"));
+    }
+
+    #[test]
+    fn unreleased_banner_no_claims_recorded() {
+        // 3. fixture with no claims => contains "No claims recorded." and not "found supported" and not " of 0".
+        let (_model, view) = build_public_view_with_claims(&[]);
+        assert_eq!(view.claims().len(), 0);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("No claims recorded."));
+        assert!(!html.contains("found supported"));
+        assert!(!html.contains(" of 0"));
+    }
+
+    #[test]
+    fn unreleased_banner_singular_noun_for_single_claim() {
+        // 4. fixture with exactly one claim (unchecked, codex)
+        // => contains "1 of 1 claim is AI-drafted; 1 of 1 is unchecked." (singular noun).
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert!(html.contains("1 of 1 claim is AI-drafted; 1 of 1 is unchecked."));
+    }
+
+    #[test]
+    fn released_build_does_not_render_build_status_banner() {
+        // 5. a released build (edition_info with a built date) via render_page
+        // => the html does NOT contain `Build status`, `build-status` or "This is an unreleased build".
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let planned = PlannedPaths::of(&["index.html", "claims.html"]);
+        let nav = nav::build(&view, &planned);
+        let released = edition_info("2026-03-01", 1);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &released,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+
+        assert!(!html.contains("Build status"));
+        assert!(!html.contains("build-status"));
+        assert!(!html.contains("This is an unreleased build"));
+    }
+
+    #[test]
+    fn build_status_banner_slot_position_and_company_ordering() {
+        // 6. the banner is the first item of the banners slot and a region named "Build status":
+        // in the unreleased html, `html.find("aria-label=\"Build status\"")` is Some
+        // and comes after `id="fb:banners"` and before `<main id="fb:main"`;
+        // and for a StoreContext::Company view, assert the "Handling notice" region comes AFTER the "Build status" region.
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let planned = PlannedPaths::of(&["index.html", "claims.html"]);
+        let nav = nav::build(&view, &planned);
+        let unreleased = edition_info("", 0);
+
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &unreleased,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+
+        let banner_pos = html
+            .find("aria-label=\"Build status\"")
+            .expect("Build status region must exist");
+        let banners_pos = html
+            .find("id=\"fb:banners\"")
+            .expect("banners slot must exist");
+        let main_pos = html
+            .find("<main id=\"fb:main\"")
+            .expect("main element must exist");
+        assert!(
+            banner_pos > banners_pos,
+            "Build status region must come after id=\"fb:banners\""
+        );
+        assert!(
+            banner_pos < main_pos,
+            "Build status region must come before main element"
+        );
+
+        let bid3 = LabelId::parse("bid-0003").unwrap();
+        let np7 = LabelId::parse("np-0007").unwrap();
+        let company_store = StoreContext::Company {
+            effective_labels: LabelSet::from_ids([bid3, np7]),
+        };
+        let company_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &unreleased,
+            store: &company_store,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        let company_banner_pos = company_html
+            .find("aria-label=\"Build status\"")
+            .expect("Build status region must exist in company view");
+        let handling_pos = company_html
+            .find("aria-label=\"Handling notice\"")
+            .expect("Handling notice region must exist in company view");
+        assert!(
+            handling_pos > company_banner_pos,
+            "Handling notice region must come after Build status region"
+        );
+    }
+
+    #[test]
+    fn unreleased_banner_claims_link_relative_prefix_at_depths() {
+        // 7. the banner link is `<a href="claims.html">` at the root and `href="../claims.html"`
+        //    for a page one level down (e.g. render_page with output_path "p/fnd-0001.html").
+        let rows = vec![make_claim_row("CL-CMP-0001", "codex", "unchecked")];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 1);
+
+        let planned = PlannedPaths::of(&["index.html", "claims.html", "p/fnd-0001.html"]);
+        let nav = nav::build(&view, &planned);
+        let unreleased = edition_info("", 0);
+
+        let root_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &unreleased,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        assert!(
+            root_html.contains("<a href=\"claims.html\">the claims register</a>"),
+            "root page must link to claims.html directly"
+        );
+
+        let nested_html = render_page(&FrameInput {
+            output_path: "p/fnd-0001.html",
+            title: PRODUCT_TITLE,
+            page_area: Some("fnd"),
+            edition: &unreleased,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        assert!(
+            nested_html.contains("<a href=\"../claims.html\">the claims register</a>"),
+            "nested page must link to ../claims.html"
+        );
+    }
+
+    #[test]
+    fn build_status_banner_states_review_rule() {
+        const REVIEW_RULE: &str = "Each page shows its review date; none is flagged as overdue.";
+
+        // Unreleased build with checked claims:
+        let rows = vec![
+            make_claim_row("CL-CMP-0001", "codex", "primary_source_supported"),
+            make_claim_row("CL-CMP-0002", "codex", "primary_source_supported"),
+            make_claim_row("CL-CMP-0003", "ai", "unchecked"),
+        ];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 3);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert_eq!(html.matches(REVIEW_RULE).count(), 1);
+        let supported_pos = html
+            .find("have been checked and found supported")
+            .expect("must contain have been checked and found supported");
+        let rule_pos = html.find(REVIEW_RULE).expect("must contain review rule");
+        let see_pos = html
+            .find("the claims register")
+            .expect("must contain the claims register");
+        assert!(
+            supported_pos < rule_pos,
+            "review rule must appear after 'have been checked and found supported'"
+        );
+        assert!(
+            rule_pos < see_pos,
+            "review rule must appear before the claims register link"
+        );
+
+        // Unreleased build with no claims recorded:
+        let (_model, view_empty) = build_public_view_with_claims(&[]);
+        assert_eq!(view_empty.claims().len(), 0);
+
+        let site_empty = site::render(&view_empty, &info).unwrap();
+        let html_empty = std::str::from_utf8(&site_empty.files()["index.html"]).unwrap();
+
+        assert!(html_empty.contains("No claims recorded."));
+        assert_eq!(html_empty.matches(REVIEW_RULE).count(), 1);
+        let no_claims_pos = html_empty
+            .find("No claims recorded.")
+            .expect("must contain No claims recorded.");
+        let rule_empty_pos = html_empty
+            .find(REVIEW_RULE)
+            .expect("must contain review rule");
+        let see_empty_pos = html_empty
+            .find("the claims register")
+            .expect("must contain the claims register");
+        assert!(no_claims_pos < rule_empty_pos);
+        assert!(rule_empty_pos < see_empty_pos);
+
+        // Released build: review rule is absent:
+        let planned = PlannedPaths::of(&["index.html", "claims.html"]);
+        let nav = nav::build(&view, &planned);
+        let released = edition_info("2026-03-01", 1);
+        let html_released = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &released,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        assert!(!html_released.contains(REVIEW_RULE));
     }
 }

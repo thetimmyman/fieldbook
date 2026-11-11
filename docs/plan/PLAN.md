@@ -13,9 +13,13 @@ This is the execution plan for Fieldbook (AD-21 in [ADR 0001](../decisions/0001-
 
 **Line forms.** An item is `- <slug>: <one line>`. A step for the owner ends `(owner)` and a step for the lead ends `(lead)`; these have no card file. Every slug here is the name of a card file, written or still to be written, or of one that a merged pull request deleted when the card closed. A `later-` slug is the exception: it is a row of the Later table in [AD-24](../decisions/0001-foundation.md#ad-24-what-is-not-built-yet-later), it has no card file until the lead writes one, and Codex skips the line because step 1 needs a card file. The `later-` lines follow the owner's four groups: group 1 (the whole knowledge base) under P6 after `release-1-0-0`, group 2 (pricing, estimating and the rate book) under P7, groups 3 and 4 (estimate at completion and earned value, then the rest) under P8. The cards of P4, P5 and P6 are drafts in `docs/cards/drafts/`; a draft moves to `docs/cards/` by one `git mv` when the phase before it ends. A P4 to P8 line in this file names a draft or is a one-line item with no file.
 
-**`workspace-skeleton` is the one item with no card file and no deleting commit.** It was built
-before card files existed, so it counts as merged for every precondition, and the plan lint
-exempts it. Its line stays for the record, and nothing waits on it.
+**Seven items have no deleting commit on `main`.** They are the `LEGACY_MERGED` slugs of the
+card lint: `workspace-skeleton`, which was built before card files existed, and six whose pull
+requests left no commit that deleted a card file (`hook-environment-isolation`,
+`product-first-delivery`, `kb-foundation-guard`, `search-page-view`, `search-index-budget` and
+`hosted-edition-adr`). Each counts as merged for every precondition, and the plan lint exempts it.
+Its line stays for the record, and nothing waits on it. The list is closed: a card added later is
+proved merged by the commit that deleted its file, and is never added to it.
 
 **Readiness.** A green `just check` shows that the code works; it is not readiness. Authorisation is IT's ([intake artifact 17](../intake/README.md#the-17-artifacts)).
 
@@ -40,7 +44,7 @@ exempts it. Its line stays for the record, and nothing waits on it.
 
 The lead may move `build-charts` after P3; edition packaging, release, backup and restore do not depend on charts; the area pages then keep their empty-state lines. At each phase exit the lead measures cards merged per day against the plan and raises concurrency first, merges adjacent cards second, and applies the floor last.
 
-**Reserved ADR numbers.** 0001 and 0002 are taken. 0003: Corpus format v2 (schema 2, the `note` page type, Day 30). 0004: the company boundary (labels, the policy file, egress, stores, sync, ids, records, identity and audit), which holds the R2 shape. 0005: the accepted financial-work foundation. Its work scope, periods, evidence and versioned methods apply before `calc-day1` and `r2-records`; later pricing modules use them. A new number is reserved here before its ADR is written.
+**Reserved ADR numbers.** 0001 and 0002 are taken. 0003: Corpus format v2 (schema 2, the `note` page type, Day 30). 0004: the company boundary (labels, the policy file, egress, stores, sync, ids, records, identity and audit), which holds the R2 shape. 0005: the accepted financial-work foundation. Its work scope, periods, evidence and versioned methods apply before `calc-day1` and `r2-records`; later pricing modules use them. 0006: the edition search index. 0007: the hosted read-only site (`hosted-edition-adr`). A new number is reserved here before its ADR is written.
 
 **Owner minutes.** The weekly budget is upkeep 30 to 60 minutes and review 60 to 120. Each week the owner adds one row to [docs/maintenance.csv](../maintenance.csv); this file holds no weekly line. The log is a measure: the owner reads it, and nothing stops when it runs over.
 
@@ -140,6 +144,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - build-home-and-areas: `index.html` and the 13 area pages with coverage bars
 - build-about: `about.html` and the command chip
 - build-charts: inline SVG charts and the calc table, `Unavailable` where data is missing
+- build-charts-2: the calc table on calc pages from the case its Fixture line names
 
 ### Day-1 content
 
@@ -185,6 +190,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - scheduled-workflow: the weekly `scheduled.yml` with the `lint-controls` and `scale` jobs
 - search-js: `search.js` and `search.html`, held to Rust by the goldens
 - search-palette: the command palette, search trigger and shortcuts dialog
+- hosted-edition-adr: ADR 0007, the hosted read-only site behind sign-on; accepted by the owner-delegated judge and JEV review
 - backup-snapshot: `backup`, `backup list` (with `--json`) and `backup verify`, the `[backup]` settings, retention, and the `backup_age` reminder
 - restore-and-drill: `restore`, `restore --drill` and Drill 4 in CI on the disposable build-checkout Corpus
 - verify-status-fmt: `fieldbook verify` (Could)
@@ -202,6 +208,47 @@ Exit: see [Gates](../decisions/0001-foundation.md#gates), Day 1: the home gate h
 - Run the home drill (Drill 1) and the backup drill (Drill 4) and comment "home drill passed" with the commit on its work item (gate item 9) (owner)
 - Tag `edition-001` and `v0.1.0`, and print the day-one binder, on Day 1 (owner)
 - Send [docs/intake/it-questions.md](../intake/it-questions.md) at the first IT contact (owner)
+
+## Hosted
+
+The edition as a static site behind the owner's login. It needs no phase exit and runs beside the phases; the site holds the public edition only.
+
+- hosted-deploy: the pinned deploy tool, the host configuration and response headers, and `cargo xtask hosted-limits`, the size check
+- hosted-gate: `deploy/check-login-gate.sh`, the probe that fails when the hostname answers without the login, with its tests
+- hosted-workflow: `hosted.yml`, the deploy workflow in the `hosted` environment, and its workflow controls
+- hosted-runbook: the hosted-edition runbook (deploy, verify, roll back, add a reader, rotate the token), its `AGENTS.md` link and the changelog line
+- search-ranking-warnings: the regression set judges the page view, and the Corpus content fixes the cases that still miss, so `check` reports no `FB0127` (owner review)
+- home-area-placeholders: the home and area placeholders take the design's wording or omission, and the sections the design does not cover are listed for a design revision
+- unreleased-status-strip: a strip on every unreleased page saying the build is not an edition and its claims are AI-drafted and unchecked, with counts computed from the claims
+- search-palette-design-items: the palette placeholder, the quoted search row, the named shortcuts dialog, the six tokenless values and the role checks left by `search-palette`
+- narrow-width-check: `just browser` frames a built page at 375px and fails when it scrolls sideways or a top-bar button is under the control height
+- runner-contention: the deploy installs no tool into the runners' shared home folder, and the `corpus` job has room to finish beside another (owner review)
+
+## Reader
+
+The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, pages that list their related pages, Sources without repeats, a frame without placeholder lines, trust signals that say what is true, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards.
+
+- corpus-job-speed: the `corpus` job in half its time, with a release binary and parallel harness pages, every check kept
+- design-r22-reader-pages: design revision 22: related and linked-from lists, one Sources row per claim, unbuilt navigation, the folded Company calibration part, the overdue notice on unreleased builds and the build link's target (owner review)
+- frame-unbuilt-entries: navigation entries a build does not hold stop filling the sidebar and tabs with "not available" lines
+- page-related-links: each page's rail lists its related pages and the pages that link to it, by title
+- sources-dedupe: a page's Sources hold one row per cited claim, with back-references to each marker
+- fold-company-sections: with no company overlay loaded, the Company calibration part is folded
+- overdue-banner-fold: an unreleased build shows the review notice in its build status banner, not on each page
+- ids-split: `ids.html` is an index, one page per id group, and claims in parts of 500 per area by the claims register's part rule
+- build-date-target: the top-bar build link reaches the 24px target, and the narrow check drops its exemption
+- review-by-basis: a page's `review_by` counts from its newest change note as well as `as_of`, by an ADR 0002 amendment (owner review)
+- zip-advisories: `zip` 9.0.5 or later and `rust_xlsxwriter` 0.101.x, which close five published `zip` advisories, with the deterministic zip and workbook bytes kept
+- adr-0006-glossary-units: an ADR 0006 amendment that lets the edition search index hold glossary term units, with the measured size and the plan for the cap (owner review)
+- kb-dcaa-dcma-guidance-sources: the missing Contract Audit Manual chapters, DCAA guidance for contractors and the Contract Pricing Reference Guides, byte-exact public sources
+- kb-rates-practitioner: wrap-rate build-up, pool and base structure, the billing-to-final-rate cycle and an incurred cost submission walkthrough
+- kb-hub-pages: the FAR 31.205 cost-principles overview, one page per contract type and the first Cost Accounting Standard hubs, in parts
+- search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
+- design-search-term-rows: a design revision after revision 22 that shows a glossary term row on the edition's search page and in the palette (owner review)
+- search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)
+- kb-fpa-core: budgeting, rolling forecast and variance analysis pages
+- kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
+- kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
 
 ## P4
 
@@ -223,6 +270,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - pipeline-ports: the Classifier, Correlator and Admit traits, `staged@1`, the contract suites
 - extract-csv-rows: the `csv-rows` extraction method for tables, FB0311
 - extract-xlsx-sheets: the `xlsx-sheets` extraction method for workbooks, read with `calamine`; `sheet` and `rec` locators on a workbook
+- source-location-links: a Reader card placed after `extract-xlsx-sheets`, whose source page it follows: source pages link to the official location and each cited section, as the owner decided, with the owner-approved intake wording (owner review)
 - pipeline-rules-classify: `corpus/pipeline/rules.toml`, the `rules@1` classifier, FB0826
 - Write about 10 starting rules with examples in `corpus/pipeline/rules.toml`; `check` replays each on its example (lead)
 - pipeline-correlate: the `exact-ids+bm25@1` correlator
@@ -245,7 +293,6 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - views-and-day-n: the CPY, CPT and PGM views, Day-N and the plan's today line
 - app-map: `map.html`
 - day30-strict-lints: the quote match and the number-unit lint become errors; proptest
-- rust-xlsxwriter-bump: `rust_xlsxwriter` 0.101.x with `zip` 9.0.5, and the `calamine` release that is on `zip` 9
 - release-0-2-0: the `v0.2.0` release pull request, with the Day-30 drill for the parts that merged
 - changes-page: `changes.html` with `edition-002`
 

@@ -54,10 +54,16 @@ jobs:
         run: cargo build --locked --package fieldbook
       - name: Scan the development binary imports
         run: cargo xtask binscan target/debug/fieldbook --build silent
+      # The corpus job builds the site with this binary. A release build of the same commit
+      # renders the same bytes (AD-12, Determinism) in much less time.
+      - name: Build the release binary for the corpus job
+        run: cargo build --locked --release --package fieldbook
+      - name: Scan the release binary imports
+        run: cargo xtask binscan target/release/fieldbook --build silent
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: fieldbook-dev
-          path: target/debug/fieldbook
+          path: target/release/fieldbook
           if-no-files-found: error
           retention-days: 7
 
@@ -94,7 +100,8 @@ jobs:
     # The self-hosted runner persists between jobs: never run a fork's code on it.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: [self-hosted, Linux, X64, fieldbook]
-    timeout-minutes: 45
+    # 35 to 42 minutes alone; two runs at once on the shared runners need more room.
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -165,3 +172,11 @@ jobs:
           BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
         run: cargo xtask guard-statuses "$BASE" "$HEAD"
+      # Pull requests only: a squash merge on main no longer holds the card as the branch
+      # last declared it, so the range of a push to main cannot be judged.
+      - name: Scope
+        if: github.event_name == 'pull_request'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: cargo xtask scope "$BASE" "$HEAD"

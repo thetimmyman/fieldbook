@@ -28,271 +28,89 @@ expression: html
   </div>
   <div class="sec-switch" id="fb:secSwitch" role="group" aria-label="Sections">
     
-    <button type="button" data-secpick="today" aria-pressed="false">
-      <span>Today</span>
-    </button>
-    
-    <button type="button" data-secpick="assistant" aria-pressed="false">
-      <span>Assistant</span>
-    </button>
-    
-    <button type="button" data-secpick="work" aria-pressed="false">
-      <span>Work</span>
-    </button>
-    
-    <button type="button" data-secpick="plan" aria-pressed="false">
-      <span>Plan</span>
-    </button>
-    
-    <button type="button" data-secpick="areas" aria-pressed="true">
-      <span>Areas</span>
-    </button>
-    
-    <button type="button" data-secpick="library" aria-pressed="false">
-      <span>Library</span>
-    </button>
-    
   </div>
   
-  <div class="nav-group" data-sec="today" hidden>
-    <div class="nav-head">Today</div>
-    <nav class="nav" aria-label="Today">
-      
-      
-      
-      <span class="not-available" data-item="today">
-        <span>Today is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="map">
-        <span>The app map is not available until Day 30.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
   
-  <div class="nav-group" data-sec="assistant" hidden>
-    <div class="nav-head">Assistant</div>
-    <nav class="nav" aria-label="Assistant">
+  <details class="fold nav-more">
+    <summary><b>Not built yet</b> <span class="fold-d">28</span></summary>
+    <div class="fold-b">
       
+      <div class="nav-sub" role="presentation">Today</div>
       
+      <p class="nav-line">Today is not available until Day 1.</p>
       
-      <span class="not-available" data-item="assistant">
-        <span>The assistant is not available until Day 30.</span>
-      </span>
+      <p class="nav-line">The app map is not available until Day 30.</p>
       
       
+      <div class="nav-sub" role="presentation">Assistant</div>
       
+      <p class="nav-line">The assistant is not available until Day 30.</p>
       
-      <span class="not-available" data-item="handoff">
-        <span>Handoff packs is not available until Day 30.</span>
-      </span>
+      <p class="nav-line">Handoff packs is not available until Day 30.</p>
       
       
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="work" hidden>
-    <div class="nav-head">Work</div>
-    <nav class="nav" aria-label="Work">
+      <div class="nav-sub" role="presentation">Work</div>
       
+      <p class="nav-line">Bids is not available until the ORG overlay, Release 2 or later.</p>
       
+      <p class="nav-line">Programs is not available until the ORG overlay, Release 2 or later.</p>
       
-      <span class="not-available" data-item="bids">
-        <span>Bids is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
+      <p class="nav-line">Close &#38; forecast is not available until the ORG overlay, Release 2 or later.</p>
       
+      <p class="nav-line">Rates &#38; pools is not available until the ORG overlay, Release 2 or later.</p>
       
+      <p class="nav-line">Suppliers &#38; make/buy is not available until the ORG overlay, Release 2 or later.</p>
       
+      <p class="nav-line">Systems &#38; compliance is not available until the ORG overlay, Release 2 or later.</p>
       
-      <span class="not-available" data-item="programs">
-        <span>Programs is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
+      <p class="nav-line">M&#38;A &#38; cases is not available until the ORG overlay, Release 2 or later.</p>
       
+      <p class="nav-line">Actions &#38; calendar is not available until the ORG overlay, Release 2 or later.</p>
       
       
+      <div class="nav-sub" role="presentation">Plan</div>
       
-      <span class="not-available" data-item="close">
-        <span>Close &#38; forecast is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
+      <p class="nav-line">The 90-day plan is not available until Day 1.</p>
       
+      <p class="nav-line">The curriculum is not available until Day 1.</p>
       
+      <p class="nav-line">Stakeholders is not available until the ORG overlay, Release 2 or later.</p>
       
+      <p class="nav-line">Systems is not available until the ORG overlay, Release 2 or later.</p>
       
-      <span class="not-available" data-item="rates">
-        <span>Rates &#38; pools is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
+      <p class="nav-line">The artifact log is not available until the ORG overlay, Release 2 or later.</p>
       
       
+      <div class="nav-sub" role="presentation">Areas</div>
       
+      <p class="nav-line">Areas is not available until Day 1.</p>
       
-      <span class="not-available" data-item="suppliers">
-        <span>Suppliers &#38; make/buy is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
+      <p class="nav-line"><code>CMP</code> Compliance is not available until Day 1.</p>
       
+      <p class="nav-line"><code>EST</code> Estimating is not available until Day 1.</p>
       
+      <p class="nav-line"><code>PRC</code> Pricing is not available until Day 30.</p>
       
       
-      <span class="not-available" data-item="compliance">
-        <span>Systems &#38; compliance is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
+      <div class="nav-sub" role="presentation">Library</div>
       
+      <p class="nav-line">The library is not available until Day 1.</p>
       
+      <p class="nav-line">The day-one binder is not available until Day 1.</p>
       
+      <p class="nav-line">The claims register is not available until Day 1.</p>
       
-      <span class="not-available" data-item="mna">
-        <span>M&#38;A &#38; cases is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
+      <p class="nav-line">The questions register is not available until Day 1.</p>
       
+      <p class="nav-line">The conflicts register is not available until Day 1.</p>
       
+      <p class="nav-line">The glossary is not available until Day 1.</p>
       
+      <p class="nav-line">The sources register is not available until Day 1.</p>
       
-      <span class="not-available" data-item="actions">
-        <span>Actions &#38; calendar is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
       
-      
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="plan" hidden>
-    <div class="nav-head">90-day plan</div>
-    <nav class="nav" aria-label="90-day plan">
-      
-      
-      
-      <span class="not-available" data-item="plan-90">
-        <span>The 90-day plan is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="curriculum">
-        <span>The curriculum is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="stakeholders">
-        <span>Stakeholders is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="systems">
-        <span>Systems is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="artifacts">
-        <span>The artifact log is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="areas">
-    <div class="nav-head">Areas</div>
-    <nav class="nav" aria-label="Areas">
-      
-      
-      
-      <span class="not-available" data-item="areas">
-        <span>Areas is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="area-cmp">
-        <span><span class="code">CMP</span>Compliance is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="area-est" aria-current="page">
-        <span><span class="code">EST</span>Estimating is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      <div class="nav-sub">Views over EST</div>
-      
-      
-      <span class="not-available" data-item="view-prc">
-        <span><span class="code">PRC</span>Pricing is not available until Day 30.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="library" hidden>
-    <div class="nav-head">Library</div>
-    <nav class="nav" aria-label="Library">
-      
-      
-      
-      <span class="not-available" data-item="browse">
-        <span>The library is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="templates">
-        <span>The day-one binder is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="claims">
-        <span>The claims register is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="questions">
-        <span>The questions register is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="conflicts">
-        <span>The conflicts register is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="glossary">
-        <span>The glossary is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="sources">
-        <span>The sources register is not available until Day 1.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
+    </div>
+  </details>
   
   <div class="side-foot">
     <div class="build-note" id="fb:sideFootNote">
@@ -311,30 +129,6 @@ expression: html
     <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
   </button>
   <nav aria-label="Sections">
-    
-    
-    <span class="not-available" data-sec="today" title="Today is not available until Day 1.">Today <span class="sr-only">Today is not available until Day 1.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="assistant" title="The assistant is not available until Day 30.">Assistant <span class="sr-only">The assistant is not available until Day 30.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="work" title="Bids is not available until the ORG overlay, Release 2 or later.">Work <span class="sr-only">Bids is not available until the ORG overlay, Release 2 or later.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="plan" title="The 90-day plan is not available until Day 1.">Plan <span class="sr-only">The 90-day plan is not available until Day 1.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="areas" aria-current="true" title="Areas is not available until Day 1.">Areas <span class="sr-only">Areas is not available until Day 1.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="library" title="The library is not available until Day 1.">Library <span class="sr-only">The library is not available until Day 1.</span></span>
-    
     
   </nav>
   <div class="topbar-end">
@@ -371,16 +165,16 @@ expression: html
 
 <div class="banners" id="fb:banners">
 
+<div class="banner warn build-status" role="region" aria-label="Build status">
+  <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 14 13H2L8 2.5Z"/><path d="M8 6.5v3"/><circle cx="8" cy="11.2" r="0.6"/></svg>
+  <div class="body"><b>This is an unreleased build, not an edition.</b> 5 of 5 claims are AI-drafted; 4 of 5 are unchecked. 1 of 5 has been checked and found supported. Each page shows its review date; none is flagged as overdue. See the claims register.</div>
+</div>
+
+
 </div>
 <main id="fb:main" tabindex="-1"><div class="reader" id="fb:reader">
   <article class="prose">
-    <div class="banner warn" id="fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="2026-07-31" hidden>
-      <div class="body"><b>Review overdue.</b> Review date <time datetime="2026-07-31">2026-07-31</time> has passed; re-check cited sources before relying on this page.</div>
-      <div class="due-claims" hidden><details class="fold"><summary><b>Claims due for a check</b> <span class="due-count mono"></span></summary><section class="unavailable" role="note">
-  <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
-  <p><b>The verify command is not available until Day 30.</b></p>
-</section><ul><li class="due-claim" data-claim-review-by="2026-07-31" hidden><span class="cite neutral" data-claim="CL-EST-0003">CL-EST-0003</span> <span class="meta">Review date <time datetime="2026-07-31">2026-07-31</time></span></li><li class="due-claim" data-claim-review-by="2027-02-01" hidden><span class="cite neutral" data-claim="CL-EST-0001">CL-EST-0001</span> <span class="meta">Review date <time datetime="2027-02-01">2027-02-01</time></span></li></ul></details></div>
-    </div>
+    
     
     <div class="banner" role="region" aria-label="Readiness notice">
       <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>
@@ -439,8 +233,8 @@ expression: html
         <div class="table-wrap"><table>
 <thead><tr><th scope="col">Parameter</th><th scope="col">Value</th><th scope="col">Basis</th></tr></thead>
 <tbody>
-<tr data-as-of="2026-02-01"><td>Rate review window</td><td>10 days <a class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 1">1</a></td><td>Current synthetic pricing guidance <a class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 2">2</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
-<tr data-as-of="2026-02-01"><td>Escalation placeholder</td><td>3 percent <a class="cite-n" href="#cite-3" data-pv="cite:3" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 3">3</a></td><td>Synthetic multi-year assumption <a class="cite-n" href="#cite-4" data-pv="cite:4" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 4">4</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
+<tr data-as-of="2026-02-01"><td>Rate review window</td><td>10 days <a id="cite-ref-1-1" class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 1">1</a></td><td>Current synthetic pricing guidance <a id="cite-ref-1-2" class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-EST-0003" data-pv-body="Synthetic rate review window is 10 days under current guidance." aria-label="Source 1">1</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
+<tr data-as-of="2026-02-01"><td>Escalation placeholder</td><td>3 percent <a id="cite-ref-2-1" class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 2">2</a></td><td>Synthetic multi-year assumption <a id="cite-ref-2-2" class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-EST-0001" data-pv-body="Synthetic escalation placeholder is 3 percent per year for fixture examples." aria-label="Source 2">2</a> <span class="ref-as-of">As of <time datetime="2026-02-01">2026-02-01</time></span></td></tr>
 </tbody></table></div>
 
       </div>
@@ -476,15 +270,22 @@ expression: html
     <section class="part" aria-labelledby="company-calibration">
       <h2 id="company-calibration">Company calibration</h2>
       
+      <details class="fold company-fold">
+        <summary><b>Company questions</b> <span class="meta">1 to settle with company data</span></summary>
+      
+      
       <p>Confirm the multi-year escalation index <span class="cite neutral" data-pv="q:Q-002" data-pv-title="Q-002" data-pv-body="Which synthetic escalation index applies to multi-year pricing workbooks?">Q-002</span>.</p>
 
+      
+      
+      </details>
       
     </section>
 
     <section class="part" aria-labelledby="sources">
       <h2 id="sources">Sources</h2>
       
-<ol class="sources-list">
+<ol class="sources-list" aria-label="Sources cited on this page">
 
   <li id="cite-1" class="source-row">
     <span class="source-num">1.</span>
@@ -507,6 +308,9 @@ expression: html
         
       </div>
     
+    
+      <div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-1-1" aria-label="Back to citation a of 2 in the text">a</a> <a href="#cite-ref-1-2" aria-label="Back to citation b of 2 in the text">b</a></div>
+    
     </div>
   </li>
 
@@ -515,30 +319,6 @@ expression: html
     <div class="source-body">
     
       <div class="source-chips">
-        <span class="claim-mark warn" data-claim="CL-EST-0003" aria-label="Claim CL-EST-0003: Unchecked" title="CL-EST-0003 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-EST-0003</span></span>
-        <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span>
-        <span class="cite" data-pv="src:S-0002-v2" data-pv-title="Synthetic Pricing Guide v2, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v2</span> <span class="loc">sec. 4</span></span>
-      </div>
-      
-      <p class="source-stmt">Synthetic rate review window is 10 days under current guidance.</p>
-      
-      
-      <blockquote class="source-quote">“Synthetic rate review window is 10 days.”</blockquote>
-      
-      <div class="source-meta">
-        
-        <span class="unver">Never verified</span>
-        
-      </div>
-    
-    </div>
-  </li>
-
-  <li id="cite-3" class="source-row">
-    <span class="source-num">3.</span>
-    <div class="source-body">
-    
-      <div class="source-chips">
         <span class="claim-mark warn" data-claim="CL-EST-0001" aria-label="Claim CL-EST-0001: Unchecked" title="CL-EST-0001 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-EST-0001</span></span>
         <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span> <span class="chip info"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 8.5v5"/></svg><span>Assumption</span></span>
         <span class="cite neutral">No source yet</span>
@@ -553,27 +333,8 @@ expression: html
         
       </div>
     
-    </div>
-  </li>
-
-  <li id="cite-4" class="source-row">
-    <span class="source-num">4.</span>
-    <div class="source-body">
     
-      <div class="source-chips">
-        <span class="claim-mark warn" data-claim="CL-EST-0001" aria-label="Claim CL-EST-0001: Unchecked" title="CL-EST-0001 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-EST-0001</span></span>
-        <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span> <span class="chip info"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 8.5v5"/></svg><span>Assumption</span></span>
-        <span class="cite neutral">No source yet</span>
-      </div>
-      
-      <p class="source-stmt">Synthetic escalation placeholder is 3 percent per year for fixture examples.</p>
-      
-      
-      <div class="source-meta">
-        
-        <span class="unver">Never verified</span>
-        
-      </div>
+      <div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-2-1" aria-label="Back to citation a of 2 in the text">a</a> <a href="#cite-ref-2-2" aria-label="Back to citation b of 2 in the text">b</a></div>
     
     </div>
   </li>
@@ -594,6 +355,84 @@ expression: html
 </div>
 
     </section>
+    <details class="context-pack"><summary>context pack</summary><pre>rules_version = 1
+
+Synthetic assistant rules for the mini Corpus fixture.
+Use only the supplied context pack and cite every factual statement exactly as shown.
+If the context pack does not establish an answer, reply: Not established in the library.
+
+Labels: public
+
+--- page est-rate-reference ---
+Title: Synthetic reference table of pricing rate windows and placeholders
+As of: 2026-02-01
+Status: draft
+Text: Provide a synthetic lookup table of pricing rate review parameters.
+
+--- claim CL-EST-0003 ---
+Title: Synthetic rate review window is 10 days under current guidance.
+As of: 2026-02-01
+Status: unchecked
+Source: S-0002-v2, sec. 4
+Quote: &#34;Synthetic rate review window is 10 days.&#34;
+cite as: [@CL-EST-0003]
+
+--- claim CL-EST-0001 ---
+Title: Synthetic escalation placeholder is 3 percent per year for fixture examples.
+As of: 2026-02-01
+Status: unchecked
+cite as: [@CL-EST-0001]
+
+--- term rate_window ---
+Title: rate window
+As of: unknown
+Status: public_reference
+Text: Synthetic period allowed to complete a forward pricing rate check.
+
+--- page est-rate-window-brief ---
+Title: Synthetic decision brief on forward pricing rate review window
+As of: 2026-02-01
+Status: draft
+Text: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?
+
+--- page est-rate-window-brief#question ---
+Title: Question
+As of: 2026-02-01
+Status: draft
+Text: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?
+
+--- page cmp-system-review#the-rule ---
+Title: The rule
+As of: 2026-02-01
+Status: draft
+Text: A synthetic system review runs on a recurring cycle of 30 days [@CL-CMP-0001]. When a synthetic deficiency remains open, the synthetic billing withhold rate…
+
+--- page cmp-withhold-case#how-it-works ---
+Title: How it works
+As of: 2026-02-01
+Status: draft
+Text: The synthetic review board recorded a 30 days cycle [@CL-CMP-0001] and a 5 percent billing withhold threshold [@CL-CMP-0002].
+
+--- page cmp-onboarding-checklist#purpose ---
+Title: Purpose
+As of: 2026-02-01
+Status: draft
+Text: Track synthetic compliance onboarding steps across relative-day windows.
+
+--- page cmp-onboarding-checklist ---
+Title: Synthetic compliance onboarding checklist across two windows
+As of: 2026-02-01
+Status: draft
+Text: Track synthetic compliance onboarding steps across relative-day windows.
+
+--- page est-calc-01#company-calibration ---
+Title: Company calibration
+As of: 2026-02-01
+Status: draft
+Text: Confirm the rate structure and escalation basis for the cost baseline [@Q-002].
+
+Some records were omitted.
+</pre></details>
   </article>
 
   <aside class="rail" aria-label="Evidence and connections">
@@ -619,6 +458,9 @@ expression: html
         
       </ul>
     </nav>
+
+    <section class="rail-sec rail-list" aria-label="Related"><div class="rail-head">Related</div><p class="rail-empty">No related pages listed.</p></section>
+<section class="rail-sec rail-list" aria-label="Linked from"><div class="rail-head">Linked from</div><p class="rail-empty">No page links here.</p></section>
 
     <section class="rail-sec" aria-label="Cited claims">
       <div class="rail-head">Cited claims (2)</div>

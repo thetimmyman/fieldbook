@@ -80,6 +80,18 @@ struct StoreBannerView {
     body: String,
 }
 
+/// Fixed sentence of the build status banner: an unreleased build writes no page-level overdue
+/// banner, so the build status banner says so (design revision 22).
+const REVIEW_RULE_SENTENCE: &str = "Each page shows its review date; none is flagged as overdue.";
+
+/// The build status banner's sentences, in order: `counts`, then `supported`, which holds the
+/// "checked and found supported" sentence when it applies followed by [`REVIEW_RULE_SENTENCE`].
+struct BuildStatusView {
+    counts: String,
+    supported: Option<String>,
+    claims_href: Option<String>,
+}
+
 /// One breadcrumb item in `CrumbsRow`.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Crumb {
@@ -152,8 +164,13 @@ pub struct FrameInput<'a> {
 struct TabView<'a> {
     key: &'a str,
     label: &'a str,
-    href: Option<&'a str>,
-    landing_line: &'a str,
+    href: &'a str,
+    is_current: bool,
+}
+
+struct SwitchView<'a> {
+    key: &'a str,
+    label: &'a str,
     is_current: bool,
 }
 
@@ -162,18 +179,26 @@ struct EntryView<'a> {
     code: Option<&'a str>,
     label: &'a str,
     sub_group: Option<&'a str>,
-    href: Option<&'a str>,
-    landing_line: &'a str,
+    href: &'a str,
     count: Option<usize>,
     is_current: bool,
 }
 
 struct GroupView<'a> {
     key: &'a str,
-    label: &'a str,
     aria_label: &'a str,
     is_current: bool,
     entries: Vec<EntryView<'a>>,
+}
+
+struct UnbuiltLineView<'a> {
+    code: Option<&'a str>,
+    text: &'a str,
+}
+
+struct UnbuiltSectionView<'a> {
+    label: &'static str,
+    lines: Vec<UnbuiltLineView<'a>>,
 }
 
 #[derive(Template)]
@@ -195,9 +220,13 @@ struct BaseTemplate<'a> {
     store_chip_title: &'a str,
     store_foot_lead: &'a str,
     store_foot_body: &'a str,
+    build_status_banner: Option<BuildStatusView>,
     store_banner: Option<StoreBannerView>,
     tabs: Vec<TabView<'a>>,
+    switch: Vec<SwitchView<'a>>,
     groups: Vec<GroupView<'a>>,
+    unbuilt: Vec<UnbuiltSectionView<'a>>,
+    unbuilt_count: usize,
     crumbs: &'a [Crumb],
     main_html: &'a str,
 }
@@ -214,18 +243,26 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         .nav
         .tabs
         .iter()
-        .map(|t| {
-            let (href, landing_line) = match &t.target {
-                NavTarget::Built { href } => (Some(href.as_str()), ""),
-                NavTarget::Unbuilt { landing_line } => (None, landing_line.as_str()),
-            };
-            TabView {
+        .filter_map(|t| match &t.target {
+            NavTarget::Built { href } => Some(TabView {
                 key: t.key,
                 label: t.label,
-                href,
-                landing_line,
+                href: href.as_str(),
                 is_current: t.id == current_section,
-            }
+            }),
+            NavTarget::Unbuilt { .. } => None,
+        })
+        .collect();
+
+    let switch = input
+        .nav
+        .tabs
+        .iter()
+        .filter(|t| input.nav.tab_is_built(t.id))
+        .map(|t| SwitchView {
+            key: t.key,
+            label: t.label,
+            is_current: t.id == current_section,
         })
         .collect();
 
@@ -233,36 +270,66 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         .nav
         .groups
         .iter()
-        .map(|g| {
-            let entries = g
+        .filter_map(|g| {
+            let entries: Vec<EntryView<'_>> = g
                 .entries
                 .iter()
-                .map(|e| {
-                    let (href, landing_line) = match &e.target {
-                        NavTarget::Built { href } => (Some(href.as_str()), ""),
-                        NavTarget::Unbuilt { landing_line } => (None, landing_line.as_str()),
-                    };
-                    EntryView {
+                .filter_map(|e| match &e.target {
+                    NavTarget::Built { href } => Some(EntryView {
                         id: e.id.as_str(),
                         code: e.code.as_deref(),
                         label: e.label.as_str(),
                         sub_group: e.sub_group.as_deref(),
-                        href,
-                        landing_line,
+                        href: href.as_str(),
                         count: e.count,
                         is_current: g.id == current_section && e.id == current_item,
-                    }
+                    }),
+                    NavTarget::Unbuilt { .. } => None,
                 })
                 .collect();
-            GroupView {
+            (!entries.is_empty()).then(|| GroupView {
                 key: g.key,
-                label: g.id.label(),
                 aria_label: g.aria_label,
                 is_current: g.id == current_section,
                 entries,
-            }
+            })
         })
         .collect();
+
+    let unbuilt_sections = input.nav.unbuilt_sections();
+    let unbuilt_count = input.nav.unbuilt_count();
+    let unbuilt = unbuilt_sections
+        .iter()
+        .map(|s| UnbuiltSectionView {
+            label: s.label,
+            lines: s
+                .lines
+                .iter()
+                .map(|l| UnbuiltLineView {
+                    code: l.code.as_deref(),
+                    text: l.text.as_str(),
+                })
+                .collect(),
+        })
+        .collect();
+
+    let build_status_banner = edition::built_date(input.edition).is_none().then(|| {
+        let claims_href = input
+            .nav
+            .entry("claims")
+            .and_then(|entry| match &entry.target {
+                NavTarget::Built { href } => Some(href.clone()),
+                NavTarget::Unbuilt { .. } => None,
+            });
+        BuildStatusView {
+            counts: input.nav.build_status.count_sentence(),
+            supported: Some(input.nav.build_status.supported_sentence().map_or_else(
+                || REVIEW_RULE_SENTENCE.to_owned(),
+                |supported| format!("{supported} {REVIEW_RULE_SENTENCE}"),
+            )),
+            claims_href,
+        }
+    });
 
     let tpl = BaseTemplate {
         csp: CSP_STATIC,
@@ -281,9 +348,13 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         store_chip_title: &store_pres.chip_title,
         store_foot_lead: &store_pres.foot_lead,
         store_foot_body: &store_pres.foot_body,
+        build_status_banner,
         store_banner: store_pres.banner,
         tabs,
+        switch,
         groups,
+        unbuilt,
+        unbuilt_count,
         crumbs: input.crumbs,
         main_html: input.main_html,
     };

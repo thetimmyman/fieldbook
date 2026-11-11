@@ -9,7 +9,7 @@
 //!
 //! The numbers are the ones in `docs/reference/dependencies.md`: the silent direct
 //! ceiling is 12, or 14 when both workbook crates are active shipped normal
-//! dependencies; the AI ceiling is 17; the caps are 80 and 100. The higher silent
+//! dependencies; the AI ceiling is 17; the caps are 100 and 100. The higher silent
 //! ceiling needs both workbook crates as active shipped normal dependencies; a
 //! catalog row, a lock entry, an `xtask` edge or a dev-only crate cannot select it.
 
@@ -18,7 +18,7 @@ use crate::deps_graph::{Graph, Profile};
 const SILENT_DIRECT: usize = 12;
 const SILENT_DIRECT_WORKBOOK: usize = 14;
 const AI_DIRECT: usize = 17;
-const SILENT_CAP: usize = 80;
+const SILENT_CAP: usize = 100;
 const AI_CAP: usize = 100;
 
 /// The direct shipped budget of one profile.
@@ -196,7 +196,7 @@ mod tests {
     fn the_report_shows_the_counts_beside_their_budgets() {
         assert_eq!(
             summary(&graph(Profile::Silent, &[("alpha", "1.0.0")], 1)),
-            "deps: silent direct 1/12 transitive 1/80 all-target 0"
+            "deps: silent direct 1/12 transitive 1/100 all-target 0"
         );
         assert_eq!(
             summary(&graph(
@@ -204,7 +204,7 @@ mod tests {
                 &[("calamine", "1.0.0"), ("zip", "1.0.0")],
                 2
             )),
-            "deps: silent direct 2/14 transitive 2/80 all-target 0",
+            "deps: silent direct 2/14 transitive 2/100 all-target 0",
             "both workbook crates select the higher silent ceiling"
         );
         assert_eq!(
@@ -273,22 +273,22 @@ mod tests {
         assert_eq!(ai(18), ["DEPS-3 ai: direct shipped crates 18 exceed 17"]);
     }
 
-    /// The literal transitive caps: 80/81 silent, 100/101 AI, counted as distinct
+    /// The literal transitive caps: 100/101 silent, 100/101 AI, counted as distinct
     /// crate-and-version pairs. The message carries the profile, the count and the
     /// cap, so a wrong cap or a wrong count fails on the text, not on a prefix.
     #[test]
     fn transitive_cap_boundaries() {
         assert_eq!(
-            findings(&graph(Profile::Silent, &[], 80), None),
+            findings(&graph(Profile::Silent, &[], 100), None),
             Vec::<String>::new(),
-            "a silent graph at exactly eighty passes"
+            "a silent graph at exactly one hundred passes"
         );
         assert_eq!(
-            findings(&graph(Profile::Silent, &[], 81), None),
-            ["DEPS-3 silent: transitive crates 81 exceed 80"]
+            findings(&graph(Profile::Silent, &[], 101), None),
+            ["DEPS-3 silent: transitive crates 101 exceed 100"]
         );
 
-        let silent_at_cap = graph(Profile::Silent, &[], 80);
+        let silent_at_cap = graph(Profile::Silent, &[], 100);
         let ai = |count: usize| findings(&silent_at_cap, Some(&graph(Profile::Ai, &[], count)));
         assert_eq!(
             ai(100),
@@ -299,28 +299,29 @@ mod tests {
     }
 
     /// The count is of distinct crate-and-version pairs, not of crate names:
-    /// eighty versions of one crate are eighty pairs, and the eighty-first fails.
+    /// one hundred versions of one crate are one hundred pairs, and the
+    /// hundred-and-first fails.
     #[test]
     fn the_transitive_cap_counts_distinct_name_version_pairs() {
         let mut many = graph(Profile::Silent, &[], 0);
-        for minor in 0..80 {
+        for minor in 0..100 {
             many.transitive
                 .insert(("repeated".to_owned(), format!("0.{minor}.0")));
         }
         assert_eq!(
             summary(&many),
-            "deps: silent direct 0/12 transitive 80/80 all-target 0"
+            "deps: silent direct 0/12 transitive 100/100 all-target 0"
         );
         assert_eq!(
             findings(&many, None),
             Vec::<String>::new(),
-            "eighty pairs of one name are eighty transitive crates"
+            "one hundred pairs of one name are one hundred transitive crates"
         );
         many.transitive
-            .insert(("repeated".to_owned(), "0.80.0".to_owned()));
+            .insert(("repeated".to_owned(), "0.100.0".to_owned()));
         assert_eq!(
             findings(&many, None),
-            ["DEPS-3 silent: transitive crates 81 exceed 80"]
+            ["DEPS-3 silent: transitive crates 101 exceed 100"]
         );
     }
 
@@ -329,17 +330,17 @@ mod tests {
     /// was exceeded beside the count.
     #[test]
     fn every_exceeded_budget_contributes_one_named_finding() {
-        let silent = graph(Profile::Silent, &refs(&edges(13)), 81);
+        let silent = graph(Profile::Silent, &refs(&edges(13)), 101);
         let ai = graph(Profile::Ai, &refs(&edges(18)), 101);
         assert_eq!(
             summary(&silent),
-            "deps: silent direct 13/12 transitive 81/80 all-target 0"
+            "deps: silent direct 13/12 transitive 101/100 all-target 0"
         );
         assert_eq!(
             findings(&silent, Some(&ai)),
             [
                 "DEPS-3 silent: direct shipped crates 13 exceed 12",
-                "DEPS-3 silent: transitive crates 81 exceed 80",
+                "DEPS-3 silent: transitive crates 101 exceed 100",
                 "DEPS-3 ai: direct shipped crates 18 exceed 17",
                 "DEPS-3 ai: transitive crates 101 exceed 100",
             ]
@@ -348,7 +349,7 @@ mod tests {
             findings(&silent, None),
             [
                 "DEPS-3 silent: direct shipped crates 13 exceed 12",
-                "DEPS-3 silent: transitive crates 81 exceed 80",
+                "DEPS-3 silent: transitive crates 101 exceed 100",
             ],
             "an inapplicable AI profile contributes no AI finding"
         );
@@ -363,7 +364,7 @@ mod tests {
         let real = measured("graph");
         assert_eq!(
             summary(&real.silent),
-            "deps: silent direct 3/12 transitive 4/80 all-target 4"
+            "deps: silent direct 3/12 transitive 4/100 all-target 4"
         );
         let ai = real
             .ai
@@ -374,13 +375,13 @@ mod tests {
             "deps: ai direct 4/17 transitive 5/100 all-target 5"
         );
 
-        let mut silent = graph(Profile::Silent, &refs(&edges(12)), 80);
-        silent.all_target = (0..95)
+        let mut silent = graph(Profile::Silent, &refs(&edges(12)), 100);
+        silent.all_target = (0..115)
             .map(|index| (format!("a{index:03}"), "0.1.0".to_owned()))
             .collect();
         assert_eq!(
             summary(&silent),
-            "deps: silent direct 12/12 transitive 80/80 all-target 95"
+            "deps: silent direct 12/12 transitive 100/100 all-target 115"
         );
         assert_eq!(
             findings(&silent, None),
@@ -426,7 +427,7 @@ mod tests {
         assert_eq!(ceiling(&workbook.silent), 14);
         assert_eq!(
             summary(&workbook.silent),
-            "deps: silent direct 2/14 transitive 2/80 all-target 2"
+            "deps: silent direct 2/14 transitive 2/100 all-target 2"
         );
         assert_eq!(budget_findings(&workbook), Vec::<String>::new());
 
@@ -438,7 +439,7 @@ mod tests {
         );
         assert_eq!(
             summary(&dev_only.silent),
-            "deps: silent direct 1/12 transitive 2/80 all-target 2"
+            "deps: silent direct 1/12 transitive 2/100 all-target 2"
         );
         assert_eq!(budget_findings(&dev_only), Vec::<String>::new());
 
@@ -467,7 +468,7 @@ mod tests {
         );
         assert_eq!(
             summary(&namesake.silent),
-            "deps: silent direct 2/12 transitive 3/80 all-target 3"
+            "deps: silent direct 2/12 transitive 3/100 all-target 3"
         );
     }
 
@@ -500,7 +501,7 @@ mod tests {
             .expect("the fixture's `net` feature is applicable");
         assert_eq!(ceiling(&fixture.silent), 12);
         assert_eq!(ceiling(ai), 17);
-        assert_eq!(cap(Profile::Silent), 80);
+        assert_eq!(cap(Profile::Silent), 100);
         assert_eq!(cap(ai.profile), 100);
         assert_eq!(budget_findings(&fixture), Vec::<String>::new());
 
@@ -508,7 +509,7 @@ mod tests {
         assert!(inapplicable.ai.is_none());
         assert_eq!(
             summary(&inapplicable.silent),
-            "deps: silent direct 1/12 transitive 1/80 all-target 1"
+            "deps: silent direct 1/12 transitive 1/100 all-target 1"
         );
         assert_eq!(
             budget_findings(&inapplicable),

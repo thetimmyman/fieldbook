@@ -21,8 +21,8 @@ rust_decimal = { version = "1.43.0", default-features = false, features = ["std"
 askama = { version = "0.16.1", default-features = false, features = ["derive", "std"] }
 serde_json = "1.0.151"
 clap = { version = "4.6.7", default-features = false, features = ["std", "derive", "help", "usage", "error-context", "suggestions"] }
-rust_xlsxwriter = "0.99.1"
-zip = { version = "8.6.0", default-features = false, features = ["deflate"] }
+rust_xlsxwriter = "0.101.0"
+zip = { version = "9.0.5", default-features = false, features = ["deflate"] }
 insta = { version = "1.49.0", default-features = false }
 tempfile = "3.27.0"
 windows-sys = { version = "0.61.2", default-features = false, features = ["Win32_Foundation", "Win32_Security", "Win32_Security_Authorization", "Win32_Storage_FileSystem", "Win32_Storage_CloudFilters", "Win32_System_Com", "Win32_System_RemoteDesktop", "Win32_System_Threading", "Win32_UI_Shell"] }

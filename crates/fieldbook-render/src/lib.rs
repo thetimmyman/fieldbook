@@ -5,6 +5,8 @@ pub const LAYER: &str = "render";
 
 pub mod about;
 pub mod area;
+pub mod calc_table;
+pub mod charts;
 pub mod chip;
 pub mod cite;
 pub mod csp;
@@ -20,6 +22,7 @@ pub mod nav;
 pub mod page;
 pub mod plan;
 pub mod register;
+pub mod related;
 pub mod search_index;
 pub mod search_page;
 pub mod site;

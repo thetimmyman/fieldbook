@@ -129,12 +129,16 @@ pub(crate) fn find_page<'a>(view: &'a LabelledView, page_id: &str) -> Option<&'a
     slice.iter().find(|p| p.id.as_str() == page_id)
 }
 
-/// A numbered citation marker (`1..=K`) emitted in reading order by [`InlineRenderer`]
-/// and paired 1-to-1 with a row in [`crate::sources_block`].
+/// A numbered citation marker emitted in reading order by [`InlineRenderer`].
+///
+/// Markers sharing the same cited target share a row `number` in [`crate::sources_block`],
+/// distinguished by 1-based `position` in reading order.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CitationMarker {
-    /// 1-based marker number (`1..=K`).
+    /// 1-based row number assigned to the cited target (`1..=K`).
     pub number: usize,
+    /// 1-based position among markers sharing the same row number (`1..=count`).
+    pub position: usize,
     /// Target of the numbered citation (a claim or a direct source version).
     pub target: CitationTarget,
 }
@@ -272,7 +276,7 @@ fn find_whole_word_prelowered(
     None
 }
 
-fn parse_md_link_target(dest_url: &str) -> Option<(&str, Option<&str>)> {
+pub(crate) fn parse_md_link_target(dest_url: &str) -> Option<(&str, Option<&str>)> {
     if dest_url.contains("://") || dest_url.starts_with('#') || dest_url.starts_with('/') {
         return None;
     }
@@ -469,8 +473,8 @@ struct TermEntry<'a> {
     candidates: Vec<(String, String)>,
 }
 
-/// Stateful renderer across the parts of a single page so that [`CitationMarker`]s number
-/// `1..=K` in reading order and each front-matter `terms` entry links on its first occurrence only.
+/// Stateful renderer across the parts of a single page so that each distinct cited target
+/// is assigned a row number `1..=K` in reading order and each front-matter `terms` entry links on its first occurrence only.
 pub struct InlineRenderer<'a> {
     from_path: &'a str,
     page: &'a PageEntry,
@@ -859,22 +863,38 @@ impl<'a> InlineRenderer<'a> {
         out
     }
 
+    /// Record a citation marker for `target`, allocating a row `number` and 1-based `position`,
+    /// and push it to `self.markers`.
+    fn record_marker(&mut self, target: CitationTarget) -> (usize, usize) {
+        let (number, position) =
+            if let Some(first) = self.markers.iter().find(|m| m.target == target) {
+                let n = first.number;
+                let k = self.markers.iter().filter(|m| m.number == n).count() + 1;
+                (n, k)
+            } else {
+                let distinct_count = self.markers.iter().fold(0usize, |max, m| max.max(m.number));
+                (distinct_count + 1, 1)
+            };
+        self.markers.push(CitationMarker {
+            number,
+            position,
+            target,
+        });
+        (number, position)
+    }
+
     fn render_single_citation(&mut self, cite: &Citation) -> String {
         match cite.key_kind {
             KeyKind::Claim => {
                 let Ok(claim_id) = ClaimId::parse(&cite.key) else {
                     return escape_html(&cite.key);
                 };
-                let n = self.markers.len() + 1;
                 let claim_row = find_claim(self.view, &claim_id);
                 let pv_title = format!("{claim_id}");
                 let pv_body = claim_row.map(|c| c.statement.as_str()).unwrap_or("");
-                self.markers.push(CitationMarker {
-                    number: n,
-                    target: CitationTarget::Claim(claim_id),
-                });
+                let (n, k) = self.record_marker(CitationTarget::Claim(claim_id));
                 format!(
-                    "<a class=\"cite-n\" href=\"#cite-{n}\" data-pv=\"cite:{n}\" data-pv-title=\"{}\" data-pv-body=\"{}\" aria-label=\"Source {n}\">{n}</a>",
+                    "<a id=\"cite-ref-{n}-{k}\" class=\"cite-n\" href=\"#cite-{n}\" data-pv=\"cite:{n}\" data-pv-title=\"{}\" data-pv-body=\"{}\" aria-label=\"Source {n}\">{n}</a>",
                     escape_html(&pv_title),
                     escape_html(pv_body)
                 )
@@ -883,7 +903,6 @@ impl<'a> InlineRenderer<'a> {
                 let Ok(version_id) = VersionId::parse(&cite.key) else {
                     return escape_html(&cite.key);
                 };
-                let n = self.markers.len() + 1;
                 let source_row = find_source(self.view, &version_id.source(), version_id.version());
                 let locator_text = cite.locator.as_ref().map(|loc| loc.text.clone());
                 let pv_title = match &locator_text {
@@ -891,15 +910,12 @@ impl<'a> InlineRenderer<'a> {
                     None => version_id.to_string(),
                 };
                 let pv_body = source_row.map(|s| s.title.as_str()).unwrap_or("");
-                self.markers.push(CitationMarker {
-                    number: n,
-                    target: CitationTarget::Version {
-                        version_id,
-                        locator: locator_text,
-                    },
+                let (n, k) = self.record_marker(CitationTarget::Version {
+                    version_id,
+                    locator: locator_text,
                 });
                 format!(
-                    "<a class=\"cite-n\" href=\"#cite-{n}\" data-pv=\"cite:{n}\" data-pv-title=\"{}\" data-pv-body=\"{}\" aria-label=\"Source {n}\">{n}</a>",
+                    "<a id=\"cite-ref-{n}-{k}\" class=\"cite-n\" href=\"#cite-{n}\" data-pv=\"cite:{n}\" data-pv-title=\"{}\" data-pv-body=\"{}\" aria-label=\"Source {n}\">{n}</a>",
                     escape_html(&pv_title),
                     escape_html(pv_body)
                 )

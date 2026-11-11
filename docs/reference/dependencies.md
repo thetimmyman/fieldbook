@@ -31,7 +31,7 @@ Unquoted separator whitespace is ASCII space/TAB; line endings are LF or CRLF. C
 | Rule | Value | Checked by |
 |---|---|---|
 | Budget for direct shipped crates | Silent build: 12 at Day 1 (`windows-sys` is one, in `fieldbook-win`), 14 once `extract-xlsx-sheets` has merged (`calamine` and `zip`) and still 14 at R2 (`embed-resource` is build-only). AI build (feature `net`): 17, which adds `ureq`, `rustls` and `rustls-graviola`; the feature `bridge` adds no crate. A direct shipped crate of the AI build past the 15th requires an `owner` review card (`extract-xlsx-sheets` is one) | Actual Cargo target/profile outputs and MAX/JEV review; the count is recorded under [Measurements](#measurements) |
-| Cap on transitive crates | Per profile, counted as described below on the two graph targets: silent 80 (measured 63), AI 100 (measured 87). The count for `--target all` (106 for the AI build) is reported and not capped. A cap is a judgment, not a measurement; revisit it when a count comes within 10 of it. The measured figures are from before `extract-xlsx-sheets`, which adds about nine crates to each count (estimates 72 and 96), and before `windows-facts`, which adds two on the Windows target (`windows-sys` and `windows-link`), and `core-policy`, which adds one (`object`, in `xtask`; its `memchr` is in the graph already); the pull request of each card reports the measured counts. `net-stack-spike` repeats the counts | Actual Cargo outputs reviewed once per applicable profile: `cargo metadata` with default features for the silent build, with `--features net` for the AI build |
+| Cap on transitive crates | Per profile, counted as described below on the two graph targets: silent 100, AI 100. ADR 0001 first set the silent cap at 80 for counts made with `cargo tree -e normal`, when a probe measured 63. The closure counted here is about 17 crates larger on the same lock (Measurements rows 2 and 3: 82 and 83, against 64 and 66 with `cargo tree`), so row 1 met 80 and rows 2 and 3 passed it. Delegated owner acceptance raised the silent cap to 100, which restores the headroom of 17 that 80 left over 63 (100 against row 3's 83). The AI build has no row yet because `net` is absent, and its 100 was set when a probe measured 87 with `cargo tree`; `net-stack-spike` measures it on this count, and a count above 100 stops that card until the owner decides. The all-target count is reported and not capped (93 at row 3). A cap is a judgment, not a measurement; revisit it when a count comes within 10 of it. `extract-xlsx-sheets` adds about nine crates to each count; the pull request of each card reports the measured counts | Actual Cargo outputs reviewed once per applicable profile: `cargo metadata` with default features for the silent build, with `--features net` for the AI build |
 | Registry | crates.io only. No git dependencies, no path dependencies outside the workspace, wildcard requirements denied | `cargo deny check sources` on every pull request |
 | Licences | MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, Zlib, Unicode-3.0, Unlicense. Workspace crates use `LicenseRef-Proprietary` with `publish = false`, and `deny.toml` sets `[licenses.private] ignore = true` | `cargo deny check licenses` on every pull request |
 | No C code in the build graph | The named bans below | `cargo deny check bans`; the metadata test also fails if a banned crate is in the normal graph |
@@ -164,7 +164,7 @@ Each of these removes a moving part. The trigger is in AD-24, and the steps are 
 |---|---|---|
 | The nightly in `just lock` | `[registry] global-min-publish-age = "14 days"` in `.cargo/config.toml` | Rust 1.100 is pinned |
 | `--remap-path-prefix` flags for the workspace, vendor and `CARGO_HOME` paths (R2) | `trim-paths` | Rust 1.101 is pinned |
-| `rust_xlsxwriter` 0.99.1, `calamine` 0.36.1 and `zip` 8.6.0 | `rust_xlsxwriter` 0.101.x, `calamine` 0.37.x (the first on `zip` 9) and `zip` 9.0.5 or later, re-verified; all three move in one pull request, because the graph holds one `zip` | A Day-30 card; all are old enough by then |
+| `calamine` 0.36.1 (not in the graph yet; `rust_xlsxwriter` 0.101.0 and `zip` 9.0.5 or later moved with `zip-advisories`) | `calamine` 0.37.x, the first on `zip` 9, re-verified | `extract-xlsx-sheets` adds the reader |
 | `cargo-cyclonedx` | Another SBOM generator | IT requires CycloneDX 1.6, or `cargo-cyclonedx` goes 12 months without a release |
 | `rustc` 1.99.1 | The newest minor at least 14 days old | At most every 12 weeks, as its own card. The next candidate is 1.100, after Day 30 |
 
@@ -179,16 +179,16 @@ All come from crates.io. The two tables below are one table split for width: the
 | `serde` | 1.0.229 (2026-07-18) | `derive` | calc, core, render, fieldbook | MIT OR Apache-2.0 | 1.56 |
 | `toml` | 1.1.8+spec-1.1.0 (2026-10-09) | default | core, xtask | MIT OR Apache-2.0 | 1.85 |
 | `csv` | 1.4.0 (2025-10-17) | default | core, render | Unlicense OR MIT | 1.73 |
-| `pulldown-cmark` | 0.13.4 (2026-05-20) | `default-features = false`, `html` | core, render | MIT | 1.71.1 |
+| `pulldown-cmark` | 0.13.4 (2026-05-20) | `default-features = false`, `html` | core, render, xtask | MIT | 1.71.1 |
 | `unicode-normalization` | 0.1.25 (2025-10-30) | default | core | MIT OR Apache-2.0 | 1.36 |
 | `sha2` | 0.11.0 (2026-03-25) | `default-features = false` | core, xtask | MIT OR Apache-2.0 | 1.85 |
 | `rust_decimal` | 1.43.0 (2026-09-02) | `default-features = false`, `std` | calc | MIT | 1.67.1 |
 | `askama` | 0.16.1 (2026-09-04) | `default-features = false`, `derive`, `std` | render | MIT OR Apache-2.0 | 1.88 |
 | `serde_json` | 1.0.151 (2026-07-20) | default | render, fieldbook, xtask | MIT OR Apache-2.0 | 1.71 |
 | `clap` | 4.6.7 (2026-09-14) | `default-features = false`, `std`, `derive`, `help`, `usage`, `error-context`, `suggestions` | fieldbook, xtask | MIT OR Apache-2.0 | 1.85 |
-| `rust_xlsxwriter` | 0.99.1 (2026-09-14) | none (the default set is empty); never `zlib` | render | MIT OR Apache-2.0 | 1.88 |
+| `rust_xlsxwriter` | 0.101.0 (2026-10-20) | none (the default set is empty); never `zlib` | render | MIT OR Apache-2.0 | 1.88 |
 | `calamine` (`extract-xlsx-sheets`) | 0.36.1 (2026-07-27) | `default-features = false`; never `chrono`, `dates` or `picture` | core | MIT | 1.88 |
-| `zip` (`extract-xlsx-sheets`) | 8.6.0 (2026-04-25) | `default-features = false`, `deflate` | core, xtask; render (tests) | MIT | 1.88 |
+| `zip` (`extract-xlsx-sheets`) | 9.0.5 (2026-10-17) | `default-features = false`, `deflate` | core, xtask; render (tests) | MIT | 1.88 |
 | `embed-resource` (R2) | 3.0.12 (2026-10-06) | default | `fieldbook` `build.rs`, Windows only | MIT | 1.76 |
 | `windows-sys` (`windows-facts`) | 0.61.2 (2025-10-06) | `default-features = false`, `Win32_Foundation`, `Win32_Security`, `Win32_Security_Authorization`, `Win32_Storage_FileSystem`, `Win32_Storage_CloudFilters`, `Win32_System_Com`, `Win32_System_RemoteDesktop`, `Win32_System_Threading`, `Win32_UI_Shell` | `fieldbook-win`, in `src/sys.rs`; Windows only | MIT OR Apache-2.0 | 1.71 |
 | `object` (`core-policy`) | 0.40.0 (2026-08-01) | `default-features = false`, `read_core`, `elf`, `pe` | `xtask`, in `binscan`; not shipped | MIT OR Apache-2.0 | 1.85 |
@@ -197,7 +197,7 @@ All come from crates.io. The two tables below are one table split for width: the
 | `rustls` (AI build) | 0.23.45 (proposed; lands with `net-stack-spike`) | `std`, `tls12`, `custom-provider`; optional | `fieldbook`, in `io/net`; AI build only | Confirmed by the spike | Confirmed by the spike |
 | `rustls-graviola` (AI build) | 0.4.0 with `graviola` 0.4.1 (proposed; lands with `net-stack-spike`) | optional | `fieldbook`, in `io/net`; AI build only | Confirmed by the spike | Confirmed by the spike |
 
-`sha2` 0.11 output has no `{:x}` formatting: use `fieldbook_core::hex::lower`. `askama` 0.16 custom filters use `#[askama::filter_fn]`. `rust_xlsxwriter` 0.99.1 brings `zip ^8.3` with only `deflate`, and `calamine` 0.36.1 needs `zip ^8.6`, which is why `zip` is pinned at 8.6.0 above and the graph holds one `zip`. `calamine` 0.37.0 is the first release on `zip` 9, which `rust-xlsxwriter-bump` moves to. `object` and `flate2` are the two rows here that no shipped crate names: only `xtask` depends on them directly (`object` in `binscan`, from `core-policy`; `flate2` in `edition_raw`, from `raw-edition`), so they are not among the 12, 14 and 17 below and review does not count them as direct shipped crates. `flate2` was already in the graph through `zip`, at the same version and with the same `zlib-rs` backend, so the transitive count does not change.
+`sha2` 0.11 output has no `{:x}` formatting: use `fieldbook_core::hex::lower`. `askama` 0.16 custom filters use `#[askama::filter_fn]`. `rust_xlsxwriter` 0.101.0 brings `zip ^9.0` with only `deflate`, so the graph holds one `zip`, and the lock takes 9.1.3, the newest release that cleared the cooldown when it was resolved. `zip-advisories` moved `zip` to 9 and `rust_xlsxwriter` to 0.101.x, which closes the five advisories that named `zip` 8.6.0; `calamine` 0.37.0 is the first release on `zip` 9, and `extract-xlsx-sheets` pins it when it adds the reader. `object` is the one row here that no shipped crate uses: only `xtask` (`binscan`, from `core-policy`) depends on it, so it is not among the 12, 14 and 17 below and review does not count it as a direct shipped crate.
 
 That is 12 direct shipped crates at Day 1 in the silent build, 14 with the two rows marked `extract-xlsx-sheets` and still 14 at R2; one of the 12 is `windows-sys`, which only `fieldbook-win` uses. The AI build adds the three proposed rows: 17, past the review trigger of 15 (a direct crate of the AI build past the 15th needs a card whose Review is `owner`, which `extract-xlsx-sheets` is). The three rows are proposals until `net-stack-spike` has run: the card proves the stack on Linux and Windows, repeats the transitive counts, edits `deny.toml` and moves the rows out of "proposed". Proposed pins: `ureq` 3.4.2, `rustls` 0.23.45, `rustls-graviola` 0.4.0 (`graviola` 0.4.1) in Cargo.toml, plus transitive `rustls-platform-verifier` 0.7.1 via `ureq`, all to be confirmed at the spike; `just lock` decides the real pins.
 
@@ -314,6 +314,15 @@ Status is one of: **used now** (a dev aid in use at home), **candidate adapter**
 
 An adapter that comes from this table meets the conformance suite of its port, keeps the sources of what it returns, and has every model call in the audit journal. AGPL and GPL tools run as separate local services or processes and never as linked code.
 
+## Deployment tools
+
+Used only by the hosted-edition deploy step ([ADR 0007](../decisions/0007-hosted-edition.md)). They are never in the product, an edition, a Cargo graph or `.config/tools.toml`, and they are installed on the runner for the length of one job. The cooldown applies as for the other tools: the newest release at least 14 days old.
+
+| Tool | Version (released) | Joins | Note |
+|---|---|---|---|
+| `wrangler` | 4.153.0 (2026-10-26) | Card `hosted-deploy` | Deploys the staged edition as Worker static assets; deploy-time only. Pinned exactly in `deploy/package.json` with an integrity-hashed `deploy/package-lock.json` (lockfile version 3), installed with `npm ci --ignore-scripts`. 4.154.0 was younger than 14 days when pinned. Every one of the 91 locked packages was at least 14 days old when pinned (`npm view <package>@<version> time`); `overrides` hold `semver` at 7.8.5 and `tslib` at 2.8.1 because 7.8.6 (2026-11-02) and 2.9.1 (2026-10-30) were younger. Metrics are off (`WRANGLER_SEND_METRICS=false`). The deploy token can write Worker scripts and nothing else |
+| Node.js | 22.23.4 (2026-10-20) | Card `hosted-workflow` | Runs `wrangler` (which needs 22 or later). The workflow installs this exact version with `actions/setup-node`; the record narrows the Node and npm rejections for this step only ([ADR 0007](../decisions/0007-hosted-edition.md)). It comes with `npm` |
+
 ## CI actions
 
 Every action is pinned by commit SHA. The workflow line reads `uses: owner/name@<sha> # <version>`, and the SHA must be the commit the version tag points to. The workflow token is read-only.
@@ -323,6 +332,7 @@ Every action is pinned by commit SHA. The workflow line reads `uses: owner/name@
 | `actions/checkout` | v7.0.1 (2026-07-20) | `3d3c42e5aac5ba805825da76410c181273ba90b1` | |
 | `Swatinem/rust-cache` | v2.9.2 (2026-08-06) | `6323deb102c322ba6fcbdcafc7e3dddab59af2b6` | v2.9.3 was younger than 14 days when pinned. Saves the cache on `main` only |
 | `taiki-e/install-action` | v2.87.27 (2026-10-09) | `ab6895351a88b908e96a4697860d4ffea5e57dbe` | Later releases were younger than 14 days when pinned |
+| `actions/setup-node` | v7.1.0 (2026-10-08) | `949feb2413d6458794dcd2491c4babbbce0c15c1` | Installs the pinned Node for the hosted deploy workflow only, with the package-manager cache off |
 | `actions/upload-artifact` | v7.0.2 (2026-10-07) | `cf430e030ddbb5b0abf93d22962f4752f3646cd9` | |
 | `actions/download-artifact` | v8.0.2 (2026-10-07) | `9000827ccba6bdab643e8b6fd33ac0654aef8333` | v8 fails on a digest mismatch |
 
@@ -379,6 +389,7 @@ Card `day1-dependencies-3` records actual pre-adoption baseline row 0 without ch
 | 1 | silent | default | 11 | 80 | Initial adoption; all-target count 90 (uncapped). The transitive cap is 80, leaving zero headroom. AI is inapplicable while `net` is absent. |
 | 2 | silent | default | 12 | 82 | Card `windows-facts`; adds `fieldbook-win` and `windows-sys` `0.61.2` (`windows-link` `0.2.1` on Windows); all-target count 92 (uncapped), `cargo tree --workspace -e normal` union 64 (62 Linux, 64 Windows, 65 `--target all`). AI is inapplicable while `net` is absent. |
 | 3 | silent | default | 12 | 83 | Card `core-policy`; adds `object` `0.40.0` in `xtask` (`memchr` `2.8.3` already in graph); all-target count 93 (uncapped), `cargo tree --workspace -e normal` union 66 (64 Linux, 66 Windows, 67 `--target all`). AI is inapplicable while `net` is absent. |
+| 4 | silent | default | 12 | 84 | Card `zip-advisories`; `rust_xlsxwriter` `0.99.1` to `0.101.0`, `zip` `8.6.0` to `9.1.3` (one `zip`), `typed-path` `0.12.3` to `0.13.0`; the one new pair in the closure is `getrandom` `0.4.3`, which `zip` 9.1.3 takes on every non-wasm target (it was in the lock already). Metadata closure 82 Linux, 83 Windows, union 84, within the silent cap of 100, raised from 80 in the Policy before this row was added. All-target count 97 (uncapped; 93 on the same basis in row 3). `cargo tree --workspace -e normal --target all` 76 (67 on main, the figure of row 3). AI is inapplicable while `net` is absent. |
 
 ### Initial resolution evidence
 

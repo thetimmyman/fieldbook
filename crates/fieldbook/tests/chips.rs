@@ -38,7 +38,6 @@ const PENDING: &str = r#"
 fieldbook fmt
 fieldbook status
 fieldbook status --page
-fieldbook verify <claim-id> --on YYYY-MM-DD
 fieldbook backup
 fieldbook backup verify
 fieldbook backup list
@@ -465,4 +464,46 @@ fn new_page_chip_into_an_occupied_id_exits_2_and_changes_nothing() {
     assert_eq!(again.code, 2, "{}", again.stderr);
     assert!(again.stderr.contains("already exists"), "{}", again.stderr);
     assert_eq!(world.read_tree().expect("read tree after"), before);
+}
+
+/// Every `Terminal` chip runs on a fresh Home copy whose standard input is not a terminal: it
+/// prints `needs a terminal` on standard error, never succeeds and writes nothing.
+#[test]
+fn terminal_chip_cases_need_a_terminal_and_write_nothing() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let terminal_cases: Vec<&ChipCase> = CASES
+        .iter()
+        .filter(|c| matches!(c.outcome, ChipOutcome::Terminal))
+        .collect();
+    assert_eq!(terminal_cases.len(), 1);
+
+    for case in terminal_cases {
+        let tmp = temp_copy(&repo_root.join(case.fixture));
+        let world = TestWorld::new(tmp.path());
+        let before = world.read_tree().expect("read tree before");
+        let args: Vec<String> = substitute_chip(case.chip, case.samples)
+            .into_iter()
+            .skip(1)
+            .collect();
+        let out = fieldbook::run(&args, &world);
+        assert_ne!(out.code, 0, "chip `{}` must not succeed", case.chip);
+        assert!(
+            out.stderr.contains("needs a terminal"),
+            "chip `{}`: {}",
+            case.chip,
+            out.stderr
+        );
+        assert!(
+            out.stdout.is_empty(),
+            "chip `{}`: {}",
+            case.chip,
+            out.stdout
+        );
+        assert_eq!(
+            world.read_tree().expect("read tree after"),
+            before,
+            "chip `{}` must leave the Corpus unchanged",
+            case.chip
+        );
+    }
 }

@@ -5,17 +5,18 @@
 mod page_types {
     use std::path::Path;
 
-    use fieldbook_core::audit::Now;
+    use fieldbook_core::audit::{LabelId, LabelSet, Now};
     use fieldbook_core::authz::ReadableStores;
-    use fieldbook_core::check::{Host, Model, Options, Tree, load};
+    use fieldbook_core::check::{Host, Model, Options, PageEntry, Tree, load};
     use fieldbook_core::date::CivilDate;
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
     use fieldbook_core::policy::EffectivePolicy;
     use fieldbook_core::schema::PageType;
     use fieldbook_core::strings;
+    use fieldbook_render::frame::StoreContext;
     use fieldbook_render::meta::BuildInfo;
     use fieldbook_render::nav;
-    use fieldbook_render::page::{render_main, render_page};
+    use fieldbook_render::page::{render_main, render_main_in, render_page};
     use fieldbook_render::plan::{build_plan_timeline, parse_window_heading};
     use fieldbook_render::site::{self, PlannedPaths};
     use fieldbook_render::stages::{STAGE_COUNT, build_stage_columns, render_stage_track};
@@ -78,7 +79,16 @@ mod page_types {
         "p/est-rate-window-brief.html",
     ];
 
-    const GOLDEN_LATER: &[PageType] = &[PageType::Calc];
+    const COMPANY_PART_PAGES: [&str; 8] = [
+        "cmp-system-review",
+        "cmp-review-steps",
+        "est-calc-01",
+        "est-baseline-template",
+        "cmp-onboarding-checklist",
+        "est-rate-reference",
+        "cmp-withhold-case",
+        "cmp-clause-9900-101",
+    ];
 
     fn fixture_tree() -> Tree {
         let mut tree = Tree::new();
@@ -181,6 +191,25 @@ mod page_types {
             rest = &after_gt[end_h2 + 5..];
         }
         out
+    }
+
+    fn find_page<'a>(view: &'a LabelledView, id: &str) -> &'a PageEntry {
+        view.pages()
+            .iter()
+            .find(|p| p.id.as_str() == id)
+            .unwrap_or_else(|| panic!("fixture page `{id}` not found in view"))
+    }
+
+    fn company_section(html: &str) -> &str {
+        const START_TAG: &str = "<section class=\"part\" aria-labelledby=\"company-calibration\">";
+        const END_TAG: &str = "</section>";
+        let start = html.find(START_TAG).unwrap_or_else(|| {
+            panic!("company-calibration section `{START_TAG}` not found in html")
+        });
+        let end_rel = html[start..].find(END_TAG).unwrap_or_else(|| {
+            panic!("closing `{END_TAG}` for company-calibration section not found")
+        });
+        &html[start..start + end_rel + END_TAG.len()]
     }
 
     #[test]
@@ -740,9 +769,187 @@ mod page_types {
     }
 
     #[test]
+    fn calc_page_renders() {
+        let html = render_fixture_golden("est-calc-01");
+        insta::assert_snapshot!("calc_page_renders", html);
+    }
+
+    #[test]
     fn template_page_renders() {
         let html = render_fixture_golden("est-baseline-template");
         insta::assert_snapshot!("template_page_renders", html);
+    }
+
+    #[test]
+    fn company_calibration_folds_on_public_build() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+
+        for page_id in COMPANY_PART_PAGES {
+            let page = find_page(&view, page_id);
+            let html = render_main(page, &view, &planned);
+            let sec = company_section(&html);
+
+            assert_eq!(
+                sec.matches("<details class=\"fold company-fold\">").count(),
+                1,
+                "page `{page_id}` company section must contain exactly one <details class=\"fold company-fold\">"
+            );
+            assert!(
+                !sec.contains("<details class=\"fold company-fold\" open"),
+                "page `{page_id}` company fold must not carry open attribute"
+            );
+            assert!(
+                !sec.contains(" open>"),
+                "page `{page_id}` details element must not contain open>"
+            );
+            assert!(
+                sec.contains("<summary><b>Company questions</b>"),
+                "page `{page_id}` company section must contain <summary><b>Company questions</b>"
+            );
+
+            let h2_pos = sec
+                .find("<h2 id=\"company-calibration\">Company calibration</h2>")
+                .unwrap_or_else(|| {
+                    panic!("page `{page_id}` missing <h2 id=\"company-calibration\"> heading")
+                });
+            let details_pos = sec
+                .find("<details")
+                .unwrap_or_else(|| panic!("page `{page_id}` missing <details in company section"));
+            assert!(
+                h2_pos < details_pos,
+                "page `{page_id}` <h2 id=\"company-calibration\"> heading must come before <details in company section"
+            );
+
+            let summary_start = sec
+                .find("<summary>")
+                .unwrap_or_else(|| panic!("page `{page_id}` missing <summary> in company section"));
+            let summary_end = sec.find("</summary>").unwrap_or_else(|| {
+                panic!("page `{page_id}` missing </summary> in company section")
+            }) + "</summary>".len();
+            let heading_len = "<h2 id=\"company-calibration\">Company calibration</h2>".len();
+            let summary_len = summary_end - summary_start;
+            assert!(
+                sec.len() > heading_len + summary_len || sec.contains(strings::empty_part()),
+                "page `{page_id}` company section must contain part 6 text (longer than heading+summary or empty_part)"
+            );
+
+            if page_id == "cmp-system-review" {
+                let summary_text = &sec[summary_start..summary_end];
+                assert!(
+                    summary_text.contains("1 to settle with company data"),
+                    "cmp-system-review summary must report `1 to settle with company data`, got: {summary_text}"
+                );
+            }
+        }
+
+        let brief_page = find_page(&view, "est-rate-window-brief");
+        let brief_html = render_main(brief_page, &view, &planned);
+        assert!(
+            !brief_html.contains("company-fold"),
+            "brief page `est-rate-window-brief` must have no company-fold"
+        );
+    }
+
+    #[test]
+    fn company_calibration_keeps_part_order() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let expected_parts: Vec<String> = strings::parts().iter().map(|&s| s.to_owned()).collect();
+
+        for page_id in COMPANY_PART_PAGES {
+            let page = find_page(&view, page_id);
+            let html = render_main(page, &view, &planned);
+
+            let rendered_headings = extract_part_headings(&html);
+            assert_eq!(
+                rendered_headings, expected_parts,
+                "page `{page_id}` parts must match frozen strings::parts() order"
+            );
+
+            assert!(
+                html.contains("<a href=\"#company-calibration\">Company calibration</a>"),
+                "page `{page_id}` table of contents must link to #company-calibration"
+            );
+
+            let pos_never_confuse = html
+                .find("<h2 id=\"never-confuse\">")
+                .unwrap_or_else(|| panic!("page `{page_id}` missing <h2 id=\"never-confuse\">"));
+            let pos_company_calibration = html
+                .find("<h2 id=\"company-calibration\">")
+                .unwrap_or_else(|| {
+                    panic!("page `{page_id}` missing <h2 id=\"company-calibration\">")
+                });
+            let pos_sources = html
+                .find("<h2 id=\"sources\">")
+                .unwrap_or_else(|| panic!("page `{page_id}` missing <h2 id=\"sources\">"));
+
+            assert!(
+                pos_company_calibration > pos_never_confuse
+                    && pos_company_calibration < pos_sources,
+                "page `{page_id}`: byte position of <h2 id=\"company-calibration\"> ({pos_company_calibration}) must be greater than <h2 id=\"never-confuse\"> ({pos_never_confuse}) and less than <h2 id=\"sources\"> ({pos_sources})"
+            );
+        }
+    }
+
+    #[test]
+    fn company_calibration_open_in_company_context() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let store = StoreContext::Company {
+            effective_labels: LabelSet::from_ids([LabelId::parse("bid-0003").unwrap()]),
+        };
+
+        for page_id in COMPANY_PART_PAGES {
+            let page = find_page(&view, page_id);
+            let company_html = render_main_in(page, &view, &store, &planned, true);
+
+            assert!(
+                !company_html.contains("company-fold"),
+                "company build for `{page_id}` must contain NO `company-fold`"
+            );
+            assert!(
+                !company_html.contains("<details class=\"fold company-fold\""),
+                "company build for `{page_id}` must contain NO `<details class=\"fold company-fold\"`"
+            );
+
+            let comp_sec = company_section(&company_html);
+            assert!(
+                comp_sec.contains("<h2 id=\"company-calibration\">Company calibration</h2>"),
+                "company build for `{page_id}` company section must contain heading"
+            );
+
+            let h2_close = comp_sec
+                .find("</h2>")
+                .unwrap_or_else(|| panic!("page `{page_id}` missing </h2> in company section"))
+                + "</h2>".len();
+            let sec_close = comp_sec.rfind("</section>").unwrap_or_else(|| {
+                panic!("page `{page_id}` missing </section> in company section")
+            });
+            let company_body = comp_sec[h2_close..sec_close].trim();
+
+            let public_html = render_main(page, &view, &planned);
+            let pub_sec = company_section(&public_html);
+            let summary_close = pub_sec.find("</summary>").unwrap_or_else(|| {
+                panic!("page `{page_id}` missing </summary> in public company section")
+            }) + "</summary>".len();
+            let fold_close = pub_sec.find("</details>").unwrap_or_else(|| {
+                panic!("page `{page_id}` missing </details> in public company section")
+            });
+            let public_fold_body = pub_sec[summary_close..fold_close].trim();
+
+            assert_eq!(
+                company_body, public_fold_body,
+                "page `{page_id}` company section non-heading body must match public fold body"
+            );
+
+            if page_id == "cmp-system-review" {
+                assert!(
+                    comp_sec.contains("Confirm the approving role"),
+                    "cmp-system-review company section must contain `Confirm the approving role`"
+                );
+            }
+        }
     }
 
     #[test]
@@ -769,9 +976,6 @@ mod page_types {
             .collect();
 
         for pt in PageType::ALL {
-            if GOLDEN_LATER.contains(&pt) {
-                continue;
-            }
             let type_slug = pt.as_str().replace('-', "_");
             let needle = format!("__{type_slug}_page_renders.snap");
             let found = entries.iter().any(|name| name.ends_with(&needle));

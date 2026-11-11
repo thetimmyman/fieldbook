@@ -1,6 +1,6 @@
 # Fieldbook developer recipes. Run `just` to list them.
 # Bootstrap: `cargo install --locked just@1.58.0`, then `just setup`.
-# Recipes still to come: edition, release and new-card. Each arrives with its card.
+# Recipes still to come: edition and release. Each arrives with its card.
 
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
@@ -30,6 +30,10 @@ site:
 browser:
     cargo xtask harness
 
+# Start docs/cards/<slug>.md from the template in docs/cards/README.md.
+new-card slug:
+    cargo xtask new-card {{slug}}
+
 # Everything a pull request must pass, in the order of AD-07. CI runs this too.
 check:
     # 1. Formatting
@@ -50,16 +54,22 @@ check:
     cargo deny --locked --all-features check bans licenses sources
     # 5. Spelling
     typos
-    # 6. Secrets in the commits not yet on main
-    just _gitleaks
-    # 7. Check the Corpus at the commit date under --strict
-    cargo run -q --locked -p fieldbook -- check --strict --today "$(git log -1 --format=%cs)"
-    # 8. Regenerate the generated docs and diff
+    # 6 and 7. Secrets in the commits not yet on main; the Corpus at the commit date under --strict
+    just scan
+    # 8. Regenerate the generated docs and diff, then lint the cards, the plan, the links and the documents
     cargo xtask docs --check
+    cargo xtask cards --check
     # 9. Published compatibility
     cargo xtask compat --base release-baseline.toml
 
 # Resolve Cargo.lock with the 14-day cooldown (AD-06). The pinned nightly only resolves; it never builds.
+# The scans that guard what leaves this machine; the pre-push hook runs these and no more.
+scan:
+    # Secrets in the commits not yet on main
+    just _gitleaks
+    # Check the Corpus at the commit date under --strict
+    cargo run -q --locked -p fieldbook -- check --strict --today "$(git log -1 --format=%cs)"
+
 lock:
     #!/usr/bin/env bash
     set -euo pipefail

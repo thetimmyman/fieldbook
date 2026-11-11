@@ -4,7 +4,7 @@
 var SKELETON_DELAY_MS = 300;
 var WORD = /[\p{Alphabetic}\p{N}]/uy;
 var WORDS = /[\p{Alphabetic}\p{N}]+/gu;
-// Lexer shapes 1-11 in table order; shape 10 drops commas.
+// Lexer shapes 1-11; shape 10 drops commas.
 var SHAPES = [/s-[0-9]{4}-v[0-9]+/y, /s-[0-9]{4}/y, /cl-[a-z]{3}-[0-9]{4}/y, /q-[0-9]{3}/y,
   /xc-[0-9]+/y, /cl-x[a-z]{2}-[0-9]{6,10}/y, /[a-z]{2}-[0-9]{6,10}-v[0-9]+/y,
   /[a-z]{2}-[0-9]{6,10}/y, /[0-9]{1,4}\.[0-9]{3}(?:-[0-9]+)?(?:\([a-z0-9]{1,4}\))*/y,
@@ -12,8 +12,9 @@ var SHAPES = [/s-[0-9]{4}-v[0-9]+/y, /s-[0-9]{4}/y, /cl-[a-z]{3}-[0-9]{4}/y, /q-
 var SP = '[\\t-\\r \\x85\\xa0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]+';
 var TRIM = new RegExp('^' + SP + '|' + SP + '$', 'g');
 var LINK = new Map([['page', 'p/'], ['clause', 'p/'], ['source', 's/'], ['text', 's/'],
-  ['claim', 'claims.html#'], ['question', 'questions.html#'], ['conflict', 'conflicts.html#'],
+  ['claim', 'claims/'], ['question', 'questions.html#'], ['conflict', 'conflicts.html#'],
   ['term', 'glossary.html#']]);
+var CLAIMS_PER_PART = 500;
 var me = document.currentScript;
 var ROOT = ((me && me.getAttribute('src')) || '').replace(/assets\/search\.js$/, '');
 var FIELDS = 'id kind title parent snippet status as_of effective_from verified_on'.split(' ');
@@ -41,7 +42,7 @@ function lex(s) {
   return out;
 }
 
-// Query side: no extras or duplicates, at most 12.
+// Query side: at most 12, no duplicates.
 function tokens(text) {
   var out = [];
   lex(trim(norm(text))).forEach(function (t) {
@@ -74,7 +75,7 @@ function hit(d, u, matched, score, exact) {
   return h;
 }
 
-// Exact class by unit, then matched, sum and unit.
+// Exact class, matched, sum, then unit.
 function rank(ix, text, limit) {
   var s = trim(norm(text)), toks = tokens(text), terms = ix.terms, n = ix.docs.length;
   var matched = new Array(n).fill(0), sum = new Array(n).fill(0), hits = [];
@@ -111,7 +112,7 @@ function rank(ix, text, limit) {
 function groups(kind) { return kind === 'page' || kind === 'clause'; }
 function pageOf(id) { return id.split('#')[0]; }
 
-// Page view: exact rows, a row per page at its first hit, others.
+// Page view: exact rows, a row per page, others.
 function view(ix, hits) {
   var leads = new Map(), seen = new Set(), at = new Map();
   var v = { exact: [], pages: [], other: [], absorbed: 0 };
@@ -146,6 +147,8 @@ function view(ix, hits) {
 function link(kind, id) {
   var base = LINK.get(kind), i = id.indexOf('#');
   if (!base) return '';
+  if (kind === 'claim') return ROOT + base + id.slice(3, 6) + '-' +
+    (Math.ceil(id.slice(7) / CLAIMS_PER_PART) || 1) + '.html#' + id;
   if (base.slice(-1) === '#') return ROOT + base + id;
   if (i < 0 || kind === 'text') return ROOT + base + pageOf(id) + '.html';
   return ROOT + base + id.slice(0, i) + '.html' + id.slice(i);
@@ -158,7 +161,7 @@ function el(tag, cls, text) {
   return e;
 }
 
-// Renders hits in the order given, by textContent only.
+// Renders hits by textContent only.
 function render(hits, text, list) {
   var words = tokens(text).join(' ').match(WORDS) || [];
   list.textContent = '';
@@ -187,7 +190,7 @@ function render(hits, text, list) {
   });
 }
 
-// Renders the page view's first rows; returns the count.
+// Renders the first rows; returns the count.
 function run(text, limit, list) {
   var ix = window.FB_INDEX, v = view(ix, rank(ix, text).hits);
   var all = v.exact.concat(v.pages, v.other);
@@ -199,7 +202,7 @@ function usable(ix) {
   return ix && ix.v === 1 ? Promise.resolve(ix) : Promise.reject(ix ? 'version' : 'failed');
 }
 
-// Adds the index script once; a Skeleton only after SKELETON_DELAY_MS, in the results.
+// Adds the index script once; a Skeleton only after SKELETON_DELAY_MS.
 function load() {
   if (pending) return pending;
   if (window.FB_INDEX) return (pending = usable(window.FB_INDEX));
@@ -253,7 +256,7 @@ function paint() {
   });
 }
 
-// A bad #q= escape is ''; any other hash (the skip link's) is null.
+// A bad #q= escape is ''; any other hash is null.
 function fromHash() {
   var h = location.hash;
   if (!/^(#q=|$)/.test(h)) return null;

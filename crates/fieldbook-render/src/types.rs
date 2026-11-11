@@ -105,6 +105,10 @@ pub struct TypedPageCommon {
     pub toc_items: Vec<TocItem>,
     /// Right-rail cited claim cards.
     pub evidence_cards: Vec<EvidenceCardView>,
+    /// Right-rail related and linked-from HTML sections.
+    pub rail_lists_html: String,
+    /// Serialized context pack plain text for the page.
+    pub context_pack: String,
 }
 
 #[derive(Template)]
@@ -131,6 +135,8 @@ struct BriefTemplate {
     sources_rows: Vec<NumberedSourceRow>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
+    context_pack: String,
 }
 
 #[derive(Template)]
@@ -161,6 +167,8 @@ struct ChecklistTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
+    context_pack: String,
 }
 
 #[derive(Template)]
@@ -190,6 +198,8 @@ struct ReferenceTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
+    context_pack: String,
 }
 
 #[derive(Template)]
@@ -220,6 +230,8 @@ struct CaseTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
+    context_pack: String,
 }
 
 #[derive(Template)]
@@ -250,6 +262,8 @@ struct ClauseCardTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
+    context_pack: String,
 }
 
 /// Convert task lists inside `How it works` on a `checklist` page into numbered steps (`<ol class="steps">`).
@@ -386,6 +400,7 @@ pub fn render_reference_the_rule(
             anchor,
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         };
     };
     if ps.event_range.is_empty() {
@@ -394,6 +409,7 @@ pub fn render_reference_the_rule(
             anchor,
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         };
     }
 
@@ -493,6 +509,7 @@ pub fn render_reference_the_rule(
         anchor,
         is_empty,
         body_html: out,
+        fold: None,
     }
 }
 
@@ -722,6 +739,7 @@ pub fn render_brief(common: TypedPageCommon, mut brief_parts: Vec<RenderedPart>)
             anchor: slug.to_owned(),
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         })
     };
     let bnames = strings::brief_parts();
@@ -754,6 +772,8 @@ pub fn render_brief(common: TypedPageCommon, mut brief_parts: Vec<RenderedPart>)
         sources_rows: common.sources_rows,
         toc_items: common.toc_items,
         evidence_cards: common.evidence_cards,
+        rail_lists_html: common.rail_lists_html,
+        context_pack: common.context_pack,
     };
     tpl.render()
         .unwrap_or_else(|e| unreachable!("types/brief.html is infallible: {e}"))
@@ -805,6 +825,8 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
+                context_pack: common.context_pack,
             };
             Ok(tpl
                 .render()
@@ -836,6 +858,8 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
+                context_pack: common.context_pack,
             };
             Ok(tpl
                 .render()
@@ -868,6 +892,8 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
+                context_pack: common.context_pack,
             };
             Ok(tpl
                 .render()
@@ -902,15 +928,23 @@ pub fn render_typed_eight_part(
                 change_entries: common.change_entries,
                 toc_items: common.toc_items,
                 evidence_cards: common.evidence_cards,
+                rail_lists_html: common.rail_lists_html,
+                context_pack: common.context_pack,
             };
             Ok(tpl
                 .render()
                 .unwrap_or_else(|e| unreachable!("types/clause_card.html is infallible: {e}")))
         }
-        PageType::Concept
-        | PageType::Procedure
-        | PageType::Calc
-        | PageType::Template
-        | PageType::Brief => Err(common),
+        PageType::Calc => {
+            let mut common = common;
+            common
+                .worked_example
+                .body_html
+                .push_str(&crate::calc_table::calc_table(&page.body));
+            Err(common)
+        }
+        PageType::Concept | PageType::Procedure | PageType::Template | PageType::Brief => {
+            Err(common)
+        }
     }
 }

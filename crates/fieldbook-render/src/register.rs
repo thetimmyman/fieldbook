@@ -1,14 +1,16 @@
 //! Five register page renderers (`claims.html`, `sources.html`, `questions.html`,
-//! `conflicts.html`, `glossary.html`) sharing `templates/register.html` (`build-registers`).
+//! `conflicts.html`, `glossary.html`) and the claims part pages (`claims/<AREA>-<part>.html`)
+//! sharing `templates/register.html` (`build-registers`). `claims.html` is the index of the
+//! claims part pages; the part of a claim comes from [`fieldbook_core::ids::claim_part`].
 //!
 //! **Responsibility.** Build [`RegisterView`] from [`LabelledView`] for any [`Register`] and
-//! render all five register pages through the single `templates/register.html` template.
+//! render all register pages through the single `templates/register.html` template.
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 use askama::Template;
 use fieldbook_core::egress::LabelledView;
-use fieldbook_core::ids::{AreaCode, ClaimId, TermId, VersionId};
+use fieldbook_core::ids::{AreaCode, ClaimId, TermId, VersionId, claim_page_route, claim_part};
 use fieldbook_core::schema::{
     ClaimRow, ClaimUnit, ConflictRow, ConflictStatus, GlossaryRow, QuestionRow, RefId, Register,
     SourceRow, Verification,
@@ -18,8 +20,8 @@ use fieldbook_core::strings;
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
 use crate::inline::{find_conflict, find_question, find_source};
 use crate::links::{
-    escape_html, render_area_chip, render_claim_chip, render_conflict_chip, render_question_chip,
-    render_source_id_chip, render_term_chip, render_version_chip,
+    escape_html, href_if_planned, render_area_chip, render_claim_chip, render_conflict_chip,
+    render_question_chip, render_source_id_chip, render_term_chip, render_version_chip,
 };
 use crate::meta::RenderContext;
 use crate::nav::{Navigation, SectionId};
@@ -49,13 +51,13 @@ pub struct RegisterCellView {
 pub struct RegisterRowView {
     /// Row anchor `id` (`CL-...`, `S-nnnn-v<k>`, `Q-...`, `XC-...`, `<term_id>`).
     pub id: String,
-    /// Canonical `verification` value for `claims.html` client-side filtering, or `None`.
+    /// Canonical `verification` value for claim part page client-side filtering, or `None`.
     pub verification_filter: Option<String>,
     /// Ordered cells matching [`RegisterView::columns`].
     pub cells: Vec<RegisterCellView>,
 }
 
-/// One verification filter option button on `claims.html`.
+/// One verification filter option button on claim part pages.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FilterOptionView {
     /// Filter key (`"all"` or canonical `Verification::as_str()`).
@@ -97,28 +99,93 @@ pub struct RegisterConflictBoxView {
     pub resolved_on: Option<String>,
 }
 
-/// Complete view model for one of the five register pages (`templates/register.html`).
+/// One claims register part page metadata (`claims/<AREA>-<part>.html`).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ClaimsPart {
+    /// Upper-case area code (e.g. `"CMP"`).
+    pub area_code: String,
+    /// Human-readable area name from `area_title`, or `area_code` fallback.
+    pub area_name: String,
+    /// 1-based part number derived from claim ID (`(number - 1) / CLAIMS_PER_PART + 1`).
+    pub part: u32,
+    /// Site-relative route, e.g. `"claims/CMP-1.html"`.
+    pub route: String,
+    /// Lowest claim identifier on this part page (e.g. `"CL-CMP-0001"`).
+    pub first_id: String,
+    /// Highest claim identifier on this part page (e.g. `"CL-CMP-0500"`).
+    pub last_id: String,
+    /// Number of claims present on this part page.
+    pub count: usize,
+    /// 1-based ordinal among existing parts of this area.
+    pub ordinal: usize,
+    /// Total number of existing parts of this area.
+    pub of: usize,
+}
+
+/// Navigation links rendered on a claims part page.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ClaimsPartNavView {
+    /// Relative href to `claims.html` index page, or `None` if not planned.
+    pub all_claims_href: Option<String>,
+    /// Previous part page `(href, label)` within the same area, if any.
+    pub prev: Option<(String, String)>,
+    /// Next part page `(href, label)` within the same area, if any.
+    pub next: Option<(String, String)>,
+}
+
+/// One part link entry in the claims index.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ClaimsIndexPartView {
+    /// Relative href to the part page if planned, or `None` for plain text.
+    pub href: Option<String>,
+    /// ID range label, e.g. `"CL-CMP-0001 to CL-CMP-0500"`.
+    pub label: String,
+    /// Claim count label, e.g. `"500 claims"` or `"1 claim"`.
+    pub count_label: String,
+}
+
+/// One area section in the claims index.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ClaimsIndexAreaView {
+    /// Human-readable area name.
+    pub name: String,
+    /// Upper-case area code.
+    pub code: String,
+    /// Area claim count label, e.g. `"500 claims"` or `"1 claim"`.
+    pub count_label: String,
+    /// Existing part pages in this area.
+    pub parts: Vec<ClaimsIndexPartView>,
+}
+
+/// View model for the claims index on `claims.html`.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ClaimsIndexView {
+    /// Areas that have at least one claim, sorted by upper-case area code.
+    pub areas: Vec<ClaimsIndexAreaView>,
+}
+
+/// Complete view model for one of the register pages or a claims part page (`templates/register.html`).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RegisterView {
     /// Register kind.
     pub register: Register,
     /// Lowercase register slug (`"claims"`, `"sources"`, `"questions"`, `"conflicts"`, `"glossary"`).
     pub slug: &'static str,
-    /// Site-relative output path (`"claims.html"`, `"sources.html"`, ...).
-    pub output_path: &'static str,
+    /// Site-relative output path (`"claims.html"`, `"claims/CMP-1.html"`, `"sources.html"`, ...).
+    pub output_path: String,
     /// CSV filename in `corpus/registers/` (`"claims.csv"`, ...).
     pub file_name: &'static str,
     /// Page `<h1>` and `<title>`.
-    pub title: &'static str,
+    pub title: String,
     /// Subtitle under `<h1>`.
-    pub subtitle: &'static str,
+    pub subtitle: String,
     /// Table `<caption>`.
     pub caption: &'static str,
     /// Ordered column headers (`<th scope="col">`).
     pub columns: Vec<&'static str>,
-    /// `true` on `claims.html` to render the verification filter bar.
+    /// `true` on claim part pages to render the verification filter bar.
     pub show_claims_filter: bool,
-    /// Filter buttons for `claims.html`.
+    /// Filter buttons for claim part pages.
     pub filter_options: Vec<FilterOptionView>,
     /// Register-variant `ConflictBox` cards for `conflicts.html`.
     pub conflict_boxes: Vec<RegisterConflictBoxView>,
@@ -126,6 +193,10 @@ pub struct RegisterView {
     pub row_count_label: String,
     /// Sorted table rows.
     pub rows: Vec<RegisterRowView>,
+    /// Small navigation line for claims part pages (`All claims`, `Previous`, `Next`).
+    pub part_nav: Option<ClaimsPartNavView>,
+    /// Structured index sections for `claims.html`.
+    pub claims_index: Option<ClaimsIndexView>,
 }
 
 #[derive(Template)]
@@ -1126,12 +1197,8 @@ pub fn build_register_view(
                 .collect()
         }
         Register::Claims => {
-            let mut sorted: Vec<&ClaimRow> = view.claims().iter().map(|l| &l.value).collect();
-            sorted.sort_by(|a, b| a.claim_id.cmp(&b.claim_id));
-            sorted
-                .into_iter()
-                .map(|r| build_claim_row_view(from_path, &kept, r, view, planned))
-                .collect()
+            // Index page has no claim rows.
+            Vec::new()
         }
         Register::Questions => {
             let mut sorted: Vec<&QuestionRow> = view.questions().iter().map(|l| &l.value).collect();
@@ -1163,31 +1230,293 @@ pub fn build_register_view(
         }
     };
 
-    let show_claims_filter = reg == Register::Claims;
-    let filter_options = if show_claims_filter {
-        claims_filter_options()
+    let row_count_label = if reg == Register::Claims {
+        let total_claims = view.claims().len();
+        match total_claims {
+            1 => "1 row".to_owned(),
+            n => format!("{n} rows"),
+        }
     } else {
-        Vec::new()
+        match rows.len() {
+            1 => "1 row".to_owned(),
+            n => format!("{n} rows"),
+        }
+    };
+
+    let claims_index = if reg == Register::Claims && !view.claims().is_empty() {
+        Some(build_claims_index(view, planned))
+    } else {
+        None
     };
 
     RegisterView {
         register: reg,
         slug: register_slug(reg),
-        output_path: from_path,
+        output_path: from_path.to_owned(),
         file_name: reg.file_name(),
-        title: register_title(reg),
-        subtitle: register_subtitle(reg),
+        title: register_title(reg).to_owned(),
+        subtitle: register_subtitle(reg).to_owned(),
         caption: register_caption(reg),
         columns,
-        show_claims_filter,
-        filter_options,
+        show_claims_filter: false,
+        filter_options: Vec::new(),
         conflict_boxes,
-        row_count_label: match rows.len() {
-            1 => "1 row".to_owned(),
-            n => format!("{n} rows"),
-        },
+        row_count_label,
         rows,
+        part_nav: None,
+        claims_index,
     }
+}
+
+fn build_claims_index(view: &LabelledView, planned: &PlannedPaths) -> ClaimsIndexView {
+    let parts = claims_parts(view);
+    let from_path = output_path(Register::Claims);
+
+    let mut area_map: BTreeMap<String, (String, usize, Vec<ClaimsIndexPartView>)> = BTreeMap::new();
+    for part in parts {
+        let part_view = ClaimsIndexPartView {
+            href: href_if_planned(from_path, &part.route, planned),
+            label: format!("{} to {}", part.first_id, part.last_id),
+            count_label: match part.count {
+                1 => "1 claim".to_owned(),
+                n => format!("{n} claims"),
+            },
+        };
+        let entry = area_map
+            .entry(part.area_code.clone())
+            .or_insert_with(|| (part.area_name.clone(), 0, Vec::new()));
+        entry.1 += part.count;
+        entry.2.push(part_view);
+    }
+
+    let areas = area_map
+        .into_iter()
+        .map(|(code, (name, count, parts))| ClaimsIndexAreaView {
+            name,
+            code,
+            count_label: match count {
+                1 => "1 claim".to_owned(),
+                n => format!("{n} claims"),
+            },
+            parts,
+        })
+        .collect();
+
+    ClaimsIndexView { areas }
+}
+
+/// Groups permitted claims by area code and part number into existing [`ClaimsPart`] pages.
+///
+/// Only parts with at least one claim are included, sorted by `(area_code, part)`.
+/// Deterministic with no [`std::collections::HashMap`].
+#[must_use]
+pub fn claims_parts(view: &LabelledView) -> Vec<ClaimsPart> {
+    let mut claims: Vec<&ClaimRow> = view.claims().iter().map(|l| &l.value).collect();
+    claims.sort_by(|a, b| a.claim_id.cmp(&b.claim_id));
+
+    let mut grouped: BTreeMap<(String, u32), Vec<&ClaimRow>> = BTreeMap::new();
+    for row in claims {
+        if let Some((area, part)) = claim_part(row.claim_id.as_str()) {
+            grouped.entry((area, part)).or_default().push(row);
+        }
+    }
+
+    let mut area_part_counts: BTreeMap<String, usize> = BTreeMap::new();
+    for (area, _part) in grouped.keys() {
+        *area_part_counts.entry(area.clone()).or_insert(0) += 1;
+    }
+
+    let mut current_area = String::new();
+    let mut current_ordinal = 0usize;
+    let mut result = Vec::with_capacity(grouped.len());
+
+    for ((area_code, part), part_claims) in grouped {
+        if part_claims.is_empty() {
+            continue;
+        }
+        if area_code != current_area {
+            current_area = area_code.clone();
+            current_ordinal = 1;
+        } else {
+            current_ordinal += 1;
+        }
+        let of = area_part_counts.get(&area_code).copied().unwrap_or(1);
+        let (Some(first), Some(last)) = (part_claims.first(), part_claims.last()) else {
+            continue;
+        };
+        let first_id = first.claim_id.as_str().to_owned();
+        let last_id = last.claim_id.as_str().to_owned();
+        let area_name = AreaCode::parse(&area_code.to_ascii_lowercase())
+            .ok()
+            .and_then(|ac| area_title(view, &ac))
+            .map_or_else(|| area_code.clone(), ToOwned::to_owned);
+        let route = claim_page_route(&first_id)
+            .unwrap_or_else(|| format!("claims/{area_code}-{part}.html"));
+        result.push(ClaimsPart {
+            area_code,
+            area_name,
+            part,
+            route,
+            first_id,
+            last_id,
+            count: part_claims.len(),
+            ordinal: current_ordinal,
+            of,
+        });
+    }
+
+    result
+}
+
+/// Returns the site-relative output routes of every existing claims part page.
+#[must_use]
+pub fn claims_part_paths(view: &LabelledView) -> Vec<String> {
+    claims_parts(view).into_iter().map(|p| p.route).collect()
+}
+
+/// Build the [`RegisterView`] for the claims part page at `parts[index]`.
+#[must_use]
+pub fn build_claims_part_view(
+    parts: &[ClaimsPart],
+    index: usize,
+    view: &LabelledView,
+    planned: &PlannedPaths,
+) -> RegisterView {
+    let part = &parts[index];
+    let from_path = &part.route;
+    let kept = Kept::of(view);
+
+    let mut sorted: Vec<&ClaimRow> = view.claims().iter().map(|l| &l.value).collect();
+    sorted.sort_by(|a, b| a.claim_id.cmp(&b.claim_id));
+
+    let rows: Vec<RegisterRowView> = sorted
+        .into_iter()
+        .filter(|r| {
+            claim_part(r.claim_id.as_str())
+                .map(|(a, p)| a == part.area_code && p == part.part)
+                .unwrap_or(false)
+        })
+        .map(|r| build_claim_row_view(from_path, &kept, r, view, planned))
+        .collect();
+
+    let all_claims_href = href_if_planned(from_path, output_path(Register::Claims), planned);
+    let prev = index
+        .checked_sub(1)
+        .and_then(|i| parts.get(i))
+        .filter(|p| p.area_code == part.area_code)
+        .and_then(|prev_part| {
+            href_if_planned(from_path, &prev_part.route, planned).map(|href| {
+                (
+                    href,
+                    format!("Previous: {} to {}", prev_part.first_id, prev_part.last_id),
+                )
+            })
+        });
+    let next = parts
+        .get(index + 1)
+        .filter(|p| p.area_code == part.area_code)
+        .and_then(|next_part| {
+            href_if_planned(from_path, &next_part.route, planned).map(|href| {
+                (
+                    href,
+                    format!("Next: {} to {}", next_part.first_id, next_part.last_id),
+                )
+            })
+        });
+
+    let part_nav = Some(ClaimsPartNavView {
+        all_claims_href,
+        prev,
+        next,
+    });
+
+    let row_count_label = match rows.len() {
+        1 => "1 row".to_owned(),
+        n => format!("{n} rows"),
+    };
+
+    let title = format!(
+        "Claims: {}, part {} of {}",
+        part.area_name, part.ordinal, part.of
+    );
+
+    let columns = Register::Claims.columns().iter().map(|c| c.name).collect();
+
+    RegisterView {
+        register: Register::Claims,
+        slug: register_slug(Register::Claims),
+        output_path: from_path.clone(),
+        file_name: Register::Claims.file_name(),
+        title,
+        subtitle: register_subtitle(Register::Claims).to_owned(),
+        caption: register_caption(Register::Claims),
+        columns,
+        show_claims_filter: true,
+        filter_options: claims_filter_options(),
+        conflict_boxes: Vec::new(),
+        row_count_label,
+        rows,
+        part_nav,
+        claims_index: None,
+    }
+}
+
+/// Render the inner `<main>` content (`templates/register.html`) for the claims part page at `parts[index]`.
+#[must_use]
+pub fn render_claims_part_main(
+    parts: &[ClaimsPart],
+    index: usize,
+    view: &LabelledView,
+    planned: &PlannedPaths,
+) -> String {
+    let reg_view = build_claims_part_view(parts, index, view, planned);
+    let tpl = RegisterTemplate { view: &reg_view };
+    tpl.render()
+        .unwrap_or_else(|e| unreachable!("register.html is infallible: {e}"))
+}
+
+/// Render a complete claims part page (`claims/<AREA>-<part>.html`) wrapped in the global site frame.
+#[must_use]
+pub fn render_claims_part_page(
+    parts: &[ClaimsPart],
+    index: usize,
+    view: &LabelledView,
+    ctx: &RenderContext,
+    nav: &Navigation,
+    planned: &PlannedPaths,
+) -> String {
+    let part = &parts[index];
+    let path = &part.route;
+    let title = format!(
+        "Claims: {}, part {} of {}",
+        part.area_name, part.ordinal, part.of
+    );
+    let main_html = render_claims_part_main(parts, index, view, planned);
+    let edition = ctx.edition_info();
+    let store = match ctx {
+        RenderContext::Public(_) => StoreContext::Public,
+    };
+    let lib_crumb = match SectionId::Library.first_path() {
+        Some(first) => Crumb::linked("Library", first, planned),
+        None => Crumb::current("Library"),
+    };
+    let claims_crumb = Crumb::linked("Claims", output_path(Register::Claims), planned);
+    let current_crumb_label = format!("{}, part {} of {}", part.area_name, part.ordinal, part.of);
+    let crumbs = [
+        lib_crumb,
+        claims_crumb,
+        Crumb::current(&current_crumb_label),
+    ];
+    render_frame_page(&FrameInput {
+        output_path: path,
+        title: &title,
+        page_area: None,
+        edition,
+        store: &store,
+        crumbs: &crumbs,
+        main_html: &main_html,
+        nav,
+    })
 }
 
 /// Render the inner `<main>` content (`templates/register.html`) for `reg`.

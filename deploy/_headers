@@ -1,0 +1,16 @@
+# Response headers for the hosted edition on Cloudflare Workers.
+# All nine headers are the header table of docs/decisions/0007-hosted-edition.md, which matches this file exactly
+# (Cache-Control carries no-cache so a deploy shows at once). Content-Security-Policy equals CSP_STATIC in
+# crates/fieldbook-render/src/csp.rs plus frame-ancestors 'none'.
+# An integration test reads this file (xtask/tests/hosted_config.rs).
+
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
+  Strict-Transport-Security: max-age=31536000
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: private, no-cache
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), accelerometer=(), gyroscope=(), magnetometer=(), midi=(), display-capture=()
+  Cross-Origin-Opener-Policy: same-origin

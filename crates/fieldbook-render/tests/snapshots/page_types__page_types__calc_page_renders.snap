@@ -1,0 +1,477 @@
+---
+source: crates/fieldbook-render/tests/page_types.rs
+expression: html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Synthetic landed cost and overhead build-up calculation</title>
+<link rel="stylesheet" href="../assets/app.css">
+<script src="../assets/strings.js" defer></script>
+<script src="../assets/search.js" defer></script>
+<script src="../assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#fb:main">Skip to content</a>
+<div class="app" data-route="p/est-calc-01.html" data-section="areas" data-item="area-est">
+<aside class="sidebar" id="fb:sidebar" aria-label="Navigation">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">F</div>
+    <div class="brand-text">
+      <div class="brand-title">Fieldbook</div>
+      <div class="brand-sub">Finance role workbench</div>
+    </div>
+    <button class="btn ghost icon-btn sidebar-close" id="fb:sidebarCloseBtn" type="button" aria-label="Close navigation">&times;</button>
+  </div>
+  <div class="sec-switch" id="fb:secSwitch" role="group" aria-label="Sections">
+    
+  </div>
+  
+  
+  <details class="fold nav-more">
+    <summary><b>Not built yet</b> <span class="fold-d">28</span></summary>
+    <div class="fold-b">
+      
+      <div class="nav-sub" role="presentation">Today</div>
+      
+      <p class="nav-line">Today is not available until Day 1.</p>
+      
+      <p class="nav-line">The app map is not available until Day 30.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Assistant</div>
+      
+      <p class="nav-line">The assistant is not available until Day 30.</p>
+      
+      <p class="nav-line">Handoff packs is not available until Day 30.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Work</div>
+      
+      <p class="nav-line">Bids is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Programs is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Close &#38; forecast is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Rates &#38; pools is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Suppliers &#38; make/buy is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Systems &#38; compliance is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">M&#38;A &#38; cases is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Actions &#38; calendar is not available until the ORG overlay, Release 2 or later.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Plan</div>
+      
+      <p class="nav-line">The 90-day plan is not available until Day 1.</p>
+      
+      <p class="nav-line">The curriculum is not available until Day 1.</p>
+      
+      <p class="nav-line">Stakeholders is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Systems is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">The artifact log is not available until the ORG overlay, Release 2 or later.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Areas</div>
+      
+      <p class="nav-line">Areas is not available until Day 1.</p>
+      
+      <p class="nav-line"><code>CMP</code> Compliance is not available until Day 1.</p>
+      
+      <p class="nav-line"><code>EST</code> Estimating is not available until Day 1.</p>
+      
+      <p class="nav-line"><code>PRC</code> Pricing is not available until Day 30.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Library</div>
+      
+      <p class="nav-line">The library is not available until Day 1.</p>
+      
+      <p class="nav-line">The day-one binder is not available until Day 1.</p>
+      
+      <p class="nav-line">The claims register is not available until Day 1.</p>
+      
+      <p class="nav-line">The questions register is not available until Day 1.</p>
+      
+      <p class="nav-line">The conflicts register is not available until Day 1.</p>
+      
+      <p class="nav-line">The glossary is not available until Day 1.</p>
+      
+      <p class="nav-line">The sources register is not available until Day 1.</p>
+      
+      
+    </div>
+  </details>
+  
+  <div class="side-foot">
+    <div class="build-note" id="fb:sideFootNote">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+      <span><b>Public data only.</b> Company data is not connected.</span>
+    </div>
+    <button class="btn ghost sm keys-link" id="fb:keysBtn" type="button" hidden>Keyboard shortcuts <kbd>?</kbd></button>
+    <div class="byline">
+      <span>A personal working tool. Not an official company product.</span>
+    </div>
+  </div>
+</aside>
+<div class="shell">
+<header class="topbar">
+  <button class="btn ghost icon-btn menu-btn" id="fb:menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="fb:sidebar">
+    <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <nav aria-label="Sections">
+    
+  </nav>
+  <div class="topbar-end">
+    <a class="searchbox" id="fb:searchBtn" href="../ids.html"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.4 10.4L14 14"/></svg><span>Search the library</span></a>
+    <a class="build-date-link" href="../about.html"><span class="sr-only">About this edition: </span><span class="chip">unreleased build</span></a>
+    <span class="build-chip" id="fb:frameChip" title="This build reads the public library only. Company data is not connected.">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+      <span>Public data only</span>
+    </span>
+    <button class="btn ghost icon-btn" id="fb:themeBtn" type="button" aria-label="Switch between light and dark theme" aria-pressed="false" title="Switch theme">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.2v1.6M8 12.2v1.6M2.2 8h1.6M12.2 8h1.6M3.9 3.9l1.1 1.1M11 11l1.1 1.1M12.1 3.9L11 5M5 11l-1.1 1.1"/><circle cx="8" cy="8" r="2.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="crumbs" id="fb:crumbs" aria-label="Breadcrumb">
+  
+  
+  
+  <span aria-current="page">Areas</span>
+  
+  
+  <span class="sep" aria-hidden="true">/</span>
+  
+  <span aria-current="page">EST · Estimating</span>
+  
+  
+  <span class="sep" aria-hidden="true">/</span>
+  
+  <span aria-current="page">Synthetic landed cost and overhead build-up calculation</span>
+  
+  
+</nav>
+
+<div class="banners" id="fb:banners">
+
+<div class="banner warn build-status" role="region" aria-label="Build status">
+  <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 14 13H2L8 2.5Z"/><path d="M8 6.5v3"/><circle cx="8" cy="11.2" r="0.6"/></svg>
+  <div class="body"><b>This is an unreleased build, not an edition.</b> 5 of 5 claims are AI-drafted; 4 of 5 are unchecked. 1 of 5 has been checked and found supported. Each page shows its review date; none is flagged as overdue. See the claims register.</div>
+</div>
+
+
+</div>
+<main id="fb:main" tabindex="-1"><div class="reader" id="fb:reader">
+  <article class="prose">
+    
+    
+    <div class="banner" role="region" aria-label="Readiness notice">
+      <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>
+    </div>
+    
+    
+
+    <header class="page-head">
+      <div class="eyebrow">
+        <span class="chip accent">EST · Estimating</span>
+        <span class="chip">pricing</span>
+        <span class="chip">calc</span>
+        <span class="chip">Stage 3</span>
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Draft</span></span>
+        
+        <span class="chip">public</span>
+        
+      </div>
+      <h1>Synthetic landed cost and overhead build-up calculation</h1>
+      <div class="meta-row">
+  <span>As of <time datetime="2026-02-01">2026-02-01</time></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span>Review by <time datetime="2027-02-01">2027-02-01</time></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span><b>0 of 0</b> claims supported</span>
+  <span class="sep" aria-hidden="true">·</span>
+  
+  <span>Last verified <span class="unver">Never verified</span></span>
+  
+  <span class="sep" aria-hidden="true">·</span>
+  <span>Readiness <b>SYNTHETIC-NOW</b></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span class="mono">est-calc-01</span>
+</div>
+      <div class="page-actions">
+        <button type="button" class="btn sm" id="fb:copyLinkBtn" data-copy-link="est-calc-01">Copy link</button>
+        <div class="seg" id="fb:wordingSeg" role="group" aria-label="Wording">
+          <button type="button" data-wording="both" aria-pressed="true">Both</button>
+          <button type="button" data-wording="plain" aria-pressed="false">Plain</button>
+        </div>
+      </div>
+    </header>
+
+    
+    <section class="part" aria-labelledby="purpose">
+      <h2 id="purpose">Purpose</h2>
+      
+      <p>Explain the synthetic landed cost and overhead build-up calculation.</p>
+
+      
+    </section>
+
+    <section class="part" aria-labelledby="the-rule">
+      <h2 id="the-rule">The rule</h2>
+      
+      <p>Landed cost sums the line extension, freight, duty and setup before applying overhead on the cost base and markup at the final price stage.</p>
+
+      
+    </section>
+
+    <section class="part" aria-labelledby="how-it-works">
+      <h2 id="how-it-works">How it works</h2>
+      
+      <p>Each stage rounds half away from zero to cents at the named stage boundaries, and totals sum the rounded extensions.</p>
+
+      
+    </section>
+
+    <section class="part" aria-labelledby="worked-example">
+      <h2 id="worked-example">Worked example</h2>
+      
+      <p>Synthetic example. The numbers are made up.</p>
+<p>Fixture: CALC-01</p>
+<figure class="panel calc">
+  <div class="table-wrap">
+    <table>
+      <caption>Calculation case CALC-01</caption>
+      <thead>
+        <tr>
+          <th scope="col">Output</th><th scope="col">Unit</th><th scope="col" class="r">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>unit</td>
+          <td>USD</td>
+          <td class="num">9.00</td>
+        </tr>
+        
+        <tr>
+          <td>extension</td>
+          <td>USD</td>
+          <td class="num">1,800.00</td>
+        </tr>
+        
+        <tr>
+          <td>landed</td>
+          <td>USD</td>
+          <td class="num">2,050.00</td>
+        </tr>
+        
+        <tr>
+          <td>labour</td>
+          <td>USD</td>
+          <td class="num">450.00</td>
+        </tr>
+        
+        <tr>
+          <td>overhead</td>
+          <td>USD</td>
+          <td class="num">90.00</td>
+        </tr>
+        
+        <tr>
+          <td>cost</td>
+          <td>USD</td>
+          <td class="num">2,590.00</td>
+        </tr>
+        
+        <tr>
+          <td>profit</td>
+          <td>USD</td>
+          <td class="num">259.00</td>
+        </tr>
+        
+        <tr>
+          <td>price</td>
+          <td>USD</td>
+          <td class="num">2,849.00</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <p class="calc-foot">
+    <span>Computed by the calc core, not a model</span>
+    <span>Each extension rounds half away from zero to cents; totals sum the rounded extensions.</span>
+    <span class="ok">Fixture CALC-01: pass</span>
+  </p>
+</figure>
+      
+    </section>
+
+    <section class="part" aria-labelledby="never-confuse">
+      <h2 id="never-confuse">Never confuse</h2>
+      
+      <p>Do not confuse a <span class="term" data-pv="term:cost_baseline" data-pv-title="cost baseline" data-pv-body="Synthetic time-phased budget basis used to measure synthetic estimating variance.">cost baseline</span> build-up with margin pricing on selling price.</p>
+
+      
+      
+    </section>
+
+    <section class="part" aria-labelledby="company-calibration">
+      <h2 id="company-calibration">Company calibration</h2>
+      
+      <details class="fold company-fold">
+        <summary><b>Company questions</b> <span class="meta">1 to settle with company data</span></summary>
+      
+      
+      <p>Confirm the rate structure and escalation basis for the cost baseline <span class="cite neutral" data-pv="q:Q-002" data-pv-title="Q-002" data-pv-body="Which synthetic escalation index applies to multi-year pricing workbooks?">Q-002</span>.</p>
+
+      
+      
+      </details>
+      
+    </section>
+
+    <section class="part" aria-labelledby="sources">
+      <h2 id="sources">Sources</h2>
+      
+<p class="empty-part">Not established.</p>
+
+    </section>
+
+    <section class="part" aria-labelledby="change-note">
+      <h2 id="change-note">Change note</h2>
+      
+<div class="change-list">
+
+
+<p class="change"><span class="chip">NEW_KNOWLEDGE</span> <time datetime="2026-02-01">2026-02-01</time> Added the synthetic landed cost calculation fixture page.</p>
+
+
+</div>
+
+    </section>
+    
+    <details class="context-pack"><summary>context pack</summary><pre>rules_version = 1
+
+Synthetic assistant rules for the mini Corpus fixture.
+Use only the supplied context pack and cite every factual statement exactly as shown.
+If the context pack does not establish an answer, reply: Not established in the library.
+
+Labels: public
+
+--- page est-calc-01 ---
+Title: Synthetic landed cost and overhead build-up calculation
+As of: 2026-02-01
+Status: draft
+Text: Explain the synthetic landed cost and overhead build-up calculation.
+
+--- term cost_baseline ---
+Title: cost baseline
+As of: unknown
+Status: general_practice
+Text: Synthetic time-phased budget basis used to measure synthetic estimating variance.
+
+--- source S-0001-v1 ---
+Title: Synthetic Cost Rule, made up for tests
+As of: 2026-02-01
+Status: active
+Text: Synthetic fixture source for automated tests.
+cite as: [@S-0001-v1]
+
+--- page est-rate-reference#how-it-works ---
+Title: How it works
+As of: 2026-02-01
+Status: draft
+Text: Look up the synthetic parameter in the table before updating a cost baseline.
+
+--- page cmp-review-steps#worked-example ---
+Title: Worked example
+As of: 2026-02-01
+Status: draft
+Text: Synthetic example. The numbers are made up.
+
+--- page cmp-onboarding-checklist#worked-example ---
+Title: Worked example
+As of: 2026-02-01
+Status: draft
+Text: Synthetic example. The numbers are made up.
+
+--- page est-baseline-template#change-note ---
+Title: Change note
+As of: 2026-02-01
+Status: draft
+
+--- page est-baseline-template#purpose ---
+Title: Purpose
+As of: 2026-02-01
+Status: draft
+Text: Provide a blank text template for recording a synthetic cost baseline update.
+
+--- source S-0002-v2 ---
+Title: Synthetic Pricing Guide v2, made up for tests
+As of: 2026-02-01
+Status: active
+Text: Synthetic fixture second version superseding S-0002-v1.
+cite as: [@S-0002-v2]
+
+Some records were omitted.
+</pre></details>
+  </article>
+
+  <aside class="rail" aria-label="Evidence and connections">
+    <nav class="rail-sec" aria-label="On this page">
+      <div class="rail-head">On this page</div>
+      <ul class="toc">
+        
+        <li class="toc-item"><a href="#purpose">Purpose</a></li>
+        
+        <li class="toc-item"><a href="#the-rule">The rule</a></li>
+        
+        <li class="toc-item"><a href="#how-it-works">How it works</a></li>
+        
+        <li class="toc-item"><a href="#worked-example">Worked example</a></li>
+        
+        <li class="toc-item"><a href="#never-confuse">Never confuse</a></li>
+        
+        <li class="toc-item"><a href="#company-calibration">Company calibration</a></li>
+        
+        <li class="toc-item"><a href="#sources">Sources</a></li>
+        
+        <li class="toc-item"><a href="#change-note">Change note</a></li>
+        
+      </ul>
+    </nav>
+
+    <section class="rail-sec rail-list" aria-label="Related"><div class="rail-head">Related</div><p class="rail-empty">No related pages listed.</p></section>
+<section class="rail-sec rail-list" aria-label="Linked from"><div class="rail-head">Linked from</div><p class="rail-empty">No page links here.</p></section>
+
+    <section class="rail-sec" aria-label="Cited claims">
+      <div class="rail-head">Cited claims (0)</div>
+      
+      <p class="rail-empty">No claims cited on this page.</p>
+      
+    </section>
+  </aside>
+  <div class="popover" id="fb:popover" role="tooltip" hidden></div>
+</div></main>
+</div>
+</div>
+<div class="scrim" id="fb:scrim" hidden></div>
+<dialog class="palette" id="fb:palette" aria-label="Search the library"></dialog>
+<dialog class="dlg" id="fb:keys" aria-label="Keyboard shortcuts"></dialog>
+<div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
+<div class="sr-only" id="fb:sr" aria-live="polite"></div>
+</body>
+</html>

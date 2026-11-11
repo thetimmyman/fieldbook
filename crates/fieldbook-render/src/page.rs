@@ -11,16 +11,18 @@ use std::collections::BTreeSet;
 
 use askama::Template;
 use fieldbook_core::CivilDate;
+use fieldbook_core::assist::PackSource;
 use fieldbook_core::check::PageEntry;
 use fieldbook_core::cite::KeyKind;
 use fieldbook_core::date::{PartialDate, review_by};
-use fieldbook_core::egress::LabelledView;
+use fieldbook_core::egress::{Dest, LabelledView};
 use fieldbook_core::ids::{ClaimId, ConflictId};
-use fieldbook_core::review::page_review_by;
+use fieldbook_core::review::{newest_change_note_date, page_review_by};
 use fieldbook_core::schema::{
     ChangeClass, ClaimKind, ClaimRow, ConflictStatus, PageStatus, PageType, Readiness, Verification,
 };
 use fieldbook_core::strings;
+use pulldown_cmark::{Options, Parser};
 
 use crate::chip;
 use crate::cite::OriginalAvailability;
@@ -61,6 +63,16 @@ pub struct MetaRowView {
     /// Hidden per-claim rows of the overdue banner, one per computed review date, with the `verify`
     /// chip or, until that command lands, one landing line for the fold.
     pub due_claims_html: String,
+    /// True when the page writes the hidden review-overdue banner, false on an unreleased build,
+    /// where the build status banner says each page shows its review date.
+    pub overdue_banner: bool,
+}
+
+/// A part that the reader shows as a closed fold under its heading.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PartFold {
+    /// Distinct questions the part lists, shown in the fold's summary; none shows no count.
+    pub question_count: usize,
 }
 
 /// One rendered part section (`<h2>` + body or empty-part line).
@@ -74,6 +86,8 @@ pub struct RenderedPart {
     pub is_empty: bool,
     /// Rendered HTML of the part body.
     pub body_html: String,
+    /// `Some` when the part is shown as a closed fold (Company calibration with no company overlay).
+    pub fold: Option<PartFold>,
 }
 
 /// One item in the right-rail "On this page" table of contents.
@@ -133,7 +147,7 @@ pub struct ConflictBoxView {
 pub struct EvidenceCardView {
     /// Claim identifier (`CL-...`).
     pub claim_id: String,
-    /// Claim ID chip HTML (linked to `claims.html#<id>` if planned).
+    /// Claim ID chip HTML (linked to the claim's part page `claims/<AREA>-<part>.html#<id>` if planned).
     pub claim_chip_html: String,
     /// Verification `StatusChip` HTML.
     pub status_chip_html: String,
@@ -190,6 +204,8 @@ struct PageTemplate {
     change_entries: Vec<ChangeNoteLine>,
     toc_items: Vec<TocItem>,
     evidence_cards: Vec<EvidenceCardView>,
+    rail_lists_html: String,
+    context_pack: String,
 }
 
 fn render_page_status_chip(status: PageStatus) -> String {
@@ -278,7 +294,57 @@ fn build_part_by_name(
         anchor,
         is_empty,
         body_html,
+        fold: None,
     }
+}
+
+/// Distinct question ids cited in the `Company calibration` part's text.
+fn questions_in_part(page: &PageEntry, view: &LabelledView) -> BTreeSet<String> {
+    let mut distinct = BTreeSet::new();
+    let Some(part_name) = strings::parts().get(5) else {
+        return distinct;
+    };
+    let Some(ps) = page.parts().get(part_name) else {
+        return distinct;
+    };
+    if ps.event_range.is_empty() {
+        return distinct;
+    }
+
+    let mut opts = Options::empty();
+    opts.insert(Options::ENABLE_TABLES);
+    opts.insert(Options::ENABLE_TASKLISTS);
+    let events: Vec<(_, std::ops::Range<usize>)> = Parser::new_ext(&page.body, opts)
+        .into_offset_iter()
+        .collect();
+
+    let start_idx = ps.event_range.start.min(events.len());
+    let end_idx = ps.event_range.end.min(events.len());
+    if start_idx >= end_idx {
+        return distinct;
+    }
+
+    let Some(start_ev) = events.get(start_idx) else {
+        return distinct;
+    };
+    let Some(end_ev) = events.get(end_idx - 1) else {
+        return distinct;
+    };
+    let r_start = start_ev.1.start;
+    let r_end = end_ev.1.end;
+    if r_start >= r_end {
+        return distinct;
+    }
+
+    for cite in view.citations(&page.id) {
+        if cite.key_kind == KeyKind::Question
+            && cite.span.start >= r_start
+            && cite.span.end <= r_end
+        {
+            distinct.insert(cite.key.clone());
+        }
+    }
+    distinct
 }
 
 fn collect_distinct_cited_claims(
@@ -478,9 +544,46 @@ fn build_evidence_cards(
     out
 }
 
+/// Default character budget for context packs when unspecified in corpus settings (`HG-02`).
+const DEFAULT_PACK_BUDGET_CHARS: usize = 12_000;
+
 /// Render the inner `<main>` content (`templates/page.html`) for `page`.
 #[must_use]
 pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths) -> String {
+    render_main_in(page, view, &StoreContext::Public, planned, true)
+}
+
+/// Render the inner `<main>` content for `page` in the given store context; with no company overlay (`StoreContext::Public`) the Company calibration part is a closed fold, in a company view it is open.
+///
+/// `overdue_banner` is true when the page writes the hidden review-overdue banner,
+/// false on an unreleased build.
+#[must_use]
+pub fn render_main_in(
+    page: &PageEntry,
+    view: &LabelledView,
+    store: &StoreContext,
+    planned: &PlannedPaths,
+    overdue_banner: bool,
+) -> String {
+    let packs = PackSource::new(view);
+    let links = crate::related::LinkIndex::new(view);
+    render_main_with_packs(page, view, store, planned, &packs, &links, overdue_banner)
+}
+
+/// Render the inner `<main>` content (`templates/page.html`) for `page` in the given store context, reusing pre-built context packs.
+///
+/// `overdue_banner` is true when the page writes the hidden review-overdue banner,
+/// false on an unreleased build where the build status banner says each page shows its review date.
+#[must_use]
+pub fn render_main_with_packs(
+    page: &PageEntry,
+    view: &LabelledView,
+    store: &StoreContext,
+    planned: &PlannedPaths,
+    packs: &PackSource<'_>,
+    links: &crate::related::LinkIndex,
+    overdue_banner: bool,
+) -> String {
     let from_path = format!("p/{}.html", page.id);
     let area_title = view
         .corpus()
@@ -505,7 +608,7 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         how_it_works,
         worked_example,
         never_confuse,
-        company_calibration,
+        mut company_calibration,
         sources_part,
         change_note_part,
     ) = if is_brief {
@@ -524,6 +627,7 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
             anchor: slug.to_owned(),
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         };
         (
             dummy(part_names[0], "purpose"),
@@ -566,6 +670,17 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         (p0, p1, p2, p3, p4, p5, p6, p7)
     };
 
+    if !is_brief && matches!(store, StoreContext::Public) {
+        let mut questions = questions_in_part(page, view);
+        if page.meta.r#type == PageType::ClauseCard {
+            // A clause card also lists its front-matter questions as chips in this part.
+            questions.extend(page.meta.questions.iter().map(|q| q.as_str().to_owned()));
+        }
+        company_calibration.fold = Some(PartFold {
+            question_count: questions.len(),
+        });
+    }
+
     let distinct_claims = collect_distinct_cited_claims(page, view, &inline);
     let markers = inline.into_markers();
     let availability = OriginalAvailability::from_view(view);
@@ -580,7 +695,11 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         .iter()
         .filter_map(|cid| find_claim(view, cid))
         .collect();
-    let review_by_date = page_review_by(&page.meta, cited_claim_rows.iter().copied());
+    let review_by_date = page_review_by(
+        &page.meta,
+        newest_change_note_date(&page.body),
+        cited_claim_rows.iter().copied(),
+    );
 
     let mut supported_claims = 0usize;
     let mut latest_verified: Option<CivilDate> = None;
@@ -596,6 +715,17 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         }
     }
 
+    let due_claims_html = if overdue_banner {
+        render_due_claims(
+            &from_path,
+            &distinct_claims,
+            view,
+            planned,
+            chip::VERIFY_LANDED,
+        )
+    } else {
+        String::new()
+    };
     let meta_row = MetaRowView {
         page_id: page.id.to_string(),
         as_of: page.meta.as_of.to_string(),
@@ -604,13 +734,8 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         total_claims: distinct_claims.len(),
         last_verified: latest_verified.map(|d| d.to_string()),
         readiness: page.meta.readiness.as_str().to_owned(),
-        due_claims_html: render_due_claims(
-            &from_path,
-            &distinct_claims,
-            view,
-            planned,
-            chip::VERIFY_LANDED,
-        ),
+        due_claims_html,
+        overdue_banner,
     };
 
     let superseded_by_html = page
@@ -684,6 +809,13 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         ]
     };
 
+    let budget = view
+        .corpus()
+        .and_then(|c| usize::try_from(c.assistant.pack_budget_chars).ok())
+        .unwrap_or(DEFAULT_PACK_BUDGET_CHARS);
+    let context_pack = packs.page_pack(&Dest::Edition, &page.id, budget).to_text();
+    let rail_lists_html = crate::related::render_rail_lists(page, view, planned, links);
+
     let common = crate::types::TypedPageCommon {
         area_chip_html,
         subarea: page.meta.subarea.clone(),
@@ -709,6 +841,8 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         change_entries,
         toc_items,
         evidence_cards,
+        rail_lists_html,
+        context_pack,
     };
 
     if is_brief {
@@ -752,6 +886,8 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         change_entries: common.change_entries,
         toc_items: common.toc_items,
         evidence_cards: common.evidence_cards,
+        rail_lists_html: common.rail_lists_html,
+        context_pack: common.context_pack,
     };
 
     tpl.render()
@@ -767,12 +903,30 @@ pub fn render_page(
     nav: &Navigation,
     planned: &PlannedPaths,
 ) -> String {
+    let packs = PackSource::new(view);
+    let links = crate::related::LinkIndex::new(view);
+    render_page_with_packs(page, view, ctx, nav, planned, &packs, &links)
+}
+
+/// Render a complete `p/<page-id>.html` document wrapped in the global site frame, reusing pre-built context packs.
+#[must_use]
+pub fn render_page_with_packs(
+    page: &PageEntry,
+    view: &LabelledView,
+    ctx: &RenderContext,
+    nav: &Navigation,
+    planned: &PlannedPaths,
+    packs: &PackSource<'_>,
+    links: &crate::related::LinkIndex,
+) -> String {
     let page_path = format!("p/{}.html", page.id);
-    let main_html = render_main(page, view, planned);
-    let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
+    let edition = ctx.edition_info();
+    let overdue_banner = crate::edition::built_date(edition).is_some();
+    let main_html =
+        render_main_with_packs(page, view, &store, planned, packs, links, overdue_banner);
     let area_code = page.meta.area.as_str();
     let area_label = view
         .corpus()

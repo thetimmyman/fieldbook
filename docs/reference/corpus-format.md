@@ -38,6 +38,8 @@ Check codes are stable. A check's message may be improved without a version chan
 
 The pre-`edition-001` [ADR 0002 amendment](../decisions/0002-corpus-format-v1.md#amendment-five-digit-claim-continuation-pre-edition-001) folds five-digit public claim continuation (`10000` to `99999`) and numeric-within-area `claims.csv` ordering into `schema_version = 1` before any reader or edition ships: every four-digit claim id and its relative sort order stay unchanged, so no existing file needs rewriting.
 
+The pre-`edition-001` [ADR 0002 amendment on the review date basis](../decisions/0002-corpus-format-v1.md#amendment-review-date-basis-pre-edition-001) changes the meaning of a page's computed `review_by` (it counts from the later of `as_of` and the newest Change note date) and folds into `schema_version = 1` the same way: no file is rewritten.
+
 **How a bump ships.**
 - Before R2, the bump ships with a one-off migration, `cargo xtask migrate-<from>-to-<to>`, in the same pull request. It runs once, at home, and is deleted by a later card. A test runs it on the `corpus-mini` fixture and compares the result with a committed expected tree.
 - From R2, bumps are batched into planned tool releases. `fieldbook migrate` rewrites a Corpus or a company store in place, is idempotent, and is the only command that changes `schema_version`.
@@ -406,7 +408,7 @@ volatility = "V1"
 | Field | Computed from | Meaning |
 |---|---|---|
 | `claims` | The citations in the body | The claim ids the body cites, sorted, once each. The reader shows them as the page's evidence |
-| `review_by` | `as_of` and `volatility` | The date by which a person should look at the page again; see [Dates, supersession, handling and labels](#dates-supersession-handling-and-labels) |
+| `review_by` | `as_of`, the newest Change note date and `volatility` | The date by which a person should look at the page again; see [Dates, supersession, handling and labels](#dates-supersession-handling-and-labels) |
 
 **Page types.** Eight types carry the eight parts of [Strings](#strings), in order. A `brief` carries the six `brief` parts. A `note` (Day 30) has no fixed parts. The parts are level-2 headings. `check` reports a missing, misspelt, repeated, reordered or extra `##` heading, and any `#` heading (FB0130).
 
@@ -514,7 +516,7 @@ The last two rows (before the company rows) are local to the state folder (`.fie
 - `new` and `add` choose the next free number: one more than the highest number ever used in that series, retired rows included. In a company store a series is per family and per writer: the allocator reads only the rows of that family whose number carries the store's writer digits, and `sync` takes numbers the same way, so two writers cannot hand out the same id. `check` reports a repeated id (FB0203). A claim series is per area (`CL-CMP-0012` follows `CL-CMP-0011`). A claim series that reaches 9999 continues with five digits: `CL-CMP-10000` follows `CL-CMP-9999`. A five-digit number never starts with 0, so each number has one spelling. Until the card `add-new-and-edition` lands them, the lead allocates by hand, with `sha256sum` and a row in `sources.csv` for a source.
 - Source numbering starts at `S-0001`. A source's first version is `v1`; each later version of the same source is one more.
 - An id has one spelling everywhere. The version id `S-0042-v2` is the file stem of its original (`S-0042-v2.pdf`), the name of its extraction folder, the name of its site page (`s/S-0042-v2.html`) and the key in a citation (`[@S-0042-v2, p. 14]`).
-- A register id is also the anchor of its row on the register page: `claims.html#CL-CMP-0011`, `sources.html#S-0042-v2`, `questions.html#Q-027`, `conflicts.html#XC-14`, `glossary.html#material_weakness`.
+- A register id is also the anchor of its row on the register page: `claims/CMP-1.html#CL-CMP-0011` (a claim is on the part page of its area and number: part = (number - 1) / 500 + 1), `sources.html#S-0042-v2`, `questions.html#Q-027`, `conflicts.html#XC-14`, `glossary.html#material_weakness`.
 
 **Never reused, never renamed.**
 - From the first edition that contains an id, the id keeps its meaning for ever. It is not reused for another object and not renamed. Before `edition-001` exists no reader holds an id, and the lead may correct one by hand.
@@ -1114,7 +1116,7 @@ Every date is an ISO 8601 calendar date, `YYYY-MM-DD`. There are no times and no
 | `V3` | 365 days | Definitions, arithmetic, standards text |
 
 - A claim's `review_by` is the later known value of its `as_of` and its `verified_on`, plus the interval of its `volatility`; if both are absent, `review_by` is unknown. Date comparisons use known dates only, including the oldest cited date for FB0118.
-- A page's `review_by` is its `as_of` plus the interval of its volatility: the page's `volatility` field, else the most volatile class among the claims it cites, else `V3`.
+- A page's `review_by` is the later of its `as_of` and the date of its newest valid Change note entry, plus the interval of its volatility: the page's `volatility` field, else the most volatile class among the claims it cites, else `V3`. A valid entry has a known class, a real calendar date and a sentence; any other line is not read here (FB0114 and FB0137 report it), and a page with no valid entry counts from its `as_of`. The order of the entries is not read: the newest date wins. [ADR 0002](../decisions/0002-corpus-format-v1.md#amendment-review-date-basis-pre-edition-001) records the change.
 - For a known base date, a computed `review_by` past `9999-12-31` saturates at that date. This rule does not fill missing date parts or change the calculation core's checked `add_days` behavior.
 - Four findings depend on today's date: a page or claim `as_of` later than today (FB0116, FB0220) and a page or claim `review_by` that has passed (FB0117, FB0221). They are warnings, and they never fail `check`, not even under `--strict`: a commit that passes today must not fail next month. `status` lists them as next actions.
 
@@ -1295,7 +1297,7 @@ Every check has a code: `FB` and four digits. A code never changes meaning and i
 | FB0124 | error | `changes.md` is malformed: a `##` heading that is not `## edition-NNN`, numbers not newest first, a bullet that does not start `- Added:`, `- Changed:` or `- Verified:`, or a date | `## edition-1` |
 | FB0125 | error | A rule file is out of form: `ASSISTANT.md` is missing, longer than 40 lines, or does not begin with `rules_version = <integer>`; or `corpus/AGENTS.md` is longer than 40 lines | A 41-line `ASSISTANT.md` |
 | FB0126 | error | `eval/regression.toml` is malformed, repeats a case `id`, or names an expected unit id that does not exist | `expect = ["cmp-nope"]` |
-| FB0127 | warning | A regression case misses: an expected id is not within `top`, or an `expect_none` query returns results | A non-critical case that ranks its answer sixth |
+| FB0127 | warning | A regression case misses: an expected page is not within the first `top` page rows of the search page view, or an `expect_none` query returns results | A non-critical case whose page is the sixth page row |
 | FB0128 | error | A regression case marked `critical` misses | A critical case whose answer is absent from the top 3 |
 | FB0130 | error | The part headings are not exactly the type's parts in order, a `#` heading is present, or a heading is deeper than `###` | `## Rule` for `## The rule` |
 | FB0131 | error | A part other than Sources is blank | `## Purpose` followed at once by another heading |
@@ -1410,7 +1412,7 @@ Raised by `build`, `cargo xtask edition` and the tests of the build and edition 
 | FB0602 | error | An edition path breaks the path rules: over 150 characters from the edition root | A 151-character path |
 | FB0603 | error | A link in the built site does not resolve to a built file or anchor | A link to a page that has no output |
 | FB0604 | error | A built page breaks a site rule: an `href="http`, a `style="` attribute, an inline event handler, a script that is not a file in `assets/`, no content security policy, or a policy that is not equal to `CSP_STATIC` | An `href="http` in a page |
-| FB0605 | error | A script or data file is over budget: `app.js` 30 KB, `search.js` 10 KB, `assist.js` 20 KB, 64 KB of scripts in all, 15 MB for `search-index.js`, or 3 MB for any other data file of the edition. The edition's `search-index.js` holds page and section units only. The company browser loads shards of at most 8 MB with at most 24 MB of live search data, as search.md specifies. Scripts are app.js, search.js, strings.js and assist.js; strings.js counts only in the 64 KB total. search-index.js and assist-data.js are data, not scripts. Other .js files count as scripts. A KB is 1,000 bytes | A 70 KB `app.js` |
+| FB0605 | error | A script or data file is over budget: `app.js` 32 KB, `search.js` 10 KB, `assist.js` 20 KB, 64 KB of scripts in all, 15 MB for `search-index.js`, or 3 MB for any other data file of the edition. The edition's `search-index.js` holds page and section units only. The company browser loads shards of at most 8 MB with at most 24 MB of live search data, as search.md specifies. Scripts are app.js, search.js, strings.js and assist.js; strings.js counts only in the 64 KB total. search-index.js and assist-data.js are data, not scripts. Other .js files count as scripts. A KB is 1,000 bytes | A 70 KB `app.js` |
 | FB0606 | error | Two builds of one commit differ | A timestamp in an output file |
 | FB0607 | warning on Linux, error in the `windows` job | A `brief` prints on more than one page | A brief that runs onto a second page |
 | FB0608 | error | Edition integrity: a file is missing from `SHA256SUMS` or differs from it, the fingerprint differs from `edition.toml`, or an extraction hash differs | A zip with one file changed |
@@ -1533,7 +1535,7 @@ The reader may look for these. None is in the Corpus, and the right column says 
 | Not in the Corpus | Why | The reader uses |
 |---|---|---|
 | A front-matter `summary` | A page states its purpose once, in the Purpose part | The first sentence of the Purpose part for area lists and popovers; search snippets follow [search.md](search.md#document-units), using the first paragraph of the first section for a page lead |
-| `review_by` or `claims` in front matter | Both are computed, and writing either is an error (FB0109) | `review_by` from `as_of` and `volatility`; `claims` from the page's citations |
+| `review_by` or `claims` in front matter | Both are computed, and writing either is an error (FB0109) | `review_by` from `as_of`, the newest Change note date and `volatility`; `claims` from the page's citations |
 | A start date for Day N | The build injects no date (AD-15) | A date the owner enters in the browser |
 | Evidence labels PF, CS, OD, RR, INF and UNK | They are not Corpus values | `claim_kind`, `verification` and `data_origin`, as written |
 | Evidence grades A to D | They are company-store values (FB0210). The Corpus holds E, F and G | `evidence_grade`, as written |
@@ -1543,7 +1545,7 @@ The reader may look for these. None is in the Corpus, and the right column says 
 
 - **Strings.** Every frozen string comes from `window.FB_STRINGS` in `assets/strings.js`. The reader does not carry a frozen literal of its own, and a test fails on one in the code.
 - **Status chips.** A status chip has an icon and a word, so a status never rests on colour alone, and its word prints. The UI lane's design files choose the labels. The chip's title holds the raw vocabulary value, such as `primary_source_supported`.
-- **Overdue banner.** The build writes the banner hidden, with the page's `review_by`. `app.js` shows it when the viewer's own date is past that day. The build never reads the clock.
+- **Overdue banner.** The build writes the banner hidden, with the page's `review_by`. `app.js` shows it when the viewer's own date is past that day. The build never reads the clock. An unreleased build writes no such banner: its build status banner says each page shows its review date and none is flagged, and the meta row keeps the date as text.
 - **Part order.** The reader draws the parts in the order of the page type. It adds nothing between them that the page does not hold, and an empty part shows `Not established.`
 - **Page type blocks.** The reader adds a table, a numbered list or a print layout for the types that carry one (see [Page files](#page-files)). It adds no other content.
 - **Links.** Where each token links is in [Syntax at a glance](#syntax-at-a-glance).
@@ -1558,7 +1560,8 @@ One HTML file per page. A `#` is used only for anchors and for `search.html#q=`.
 | `a/<area>.html` | Area by subarea and stage. A section without data shows its empty-state line | Day 1; views at Day 30 |
 | `p/<page-id>.html` | Page in the frozen part order, with Sources built from the citations. The page context pack in `<details><pre>` is a Could item (card `page-context-packs`) | Day 1 |
 | `s/<version-id>.html` | Source version: row, hash, the original at its locator, section anchors, citing claims, extraction status | Day 1 |
-| `claims.html`, `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
+| `claims.html`, `claims/<AREA>-<part>.html` | The claims index, one entry per area part with its id range and count; and one register page per area part of 500 claim numbers, with an anchor per row | Day 1 |
+| `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
 | `ids.html`, `search.html` | Every id with its link; results for `#q=` | Day 1 |
 | `about.html` | Tool version, edition, commit, the label statement (an edition holds `public` only), status counts, stale and unreviewed items; the build profile (silent or AI) and the AI position as text. A built page cannot know the store, the policy or the connected company data sources: `fieldbook policy show` and `fieldbook sync --dry-run` print them on the laptop | Day 1 |
 | `day-one.html` | The day-one binder: the `brief` pages and the pages of stages 1 and 2, ready to print | Day 1 |
@@ -1572,6 +1575,7 @@ One HTML file per page. A `#` is used only for anchors and for `search.html#q=`.
 - **Links.** Directory links name `index.html`. An original links to the sibling `originals/` folder, with the locator text beside the link. A page works without JavaScript; the budgets are in FB0605.
 - **Print.** `@page { size: Letter; margin: 0 }` with body padding. The footer shows product, edition, page id and "Check the current edition". Citations print as footnotes, and status words always print. No `file:` URL prints. A `brief` prints on one page (FB0607).
 - **Header.** The edition and its build date are written into every page at build. Without `SOURCE_DATE_EPOCH` or without a commit the page says "unreleased build".
+- **Build status.** On an unreleased build, the one the header chip says is unreleased, every page opens with a banner that says "This is an unreleased build, not an edition.", with the build's counts of AI-drafted and unchecked claims (and, once a claim is checked, of supported claims) and a link to the claims register. The build computes the counts from the claims register it renders (`BuildStatus` in `render::meta`) and writes the same numbers into every page; no page or program text holds a count. A released edition shows no banner.
 - **The zips.** The layout of the edition zip and the originals zip is in the repository layout section of ADR 0001. The edition zip holds `corpus/` without originals and without `AGENTS.md`.
 
 ### Workbooks and templates

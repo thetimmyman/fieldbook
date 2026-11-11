@@ -12,6 +12,7 @@
 //! does all I/O and passes bytes in (workspace `clippy.toml`).
 
 pub mod add;
+pub mod assist;
 pub mod audit;
 pub mod authz;
 pub mod cases;
@@ -34,15 +35,17 @@ pub mod scan;
 pub mod schema;
 pub mod search;
 pub mod strings;
+pub mod verify;
 pub mod version;
 
 pub use date::{
     CivilDate, Duration, EffectivePeriod, PartialDate, Volatility, interval_days, review_by,
 };
 pub use ids::{
-    AdrId, AreaCode, CaseId, ClaimId, ConflictId, EditionId, FAMILIES, Family, IdError,
-    IdErrorKind, PageId, QuestionId, ReleaseId, SourceId, SourceVersionId, TermId, ToolRelease,
-    VersionId, is_error_code, next_claim_id, next_conflict_id, next_question_id, next_source_id,
+    AdrId, AreaCode, CLAIMS_PER_PART, CaseId, ClaimId, ConflictId, EditionId, FAMILIES, Family,
+    IdError, IdErrorKind, PageId, QuestionId, ReleaseId, SourceId, SourceVersionId, TermId,
+    ToolRelease, VersionId, claim_href_target, claim_page_route, claim_part, is_error_code,
+    next_claim_id, next_conflict_id, next_question_id, next_source_id,
 };
 
 /// This crate's name in the chain calc, core, render, fieldbook.

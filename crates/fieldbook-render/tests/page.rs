@@ -10,7 +10,7 @@ mod page {
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
     use fieldbook_core::ids::{AreaCode, ClaimId, ConflictId, QuestionId, TermId};
     use fieldbook_core::policy::EffectivePolicy;
-    use fieldbook_core::review::page_review_by;
+    use fieldbook_core::review::{newest_change_note_date, page_review_by};
     use fieldbook_core::schema::ClaimRow;
     use fieldbook_core::strings;
     use fieldbook_render::chip;
@@ -19,7 +19,7 @@ mod page {
         render_area_chip, render_citation_chip, render_claim_chip, render_conflict_chip,
         render_page_link, render_question_chip, render_term_link,
     };
-    use fieldbook_render::meta::BuildInfo;
+    use fieldbook_render::meta::{BuildInfo, BuildProfile};
     use fieldbook_render::nav;
     use fieldbook_render::page::{render_due_claims, render_main, render_page};
     use fieldbook_render::site::{self, PlannedPaths};
@@ -211,10 +211,10 @@ mod page {
     }
 
     #[test]
-    fn markers_number_in_reading_order_and_match_sources_rows() {
+    fn repeated_claim_has_one_row() {
         let mut tree = fixture_tree();
         let custom_md = format!(
-            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@S-0001-v1, sec. 1].\n\n## {}\n\nRepeat the supported claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
+            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@CL-CMP-0001].\n\n## {}\n\nRepeat the supported claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
             strings::parts()[0],
             strings::parts()[1],
             strings::parts()[2],
@@ -237,20 +237,178 @@ mod page {
             .unwrap();
         let html = render_main(page, &view, &planned);
 
-        let m1 = html.find("href=\"#cite-1\"").expect("marker 1");
-        let m2 = html.find("href=\"#cite-2\"").expect("marker 2");
-        let m3 = html.find("href=\"#cite-3\"").expect("marker 3");
+        assert_eq!(
+            html.matches("aria-label=\"Source 1\">1</a>").count(),
+            3,
+            "exactly three markers for Source 1 must exist"
+        );
+        assert_eq!(
+            html.matches("id=\"cite-1\"").count(),
+            1,
+            "exactly one cite-1 row must exist"
+        );
+        assert!(!html.contains("id=\"cite-2\""), "no cite-2 row must exist");
+        assert!(
+            !html.contains("href=\"#cite-2\""),
+            "no href to cite-2 must exist"
+        );
+
+        assert_eq!(
+            html.matches("id=\"cite-ref-1-1\"").count(),
+            1,
+            "cite-ref-1-1 marker id must appear once"
+        );
+        assert_eq!(
+            html.matches("id=\"cite-ref-1-2\"").count(),
+            1,
+            "cite-ref-1-2 marker id must appear once"
+        );
+        assert_eq!(
+            html.matches("id=\"cite-ref-1-3\"").count(),
+            1,
+            "cite-ref-1-3 marker id must appear once"
+        );
+
+        let m1 = html.find("id=\"cite-ref-1-1\"").expect("marker 1-1");
+        let m2 = html.find("id=\"cite-ref-1-2\"").expect("marker 1-2");
+        let m3 = html.find("id=\"cite-ref-1-3\"").expect("marker 1-3");
         assert!(
             m1 < m2 && m2 < m3,
-            "markers 1, 2, 3 must appear in reading order"
+            "marker ids must appear in reading order"
         );
-        assert!(html.contains("aria-label=\"Source 1\">1</a>"));
-        assert!(html.contains("aria-label=\"Source 2\">2</a>"));
-        assert!(html.contains("aria-label=\"Source 3\">3</a>"));
+    }
+
+    #[test]
+    fn back_references_link_each_marker() {
+        let mut tree = fixture_tree();
+        let custom_md = format!(
+            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@CL-CMP-0001] and standard version [@S-0001-v1, sec. 1].\n\n## {}\n\nRepeat the supported claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
+            strings::parts()[0],
+            strings::parts()[1],
+            strings::parts()[2],
+            strings::parts()[3],
+            strings::parts()[4],
+            strings::parts()[5],
+            strings::parts()[6],
+            strings::parts()[7],
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-system-review.md",
+            custom_md.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+
+        let r1 = html.find("id=\"cite-1\"").expect("row 1");
+        let r2 = html.find("id=\"cite-2\"").expect("row 2");
+        assert!(r1 < r2, "Sources rows 1, 2 must appear in order");
+
+        let row1_slice = &html[r1..r2];
+        let row2_slice = &html[r2..];
+
         assert!(
-            !html.contains("href=\"#cite-4\""),
-            "Q-001 and XC-01 must be RefChips, not numbered markers"
+            row1_slice.contains("Back to text:"),
+            "row 1 footer must contain `Back to text:`"
         );
+        assert!(
+            row1_slice.contains("href=\"#cite-ref-1-1\""),
+            "row 1 footer must link to marker 1-1"
+        );
+        assert!(
+            row1_slice.contains("href=\"#cite-ref-1-2\""),
+            "row 1 footer must link to marker 1-2"
+        );
+        assert!(
+            row1_slice.contains("href=\"#cite-ref-1-3\""),
+            "row 1 footer must link to marker 1-3"
+        );
+        assert!(
+            row1_slice.contains("aria-label=\"Back to citation a of 3 in the text\""),
+            "row 1 link a aria-label"
+        );
+        assert!(
+            row1_slice.contains("aria-label=\"Back to citation b of 3 in the text\""),
+            "row 1 link b aria-label"
+        );
+        assert!(
+            row1_slice.contains("aria-label=\"Back to citation c of 3 in the text\""),
+            "row 1 link c aria-label"
+        );
+
+        assert!(
+            row2_slice.contains("href=\"#cite-ref-2-1\""),
+            "row 2 footer must link to marker 2-1"
+        );
+        assert!(
+            row2_slice.contains("aria-label=\"Back to the citation in the text\""),
+            "row 2 single link aria-label"
+        );
+        assert!(
+            row2_slice.contains("Back to text"),
+            "row 2 footer must contain `Back to text`"
+        );
+
+        let prefix = "href=\"#cite-ref-";
+        let mut rest = html.as_str();
+        let mut back_ref_targets = Vec::new();
+        while let Some(idx) = rest.find(prefix) {
+            let after = &rest[idx + prefix.len()..];
+            let quote_end = after.find('"').expect("closing quote after href");
+            let marker_id = format!("cite-ref-{}", &after[..quote_end]);
+            back_ref_targets.push(marker_id);
+            rest = &after[quote_end..];
+        }
+        assert_eq!(
+            back_ref_targets.len(),
+            4,
+            "must have exactly 4 back-reference links"
+        );
+        for target in &back_ref_targets {
+            let expected_id = format!("id=\"{target}\"");
+            assert!(
+                html.contains(&expected_id),
+                "target id `{expected_id}` must exist in html"
+            );
+        }
+
+        assert!(
+            html.contains("aria-label=\"Sources cited on this page\""),
+            "sources list must have accessible label"
+        );
+    }
+
+    #[test]
+    fn claim_and_version_rows_stay_separate() {
+        let mut tree = fixture_tree();
+        let custom_md = format!(
+            "+++\nid = \"cmp-system-review\"\ntitle = \"System review concept\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 2\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\nterms = [\"system_review\"]\nquestions = [\"Q-001\"]\nconflicts = [\"XC-01\"]\nvolatility = \"V2\"\n+++\n\n## {}\n\nDefine a contractor business system review [@CL-CMP-0001].\n\n## {}\n\nCheck controls against the standard [@S-0001-v1, sec. 1] and verify again [@S-0001-v1, sec. 1].\n\n## {}\n\nReview subsection [@S-0001-v1, sec. 2], repeat claim [@CL-CMP-0001] and note [@Q-001; @XC-01].\n\n## {}\n\nSynthetic example. The numbers are made up.\n\nA synthetic review takes 30 days.\n\n## {}\n\nDo not confuse with contract closeout.\n\n## {}\n\nConfirm the approving role [@Q-001].\n\n## {}\n\n## {}\n\n- NEW_KNOWLEDGE, 2026-02-01: Initial fixture page.\n",
+            strings::parts()[0],
+            strings::parts()[1],
+            strings::parts()[2],
+            strings::parts()[3],
+            strings::parts()[4],
+            strings::parts()[5],
+            strings::parts()[6],
+            strings::parts()[7],
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-system-review.md",
+            custom_md.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
 
         let r1 = html.find("id=\"cite-1\"").expect("row 1");
         let r2 = html.find("id=\"cite-2\"").expect("row 2");
@@ -263,13 +421,104 @@ mod page {
         let row1_slice = &html[r1..r2];
         let row2_slice = &html[r2..r3];
         let row3_slice = &html[r3..];
-        assert!(row1_slice.contains("CL-CMP-0001"));
-        assert!(row2_slice.contains("S-0001-v1"));
+
+        // Row 1 is the claim: contains CL-CMP-0001, has data-claim=.
+        assert!(
+            row1_slice.contains("CL-CMP-0001"),
+            "row 1 must contain CL-CMP-0001"
+        );
+        assert!(
+            row1_slice.contains("data-claim="),
+            "row 1 claim row must have data-claim="
+        );
+
+        // Row 2 is the version with locator sec. 1: no data-claim=, back to text lists two links a and b.
+        assert!(
+            row2_slice.contains("S-0001-v1"),
+            "row 2 must contain version S-0001-v1"
+        );
+        assert!(
+            row2_slice.contains("sec. 1"),
+            "row 2 must contain locator sec. 1"
+        );
         assert!(
             !row2_slice.contains("data-claim="),
             "direct source-version row must not invent a claim"
         );
-        assert!(row3_slice.contains("CL-CMP-0001"));
+        assert!(
+            row2_slice.contains("Back to text:"),
+            "row 2 footer must contain `Back to text:`"
+        );
+        assert!(
+            row2_slice.contains("href=\"#cite-ref-2-1\""),
+            "row 2 footer must link to marker 2-1"
+        );
+        assert!(
+            row2_slice.contains("href=\"#cite-ref-2-2\""),
+            "row 2 footer must link to marker 2-2"
+        );
+        assert!(
+            row2_slice.contains(">a</a>"),
+            "row 2 footer must have link a"
+        );
+        assert!(
+            row2_slice.contains(">b</a>"),
+            "row 2 footer must have link b"
+        );
+
+        // Row 3 is the version with the other locator: one link.
+        assert!(
+            row3_slice.contains("S-0001-v1"),
+            "row 3 must contain version S-0001-v1"
+        );
+        assert!(
+            row3_slice.contains("sec. 2"),
+            "row 3 must contain locator sec. 2"
+        );
+        assert!(
+            row3_slice.contains("href=\"#cite-ref-3-1\""),
+            "row 3 footer must link to marker 3-1"
+        );
+        assert!(
+            row3_slice.contains("aria-label=\"Back to the citation in the text\""),
+            "row 3 footer must have single back-to-text aria-label"
+        );
+        assert!(
+            row3_slice.contains("Back to text"),
+            "row 3 footer must contain `Back to text`"
+        );
+        assert!(
+            !row3_slice.contains("href=\"#cite-ref-3-2\""),
+            "row 3 must not have a second link"
+        );
+
+        // There is no id="cite-4".
+        assert!(!html.contains("id=\"cite-4\""), "no cite-4 row must exist");
+        assert!(
+            !html.contains("href=\"#cite-4\""),
+            "no href to cite-4 must exist"
+        );
+
+        // The second claim marker shows number 1 (id="cite-ref-1-2").
+        assert!(
+            html.contains("id=\"cite-ref-1-2\""),
+            "second claim marker must have id cite-ref-1-2"
+        );
+        let m_claim2 = html
+            .find("id=\"cite-ref-1-2\"")
+            .expect("second claim marker");
+        let m_claim2_end = html[m_claim2..]
+            .find("</a>")
+            .expect("second claim marker closing tag");
+        let m_claim2_slice = &html[m_claim2..m_claim2 + m_claim2_end + 4];
+        assert!(
+            m_claim2_slice.contains("href=\"#cite-1\""),
+            "second claim marker must link to #cite-1"
+        );
+        assert!(
+            m_claim2_slice.contains("aria-label=\"Source 1\">1</a>"),
+            "second claim marker must show number 1"
+        );
     }
 
     #[test]
@@ -409,6 +658,243 @@ mod page {
         );
     }
 
+    fn rail_section(html: &str, label: &str) -> String {
+        let start_tag = format!("<section class=\"rail-sec rail-list\" aria-label=\"{label}\">");
+        let Some(start_idx) = html.find(&start_tag) else {
+            panic!("missing rail section with label `{label}` in html:\n{html}");
+        };
+        let rest = &html[start_idx..];
+        let end_tag = "</section>";
+        let Some(end_idx) = rest.find(end_tag) else {
+            panic!(
+                "missing closing tag `{end_tag}` for rail section with label `{label}` in html:\n{html}"
+            );
+        };
+        rest[..end_idx + end_tag.len()].to_owned()
+    }
+
+    #[test]
+    fn related_lists_links_with_titles() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "est-rate-window-brief")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Related");
+        assert!(
+            sec.contains("<a class=\"plink\" href=\"cmp-system-review.html\""),
+            "expected link to cmp-system-review.html in Related section, got:\n{sec}"
+        );
+        let expected_title = "Synthetic business-system review and withholding overview";
+        assert!(
+            sec.contains(&format!(">{expected_title}</a>")),
+            "expected link text to be full title of cmp-system-review, got:\n{sec}"
+        );
+        assert!(
+            sec.contains("(1)"),
+            "expected count (1) in Related section, got:\n{sec}"
+        );
+    }
+
+    #[test]
+    fn linked_from_lists_inbound_pages() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Linked from");
+
+        let brief_title = "Synthetic decision brief on forward pricing rate review window";
+        let steps_title = "Synthetic procedure for running a business-system review";
+
+        let brief_link = "<a class=\"plink\" href=\"est-rate-window-brief.html\"";
+        let steps_link = "<a class=\"plink\" href=\"cmp-review-steps.html\"";
+
+        assert!(
+            sec.contains(brief_link),
+            "expected link to est-rate-window-brief in Linked from, got:\n{sec}"
+        );
+        assert!(
+            sec.contains(&format!(">{brief_title}</a>")),
+            "expected est-rate-window-brief title in Linked from, got:\n{sec}"
+        );
+        assert!(
+            sec.contains(steps_link),
+            "expected link to cmp-review-steps in Linked from, got:\n{sec}"
+        );
+        assert!(
+            sec.contains(&format!(">{steps_title}</a>")),
+            "expected cmp-review-steps title in Linked from, got:\n{sec}"
+        );
+
+        let pos_brief = sec.find(brief_link).unwrap();
+        let pos_steps = sec.find(steps_link).unwrap();
+        assert!(
+            pos_brief < pos_steps,
+            "decision brief must precede procedure in title order"
+        );
+
+        assert!(
+            sec.contains("(2)"),
+            "expected count (2) in Linked from, got:\n{sec}"
+        );
+
+        assert!(
+            !sec.contains("cmp-system-review.html"),
+            "Linked from must not list cmp-system-review itself"
+        );
+        assert!(
+            !sec.contains("Synthetic business-system review and withholding overview"),
+            "Linked from must not contain page title itself"
+        );
+    }
+
+    #[test]
+    fn linked_from_is_capped() {
+        let mut tree = fixture_tree();
+        let mut planned_paths: Vec<String> =
+            SNAPSHOT_PLANNED.iter().map(|&s| s.to_owned()).collect();
+
+        for i in 1..=12 {
+            let id = format!("est-fan-{i:02}");
+            let title = format!("Synthetic fan-in page {i:02}");
+            let content = EST_RATE_WINDOW_BRIEF_MD
+                .replace("id = \"est-rate-window-brief\"", &format!("id = \"{id}\""))
+                .replace(
+                    "title = \"Synthetic decision brief on forward pricing rate review window\"",
+                    &format!("title = \"{title}\""),
+                );
+            tree.insert_bytes(
+                format!("corpus/pages/estimating/pricing/{id}.md"),
+                content.into_bytes(),
+            );
+            planned_paths.push(format!("p/{id}.html"));
+        }
+
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::from_owned(planned_paths);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Linked from");
+
+        assert!(
+            sec.contains("(14)"),
+            "expected count (14) in Linked from, got:\n{sec}"
+        );
+
+        let fold_split: Vec<&str> = sec.split("<details class=\"fold\">").collect();
+        assert_eq!(
+            fold_split.len(),
+            2,
+            "expected exactly one <details class=\"fold\"> in Linked from section, got:\n{sec}"
+        );
+        let outside = fold_split[0];
+        let inside = fold_split[1];
+
+        assert_eq!(
+            outside.matches("<li>").count(),
+            10,
+            "expected exactly 10 <li> rows outside the fold, got:\n{outside}"
+        );
+
+        assert!(
+            inside.starts_with("<summary><b>4 more</b></summary>"),
+            "expected summary <b>4 more</b> at start of fold, got:\n{inside}"
+        );
+        assert_eq!(
+            inside.matches("<li>").count(),
+            4,
+            "expected exactly 4 <li> rows inside the fold, got:\n{inside}"
+        );
+
+        let details_start = sec.find("<details").expect("<details element");
+        let details_end = sec[details_start..].find('>').expect("details tag end");
+        let details_tag = &sec[details_start..details_start + details_end + 1];
+        assert_eq!(details_tag, "<details class=\"fold\">");
+        assert!(
+            !details_tag.contains("open"),
+            "<details> must not have an open attribute, got: {details_tag}"
+        );
+    }
+
+    #[test]
+    fn related_target_not_planned_is_text() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(&[
+            "p/cmp-review-steps.html",
+            "p/est-calc-01.html",
+            "p/est-rate-window-brief.html",
+        ]);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "est-rate-window-brief")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let sec = rail_section(&html, "Related");
+
+        let expected_title = "Synthetic business-system review and withholding overview";
+        assert!(
+            sec.contains("<span class=\"plink\""),
+            "expected unbuilt target to render as <span class=\"plink\", got:\n{sec}"
+        );
+        assert!(
+            sec.contains(expected_title),
+            "expected title text in unbuilt target span, got:\n{sec}"
+        );
+        assert!(
+            !sec.contains("<a "),
+            "Related section must contain no <a> element when target is unbuilt, got:\n{sec}"
+        );
+    }
+
+    #[test]
+    fn related_lists_are_empty_state_when_none() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "est-calc-01")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+
+        let related_sec = rail_section(&html, "Related");
+        assert!(
+            related_sec.contains("No related pages listed."),
+            "Related empty state text missing, got:\n{related_sec}"
+        );
+        assert!(
+            !related_sec.contains("<ul>"),
+            "Related empty state must not contain <ul>, got:\n{related_sec}"
+        );
+        assert!(
+            !related_sec.contains('('),
+            "Related empty state must not contain '(' count, got:\n{related_sec}"
+        );
+
+        let linked_from_sec = rail_section(&html, "Linked from");
+        assert!(
+            linked_from_sec.contains("No page links here."),
+            "Linked from empty state text missing, got:\n{linked_from_sec}"
+        );
+        assert!(
+            !linked_from_sec.contains("<ul>"),
+            "Linked from empty state must not contain <ul>, got:\n{linked_from_sec}"
+        );
+    }
+
     #[test]
     fn purpose_summary_drops_citation_markers() {
         let plain =
@@ -483,9 +969,46 @@ mod page {
             ),
             "expected first-sentence summary in PageLink popover data-pv-body, got:\n{html}"
         );
+        // The context pack lists related pages with their full lead; the popover summary is the
+        // rest of the page.
+        let outside_pack = html
+            .split("<details class=\"context-pack\">")
+            .next()
+            .unwrap();
         assert!(
-            !html.contains("Second sentence stays out"),
+            !outside_pack.contains("Second sentence stays out"),
             "second sentence of Purpose must not appear in PageLink popover summary"
+        );
+    }
+
+    #[test]
+    fn review_by_counts_from_newest_change_note() {
+        // The fixture page is `as_of = 2026-02-01`, `volatility = "V2"` (180 days). A newer
+        // Change note entry moves the base: 2026-09-01 + 180 days = 2027-02-28.
+        let mut tree = fixture_tree();
+        let md = CMP_SYSTEM_REVIEW_MD.replace(
+            "- NEW_KNOWLEDGE, 2026-02-01:",
+            "- COMPATIBLE_EXTENSION, 2026-09-01: Reworded the synthetic summary.\n- NEW_KNOWLEDGE, 2026-02-01:",
+        );
+        assert_ne!(
+            md, CMP_SYSTEM_REVIEW_MD,
+            "the fixture Change note must be found"
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-system-review.md",
+            md.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        assert!(
+            html.contains("Review by <time datetime=\"2027-02-28\">2027-02-28</time>"),
+            "expected review_by counted from the newest Change note entry, got:\n{html}"
         );
     }
 
@@ -499,7 +1022,9 @@ mod page {
             .find(|p| p.id.as_str() == "cmp-system-review")
             .unwrap();
         let all_claims: Vec<ClaimRow> = view.claims().iter().map(|c| c.value.clone()).collect();
-        let expected_date = page_review_by(&page.meta, &all_claims).to_string();
+        let expected_date =
+            page_review_by(&page.meta, newest_change_note_date(&page.body), &all_claims)
+                .to_string();
 
         let html = render_main(page, &view, &planned);
         let expected_tag =
@@ -867,5 +1392,56 @@ mod page {
             html.contains("href=\"../s/S-0002-v2.html\""),
             "the active comparison version keeps its link: {html}"
         );
+    }
+
+    #[test]
+    fn unreleased_page_has_no_overdue_banner() {
+        let (_model, view) = load_view(fixture_tree());
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let navigation = nav::build(&view, &planned);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_page(page, &view, &ctx, &navigation, &planned);
+
+        assert!(!html.contains("fb:overdueBanner"));
+        assert!(!html.contains("Review overdue"));
+        assert!(!html.contains("due-claims"));
+        assert!(!html.contains("data-claim-review-by"));
+        assert!(html.contains("Review by <time datetime="));
+    }
+
+    #[test]
+    fn released_page_keeps_overdue_banner() {
+        let mut tree = fixture_tree();
+        tree.insert_bytes(
+            "corpus/changes.md",
+            b"# Changes\n\nSynthetic changes log.\n\n## edition-001\n\n- Added: initial.\n",
+        );
+        let (_model, view) = load_view(tree);
+        let date = CivilDate::parse("2026-03-01").unwrap();
+        let sha = "0123456789abcdef0123456789abcdef01234567".to_owned();
+        let released_info = BuildInfo::new(Some(date), Some(sha), BuildProfile::Silent, None);
+        let ctx = site::render_context(&view, &released_info).unwrap();
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let navigation = nav::build(&view, &planned);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_page(page, &view, &ctx, &navigation, &planned);
+
+        assert!(html.contains("id=\"fb:overdueBanner\""));
+        assert!(html.contains("data-review-by=\""));
+        let banner_start = html.find("id=\"fb:overdueBanner\"").unwrap();
+        let banner_tag_end = html[banner_start..].find('>').unwrap();
+        let banner_tag = &html[banner_start..banner_start + banner_tag_end];
+        assert!(banner_tag.contains("hidden"));
+        assert!(html.contains("Review overdue."));
+        assert!(!html.contains("This is an unreleased build"));
     }
 }

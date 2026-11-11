@@ -3,6 +3,7 @@
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::strings;
 
+use crate::meta::BuildStatus;
 use crate::site::PlannedPaths;
 
 /// `index.html#areas` is built (`build-home-and-areas`): All areas and Browse are aliases to it.
@@ -250,6 +251,16 @@ pub fn resolve_route(path: &str, page_area: Option<&str>) -> Option<(SectionId, 
     {
         return Some((SectionId::Library, "sources".to_owned()));
     }
+    // A claims part page; `app.js` (at its size budget) keeps no map row for it, because the
+    // frame sets `data-section` and `data-item` from this function.
+    if let Some(part) = clean
+        .strip_prefix("claims/")
+        .and_then(|s| s.strip_suffix(".html"))
+        && !part.is_empty()
+        && !part.contains('/')
+    {
+        return Some((SectionId::Library, "claims".to_owned()));
+    }
     for row in route_sections() {
         if row.route == clean {
             return Some((row.section, row.item.to_owned()));
@@ -274,7 +285,9 @@ pub enum NavTarget {
         /// Relative path from the edition root (e.g. `"index.html"`, `"a/fnd.html"`).
         href: String,
     },
-    /// Target file is not in [`PlannedPaths`]; renders as `.not-available` text with the landing line.
+    /// Target file is not in [`PlannedPaths`]; it gets no link. Its tab and sidebar entry are
+    /// omitted, and its landing line is listed in the sidebar's closed "Not built yet" disclosure
+    /// through [`Navigation::unbuilt_sections`].
     Unbuilt {
         /// Formatted `not_available` sentence.
         landing_line: String,
@@ -345,6 +358,26 @@ pub struct SectionGroup {
     pub entries: Vec<NavEntry>,
 }
 
+/// A single unbuilt navigation landing line with an optional code badge.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct UnbuiltLine {
+    /// Optional code badge (e.g. `"FND"`).
+    pub code: Option<String>,
+    /// Formatted landing line text.
+    pub text: String,
+}
+
+/// Unbuilt landing lines grouped under a top-level section.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct UnbuiltSection {
+    /// Section identifier.
+    pub id: SectionId,
+    /// Display label for the section tab.
+    pub label: &'static str,
+    /// Unbuilt landing lines for this section.
+    pub lines: Vec<UnbuiltLine>,
+}
+
 /// Complete navigation data for a build, constructed from [`LabelledView`] and [`PlannedPaths`].
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Navigation {
@@ -352,6 +385,8 @@ pub struct Navigation {
     pub tabs: Vec<SectionTab>,
     /// The six sidebar section groups in order.
     pub groups: Vec<SectionGroup>,
+    /// Build-time claim counts for the unreleased build status banner.
+    pub build_status: crate::meta::BuildStatus,
 }
 
 impl Navigation {
@@ -368,6 +403,65 @@ impl Navigation {
             .iter()
             .flat_map(|g| &g.entries)
             .find(|e| e.id == item_id)
+    }
+
+    /// Collects unbuilt landing lines across all sections in [`SectionId::ALL`] order.
+    ///
+    /// For each section:
+    /// 1. Emits the section tab's landing line if its target is [`NavTarget::Unbuilt`] (with `code: None`).
+    /// 2. Emits each entry of that section's group whose target is [`NavTarget::Unbuilt`]
+    ///    (with its code badge and formatted landing line), in group entry order.
+    /// 3. Drops any line whose `(code, text)` pair already appeared earlier in the same section.
+    /// 4. Omits sections with no unbuilt lines.
+    #[must_use]
+    pub fn unbuilt_sections(&self) -> Vec<UnbuiltSection> {
+        let mut sections = Vec::new();
+        for sec in SectionId::ALL {
+            let mut lines = Vec::new();
+            if let Some(tab) = self.tabs.iter().find(|t| t.id == sec)
+                && let NavTarget::Unbuilt { landing_line } = &tab.target
+            {
+                lines.push(UnbuiltLine {
+                    code: None,
+                    text: landing_line.clone(),
+                });
+            }
+            if let Some(group) = self.group(sec) {
+                for entry in &group.entries {
+                    if let NavTarget::Unbuilt { landing_line } = &entry.target {
+                        let candidate = UnbuiltLine {
+                            code: entry.code.clone(),
+                            text: landing_line.clone(),
+                        };
+                        if !lines.contains(&candidate) {
+                            lines.push(candidate);
+                        }
+                    }
+                }
+            }
+            if !lines.is_empty() {
+                sections.push(UnbuiltSection {
+                    id: sec,
+                    label: sec.label(),
+                    lines,
+                });
+            }
+        }
+        sections
+    }
+
+    /// Returns the total count of unbuilt landing lines across all unbuilt sections.
+    #[must_use]
+    pub fn unbuilt_count(&self) -> usize {
+        self.unbuilt_sections().iter().map(|s| s.lines.len()).sum()
+    }
+
+    /// Returns `true` when the tab target for `section` is [`NavTarget::Built`].
+    #[must_use]
+    pub fn tab_is_built(&self, section: SectionId) -> bool {
+        self.tabs
+            .iter()
+            .any(|t| t.id == section && matches!(t.target, NavTarget::Built { .. }))
     }
 }
 
@@ -688,5 +782,9 @@ pub fn build(view: &LabelledView, planned: &PlannedPaths) -> Navigation {
         })
         .collect();
 
-    Navigation { tabs, groups }
+    Navigation {
+        tabs,
+        groups,
+        build_status: BuildStatus::from_view(view),
+    }
 }
