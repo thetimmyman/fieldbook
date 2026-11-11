@@ -21,6 +21,7 @@ A revision of `docs/design/` is accepted that specifies how a glossary term row 
 - Files: `docs/design/HANDOFF.md`, `docs/design/MAP.md`, `docs/design/README.md`, `docs/design/MANIFEST.txt`, `docs/design/mockup/index.html`.
 - Registration lines: none.
 - Docs to update: the four design files; `MANIFEST.txt` is re-hashed.
+- The palette's items 1, 2 and 4 are in this card's Step 5 at the lead's decision: `search-palette-design-items` cannot build them until a design revision gives them, so the palette card is not left waiting for a second revision.
 
 ## Out of scope
 
@@ -38,6 +39,7 @@ A revision of `docs/design/` is accepted that specifies how a glossary term row 
 2. The `MAP.md` row Search: CommandPalette, SearchTrigger: the edition index's unit list says it holds term units, and the row names `search-site-terms`.
 3. The mockup: one term row for a synthetic term with an alias on the search page and in the palette, at the widths the study covers, in both themes.
 4. A revision paragraph at the top of `HANDOFF.md`, the README's current revision, the study record in section 13, and `MANIFEST.txt` re-hashed.
+5. The palette's open design items, for the card `search-palette-design-items` (its items 1, 2 and 4), in the same five files: the edition palette input's placeholder wording, true to the units the edition index returns (pages and sections, and terms once `search-site-terms` lands); the quote characters of the "Search for" row; and the six values no token covers, stated as component geometry with no new token.
 
 ## Acceptance
 

@@ -4,18 +4,22 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 22) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 23) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 22
+## Current revision 23
+
+Revision 23 gives a glossary term a row on the edition's search page and in the command palette: the label links to the term's row in the glossary, an Also-called line names the alias that matched, a definition line and a meta line follow, term rows follow the page rows, and up to 5 of the search page's 50 places and 2 of the palette's 8 are held for them so a term is not cut behind page rows. The Also-called line needs the term's aliases in the site index entry's `parent` position (an owner decision), the edition's nothing-found line becomes "Claims, sources, questions and conflicts are in the ID list.", and the `search.js` budget rises from 10 KB to 11 KB (AD-15; owner decision; the 64 KB total is unchanged). One layout family changed, the result list, supported by one study in section 13 of HANDOFF.md. The mockup bytes changed (a states-gallery specimen, a `wrap_rate` term with an alias, an Also-called line and one narrow-width rule), design tokens are unchanged with no new token, and MANIFEST.txt lists the new hashes. It also settles the palette's open design items: the edition's palette placeholder reads "Pages, clauses and terms…", the Search for row has curly quotes around the text, and six values no token covers (the palette's input height, width, top offset and maximum height, the shortcuts dialog's top and width, and the switch track's width) are stated as component geometry in section 4 with no new token. The implementation cards are `search-site-terms` and `search-palette-design-items`.
+
+## Revision 22 (historical)
 
 Revision 22 applies seven changes to reader pages and the frame: the reader rail gains the `RelatedList` component for Related, Linked from and Read first; Sources renders one row per distinct cited target with numbered back-references; unbuilt navigation tabs and sidebar entries move into one closed "Not built yet" disclosure that preserves every landing line; and part 6 folds under its heading when no company overlay is loaded. On an unreleased build the page-level overdue banner is omitted and the build status banner adds a fixed review sentence, the header build date link carries the 24px target, and `s/` pages may link official locations and section locators to listed publishers in a new tab with `noopener noreferrer`. Two layout families changed (the reader rail and frame sidebar), both supported by studies in `HANDOFF.md` section 13. The mockup bytes changed to implement each change, design tokens are unchanged with no new token, and `MANIFEST.txt` lists the new hashes.
 
 ## Revision 21 (historical)
 
-The `app.js` budget is 32 KB (AD-15, [ADR 0001](../decisions/0001-foundation.md)); `search.js` 10 KB, `assist.js` 20 KB and the 64 KB total are unchanged. The scripts' movement is decoration: where the browser stops running a movement, the element jumps to its end state, so the overlay sidebar opens even when its slide never plays, and never stays off-screen behind its scrim (`HANDOFF.md` section 6, Motion). The fix that needed the room is in `app.js`. No token, layout family, component geometry or mockup byte changes, so no study is needed. No browser, Rust or Edge check is claimed.
+The `app.js` budget is 32 KB (AD-15, [ADR 0001](../decisions/0001-foundation.md)); `search.js` 11 KB (revision 23; 10 KB before), `assist.js` 20 KB and the 64 KB total are unchanged. The scripts' movement is decoration: where the browser stops running a movement, the element jumps to its end state, so the overlay sidebar opens even when its slide never plays, and never stays off-screen behind its scrim (`HANDOFF.md` section 6, Motion). The fix that needed the room is in `app.js`. No token, layout family, component geometry or mockup byte changes, so no study is needed. No browser, Rust or Edge check is claimed.
 
 ## Revision 20 (historical)
 
