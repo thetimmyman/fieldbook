@@ -15,8 +15,10 @@ files only.
 A later, separate request may bring a signed program that runs on the company
 laptop as part of the company's own systems. If IT approves it, that program
 keeps the company's records in a store under the data folder, never in an
-edition, and sends text to an AI endpoint only as a policy file written by IT
-allows. Editions stay public. Nothing in this edition does any of that.
+edition. The AI build, a separate program from tool version 0.2.0, would send
+text to an AI endpoint only as a policy file written by IT allows; the AI
+build is not in this edition. Editions stay public. Nothing in this edition
+does any of that.
 
 2. WHAT IS IN THE TWO ZIP FILES
 
@@ -89,10 +91,12 @@ Excel to treat the files as downloaded files.
 Tool versions before 0.2.0 contain no artificial-intelligence model and contact
 none. An optional step builds a block of public text that you copy into an
 assistant your IT department has approved, and then checks the citations in the
-answer. You do the copying. From version 0.2.0 the AI build can also send that
-block to an endpoint your IT department has approved in its policy file, only when you run the
-command for it, after writing a line to its audit log. Which build is installed
-on this laptop is your IT department's decision. Nothing in the checks, the
+answer. You do the copying. From tool version 0.2.0 an AI build, a separate
+program that is not in this edition, can also send that block to an endpoint
+your IT department has approved in its policy file, only when you run the
+command for it, after writing a line to its audit log. The program never reads
+or writes the clipboard. Which build is installed on this laptop is your IT
+department's decision. Nothing in the checks, the
 search, the calculations or the editions uses a model. See
 intake\ai-development-statement.md.
 
