@@ -301,7 +301,7 @@ fn questions_in_part(page: &PageEntry, view: &LabelledView) -> BTreeSet<String> 
     let Some(part_name) = strings::parts().get(5) else {
         return distinct;
     };
-    let Some(ps) = page.parts().get(*part_name) else {
+    let Some(ps) = page.parts().get(part_name) else {
         return distinct;
     };
     if ps.event_range.is_empty() {
