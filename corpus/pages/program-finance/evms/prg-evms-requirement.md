@@ -1,6 +1,6 @@
 +++
 id = "prg-evms-requirement"
-title = "Earned value management system requirement (DoD)"
+title = "Earned value management system threshold and requirement (DoD)"
 area = "prg"
 subarea = "evms"
 type = "clause-card"
@@ -54,6 +54,7 @@ Which contracts carry an earned value requirement, and the validation status of 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-10: Reworded the title to say the threshold, so that a reader who searches for the earned value management system threshold finds this page.
 - COMPATIBLE_EXTENSION, 2026-11-05: Corrected the Applies to row, which had read from 2026-08-05 and went beyond the cited text, to the Rev 1 text with the earlier start not established.
 - COMPATIBLE_EXTENSION, 2026-11-05: Added the clause edition, the supersession of the earlier deviation version, the optional and discouraged cases at 234.201-70(a)(3) and (a)(4), the statutory exemption stated in the memo, and that the memo does not link it to the waiver.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added software acquisition pathway reference and removed uncited statements in How it works and Never confuse.
