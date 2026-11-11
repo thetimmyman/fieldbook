@@ -1387,13 +1387,6 @@ pub const LEGACY_MERGED: &[&str] = &[
 
 /// True when the card `slug` has merged: it is a legacy slug, or its card file and its
 /// draft are absent and a commit on `main` deleted the file.
-#[cfg_attr(
-    not(test),
-    expect(
-        dead_code,
-        reason = "the controls lint reads it once docs_lints is wired"
-    )
-)]
 pub fn is_merged(snap: &Snapshot, slug: &str) -> bool {
     LEGACY_MERGED.contains(&slug)
         || (!snap.files.contains(&format!("docs/cards/{slug}.md"))
@@ -1775,7 +1768,8 @@ pub fn lint_all(snap: &Snapshot) -> Vec<Finding> {
     findings.extend(lint_overlap(snap));
     findings.extend(lint_prerequisites(snap));
 
-    // Later tasks add links::lint_all and docs_lints::lint_all here.
+    findings.extend(crate::links::lint_all(snap));
+    findings.extend(crate::docs_lints::lint_all(snap));
 
     findings.sort();
     findings
@@ -1802,7 +1796,9 @@ pub fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     };
 
     let snap = Snapshot::load(root)?;
-    let findings = run(&snap, closing);
+    let mut findings = run(&snap, closing);
+    findings.extend(crate::docs_lints::generated_in_sync(root));
+    findings.sort();
 
     if findings.is_empty() {
         println!("cards: ok");
