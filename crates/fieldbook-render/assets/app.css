@@ -1554,6 +1554,34 @@ kbd {
   margin: 0;
 }
 
+.rail-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail-list li a,
+.rail-list li .plink {
+  display: block;
+  padding: var(--space-1) 0;
+  min-height: var(--target-min);
+  line-height: var(--leading-snug);
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+
+.rail-list .rail-empty {
+  font-size: var(--text-sm);
+}
+
+.rail-n {
+  font-weight: var(--weight-regular);
+}
+
+.rail-list .fold {
+  margin-top: var(--space-1);
+}
+
 .ev-card {
   padding: var(--space-2-5);
   border-radius: var(--radius-sm);
