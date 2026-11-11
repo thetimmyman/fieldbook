@@ -51,6 +51,7 @@ const BUILT_SINKS: &[&str] = &[
     "atomic_outside_writer",
     "journal_holds_ids_and_no_canary",
     "edition",
+    "page_packs",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -66,6 +67,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "edition",
         run: run_edition_surface,
+    },
+    Surface {
+        name: "page_packs",
+        run: run_page_packs_surface,
     },
 ];
 
@@ -895,6 +900,173 @@ fn run_edition_surface() {
                     rec.canary
                 );
             }
+        }
+    }
+}
+
+/// The text of the `<pre>` of the context pack of an edition page, unescaped for the characters
+/// the pack surface asserts on.
+fn pack_pre(html: &str) -> &str {
+    let start = html
+        .find("<details class=\"context-pack\"><summary>context pack</summary><pre>")
+        .unwrap_or_else(|| panic!("a page without a context pack"));
+    let rest = &html[start..];
+    let from = rest.find("<pre>").unwrap_or_else(|| panic!("<pre>")) + "<pre>".len();
+    let to = rest.find("</pre>").unwrap_or_else(|| panic!("</pre>"));
+    &rest[from..to]
+}
+
+/// The page packs of the edition: the real handler builds them for every page from the permitted
+/// view only, the plan binds their bytes, and the final sink refuses a pack that changed.
+fn run_page_packs_surface() {
+    const FORBIDDEN_MARKER: &str = "Forbidden pack marker text";
+    const FORBIDDEN_TITLE: &str = "Forbidden pack canary page";
+    const PERMITTED_QUOTE: &str = "Synthetic compliance reviews occur every 30 days.";
+
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+
+    // A page the edition selection leaves out, under the title of the page under test, so that a
+    // pack built from anything but the permitted view would rank it as a related unit.
+    let mut tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+    let forbidden_page = format!(
+        "+++\nid = \"cmp-forbidden-pack\"\ntitle = \"Synthetic business-system review and withholding overview {FORBIDDEN_TITLE}\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\n{FORBIDDEN_MARKER}.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
+    );
+    tree.insert_bytes(
+        "corpus/pages/compliance/business-systems/cmp-forbidden-pack.md",
+        forbidden_page.into_bytes(),
+    );
+    // The loader reports the repository-Corpus handling of the `np-0007` page (FB0410) and still
+    // builds the model that the view must filter.
+    let (model, _report) = load(&Host::new(tree, world.today()), &Options::new(false));
+
+    let eff = EffectivePolicy::floor(false);
+    let now = default_now();
+    let shipped = Shipped::Hours(1);
+    let Decision::Allowed(sel_token) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+        panic!("expected edition selection Allowed");
+    };
+    let view = LabelledView::new(&model, &sel_token, &ReadableStores::corpus());
+    assert!(
+        view.pages()
+            .iter()
+            .all(|p| p.id.as_str() != "cmp-forbidden-pack"),
+        "the edition selection leaves the np-0007 page out"
+    );
+
+    let mut plan = plan_edition(
+        &view,
+        &BuildInfo::default(),
+        out_tmp.path(),
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    )
+    .unwrap_or_else(|e| panic!("plan_edition failed: {e:?}"))
+    .unwrap_or_else(|d| panic!("plan_edition denied: {d:?}"));
+
+    // Every page carries a pack: the forbidden text is in none, the permitted quote is in the
+    // pack of the page that cites it, and each ends with the fixed line and no count.
+    let mut packs = 0usize;
+    for (rel, bytes) in plan.site.files() {
+        if !(rel.starts_with("p/") && rel.ends_with(".html")) {
+            continue;
+        }
+        let html = String::from_utf8_lossy(bytes);
+        let pre = pack_pre(&html);
+        packs += 1;
+        for forbidden in [
+            FORBIDDEN_MARKER,
+            FORBIDDEN_TITLE,
+            "cmp-forbidden-pack",
+            "np-0007",
+        ] {
+            assert!(
+                !pre.contains(forbidden),
+                "forbidden `{forbidden}` reached the pack of {rel}"
+            );
+        }
+        let last = pre.trim_end().lines().last().unwrap_or_default();
+        assert_eq!(
+            last, "Some records were omitted.",
+            "the pack of {rel} ends with the fixed line"
+        );
+        assert!(!last.chars().any(|c| c.is_ascii_digit()));
+        assert!(pre.contains("\nLabels: public\n"), "{rel}");
+    }
+    assert_eq!(packs, view.pages().len(), "one pack on every page");
+    let concept = String::from_utf8_lossy(
+        plan.site
+            .files()
+            .get("p/cmp-system-review.html")
+            .unwrap_or_else(|| panic!("p/cmp-system-review.html")),
+    )
+    .into_owned();
+    assert!(
+        pack_pre(&concept).contains(&PERMITTED_QUOTE.replace('"', "&#34;")),
+        "the permitted claim quote must reach the pack of the page that cites it"
+    );
+
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("build", &plan.write_set, &plan.allowed, &plan.out_dir)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Negative plants at the final sink: a canary planted into a pack after approval is refused,
+    // and so is a changed target.
+    let orig_site = plan.site.clone();
+    for rec in &fixture.record {
+        if rec.label != "public" {
+            let mut mutated = Site::new();
+            for (rel, bytes) in orig_site.files() {
+                if rel == "p/cmp-system-review.html" {
+                    let html = String::from_utf8_lossy(bytes).replace(
+                        "</pre></details>",
+                        &format!("{}</pre></details>", rec.canary),
+                    );
+                    mutated.insert(rel, html.into_bytes());
+                } else {
+                    mutated.insert(rel, bytes.clone());
+                }
+            }
+            plan.site = mutated;
+            let res = write_edition_outputs(&plan, &audited);
+            assert!(
+                matches!(res, Err(Error::OutOfScope(_))),
+                "a canary for `{}` planted in a pack must be refused at write_edition_outputs",
+                rec.label
+            );
+        }
+    }
+    plan.site = orig_site;
+    assert!(
+        !plan.edition_dir.join("p/cmp-system-review.html").exists(),
+        "a refused write must not leave a page on disk"
+    );
+    let rogue_dir = plan.out_dir.join("rogue-packs");
+    let orig_edition_dir = std::mem::replace(&mut plan.edition_dir, rogue_dir.clone());
+    let rogue = write_edition_outputs(&plan, &audited);
+    plan.edition_dir = orig_edition_dir;
+    assert!(
+        matches!(rogue, Err(Error::OutOfScope(_))) && !rogue_dir.exists(),
+        "a changed target must be refused at write_edition_outputs"
+    );
+
+    // The approved packs reach disk as planned, and no forbidden canary is on disk.
+    write_edition_outputs(&plan, &audited).unwrap_or_else(|e| panic!("{e}"));
+    journal
+        .end(audited, Word::new_static("ok"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let disk = std::fs::read_to_string(plan.edition_dir.join("p/cmp-system-review.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    assert_eq!(disk, concept, "the delivered page is the planned page");
+    for rec in &fixture.record {
+        if rec.label != "public" {
+            assert!(!disk.contains(&rec.canary), "{}", rec.canary);
         }
     }
 }
