@@ -235,6 +235,32 @@ mod frame {
         out
     }
 
+    /// The opening `<a ...>` tag that carries `marker`, if the marker sits inside an anchor.
+    fn anchor_tag_of<'a>(html: &'a str, marker: &str) -> Option<&'a str> {
+        let at = html.find(marker)?;
+        let start = html[..at].rfind('<')?;
+        let tag = &html[start..];
+        let end = tag.find('>')?;
+        let tag = &tag[..=end];
+        tag.starts_with("<a ").then_some(tag)
+    }
+
+    fn split_disclosure(html: &str) -> (&str, &str, &str) {
+        let marker = "<details class=\"fold nav-more\"";
+        let start = html.find(marker).unwrap();
+        let before = &html[..start];
+        let rest = &html[start..];
+        let end_marker = "</details>";
+        let end = rest.find(end_marker).unwrap();
+        let disclosure = &rest[..end + end_marker.len()];
+        let after = &rest[end + end_marker.len()..];
+        (before, disclosure, after)
+    }
+
+    fn disclosure(html: &str) -> &str {
+        split_disclosure(html).1
+    }
+
     #[test]
     fn section_map_matches_nav_rs() {
         let js_map = parse_js_route_sections(APP_JS);
@@ -319,9 +345,9 @@ mod frame {
     }
 
     #[test]
-    fn unbuilt_entries_show_the_landing_line() {
+    fn unbuilt_entries_follow_revision_22() {
         let (_model, view) = build_public_view();
-        let planned = PlannedPaths::of(&["index.html"]);
+        let planned = site::planned_paths(&view);
         let navigation = nav::build(&view, &planned);
         let html = render_page(&FrameInput {
             output_path: "index.html",
@@ -335,8 +361,65 @@ mod frame {
         });
 
         assert!(
-            html.contains("class=\"not-available\""),
-            "unbuilt entries must render with class=\"not-available\""
+            !html.contains("class=\"not-available\""),
+            "page must not contain class=\"not-available\""
+        );
+
+        for chunk in html.split("title=\"").skip(1) {
+            let title_val = chunk.split('"').next().unwrap();
+            assert!(
+                !title_val.contains("is not available until"),
+                "title attribute must not carry a landing line: `{title_val}`"
+            );
+        }
+
+        let (before, disc, after) = split_disclosure(&html);
+        assert!(
+            !before.contains("is not available until"),
+            "substring 'is not available until' must not appear before the disclosure"
+        );
+        assert!(
+            !after.contains("is not available until"),
+            "substring 'is not available until' must not appear after the disclosure"
+        );
+        assert!(
+            disc.contains("is not available until"),
+            "substring 'is not available until' must appear inside the disclosure"
+        );
+
+        let open_tag = &disc[..disc.find('>').unwrap() + 1];
+        assert!(
+            !open_tag.contains(" open") && !open_tag.contains("open="),
+            "disclosure opening tag must not have open attribute: `{open_tag}`"
+        );
+        assert!(
+            disc.contains("<summary><b>Not built yet</b>"),
+            "disclosure must contain `<summary><b>Not built yet</b>`"
+        );
+        assert!(
+            !disc.contains("<a "),
+            "disclosure must contain no `<a>` tag"
+        );
+
+        let summary_start = disc.find("<summary>").unwrap();
+        let summary_end = disc.find("</summary>").unwrap();
+        let summary_content = &disc[summary_start..summary_end];
+        let badge_prefix = "<span class=\"fold-d\">";
+        let badge_start = summary_content.find(badge_prefix).unwrap() + badge_prefix.len();
+        let badge_end = summary_content[badge_start..].find("</span>").unwrap();
+        let summary_count: usize = summary_content[badge_start..badge_start + badge_end]
+            .trim()
+            .parse()
+            .unwrap();
+        let expected_unbuilt = navigation.unbuilt_count();
+        let nav_line_count = disc.matches("<p class=\"nav-line\">").count();
+        assert_eq!(
+            summary_count, expected_unbuilt,
+            "summary count must equal navigation.unbuilt_count()"
+        );
+        assert_eq!(
+            summary_count, nav_line_count,
+            "summary count must equal number of `<p class=\"nav-line\">` in disclosure"
         );
 
         for tab in &navigation.tabs {
@@ -344,36 +427,224 @@ mod frame {
                 let amp = landing_line.replace('&', "&amp;");
                 let num = landing_line.replace('&', "&#38;");
                 assert!(
-                    html.contains(landing_line) || html.contains(&amp) || html.contains(&num),
-                    "unbuilt tab `{}` must include landing line `{landing_line}`",
+                    disc.contains(landing_line) || disc.contains(&amp) || disc.contains(&num),
+                    "unbuilt tab `{}` landing line `{landing_line}` must appear inside disclosure",
+                    tab.label
+                );
+            }
+        }
+        for group in &navigation.groups {
+            for entry in &group.entries {
+                if let NavTarget::Unbuilt { landing_line } = &entry.target {
+                    let amp = landing_line.replace('&', "&amp;");
+                    let num = landing_line.replace('&', "&#38;");
+                    assert!(
+                        disc.contains(landing_line) || disc.contains(&amp) || disc.contains(&num),
+                        "unbuilt entry `{}` landing line `{landing_line}` must appear inside disclosure",
+                        entry.id
+                    );
+                }
+            }
+        }
+
+        let map_path = fieldbook_core::strings::paths()[5];
+        for href in extract_anchor_hrefs(&html) {
+            let clean = href.split('#').next().unwrap_or(&href);
+            assert!(
+                !clean.ends_with(map_path) && clean != map_path,
+                "map.html must not be a link target anywhere, found `{href}`"
+            );
+        }
+        assert!(
+            disc.contains("The app map is not available until Day 30."),
+            "app map landing line must be inside disclosure"
+        );
+
+        let planned_with_map =
+            PlannedPaths::of(&["index.html", fieldbook_core::strings::paths()[5]]);
+        let nav_with_map = nav::build(&view, &planned_with_map);
+        let html_with_map = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav_with_map,
+        });
+
+        let map_link_exists = extract_anchor_hrefs(&html_with_map)
+            .iter()
+            .any(|href| href.ends_with(map_path));
+        assert!(
+            map_link_exists,
+            "App map entry must appear as an `<a ` link whose href ends with `{map_path}`"
+        );
+        assert!(
+            !html_with_map.contains("The app map is not available until Day 30."),
+            "app map landing line must not appear anywhere in html when map is built"
+        );
+    }
+
+    #[test]
+    fn built_entries_still_link() {
+        let (_model, view) = build_public_view();
+        let planned = site::planned_paths(&view);
+        let navigation = nav::build(&view, &planned);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+
+        let anchor_hrefs = extract_anchor_hrefs(&html);
+
+        let top_bar = &html[html.find("<nav aria-label=\"Sections\">").unwrap()..];
+        for tab in &navigation.tabs {
+            if let NavTarget::Built { href } = &tab.target {
+                assert!(
+                    anchor_hrefs.contains(href),
+                    "built tab `{}` href `{href}` must appear in anchor hrefs",
+                    tab.label
+                );
+                let marker = format!("data-sec=\"{}\"", tab.key);
+                assert!(
+                    anchor_tag_of(top_bar, &marker)
+                        .is_some_and(|tag| tag.contains(&format!("href=\"{href}\""))),
+                    "built tab `{}` must be an <a> carrying href `{href}`",
                     tab.label
                 );
             }
         }
 
+        let side_bar = &html[html.find("<aside class=\"sidebar\"").unwrap()..];
         for group in &navigation.groups {
             for entry in &group.entries {
-                match &entry.target {
-                    NavTarget::Built { href } => {
-                        assert!(
-                            href == "index.html" || href == "index.html#areas",
-                            "only the planned index.html and its areas alias are built, got `{href}`"
-                        );
-                    }
-                    NavTarget::Unbuilt { landing_line } => {
-                        let amp = landing_line.replace('&', "&amp;");
-                        let num = landing_line.replace('&', "&#38;");
-                        assert!(
-                            html.contains(landing_line)
-                                || html.contains(&amp)
-                                || html.contains(&num),
-                            "unbuilt entry `{}` must render its landing line `{landing_line}`",
-                            entry.id
-                        );
-                    }
+                if let NavTarget::Built { href } = &entry.target {
+                    assert!(
+                        anchor_hrefs.contains(href),
+                        "built entry `{}` href `{href}` must appear in anchor hrefs",
+                        entry.id
+                    );
+                    let expected_data_item = format!("data-item=\"{}\"", entry.id);
+                    assert!(
+                        anchor_tag_of(side_bar, &expected_data_item)
+                            .is_some_and(|tag| tag.contains(&format!("href=\"{href}\""))),
+                        "built entry `{}` must be an <a> carrying href `{href}`",
+                        entry.id
+                    );
+                    assert!(
+                        html.contains(&entry.label),
+                        "built entry `{}` label `{}` must appear in html",
+                        entry.id,
+                        entry.label
+                    );
                 }
             }
         }
+
+        for sec in [SectionId::Today, SectionId::Areas, SectionId::Library] {
+            let group = navigation
+                .group(sec)
+                .unwrap_or_else(|| panic!("group `{sec:?}` must exist"));
+            let built_count = group
+                .entries
+                .iter()
+                .filter(|e| matches!(e.target, NavTarget::Built { .. }))
+                .count();
+            assert!(
+                built_count >= 1,
+                "tested group `{sec:?}` must have at least one built entry, found {built_count}"
+            );
+        }
+    }
+
+    #[test]
+    fn unbuilt_tab_follows_revision_22() {
+        let (_model, view) = build_public_view();
+        let planned = PlannedPaths::of(&["index.html", "a/cmp.html", "claims.html"]);
+        let navigation = nav::build(&view, &planned);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+
+        let topbar_start = html
+            .find("<nav aria-label=\"Sections\">")
+            .expect("top bar sections nav must exist");
+        let topbar_end = html[topbar_start..]
+            .find("</nav>")
+            .expect("closing top bar nav must exist");
+        let topbar_nav = &html[topbar_start..topbar_start + topbar_end + "</nav>".len()];
+
+        assert!(
+            topbar_nav.contains("data-sec=\"today\""),
+            "top bar sections nav must contain data-sec=\"today\""
+        );
+        assert!(
+            !topbar_nav.contains("data-sec=\"assistant\""),
+            "top bar sections nav must not contain unbuilt data-sec=\"assistant\""
+        );
+        assert!(
+            !topbar_nav.contains("data-sec=\"work\""),
+            "top bar sections nav must not contain unbuilt data-sec=\"work\""
+        );
+        assert!(
+            !topbar_nav.contains("data-sec=\"plan\""),
+            "top bar sections nav must not contain unbuilt data-sec=\"plan\""
+        );
+
+        let switch_start = html
+            .find("id=\"fb:secSwitch\"")
+            .expect("secSwitch element must exist");
+        let switch_end = html[switch_start..]
+            .find("</div>")
+            .expect("closing secSwitch div must exist");
+        let sec_switch = &html[switch_start..switch_start + switch_end + "</div>".len()];
+
+        assert!(
+            sec_switch.contains("data-secpick=\"today\""),
+            "#fb:secSwitch must contain data-secpick=\"today\""
+        );
+        assert!(
+            !sec_switch.contains("data-secpick=\"assistant\""),
+            "#fb:secSwitch must not contain data-secpick=\"assistant\""
+        );
+        assert!(
+            !sec_switch.contains("data-secpick=\"work\""),
+            "#fb:secSwitch must not contain data-secpick=\"work\""
+        );
+        assert!(
+            !sec_switch.contains("data-secpick=\"plan\""),
+            "#fb:secSwitch must not contain data-secpick=\"plan\""
+        );
+
+        let disc = disclosure(&html);
+        assert!(
+            disc.contains("The assistant is not available until Day 30."),
+            "assistant tab landing line must appear inside disclosure"
+        );
+        assert!(
+            disc.contains("The 90-day plan is not available until Day 1."),
+            "plan tab landing line must appear inside disclosure"
+        );
+
+        assert!(
+            !html.contains("<div class=\"nav-group\" data-sec=\"work\""),
+            "no nav-group with data-sec=\"work\" must be rendered"
+        );
     }
 
     #[test]

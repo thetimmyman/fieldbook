@@ -4,11 +4,7 @@
   </button>
   <nav aria-label="Sections">
     {% for tab in tabs %}
-    {% if let Some(href) = &tab.href %}
-    <a href="{{ root_prefix }}{{ href }}" data-sec="{{ tab.key }}"{% if tab.is_current %} aria-current="true"{% endif %}>{{ tab.label }}</a>
-    {% else %}
-    <span class="not-available" data-sec="{{ tab.key }}"{% if tab.is_current %} aria-current="true"{% endif %} title="{{ tab.landing_line }}">{{ tab.label }} <span class="sr-only">{{ tab.landing_line }}</span></span>
-    {% endif %}
+    <a href="{{ root_prefix }}{{ tab.href }}" data-sec="{{ tab.key }}"{% if tab.is_current %} aria-current="true"{% endif %}>{{ tab.label }}</a>
     {% endfor %}
   </nav>
   <div class="topbar-end">

@@ -28,234 +28,11 @@ expression: html
   </div>
   <div class="sec-switch" id="fb:secSwitch" role="group" aria-label="Sections">
     
-    <button type="button" data-secpick="today" aria-pressed="false">
-      <span>Today</span>
-    </button>
-    
-    <button type="button" data-secpick="assistant" aria-pressed="false">
-      <span>Assistant</span>
-    </button>
-    
-    <button type="button" data-secpick="work" aria-pressed="false">
-      <span>Work</span>
-    </button>
-    
-    <button type="button" data-secpick="plan" aria-pressed="false">
-      <span>Plan</span>
-    </button>
-    
-    <button type="button" data-secpick="areas" aria-pressed="false">
-      <span>Areas</span>
-    </button>
-    
-    <button type="button" data-secpick="library" aria-pressed="true">
-      <span>Library</span>
-    </button>
-    
-  </div>
-  
-  <div class="nav-group" data-sec="today" hidden>
-    <div class="nav-head">Today</div>
-    <nav class="nav" aria-label="Today">
-      
-      
-      
-      <span class="not-available" data-item="today">
-        <span>Today is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="map">
-        <span>The app map is not available until Day 30.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="assistant" hidden>
-    <div class="nav-head">Assistant</div>
-    <nav class="nav" aria-label="Assistant">
-      
-      
-      
-      <span class="not-available" data-item="assistant">
-        <span>The assistant is not available until Day 30.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="handoff">
-        <span>Handoff packs is not available until Day 30.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="work" hidden>
-    <div class="nav-head">Work</div>
-    <nav class="nav" aria-label="Work">
-      
-      
-      
-      <span class="not-available" data-item="bids">
-        <span>Bids is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="programs">
-        <span>Programs is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="close">
-        <span>Close &#38; forecast is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="rates">
-        <span>Rates &#38; pools is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="suppliers">
-        <span>Suppliers &#38; make/buy is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="compliance">
-        <span>Systems &#38; compliance is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="mna">
-        <span>M&#38;A &#38; cases is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="actions">
-        <span>Actions &#38; calendar is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="plan" hidden>
-    <div class="nav-head">90-day plan</div>
-    <nav class="nav" aria-label="90-day plan">
-      
-      
-      
-      <span class="not-available" data-item="plan-90">
-        <span>The 90-day plan is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="curriculum">
-        <span>The curriculum is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="stakeholders">
-        <span>Stakeholders is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="systems">
-        <span>Systems is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="artifacts">
-        <span>The artifact log is not available until the ORG overlay, Release 2 or later.</span>
-      </span>
-      
-      
-    </nav>
-  </div>
-  
-  <div class="nav-group" data-sec="areas" hidden>
-    <div class="nav-head">Areas</div>
-    <nav class="nav" aria-label="Areas">
-      
-      
-      
-      <span class="not-available" data-item="areas">
-        <span>Areas is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="area-cmp">
-        <span><span class="code">CMP</span>Compliance is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="area-est">
-        <span><span class="code">EST</span>Estimating is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      <div class="nav-sub">Views over EST</div>
-      
-      
-      <span class="not-available" data-item="view-prc">
-        <span><span class="code">PRC</span>Pricing is not available until Day 30.</span>
-      </span>
-      
-      
-    </nav>
   </div>
   
   <div class="nav-group" data-sec="library">
     <div class="nav-head">Library</div>
     <nav class="nav" aria-label="Library">
-      
-      
-      
-      <span class="not-available" data-item="browse" aria-current="page">
-        <span>The library is not available until Day 1.</span>
-      </span>
-      
-      
-      
-      
-      <span class="not-available" data-item="templates">
-        <span>The day-one binder is not available until Day 1.</span>
-      </span>
-      
-      
       
       
       <a href="claims.html" data-item="claims">
@@ -264,14 +41,10 @@ expression: html
       </a>
       
       
-      
-      
       <a href="questions.html" data-item="questions">
         <span>Questions</span>
         <span class="count">2</span>
       </a>
-      
-      
       
       
       <a href="conflicts.html" data-item="conflicts">
@@ -280,14 +53,10 @@ expression: html
       </a>
       
       
-      
-      
       <a href="glossary.html" data-item="glossary">
         <span>Glossary</span>
         <span class="count">4</span>
       </a>
-      
-      
       
       
       <a href="sources.html" data-item="sources">
@@ -295,9 +64,80 @@ expression: html
         <span class="count">4</span>
       </a>
       
-      
     </nav>
   </div>
+  
+  
+  <details class="fold nav-more">
+    <summary><b>Not built yet</b> <span class="fold-d">23</span></summary>
+    <div class="fold-b">
+      
+      <div class="nav-sub" role="presentation">Today</div>
+      
+      <p class="nav-line">Today is not available until Day 1.</p>
+      
+      <p class="nav-line">The app map is not available until Day 30.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Assistant</div>
+      
+      <p class="nav-line">The assistant is not available until Day 30.</p>
+      
+      <p class="nav-line">Handoff packs is not available until Day 30.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Work</div>
+      
+      <p class="nav-line">Bids is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Programs is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Close &#38; forecast is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Rates &#38; pools is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Suppliers &#38; make/buy is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Systems &#38; compliance is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">M&#38;A &#38; cases is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Actions &#38; calendar is not available until the ORG overlay, Release 2 or later.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Plan</div>
+      
+      <p class="nav-line">The 90-day plan is not available until Day 1.</p>
+      
+      <p class="nav-line">The curriculum is not available until Day 1.</p>
+      
+      <p class="nav-line">Stakeholders is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">Systems is not available until the ORG overlay, Release 2 or later.</p>
+      
+      <p class="nav-line">The artifact log is not available until the ORG overlay, Release 2 or later.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Areas</div>
+      
+      <p class="nav-line">Areas is not available until Day 1.</p>
+      
+      <p class="nav-line"><code>CMP</code> Compliance is not available until Day 1.</p>
+      
+      <p class="nav-line"><code>EST</code> Estimating is not available until Day 1.</p>
+      
+      <p class="nav-line"><code>PRC</code> Pricing is not available until Day 30.</p>
+      
+      
+      <div class="nav-sub" role="presentation">Library</div>
+      
+      <p class="nav-line">The library is not available until Day 1.</p>
+      
+      <p class="nav-line">The day-one binder is not available until Day 1.</p>
+      
+      
+    </div>
+  </details>
   
   <div class="side-foot">
     <div class="build-note" id="fb:sideFootNote">
@@ -316,30 +156,6 @@ expression: html
     <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
   </button>
   <nav aria-label="Sections">
-    
-    
-    <span class="not-available" data-sec="today" title="Today is not available until Day 1.">Today <span class="sr-only">Today is not available until Day 1.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="assistant" title="The assistant is not available until Day 30.">Assistant <span class="sr-only">The assistant is not available until Day 30.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="work" title="Bids is not available until the ORG overlay, Release 2 or later.">Work <span class="sr-only">Bids is not available until the ORG overlay, Release 2 or later.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="plan" title="The 90-day plan is not available until Day 1.">Plan <span class="sr-only">The 90-day plan is not available until Day 1.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="areas" title="Areas is not available until Day 1.">Areas <span class="sr-only">Areas is not available until Day 1.</span></span>
-    
-    
-    
-    <span class="not-available" data-sec="library" aria-current="true" title="The library is not available until Day 1.">Library <span class="sr-only">The library is not available until Day 1.</span></span>
-    
     
   </nav>
   <div class="topbar-end">

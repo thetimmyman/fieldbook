@@ -158,8 +158,13 @@ pub struct FrameInput<'a> {
 struct TabView<'a> {
     key: &'a str,
     label: &'a str,
-    href: Option<&'a str>,
-    landing_line: &'a str,
+    href: &'a str,
+    is_current: bool,
+}
+
+struct SwitchView<'a> {
+    key: &'a str,
+    label: &'a str,
     is_current: bool,
 }
 
@@ -168,18 +173,26 @@ struct EntryView<'a> {
     code: Option<&'a str>,
     label: &'a str,
     sub_group: Option<&'a str>,
-    href: Option<&'a str>,
-    landing_line: &'a str,
+    href: &'a str,
     count: Option<usize>,
     is_current: bool,
 }
 
 struct GroupView<'a> {
     key: &'a str,
-    label: &'a str,
     aria_label: &'a str,
     is_current: bool,
     entries: Vec<EntryView<'a>>,
+}
+
+struct UnbuiltLineView<'a> {
+    code: Option<&'a str>,
+    text: &'a str,
+}
+
+struct UnbuiltSectionView<'a> {
+    label: &'static str,
+    lines: Vec<UnbuiltLineView<'a>>,
 }
 
 #[derive(Template)]
@@ -204,7 +217,10 @@ struct BaseTemplate<'a> {
     build_status_banner: Option<BuildStatusView>,
     store_banner: Option<StoreBannerView>,
     tabs: Vec<TabView<'a>>,
+    switch: Vec<SwitchView<'a>>,
     groups: Vec<GroupView<'a>>,
+    unbuilt: Vec<UnbuiltSectionView<'a>>,
+    unbuilt_count: usize,
     crumbs: &'a [Crumb],
     main_html: &'a str,
 }
@@ -221,18 +237,26 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         .nav
         .tabs
         .iter()
-        .map(|t| {
-            let (href, landing_line) = match &t.target {
-                NavTarget::Built { href } => (Some(href.as_str()), ""),
-                NavTarget::Unbuilt { landing_line } => (None, landing_line.as_str()),
-            };
-            TabView {
+        .filter_map(|t| match &t.target {
+            NavTarget::Built { href } => Some(TabView {
                 key: t.key,
                 label: t.label,
-                href,
-                landing_line,
+                href: href.as_str(),
                 is_current: t.id == current_section,
-            }
+            }),
+            NavTarget::Unbuilt { .. } => None,
+        })
+        .collect();
+
+    let switch = input
+        .nav
+        .tabs
+        .iter()
+        .filter(|t| input.nav.tab_is_built(t.id))
+        .map(|t| SwitchView {
+            key: t.key,
+            label: t.label,
+            is_current: t.id == current_section,
         })
         .collect();
 
@@ -240,34 +264,46 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         .nav
         .groups
         .iter()
-        .map(|g| {
-            let entries = g
+        .filter_map(|g| {
+            let entries: Vec<EntryView<'_>> = g
                 .entries
                 .iter()
-                .map(|e| {
-                    let (href, landing_line) = match &e.target {
-                        NavTarget::Built { href } => (Some(href.as_str()), ""),
-                        NavTarget::Unbuilt { landing_line } => (None, landing_line.as_str()),
-                    };
-                    EntryView {
+                .filter_map(|e| match &e.target {
+                    NavTarget::Built { href } => Some(EntryView {
                         id: e.id.as_str(),
                         code: e.code.as_deref(),
                         label: e.label.as_str(),
                         sub_group: e.sub_group.as_deref(),
-                        href,
-                        landing_line,
+                        href: href.as_str(),
                         count: e.count,
                         is_current: g.id == current_section && e.id == current_item,
-                    }
+                    }),
+                    NavTarget::Unbuilt { .. } => None,
                 })
                 .collect();
-            GroupView {
+            (!entries.is_empty()).then(|| GroupView {
                 key: g.key,
-                label: g.id.label(),
                 aria_label: g.aria_label,
                 is_current: g.id == current_section,
                 entries,
-            }
+            })
+        })
+        .collect();
+
+    let unbuilt_sections = input.nav.unbuilt_sections();
+    let unbuilt_count = input.nav.unbuilt_count();
+    let unbuilt = unbuilt_sections
+        .iter()
+        .map(|s| UnbuiltSectionView {
+            label: s.label,
+            lines: s
+                .lines
+                .iter()
+                .map(|l| UnbuiltLineView {
+                    code: l.code.as_deref(),
+                    text: l.text.as_str(),
+                })
+                .collect(),
         })
         .collect();
 
@@ -306,7 +342,10 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         build_status_banner,
         store_banner: store_pres.banner,
         tabs,
+        switch,
         groups,
+        unbuilt,
+        unbuilt_count,
         crumbs: input.crumbs,
         main_html: input.main_html,
     };
