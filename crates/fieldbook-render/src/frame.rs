@@ -80,6 +80,12 @@ struct StoreBannerView {
     body: String,
 }
 
+/// Fixed sentence of the build status banner: an unreleased build writes no page-level overdue
+/// banner, so the build status banner says so (design revision 22).
+const REVIEW_RULE_SENTENCE: &str = "Each page shows its review date; none is flagged as overdue.";
+
+/// The build status banner's sentences, in order: `counts`, then `supported`, which holds the
+/// "checked and found supported" sentence when it applies followed by [`REVIEW_RULE_SENTENCE`].
 struct BuildStatusView {
     counts: String,
     supported: Option<String>,
@@ -317,7 +323,10 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
             });
         BuildStatusView {
             counts: input.nav.build_status.count_sentence(),
-            supported: input.nav.build_status.supported_sentence(),
+            supported: Some(input.nav.build_status.supported_sentence().map_or_else(
+                || REVIEW_RULE_SENTENCE.to_owned(),
+                |supported| format!("{supported} {REVIEW_RULE_SENTENCE}"),
+            )),
             claims_href,
         }
     });

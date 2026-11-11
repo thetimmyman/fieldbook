@@ -1296,4 +1296,76 @@ mod frame {
             "nested page must link to ../claims.html"
         );
     }
+
+    #[test]
+    fn build_status_banner_states_review_rule() {
+        const REVIEW_RULE: &str = "Each page shows its review date; none is flagged as overdue.";
+
+        // Unreleased build with checked claims:
+        let rows = vec![
+            make_claim_row("CL-CMP-0001", "codex", "primary_source_supported"),
+            make_claim_row("CL-CMP-0002", "codex", "primary_source_supported"),
+            make_claim_row("CL-CMP-0003", "ai", "unchecked"),
+        ];
+        let (_model, view) = build_public_view_with_claims(&rows);
+        assert_eq!(view.claims().len(), 3);
+
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+        let html = std::str::from_utf8(&site.files()["index.html"]).unwrap();
+
+        assert_eq!(html.matches(REVIEW_RULE).count(), 1);
+        let supported_pos = html
+            .find("have been checked and found supported")
+            .expect("must contain have been checked and found supported");
+        let rule_pos = html.find(REVIEW_RULE).expect("must contain review rule");
+        let see_pos = html
+            .find("the claims register")
+            .expect("must contain the claims register");
+        assert!(
+            supported_pos < rule_pos,
+            "review rule must appear after 'have been checked and found supported'"
+        );
+        assert!(
+            rule_pos < see_pos,
+            "review rule must appear before the claims register link"
+        );
+
+        // Unreleased build with no claims recorded:
+        let (_model, view_empty) = build_public_view_with_claims(&[]);
+        assert_eq!(view_empty.claims().len(), 0);
+
+        let site_empty = site::render(&view_empty, &info).unwrap();
+        let html_empty = std::str::from_utf8(&site_empty.files()["index.html"]).unwrap();
+
+        assert!(html_empty.contains("No claims recorded."));
+        assert_eq!(html_empty.matches(REVIEW_RULE).count(), 1);
+        let no_claims_pos = html_empty
+            .find("No claims recorded.")
+            .expect("must contain No claims recorded.");
+        let rule_empty_pos = html_empty
+            .find(REVIEW_RULE)
+            .expect("must contain review rule");
+        let see_empty_pos = html_empty
+            .find("the claims register")
+            .expect("must contain the claims register");
+        assert!(no_claims_pos < rule_empty_pos);
+        assert!(rule_empty_pos < see_empty_pos);
+
+        // Released build: review rule is absent:
+        let planned = PlannedPaths::of(&["index.html", "claims.html"]);
+        let nav = nav::build(&view, &planned);
+        let released = edition_info("2026-03-01", 1);
+        let html_released = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &released,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav,
+        });
+        assert!(!html_released.contains(REVIEW_RULE));
+    }
 }

@@ -902,7 +902,7 @@ mod page_types {
 
         for page_id in COMPANY_PART_PAGES {
             let page = find_page(&view, page_id);
-            let company_html = render_main_in(page, &view, &store, &planned);
+            let company_html = render_main_in(page, &view, &store, &planned, true);
 
             assert!(
                 !company_html.contains("company-fold"),

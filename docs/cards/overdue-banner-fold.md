@@ -18,7 +18,7 @@ On an unreleased build, a page shows no separate review-overdue banner where rev
 
 ## Scope
 
-- Files: `crates/fieldbook-render/src/page.rs`, `crates/fieldbook-render/templates/page.html`, `crates/fieldbook-render/templates/types/`, `crates/fieldbook-render/src/frame.rs`, `crates/fieldbook-render/tests/page.rs`, `crates/fieldbook-render/tests/frame.rs`, `crates/fieldbook-render/tests/snapshots/{page__page__concept_page_renders.snap,page__page__procedure_page_renders.snap,page_types__page_types__brief_page_renders.snap,page_types__page_types__case_page_renders.snap,page_types__page_types__checklist_page_renders.snap,page_types__page_types__clause_card_page_renders.snap,page_types__page_types__reference_page_renders.snap,page_types__page_types__template_page_renders.snap}`, `CHANGELOG.md`.
+- Files: `crates/fieldbook-render/src/page.rs`, `crates/fieldbook-render/templates/page.html`, `crates/fieldbook-render/templates/types/`, `crates/fieldbook-render/src/frame.rs`, `crates/fieldbook-render/tests/page.rs`, `crates/fieldbook-render/tests/frame.rs`, `crates/fieldbook-render/tests/snapshots/` (every snapshot there: `frame.rs` renders on every page, so the register snapshots and the calc page snapshot change too), `crates/fieldbook-render/tests/page_types.rs`, `docs/reference/corpus-format.md` (the Overdue banner line), `CHANGELOG.md`.
 - Registration lines: `crates/fieldbook-render/assets/app.js`, only if the revision moves the date check into the build status banner.
 - Docs to update: `CHANGELOG.md` (`- Changed: an unreleased build shows the review notice in its build status banner, not as a second banner on each page.`).
 

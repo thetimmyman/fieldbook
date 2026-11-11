@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: an unreleased build shows the review notice in its build status banner, not as a second banner on each page.
 - Changed: with no company data loaded, each page's Company calibration part is folded.
 - Changed: the pre-push hook runs the secret and Corpus scans and the denylist; the full check runs in CI only.
 - Changed: a page's Sources list each cited claim once, with links back to each place it is cited.
