@@ -286,8 +286,15 @@ expression: html
     <section class="part" aria-labelledby="company-calibration">
       <h2 id="company-calibration">Company calibration</h2>
       
+      <details class="fold company-fold">
+        <summary><b>Company questions</b> <span class="meta">1 to settle with company data</span></summary>
+      
+      
       <p>Confirm who tracks synthetic pre-review findings <span class="cite neutral" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</span>.</p>
 
+      
+      
+      </details>
       
     </section>
 

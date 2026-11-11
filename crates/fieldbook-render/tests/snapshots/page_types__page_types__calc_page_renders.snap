@@ -334,8 +334,15 @@ expression: html
     <section class="part" aria-labelledby="company-calibration">
       <h2 id="company-calibration">Company calibration</h2>
       
+      <details class="fold company-fold">
+        <summary><b>Company questions</b> <span class="meta">1 to settle with company data</span></summary>
+      
+      
       <p>Confirm the rate structure and escalation basis for the cost baseline <span class="cite neutral" data-pv="q:Q-002" data-pv-title="Q-002" data-pv-body="Which synthetic escalation index applies to multi-year pricing workbooks?">Q-002</span>.</p>
 
+      
+      
+      </details>
       
     </section>
 

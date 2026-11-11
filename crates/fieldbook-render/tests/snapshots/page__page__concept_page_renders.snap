@@ -295,8 +295,15 @@ expression: html
     <section class="part" aria-labelledby="company-calibration">
       <h2 id="company-calibration">Company calibration</h2>
       
+      <details class="fold company-fold">
+        <summary><b>Company questions</b> <span class="meta">1 to settle with company data</span></summary>
+      
+      
       <p>Confirm the approving role and escalation path <span class="cite neutral" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</span> <span class="cite neutral" data-pv="xc:XC-01" data-pv-title="XC-01" data-pv-body="Synthetic review interval versus withholding check timing">XC-01</span>.</p>
 
+      
+      
+      </details>
       
     </section>
 
