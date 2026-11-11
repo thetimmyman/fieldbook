@@ -30,7 +30,7 @@ On a build whose navigation has entries with no built target, no page's sidebar 
 
 ## Preconditions
 
-- Cards merged: `design-r22-reader-pages`, `unreleased-status-strip`, `build-charts` (its Scope holds `tests/snapshots/`, which this card's frame change rewrites).
+- Cards merged: `design-r22-reader-pages`, `unreleased-status-strip`, `build-charts-2` (its Scope holds `tests/snapshots/`, which this card's frame change rewrites).
 
 ## Steps
 
