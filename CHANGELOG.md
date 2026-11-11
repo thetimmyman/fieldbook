@@ -7,6 +7,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 - Added: every page of an unreleased build states that the build is not an edition and counts its AI-drafted, unchecked claims.
 - Changed: a page's review date counts from its last change note as well as its as-of date.
 - Changed: `cargo xtask harness` opens pages in several browser processes at once (`--jobs N`, default half the available cores), and the `corpus` job of CI builds the site with a release binary; the findings and the summary counts do not depend on the job count.
+- Added: charts on the area pages: the price build-up waterfall from the calculation case CALC-02 on Indirect rates, and an Unavailable panel for each chart that has no data yet.
 - Fixed: the hosted deploy no longer installs a tool into the runner's shared home folder, so it cannot fail beside a CI run, and the `corpus` job has 75 minutes instead of 45 when two runs overlap.
 - Fixed: the menu button opens the navigation sidebar even where the browser stops animating its slide; before, only the darkened backdrop appeared.
 - Added: a deploy workflow that publishes the built edition, with its originals, as a static site on a Cloudflare Worker behind the owner's login; it fails when a file is over the host's 25 MiB limit or when the hostname answers without a login, and a run can roll the site back. The runbook is docs/runbooks/hosted-edition.md.
