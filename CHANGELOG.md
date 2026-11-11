@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: a page's Sources list each cited claim once, with links back to each place it is cited.
 - Added: each page lists its related pages and the pages that link to it, by title.
 - Changed: navigation entries that a build does not hold no longer fill the sidebar and tabs with "not available" lines.
 - Added: a context pack on each page.

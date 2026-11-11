@@ -1,7 +1,7 @@
 {% if sources_rows.is_empty() %}
 <p class="empty-part">{{ empty_part_text }}</p>
 {% else %}
-<ol class="sources-list">
+<ol class="sources-list" aria-label="Sources cited on this page">
 {% for row in &sources_rows %}
   <li id="cite-{{ row.number }}" class="source-row">
     <span class="source-num">{{ row.number }}.</span>
@@ -39,6 +39,18 @@
       </div>
       {% endif %}
     {% endmatch %}
+    {% if !row.back_refs.is_empty() %}
+      <div class="cite-back">
+        {%- if row.back_refs.len() == 1 -%}
+        {%- for b in &row.back_refs -%}
+        <a href="{{ b.href }}" aria-label="{{ b.label }}"><span aria-hidden="true">↑</span> Back to text</a>
+        {%- endfor -%}
+        {%- else -%}
+        <span>Back to text:</span>
+        {%- for b in &row.back_refs %} <a href="{{ b.href }}" aria-label="{{ b.label }}">{{ b.letter }}</a>{% endfor -%}
+        {%- endif -%}
+      </div>
+    {% endif %}
     </div>
   </li>
 {% endfor %}

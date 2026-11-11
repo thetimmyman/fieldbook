@@ -233,7 +233,7 @@ expression: html
     <section class="part" aria-labelledby="the-rule">
       <h2 id="the-rule">The rule</h2>
       
-      <p>Complete the synthetic review within the 30 days window <a class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 1">1</a>.</p>
+      <p>Complete the synthetic review within the 30 days window <a id="cite-ref-1-1" class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 1">1</a>.</p>
 
       
     </section>
@@ -279,7 +279,7 @@ expression: html
     <section class="part" aria-labelledby="sources">
       <h2 id="sources">Sources</h2>
       
-<ol class="sources-list">
+<ol class="sources-list" aria-label="Sources cited on this page">
 
   <li id="cite-1" class="source-row">
     <span class="source-num">1.</span>
@@ -301,6 +301,9 @@ expression: html
         <span>Verified <time datetime="2026-02-10">2026-02-10</time> (owner)</span>
         
       </div>
+    
+    
+      <div class="cite-back"><a href="#cite-ref-1-1" aria-label="Back to the citation in the text"><span aria-hidden="true">↑</span> Back to text</a></div>
     
     </div>
   </li>

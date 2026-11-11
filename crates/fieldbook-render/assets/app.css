@@ -1429,6 +1429,27 @@ kbd {
   color: var(--color-muted);
 }
 
+.cite-back {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1-5);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  margin-top: var(--space-1);
+}
+
+.cite-back a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--target-min);
+  min-height: var(--target-min);
+  gap: var(--space-1);
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
 .conflict-box {
   margin: var(--space-3) 0;
   border-radius: var(--radius-md);
@@ -2709,7 +2730,8 @@ svg .bar1.tot {
 
 @media print {
   .tabs,
-  .tu-item.chg .btn {
+  .tu-item.chg .btn,
+  .cite-back {
     display: none;
   }
 }
