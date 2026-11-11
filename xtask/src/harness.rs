@@ -1,6 +1,8 @@
-//! `cargo xtask harness [--edition DIR]`: open every page and every renderable original of an
-//! edition in headless Edge with a net-log (`edge-harness`, AD-08; controls NS-03, WB-01 and the
-//! harness half of ED-02).
+//! `cargo xtask harness [--edition DIR] [--jobs N]`: open every page and every renderable original
+//! of an edition in headless Edge with a net-log (`edge-harness`, AD-08; controls NS-03, WB-01 and
+//! the harness half of ED-02). Pages and originals are opened in `--jobs` browser processes at
+//! once (default half the available cores, at most 8), each with its own profile folder and
+//! net-log, and the findings are printed in page order whatever the job count.
 //!
 //! Edge is the target. Where no Edge is installed (the Linux home machine and the self-hosted
 //! runner), the harness falls back to Chromium and names the browser that ran in its first line
@@ -24,6 +26,7 @@ use std::fmt::Write as _;
 use std::fs;
 use std::path::{Component, Path, PathBuf};
 use std::process::{Command, Stdio};
+use std::sync::atomic::{AtomicUsize, Ordering};
 use std::time::{Duration, Instant};
 
 use serde::Deserialize;
@@ -761,12 +764,31 @@ fn load(
         .map_err(|error| format!("cannot create {}: {error}", dom_path.display()))?;
     let stderr_file = fs::File::create(&stderr_path)
         .map_err(|error| format!("cannot create {}: {error}", stderr_path.display()))?;
-    let mut child = Command::new(browser)
+    let profile = work.join("profile");
+    let config_dir = profile.join("config");
+    let cache_dir = profile.join("cache");
+    fs::create_dir_all(&config_dir)
+        .map_err(|error| format!("cannot create {}: {error}", config_dir.display()))?;
+    fs::create_dir_all(&cache_dir)
+        .map_err(|error| format!("cannot create {}: {error}", cache_dir.display()))?;
+    if cfg!(windows) {
+        let local_dir = profile.join("local");
+        fs::create_dir_all(&local_dir)
+            .map_err(|error| format!("cannot create {}: {error}", local_dir.display()))?;
+    }
+    let mut command = Command::new(browser);
+    command
         .args(browser_args(netlog.as_os_str()))
         .arg(file_url(target))
         .stdin(Stdio::null())
         .stdout(dom_file)
         .stderr(stderr_file)
+        .env("XDG_CONFIG_HOME", &config_dir)
+        .env("XDG_CACHE_HOME", &cache_dir);
+    if cfg!(windows) {
+        command.env("LOCALAPPDATA", profile.join("local"));
+    }
+    let mut child = command
         .spawn()
         .map_err(|error| format!("cannot start {}: {error}", browser.display()))?;
     let deadline = Instant::now() + limit;
@@ -782,6 +804,7 @@ fn load(
             Ok(None) if Instant::now() >= deadline => {
                 let _ = child.kill();
                 let _ = child.wait();
+                let _ = fs::remove_dir_all(&profile);
                 return Err(format!(
                     "{name}: not done within its limit of {} seconds ({})",
                     limit.as_secs(),
@@ -877,10 +900,28 @@ const SHORTCUT_PAGES: [(&str, &[&str]); 2] = [
     ("storage-throws", &["storage_throwing_page_still_works"]),
 ];
 
-/// One harness page that runs cases (a search page or a shortcut page), ready to open.
+/// The template of the narrow page (`narrow-width-check`): `@FRAME@` is filled in.
+const NARROW_TEMPLATE: &str = include_str!("../harness/narrow.html");
+/// The cases the narrow page runs.
+const NARROW_CASES_JS: &str = include_str!("../harness/narrow.js");
+/// The probe injected into the framed page to measure and report geometry.
+const NARROW_PROBE_JS: &str = include_str!("../harness/narrow-probe.js");
+/// The file name of the probe script inside the harness copy.
+const NARROW_PROBE_NAME: &str = "narrow-probe.js";
+/// The file name of the framed copy of index.html with the probe injected.
+const NARROW_FRAME_NAME: &str = "narrow-frame.html";
+/// The cases the narrow page must report as passing.
+const NARROW_CASES: [&str; 3] = [
+    "page_does_not_scroll_sideways_at_375",
+    "top_bar_does_not_scroll_sideways_at_375",
+    "top_bar_buttons_keep_the_control_height",
+];
+
+/// One harness page that runs cases (a search page, a shortcut page, or a narrow page), ready to open.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct CasePage {
-    /// Search: `goldens`, `skeleton` or `version`; shortcuts: `shortcuts` or `storage-throws`.
+    /// Search: `goldens`, `skeleton` or `version`; shortcuts: `shortcuts` or `storage-throws`;
+    /// narrow: `narrow`.
     pub(crate) mode: &'static str,
     /// The generated page.
     pub(crate) path: PathBuf,
@@ -1081,6 +1122,57 @@ pub(crate) fn prepare_shortcut_pages(harness: &Path) -> Result<Vec<CasePage>, St
     Ok(pages)
 }
 
+/// The relative path from `<harness>/narrow/` to `<copy>/narrow-frame.html`.
+fn narrow_frame_src(copy: &Path, harness: &Path) -> Result<String, String> {
+    if copy.parent() == Some(harness) {
+        let name = copy
+            .file_name()
+            .and_then(OsStr::to_str)
+            .ok_or_else(|| format!("copy {} has no folder name", copy.display()))?;
+        Ok(format!("../{name}/{NARROW_FRAME_NAME}"))
+    } else {
+        Err(format!(
+            "copy {} must sit directly under the harness folder {}",
+            copy.display(),
+            harness.display()
+        ))
+    }
+}
+
+/// Writes the narrow-width harness page under `<harness>/narrow/narrow.html`, which frames
+/// `<copy>/narrow-frame.html` at 375px width (`narrow-width-check`).
+pub(crate) fn prepare_narrow_page(copy: &Path, harness: &Path) -> Result<CasePage, String> {
+    let frame_src = attribute_text(&narrow_frame_src(copy, harness)?);
+    let index_path = copy.join("index.html");
+    let html = fs::read_to_string(&index_path)
+        .map_err(|error| format!("cannot read {}: {error}", index_path.display()))?;
+    let frame_html = inject_script(&html, NARROW_PROBE_NAME)?;
+    write_file(&copy.join(NARROW_PROBE_NAME), NARROW_PROBE_JS.as_bytes())?;
+    write_file(&copy.join(NARROW_FRAME_NAME), frame_html.as_bytes())?;
+
+    let dir = harness.join("narrow");
+    if dir.exists() {
+        fs::remove_dir_all(&dir)
+            .map_err(|error| format!("cannot clear {}: {error}", dir.display()))?;
+    }
+    fs::create_dir_all(&dir)
+        .map_err(|error| format!("cannot create {}: {error}", dir.display()))?;
+    write_file(&dir.join("narrow.js"), NARROW_CASES_JS.as_bytes())?;
+    write_file(&dir.join("hold.js"), SEARCH_HOLD_JS.as_bytes())?;
+    write_file(&dir.join(SELFTEST_NAME), SELFTEST_JS.as_bytes())?;
+
+    let html = NARROW_TEMPLATE.replace("@FRAME@", &frame_src);
+    let path = dir.join("narrow.html");
+    let html = inject_script(&html, &selftest_src(&path, &dir)?)?;
+    write_file(&path, html.as_bytes())?;
+
+    Ok(CasePage {
+        mode: "narrow",
+        path,
+        required: NARROW_CASES.iter().map(|id| (*id).to_owned()).collect(),
+    })
+}
+
 /// One case a case page reported.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct SearchCase {
@@ -1105,8 +1197,9 @@ fn tag_attribute<'a>(tag: &'a str, name: &str) -> Option<&'a str> {
 }
 
 /// Reads a case page's dumped DOM: every `<li data-case data-ok>` and `#harness-summary`.
-/// Fails, naming `page`, its `group` (`search` or `shortcut`) and each case, when the page did
-/// not finish, a case failed, the failed count disagrees, or a `required` case did not run.
+/// Fails, naming `page`, its `group` (`search`, `shortcut` or `narrow`) and each case, when the
+/// page did not finish, a case failed, the failed count disagrees, or a `required` case did
+/// not run.
 pub(crate) fn judge_case_page(
     page: &str,
     group: &str,
@@ -1174,14 +1267,22 @@ pub(crate) fn judge_case_page(
     }
 }
 
-/// Opens each case page of `group` (`search`, under `search/`, or `shortcut`, under
-/// `shortcuts/`) and prints each case; returns the failures.
+/// The note a case page put in square brackets after a case (`narrow` prints it on every run).
+fn case_note(text: &str) -> Option<&str> {
+    let trimmed = text.trim_end();
+    let without_trailing = trimmed.strip_suffix(']')?;
+    let start = without_trailing.find(" [")? + 2;
+    Some(&without_trailing[start..])
+}
+
+/// Opens each case page of `group` (`search`, under `search/`; `shortcut`, under
+/// `shortcuts/`; or `narrow`, under `narrow/`) and prints each case; returns the failures.
 fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) -> Vec<String> {
     let mut failures = Vec::new();
-    let folder = if group == "search" {
-        "search"
-    } else {
-        "shortcuts"
+    let folder = match group {
+        "search" => "search",
+        "narrow" => "narrow",
+        _ => "shortcuts",
     };
     for page in pages {
         let name = format!("{folder}/{}.html", page.mode);
@@ -1200,6 +1301,9 @@ fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) 
             Ok(run) => {
                 for case in &run.cases {
                     println!("harness: {group}: {}: ok", case.id);
+                    if let Some(note) = case_note(&case.text) {
+                        println!("harness: {group}: {}: note: {note}", case.id);
+                    }
                 }
                 println!("harness: {group}: {name}: {}", run.summary);
             }
@@ -1214,11 +1318,284 @@ fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) 
     failures
 }
 
-/// `cargo xtask harness [--edition DIR]`.
+/// Half the available cores, at least 1 and at most 8, so a loaded shared runner is not flooded.
+pub(crate) fn jobs_for(cores: usize) -> usize {
+    (cores / 2).clamp(1, 8)
+}
+
+/// The default number of worker threads: half the available cores, at least 1 and at most 8, so a
+/// loaded shared runner is not flooded. On Windows it is 1: Edge there takes its profile folder
+/// from the known-folder API, not from the environment variables [`load`] sets, so two Edge
+/// processes at once would share one profile. `--jobs N` still asks for more.
+pub(crate) fn default_jobs() -> usize {
+    if cfg!(windows) {
+        1
+    } else {
+        jobs_for(std::thread::available_parallelism().map_or(1, usize::from))
+    }
+}
+
+/// The usage text for the harness command.
+pub(crate) const HARNESS_USAGE: &str = "usage: cargo xtask harness [--edition DIR] [--jobs N]";
+
+/// Parsed arguments for the harness command.
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
+pub(crate) struct HarnessArgs {
+    /// The edition directory, if specified.
+    pub(crate) edition: Option<String>,
+    /// The number of parallel browser jobs, if specified.
+    pub(crate) jobs: Option<usize>,
+}
+
+/// Parses command-line arguments for `cargo xtask harness`.
+pub(crate) fn parse_args(args: &[&str]) -> Result<HarnessArgs, String> {
+    let mut edition = None;
+    let mut jobs = None;
+    let mut i = 0;
+    while i < args.len() {
+        match args[i] {
+            "--edition" => {
+                if edition.is_some() {
+                    return Err(format!("repeated `--edition`; {HARNESS_USAGE}"));
+                }
+                i += 1;
+                if i >= args.len() {
+                    return Err(format!("missing value for `--edition`; {HARNESS_USAGE}"));
+                }
+                edition = Some(args[i].to_owned());
+            }
+            "--jobs" => {
+                if jobs.is_some() {
+                    return Err(format!("repeated `--jobs`; {HARNESS_USAGE}"));
+                }
+                i += 1;
+                if i >= args.len() {
+                    return Err(format!("missing value for `--jobs`; {HARNESS_USAGE}"));
+                }
+                let count: usize = args[i].parse().map_err(|_| {
+                    format!("invalid `--jobs` value `{}`; {HARNESS_USAGE}", args[i])
+                })?;
+                if count == 0 {
+                    return Err(format!("`--jobs` must be at least 1; {HARNESS_USAGE}"));
+                }
+                jobs = Some(count);
+            }
+            unknown => {
+                return Err(format!("unknown argument `{unknown}`; {HARNESS_USAGE}"));
+            }
+        }
+        i += 1;
+    }
+    Ok(HarnessArgs { edition, jobs })
+}
+
+/// Runs `run` on every item of `items` in up to `jobs` threads and returns the results in the order
+/// of `items`, whatever order they finish in. Worker `n` gets its own folder `work/job-n` (created
+/// first) so no two browsers share a profile, net-log or DOM file. `done` is called with the
+/// number of items finished so far, after each one.
+pub(crate) fn map_ordered<T, R>(
+    items: &[T],
+    jobs: usize,
+    work: &Path,
+    run: &(dyn Fn(&T, &Path) -> R + Sync),
+    done: &(dyn Fn(usize) + Sync),
+) -> Result<Vec<R>, String>
+where
+    T: Sync,
+    R: Send,
+{
+    let worker_count = jobs.max(1).min(items.len().max(1));
+    let mut worker_dirs = Vec::with_capacity(worker_count);
+    for n in 0..worker_count {
+        let job_dir = work.join(format!("job-{n}"));
+        fs::create_dir_all(&job_dir)
+            .map_err(|error| format!("cannot create {}: {error}", job_dir.display()))?;
+        worker_dirs.push(job_dir);
+    }
+
+    let next_index = AtomicUsize::new(0);
+    let finished_count = AtomicUsize::new(0);
+    let mut worker_results: Vec<Vec<(usize, R)>> = Vec::with_capacity(worker_count);
+
+    std::thread::scope(|s| {
+        let mut handles = Vec::with_capacity(worker_count);
+        for job_dir in &worker_dirs {
+            let handle = s.spawn(|| {
+                let mut results = Vec::new();
+                loop {
+                    let idx = next_index.fetch_add(1, Ordering::Relaxed);
+                    if idx >= items.len() {
+                        break;
+                    }
+                    let res = run(&items[idx], job_dir);
+                    let so_far = finished_count.fetch_add(1, Ordering::Relaxed) + 1;
+                    done(so_far);
+                    results.push((idx, res));
+                }
+                results
+            });
+            handles.push(handle);
+        }
+        for handle in handles {
+            worker_results.push(
+                handle
+                    .join()
+                    .unwrap_or_else(|p| std::panic::resume_unwind(p)),
+            );
+        }
+    });
+
+    let mut indexed: Vec<Option<R>> = (0..items.len()).map(|_| None).collect();
+    for worker_batch in worker_results {
+        for (idx, res) in worker_batch {
+            indexed[idx] = Some(res);
+        }
+    }
+    let ordered: Vec<R> = indexed.into_iter().flatten().collect();
+    Ok(ordered)
+}
+
+/// One page or renderable original the edition run opens.
+#[derive(Debug, Clone)]
+pub(crate) struct EditionTarget {
+    /// The path to the file on disk.
+    pub(crate) path: PathBuf,
+    /// The display name for reporting and failure messages.
+    pub(crate) name: String,
+    /// Whether this target is a plain-text original rather than an HTML page.
+    pub(crate) text: bool,
+}
+
+/// What opening one target found. A text original never clears `selftest_pass`.
+#[derive(Debug)]
+struct TargetOutcome {
+    /// Any failure messages found during load, net-log inspection, or judging.
+    failures: Vec<String>,
+    /// Number of file: URL requests made.
+    file_requests: usize,
+    /// Number of non-file requests made.
+    other_requests: usize,
+    /// Whether the self-test passed (or remained true for text originals).
+    selftest_pass: bool,
+}
+
+/// The totals over every target, with the findings in target order.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) struct EditionTally {
+    /// All failures across all targets in target order.
+    pub(crate) failures: Vec<String>,
+    /// Total file: URL requests across all targets.
+    pub(crate) file_requests: usize,
+    /// Total non-file requests across all targets.
+    pub(crate) other_requests: usize,
+    /// Whether all self-tests passed.
+    pub(crate) selftest_pass: bool,
+}
+
+/// Opens one target in the browser and returns what was found.
+fn open_target(browser: &Path, target: &EditionTarget, work: &Path) -> TargetOutcome {
+    if !target.text {
+        match load(browser, &target.path, work, &target.name, PAGE_LIMIT) {
+            Ok(loaded) => {
+                // The page's own navigation is a request to a file: URL.
+                let mut file_requests = 1 + loaded.net.file;
+                let other_requests = loaded.net.non_file.len();
+                let mut failures = netlog_failures(&target.name, &loaded.net);
+                let mut selftest_pass = true;
+                match judge_html_page(&target.name, &loaded.dom) {
+                    Ok(selftest) => {
+                        file_requests += selftest
+                            .resources
+                            .iter()
+                            .filter(|r| r.name.starts_with("file:"))
+                            .count();
+                    }
+                    Err(found) => {
+                        selftest_pass = false;
+                        failures.extend(found);
+                    }
+                }
+                TargetOutcome {
+                    failures,
+                    file_requests,
+                    other_requests,
+                    selftest_pass,
+                }
+            }
+            Err(error) => TargetOutcome {
+                failures: vec![error],
+                file_requests: 0,
+                other_requests: 0,
+                selftest_pass: false,
+            },
+        }
+    } else {
+        match load(browser, &target.path, work, &target.name, PAGE_LIMIT) {
+            Ok(loaded) => {
+                let file_requests = 1 + loaded.net.file;
+                let other_requests = loaded.net.non_file.len();
+                let mut failures = netlog_failures(&target.name, &loaded.net);
+                if let Err(error) = judge_text_original(&target.name, &loaded.dom) {
+                    failures.push(error);
+                }
+                TargetOutcome {
+                    failures,
+                    file_requests,
+                    other_requests,
+                    selftest_pass: true,
+                }
+            }
+            Err(error) => TargetOutcome {
+                failures: vec![error],
+                file_requests: 0,
+                other_requests: 0,
+                selftest_pass: true,
+            },
+        }
+    }
+}
+
+/// Opens all targets across `jobs` worker threads and returns the aggregated tally in target order.
+pub(crate) fn open_targets(
+    browser: &Path,
+    work: &Path,
+    jobs: usize,
+    targets: &[EditionTarget],
+    progress_done: &(dyn Fn(usize) + Sync),
+) -> Result<EditionTally, String> {
+    let outcomes = map_ordered(
+        targets,
+        jobs,
+        work,
+        &|t, w| open_target(browser, t, w),
+        progress_done,
+    )?;
+    let mut failures = Vec::new();
+    let mut file_requests = 0_usize;
+    let mut other_requests = 0_usize;
+    let mut selftest_pass = true;
+    for outcome in outcomes {
+        failures.extend(outcome.failures);
+        file_requests += outcome.file_requests;
+        other_requests += outcome.other_requests;
+        selftest_pass &= outcome.selftest_pass;
+    }
+    Ok(EditionTally {
+        failures,
+        file_requests,
+        other_requests,
+        selftest_pass,
+    })
+}
+
+/// `cargo xtask harness [--edition DIR] [--jobs N]`. Pages and originals are opened in `--jobs`
+/// browser processes at once (default half the available cores, at most 8), each with its own
+/// profile folder and net-log, and the findings are printed in page order whatever the job count.
 pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
-    let edition = match args {
-        [] => root.join("out/edition"),
-        ["--edition", dir] => {
+    let args = parse_args(args)?;
+    let edition = match args.edition {
+        None => root.join("out/edition"),
+        Some(dir) => {
             let dir = PathBuf::from(dir);
             if dir.is_absolute() {
                 dir
@@ -1226,8 +1603,8 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
                 root.join(dir)
             }
         }
-        _ => return Err("usage: cargo xtask harness [--edition DIR]".to_owned()),
     };
+    let jobs = args.jobs.unwrap_or_else(default_jobs);
     let harness = root.join("out/harness");
     // First, before anything can fail: an earlier pass must never outlive this run.
     let summary_path = harness.join("network-silence-summary.txt");
@@ -1248,6 +1625,7 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
         &String::from_utf8_lossy(&version_output.stdout),
     )?;
     println!("{}", first_line(&id));
+    eprintln!("harness: {jobs} browser processes at once");
 
     let edition_toml_path = edition.join(fieldbook_render::edition::OUTPUT_PATH);
     let edition_toml = fs::read_to_string(&edition_toml_path).map_err(|error| {
@@ -1329,6 +1707,14 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     ));
 
     let pages = prepare_copy(&edition, &copy)?;
+    // The narrow page: the built index page framed at 375px (`narrow-width-check`).
+    let narrow_page = prepare_narrow_page(&copy, &harness)?;
+    failures.extend(run_case_pages(
+        &browser.path,
+        &work,
+        "narrow",
+        std::slice::from_ref(&narrow_page),
+    ));
     let texts = renderable_originals(&originals, originals_count(&edition_toml)?)?;
     eprintln!(
         "harness: {} pages and {} renderable originals in {}",
@@ -1337,53 +1723,30 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
         originals.display()
     );
     let total = pages.len() + texts.len();
-    let mut file_requests = 0_usize;
-    let mut other_requests = 0_usize;
-    let mut selftest_pass = true;
-    for (index, page) in pages.iter().enumerate() {
-        let name = display_name(page, &copy);
-        match load(&browser.path, page, &work, &name, PAGE_LIMIT) {
-            Ok(loaded) => {
-                // The page's own navigation is a request to a file: URL.
-                file_requests += 1 + loaded.net.file;
-                other_requests += loaded.net.non_file.len();
-                failures.extend(netlog_failures(&name, &loaded.net));
-                match judge_html_page(&name, &loaded.dom) {
-                    Ok(selftest) => {
-                        file_requests += selftest
-                            .resources
-                            .iter()
-                            .filter(|r| r.name.starts_with("file:"))
-                            .count();
-                    }
-                    Err(found) => {
-                        selftest_pass = false;
-                        failures.extend(found);
-                    }
-                }
-            }
-            Err(error) => {
-                selftest_pass = false;
-                failures.push(error);
-            }
-        }
-        progress(index + 1, total);
+    let mut targets = Vec::with_capacity(total);
+    for page in &pages {
+        targets.push(EditionTarget {
+            path: page.clone(),
+            name: display_name(page, &copy),
+            text: false,
+        });
     }
-    for (index, text) in texts.iter().enumerate() {
-        let name = format!("originals/{}", display_name(text, &originals));
-        match load(&browser.path, text, &work, &name, PAGE_LIMIT) {
-            Ok(loaded) => {
-                file_requests += 1 + loaded.net.file;
-                other_requests += loaded.net.non_file.len();
-                failures.extend(netlog_failures(&name, &loaded.net));
-                if let Err(error) = judge_text_original(&name, &loaded.dom) {
-                    failures.push(error);
-                }
-            }
-            Err(error) => failures.push(error),
-        }
-        progress(pages.len() + index + 1, total);
+    for text in &texts {
+        targets.push(EditionTarget {
+            path: text.clone(),
+            name: format!("originals/{}", display_name(text, &originals)),
+            text: true,
+        });
     }
+    let opened = Instant::now();
+    let tally = open_targets(&browser.path, &work, jobs, &targets, &|done| {
+        progress(done, total);
+    })?;
+    eprintln!(
+        "harness: opened {total} targets in {} seconds with {jobs} browser processes at once",
+        opened.elapsed().as_secs()
+    );
+    failures.extend(tally.failures);
 
     let Some(negative) = negative else {
         return report_failures(&failures);
@@ -1394,9 +1757,9 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     let counts = Counts {
         pages: pages.len(),
         text_originals: texts.len(),
-        file_requests,
-        other_requests,
-        selftest_pass,
+        file_requests: tally.file_requests,
+        other_requests: tally.other_requests,
+        selftest_pass: tally.selftest_pass,
         negative,
     };
     let summary = summary_text(&edition_toml, &id, &options_text(), &counts)?;
@@ -2274,6 +2637,187 @@ mod tests {
         assert!(!SHORTCUT_CASES_JS.contains("window.addEventListener('load'"));
     }
 
+    #[test]
+    fn narrow_page_frames_the_copy_at_375() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let copy = harness.join("edition");
+        fs::create_dir_all(&copy).unwrap();
+        fs::write(
+            copy.join("index.html"),
+            "<!doctype html><html><head><meta charset=\"utf-8\"><script src=\"selftest.js\"></script></head><body></body></html>",
+        )
+        .unwrap();
+
+        let page = prepare_narrow_page(&harness.join("edition"), &harness).unwrap();
+        assert_eq!(page.mode, "narrow");
+        assert_eq!(page.path, harness.join("narrow/narrow.html"));
+        assert_eq!(page.required, ids(&NARROW_CASES));
+
+        let html = fs::read_to_string(&page.path).unwrap();
+        assert!(
+            html.contains(
+                "<iframe id=\"narrow-frame\" title=\"The page at 375px\" scrolling=\"no\" width=\"375\" height=\"800\" src=\"../edition/narrow-frame.html\">"
+            ),
+            "{html}"
+        );
+        assert!(html.contains("frame-src 'self'"), "{html}");
+        let selftest_tag = "<script src=\"selftest.js\"></script>";
+        let narrow_tag = "<script src=\"narrow.js\"></script>";
+        let selftest_pos = html
+            .find(selftest_tag)
+            .unwrap_or_else(|| panic!("{selftest_tag} missing"));
+        let narrow_pos = html
+            .find(narrow_tag)
+            .unwrap_or_else(|| panic!("{narrow_tag} missing"));
+        assert!(selftest_pos < narrow_pos, "{html}");
+
+        let narrow_dir = harness.join("narrow");
+        assert!(narrow_dir.join("narrow.js").is_file());
+        assert!(narrow_dir.join("hold.js").is_file());
+        assert!(narrow_dir.join("selftest.js").is_file());
+        assert_eq!(
+            fs::read_to_string(narrow_dir.join("narrow.js")).unwrap(),
+            NARROW_CASES_JS
+        );
+
+        for id in NARROW_CASES {
+            assert!(
+                NARROW_CASES_JS.contains(&format!("'{id}'")),
+                "{id} not quoted in NARROW_CASES_JS"
+            );
+        }
+    }
+
+    #[test]
+    fn a_case_note_is_printed_not_only_dumped() {
+        assert_eq!(
+            case_note("id (x y): ok [known design failure: foo]"),
+            Some("known design failure: foo")
+        );
+        assert_eq!(case_note("id (x y): ok"), None);
+        assert_eq!(case_note("id (x y): bad thing"), None);
+    }
+
+    #[test]
+    fn narrow_checks_the_layout_width_not_only_the_frame() {
+        assert!(NARROW_PROBE_JS.contains("clientWidth: document.documentElement.clientWidth"));
+        assert!(NARROW_CASES_JS.contains("measures.clientWidth !== 375"));
+    }
+
+    #[test]
+    fn narrow_probe_exempts_only_build_date_link_chip() {
+        assert!(NARROW_PROBE_JS.contains("classList.contains('build-date-link')"));
+        assert!(!NARROW_PROBE_JS.contains("chip: !!el.querySelector"));
+    }
+
+    #[test]
+    fn narrow_probe_is_injected_once() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let copy = harness.join("edition");
+        fs::create_dir_all(&copy).unwrap();
+        let original_html = "<!doctype html><html><head><meta charset=\"utf-8\"><script src=\"selftest.js\"></script></head><body></body></html>";
+        fs::write(copy.join("index.html"), original_html).unwrap();
+
+        prepare_narrow_page(&copy, &harness).unwrap();
+
+        let frame_html = fs::read_to_string(copy.join("narrow-frame.html")).unwrap();
+        assert_eq!(
+            frame_html
+                .matches("<script src=\"narrow-probe.js\"></script>")
+                .count(),
+            1,
+            "{frame_html}"
+        );
+        assert_eq!(
+            frame_html
+                .matches("<script src=\"selftest.js\"></script>")
+                .count(),
+            1,
+            "{frame_html}"
+        );
+
+        let probe_tag = "<script src=\"narrow-probe.js\"></script>";
+        let selftest_tag = "<script src=\"selftest.js\"></script>";
+        let head_pos = frame_html
+            .find("<head>")
+            .unwrap_or_else(|| panic!("<head> missing"));
+        let probe_pos = frame_html
+            .find(probe_tag)
+            .unwrap_or_else(|| panic!("{probe_tag} missing"));
+        let selftest_pos = frame_html
+            .find(selftest_tag)
+            .unwrap_or_else(|| panic!("{selftest_tag} missing"));
+        assert!(head_pos < probe_pos, "{frame_html}");
+        assert!(probe_pos < selftest_pos, "{frame_html}");
+
+        assert_eq!(
+            fs::read_to_string(copy.join("narrow-probe.js")).unwrap(),
+            NARROW_PROBE_JS
+        );
+
+        let index_html = fs::read_to_string(copy.join("index.html")).unwrap();
+        assert_eq!(index_html, original_html);
+        assert!(!index_html.contains("narrow-probe.js"));
+    }
+
+    #[test]
+    fn narrow_page_needs_the_copy_under_the_harness() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let copy = dir.path().join("outside/edition");
+        fs::create_dir_all(&copy).unwrap();
+        fs::write(
+            copy.join("index.html"),
+            "<!doctype html><html><head><meta charset=\"utf-8\"><script src=\"selftest.js\"></script></head><body></body></html>",
+        )
+        .unwrap();
+
+        let result = prepare_narrow_page(&copy, &harness);
+        assert!(result.is_err(), "{result:?}");
+    }
+
+    #[test]
+    fn a_failed_narrow_case_is_named_and_a_missing_one_fails() {
+        let passing = [
+            ("page_does_not_scroll_sideways_at_375", true),
+            ("top_bar_does_not_scroll_sideways_at_375", true),
+            ("top_bar_buttons_keep_the_control_height", true),
+        ];
+        let required = ids(&NARROW_CASES);
+        let dom = search_dom(&passing, true, 0);
+        let run = judge_case_page("narrow/narrow.html", "narrow", &dom, &required).unwrap();
+        assert_eq!(run.summary, "3 cases, 0 failed");
+
+        let failing = [
+            ("page_does_not_scroll_sideways_at_375", false),
+            ("top_bar_does_not_scroll_sideways_at_375", true),
+            ("top_bar_buttons_keep_the_control_height", true),
+        ];
+        let dom = search_dom(&failing, true, 1);
+        let failures =
+            judge_case_page("narrow/narrow.html", "narrow", &dom, &required).unwrap_err();
+        assert!(
+            failures[0].starts_with(
+                "narrow/narrow.html: narrow case page_does_not_scroll_sideways_at_375 failed: "
+            ),
+            "{failures:?}"
+        );
+
+        let empty = search_dom(&[], false, 0);
+        let failures =
+            judge_case_page("narrow/narrow.html", "narrow", &empty, &required).unwrap_err();
+        for id in NARROW_CASES {
+            assert!(
+                failures
+                    .iter()
+                    .any(|f| f == &format!("narrow/narrow.html: narrow case {id} did not run")),
+                "{failures:?}"
+            );
+        }
+    }
+
     fn copy_dir(from: &Path, to: &Path) {
         fs::create_dir_all(to).unwrap();
         for entry in fs::read_dir(from).unwrap() {
@@ -2368,5 +2912,331 @@ mod tests {
             ),
         ];
         assert_eq!(golden_case_ids(&files).unwrap(), ids(&["q", "r"]));
+    }
+
+    #[test]
+    fn findings_are_in_page_order_for_any_job_count() {
+        let items: Vec<usize> = (0..40).collect();
+        let expected: Vec<String> = (0..40_usize)
+            .filter(|i| i.is_multiple_of(3))
+            .map(|i| format!("page-{i}: failure"))
+            .collect();
+        let dir = tempfile::tempdir().unwrap();
+        let run = |i: &usize, _work: &Path| -> Vec<String> {
+            std::thread::sleep(Duration::from_millis(((40 - *i) % 7) as u64));
+            if (*i).is_multiple_of(3) {
+                vec![format!("page-{i}: failure")]
+            } else {
+                Vec::new()
+            }
+        };
+
+        let mut jobs_1_flattened = None;
+        for jobs in [1, 2, 3, 4, 8, 64] {
+            let results = map_ordered(&items, jobs, dir.path(), &run, &|_| {}).unwrap();
+            assert_eq!(results.len(), 40);
+            let flattened: Vec<String> = results.into_iter().flatten().collect();
+            assert_eq!(flattened, expected);
+            if jobs == 1 {
+                jobs_1_flattened = Some(flattened);
+            } else {
+                assert_eq!(Some(&flattened), jobs_1_flattened.as_ref());
+            }
+        }
+    }
+
+    #[test]
+    fn each_worker_gets_its_own_folder() {
+        let items: Vec<usize> = (0..16).collect();
+        let dir = tempfile::tempdir().unwrap();
+        let run = |_item: &usize, path: &Path| -> PathBuf { path.to_path_buf() };
+        let paths = map_ordered(&items, 4, dir.path(), &run, &|_| {}).unwrap();
+        let mut distinct = std::collections::BTreeSet::new();
+        for path in &paths {
+            assert!(path.exists(), "path does not exist: {}", path.display());
+            assert_eq!(path.parent(), Some(dir.path()));
+            assert!(
+                path.file_name()
+                    .and_then(|n| n.to_str())
+                    .is_some_and(|n| n.starts_with("job-")),
+                "file name does not start with job-: {}",
+                path.display()
+            );
+            distinct.insert(path.clone());
+        }
+        assert!(!distinct.is_empty() && distinct.len() <= 4);
+    }
+
+    #[test]
+    fn done_counts_every_item() {
+        let items: Vec<usize> = (0..10).collect();
+        let dir = tempfile::tempdir().unwrap();
+        let max_seen = std::sync::atomic::AtomicUsize::new(0);
+        let done = |count: usize| {
+            max_seen.fetch_max(count, std::sync::atomic::Ordering::Relaxed);
+        };
+        map_ordered(&items, 3, dir.path(), &|_item, _path| (), &done).unwrap();
+        assert_eq!(max_seen.load(std::sync::atomic::Ordering::Relaxed), 10);
+    }
+
+    #[test]
+    fn jobs_default_is_half_the_cores_between_one_and_eight() {
+        assert_eq!(jobs_for(1), 1);
+        assert_eq!(jobs_for(2), 1);
+        assert_eq!(jobs_for(4), 2);
+        assert_eq!(jobs_for(16), 8);
+        assert_eq!(jobs_for(64), 8);
+        assert_eq!(jobs_for(0), 1);
+        assert!((1..=8).contains(&default_jobs()));
+    }
+
+    #[test]
+    fn harness_args_parse_in_any_order_and_refuse_bad_input() {
+        let parsed1 = parse_args(&["--jobs", "4", "--edition", "x"]).unwrap();
+        assert_eq!(parsed1.edition.as_deref(), Some("x"));
+        assert_eq!(parsed1.jobs, Some(4));
+
+        let parsed2 = parse_args(&["--edition", "x", "--jobs", "4"]).unwrap();
+        assert_eq!(parsed2.edition.as_deref(), Some("x"));
+        assert_eq!(parsed2.jobs, Some(4));
+
+        let empty = parse_args(&[]).unwrap();
+        assert_eq!(empty.edition, None);
+        assert_eq!(empty.jobs, None);
+
+        for bad in [
+            &["--jobs"][..],
+            &["--jobs", "0"][..],
+            &["--jobs", "two"][..],
+            &["--jobs", "1", "--jobs", "2"][..],
+            &["--edition", "a", "--edition", "b"][..],
+            &["--frob"][..],
+        ] {
+            let err = parse_args(bad).unwrap_err();
+            assert!(
+                err.contains("usage: cargo xtask harness"),
+                "error `{err}` did not contain usage"
+            );
+        }
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn each_browser_gets_its_own_profile() {
+        let dir = tempfile::tempdir().unwrap();
+        let fixture = dir.path().join("fixture.json");
+        fs::write(&fixture, NETLOG_FILE_PAGE_HTTPS).unwrap();
+        let script = format!(
+            "#!/bin/sh\nfor a in \"$@\"; do case \"$a\" in --log-net-log=*) cp '{}' \"${{a#--log-net-log=}}\";; esac; done\nprintf '%s\\n' \"$XDG_CONFIG_HOME\"\n",
+            fixture.display()
+        );
+        let browser = fake_browser(dir.path(), &script);
+        let target = dir.path().join("page.html");
+        fs::write(&target, "<html></html>").unwrap();
+        let work1 = dir.path().join("work1");
+        let work2 = dir.path().join("work2");
+        fs::create_dir_all(&work1).unwrap();
+        fs::create_dir_all(&work2).unwrap();
+        let loaded1 = load(&browser, &target, &work1, "page1.html", PAGE_LIMIT).unwrap();
+        let loaded2 = load(&browser, &target, &work2, "page2.html", PAGE_LIMIT).unwrap();
+        let dom1 = loaded1.dom.trim();
+        let dom2 = loaded2.dom.trim();
+        assert_ne!(dom1, dom2);
+        assert!(dom1.starts_with(work1.to_str().unwrap()));
+        assert!(dom1.ends_with("profile/config"));
+        assert!(dom2.starts_with(work2.to_str().unwrap()));
+        assert!(dom2.ends_with("profile/config"));
+        browser_args_are_exactly_the_attested_options();
+    }
+
+    #[cfg(unix)]
+    /// Writes fixtures to files in `dir` and returns a fake browser that inspects the URL.
+    fn target_browser(dir: &Path) -> PathBuf {
+        let bad_netlog = dir.join("bad-netlog.json");
+        let ok_netlog = dir.join("ok-netlog.json");
+        let text_dom = dir.join("dom-text-viewer.html");
+        let page_dom = dir.join("dom-page.html");
+        fs::write(&bad_netlog, NETLOG_FILE_PAGE_HTTPS).unwrap();
+        fs::write(&ok_netlog, NETLOG_BROWSER_OWN).unwrap();
+        fs::write(&text_dom, DOM_TEXT_VIEWER).unwrap();
+        fs::write(
+            &page_dom,
+            "<html><body><pre id=\"fb-selftest\">{\"violations\":[],\"resources\":[]}</pre></body></html>",
+        )
+        .unwrap();
+        let script = format!(
+            "#!/bin/sh\n\
+            log=\"\"\n\
+            url=\"\"\n\
+            for a in \"$@\"; do\n\
+                case \"$a\" in\n\
+                    --log-net-log=*) log=\"${{a#--log-net-log=}}\" ;;\n\
+                esac\n\
+                url=\"$a\"\n\
+            done\n\
+            case \"$url\" in\n\
+                *bad*) cp '{}' \"$log\" ;;\n\
+                *) cp '{}' \"$log\" ;;\n\
+            esac\n\
+            case \"$url\" in\n\
+                *.txt) cat '{}' ;;\n\
+                *) cat '{}' ;;\n\
+            esac\n",
+            bad_netlog.display(),
+            ok_netlog.display(),
+            text_dom.display(),
+            page_dom.display(),
+        );
+        fake_browser(dir, &script)
+    }
+
+    #[cfg(unix)]
+    /// Builds 36 test targets: 18 HTML pages and 18 text originals, optionally with `bad` names.
+    fn test_targets(dir: &Path, include_bad: bool) -> Vec<EditionTarget> {
+        let mut targets = Vec::with_capacity(36);
+        for i in 0..18 {
+            let name = if include_bad && (i == 5 || i == 12) {
+                format!("p/page-bad-{i}.html")
+            } else {
+                format!("p/page-{i}.html")
+            };
+            targets.push(EditionTarget {
+                path: dir.join(&name),
+                name,
+                text: false,
+            });
+        }
+        for i in 0..18 {
+            let name = if include_bad && i == 3 {
+                format!("originals/orig-bad-{i}.txt")
+            } else {
+                format!("originals/orig-{i}.txt")
+            };
+            targets.push(EditionTarget {
+                path: dir.join(&name),
+                name,
+                text: true,
+            });
+        }
+        targets
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn one_failing_page_fails_the_run_with_many_jobs() {
+        let dir = tempfile::tempdir().unwrap();
+        let browser = target_browser(dir.path());
+        let targets = test_targets(dir.path(), true);
+
+        let mut tallies = Vec::new();
+        for jobs in [1, 4, 8] {
+            let work = dir.path().join(format!("work-{jobs}"));
+            let tally = open_targets(&browser, &work, jobs, &targets, &|_| {}).unwrap();
+
+            assert_eq!(tally.failures.len(), 3);
+            assert!(tally.failures[0].contains("p/page-bad-5.html"));
+            assert!(
+                tally.failures[0]
+                    .contains("non-file request to https://example.invalid/font.woff2")
+            );
+            assert!(tally.failures[1].contains("p/page-bad-12.html"));
+            assert!(
+                tally.failures[1]
+                    .contains("non-file request to https://example.invalid/font.woff2")
+            );
+            assert!(tally.failures[2].contains("originals/orig-bad-3.txt"));
+            assert!(
+                tally.failures[2]
+                    .contains("non-file request to https://example.invalid/font.woff2")
+            );
+
+            assert_eq!(tally.other_requests, 3);
+            assert!(tally.selftest_pass);
+
+            tallies.push(tally);
+        }
+
+        let tally1 = &tallies[0];
+        let tally4 = &tallies[1];
+        let tally8 = &tallies[2];
+
+        assert_eq!(tally4.failures, tally1.failures);
+        assert_eq!(tally4.file_requests, tally1.file_requests);
+        assert_eq!(tally4.other_requests, tally1.other_requests);
+        assert_eq!(tally4.selftest_pass, tally1.selftest_pass);
+        assert_eq!(tally4, tally1);
+
+        assert_eq!(tally8.failures, tally1.failures);
+        assert_eq!(tally8.file_requests, tally1.file_requests);
+        assert_eq!(tally8.other_requests, tally1.other_requests);
+        assert_eq!(tally8.selftest_pass, tally1.selftest_pass);
+        assert_eq!(tally8, tally1);
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn the_tally_counts_every_target_the_same_for_any_job_count() {
+        assert_eq!(read_netlog(NETLOG_BROWSER_OWN).unwrap().file, 0);
+
+        let dir = tempfile::tempdir().unwrap();
+        let browser = target_browser(dir.path());
+        let targets = test_targets(dir.path(), false);
+
+        let mut tallies = Vec::new();
+        for jobs in [1, 4, 8] {
+            let work = dir.path().join(format!("work-{jobs}"));
+            let tally = open_targets(&browser, &work, jobs, &targets, &|_| {}).unwrap();
+
+            assert!(tally.failures.is_empty());
+            assert_eq!(tally.other_requests, 0);
+            assert_eq!(tally.file_requests, 36);
+            assert!(tally.selftest_pass);
+
+            tallies.push(tally);
+        }
+
+        let tally1 = &tallies[0];
+        let tally4 = &tallies[1];
+        let tally8 = &tallies[2];
+
+        assert_eq!(tally4, tally1);
+        assert_eq!(tally8, tally1);
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn a_page_that_fails_to_load_clears_selftest_pass_but_a_failed_text_original_does_not() {
+        let dir = tempfile::tempdir().unwrap();
+        let browser = fake_browser(dir.path(), "#!/bin/sh\nexit 3\n");
+        let html_target = [EditionTarget {
+            path: dir.path().join("p/page.html"),
+            name: "p/page.html".to_owned(),
+            text: false,
+        }];
+        let text_target = [EditionTarget {
+            path: dir.path().join("originals/orig.txt"),
+            name: "originals/orig.txt".to_owned(),
+            text: true,
+        }];
+        let work_html = dir.path().join("work-html");
+        let work_text = dir.path().join("work-text");
+        let html_tally = open_targets(&browser, &work_html, 2, &html_target, &|_| {}).unwrap();
+        let text_tally = open_targets(&browser, &work_text, 2, &text_target, &|_| {}).unwrap();
+
+        assert!(!html_tally.selftest_pass);
+        assert_eq!(html_tally.failures.len(), 1);
+        assert!(
+            html_tally.failures[0].contains("the browser exited with"),
+            "html failure: {}",
+            html_tally.failures[0]
+        );
+
+        assert!(text_tally.selftest_pass);
+        assert_eq!(text_tally.failures.len(), 1);
+        assert!(
+            text_tally.failures[0].contains("the browser exited with"),
+            "text failure: {}",
+            text_tally.failures[0]
+        );
     }
 }
