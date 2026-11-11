@@ -100,8 +100,8 @@ fn check_all_uses_pinned(yml: &str) -> Result<(), String> {
             check_uses_pinned(r.trim(), i + 1)?;
         }
     }
-    if uses < 4 {
-        return Err(format!("expected at least 4 uses lines, found {uses}"));
+    if uses < 3 {
+        return Err(format!("expected at least 3 uses lines, found {uses}"));
     }
     Ok(())
 }
@@ -1048,6 +1048,13 @@ fn a_planted_job_hardening_violation_is_refused() {
         "a cargo call without --locked",
     );
     refused(
+        planted(
+            "          SOURCE_DATE_EPOCH=\"$(git log -1 --format=%ct)\" cargo run -q --locked -p fieldbook -- build --out out",
+            "          SOURCE_DATE_EPOCH=\"$(git log -1 --format=%ct)\" cargo run -q -p fieldbook -- build --out out",
+        ),
+        "a build cargo call without --locked",
+    );
+    refused(
         planted("npm ci --ignore-scripts", "npm ci"),
         "npm ci without --ignore-scripts",
     );
@@ -1065,7 +1072,7 @@ fn a_planted_job_hardening_violation_is_refused() {
     );
     for flag in FORBIDDEN_FLAGS {
         refused(
-            planted("just site", &format!("just site {flag} /somewhere")),
+            planted("--out out", &format!("--out out {flag} /somewhere")),
             flag,
         );
     }
@@ -1105,8 +1112,8 @@ fn a_planted_job_hardening_violation_is_refused() {
         ),
         (
             planted(
-                "          just site",
-                "          export FIELDBOOK_STATE=/srv/state\n          just site",
+                "          SOURCE_DATE_EPOCH=\"$(git log -1 --format=%ct)\" cargo run -q --locked -p fieldbook -- build --out out",
+                "          export FIELDBOOK_STATE=/srv/state\n          SOURCE_DATE_EPOCH=\"$(git log -1 --format=%ct)\" cargo run -q --locked -p fieldbook -- build --out out",
             ),
             "FIELDBOOK_STATE exported before the build",
         ),
@@ -1372,4 +1379,121 @@ fn a_planted_release_stamp_or_a_removed_check_is_refused() {
         check_unreleased_gate(&plant7).is_err(),
         "moving check-no-identifiers.sh after deploy must fail"
     );
+}
+
+fn site_recipe_command(justfile: &str) -> String {
+    let mut lines = justfile.lines();
+    let mut found = false;
+    for line in lines.by_ref() {
+        if line == "site:" {
+            found = true;
+            break;
+        }
+    }
+    if !found {
+        panic!("`site:` recipe missing in justfile");
+    }
+
+    let mut body_lines = Vec::new();
+    for line in lines {
+        if !line.starts_with(' ') && !line.starts_with('\t') {
+            break;
+        }
+        let trimmed = line.trim();
+        if !trimmed.is_empty() {
+            body_lines.push(trimmed.to_string());
+        }
+    }
+    assert_eq!(
+        body_lines.len(),
+        1,
+        "expected exactly one body line in `site` recipe, found {}: {body_lines:?}",
+        body_lines.len()
+    );
+    body_lines.remove(0)
+}
+
+fn hosted_build_command(yml: &str) -> String {
+    let mut lines = yml.lines();
+    let mut found_step = false;
+    for line in lines.by_ref() {
+        if line.contains("- name: Build the site") {
+            found_step = true;
+            break;
+        }
+    }
+    if !found_step {
+        panic!("`- name: Build the site` step missing in hosted.yml");
+    }
+
+    let mut run_indent = None;
+    for line in lines.by_ref() {
+        let trimmed = line.trim();
+        if trimmed.starts_with("- ") {
+            panic!("reached next step before finding `run: |` in `Build the site`");
+        }
+        if trimmed == "run: |" {
+            run_indent = Some(line.len() - line.trim_start().len());
+            break;
+        }
+    }
+    let run_indent = run_indent
+        .unwrap_or_else(|| panic!("`run: |` line missing in `Build the site` step in hosted.yml"));
+
+    let mut commands = Vec::new();
+    for line in lines {
+        let trimmed = line.trim();
+        if trimmed.is_empty() {
+            continue;
+        }
+        let indent = line.len() - line.trim_start().len();
+        if indent <= run_indent {
+            break;
+        }
+        if trimmed == "set -euo pipefail" {
+            continue;
+        }
+        commands.push(trimmed.to_string());
+    }
+    assert_eq!(
+        commands.len(),
+        1,
+        "expected exactly one command line in `Build the site` step, found {}: {commands:?}",
+        commands.len()
+    );
+    commands.remove(0)
+}
+
+// control: HO-05
+#[test]
+fn the_deploy_builds_with_the_site_recipe() {
+    let justfile = std::fs::read_to_string(repo_root().join("justfile"))
+        .unwrap_or_else(|e| panic!("read justfile: {e}"));
+    let hosted = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+    let site_cmd = site_recipe_command(&justfile);
+    let deploy_cmd = hosted_build_command(&hosted);
+    assert_eq!(
+        deploy_cmd, site_cmd,
+        "hosted deploy build command differs from just site recipe:\n  hosted: {deploy_cmd}\n  just:   {site_cmd}"
+    );
+}
+
+// control: HO-05
+#[test]
+fn the_deploy_installs_no_tool() {
+    let hosted = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+    for line in hosted.lines() {
+        let trimmed = line.trim();
+        if trimmed.starts_with('#') {
+            continue;
+        }
+        assert!(
+            !line.contains("install-action")
+                && !line.contains("cargo install")
+                && !trimmed.starts_with("just "),
+            "hosted.yml contains forbidden tool installation or invocation: `{line}`"
+        );
+    }
 }

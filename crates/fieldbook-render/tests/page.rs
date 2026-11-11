@@ -10,7 +10,7 @@ mod page {
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
     use fieldbook_core::ids::{AreaCode, ClaimId, ConflictId, QuestionId, TermId};
     use fieldbook_core::policy::EffectivePolicy;
-    use fieldbook_core::review::page_review_by;
+    use fieldbook_core::review::{newest_change_note_date, page_review_by};
     use fieldbook_core::schema::ClaimRow;
     use fieldbook_core::strings;
     use fieldbook_render::chip;
@@ -490,6 +490,37 @@ mod page {
     }
 
     #[test]
+    fn review_by_counts_from_newest_change_note() {
+        // The fixture page is `as_of = 2026-02-01`, `volatility = "V2"` (180 days). A newer
+        // Change note entry moves the base: 2026-09-01 + 180 days = 2027-02-28.
+        let mut tree = fixture_tree();
+        let md = CMP_SYSTEM_REVIEW_MD.replace(
+            "- NEW_KNOWLEDGE, 2026-02-01:",
+            "- COMPATIBLE_EXTENSION, 2026-09-01: Reworded the synthetic summary.\n- NEW_KNOWLEDGE, 2026-02-01:",
+        );
+        assert_ne!(
+            md, CMP_SYSTEM_REVIEW_MD,
+            "the fixture Change note must be found"
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-system-review.md",
+            md.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        assert!(
+            html.contains("Review by <time datetime=\"2027-02-28\">2027-02-28</time>"),
+            "expected review_by counted from the newest Change note entry, got:\n{html}"
+        );
+    }
+
+    #[test]
     fn review_by_is_computed() {
         let (_model, view) = load_view(fixture_tree());
         let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
@@ -499,7 +530,9 @@ mod page {
             .find(|p| p.id.as_str() == "cmp-system-review")
             .unwrap();
         let all_claims: Vec<ClaimRow> = view.claims().iter().map(|c| c.value.clone()).collect();
-        let expected_date = page_review_by(&page.meta, &all_claims).to_string();
+        let expected_date =
+            page_review_by(&page.meta, newest_change_note_date(&page.body), &all_claims)
+                .to_string();
 
         let html = render_main(page, &view, &planned);
         let expected_tag =

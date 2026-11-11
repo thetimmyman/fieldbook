@@ -36,7 +36,7 @@ Workflow execution order:
 1. Check out clean, without stored credentials, and remove any `out/` left on the runner.
 2. Validate configuration.
 3. Search the tree for the values of the host and account id: [`deploy/check-no-identifiers.sh`](../../deploy/check-no-identifiers.sh) searches case-insensitively, prints only the name of a variable that matched, and fails on an empty value or a search error.
-4. Build the edition static pages with `just site`.
+4. Build the edition static pages with the command of the `justfile`'s `site` recipe (the workflow runs it directly; a test keeps the two equal).
 5. Stage `out/hosted` (edition pages, `originals/` at root, [`deploy/_headers`](../../deploy/_headers) and [`deploy/robots.txt`](../../deploy/robots.txt)).
 6. Check limits: `cargo --locked xtask hosted-limits out/hosted` (fails on any file over 25 MiB or total count over 20,000 files, and prints the five largest files; wrangler also refuses files over 25 MiB).
 7. Check the build is unreleased: [`deploy/check-unreleased.sh`](../../deploy/check-unreleased.sh) fails if `FIELDBOOK_GIT_SHA` is set (even empty), if `out/hosted/index.html` is missing, or if it does not say "unreleased build". The hosted edition is never a released build.
@@ -49,7 +49,7 @@ Runner notes:
 - The job runs on the self-hosted runner (section 1). Moving it to an ephemeral GitHub-hosted runner is the remedy for the residual risk that a persistent runner shared with branch CI could have its tool caches tampered with; do that when CI-01 ends ([ADR 0007](../decisions/0007-hosted-edition.md), risk table).
 - The claims register is split: `claims.html` is an index and the claims sit in `claims/<AREA>-<part>.html` pages, so it no longer blocks the limits step. The step still names any file over 25 MiB; read its output on the first deploy.
 - The controls that guard this workflow and its configuration are HO-04 to HO-09 in [controls.md](../controls.md) (the secrets and environment, the runner and job hardening, the identifier and unreleased checks, the wrangler configuration, and the triggers, pins and metrics setting of `hosted.yml`).
-- The deploy shares the runner's home folder with branch CI, and both use `taiki-e/install-action`, which writes its tools to one folder there. A deploy that starts while a CI job is installing `just` can fail at that step (curl error 23, a write that could not complete). Nothing was deployed; re-run the failed job once the CI job is past its install step.
+- The deploy installs no tool into the runner's shared home folder: it builds with `cargo` (from the pinned toolchain) and `npm ci`, so a CI job installing a tool at the same time cannot fail it. Two runs of the `corpus` job at once have room to finish within its 75-minute limit.
 - Only one deploy runs at a time, and a running deploy is never cancelled. GitHub keeps at most one run waiting in the concurrency group `deploy-hosted`: a newer waiting run replaces an older waiting one. A push to `main` that arrives while a deploy runs therefore replaces a queued rollback dispatch (see section 4).
 
 ## 3. Verify after a deploy

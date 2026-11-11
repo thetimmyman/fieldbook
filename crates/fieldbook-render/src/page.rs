@@ -16,7 +16,7 @@ use fieldbook_core::cite::KeyKind;
 use fieldbook_core::date::{PartialDate, review_by};
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::{ClaimId, ConflictId};
-use fieldbook_core::review::page_review_by;
+use fieldbook_core::review::{newest_change_note_date, page_review_by};
 use fieldbook_core::schema::{
     ChangeClass, ClaimKind, ClaimRow, ConflictStatus, PageStatus, PageType, Readiness, Verification,
 };
@@ -580,7 +580,11 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         .iter()
         .filter_map(|cid| find_claim(view, cid))
         .collect();
-    let review_by_date = page_review_by(&page.meta, cited_claim_rows.iter().copied());
+    let review_by_date = page_review_by(
+        &page.meta,
+        newest_change_note_date(&page.body),
+        cited_claim_rows.iter().copied(),
+    );
 
     let mut supported_claims = 0usize;
     let mut latest_verified: Option<CivilDate> = None;
