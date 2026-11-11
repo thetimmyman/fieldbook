@@ -6,6 +6,9 @@
 //! - `doctor [--ci]`: check the installed tools against `.config/tools.toml`.
 //! - `setup [--no-hooks] [TOOL...]`: install the pinned tools and enable the git hooks.
 //! - `docs [--check]`: regenerate generated documentation blocks or check for drift.
+//! - `cards --check [--closing SLUG]`: lint the card files, PLAN.md, links, AGENTS.md and the documents (writes nothing).
+//! - `new-card SLUG`: start `docs/cards/SLUG.md` from the template in `docs/cards/README.md`.
+//! - `scope BASE HEAD`: fail when a pull request that deletes a card changes a path the card does not list.
 //! - `guard-statuses BASE HEAD`: fail when an agent's commits certify their own work.
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
 //! - `harness [--edition DIR]`: open every page of an edition in headless Edge (or Chromium) with a net-log.
@@ -34,6 +37,7 @@
 mod allowlist;
 mod audit_doc;
 mod binscan;
+mod cards;
 mod cli_doc;
 mod compat;
 mod denylist;
@@ -72,6 +76,7 @@ mod deps_metadata;
 )]
 mod deps_references;
 mod docs;
+mod docs_lints;
 #[cfg_attr(
     not(test),
     expect(
@@ -88,9 +93,11 @@ mod guard;
 mod guard_fields;
 mod harness;
 mod hosted;
+mod links;
 #[cfg(test)]
 mod literals;
 mod proc;
+mod scope;
 mod tools;
 #[cfg_attr(
     not(test),
@@ -108,6 +115,9 @@ const USAGE: &str = "usage: cargo xtask <command>
   doctor [--ci]                     check the installed tools against .config/tools.toml
   setup [--no-hooks] [TOOL...]      install the pinned tools and enable the git hooks
   docs [--check]                    regenerate generated documentation blocks or check for drift
+  cards --check [--closing SLUG]    lint the cards, PLAN.md, links, AGENTS.md and the documents (writes nothing)
+  new-card SLUG                     start docs/cards/SLUG.md from the template in docs/cards/README.md
+  scope BASE HEAD                   fail if a pull request that deletes a card changes a path its Files and Registration lines do not list
   guard-statuses BASE HEAD          fail if an agent's commits raise a status or weaken a seed or regression case
   denylist FILE                     fail if a term from FILE appears in tracked content or pushed history
   compat --base FILE                verify published compatibility bindings and vectors against FILE
@@ -120,7 +130,7 @@ const USAGE: &str = "usage: cargo xtask <command>
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
-    let root = proc::repo_root();
+    let root = std::env::var_os("XTASK_REPO_ROOT").map_or_else(proc::repo_root, PathBuf::from);
     let result = match args
         .iter()
         .map(String::as_str)
@@ -131,6 +141,9 @@ fn main() -> ExitCode {
         ["doctor", "--ci"] => tools::doctor(&root, true),
         ["docs"] => return docs::command(&root, false),
         ["docs", "--check"] => return docs::command(&root, true),
+        ["cards", rest @ ..] => cards::command(&root, rest),
+        ["new-card", slug] => cards::new_card(&root, slug),
+        ["scope", base, head] => scope::command(&root, base, head),
         ["guard-statuses", base, head] => guard::command(&root, base, head),
         ["denylist", file] => denylist::command(&root, &PathBuf::from(file)),
         ["denylist", file, "--updates", updates] => {

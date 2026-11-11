@@ -172,3 +172,11 @@ jobs:
           BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
         run: cargo xtask guard-statuses "$BASE" "$HEAD"
+      # Pull requests only: a squash merge on main no longer holds the card as the branch
+      # last declared it, so the range of a push to main cannot be judged.
+      - name: Scope
+        if: github.event_name == 'pull_request'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: cargo xtask scope "$BASE" "$HEAD"

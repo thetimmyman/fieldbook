@@ -6,7 +6,7 @@ Other documents name a card by its slug and a gate by its name: release, status 
 
 ## The template
 
-`just new-card <slug>` (from the `docs-checks` card) copies the text between the markers into `docs/cards/<slug>.md`. Until then, copy it by hand.
+`just new-card <slug>` copies the text between the markers into `docs/cards/<slug>.md`.
 
 <!-- card-template:begin -->
 ````markdown
