@@ -697,8 +697,21 @@ fn run_edition_surface() {
         .unwrap_or_else(|e| panic!("{e}"));
     let glossary_disk = std::fs::read_to_string(plan.edition_dir.join("glossary.html"))
         .unwrap_or_else(|e| panic!("{e}"));
-    let ids_disk = std::fs::read_to_string(plan.edition_dir.join("ids.html"))
-        .unwrap_or_else(|e| panic!("{e}"));
+    // `ids.html` is an index; the ids are on the group pages and the claims part pages under `ids/`.
+    let ids_disk = [
+        "ids/pages.html",
+        "ids/sources.html",
+        "ids/versions.html",
+        "ids/claims-CMP-1.html",
+        "ids/questions.html",
+        "ids/conflicts.html",
+        "ids/terms.html",
+    ]
+    .iter()
+    .map(|page| {
+        std::fs::read_to_string(plan.edition_dir.join(page)).unwrap_or_else(|e| panic!("{e}"))
+    })
+    .collect::<String>();
 
     assert!(
         claims_part_disk.contains("<tr id=\"CL-CMP-0001\"")
@@ -733,7 +746,7 @@ fn run_edition_surface() {
             && ids_disk.contains("data-id=\"Q-001\"")
             && ids_disk.contains("data-id=\"XC-01\"")
             && ids_disk.contains("data-id=\"system_review\""),
-        "permitted IDs across all 7 groups must reach ids.html"
+        "permitted IDs across all 7 groups must reach the ids/ pages"
     );
 
     // The delivered search index holds the permitted page and section units only.

@@ -19,7 +19,7 @@
 
 ## Scope
 
-- Files: `crates/fieldbook-render/src/ids.rs`, `crates/fieldbook-render/templates/ids.html`, `crates/fieldbook-render/src/site.rs`, `crates/fieldbook-render/tests/registers.rs`, `crates/fieldbook-render/tests/snapshots/registers__registers__ids_page_renders.snap`, `xtask/src/allowlist.rs`, `CHANGELOG.md`.
+- Files: `crates/fieldbook-render/src/ids.rs`, `crates/fieldbook-render/templates/ids.html`, `crates/fieldbook-render/src/site.rs`, `crates/fieldbook-render/src/nav.rs`, `crates/fieldbook-render/tests/registers.rs`, `crates/fieldbook-render/tests/search_index.rs`, `crates/fieldbook/tests/leak_outputs.rs`, `crates/fieldbook-render/tests/snapshots/registers__registers__ids_page_renders.snap`, `xtask/src/allowlist.rs`, `CHANGELOG.md`.
 - Registration lines: `docs/reference/corpus-format.md`, the `ids.html` row of the site output table.
 - Docs to update: that row; `CHANGELOG.md` (`- Changed: the ID list is an index with one page per group, and claims in parts of 500 per area.`).
 
