@@ -149,6 +149,14 @@ pub const CASES: &[ChipCase] = &[
         outcome: ChipOutcome::FindingsExit1("FB0410"),
     },
     ChipCase {
+        chip: "fieldbook verify <claim-id> --on YYYY-MM-DD",
+        context: ChipContext::Home,
+        samples: &[("<claim-id>", "CL-CMP-0002")],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &[],
+        outcome: ChipOutcome::Terminal,
+    },
+    ChipCase {
         chip: "fieldbook build",
         context: ChipContext::Home,
         samples: &[],

@@ -35,6 +35,7 @@ pub mod scan;
 pub mod schema;
 pub mod search;
 pub mod strings;
+pub mod verify;
 pub mod version;
 
 pub use date::{

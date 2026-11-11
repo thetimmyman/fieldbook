@@ -149,6 +149,167 @@ fn has_available_fine_locator(claim: &ClaimRow) -> Result<(), &'static str> {
     }
 }
 
+/// One reason a claim cannot hold `primary_source_supported` (`FB0209`): the column to blame and the message.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PromotionProblem {
+    /// The `claims.csv` column the problem is reported at.
+    pub column: &'static str,
+    /// The diagnostic message.
+    pub message: String,
+}
+
+/// The conditions of Promotion rules (1 to 5) a claim must meet to hold `primary_source_supported`, judged as if it already held that value. `source` is the `sources.csv` row of the version the claim cites (`None` when the claim cites no version, cites one that is not in the register, or is a record-field claim). Pure: no I/O, no date comparison.
+#[must_use]
+pub fn promotion_problems(claim: &ClaimRow, source: Option<&SourceRow>) -> Vec<PromotionProblem> {
+    let mut problems = Vec::new();
+    let cid = &claim.claim_id;
+    let is_record_field = matches!(claim.locator_kind, Some(LocatorKind::RecordField));
+
+    // Condition 1: source-version claim requires `source_role = primary_evidence` and
+    // (`authority_tier` in {A, B} or a company `source_kind`).
+    if !is_record_field {
+        match (&claim.source_id, claim.version) {
+            (None, _) => {
+                problems.push(PromotionProblem {
+                    column: "source_id",
+                    message: format!(
+                        "supported claim `{cid}` requires a primary source version (`source_id` is empty)"
+                    ),
+                });
+            }
+            (Some(_), None) => {
+                problems.push(PromotionProblem {
+                    column: "version",
+                    message: format!(
+                        "supported claim `{cid}` requires a primary source version (`version` is empty)"
+                    ),
+                });
+            }
+            (Some(sid), Some(ver)) => {
+                if let Ok(vid) = VersionId::parse(&format!("{sid}-v{ver}"))
+                    && let Some(src) = source
+                {
+                    let role_already_invalid = matches!(
+                        src.source_role,
+                        SourceRole::GeneratedSynthesis | SourceRole::WorkingDraft
+                    );
+                    let role_ok =
+                        src.source_role == SourceRole::PrimaryEvidence || role_already_invalid;
+                    let tier_ok = matches!(
+                        src.authority_tier,
+                        Some(AuthorityTier::A | AuthorityTier::B)
+                    ) || src.source_kind.is_overlay();
+                    if !role_ok || !tier_ok {
+                        problems.push(PromotionProblem {
+                            column: "source_id",
+                            message: format!(
+                                "supported claim `{cid}` cites `{vid}` (`source_role = {}`, `authority_tier = {}`), which cannot supply primary support",
+                                src.source_role,
+                                src.authority_tier.map_or("none", AuthorityTier::as_str)
+                            ),
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    // Condition 2: available fine locator, plus a `quote` when consequential.
+    if let Err(col_name) = has_available_fine_locator(claim) {
+        problems.push(PromotionProblem {
+            column: col_name,
+            message: format!("supported claim `{cid}` requires an available fine locator"),
+        });
+    }
+    if claim.consequential && claim.quote.is_none() {
+        problems.push(PromotionProblem {
+            column: "quote",
+            message: format!("supported consequential claim `{cid}` requires a `quote`"),
+        });
+    }
+
+    // Condition 3: `as_of` is set; regulatory claims also have `effective_from` and the
+    // required numbering cell for their `instrument`.
+    if claim.as_of.is_none() {
+        problems.push(PromotionProblem {
+            column: "as_of",
+            message: format!("supported claim `{cid}` requires `as_of`"),
+        });
+    }
+    if let Some(inst) = claim.instrument {
+        if claim.effective_from.is_none() {
+            problems.push(PromotionProblem {
+                column: "effective_from",
+                message: format!(
+                    "supported regulatory claim `{cid}` (`instrument = {inst}`) requires `effective_from`"
+                ),
+            });
+        }
+        let req_col = required_citation_column(inst);
+        let has_req_citation = match req_col {
+            "citation_codified" => claim.citation_codified.is_some(),
+            "citation_rfo" => claim.citation_rfo.is_some(),
+            _ => true,
+        };
+        if !has_req_citation {
+            problems.push(PromotionProblem {
+                column: req_col,
+                message: format!(
+                    "supported regulatory claim `{cid}` (`instrument = {inst}`) requires `{req_col}`"
+                ),
+            });
+        }
+    }
+
+    // Condition 4: a number has both `value` and `unit`.
+    if claim.value.is_some() && claim.unit.is_none() {
+        problems.push(PromotionProblem {
+            column: "unit",
+            message: format!("supported numeric claim `{cid}` has `value` without `unit`"),
+        });
+    } else if claim.value.is_none() && claim.unit.is_some() {
+        problems.push(PromotionProblem {
+            column: "value",
+            message: format!("supported numeric claim `{cid}` has `unit` without `value`"),
+        });
+    }
+
+    // Condition 5: `verified_on` and `verified_by_role` are set.
+    if claim.verified_on.is_none() {
+        problems.push(PromotionProblem {
+            column: "verified_on",
+            message: format!("supported claim `{cid}` requires `verified_on`"),
+        });
+    }
+    if claim.verified_by_role.is_none() {
+        problems.push(PromotionProblem {
+            column: "verified_by_role",
+            message: format!("supported claim `{cid}` requires `verified_by_role`"),
+        });
+    }
+
+    problems
+}
+
+/// The `FB0209` problem for a consequential claim verified by a role other than `owner`, if any.
+#[must_use]
+pub fn consequential_role_problem(claim: &ClaimRow) -> Option<PromotionProblem> {
+    if claim.consequential
+        && let Some(role) = claim.verified_by_role
+        && role != VerifiedByRole::Owner
+    {
+        let cid = &claim.claim_id;
+        Some(PromotionProblem {
+            column: "verified_by_role",
+            message: format!(
+                "consequential claim `{cid}` may only be verified by `owner` (found `{role}`)"
+            ),
+        })
+    } else {
+        None
+    }
+}
+
 fn check_claim(
     model: &Model,
     source_map: &BTreeMap<VersionId, &SourceRow>,
@@ -165,215 +326,37 @@ fn check_claim(
     let is_record_field = matches!(claim.locator_kind, Some(LocatorKind::RecordField));
 
     if is_supported {
-        // Condition 1: source-version claim requires `source_role = primary_evidence` and
-        // (`authority_tier` in {A, B} or a company `source_kind`).
-        if !is_record_field {
-            match (&claim.source_id, claim.version) {
-                (None, _) => {
-                    push_diag(
-                        model,
-                        reg,
-                        line,
-                        "source_id",
-                        Code::Fb0209,
-                        strict,
-                        format!(
-                            "supported claim `{cid}` requires a primary source version (`source_id` is empty)"
-                        ),
-                        report,
-                    );
-                }
-                (Some(_), None) => {
-                    push_diag(
-                        model,
-                        reg,
-                        line,
-                        "version",
-                        Code::Fb0209,
-                        strict,
-                        format!(
-                            "supported claim `{cid}` requires a primary source version (`version` is empty)"
-                        ),
-                        report,
-                    );
-                }
-                (Some(sid), Some(ver)) => {
-                    if let Ok(vid) = VersionId::parse(&format!("{sid}-v{ver}"))
-                        && let Some(src) = source_map.get(&vid)
-                    {
-                        let role_already_invalid = matches!(
-                            src.source_role,
-                            SourceRole::GeneratedSynthesis | SourceRole::WorkingDraft
-                        );
-                        let role_ok =
-                            src.source_role == SourceRole::PrimaryEvidence || role_already_invalid;
-                        let tier_ok = matches!(
-                            src.authority_tier,
-                            Some(AuthorityTier::A | AuthorityTier::B)
-                        ) || src.source_kind.is_overlay();
-                        if !role_ok || !tier_ok {
-                            push_diag(
-                                model,
-                                reg,
-                                line,
-                                "source_id",
-                                Code::Fb0209,
-                                strict,
-                                format!(
-                                    "supported claim `{cid}` cites `{vid}` (`source_role = {}`, `authority_tier = {}`), which cannot supply primary support",
-                                    src.source_role,
-                                    src.authority_tier.map_or("none", AuthorityTier::as_str)
-                                ),
-                                report,
-                            );
-                        }
-                    }
-                }
-            }
-        }
-
-        // Condition 2: available fine locator, plus a `quote` when consequential.
-        if let Err(col_name) = has_available_fine_locator(claim) {
+        let source = if !is_record_field
+            && let (Some(sid), Some(ver)) = (&claim.source_id, claim.version)
+            && let Ok(vid) = VersionId::parse(&format!("{sid}-v{ver}"))
+        {
+            source_map.get(&vid).copied()
+        } else {
+            None
+        };
+        for problem in promotion_problems(claim, source) {
             push_diag(
                 model,
                 reg,
                 line,
-                col_name,
+                problem.column,
                 Code::Fb0209,
                 strict,
-                format!("supported claim `{cid}` requires an available fine locator"),
-                report,
-            );
-        }
-        if claim.consequential && claim.quote.is_none() {
-            push_diag(
-                model,
-                reg,
-                line,
-                "quote",
-                Code::Fb0209,
-                strict,
-                format!("supported consequential claim `{cid}` requires a `quote`"),
-                report,
-            );
-        }
-
-        // Condition 3: `as_of` is set; regulatory claims also have `effective_from` and the
-        // required numbering cell for their `instrument`.
-        if claim.as_of.is_none() {
-            push_diag(
-                model,
-                reg,
-                line,
-                "as_of",
-                Code::Fb0209,
-                strict,
-                format!("supported claim `{cid}` requires `as_of`"),
-                report,
-            );
-        }
-        if let Some(inst) = claim.instrument {
-            if claim.effective_from.is_none() {
-                push_diag(
-                    model,
-                    reg,
-                    line,
-                    "effective_from",
-                    Code::Fb0209,
-                    strict,
-                    format!(
-                        "supported regulatory claim `{cid}` (`instrument = {inst}`) requires `effective_from`"
-                    ),
-                    report,
-                );
-            }
-            let req_col = required_citation_column(inst);
-            let has_req_citation = match req_col {
-                "citation_codified" => claim.citation_codified.is_some(),
-                "citation_rfo" => claim.citation_rfo.is_some(),
-                _ => true,
-            };
-            if !has_req_citation {
-                push_diag(
-                    model,
-                    reg,
-                    line,
-                    req_col,
-                    Code::Fb0209,
-                    strict,
-                    format!(
-                        "supported regulatory claim `{cid}` (`instrument = {inst}`) requires `{req_col}`"
-                    ),
-                    report,
-                );
-            }
-        }
-
-        // Condition 4: a number has both `value` and `unit`.
-        if claim.value.is_some() && claim.unit.is_none() {
-            push_diag(
-                model,
-                reg,
-                line,
-                "unit",
-                Code::Fb0209,
-                strict,
-                format!("supported numeric claim `{cid}` has `value` without `unit`"),
-                report,
-            );
-        } else if claim.value.is_none() && claim.unit.is_some() {
-            push_diag(
-                model,
-                reg,
-                line,
-                "value",
-                Code::Fb0209,
-                strict,
-                format!("supported numeric claim `{cid}` has `unit` without `value`"),
-                report,
-            );
-        }
-
-        // Condition 5: `verified_on` and `verified_by_role` are set.
-        if claim.verified_on.is_none() {
-            push_diag(
-                model,
-                reg,
-                line,
-                "verified_on",
-                Code::Fb0209,
-                strict,
-                format!("supported claim `{cid}` requires `verified_on`"),
-                report,
-            );
-        }
-        if claim.verified_by_role.is_none() {
-            push_diag(
-                model,
-                reg,
-                line,
-                "verified_by_role",
-                Code::Fb0209,
-                strict,
-                format!("supported claim `{cid}` requires `verified_by_role`"),
+                problem.message,
                 report,
             );
         }
     }
 
-    // Consequential claim verified by a role other than `owner` (`FB0209`).
-    if claim.consequential
-        && let Some(role) = claim.verified_by_role
-        && role != VerifiedByRole::Owner
-    {
+    if let Some(problem) = consequential_role_problem(claim) {
         push_diag(
             model,
             reg,
             line,
-            "verified_by_role",
+            problem.column,
             Code::Fb0209,
             strict,
-            format!("consequential claim `{cid}` may only be verified by `owner` (found `{role}`)"),
+            problem.message,
             report,
         );
     }
