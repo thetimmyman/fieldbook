@@ -83,7 +83,7 @@ Ports. Fieldbook reaches the outside world through a small number of Rust traits
 ```text
  HOME (Linux; owner, lead, Codex)          GITHUB (private repository, hosted runners)
  edit corpus/ and crates/                  ci.yml: changes, rust, corpus, windows -> ci-ok
- just check (pre-push hook)  -- PR -->     release.yml on tag edition-NNN or vX.Y.Z:
+ just scan (pre-push hook)   -- PR -->     release.yml on tag edition-NNN or vX.Y.Z:
  Day 1: read the edition in a browser        fieldbook-edition-NNN.zip
         and print the day-one binder         fieldbook-originals-NNN.zip
         (public content only)                SHA256SUMS of both zips
@@ -302,7 +302,7 @@ The plan is three vertical slices: P1 Read, P2 Print and P3 Find. Each ends in s
   The feature passes of items 2 to 4 are incremental builds of one crate, and they are the same build until the first feature (`net`, `mcp`, `bridge`) exists. They exist because the silent build (the feature off) has no CI job of its own: without them a feature-gated warning, or a dependency added under a feature, would be found after the merge.
 - **Hooks** (`.githooks/`, enabled by `just setup`):
   - pre-commit: fmt, typos and gitleaks on staged changes;
-  - pre-push: capture Git's ref-update input, run just check, then `cargo xtask denylist "$FIELDBOOK_DENYLIST" --updates <captured-input>` (local only, D-11).
+  - pre-push: capture Git's ref-update input, run `just scan` (the secret scan and `check --strict`; the full `just check` runs in CI, where `ci-ok` requires it), then `cargo xtask denylist "$FIELDBOOK_DENYLIST" --updates <captured-input>` (local only, D-11).
 - **`just doctor`** checks minimum versions locally and exact pins in CI, and prints a PATH hint for a missing or shadowed tool.
 - **Bootstrap.** The README's one line installs `just` with `cargo install --locked`. `just setup` installs the other pinned tools the same way, from outside the repository.
 - **`just site`** builds the site into `out/edition/` (`fieldbook build`). **`just browser`** runs the Edge harness (`cargo xtask harness`, AD-08) over that edition.
