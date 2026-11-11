@@ -1566,7 +1566,12 @@ kbd {
   padding: var(--space-1) 0;
   min-height: var(--target-min);
   line-height: var(--leading-snug);
+  font-size: var(--text-sm);
   overflow-wrap: anywhere;
+}
+
+.rail-list .rail-empty {
+  font-size: var(--text-sm);
 }
 
 .rail-n {
