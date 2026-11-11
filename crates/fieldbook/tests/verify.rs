@@ -888,7 +888,7 @@ fn verify_recovers_after_the_csv_write() {
     assert_eq!(out.code, 0, "rerun stderr: {}", out.stderr);
     assert!(faulty.inner.prompts().is_empty(), "prompts must be empty");
     assert!(
-        out.stdout.contains("CL-CMP-0002") && out.stdout.contains("verified"),
+        out.stdout.contains("CL-CMP-0002") && out.stdout.contains(TODAY),
         "the claim line must be printed, got: {}",
         out.stdout
     );
