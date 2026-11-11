@@ -333,7 +333,8 @@ textarea.input:focus,input.input:focus{outline:var(--focus-w) solid var(--color-
 .palette.on{display:flex}
 .pal{width:min(720px,100%);max-height:76vh;display:flex;flex-direction:column;background:var(--color-surface);border:var(--border-w) solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-pop);overflow:hidden}
 .pal-in{display:flex;align-items:center;gap:var(--space-2);padding:0 var(--space-4);border-bottom:var(--border-w) solid var(--color-border)}
-.pal-in input{flex:1;border:0;background:transparent;height:52px;font-size:var(--text-lg);outline:none;min-width:0}
+.pal-in input{flex:1;border:0;background:transparent;height:calc(var(--control-h) + var(--space-4));font-size:var(--text-lg);outline:none;min-width:0}
+.pal-in input::placeholder{color:var(--color-muted);opacity:1}
 .pal-filters{display:flex;gap:var(--space-1-5);flex-wrap:wrap;padding:var(--space-2) var(--space-4);border-bottom:var(--border-w) solid var(--color-border)}
 .pal-filters button{height:var(--control-h-sm);border-radius:var(--radius-pill);border:var(--border-w) solid var(--color-border);background:var(--color-surface);padding:0 var(--space-2-5);font-size:var(--text-xs);cursor:pointer;color:var(--color-muted)}
 .pal-filters button[aria-pressed="true"]{background:var(--color-accent-soft);color:var(--color-accent);border-color:transparent;font-weight:var(--weight-semibold)}
@@ -345,6 +346,17 @@ textarea.input:focus,input.input:focus{outline:var(--focus-w) solid var(--color-
 .pal-opt .t{font-weight:var(--weight-semibold);font-size:var(--text-dense)}
 .pal-opt .x{font-size:var(--text-sm);color:var(--color-muted);margin-top:var(--space-0-5)}
 .pal-opt .x mark{background:var(--color-mark);color:var(--color-fg);border-radius:var(--radius-xs);padding:0 var(--space-0-5)}
+.pal-opt .al{font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-0-5)}
+.pal-opt .al mark{background:var(--color-mark);color:var(--color-fg);border-radius:var(--radius-xs);padding:0 var(--space-0-5)}
+.pal-opt .t mark{background:var(--color-mark);color:var(--color-fg);border-radius:var(--radius-xs);padding:0 var(--space-0-5)}
+.sr-spec .pal-opt{cursor:default;border-bottom:var(--border-w) solid var(--color-border)}
+.sr-spec .pal-opt:last-child{border-bottom:0}
+.pal-spec{border:var(--border-w) solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface)}
+.pal-spec .pal-opt{cursor:default}
+.sr-spec,.pal-spec{flex:none}
+.state-card.span-all{grid-column:1/-1}
+.state-card.span-all .panel-b{max-width:var(--measure)}
+.pal-spec .pal-opt.picked{background:var(--color-accent-soft)}
 .pal-opt .ic{width:28px;height:28px;border-radius:var(--radius-md);background:var(--color-surface-2);display:grid;place-items:center;color:var(--color-muted)}
 .pal-foot{display:flex;gap:var(--space-4);flex-wrap:wrap;padding:var(--space-2) var(--space-4);border-top:var(--border-w) solid var(--color-border);font-size:var(--text-xs);color:var(--color-muted)}
 .not-est{padding:var(--space-6) var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);align-items:flex-start}
@@ -417,6 +429,10 @@ main{container-type:inline-size}
   .mode b{margin:0}
   .sheet{padding:var(--space-6) var(--space-5)}
   .palette{padding-top:0;padding-left:0;padding-right:0}
+  .pal-opt{grid-template-columns:auto minmax(0,1fr)}
+  .pal-spec .pal-in kbd,.pal-spec .pal-in svg{display:none}
+  .pal-opt>.chips{grid-column:2;justify-content:flex-start!important}
+  .pal-opt>span:empty{display:none}
   .pal{max-height:100vh;height:100%;border-radius:0}
   .row{grid-template-columns:auto 1fr}
   .row>.chips:last-child,.row>.r{grid-column:2}
@@ -496,8 +512,8 @@ main{container-type:inline-size}
   --color-bad:CanvasText; --color-bad-soft:Canvas; --color-info:CanvasText; --color-info-soft:Canvas;
   --color-focus:Highlight; --color-mark:Highlight; --color-scrim:transparent; --chart-1:CanvasText; --chart-neutral:CanvasText;
   --shadow-raise:none; --shadow-pop:none}
-  .plot svg,svg.track,svg.cover,svg.tl-now,.legend i,.bridge .bar-w i,.gate-cell i,.locator-view mark,.pal-opt .x mark{forced-color-adjust:none}
-  .locator-view mark,.pal-opt .x mark{color:HighlightText}
+  .plot svg,svg.track,svg.cover,svg.tl-now,.legend i,.bridge .bar-w i,.gate-cell i,.locator-view mark,.pal-opt .x mark,.pal-opt .al mark,.pal-opt .t mark{forced-color-adjust:none}
+  .locator-view mark,.pal-opt .x mark,.pal-opt .al mark,.pal-opt .t mark{color:HighlightText}
 }
 
 /* ---------- rev 4: whole application (assistant, work core, area workspaces) ---------- */
@@ -1254,6 +1270,7 @@ terms:{
  over_time:{t:'Over-time recognition',area:'CLS',def:'Revenue recognised as work progresses rather than at a single point.',rule:'Needs one of three criteria to be met; otherwise point in time.'},
  catch_up:{t:'Cumulative catch-up',area:'CLS',def:'The current-period adjustment when a changed EAC re-measures revenue to date.',rule:'Can be negative with no shipment. Never spread it over future periods.'},
  progress_payment:{t:'Progress payment',area:'CTF',def:'A government payment based on costs incurred, before delivery.',rule:'Rate depends on business size and contract; never quote one rate without its clause.'},
+ wrap_rate:{t:'Wrap rate',area:'RTE',def:'A single factor that loads direct labour cost with fringe, overhead and G&A, so one rate carries every indirect cost to a contract.',rule:'Name the pools it folds in; never mix it with a provisional billing rate.',alias:'fully burdened rate'},
 },
 pages:{
  'cmp-withholding':{title:'Business-system withholding',area:'CMP',sub:'business-systems',type:'clause-card',stage:6,readiness:'PUBLIC-NOW',status:'reviewed',asOf:'2026-10-01',reviewBy:'2027-01-01',vol:'V2',handling:'PUB',keys:'DFARS 252.242-7005 business systems',
@@ -1853,6 +1870,7 @@ V.brief=()=>`<div class="page-w"><div class="h-page"><div><div class="eyebrow">B
 V.states=()=>`<div class="page-w"><div class="h-page"><div><h1>States gallery</h1><p>Every state the build must render. Each one says what happened and what to do next.</p></div></div>
  <div class="state-grid">
   ${stateCard('Search · nothing found','Not established in the library',`<div class="not-est" style="padding:0"><b>No page, claim or term matches “7012 cyber incident reporting”.</b><p class="note">That means the library has no record, not that the rule does not exist.</p><div class="chips"><button class="btn sm primary">${icon('spark')}Ask</button>${cmd('fieldbook new question --confirm-public --area cmp "7012 cyber incident reporting"','Add to company questions')}</div></div>`)}
+  ${stateCard('Search · glossary term row','A term row on the search page and in the palette; the alias that matched is named',termRowSpec(),'span-all')}
   ${stateCard('Page · superseded','Banner on any superseded page or source',`<div class="banner warn" style="margin:0">${icon('clock')}<div><b>Superseded on 2026-03-13.</b> FAR 15.403-4 v1 was replaced by v2. Claims citing v1 are now stale. <a href="#page-est-tina-thresholds">Open the current page</a></div></div>`)}
   ${stateCard('Page · review overdue (released edition)','Shown only on a released edition (hidden at build, shown by app.js when the viewer\'s date is past review_by)',`<div class="banner warn" style="margin:0">${icon('alert')}<div><b>Review was due 2026-10-01.</b> Three load-bearing claims have not been re-checked since the source changed. The page stays readable.</div></div>${cmd('fieldbook verify CL-EST-0004 --on 2026-10-23','Record the re-check')}`)}
   ${stateCard('Build status · unreleased','No overdue banner is written on pages of an unreleased build',`<div class="banner-stack"><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 980 of 1,000 claims are AI-drafted; 940 of 1,000 are unchecked. 52 of 1,000 have been checked and found supported. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 1,000 of 1,000 claims are AI-drafted; 1,000 of 1,000 are unchecked. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> No claims recorded. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div></div>`)}
@@ -1880,7 +1898,14 @@ V.states=()=>`<div class="page-w"><div class="h-page"><div><h1>States gallery</h
   ${stateCard('Scripts blocked','Tier 0 fallback',`<div class="banner neutral" style="margin:0">${icon('file')}<div><b>Search needs scripts, which this browser blocks.</b> Every page still opens from the area lists, and the Markdown files read as they are.</div></div>`)}
   ${stateCard('Area · no pages yet','Empty area',`<p class="note"><b style="color:var(--color-fg)">No pages in M&amp;A yet.</b> Two reports cover this area. They stay out of default answers until a page cites them.</p>`)}
  </div></div>`;
-function stateCard(t,d,body){return `<section class="panel state-card"><div class="panel-h" style="flex-direction:column;gap:var(--space-0-5)"><h2>${t}</h2><span class="meta" style="margin:0">${d}</span></div><div class="panel-b">${body}</div></section>`}
+function stateCard(t,d,body,cls=''){return `<section class="panel state-card${cls?' '+cls:''}"><div class="panel-h" style="flex-direction:column;gap:var(--space-0-5)"><h2>${t}</h2><span class="meta" style="margin:0">${d}</span></div><div class="panel-b">${body}</div></section>`}
+function termRowSpec(){
+ const pRow=`<div class="pal-opt"><span class="ic">${icon('file')}</span><span style="min-width:0"><span class="t">Indirect <mark>rate</mark> structure</span><div class="x">The pools and bases that build up a rate, and how a proposal states them.</div><div class="m"><span>RTE · concept</span><span>Reviewed</span><span>As of 2026-09-14</span></div></span><span class="chips" style="justify-content:flex-end"><span class="chip id">rte-structure</span></span></div>`;
+ const tRow=sel=>`<div class="pal-opt${sel?' picked':''}"><span class="ic">${icon('book')}</span><span style="min-width:0"><span class="t">Wrap <mark>rate</mark></span><div class="al">Also called: <mark>fully</mark> <mark>burdened</mark> <mark>rate</mark></div><div class="x">A single factor that loads direct labour cost with fringe, overhead and G&amp;A, so one rate carries every indirect cost to a contract.</div><div class="m"><span>Glossary term</span><span>public reference</span></div></span><span class="chips" style="justify-content:flex-end"><span class="chip id">wrap_rate</span></span></div>`;
+ const sRow=`<div class="pal-opt"><span class="ic">${icon('search')}</span><span style="min-width:0"><span class="t">Search for “fully burdened rate”</span></span><span></span></div>`;
+ const inRow=`<div class="pal-spec"><div class="pal-in"><svg class="i" style="color:var(--color-muted)" aria-hidden="true"><use href="#i-search"/></svg><input type="search" readonly tabindex="-1" aria-label="Edition palette input, empty" placeholder="Pages, clauses and terms…"><kbd>Esc</kbd></div></div>`;
+ return `<p class="note" style="margin:0">Edition palette input, empty</p>${inRow}<p class="note" style="margin:0">Search page, query “fully burdened rate”</p><div class="sr-spec">${pRow}${tRow(false)}</div><p class="note" style="margin:0">Palette, same query</p><div class="pal-spec">${pRow}${tRow(true)}${sRow}</div><p class="note" style="margin:0">Term rows follow the page rows. Up to five of the fifty places on the search page and two of the eight in the palette are held for them. The meta line names the kind and writes the status in words.</p>`;
+}
 
 /* ======================= whole application: helpers ======================= */
 const qLink=id=>`<a href="#questions" class="cite" data-pv="q:${id}">${id}</a>`;
@@ -2906,7 +2931,7 @@ function searchIndex(){
  Object.entries(D.sources).forEach(([id,s])=>{const lv=lastVerified(D.claims.filter(c=>parseCite(c.src)&&parseCite(c.src).id===id));out.push({kind:'Sources',id,title:s.title,text:`${s.publisher} · ${s.edition}`,href:null,cite:`${id}@v${s.v}`,m:`<span>${esc(s.authority)} · tier ${s.tier}</span><span>${s.effective==='n/a'?'No effective date':'Effective '+s.effective}</span>${lv?`<span>Last verified <time datetime="${lv}">${lv}</time> <span class="age">(${ageText(lv)})</span></span>`:'<span class="unver">Never verified</span>'}`,icon:'layers'})});
  D.claims.forEach(c=>{const ex=c.src!=='—'&&excerptFor(c.src);out.push({kind:'Claims',id:c.id,title:c.text,text:ex?'“'+ex+'”':'No stored excerpt',keys:c.src,href:'#page-'+c.page,m:`${c.src!=='—'?`<span class="mono">${esc(c.src)}</span><span>${effectiveFor(c.src)}</span>`:'<span>No source yet</span>'}${verifiedHtml(c)}`,icon:'check',ver:c.ver})});
  Object.entries(D.conflicts).forEach(([id,x])=>out.push({kind:'Conflicts',id,title:x.topic,text:x.resolution,href:'#conflicts-'+id,m:`<span>${x.area}</span><span>${x.status==='resolved'?'Resolved '+x.resolved_on:'Unresolved · waits on '+x.question_id}</span>`,icon:'alert'}));
- Object.entries(D.terms).forEach(([k,t])=>out.push({kind:'Terms',id:k,title:t.t,text:t.def,href:'#glossary',meta:'Owner '+t.area,icon:'book'}));
+ Object.entries(D.terms).forEach(([k,t])=>out.push({kind:'Terms',id:k,title:t.t,text:t.def,keys:t.alias||'',alias:t.alias||'',href:'#glossary',meta:'Owner '+t.area,m:'<span>Glossary term</span><span>Public reference</span>',icon:'book'}));
  D.questions.forEach(q=>out.push({kind:'Questions',id:q.id,title:q.text,text:'Ask: '+q.owner,href:'#questions',meta:q.id+' · '+q.status,icon:'q'}));
  D.decisions.forEach(d=>out.push({kind:'Work',id:d.id,title:d.title,text:`${d.fig} · ${d.delta} · next: ${d.next}`,href:'#decision-'+d.id.toLowerCase(),m:`<span>Decision package · ${d.area}</span><span>v${d.ver} ${d.state}</span>`,icon:'scale'}));
  D.assumptions.forEach(x=>out.push({kind:'Work',id:x.id,title:x.text,text:`${x.owner} · ${x.src==='—'?'no source yet':x.src} · confidence ${x.conf}`,href:'#assumptions',m:`<span>Assumption · ${x.dp} v${x.ver}</span><span>As of ${x.asOf}</span>`,icon:'list'}));
@@ -2933,6 +2958,13 @@ function natCmp(a,b){const runs=s=>String(s).toLowerCase().replace(/[‐-―]/g,
   else return x<y?-1:1}
  return ax.length-bx.length}
 function hl(text,q){if(!q)return esc(text);const i=norm(text).indexOf(norm(q));if(i<0)return esc(text);return esc(text.slice(0,i))+'<mark>'+esc(text.slice(i,i+q.length))+'</mark>'+esc(text.slice(i+q.length))}
+function markWords(text,words){
+ const list=(words||[]).filter(Boolean).slice().sort((a,b)=>b.length-a.length);
+ if(!list.length)return esc(text);
+ const pat=list.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');
+ if(!pat)return esc(text);
+ return esc(text).replace(new RegExp(pat,'gi'),'<mark>$&</mark>');
+}
 function renderPal(){
  const q=$('#palInput').value.trim();const f=state.palFilter;
  /* A query with no search token (empty, spaces or punctuation only) is the documented empty query, not an
@@ -2952,7 +2984,7 @@ function renderPal(){
   $('#palNote').innerHTML=`<div class="not-est"><b>Not established in the library.</b><p class="note">No page, claim, term or source matches “${esc(q)}”. That means the library has no record, not that none exists.</p><div class="chips"><button class="btn sm primary" data-pal-ask>${icon('spark')}Ask</button>${cmd('fieldbook new question --confirm-public --area fnd "'+q.replace(/["<>]/g,'')+'"','Add to company questions')}</div></div>`;$('#palRes').innerHTML=searchRow(palItems[palItems.length-1]);$('#palInput').setAttribute('aria-activedescendant','po-'+palSel);return}
  let lastKind='',html='';
  palItems.forEach((it,i)=>{if(it.search){html+=searchRow(it);return}const k=it.recent?'Latest pages':it.kind;if(k!==lastKind){html+=`<div class="pal-group" role="presentation">${k}</div>`;lastKind=k}
-  html+=`<div class="pal-opt" role="option" id="po-${i}" aria-selected="${i===palSel}" data-i="${i}"><span class="ic">${icon(it.icon)}</span><span style="min-width:0"><span class="t">${hl(it.title,q)}</span><div class="x">${hl(it.text,q)}</div>${it.m?`<div class="m">${it.m}</div>`:''}</span><span class="chips" style="justify-content:flex-end">${it.exact?'<span class="chip accent">Exact match</span>':''}${it.ver?verChip(it.ver):''}<span class="chip id">${esc(it.id)}</span></span></div>`});
+  html+=`<div class="pal-opt" role="option" id="po-${i}" aria-selected="${i===palSel}" data-i="${i}"><span class="ic">${icon(it.icon)}</span><span style="min-width:0"><span class="t">${hl(it.title,q)}</span>${it.alias&&terms.some(w=>norm(it.alias).includes(w))?`<div class="al">Also called: ${markWords(it.alias,terms)}</div>`:''}<div class="x">${hl(it.text,q)}</div>${it.m?`<div class="m">${it.m}</div>`:''}</span><span class="chips" style="justify-content:flex-end">${it.exact?'<span class="chip accent">Exact match</span>':''}${it.ver?verChip(it.ver):''}<span class="chip id">${esc(it.id)}</span></span></div>`});
  $('#palRes').innerHTML=html;$('#palInput').setAttribute('aria-activedescendant','po-'+palSel);
 }
 function openPal(prefill){$('#palette').classList.add('on');const i=$('#palInput');i.value=prefill||'';renderPal();setTimeout(()=>i.focus(),0)}
