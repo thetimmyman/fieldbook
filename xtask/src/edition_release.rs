@@ -252,13 +252,6 @@ fn provider_registry() -> &'static Mutex<ProviderRegistry> {
 }
 
 /// Register the payload verifier/restore hook for `(stream, kind)`.
-#[cfg_attr(
-    not(test),
-    expect(
-        dead_code,
-        reason = "provider registration hook for build-v0 and windows-exe"
-    )
-)]
 pub fn register_archive_provider(
     stream: ReleaseStream,
     kind: DeliveryKind,
@@ -592,7 +585,7 @@ impl ArchiveManifest {
     }
 }
 
-fn read_non_symlink_file(root: &Path, rel_path: &str) -> Result<Vec<u8>, String> {
+pub(crate) fn read_non_symlink_file(root: &Path, rel_path: &str) -> Result<Vec<u8>, String> {
     validate_archive_rel_path(rel_path)?;
     let mut cur = root.to_path_buf();
     for seg in rel_path.split('/') {
@@ -712,17 +705,17 @@ pub fn collect_release_evidence(
     Ok(result)
 }
 
-struct VerifiedEditionArtifacts {
-    ed_tag: String,
-    ed_info: EditionInfo,
-    ed_zip_name: String,
-    orig_zip_name: String,
-    support_bytes: Vec<u8>,
-    support_sha_bytes: Vec<u8>,
+pub(crate) struct VerifiedEditionArtifacts {
+    pub(crate) ed_tag: String,
+    pub(crate) ed_info: EditionInfo,
+    pub(crate) ed_zip_name: String,
+    pub(crate) orig_zip_name: String,
+    pub(crate) support_bytes: Vec<u8>,
+    pub(crate) support_sha_bytes: Vec<u8>,
 }
 
 /// Inspect and verify a downloaded or local edition artifact directory (`--edition DIR`).
-fn verify_edition_artifact_set(
+pub(crate) fn verify_edition_artifact_set(
     edition_dir: &Path,
     expected_kind: DeliveryKind,
 ) -> Result<VerifiedEditionArtifacts, String> {
@@ -851,7 +844,7 @@ fn verify_edition_artifact_set(
     })
 }
 
-fn collect_all_rel_files(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, String> {
+pub(crate) fn collect_all_rel_files(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, String> {
     let mut out = BTreeMap::new();
     collect_all_rel_files_inner(root, "", &mut out)?;
     Ok(out)
@@ -932,6 +925,12 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
             return Err("edition archive-release requires `--kind raw|site`".to_owned());
         }
     };
+    if kind == DeliveryKind::Raw && args.intake.is_some() {
+        return Err(
+            "`--intake` is not part of a raw archive: the raw intake texts travel inside the edition zip"
+                .to_owned(),
+        );
+    }
 
     let VerifiedEditionArtifacts {
         ed_tag,
@@ -980,7 +979,26 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
         .evidence
         .as_deref()
         .ok_or_else(|| "archive-release requires `--evidence <dir>`".to_owned())?;
-    let base_bytes = if let Some(base_path) = &args.base {
+    let base_bytes = if kind == DeliveryKind::Raw {
+        // For a raw archive the downloaded evidence copy is the committed baseline and the source
+        // of truth; `--base`, when given, may only repeat it byte for byte.
+        let committed =
+            read_non_symlink_file(evidence_dir, "release-baseline.toml").map_err(|e| {
+                format!("the evidence folder needs the committed release-baseline.toml: {e}")
+            })?;
+        if let Some(base_path) = &args.base {
+            let given = fs::read(base_path)
+                .map_err(|e| format!("cannot read `--base {}`: {e}", base_path.display()))?;
+            if given != committed {
+                return Err(format!(
+                    "`--base {}` differs from the committed `release-baseline.toml` in `--evidence {}`; archive with the committed baseline",
+                    base_path.display(),
+                    evidence_dir.display()
+                ));
+            }
+        }
+        committed
+    } else if let Some(base_path) = &args.base {
         fs::read(base_path)
             .map_err(|e| format!("cannot read `--base {}`: {e}", base_path.display()))?
     } else {
@@ -1102,6 +1120,13 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
                 target_dir.display()
             ));
         }
+        run_raw_provider_before_acceptance(kind, &target_dir, &args.to, &folder_name, &manifest)
+            .map_err(|e| {
+                format!(
+                    "the existing raw archive `{}` is refused, and it was left unchanged: {e}",
+                    target_dir.display()
+                )
+            })?;
     } else {
         fs::create_dir_all(&args.to)
             .map_err(|e| format!("cannot create archive root `{}`: {e}", args.to.display()))?;
@@ -1119,6 +1144,18 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
             write_file_creating_parents(&staging_dir, rel, bytes)?;
         }
         write_file_creating_parents(&staging_dir, "archive.toml", &manifest_toml_bytes)?;
+        if let Err(e) = run_raw_provider_before_acceptance(
+            kind,
+            &staging_dir,
+            &args.to,
+            &folder_name,
+            &manifest,
+        ) {
+            let _ = fs::remove_dir_all(&staging_dir);
+            return Err(format!(
+                "the raw archive is refused, and nothing was published: {e}"
+            ));
+        }
         fs::rename(&staging_dir, &target_dir).map_err(|e| {
             format!(
                 "cannot publish staging archive to `{}`: {e}",
@@ -1131,6 +1168,33 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
     verify_archive_directory_bytes(&target_dir, &support_bytes, &support_sha_bytes)?;
 
     Ok((target_dir, manifest, manifest_sha256))
+}
+
+/// A raw archive is published only when the Raw provider accepts it: the exact provider file
+/// set, the clean reports for this edition and commit, and the restored trees. The provider
+/// restores into a throwaway folder beside the archive root, removed afterwards. Site and tool
+/// archives are unchanged: their providers run at `verify-archive`. The caller says what a
+/// refusal left behind: nothing published, or an existing folder left unchanged.
+fn run_raw_provider_before_acceptance(
+    kind: DeliveryKind,
+    archive_dir: &Path,
+    archive_root: &Path,
+    folder_name: &str,
+    manifest: &ArchiveManifest,
+) -> Result<(), String> {
+    if kind != DeliveryKind::Raw {
+        return Ok(());
+    }
+    let hook = get_archive_provider(ReleaseStream::Edition, DeliveryKind::Raw)?;
+    let restore = archive_root.join(format!(".restore-{folder_name}-{}", std::process::id()));
+    if restore.exists() {
+        let _ = fs::remove_dir_all(&restore);
+    }
+    let result = fs::create_dir_all(&restore)
+        .map_err(|e| format!("cannot create `{}`: {e}", restore.display()))
+        .and_then(|()| hook(archive_dir, &restore, manifest));
+    let _ = fs::remove_dir_all(&restore);
+    result
 }
 
 fn verify_archive_directory_bytes(
@@ -1363,6 +1427,13 @@ pub fn verify_archive(
 ///   and the exact `compat/published.toml` + bound vector hashes retained in `archive_dir/evidence/`.
 /// - Advances `[tool]` when `manifest.stream == ReleaseStream::Tool`, preserving `[edition]`.
 /// - Advances `[edition]` when `manifest.stream == ReleaseStream::Edition`, preserving `[tool]`.
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "the release workflow card advances baselines from a verified archive"
+    )
+)]
 pub fn advance_baselines_from_archive(
     prior: &Baselines,
     archive_dir: &Path,
@@ -1403,6 +1474,13 @@ pub fn advance_baselines_from_archive(
 
 /// Serialize [`Baselines`] into canonical `release-baseline.toml` text.
 #[must_use]
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "the release workflow card advances baselines from a verified archive"
+    )
+)]
 pub fn serialize_baselines(baselines: &Baselines) -> String {
     let mut out = String::from("baseline_schema = 1\n\n[compatibility]\n");
     if let Some(compat) = &baselines.compatibility {
@@ -2512,6 +2590,53 @@ mod tests {
             "tampered archived byte must fail verify_archive"
         );
         fs::write(&readme_in_ev, orig_contract).expect("restore contract");
+    }
+
+    /// The raw-only rule that `--base` repeat the committed baseline must not reach a Site
+    /// archive: a Site `--base` that differs from the evidence copy is still the baseline used.
+    #[test]
+    fn site_archive_uses_a_base_that_differs_from_the_evidence_copy() {
+        install_synthetic_providers();
+        let tmp = TempDir::new().expect("tempdir");
+        let empty = "baseline_schema = 1\n\n[compatibility]\nkind = \"empty\"\n\n[tool]\nkind = \"empty\"\n\n[edition]\nkind = \"empty\"\n";
+        let baselines = parse_baselines(empty).expect("empty baselines");
+        let evidence = build_synthetic_evidence_dir(
+            &tmp.path().join("ev"),
+            &baselines,
+            Some("release_schema = 1\nedition = \"001\"\nkind = \"site\"\n"),
+            b"vector = 1\n",
+        );
+        let committed = fs::read(evidence.join("release-baseline.toml")).expect("committed base");
+        let other = format!("{empty}\n");
+        assert_ne!(committed, other.as_bytes(), "the given base must differ");
+        let base = tmp.path().join("other-baseline.toml");
+        fs::write(&base, &other).expect("write other base");
+        let edition = tmp.path().join("ed");
+        build_synthetic_edition_set(
+            &edition,
+            "001",
+            "1111111111111111111111111111111111111111",
+            DeliveryKind::Site,
+            &[SyntheticSourceSpec {
+                source_id: "S-0001",
+                version: 1,
+                lifecycle: "active",
+                supersedes: "",
+                note: "Active.",
+                ship_payload: true,
+            }],
+        );
+        let (_, manifest, _) = archive_release(&ArchiveArgs {
+            kind: Some(DeliveryKind::Site),
+            package: None,
+            edition,
+            intake: None,
+            evidence: Some(evidence),
+            base: Some(base),
+            to: tmp.path().join("archives"),
+        })
+        .expect("a Site archive takes a differing `--base` as before");
+        assert_eq!(manifest.baseline_sha256, sha256_hex(other.as_bytes()));
     }
 
     #[test]
