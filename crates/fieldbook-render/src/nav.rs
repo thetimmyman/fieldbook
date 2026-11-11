@@ -285,7 +285,9 @@ pub enum NavTarget {
         /// Relative path from the edition root (e.g. `"index.html"`, `"a/fnd.html"`).
         href: String,
     },
-    /// Target file is not in [`PlannedPaths`]; renders as `.not-available` text with the landing line.
+    /// Target file is not in [`PlannedPaths`]; it gets no link. Its tab and sidebar entry are
+    /// omitted, and its landing line is listed in the sidebar's closed "Not built yet" disclosure
+    /// through [`Navigation::unbuilt_sections`].
     Unbuilt {
         /// Formatted `not_available` sentence.
         landing_line: String,

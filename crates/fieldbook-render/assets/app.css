@@ -551,6 +551,7 @@ a:hover {
 }
 
 .nav-more .nav-line code {
+  font-family: var(--font-mono);
   font-size: var(--text-2xs);
   padding: 0 var(--space-0-5);
   border-radius: var(--radius-xs);
