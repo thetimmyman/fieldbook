@@ -1,0 +1,26 @@
+<figure class="panel calc">
+  <div class="table-wrap">
+    <table>
+      <caption>{{ caption }}</caption>
+      <thead>
+        <tr>
+          {% for h in &head %}<th scope="col"{% if loop.last %} class="r"{% endif %}>{{ h }}</th>{% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in &rows %}
+        <tr>
+          <td>{{ row.name }}</td>
+          <td>{{ row.unit }}</td>
+          <td class="num{% if row.negative %} neg{% endif %}">{{ row.value }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="calc-foot">
+    <span>Computed by the calc core, not a model</span>
+    <span>{{ rounding }}</span>
+    <span class="{{ result_class }}">{{ result_text }}</span>
+  </p>
+</figure>

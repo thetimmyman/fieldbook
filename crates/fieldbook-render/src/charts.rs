@@ -95,13 +95,15 @@ fn hundredths(v: Dec, max: Dec) -> usize {
     usize::try_from(n.clamp(0, 10_000)).unwrap_or(0)
 }
 
-/// Formats a decimal with thousands separators in the integer part.
+/// Formats a decimal with thousands separators in the integer part, wrapping negative amounts
+/// in parentheses with no minus sign.
 #[must_use]
 pub fn format_amount(d: Dec) -> String {
     let s = d.to_string();
+    let is_neg = s.starts_with('-');
     let rest = s.strip_prefix('-').unwrap_or(&s);
     let (ip, fp) = rest.split_once('.').unwrap_or((rest, ""));
-    let mut out = String::from(if s.starts_with('-') { "-" } else { "" });
+    let mut out = String::from(if is_neg { "(" } else { "" });
     for (i, ch) in ip.chars().enumerate() {
         out.push(ch);
         let rem = ip.len().saturating_sub(i + 1);
@@ -112,6 +114,9 @@ pub fn format_amount(d: Dec) -> String {
     if !fp.is_empty() {
         out.push('.');
         out.push_str(fp);
+    }
+    if is_neg {
+        out.push(')');
     }
     out
 }

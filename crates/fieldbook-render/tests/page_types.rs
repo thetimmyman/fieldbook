@@ -78,8 +78,6 @@ mod page_types {
         "p/est-rate-window-brief.html",
     ];
 
-    const GOLDEN_LATER: &[PageType] = &[PageType::Calc];
-
     fn fixture_tree() -> Tree {
         let mut tree = Tree::new();
         tree.insert_dir("corpus");
@@ -740,6 +738,12 @@ mod page_types {
     }
 
     #[test]
+    fn calc_page_renders() {
+        let html = render_fixture_golden("est-calc-01");
+        insta::assert_snapshot!("calc_page_renders", html);
+    }
+
+    #[test]
     fn template_page_renders() {
         let html = render_fixture_golden("est-baseline-template");
         insta::assert_snapshot!("template_page_renders", html);
@@ -769,9 +773,6 @@ mod page_types {
             .collect();
 
         for pt in PageType::ALL {
-            if GOLDEN_LATER.contains(&pt) {
-                continue;
-            }
             let type_slug = pt.as_str().replace('-', "_");
             let needle = format!("__{type_slug}_page_renders.snap");
             let found = entries.iter().any(|name| name.ends_with(&needle));

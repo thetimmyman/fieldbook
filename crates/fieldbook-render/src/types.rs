@@ -919,10 +919,16 @@ pub fn render_typed_eight_part(
                 .render()
                 .unwrap_or_else(|e| unreachable!("types/clause_card.html is infallible: {e}")))
         }
-        PageType::Concept
-        | PageType::Procedure
-        | PageType::Calc
-        | PageType::Template
-        | PageType::Brief => Err(common),
+        PageType::Calc => {
+            let mut common = common;
+            common
+                .worked_example
+                .body_html
+                .push_str(&crate::calc_table::calc_table(&page.body));
+            Err(common)
+        }
+        PageType::Concept | PageType::Procedure | PageType::Template | PageType::Brief => {
+            Err(common)
+        }
     }
 }
