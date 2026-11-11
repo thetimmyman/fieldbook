@@ -65,7 +65,7 @@ button,input,textarea,select{font:inherit;color:inherit}
 h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
 p{margin:0}
 code,.mono{font-family:var(--font-mono);font-size:var(--text-code)}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.vh,.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .skip{position:absolute;left:-999px;top:8px;z-index:var(--z-skip);background:var(--color-accent);color:var(--color-accent-fg);padding:var(--space-2) var(--space-3);border-radius:var(--radius-md)}
 .skip:focus{left:12px}
 svg.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px}
@@ -268,6 +268,12 @@ p a:not([class]){text-decoration:underline;text-decoration-thickness:var(--borde
 .ev-item .chips{gap:var(--space-1)}
 .mini-list a{display:block;padding:var(--space-1) 0;color:var(--color-fg)}
 .mini-list a small{display:block;color:var(--color-muted);font-size:var(--text-xs)}
+.rail-list ul{list-style:none;margin:0;padding:0}
+.rail-list li a{display:block;padding:var(--space-1) 0;min-height:var(--target-min);line-height:var(--leading-snug);overflow-wrap:anywhere}
+.rail-n{font-weight:var(--weight-regular)}
+.rail-empty{margin:0;color:var(--color-muted);font-size:var(--text-sm)}
+.rail-list .fold{margin-top:var(--space-1)}
+.rail-spec{max-width:var(--rail-w);display:flex;flex-direction:column;gap:var(--space-4)}
 
 /* selection toolbar */
 .sel-bar{position:absolute;z-index:var(--z-toolbar);display:flex;gap:var(--space-0-5);padding:var(--space-0-5);background:var(--color-fg);border-radius:var(--radius-md);box-shadow:var(--shadow-pop)}
@@ -441,7 +447,7 @@ main{container-type:inline-size}
   .h-page .actions>:is(button,a,.seg,.cmd-wrap),.ws-head .actions>:is(button,a,.seg,.cmd-wrap){display:none!important}
   /* In-body action chrome hides too. A citation, a source key, a status word, a selected version or a command's text is
      evidence, not action chrome, so it stays. */
-  [data-chat],button[data-day-open],button[data-copy-cmd],button[data-copy-ai],button[data-copy-link],.tu-item.chg>a.btn{display:none!important}
+  [data-chat],button[data-day-open],button[data-copy-cmd],button[data-copy-ai],button[data-copy-link],.tu-item.chg>a.btn,.cite-back{display:none!important}
   /* A composer, a prompt group, a view's tab strip and a reader's previous/next only act on a screen, so they are inert
      on paper and the paper keeps the heading, the record content and every citation instead. A suggested-question panel is
      that prompt group alone, so the panel goes with it rather than printing an action box with nothing under it. */
@@ -724,6 +730,8 @@ a.cc{text-decoration:none}
 .cc.nc{border-style:dashed}
 .cite-list{margin:0 0 var(--space-4);padding-left:var(--indent-list-wide);font-size:var(--text-sm)}
 .cite-list li{margin:0 0 var(--space-1-5)}
+.cite-back{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-1-5);font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-1)}
+.cite-back a{display:inline-flex;align-items:center;justify-content:center;min-width:var(--target-min);min-height:var(--target-min);gap:var(--space-1);color:var(--color-accent);text-decoration:underline}
 .land{display:flex;gap:var(--space-1-5);align-items:flex-start;margin:0;max-width:52ch;font-size:var(--text-sm);line-height:var(--leading-ui);color:var(--color-muted)}
 .land .i{flex:none;margin-top:var(--space-0-5)}
 .cmd-tag{flex:none;font:var(--weight-semibold) var(--text-2xs)/var(--leading-tight) var(--font-ui);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-muted);padding-right:var(--space-1-5);border-right:var(--border-w) solid var(--color-border);white-space:nowrap}
@@ -782,6 +790,28 @@ dl{margin:0}
 .fold-d::before{content:'· '}
 @media (max-width:767px){.fold-d{flex-basis:100%;padding-left:var(--space-5)}.fold-d::before{content:none}}
 .fold-b{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-0-5) 0 var(--space-2-5) var(--space-5)}
+.company-fold>summary+*{margin-top:var(--space-2)}
+.nav-more{margin:var(--space-2) 0 0;border-top:var(--border-w) solid var(--color-border)}
+.nav-line{margin:var(--space-1) 0;padding:0 var(--space-2-5);font-size:var(--text-xs);line-height:var(--leading-snug);color:var(--color-muted)}
+.nav-line code{font-size:var(--text-2xs);padding:0 var(--space-0-5);border-radius:var(--radius-xs);background:var(--color-surface-2);color:var(--color-fg)}
+.spec-narrow{max-width:360px}
+.spec-narrow .sec-switch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-1)}
+.spec-narrow .sec-switch button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-0-5);min-height:48px;padding:var(--space-1-5) var(--space-1);border:var(--border-w) solid var(--color-border);border-radius:var(--radius-md);background:transparent;color:var(--color-fg);font-size:var(--text-xs);font-weight:var(--weight-medium)}
+.spec-narrow .sec-switch button[aria-pressed="true"]{background:var(--color-accent-soft);border-color:var(--color-accent);color:var(--color-accent);font-weight:var(--weight-semibold)}
+.build-date-link{display:inline-flex;align-items:center;min-height:var(--target-min);text-decoration:none}
+.build-date-link:focus-visible{outline:var(--focus-w) solid var(--color-focus);outline-offset:var(--focus-offset);border-radius:var(--radius-pill)}
+.ext-link{color:var(--color-accent);text-decoration:underline;text-decoration-thickness:var(--border-w);text-underline-offset:var(--space-0-5);display:inline-flex;align-items:center;gap:var(--space-1);min-height:var(--target-min)}
+.ext-link:hover{color:var(--color-accent-hover)}
+.ext-link .i{width:13px;height:13px}
+.locator-row{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-2);min-height:var(--target-min)}
+.locator-row-text{min-width:0;overflow-wrap:anywhere}
+.loc-wrap{display:inline-flex;flex-wrap:wrap;align-items:center;gap:var(--space-2);min-height:var(--target-min)}
+.frame-spec{border:var(--border-w) solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-bg);display:flex;flex-direction:column;margin:0 0 var(--space-4)}
+.frame-spec-inner{display:flex;min-height:360px}
+.frame-spec .sidebar{position:static;height:auto;border-right:var(--border-w) solid var(--color-border);border-bottom:0}
+.frame-spec .topbar{position:static;border-bottom:var(--border-w) solid var(--color-border)}
+.frame-spec .main-spec{flex:1;padding:var(--space-4);background:var(--color-surface)}
+.banner-stack{display:flex;flex-direction:column;gap:var(--space-2)}
 /* Verified citations stay quiet; only problems carry colour. Uncited sentences get a dotted underline, not a fill. */
 .cc.ok{background:var(--color-surface-2);color:var(--color-fg)}
 .cc.ok .i{color:var(--color-ok)}
@@ -1183,14 +1213,14 @@ areas:[
  {code:'MNA',slug:'mna',name:'M&A',desc:'Screening, valuation, deal gates, diligence',stage:'8',pages:5,claims:[0,9,0,0,0]},
 ],
 sources:{
- 'S-0107':{title:'DFARS 252.242-7005 Contractor Business Systems',edition:'JAN 2025',publisher:'DoD · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2025-01',retrieved:'2026-10-14',hash:'7f3a9c…e21b',kind:'html',locators:{'(b)':'(b) Applicability. This clause applies to covered contracts that are subject to the Cost Accounting Standards…','(e)(1)':'(e)(1) …withhold five percent of amounts due from progress payments and performance-based payments…','(e)(2)':'(e)(2) …shall not exceed ten percent in total for all business systems…','(f)':'(f) …reduce the withholding to two percent if the Contractor submits an acceptable corrective action plan…'}},
- 'S-0108':{title:'DFARS 252.242-7006 Accounting System Administration',edition:'JAN 2025',publisher:'DoD · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2025-01',retrieved:'2026-10-14',hash:'02bd41…9a77',kind:'html',locators:{}},
- 'S-0201':{title:'Pub. L. 116-283, §806 (business system terms)',edition:'2021',publisher:'US Congress · govinfo.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2021-01',retrieved:'2026-10-12',hash:'c19e07…44d0',kind:'pdf',locators:{'§806':'p. 418 · §806 … "material weakness" …'}},
- 'S-0042':{title:'FAR 15.403-4 Requiring certified cost or pricing data',edition:'FAC 2026-01',publisher:'GSA · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:2,versions:[1,2],lifecycle:'active',effective:'2026-03-13',retrieved:'2026-10-10',hash:'9d02aa…13fe',kind:'html',supersededNote:'v1 (FAC 2025-06) superseded by v2 on 2026-03-13',locators:{'(a)(1)':'(a)(1) … the threshold for obtaining certified cost or pricing data …'}},
- 'S-0118':{title:'FASB ASC 606 Revenue from Contracts with Customers',edition:'2026 codification',publisher:'FASB',authority:'Binding standard',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'n/a',retrieved:'2026-09-15',hash:'— (metadata only)',kind:'none',metaOnly:true,locators:{}},
- 'S-0050':{title:'DCAA Contract Audit Manual, chapter 5',edition:'2026-07',publisher:'DCAA',authority:'Guidance',tier:'B',role:'interpretive',v:1,versions:[1],lifecycle:'active',effective:'2026-07',retrieved:'2026-10-02',hash:'51c8f0…aa20',kind:'pdf',locators:{}},
+ 'S-0107':{title:'DFARS 252.242-7005 Contractor Business Systems',edition:'JAN 2025',publisher:'DoD · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2025-01',retrieved:'2026-10-14',hash:'7f3a9c…e21b',kind:'html',location:'https://www.ecfr.gov/current/title-48/chapter-2',locators:{'§806':'p. 418 · §806 … "material weakness" …','sec. 7005':'sec. 7005 Contractor Business Systems','para. (b)':'para. (b) Applicability. This clause applies to covered contracts…','p. 14':'p. 14 … (page locator stays text)','(b)':'(b) Applicability. This clause applies to covered contracts that are subject to the Cost Accounting Standards…','(e)(1)':'(e)(1) …withhold five percent of amounts due from progress payments and performance-based payments…','(e)(2)':'(e)(2) …shall not exceed ten percent in total for all business systems…','(f)':'(f) …reduce the withholding to two percent if the Contractor submits an acceptable corrective action plan…'}},
+ 'S-0108':{title:'DFARS 252.242-7006 Accounting System Administration',edition:'JAN 2025',publisher:'DoD · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2025-01',retrieved:'2026-10-14',hash:'02bd41…9a77',kind:'html',location:'https://www.ecfr.gov/current/title-48/chapter-2',locators:{}},
+ 'S-0201':{title:'Pub. L. 116-283, §806 (business system terms)',edition:'2021',publisher:'US Congress · govinfo.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2021-01',retrieved:'2026-10-12',hash:'c19e07…44d0',kind:'pdf',location:'https://www.govinfo.gov/app/details/PLAW-116publ283',locators:{'§806':'p. 418 · §806 … "material weakness" …'}},
+ 'S-0042':{title:'FAR 15.403-4 Requiring certified cost or pricing data',edition:'FAC 2026-01',publisher:'GSA · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:2,versions:[1,2],lifecycle:'active',effective:'2026-03-13',retrieved:'2026-10-10',hash:'9d02aa…13fe',kind:'html',supersededNote:'v1 (FAC 2025-06) superseded by v2 on 2026-03-13',location:'https://www.ecfr.gov/current/title-48/chapter-1',locators:{'(a)(1)':'(a)(1) … the threshold for obtaining certified cost or pricing data …'}},
+ 'S-0118':{title:'FASB ASC 606 Revenue from Contracts with Customers',edition:'2026 codification',publisher:'FASB',authority:'Binding standard',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'n/a',retrieved:'2026-09-15',hash:'— (metadata only)',kind:'none',metaOnly:true,location:'metadata-only: FASB ASC 606',locators:{}},
+ 'S-0050':{title:'DCAA Contract Audit Manual, chapter 5',edition:'2026-07',publisher:'DCAA',authority:'Guidance',tier:'B',role:'interpretive',v:1,versions:[1],lifecycle:'active',effective:'2026-07',retrieved:'2026-10-02',hash:'51c8f0…aa20',kind:'pdf',location:'https://www.dcaa.mil/Guidance/CAM-Contract-Audit-Manual/',locators:{}},
  'S-0017':{title:'Industry survey report R16 (sample placeholder)',edition:'2025-11',publisher:'Trade association (sample)',authority:'Commentary',tier:'D',role:'background',v:1,versions:[1],lifecycle:'active',effective:'n/a',retrieved:'2026-10-02',hash:'3e71b2…07c4',kind:'pdf',locators:{}},
- 'S-0232':{title:'FAR 52.232-25 Prompt Payment',edition:'JAN 2017',publisher:'GSA · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2017-01',retrieved:'2026-10-14',hash:'e4a610…5b38',kind:'html',locators:{'(a)(1)(i)':'(a)(1)(i) … the due date for making invoice payments is the later of the 30th day after the designated billing office receives a proper invoice … or the 30th day after Government acceptance …'}},
+ 'S-0232':{title:'FAR 52.232-25 Prompt Payment',edition:'JAN 2017',publisher:'GSA · acquisition.gov',authority:'Binding rule',tier:'A',role:'primary_evidence',v:1,versions:[1],lifecycle:'active',effective:'2017-01',retrieved:'2026-10-14',hash:'e4a610…5b38',kind:'html',location:'https://www.ecfr.gov/current/title-48/chapter-1',locators:{'(a)(1)(i)':'(a)(1)(i) … the due date for making invoice payments is the later of the 30th day after the designated billing office receives a proper invoice … or the 30th day after Government acceptance …'}},
 },
 claims:[
  {id:'CL-CMP-0011',area:'CMP',text:'Business-system withholding applies to every DoD contract.',kind:'fact',ver:'contradicted',app:'general_reference',adopt:'rejected',origin:'inferred',asOf:'2026-10-01',src:'—',page:'cmp-withholding',conflict:'XC-06',verified_on:'2026-10-21',verified_by_role:'owner'},
@@ -1229,6 +1259,7 @@ pages:{
  'cmp-withholding':{title:'Business-system withholding',area:'CMP',sub:'business-systems',type:'clause-card',stage:6,readiness:'PUBLIC-NOW',status:'reviewed',asOf:'2026-10-01',reviewBy:'2027-01-01',vol:'V2',handling:'PUB',keys:'DFARS 252.242-7005 business systems',
    lede:'DoD can withhold part of each payment when a contractor\'s business system has a {{t:material_weakness|material weakness}}. The clause applies only to {{t:covered_contract|covered contracts}} subject to {{t:cas|CAS}}. It does not reach every DoD contract.',
    claims:['CL-CMP-0012','CL-CMP-0013','CL-CMP-0011','CL-CMP-0014','CL-CMP-0021'],questions:['Q-027','Q-028'],conflicts:['XC-06','XC-07'],prereq:['cmp-cas-coverage','fnd-evidence-grades'],usedBy:['brief-prg-lead','cmp-audit-playbook'],next:'cls-cost-to-cost',terms:['material_weakness','covered_contract','cas','business_system'],
+   links:['cmp-cas-coverage','cmp-acct-system','ctf-payment-timing'],
    change:{cls:'Correction',on:'2026-10-21',text:'Limited the scope to CAS-covered contracts and replaced "significant deficiency" with "material weakness", after conflict {{x:XC-06}}.'},
    sections:{
     purpose:['DoD can withhold part of each payment when a contractor\'s business system has a {{t:material_weakness|material weakness}}, but only on {{t:covered_contract|covered contracts}} subject to {{t:cas|CAS}}. This page says how much is held back and what reduces it.'],
@@ -1263,6 +1294,7 @@ pages:{
  'cls-cost-to-cost':{title:'Cost-to-cost progress and the cumulative catch-up',area:'CLS',sub:'revenue',type:'calc',stage:6,readiness:'SYNTHETIC-NOW',status:'draft',asOf:'2026-09-15',reviewBy:'2027-03-15',vol:'V1',handling:'PUB',
    lede:'On an over-time contract, progress is often measured as cost incurred over the {{t:eac|estimate at completion}}. When the EAC moves, revenue to date is measured again and the difference books now, with no shipment. That difference is the {{t:catch_up|cumulative catch-up}}.',
    claims:['CL-CLS-0003','CL-CLS-0004'],questions:['Q-018','Q-006'],conflicts:['XC-47','XC-42'],prereq:['prg-eac-basics'],usedBy:['cls-close-checklist'],next:'cmp-withholding',terms:['eac','over_time','catch_up','etc'],
+   links:['prg-eac-basics','cls-close-checklist','fnd-five-measures','fnd-evidence-grades','cmp-withholding','cmp-cas-coverage','cmp-acct-system','est-markup-margin','est-tina-thresholds','rte-rate-sequence','ctf-payment-timing'],
    change:{cls:'New page',on:'2026-09-15',text:'First draft. Both claims are unchecked until traced to the licensed standard.'},
    sections:{
     purpose:['On an over-time contract, progress is often cost incurred over the {{t:eac|estimate at completion}}. This page shows why a changed EAC moves revenue in the current period with no shipment: the {{t:catch_up|cumulative catch-up}}.'],
@@ -1273,14 +1305,14 @@ pages:{
     how:[{ol:[
      'Progress = cost incurred to date ÷ EAC.',
      'Revenue to date = progress × transaction price.',
-     'Revenue this period = revenue to date − revenue recognised in earlier periods. When the EAC rises, this can be negative.',
+     'Revenue this period = revenue to date − revenue recognised in earlier periods. When the EAC rises, this can be negative{{cl:CL-CLS-0004}}.',
     ]}],
     example:'cls',
     confuse:[
      {ul:[
       'The numerator is cost incurred that depicts performance, not allowable cost. Allowability is a separate test {{x:XC-47}}.',
       'EAC means cost. The revenue input is estimated total contract revenue {{x:XC-42}}.',
-      'Open commitments are not incurred cost. A {{t:catch_up|cumulative catch-up}} is never spread over future periods.',
+      'Open commitments are not incurred cost. A {{t:catch_up|cumulative catch-up}} is never spread over future periods{{cl:CL-CLS-0004}}.',
      ]},
     ],
     company:[
@@ -1290,8 +1322,8 @@ pages:{
    }},
 },
 pageStubs:{
- 'cmp-cas-coverage':{title:'CAS coverage and exemptions',area:'CMP',type:'concept',stage:6,status:'reviewed',asOf:'2026-10-01',lede:'When CAS applies, which thresholds trigger full or modified coverage, and what changed on 2026-10-01.'},
- 'cmp-acct-system':{title:'Accounting-system adequacy (252.242-7006)',area:'CMP',type:'clause-card',stage:6,status:'draft',asOf:'2026-10-01',lede:'Prescribed by contract type and payment method. Value alone is not a trigger.'},
+ 'cmp-cas-coverage':{title:'CAS coverage and exemptions',area:'CMP',type:'concept',stage:6,status:'reviewed',asOf:'2026-10-01',lede:'When CAS applies, which thresholds trigger full or modified coverage, and what changed on 2026-10-01.',links:['cmp-withholding','fnd-evidence-grades']},
+ 'cmp-acct-system':{title:'Accounting-system adequacy (252.242-7006)',area:'CMP',type:'clause-card',stage:6,status:'draft',asOf:'2026-10-01',lede:'Prescribed by contract type and payment method. Value alone is not a trigger.',links:['cmp-withholding','cmp-audit-playbook']},
  'cmp-audit-playbook':{title:'Audit request playbook',area:'CMP',type:'procedure',stage:6,status:'draft',asOf:'2026-10-05',lede:'Request log, evidence pointers and the questions to ask before an audit meeting.'},
  'fnd-evidence-grades':{title:'Reading a claim: four grades, three statuses',area:'FND',type:'concept',stage:1,status:'stable',asOf:'2026-10-23',lede:'Source tier, evidence grade, verification and origin are separate. Supported is not applicable.'},
  'fnd-five-measures':{title:'Five measures of a purchase',area:'FND',type:'concept',stage:1,status:'stable',asOf:'2026-10-20',lede:'Commitment, receipt, invoice, posting and payment are never summed. PO 100, invoice 40: actual 40, remaining 60.'},
@@ -1570,16 +1602,38 @@ let state={singleKeys:store.get('fieldbook.singleKeys')!=='off',precise:false,sr
 
 /* Reader pages number their source citations; the Sources part lists them. Without JS each marker is a plain anchor to its entry. */
 let CITE=null;
+function citeLetter(i){let s='';i++;while(i>0){const rem=(i-1)%26;s=String.fromCharCode(97+rem)+s;i=Math.floor((i-1)/26)}return s}
+function citeBackHtml(n,count){
+ if(!count)return '';
+ if(count===1)return `<div class="cite-back"><a href="#cite-ref-${n}-1" aria-label="Back to the citation in the text"><span aria-hidden="true">↑</span> Back to text</a></div>`;
+ const links=[];
+ for(let k=1;k<=count;k++){
+  const l=citeLetter(k-1);
+  links.push(`<a href="#cite-ref-${n}-${k}" aria-label="Back to citation ${l} of ${count} in the text">${l}</a>`);
+ }
+ return `<div class="cite-back"><span>Back to text:</span> ${links.join(' ')}</div>`;
+}
 function rich(str){
   return esc(str)
    .replace(/\{\{t:([a-z_]+)\|([^}]+)\}\}/g,(m,id,l)=>`<a href="#glossary" class="term" data-pv="term:${id}">${l}</a>`)
    .replace(/\{\{p:([a-z0-9-]+)\|([^}]+)\}\}/g,(m,id,l)=>`<a href="#page-${id}" class="plink" data-pv="page:${id}">${l}</a>`)
    .replace(/\{\{(cl?):([^}]+)\}\}/g,(m,k,c)=>{c=c.replace(/&amp;/g,'&');
      if(k==='cl'){const cl=claimBy(c),[t,i,l]=VER[cl.ver];
-      if(CITE){let n=CITE.indexOf(c)+1;if(!n)n=CITE.push(c);return `<a class="cite-n claim" href="#cite-${n}" data-claim="${c}" aria-label="Claim ${n}: ${c}, ${l}" title="${c} · ${l}">${n}</a>`}
+      if(CITE){
+       let entry=CITE.find(x=>x.key==='claim:'+c);
+       if(!entry){entry={key:'claim:'+c,kind:'claim',raw:c,count:0};CITE.push(entry)}
+       entry.count++;const n=CITE.indexOf(entry)+1,k_pos=entry.count;
+       return `<a class="cite-n claim" id="cite-ref-${n}-${k_pos}" href="#cite-${n}" data-claim="${c}" aria-label="Claim ${n}: ${c}, ${l}" title="${c} · ${l}">${n}</a>`;
+      }
       return `<button class="claim-mark ${t}" data-claim="${c}" aria-label="Claim ${c}: ${l}" title="${c} · ${l}">${icon(i)}<span>${c.replace(/^CL-/,'')}</span></button>`}
      const p=parseCite(c);const s=p&&D.sources[p.id];
-     if(CITE){let n=CITE.indexOf(c)+1;if(!n)n=CITE.push(c);return `<a class="cite-n ${s&&s.metaOnly?'meta-only':''}" href="#cite-${n}" data-cite="${esc(c)}" aria-label="Source ${n}: ${esc(c)}" title="${esc(c)}">${n}</a>`}
+     if(CITE){
+      const srcKey=p?`src:${p.id}-v${p.v}|${p.loc||''}`:'src:'+c;
+      let entry=CITE.find(x=>x.key===srcKey);
+      if(!entry){entry={key:srcKey,kind:'src',raw:c,p,s,count:0};CITE.push(entry)}
+      entry.count++;const n=CITE.indexOf(entry)+1,k_pos=entry.count;
+      return `<a class="cite-n ${s&&s.metaOnly?'meta-only':''}" id="cite-ref-${n}-${k_pos}" href="#cite-${n}" data-cite="${esc(c)}" aria-label="Source ${n}: ${esc(c)}" title="${esc(c)}">${n}</a>`;
+     }
      return `<button class="cite ${s&&s.metaOnly?'meta-only':''}" data-cite="${esc(c)}" aria-label="Citation ${esc(c)}, open source">${s&&s.metaOnly?icon('lock'):''}${esc(c)}</button>`})
    .replace(/\{\{q:(Q-\d+)\}\}/g,(m,id)=>`<a href="#questions" class="cite neutral" data-pv="q:${id}">${id}</a>`)
    .replace(/\{\{x:(XC-\d+)\}\}/g,(m,id)=>`<a href="#conflicts-${id}" class="cite neutral">${id}</a>`);
@@ -1616,6 +1670,44 @@ V.browse=()=>`<div class="page-w"><div class="h-page"><div><h1>Browse the librar
 
 function emptyArea(a){return `<div class="panel" style="padding:var(--space-6)"><b>No pages in ${esc(a.name)} yet.</b><p class="meta" style="margin-top:var(--space-1-5)">The source map lists ${a.code==='MNA'?'two':'some'} reports for this area. They stay out of default answers until a page cites them.</p><div class="chips" style="margin-top:var(--space-3)"><a class="btn sm" href="#sources">See sources for ${a.code}</a><a class="btn sm" href="#learn">Where it sits in the learn path</a></div></div>`}
 
+function relatedList(label, rows, emptyLine, key){
+ if(!rows || !rows.length){
+  return `<section class="rail-list" aria-label="${esc(label)}"><h2>${esc(label)}</h2><p class="rail-empty">${esc(emptyLine)}</p></section>`;
+ }
+ const n = rows.length;
+ const first = rows.slice(0, 10);
+ const rest = rows.slice(10);
+ const rowHtml = id => {
+  const raw = typeof id === 'object' && id !== null ? id.id : id;
+  if(raw.startsWith('brief')) return `<li><a class="plink" href="#${raw}">Brief: program-finance lead</a></li>`;
+  const p = pageBy(raw);
+  return `<li><a class="plink" href="#page-${raw}" data-pv="page:${raw}">${esc(p ? p.title : raw)}</a></li>`;
+ };
+ const fold = rest.length ? `<details class="fold"><summary><b>${rest.length} more</b></summary><ul>${rest.map(rowHtml).join('')}</ul></details>` : '';
+ return `<section class="rail-list" aria-label="${esc(label)}"><h2>${esc(label)}<span class="rail-n"> (${n})</span></h2><ul>${first.map(rowHtml).join('')}</ul>${fold}</section>`;
+}
+
+function linkedFrom(id){
+ const set = new Set();
+ const self = pageBy(id);
+ if(self && self.usedBy){
+  for(const u of self.usedBy) set.add(u);
+ }
+ const all = {...D.pageStubs, ...D.pages};
+ for(const [k, p] of Object.entries(all)){
+  if((p.usedBy && p.usedBy.includes(id)) || (p.links && p.links.includes(id))){
+   set.add(k);
+  }
+ }
+ set.delete(id);
+ const titleOf = x => x.startsWith('brief') ? 'Brief: program-finance lead' : (pageBy(x) ? pageBy(x).title : x);
+ return Array.from(set).sort((a, b) => {
+  const ta = titleOf(a).toLowerCase(), tb = titleOf(b).toLowerCase();
+  if(ta !== tb) return ta < tb ? -1 : 1;
+  return a < b ? -1 : (a > b ? 1 : 0);
+ });
+}
+
 V.page=id=>{CITE=[];try{return pageHtml(id)}finally{CITE=null}};
 const pageHtml=id=>{
  const p=D.pages[id];
@@ -1638,17 +1730,18 @@ const pageHtml=id=>{
    <div class="seg" role="group" aria-label="Wording"><button aria-pressed="${!state.precise}" data-precise="0">Plain</button><button aria-pressed="${state.precise}" data-precise="1">Plain + precise</button></div>
   </div>
   <div class="prose" id="prose">
-   ${TEMPLATE.map(([k,h])=>`<h2 id="s-${k}">${h}</h2>${k==='purpose'?p.sections.purpose.map(x=>`<p class="lede">${rich(x)}</p>`).join(''):k==='example'?calcBox(EXAMPLES[p.sections.example]):k==='sources'?sourcesBlock(claims):k==='change'?changeNote(p.change):blocks(p.sections[k])||'<p class="note">Not established.</p>'}`).join('')}
+   ${TEMPLATE.map(([k,h])=>`<h2 id="s-${k}">${h}</h2>${k==='purpose'?p.sections.purpose.map(x=>`<p class="lede">${rich(x)}</p>`).join(''):k==='example'?calcBox(EXAMPLES[p.sections.example]):k==='company'?companyBlock(p.sections.company):k==='sources'?sourcesBlock(claims):k==='change'?changeNote(p.change):blocks(p.sections[k])||'<p class="note">Not established.</p>'}`).join('')}
   </div>
   <nav aria-label="Curriculum" style="display:flex;justify-content:space-between;gap:var(--space-3);border-top:var(--border-w) solid var(--color-border);padding-top:var(--space-4);margin-top:var(--space-8);font-size:var(--text-sm)">
    <a href="#page-${p.prereq[0]}" data-pv="page:${p.prereq[0]}">← ${esc(pageBy(p.prereq[0]).title)}</a><a href="#page-${p.next}" data-pv="page:${p.next}" style="text-align:right">${esc(pageBy(p.next).title)} →</a></nav>
  </div>
  <aside class="rail" aria-label="Evidence and connections">
   <div><h2>On this page</h2><nav class="toc">${TEMPLATE.map(([k,h])=>`<a href="#s-${k}" data-toc="s-${k}">${h}</a>`).join('')}</nav></div>
-  <div><h2>Evidence · ${claims.length} claims</h2><div class="ev">${claims.map(c=>{const ex=c.src!=='—'&&excerptFor(c.src);return `<div class="ev-item" id="ev-${c.id}"><div class="chips">${verChip(c.ver)}<span class="chip id">${c.id}</span></div><p>${esc(c.text)}</p>${ex?`<blockquote class="excerpt">${esc(ex)}</blockquote>`:''}${ansMeta(c)}<div class="chips" style="margin-top:var(--space-1-5)">${appChip(c.app)}${adoptChip(c.adopt)}</div>${c.question||c.conflict?`<div class="meta" style="font-size:var(--text-xs);margin-top:var(--space-1-5)">${c.question?`Waits on <a href="#questions" data-pv="q:${c.question}">${c.question}</a>`:''}${c.question&&c.conflict?' · ':''}${c.conflict?`Conflict <a href="#conflicts-${c.conflict}">${c.conflict}</a>`:''}</div>`:''}</div>`}).join('')}</div></div>
+  ${(p.prereq&&p.prereq.length)?relatedList('Read first',p.prereq,'','read-first'):''}
+  ${relatedList('Related',p.links||[],'No related pages listed.','related')}
+  ${relatedList('Linked from',linkedFrom(id),'No page links here.','linked-from')}
   ${p.questions.length?`<div><h2>Depends on</h2><div class="mini-list">${p.questions.map(q=>{const Q=qBy(q);return `<a href="#questions" data-pv="q:${q}">${q} · ${esc(Q.text)}<small>${esc(Q.owner)} · ${Q.status}</small></a>`}).join('')}</div></div>`:''}
-  <div><h2>Linked from</h2><div class="mini-list">${p.usedBy.map(u=>u.startsWith('brief')?`<a href="#${u}">Brief: program-finance lead<small>Briefs &amp; templates</small></a>`:`<a href="#page-${u}" data-pv="page:${u}">${esc(pageBy(u).title)}<small>${areaBy(pageBy(u).area).name} · ${pageBy(u).type}</small></a>`).join('')}</div></div>
-  <div><h2>Read first</h2><div class="mini-list">${p.prereq.map(u=>`<a href="#page-${u}" data-pv="page:${u}">${esc(pageBy(u).title)}<small>Stage ${pageBy(u).stage} · ${pageBy(u).type}</small></a>`).join('')}</div></div>
+  <div><h2>Evidence · ${claims.length} claims</h2><div class="ev">${claims.map(c=>{const ex=c.src!=='—'&&excerptFor(c.src);return `<div class="ev-item" id="ev-${c.id}"><div class="chips">${verChip(c.ver)}<span class="chip id">${c.id}</span></div><p>${esc(c.text)}</p>${ex?`<blockquote class="excerpt">${esc(ex)}</blockquote>`:''}${ansMeta(c)}<div class="chips" style="margin-top:var(--space-1-5)">${appChip(c.app)}${adoptChip(c.adopt)}</div>${c.question||c.conflict?`<div class="meta" style="font-size:var(--text-xs);margin-top:var(--space-1-5)">${c.question?`Waits on <a href="#questions" data-pv="q:${c.question}">${c.question}</a>`:''}${c.question&&c.conflict?' · ':''}${c.conflict?`Conflict <a href="#conflicts-${c.conflict}">${c.conflict}</a>`:''}</div>`:''}</div>`}).join('')}</div></div>
  </aside></article>`;
 };
 function conflictBox(id,full){const x=D.conflicts[id];const open=x.status==='unresolved';
@@ -1664,9 +1757,19 @@ const EXAMPLES={
 function calcBox(ex){if(!ex)return '<p class="note">Not established.</p>';return `<div class="calc"><div class="table-wrap" style="border:0;border-radius:0"><table><caption>${esc(ex.caption)}</caption><thead><tr>${ex.cols.map((c,i)=>`<th scope="col"${i?' style="text-align:right"':''}>${c}</th>`).join('')}</tr></thead><tbody>
  ${ex.rows.map(r=>`<tr>${r.map((v,i)=>i?`<td class="num">${v}</td>`:`<td>${v}</td>`).join('')}</tr>`).join('')}
  </tbody></table></div><div class="calc-foot"><span>Computed by the calc core, not a model</span><span>Decimal · 2 dp · half-even</span><span>${ex.foot[0]} · <span style="color:var(--color-ok)">${icon('check')} passes</span></span>${ex.foot.slice(1).map(f=>`<span>${f}</span>`).join('')}</div></div>`}
+function companyBlock(sec){
+ if(!sec||!sec.length)return '<p class="note">Not established.</p>';
+ const body=blocks(sec);
+ if(!body)return '<p class="note">Not established.</p>';
+ const qs=new Set(JSON.stringify(sec).match(/Q-\d+/g)||[]);
+ const n=qs.size;
+ const meta=n===1?'1 to settle with company data':(n>1?n+' to settle with company data':'');
+ const open=typeof document!=='undefined'&&document.body&&document.body.dataset.store==='company';
+ return `<details class="fold company-fold"${open?' open':''}><summary><b>Company questions</b>${meta?` <span class="meta">${meta}</span>`:''}</summary>${body}</details>`;
+}
 /* Part 7: the page lists claim ids only; the reader resolves each one to its citation and verification. */
-function sourcesBlock(claims){return `${CITE&&CITE.length?`<ol class="cite-list" aria-label="Sources cited on this page">${CITE.map((c,i)=>{if(/^CL-/.test(c)){const cl=claimBy(c),[vt,vi,vl]=VER[cl.ver];return `<li id="cite-${i+1}"><button class="claim-mark ${vt}" data-claim="${c}" aria-label="Claim ${c}: ${vl}" title="${c} · ${vl}">${icon(vi)}<span>${c.replace(/^CL-/,'')}</span></button> ${esc(cl.text)} <span class="meta">${cl.src!=='—'?'Cites '+esc(cl.src):'No source yet'}</span></li>`}
-  const p=parseCite(c);const s=p&&D.sources[p.id];return `<li id="cite-${i+1}"><button class="cite" data-cite="${esc(c)}">${esc(c)}</button> ${s?esc(s.title):'Not in the library'}</li>`}).join('')}</ol>`:''}<div class="table-wrap src-claims"><table><caption class="sr-only">Claims cited on this page</caption><thead><tr><th scope="col">Claim</th><th scope="col">Verification</th><th scope="col">Cites</th><th scope="col" class="hide-sm">Verified</th></tr></thead><tbody>
+function sourcesBlock(claims){return `${CITE&&CITE.length?`<ol class="cite-list" aria-label="Sources cited on this page">${CITE.map((it,i)=>{const n=i+1,kind=it.kind||(/^CL-/.test(it)?'claim':'src'),raw=it.raw||it,count=it.count||1;if(kind==='claim'){const cl=claimBy(raw),[vt,vi,vl]=VER[cl.ver];return `<li id="cite-${n}"><button class="claim-mark ${vt}" data-claim="${raw}" aria-label="Claim ${raw}: ${vl}" title="${raw} · ${vl}">${icon(vi)}<span>${raw.replace(/^CL-/,'')}</span></button> ${esc(cl.text)} <span class="meta">${cl.src!=='—'?'Cites '+esc(cl.src):'No source yet'}</span>${citeBackHtml(n,count)}</li>`}
+  const p=it.p||parseCite(raw);const s=it.s||(p&&D.sources[p.id]);return `<li id="cite-${n}"><button class="cite" data-cite="${esc(raw)}">${esc(raw)}</button> ${s?esc(s.title):'Not in the library'}${citeBackHtml(n,count)}</li>`}).join('')}</ol>`:''}<div class="table-wrap src-claims"><table><caption class="sr-only">Claims cited on this page</caption><thead><tr><th scope="col">Claim</th><th scope="col">Verification</th><th scope="col">Cites</th><th scope="col" class="hide-sm">Verified</th></tr></thead><tbody>
  ${claims.map(c=>`<tr><td class="mono" style="white-space:nowrap"><button class="cite" data-claim="${c.id}">${c.id}</button></td><td>${verChip(c.ver)}</td><td>${c.src!=='—'?`<button class="cite" data-cite="${esc(c.src)}">${esc(c.src)}</button>`:'<span class="meta">None</span>'}</td><td class="hide-sm">${c.verified_on?`<time datetime="${c.verified_on}">${c.verified_on}</time> <span class="meta">(${ageText(c.verified_on)})</span>`:'<span class="meta">Never</span>'}</td></tr>`).join('')}
  </tbody></table></div>`}
 function changeNote(ch){return ch?`<p class="change"><span class="chip">${esc(ch.cls)}</span><time datetime="${ch.on}">${ch.on}</time> ${rich(ch.text)}</p>`:'<p class="note">Not established.</p>'}
@@ -1751,7 +1854,12 @@ V.states=()=>`<div class="page-w"><div class="h-page"><div><h1>States gallery</h
  <div class="state-grid">
   ${stateCard('Search · nothing found','Not established in the library',`<div class="not-est" style="padding:0"><b>No page, claim or term matches “7012 cyber incident reporting”.</b><p class="note">That means the library has no record, not that the rule does not exist.</p><div class="chips"><button class="btn sm primary">${icon('spark')}Ask</button>${cmd('fieldbook new question --confirm-public --area cmp "7012 cyber incident reporting"','Add to company questions')}</div></div>`)}
   ${stateCard('Page · superseded','Banner on any superseded page or source',`<div class="banner warn" style="margin:0">${icon('clock')}<div><b>Superseded on 2026-03-13.</b> FAR 15.403-4 v1 was replaced by v2. Claims citing v1 are now stale. <a href="#page-est-tina-thresholds">Open the current page</a></div></div>`)}
-  ${stateCard('Page · review overdue','review_by has passed',`<div class="banner warn" style="margin:0">${icon('alert')}<div><b>Review was due 2026-10-01.</b> Three load-bearing claims have not been re-checked since the source changed. The page stays readable.</div></div>${cmd('fieldbook verify CL-EST-0004 --on 2026-10-23','Record the re-check')}`)}
+  ${stateCard('Page · review overdue (released edition)','Shown only on a released edition (hidden at build, shown by app.js when the viewer\'s date is past review_by)',`<div class="banner warn" style="margin:0">${icon('alert')}<div><b>Review was due 2026-10-01.</b> Three load-bearing claims have not been re-checked since the source changed. The page stays readable.</div></div>${cmd('fieldbook verify CL-EST-0004 --on 2026-10-23','Record the re-check')}`)}
+  ${stateCard('Build status · unreleased','No overdue banner is written on pages of an unreleased build',`<div class="banner-stack"><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 980 of 1,000 claims are AI-drafted; 940 of 1,000 are unchecked. 52 of 1,000 have been checked and found supported. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 1,000 of 1,000 claims are AI-drafted; 1,000 of 1,000 are unchecked. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> No claims recorded. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div></div>`)}
+  ${stateCard('Frame · unbuilt sections','Build with omitted sections (Today, Areas, Library built)',`<p class="note">Unbuilt tabs are omitted from the top bar and section switch; unbuilt items sit in a closed “Not built yet” disclosure in the sidebar.</p><div class="chips"><a class="btn sm" href="#frame/unbuilt">Open unbuilt navigation specimen</a></div>`)}
+  ${stateCard('Rail · related and linked-from lists','Filled, capped with an overflow fold, and empty',`<div class="rail-spec">${relatedList('Related',Object.keys({...D.pages,...D.pageStubs}).slice(0,3),'No related pages listed.','related')}${relatedList('Linked from',Object.keys({...D.pages,...D.pageStubs}).slice(0,13),'No page links here.','linked-from')}${relatedList('Related',[],'No related pages listed.','related')}${relatedList('Linked from',[],'No page links here.','linked-from')}</div>`)}
+  ${stateCard('Sources · back-references','Static specimen with one marker and three markers',`<ol class="cite-list"><li id="cite-spec-1"><button class="claim-mark ok" data-claim="CL-CMP-0012" aria-label="Claim CL-CMP-0012: primary source supported" title="CL-CMP-0012 · primary source supported">${icon('check')}<span>CMP-0012</span></button> Withholding is 5% per system with a material weakness, 10% in total, reducible to 2% with an accepted corrective action plan. <span class="meta">Cites S-0107-v1, (e)(1)</span><div class="cite-back"><a href="#cite-ref-1-1" aria-label="Back to the citation in the text"><span aria-hidden="true">↑</span> Back to text</a></div></li><li id="cite-spec-2"><button class="cite" data-cite="S-0107-v1, (e)(1)">S-0107-v1, (e)(1)</button> DFARS 252.242-7005 Contractor Business Systems<div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-2-1" aria-label="Back to citation a of 3 in the text">a</a> <a href="#cite-ref-2-2" aria-label="Back to citation b of 3 in the text">b</a> <a href="#cite-ref-2-3" aria-label="Back to citation c of 3 in the text">c</a></div></li></ol>`)}
+  ${stateCard('Company calibration · folded','Closed by default on public views, open in company view',`<details class="fold company-fold"><summary><b>Company questions</b> <span class="meta">2 to settle with company data</span></summary><p>Not established. Two questions settle whether this page applies:</p><ul><li>Is any company contract CAS-covered? <a href="#questions" class="cite neutral" data-pv="q:Q-027">Q-027</a></li><li>Does the company claim nontraditional defense contractor status? <a href="#questions" class="cite neutral" data-pv="q:Q-028">Q-028</a></li></ul><p>Until both are answered, this page stays pending company confirmation.</p></details><details class="fold company-fold" open><summary><b>Company questions</b> <span class="meta">2 to settle with company data</span></summary><p>Not established. Two questions settle whether this page applies:</p><ul><li>Is any company contract CAS-covered? <a href="#questions" class="cite neutral" data-pv="q:Q-027">Q-027</a></li><li>Does the company claim nontraditional defense contractor status? <a href="#questions" class="cite neutral" data-pv="q:Q-028">Q-028</a></li></ul><p>Until both are answered, this page stays pending company confirmation.</p></details>`)}
   ${stateCard('Day chip · not remembered','localStorage refused: private window or policy',`<div class="banner neutral" style="margin:0">${icon('clock')}<div><b>Not remembered in this browser.</b> The start date works for this visit only. Enter it again next time.</div></div>`)}
   ${stateCard('Ask · citation check fails','Nothing verifies; cite-check exits 1',`<div class="banner bad" style="margin:0">${icon('x')}<div><b>Do not use this answer.</b> Nothing in it verifies against the library. Fix the citations, or ask again with a narrower question.</div></div>`)}
   ${stateCard('Source · tier D','authority_tier D',`<div class="banner info" style="margin:0">${icon('alert')}<div><b>Tier D source.</b> Left out of context packs by default. Claims that cite it stay unchecked until each one is traced to a tier A or B source. The research reports are not sources at all.</div></div>`)}
@@ -2732,7 +2840,14 @@ const DESK_SAMPLE={
 };
 V.desk=(kind,mode='ready')=>{const d=DESK_SAMPLE[kind];if(!d)return notFound();return `<div class="page-w"><div class="h-page"><div><div class="eyebrow">Desk · synthetic snapshot</div><h1>${d.title}</h1><p class="meta">Source: ${d.source} · Written 2000-01-01 12:00 UTC</p></div></div><nav class="chips" aria-label="Desk pages">${Object.entries(DESK_SAMPLE).map(([k,v])=>`<a class="btn sm" href="#desk/${k}" ${k===kind?'aria-current="page"':''}>${v.title}</a>`).join('')}</nav>
  ${cmdPanel([['Refresh snapshot','fieldbook status --page']])}<section class="panel"><div class="panel-h"><h2>${mode==='ready'?d.summary:mode==='missing'?d.empty:d.title+' unavailable'}</h2></div><div class="panel-b">${mode==='ready'?`<div class="table-wrap"><table><caption>${d.title} · recorded report</caption><thead><tr>${d.heads.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${d.rows.map(r=>`<tr>${r.map(v=>`<td>${esc(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:mode==='missing'?'<p>No source is recorded. Refresh after running the source command.</p>':'<p>Read failed. No counts or successful verification are inferred.</p>'}</div></section>${cmdPanel(d.commands)}<details class="fold"><summary>Preview source states</summary><p><a href="#desk/${kind}/ready">Recorded report</a> · <a href="#desk/${kind}/missing">Missing source</a> · <a href="#desk/${kind}/unavailable">Unavailable source</a></p></details></div>`};
-V.frame=(kind)=>`<div class="page-w"><div class="h-page"><div><div class="eyebrow">Frame · synthetic view</div><h1>${kind==='public'?'Public edition':'Company view'}</h1><p>Source context follows the selected store. These values are synthetic.</p></div></div><nav class="chips" aria-label="Frame states"><a class="btn sm" href="#frame/public">Public edition</a><a class="btn sm" href="#frame/company">Company storage</a><a class="btn sm" href="#frame/company-marked">Local marked view</a></nav>${kind==='public'?'':`<div class="banner warn" role="status">${icon('lock')}<div><b>Handling: ${kind==='company-marked'?'marked':'np-0007'}</b><p>Company storage. Local view; no outward permission is implied.</p></div></div>`}<section class="panel"><div class="panel-h"><h2>Estimate evidence</h2></div><div class="panel-b"><div class="table-wrap"><table><caption>Synthetic company calculation</caption><thead><tr><th>Field</th><th>Value</th><th>Evidence</th></tr></thead><tbody><tr><td>Unit estimate</td><td>42.00 USD</td><td>Judgment · rationale recorded</td></tr><tr><td>Quantity</td><td>10</td><td>Quoted · source cell</td></tr><tr><td>Extended estimate</td><td>420.00 USD</td><td>Computed · stored run</td></tr></tbody></table></div></div></section></div>`;
+V.frame=(kind)=>{
+ if(kind==='unbuilt')return V.frameUnbuilt();
+ return `<div class="page-w"><div class="h-page"><div><div class="eyebrow">Frame · synthetic view</div><h1>${kind==='public'?'Public edition':'Company view'}</h1><p>Source context follows the selected store. These values are synthetic.</p></div></div><nav class="chips" aria-label="Frame states"><a class="btn sm" href="#frame/public">Public edition</a><a class="btn sm" href="#frame/company">Company storage</a><a class="btn sm" href="#frame/company-marked">Local marked view</a><a class="btn sm" href="#frame/unbuilt">Unbuilt sections</a></nav>${kind==='public'?'':`<div class="banner warn" role="status">${icon('lock')}<div><b>Handling: ${kind==='company-marked'?'marked':'np-0007'}</b><p>Company storage. Local view; no outward permission is implied.</p></div></div>`}<section class="panel"><div class="panel-h"><h2>Estimate evidence</h2></div><div class="panel-b"><div class="table-wrap"><table><caption>Synthetic company calculation</caption><thead><tr><th>Field</th><th>Value</th><th>Evidence</th></tr></thead><tbody><tr><td>Unit estimate</td><td>42.00 USD</td><td>Judgment · rationale recorded</td></tr><tr><td>Quantity</td><td>10</td><td>Quoted · source cell</td></tr><tr><td>Extended estimate</td><td>420.00 USD</td><td>Computed · stored run</td></tr></tbody></table></div></div></section></div>`;
+};
+function unbuiltSpecimen(isOpen){
+ return `<div class="frame-spec"><header class="topbar"><button class="btn ghost icon-btn menu-btn" aria-label="Open navigation"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button><nav class="sections" aria-label="Sections"><a href="#today" data-sec="today">Today</a><a href="#areas" data-sec="areas">Areas</a><a href="#browse" data-sec="library" aria-current="true">Library</a></nav><div class="grow"></div><button class="searchbox" aria-label="Search the library"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span>Clause, term, page, decision or id…</span><kbd>Ctrl K</kbd></button><button class="chip solid day-chip">Day</button><a class="build-date-link" href="#about" aria-label="Build date: 2026-10-24. Open about page."><span class="chip">2026-10-24</span></a><span class="build-chip" title="This build reads the public library only. Company data is not connected."><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Public data only</span><span class="proto-flag">Prototype</span><button class="btn ghost icon-btn" aria-label="Switch theme"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></button><button class="btn primary ask-btn"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><span class="lbl">Ask</span><kbd>.</kbd></button></header><div class="frame-spec-inner"><aside class="sidebar" aria-label="Navigation"><div class="brand"><div class="brand-mark" aria-hidden="true">F</div><div><b>Fieldbook</b><small>Finance role workbench</small></div></div><div class="nav-group" data-sec="library"><div class="nav-label">Library</div><nav class="nav" aria-label="Library"><a href="#browse" data-nav="browse"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Browse</a><a href="#claims" data-nav="claims"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Claims<span class="count">186</span></a><a href="#questions" data-nav="questions"><svg class="i" aria-hidden="true"><use href="#i-q"/></svg>Questions<span class="count">24</span></a><a href="#conflicts" data-nav="conflicts"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg>Conflicts<span class="count">4</span></a><a href="#glossary" data-nav="glossary"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Glossary<span class="count">150</span></a><a href="#sources" data-nav="sources"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg>Sources<span class="count">11</span></a><a href="#feeds" data-nav="feeds"><svg class="i" aria-hidden="true"><use href="#i-feed"/></svg>Feeds<span class="count">10</span></a></nav></div><details class="fold nav-more"${isOpen?' open':''}><summary><b>Not built yet</b> <span class="meta">· 8</span></summary><div class="fold-b"><div class="nav-sub" role="presentation">Assistant</div><p class="nav-line">Assistant is not available until Release 2.</p><div class="nav-sub" role="presentation">Work</div><p class="nav-line">Work is not available until the ORG overlay, Release 2 or later.</p><p class="nav-line">Bids is not available until the ORG overlay, Release 2 or later.</p><p class="nav-line">Estimates are not available until Release 2.</p><p class="nav-line"><code>ORG</code> Projects are not available until the ORG overlay, Release 2 or later.</p><p class="nav-line">Decisions are not available until Release 2.</p><div class="nav-sub" role="presentation">Plan</div><p class="nav-line">Plan is not available until Release 2.</p><p class="nav-line">Cycles are not available until the cycle register joins the content format.</p></div></details><div class="side-foot"><p class="build-note"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><span><b>Public data only.</b> Company data is not connected.</span></p><button class="btn ghost sm keys-link" type="button">Keyboard shortcuts <kbd>?</kbd></button><p class="byline">A personal working tool. Not an official company product.</p></div></aside><div class="main-spec"><div class="h-page"><div><div class="eyebrow">Specimen · Library</div><h2>Browse library</h2><p>Only three sections are built in this build view: Today, Areas, Library.</p></div></div></div></div></div>`;
+}
+V.frameUnbuilt=()=>`<div class="page-w"><div class="h-page"><div><div class="eyebrow">Frame · synthetic view</div><h1>Frame · unbuilt sections</h1><p>Specimens of an app build with only three sections built (Today, Areas, Library). Dead tabs are omitted from top bar and section switch; unbuilt items sit in the "Not built yet" disclosure.</p></div></div><nav class="chips" aria-label="Frame states"><a class="btn sm" href="#frame/public">Public edition</a><a class="btn sm" href="#frame/company">Company storage</a><a class="btn sm" href="#frame/company-marked">Local marked view</a><a class="btn sm" href="#frame/unbuilt" aria-current="page">Unbuilt sections</a></nav><section class="panel"><div class="panel-h"><h2>Closed (default)</h2></div><div class="panel-b">${unbuiltSpecimen(false)}</div></section><section class="panel"><div class="panel-h"><h2>Open</h2></div><div class="panel-b">${unbuiltSpecimen(true)}</div></section><section class="panel"><div class="panel-h"><h2>Narrow (below 960px) section switch</h2></div><div class="panel-b"><p class="note">Below 960px, the section switch shows only the 3 built options (Today, Areas, Library):</p><div class="spec-narrow"><div class="sec-switch" role="group" aria-label="Sections"><button type="button" data-secpick="today" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Today</button><button type="button" data-secpick="areas" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Areas</button><button type="button" data-secpick="library" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Library</button></div></div></div></section></div>`;
 function paintFrameContext(kind){
  const company=kind!=='public',labels=kind==='company-marked'?'marked':'np-0007';
  const chip=document.getElementById('frameChip'),foot=document.getElementById('frameFoot');
@@ -2747,8 +2862,10 @@ function showSec(sec){$$('.sidebar [data-sec]').forEach(g=>g.hidden=g.dataset.se
 function route(){
  const h=(location.hash||'#today').slice(1)||'today';
  let html,crumb=[],nav=h,title,focusId;
- if(h.startsWith('frame/')){const kind=h.split('/')[1];html=V.frame(kind);nav='states';title='Frame states'}
+ if(h==='frame/unbuilt'||h==='frameUnbuilt'){html=V.frameUnbuilt();nav='states';title='Frame · unbuilt sections'}
+ else if(h.startsWith('frame/')){const kind=h.split('/')[1];html=V.frame(kind);nav='states';title='Frame states'}
  else if(h==='areas'||h==='browse'){html=V.today();nav='today';title='Today';focusId='areas'}
+ else if(h.startsWith('source/')||h.startsWith('s/')){const id=h.split('/')[1]||'S-0107';html=V.sources();nav='sources';title='Sources';setTimeout(()=>openSource(id),0)}
  else if(h.startsWith('desk/')){const [,kind,mode]=h.split('/');html=V.desk(kind,mode);nav='states';title=DESK_SAMPLE[kind]?.title||'Desk';crumb=[[null,title]]}
  else if(h.startsWith('queue/')){const id=h.split('/')[1],found=QUEUE_SAMPLE.some(p=>p.id===id);html=V.queueDetail(id);nav='queue';if(found)title='Proposal detail';else crumb=[[null,'Not found']]}
  else if(h.startsWith('page-')){const id=h.slice(5);html=V.page(id);const p=pageBy(id);if(p){const a=areaBy(p.area);crumb=[[`#area-${a.code.toLowerCase()}`,a.name],[null,p.title]];title=p.title;nav='area-'+a.code.toLowerCase()}}
@@ -3004,6 +3121,24 @@ function closeCtx(quiet){
  if(bar&&bar.isConnected){bar.setAttribute('aria-expanded','false');if(!quiet)bar.focus()}
 }
 
+const PUBLISHERS=['www.ecfr.gov'];
+const isListedPublisher=loc=>{if(!loc||typeof loc!=='string')return false;try{return PUBLISHERS.includes(new URL(loc).hostname)}catch(e){return false}};
+const publisherHost=loc=>{try{return new URL(loc).hostname.replace(/^www\./,'')}catch(e){return 'ecfr.gov'}};
+function locationHtml(s){
+ if(!s||!s.location)return '<span class="meta">None recorded</span>';
+ const loc=s.location;
+ if(isListedPublisher(loc))return `<span class="loc-wrap"><a class="ext-link" href="${esc(loc)}" target="_blank" rel="noopener noreferrer">${esc(loc)}<span class="vh">, official publisher, opens in a new tab</span>${icon('ext')}</a><button class="btn ghost sm" data-copy-loc="${esc(loc)}" aria-label="Copy location: ${esc(loc)}">${icon('copy')}Copy</button></span>`;
+ return `<span class="loc-wrap"><span class="mono">${esc(loc)}</span><button class="btn ghost sm" data-copy-loc="${esc(loc)}" aria-label="Copy location: ${esc(loc)}">${icon('copy')}Copy</button></span>`;
+}
+function locatorRow(s,p,k,v){
+ const isTarget=p.loc&&k===p.loc;
+ const isSec=/^(?:§|sec\.|para\.)/i.test(k.trim());
+ const listed=isListedPublisher(s.location);
+ const host=listed?publisherHost(s.location):'';
+ const linkHtml=(listed&&isSec)?`<a class="ext-link" href="${esc(s.location)}" target="_blank" rel="noopener noreferrer">${esc(host)}<span class="vh">, ${esc(k)} at the official publisher, opens in a new tab</span>${icon('ext')}</a>`:'';
+ return `<div class="locator-row"><span class="locator-row-text"><span class="ln">${esc(k)}</span>${isTarget?`<mark>${esc(v)}</mark>`:esc(v)}</span>${linkHtml}</div>`;
+}
+
 /* ======================= Source drawer ======================= */
 function openSource(raw,fromAsk){
  const p=parseCite(raw)||{id:raw.split('@')[0],v:1,loc:''};const s=D.sources[p.id];
@@ -3018,8 +3153,8 @@ function openSource(raw,fromAsk){
   ${stale?`<div class="banner warn" style="margin:0">${icon('clock')}<div><b>You are citing v${p.v}; v${s.v} is current.</b> ${esc(s.supersededNote||'')}</div></div>`:''}
   ${s.generated?`<div class="banner info" style="margin:0">${icon('spark')}<div><b>Generated synthesis.</b> Useful for leads, never as evidence. Claims from it stay unchecked until traced.</div></div>`:''}
   ${s.metaOnly?`<div class="banner neutral" style="margin:0">${icon('lock')}<div><b>Metadata only.</b> The licence forbids storing this text. Open your licensed copy at ${esc(p.loc||'the cited paragraph')}.</div></div>`:
-  `<div><div class="eyebrow" style="margin-bottom:var(--space-1-5)">Excerpt at ${esc(p.loc||'start')} · ${effectiveFor(raw)}</div><div class="locator-view">${p.loc&&s.locators[p.loc]?`<div><span class="ln">${p.loc}</span><mark>${esc(s.locators[p.loc])}</mark></div>`:''}${Object.entries(s.locators).filter(([k])=>k!==p.loc).slice(0,3).map(([k,v])=>`<div><span class="ln">${k}</span>${esc(v)}</div>`).join('')||'<span class="meta">Text extract appears here, scrolled to the locator.</span>'}</div><p class="note" style="margin-top:var(--space-1-5)">Sample excerpt for the prototype. The build shows the stored extract with page, heading or line locators.</p></div>`}
-  <dl class="kv"><dt>Authority</dt><dd>${esc(s.authority)} · tier ${s.tier}</dd><dt>Role</dt><dd>${esc(s.role)}</dd><dt>Effective</dt><dd>${s.effective}</dd><dt>Retrieved</dt><dd>${s.retrieved}</dd><dt>Versions</dt><dd>${s.versions.map(v=>'v'+v+(v<s.v?' (superseded)':'')).join(', ')}</dd><dt>SHA-256</dt><dd class="mono">${esc(s.hash)}</dd><dt>Last verified</dt><dd>${(()=>{const cs=D.claims.filter(c=>parseCite(c.src)&&parseCite(c.src).id===p.id);const lv=lastVerified(cs);const who=lv&&cs.find(c=>c.verified_on===lv);return lv?`<time datetime="${lv}">${lv}</time> <span class="age">(${ageText(lv)})</span> · ${esc(who.verified_by_role)}`:'<span class="unver">Never verified</span>'})()}</dd><dt>Cited by</dt><dd>${D.claims.filter(c=>parseCite(c.src)&&parseCite(c.src).id===p.id).map(c=>`<div>${c.id} · ${VER[c.ver][2]}</div>`).join('')||'No claims yet'}</dd><dt>Used by</dt><dd>${D.assumptions.filter(x=>parseCite(x.src)&&parseCite(x.src).id===p.id).map(x=>`<div><a href="#decision-${x.dp.toLowerCase()}">${x.id}</a> · ${x.dp} v${x.ver} · ${esc(x.effect)}</div>`).join('')||'No assumptions or decisions'}</dd></dl>`;
+  `<div><div class="eyebrow" style="margin-bottom:var(--space-1-5)">Excerpt at ${esc(p.loc||'start')} · ${effectiveFor(raw)}</div><div class="locator-view">${(()=>{const ent=Object.entries(s.locators||{});if(!ent.length)return '<span class="meta">Text extract appears here, scrolled to the locator.</span>';if(p.loc&&s.locators[p.loc]){return locatorRow(s,p,p.loc,s.locators[p.loc])+ent.filter(([k])=>k!==p.loc).map(([k,v])=>locatorRow(s,p,k,v)).join('')}return ent.map(([k,v])=>locatorRow(s,p,k,v)).join('')})()}</div><p class="note" style="margin-top:var(--space-1-5)">Sample excerpt for the prototype. The build shows the stored extract with page, heading or line locators.</p></div>`}
+  <dl class="kv"><dt>Authority</dt><dd>${esc(s.authority)} · tier ${s.tier}</dd><dt>Role</dt><dd>${esc(s.role)}</dd><dt>Location</dt><dd>${locationHtml(s)}</dd><dt>Effective</dt><dd>${s.effective}</dd><dt>Retrieved</dt><dd>${s.retrieved}</dd><dt>Versions</dt><dd>${s.versions.map(v=>'v'+v+(v<s.v?' (superseded)':'')).join(', ')}</dd><dt>SHA-256</dt><dd class="mono">${esc(s.hash)}</dd><dt>Last verified</dt><dd>${(()=>{const cs=D.claims.filter(c=>parseCite(c.src)&&parseCite(c.src).id===p.id);const lv=lastVerified(cs);const who=lv&&cs.find(c=>c.verified_on===lv);return lv?`<time datetime="${lv}">${lv}</time> <span class="age">(${ageText(lv)})</span> · ${esc(who.verified_by_role)}`:'<span class="unver">Never verified</span>'})()}</dd><dt>Cited by</dt><dd>${D.claims.filter(c=>parseCite(c.src)&&parseCite(c.src).id===p.id).map(c=>`<div>${c.id} · ${VER[c.ver][2]}</div>`).join('')||'No claims yet'}</dd><dt>Used by</dt><dd>${D.assumptions.filter(x=>parseCite(x.src)&&parseCite(x.src).id===p.id).map(x=>`<div><a href="#decision-${x.dp.toLowerCase()}">${x.id}</a> · ${x.dp} v${x.ver} · ${esc(x.effect)}</div>`).join('')||'No assumptions or decisions'}</dd></dl>`;
  $('#srcFoot').innerHTML=`<button class="btn" data-copy-cite="${esc(raw)}">${icon('copy')}Copy citation</button>${s.metaOnly?'':`<button class="btn ghost" data-toast="Opens the stored original in the default viewer.">${icon('ext')}Open original</button>`}`;
  }
  $('#srcDrawer').classList.add('on');$('#srcDrawer').setAttribute('aria-modal',String(innerWidth<1280));document.body.classList.add('docked');if(innerWidth<1280)$('#scrim').classList.add('on');
@@ -3072,6 +3207,7 @@ document.addEventListener('click',e=>{
  if(t.dataset.copyLink)return copy(location.href,'Link copied');
  if(t.dataset.copyCite)return copy('['+t.dataset.copyCite+']','Citation copied');
  if(t.dataset.copyCmd)return copy(t.dataset.copyCmd,'Command copied. Run it in a terminal.');
+ if(t.dataset.copyLoc)return copy(t.dataset.copyLoc,'Location copied');
  if(t.dataset.toast){e.preventDefault();return toast(t.dataset.toast)}
  if(t.dataset.claimGo){const c=claimBy(t.dataset.claimGo);location.hash='#page-'+c.page;return}
  if(t.dataset.cf){state.claimFilter=t.dataset.cf;$('#main').innerHTML=V.claims();return}
@@ -3136,8 +3272,8 @@ function keysHtml(){const k=[['/ or Ctrl K','Search'],['.','Ask'],['?','This lis
  <p class="note" style="margin:0">Turn them off if they clash with a screen reader or another tool. Ctrl K, Ctrl Enter and Esc always work.${state.keysNotSaved?' <b>Not remembered in this browser.</b>':''}</p>`}
 function openKeys(){openDlg('Keyboard shortcuts',keysHtml())}
 /* A chart prints its value table open and the screen keeps its own collapse, restored when printing ends (section 12). */
-addEventListener('beforeprint',()=>{$$('details[data-chart-values]').forEach(d=>{d.dataset.wasOpen=d.open?'1':'0';d.open=true});buildPrintFrame()});
-addEventListener('afterprint',()=>{$$('details[data-chart-values]').forEach(d=>{if(d.dataset.wasOpen!==undefined){d.open=d.dataset.wasOpen==='1';delete d.dataset.wasOpen}});clearPrintFrame()});
+addEventListener('beforeprint',()=>{$$('details[data-chart-values], details.company-fold').forEach(d=>{d.dataset.wasOpen=d.open?'1':'0';d.open=true});buildPrintFrame()});
+addEventListener('afterprint',()=>{$$('details[data-chart-values], details.company-fold').forEach(d=>{if(d.dataset.wasOpen!==undefined){d.open=d.dataset.wasOpen==='1';delete d.dataset.wasOpen}});clearPrintFrame()});
 /* Paper is one real table: its tfoot carries the identity and check line and its rows are the natural blocks of the page
    the reader is looking at. The rows are read from the live main, so there is one content model, and printing copies that
    content into the frame and removes the frame again: route, version, sort, dialogs, folds and focus are never touched.

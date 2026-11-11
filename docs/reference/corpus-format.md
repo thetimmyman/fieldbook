@@ -38,6 +38,8 @@ Check codes are stable. A check's message may be improved without a version chan
 
 The pre-`edition-001` [ADR 0002 amendment](../decisions/0002-corpus-format-v1.md#amendment-five-digit-claim-continuation-pre-edition-001) folds five-digit public claim continuation (`10000` to `99999`) and numeric-within-area `claims.csv` ordering into `schema_version = 1` before any reader or edition ships: every four-digit claim id and its relative sort order stay unchanged, so no existing file needs rewriting.
 
+The pre-`edition-001` [ADR 0002 amendment on the review date basis](../decisions/0002-corpus-format-v1.md#amendment-review-date-basis-pre-edition-001) changes the meaning of a page's computed `review_by` (it counts from the later of `as_of` and the newest Change note date) and folds into `schema_version = 1` the same way: no file is rewritten.
+
 **How a bump ships.**
 - Before R2, the bump ships with a one-off migration, `cargo xtask migrate-<from>-to-<to>`, in the same pull request. It runs once, at home, and is deleted by a later card. A test runs it on the `corpus-mini` fixture and compares the result with a committed expected tree.
 - From R2, bumps are batched into planned tool releases. `fieldbook migrate` rewrites a Corpus or a company store in place, is idempotent, and is the only command that changes `schema_version`.
@@ -406,7 +408,7 @@ volatility = "V1"
 | Field | Computed from | Meaning |
 |---|---|---|
 | `claims` | The citations in the body | The claim ids the body cites, sorted, once each. The reader shows them as the page's evidence |
-| `review_by` | `as_of` and `volatility` | The date by which a person should look at the page again; see [Dates, supersession, handling and labels](#dates-supersession-handling-and-labels) |
+| `review_by` | `as_of`, the newest Change note date and `volatility` | The date by which a person should look at the page again; see [Dates, supersession, handling and labels](#dates-supersession-handling-and-labels) |
 
 **Page types.** Eight types carry the eight parts of [Strings](#strings), in order. A `brief` carries the six `brief` parts. A `note` (Day 30) has no fixed parts. The parts are level-2 headings. `check` reports a missing, misspelt, repeated, reordered or extra `##` heading, and any `#` heading (FB0130).
 
@@ -1114,7 +1116,7 @@ Every date is an ISO 8601 calendar date, `YYYY-MM-DD`. There are no times and no
 | `V3` | 365 days | Definitions, arithmetic, standards text |
 
 - A claim's `review_by` is the later known value of its `as_of` and its `verified_on`, plus the interval of its `volatility`; if both are absent, `review_by` is unknown. Date comparisons use known dates only, including the oldest cited date for FB0118.
-- A page's `review_by` is its `as_of` plus the interval of its volatility: the page's `volatility` field, else the most volatile class among the claims it cites, else `V3`.
+- A page's `review_by` is the later of its `as_of` and the date of its newest valid Change note entry, plus the interval of its volatility: the page's `volatility` field, else the most volatile class among the claims it cites, else `V3`. A valid entry has a known class, a real calendar date and a sentence; any other line is not read here (FB0114 and FB0137 report it), and a page with no valid entry counts from its `as_of`. The order of the entries is not read: the newest date wins. [ADR 0002](../decisions/0002-corpus-format-v1.md#amendment-review-date-basis-pre-edition-001) records the change.
 - For a known base date, a computed `review_by` past `9999-12-31` saturates at that date. This rule does not fill missing date parts or change the calculation core's checked `add_days` behavior.
 - Four findings depend on today's date: a page or claim `as_of` later than today (FB0116, FB0220) and a page or claim `review_by` that has passed (FB0117, FB0221). They are warnings, and they never fail `check`, not even under `--strict`: a commit that passes today must not fail next month. `status` lists them as next actions.
 
@@ -1295,7 +1297,7 @@ Every check has a code: `FB` and four digits. A code never changes meaning and i
 | FB0124 | error | `changes.md` is malformed: a `##` heading that is not `## edition-NNN`, numbers not newest first, a bullet that does not start `- Added:`, `- Changed:` or `- Verified:`, or a date | `## edition-1` |
 | FB0125 | error | A rule file is out of form: `ASSISTANT.md` is missing, longer than 40 lines, or does not begin with `rules_version = <integer>`; or `corpus/AGENTS.md` is longer than 40 lines | A 41-line `ASSISTANT.md` |
 | FB0126 | error | `eval/regression.toml` is malformed, repeats a case `id`, or names an expected unit id that does not exist | `expect = ["cmp-nope"]` |
-| FB0127 | warning | A regression case misses: an expected id is not within `top`, or an `expect_none` query returns results | A non-critical case that ranks its answer sixth |
+| FB0127 | warning | A regression case misses: an expected page is not within the first `top` page rows of the search page view, or an `expect_none` query returns results | A non-critical case whose page is the sixth page row |
 | FB0128 | error | A regression case marked `critical` misses | A critical case whose answer is absent from the top 3 |
 | FB0130 | error | The part headings are not exactly the type's parts in order, a `#` heading is present, or a heading is deeper than `###` | `## Rule` for `## The rule` |
 | FB0131 | error | A part other than Sources is blank | `## Purpose` followed at once by another heading |
@@ -1533,7 +1535,7 @@ The reader may look for these. None is in the Corpus, and the right column says 
 | Not in the Corpus | Why | The reader uses |
 |---|---|---|
 | A front-matter `summary` | A page states its purpose once, in the Purpose part | The first sentence of the Purpose part for area lists and popovers; search snippets follow [search.md](search.md#document-units), using the first paragraph of the first section for a page lead |
-| `review_by` or `claims` in front matter | Both are computed, and writing either is an error (FB0109) | `review_by` from `as_of` and `volatility`; `claims` from the page's citations |
+| `review_by` or `claims` in front matter | Both are computed, and writing either is an error (FB0109) | `review_by` from `as_of`, the newest Change note date and `volatility`; `claims` from the page's citations |
 | A start date for Day N | The build injects no date (AD-15) | A date the owner enters in the browser |
 | Evidence labels PF, CS, OD, RR, INF and UNK | They are not Corpus values | `claim_kind`, `verification` and `data_origin`, as written |
 | Evidence grades A to D | They are company-store values (FB0210). The Corpus holds E, F and G | `evidence_grade`, as written |
@@ -1573,6 +1575,7 @@ One HTML file per page. A `#` is used only for anchors and for `search.html#q=`.
 - **Links.** Directory links name `index.html`. An original links to the sibling `originals/` folder, with the locator text beside the link. A page works without JavaScript; the budgets are in FB0605.
 - **Print.** `@page { size: Letter; margin: 0 }` with body padding. The footer shows product, edition, page id and "Check the current edition". Citations print as footnotes, and status words always print. No `file:` URL prints. A `brief` prints on one page (FB0607).
 - **Header.** The edition and its build date are written into every page at build. Without `SOURCE_DATE_EPOCH` or without a commit the page says "unreleased build".
+- **Build status.** On an unreleased build, the one the header chip says is unreleased, every page opens with a banner that says "This is an unreleased build, not an edition.", with the build's counts of AI-drafted and unchecked claims (and, once a claim is checked, of supported claims) and a link to the claims register. The build computes the counts from the claims register it renders (`BuildStatus` in `render::meta`) and writes the same numbers into every page; no page or program text holds a count. A released edition shows no banner.
 - **The zips.** The layout of the edition zip and the originals zip is in the repository layout section of ADR 0001. The edition zip holds `corpus/` without originals and without `AGENTS.md`.
 
 ### Workbooks and templates

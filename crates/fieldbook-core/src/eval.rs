@@ -3,9 +3,11 @@
 //!
 //! **Responsibility.** [`parse`] turns the file's text into [`Case`]s or typed [`EvalError`]s,
 //! each with the 1-based line it points at; [`corpus_index`] builds the in-memory index of the
-//! shipped public Corpus that the set and the `search` command share; [`unknown_expected`] and
-//! [`miss`] judge one case against that index. The `check` pass that raises `FB0126` to `FB0128`
-//! is `check::regression`.
+//! shipped public Corpus that the set and the `search` command share; [`unknown_expected`],
+//! [`miss`] and [`page_view_miss`] judge one case against that index. The regression set judges
+//! the page view (a page within the first `top` page rows) while `miss` keeps the flat-list
+//! judgement for `fieldbook search --units`-style use. The `check` pass that raises `FB0126` to
+//! `FB0128` is `check::regression`.
 //!
 //! **Rules.** Pure: no I/O. The program never sets `critical`; a person does. `from` is not a key
 //! here (`ask-promote` adds it).
@@ -20,7 +22,7 @@ use crate::check::Tree;
 use crate::labels::LabelSet;
 use crate::manifest::ManifestError;
 use crate::schema::corpus_toml::byte_offset_to_line_col;
-use crate::search::{Index, build_shipped_corpus_units, query};
+use crate::search::{Index, build_shipped_corpus_units, page_view, query};
 
 /// Repository-relative path of the regression set.
 pub const REGRESSION_PATH: &str = "corpus/eval/regression.toml";
@@ -245,9 +247,92 @@ pub fn miss(index: &Index, case: &Case) -> Option<String> {
     }
 }
 
+/// Runs `case` against the page view of `index` and describes how it misses, or `None` when it holds.
+///
+/// Builds `results = query(index, &case.query, index.docs.len())` and `view = page_view(index, &results)`.
+/// If `case.expect_none`, returns exactly what [`miss`] returns.
+///
+/// Otherwise, each expected unit in `case.expect` is checked:
+/// - Its page is the part of its id before any `#`.
+/// - If its kind in `index` is `page` or `clause`, it holds when an exact-class hit has kind `page` or
+///   `clause` and the same page, or its page is within the first `top` page rows of `view.pages`.
+/// - If its kind is any other kind or unknown to `index`, it holds when an exact hit matches its id,
+///   or it is within the first `top` other rows of `view.other`.
+#[must_use]
+pub fn page_view_miss(index: &Index, case: &Case) -> Option<String> {
+    if case.expect_none {
+        return miss(index, case);
+    }
+    let results = query(index, &case.query, index.docs.len());
+    let view = page_view(index, &results);
+    let mut problems = Vec::new();
+
+    for expected in &case.expect {
+        let expected_page = page_of(expected);
+        let kind = index
+            .unit_index(expected)
+            .and_then(|i| index.docs.get(i))
+            .map(|doc| doc.kind.as_str());
+
+        if matches!(kind, Some("page" | "clause")) {
+            let in_exact = view.exact.iter().any(|hit| {
+                matches!(hit.kind.as_str(), "page" | "clause") && page_of(&hit.id) == expected_page
+            });
+            if in_exact {
+                continue;
+            }
+            let rank = view
+                .pages
+                .iter()
+                .position(|row| row.page == expected_page)
+                .map(|pos| pos + 1);
+            match rank {
+                Some(rank) if rank <= case.top => {}
+                Some(rank) => {
+                    problems.push(format!("`{expected}` ranks {rank} among the page rows"));
+                }
+                None => problems.push(format!("`{expected}` is not in the results")),
+            }
+        } else {
+            let in_exact = view.exact.iter().any(|hit| &hit.id == expected);
+            if in_exact {
+                continue;
+            }
+            let rank = view
+                .other
+                .iter()
+                .position(|hit| &hit.id == expected)
+                .map(|pos| pos + 1);
+            match rank {
+                Some(rank) if rank <= case.top => {}
+                Some(rank) => {
+                    problems.push(format!("`{expected}` ranks {rank} among the other rows"));
+                }
+                None => problems.push(format!("`{expected}` is not in the results")),
+            }
+        }
+    }
+
+    if problems.is_empty() {
+        None
+    } else {
+        Some(format!(
+            "case `{}`: `{}` should have its page within the first {} page rows, but {}",
+            case.id,
+            case.query,
+            case.top,
+            problems.join(" and ")
+        ))
+    }
+}
+
+fn page_of(id: &str) -> &str {
+    id.split_once('#').map_or(id, |(page, _)| page)
+}
+
 #[cfg(test)]
 mod tests {
-    use super::{Case, DEFAULT_TOP, miss, parse};
+    use super::{Case, DEFAULT_TOP, miss, page_view_miss, parse};
     use crate::search::{Glossary, GoldenFields, GoldenUnit, Index};
 
     #[test]
@@ -343,6 +428,15 @@ mod tests {
         }
     }
 
+    fn page_unit(id: &str, fields: GoldenFields) -> GoldenUnit {
+        GoldenUnit {
+            id: id.to_owned(),
+            kind: "page".to_owned(),
+            fields,
+            ..GoldenUnit::default()
+        }
+    }
+
     /// `u-one` ranks 1 for "alpha" (title), `u-two` 2 (heading), `u-three` 3 (body).
     fn ranked_index() -> Index {
         let blank = || GoldenFields::default();
@@ -430,6 +524,132 @@ mod tests {
         assert!(message.contains("should return nothing"), "{message}");
         assert!(message.contains("`u-one`"), "{message}");
         none.query = "qqq".to_owned();
+        assert_eq!(miss(&index, &none), None);
+    }
+
+    #[test]
+    fn a_page_whose_sections_rank_first_holds() {
+        let blank = || GoldenFields::default();
+        let index = Index::from_golden(
+            &[
+                page_unit(
+                    "p-two",
+                    GoldenFields {
+                        title: "other".to_owned(),
+                        ..blank()
+                    },
+                ),
+                page_unit(
+                    "p-two#intro",
+                    GoldenFields {
+                        title: "target".to_owned(),
+                        ..blank()
+                    },
+                ),
+                unit(
+                    "c-one",
+                    GoldenFields {
+                        body: "other".to_owned(),
+                        ..blank()
+                    },
+                ),
+                unit(
+                    "c-two",
+                    GoldenFields {
+                        body: "other".to_owned(),
+                        ..blank()
+                    },
+                ),
+                unit(
+                    "c-three",
+                    GoldenFields {
+                        body: "other".to_owned(),
+                        ..blank()
+                    },
+                ),
+            ],
+            &Glossary::default(),
+        );
+
+        assert_eq!(page_view_miss(&index, &case("target", &["p-two"], 1)), None);
+        assert_eq!(
+            page_view_miss(&index, &case("target", &["p-two#intro"], 1)),
+            None
+        );
+    }
+
+    #[test]
+    fn a_page_below_top_page_rows_misses_and_names_its_rank() {
+        let blank = || GoldenFields::default();
+        let index = Index::from_golden(
+            &[
+                unit(
+                    "c-one",
+                    GoldenFields {
+                        title: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+                unit(
+                    "c-two",
+                    GoldenFields {
+                        title: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+                page_unit(
+                    "p-one",
+                    GoldenFields {
+                        title: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+                page_unit(
+                    "p-two",
+                    GoldenFields {
+                        headings: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+                page_unit(
+                    "p-three",
+                    GoldenFields {
+                        body: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+            ],
+            &Glossary::default(),
+        );
+
+        let c_top2 = case("alpha", &["p-three"], 2);
+        let miss_msg = page_view_miss(&index, &c_top2).expect("p-three ranks 3, misses top 2");
+        assert!(
+            miss_msg.contains("`p-three` ranks 3 among the page rows"),
+            "{miss_msg}"
+        );
+        assert!(miss_msg.contains("first 2 page rows"), "{miss_msg}");
+
+        let c_top3 = case("alpha", &["p-three"], 3);
+        assert_eq!(page_view_miss(&index, &c_top3), None);
+
+        let flat_miss = miss(&index, &c_top3).expect("c-one and c-two outrank pages in flat list");
+        assert!(flat_miss.contains("`p-three` ranks 5"), "{flat_miss}");
+    }
+
+    #[test]
+    fn expect_none_is_unchanged() {
+        let index = ranked_index();
+        let mut none = case("alpha", &[], 5);
+        none.expect_none = true;
+        let pv_hit = page_view_miss(&index, &none);
+        let flat_hit = miss(&index, &none);
+        assert_eq!(pv_hit, flat_hit);
+        let msg = pv_hit.expect("alpha returns results");
+        assert!(msg.contains("should return nothing"), "{msg}");
+
+        none.query = "qqq".to_owned();
+        assert_eq!(page_view_miss(&index, &none), None);
         assert_eq!(miss(&index, &none), None);
     }
 }

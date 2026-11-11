@@ -19,7 +19,7 @@ use fieldbook_calc::{Currency, Unit};
 use crate::cite::{self, Citation, KeyKind, Mode};
 use crate::date::{CivilDate, PartialDate};
 use crate::ids::{ClaimId, VersionId};
-use crate::review::page_review_by;
+use crate::review::{newest_change_note_date, page_review_by};
 use crate::schema::vocab::{Lifecycle, PageStatus, Verification};
 use crate::schema::{ClaimRow, PageMeta};
 use crate::strings;
@@ -76,7 +76,11 @@ fn check_fb0117(
     report: &mut Report,
 ) {
     let today = model.today();
-    let review_date = page_review_by(&page.meta, cited_claims.iter().copied());
+    let review_date = page_review_by(
+        &page.meta,
+        newest_change_note_date(&page.body),
+        cited_claims.iter().copied(),
+    );
     if review_date < today {
         let (line, col) = field_loc(&page.meta, "as_of");
         report.push(Diagnostic::new(
@@ -990,7 +994,12 @@ mod tests {
     #[test]
     fn fb0117_page_review_by_passed() {
         let mut tree = mini_tree();
-        let stale_page = PAGE_CMP_SYSTEM_REVIEW.replace("as_of = 2026-02-01", "as_of = 2025-07-01");
+        let stale_page = PAGE_CMP_SYSTEM_REVIEW
+            .replace("as_of = 2026-02-01", "as_of = 2025-07-01")
+            .replace(
+                "- NEW_KNOWLEDGE, 2026-02-01:",
+                "- NEW_KNOWLEDGE, 2025-07-01:",
+            );
         tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, stale_page.as_bytes());
 
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
@@ -1002,9 +1011,31 @@ mod tests {
     }
 
     #[test]
+    fn fb0117_counts_from_newest_change_note_entry() {
+        let mut tree = mini_tree();
+        // `as_of` is old, but the page was last changed on 2026-02-01 (V2, 180 days): not overdue
+        // on 2026-03-01. Counting from `as_of` alone would be overdue since 2025-12-28.
+        let page = PAGE_CMP_SYSTEM_REVIEW.replace("as_of = 2026-02-01", "as_of = 2025-07-01");
+        assert!(page.contains("- NEW_KNOWLEDGE, 2026-02-01:"));
+        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, page.as_bytes());
+
+        let report = run(&Host::new(tree, sample_today()), &Options::new(false));
+        assert!(
+            report.diagnostics.iter().all(|d| d.code != Code::Fb0117),
+            "{:?}",
+            report.diagnostics
+        );
+    }
+
+    #[test]
     fn fb0117_never_fails_strict() {
         let mut tree = mini_tree();
-        let stale_page = PAGE_CMP_SYSTEM_REVIEW.replace("as_of = 2026-02-01", "as_of = 2025-07-01");
+        let stale_page = PAGE_CMP_SYSTEM_REVIEW
+            .replace("as_of = 2026-02-01", "as_of = 2025-07-01")
+            .replace(
+                "- NEW_KNOWLEDGE, 2026-02-01:",
+                "- NEW_KNOWLEDGE, 2025-07-01:",
+            );
         tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, stale_page.as_bytes());
 
         let report = run(&Host::new(tree, sample_today()), &Options::new(true));
