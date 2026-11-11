@@ -36,7 +36,7 @@ fn pre_push_does_not_redirect_foreign_git_to_the_pushed_repository() {
     let just = bin.join("just");
     std::fs::write(
         &just,
-        "#!/bin/sh\nset -eu\ntest \"$1\" = check\nactual=$(git -C foreign rev-parse --show-toplevel)\ntest \"$actual\" = \"$(pwd)/foreign\"\nprintf '%s' \"$actual\" > observed-root\n",
+        "#!/bin/sh\nset -eu\ntest \"$1\" = scan\nactual=$(git -C foreign rev-parse --show-toplevel)\ntest \"$actual\" = \"$(pwd)/foreign\"\nprintf '%s' \"$actual\" > observed-root\n",
     )
     .expect("check command");
     std::fs::set_permissions(&just, std::fs::Permissions::from_mode(0o755))
