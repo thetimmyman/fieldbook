@@ -1,11 +1,11 @@
 //! Synthetic calculation cases exposed to the core and renderer (`AD-14`, `FM0`).
 //!
 //! **Responsibility.** Hold the embedded `CASES` table (`CALC-01` to `CALC-04` and `CALC-90`),
-//! expose [`ids`], [`run`], [`case_set_sha256_entries`] and [`case_set_sha256`], and prove in
+//! expose [`ids`], [`run`], [`verify`], [`case_set_sha256_entries`] and [`case_set_sha256`], and prove in
 //! `every_case_file_is_listed` that every `*.toml` file in `crates/fieldbook-calc/tests/cases/`
 //! is listed in `CASES`.
 
-use fieldbook_calc::{CalcError, Case, Outcome, evaluate};
+use fieldbook_calc::{CalcError, Case, Mismatch, Outcome, evaluate, verify_case};
 
 use crate::hash::Sha256Stream;
 
@@ -60,6 +60,25 @@ pub fn run(id: &str) -> Option<Result<Outcome, CalcError>> {
     None
 }
 
+/// Check the synthetic case whose `id` matches `id` against its expected outputs, returning
+/// `None` when no case in [`CASES`] has that id.
+///
+/// # Errors
+///
+/// The inner `Err` lists every [`Mismatch`] between the case's expected outputs and what the
+/// calc core produced.
+#[must_use]
+pub fn verify(id: &str) -> Option<Result<(), Vec<Mismatch>>> {
+    for &(_name, raw) in CASES {
+        if let Ok(case) = toml::from_str::<Case>(raw)
+            && case.id == id
+        {
+            return Some(verify_case(&case));
+        }
+    }
+    None
+}
+
 /// Compute the full 64-hex SHA-256 of `entries` (`(file_name, content)`) in file-name order,
 /// encoding each entry as `<file_name>\n<bytes>\n` (`AD-14`).
 #[must_use]
@@ -87,7 +106,7 @@ mod tests {
     use std::collections::BTreeMap;
     use std::path::Path;
 
-    use super::{CASES, ids, run};
+    use super::{CASES, ids, run, verify};
 
     #[test]
     #[expect(
@@ -152,5 +171,11 @@ mod tests {
         let c90 = run("CALC-90").unwrap_or_else(|| panic!("CALC-90 exists"));
         assert!(c90.is_err());
         assert!(run("CALC-99").is_none());
+    }
+
+    #[test]
+    fn verify_passes_calc_01_and_ignores_unknown_ids() {
+        assert_eq!(verify("CALC-01"), Some(Ok(())));
+        assert!(verify("CALC-99").is_none());
     }
 }

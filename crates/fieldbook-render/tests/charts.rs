@@ -229,8 +229,68 @@ mod charts {
             format_amount(Dec::parse("1234567.80").unwrap()),
             "1,234,567.80"
         );
-        assert_eq!(format_amount(Dec::parse("-12.50").unwrap()), "-12.50");
         assert_eq!(format_amount(Dec::parse("999.99").unwrap()), "999.99");
+    }
+
+    #[test]
+    fn negative_amount_in_parentheses() {
+        assert_eq!(format_amount(Dec::parse("-12.50").unwrap()), "(12.50)");
+        assert_eq!(
+            format_amount(Dec::parse("-1234567.80").unwrap()),
+            "(1,234,567.80)"
+        );
+        assert_eq!(format_amount(Dec::parse("12.50").unwrap()), "12.50");
+        assert_eq!(format_amount(Dec::ZERO), "0");
+    }
+
+    /// The value cell text of the output row `name` in a CalcTable, if the row exists.
+    fn calc_cell<'a>(html: &'a str, name: &str) -> Option<&'a str> {
+        let row = format!("<td>{name}</td>");
+        let rest = &html[html.find(&row)? + row.len()..];
+        let rest = &rest[rest.find("<td class=\"num")?..];
+        let rest = &rest[rest.find('>')? + 1..];
+        Some(&rest[..rest.find("</td>")?])
+    }
+
+    #[test]
+    fn calc_table_shows_fixture_result() {
+        let site = built(fixture_tree());
+        let html = page(&site, "p/est-calc-01.html");
+        let outcome = cases::run("CALC-01").unwrap().unwrap();
+        assert!(!outcome.outputs.is_empty());
+        let mut rows = 0;
+        for out in &outcome.outputs {
+            let Known(d) = out.value else {
+                panic!("CALC-01 output `{}` must be known", out.name)
+            };
+            let expected = format_amount(d);
+            let found = calc_cell(&html, &out.name).unwrap_or("(no row)");
+            assert_eq!(
+                found, expected,
+                "output `{}`: expected {expected}, found {found}",
+                out.name
+            );
+            rows += 1;
+        }
+        assert_eq!(html.matches("<td class=\"num").count(), rows);
+        assert!(html.contains("Computed by the calc core, not a model"));
+        assert!(html.contains(fieldbook_core::strings::rounding()));
+        assert!(html.contains("Fixture CALC-01: pass"));
+        assert!(!html.contains("class=\"num neg\""));
+    }
+
+    #[test]
+    fn calc_table_is_unavailable_for_a_refused_case() {
+        let tree = {
+            let mut tree = fixture_tree();
+            let path = "corpus/pages/estimating/pricing/est-calc-01.md";
+            let md = String::from_utf8(tree.get_bytes(path).unwrap().to_vec()).unwrap();
+            tree.insert_bytes(path, md.replace("CALC-01", "CALC-90").into_bytes());
+            tree
+        };
+        let html = page(&built(tree), "p/est-calc-01.html");
+        assert!(html.contains("class=\"unavailable\"") && html.contains("The calculation table"));
+        assert!(!html.contains("class=\"panel calc\""));
     }
 
     #[test]
