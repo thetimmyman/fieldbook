@@ -2210,6 +2210,27 @@ th[aria-sort="descending"] .sort-arrow::after {
   color: var(--color-muted);
 }
 
+/* Company calibration, closed when no company overlay is loaded; its body prints open. */
+.company-fold > summary b {
+  color: var(--color-fg);
+  font-weight: var(--weight-semibold);
+}
+
+.company-fold > summary .meta {
+  margin-left: var(--space-1-5);
+}
+
+.company-fold > summary + * {
+  margin-top: var(--space-2);
+}
+
+@media print {
+  .company-fold::details-content {
+    content-visibility: visible;
+    display: block;
+  }
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);

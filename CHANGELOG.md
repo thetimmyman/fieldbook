@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: with no company data loaded, each page's Company calibration part is folded.
 - Changed: a page's Sources list each cited claim once, with links back to each place it is cited.
 - Fixed: the linked build date in the top bar is at least 24px tall at 375px, and the narrow-width check no longer exempts it.
 - Added: each page lists its related pages and the pages that link to it, by title.

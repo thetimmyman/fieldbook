@@ -400,6 +400,7 @@ pub fn render_reference_the_rule(
             anchor,
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         };
     };
     if ps.event_range.is_empty() {
@@ -408,6 +409,7 @@ pub fn render_reference_the_rule(
             anchor,
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         };
     }
 
@@ -507,6 +509,7 @@ pub fn render_reference_the_rule(
         anchor,
         is_empty,
         body_html: out,
+        fold: None,
     }
 }
 
@@ -736,6 +739,7 @@ pub fn render_brief(common: TypedPageCommon, mut brief_parts: Vec<RenderedPart>)
             anchor: slug.to_owned(),
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         })
     };
     let bnames = strings::brief_parts();

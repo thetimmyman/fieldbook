@@ -277,6 +277,10 @@ expression: html
 
     <section class="part" aria-labelledby="company-calibration">
       <h2 id="company-calibration">Company calibration</h2>
+      
+      <details class="fold company-fold">
+        <summary><b>Company questions</b> <span class="meta">1 to settle with company data</span></summary>
+      
       <div class="clause-calibration">
         
         <p>Not established. Confirm which active contracts include the synthetic clause <span class="cite neutral" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</span>.</p>
@@ -290,6 +294,9 @@ expression: html
         </div>
         
       </div>
+      
+      </details>
+      
     </section>
 
     <section class="part" aria-labelledby="sources">

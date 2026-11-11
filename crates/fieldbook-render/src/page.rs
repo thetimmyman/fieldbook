@@ -22,6 +22,7 @@ use fieldbook_core::schema::{
     ChangeClass, ClaimKind, ClaimRow, ConflictStatus, PageStatus, PageType, Readiness, Verification,
 };
 use fieldbook_core::strings;
+use pulldown_cmark::{Options, Parser};
 
 use crate::chip;
 use crate::cite::OriginalAvailability;
@@ -64,6 +65,13 @@ pub struct MetaRowView {
     pub due_claims_html: String,
 }
 
+/// A part that the reader shows as a closed fold under its heading.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PartFold {
+    /// Distinct questions the part lists, shown in the fold's summary; none shows no count.
+    pub question_count: usize,
+}
+
 /// One rendered part section (`<h2>` + body or empty-part line).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RenderedPart {
@@ -75,6 +83,8 @@ pub struct RenderedPart {
     pub is_empty: bool,
     /// Rendered HTML of the part body.
     pub body_html: String,
+    /// `Some` when the part is shown as a closed fold (Company calibration with no company overlay).
+    pub fold: Option<PartFold>,
 }
 
 /// One item in the right-rail "On this page" table of contents.
@@ -281,7 +291,57 @@ fn build_part_by_name(
         anchor,
         is_empty,
         body_html,
+        fold: None,
     }
+}
+
+/// Distinct question ids cited in the `Company calibration` part's text.
+fn questions_in_part(page: &PageEntry, view: &LabelledView) -> BTreeSet<String> {
+    let mut distinct = BTreeSet::new();
+    let Some(part_name) = strings::parts().get(5) else {
+        return distinct;
+    };
+    let Some(ps) = page.parts().get(*part_name) else {
+        return distinct;
+    };
+    if ps.event_range.is_empty() {
+        return distinct;
+    }
+
+    let mut opts = Options::empty();
+    opts.insert(Options::ENABLE_TABLES);
+    opts.insert(Options::ENABLE_TASKLISTS);
+    let events: Vec<(_, std::ops::Range<usize>)> = Parser::new_ext(&page.body, opts)
+        .into_offset_iter()
+        .collect();
+
+    let start_idx = ps.event_range.start.min(events.len());
+    let end_idx = ps.event_range.end.min(events.len());
+    if start_idx >= end_idx {
+        return distinct;
+    }
+
+    let Some(start_ev) = events.get(start_idx) else {
+        return distinct;
+    };
+    let Some(end_ev) = events.get(end_idx - 1) else {
+        return distinct;
+    };
+    let r_start = start_ev.1.start;
+    let r_end = end_ev.1.end;
+    if r_start >= r_end {
+        return distinct;
+    }
+
+    for cite in view.citations(&page.id) {
+        if cite.key_kind == KeyKind::Question
+            && cite.span.start >= r_start
+            && cite.span.end <= r_end
+        {
+            distinct.insert(cite.key.clone());
+        }
+    }
+    distinct
 }
 
 fn collect_distinct_cited_claims(
@@ -487,16 +547,28 @@ const DEFAULT_PACK_BUDGET_CHARS: usize = 12_000;
 /// Render the inner `<main>` content (`templates/page.html`) for `page`.
 #[must_use]
 pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths) -> String {
-    let packs = PackSource::new(view);
-    let links = crate::related::LinkIndex::new(view);
-    render_main_with_packs(page, view, planned, &packs, &links)
+    render_main_in(page, view, &StoreContext::Public, planned)
 }
 
-/// Render the inner `<main>` content (`templates/page.html`) for `page`, reusing pre-built context packs.
+/// Render the inner `<main>` content for `page` in the given store context; with no company overlay (`StoreContext::Public`) the Company calibration part is a closed fold, in a company view it is open.
+#[must_use]
+pub fn render_main_in(
+    page: &PageEntry,
+    view: &LabelledView,
+    store: &StoreContext,
+    planned: &PlannedPaths,
+) -> String {
+    let packs = PackSource::new(view);
+    let links = crate::related::LinkIndex::new(view);
+    render_main_with_packs(page, view, store, planned, &packs, &links)
+}
+
+/// Render the inner `<main>` content (`templates/page.html`) for `page` in the given store context, reusing pre-built context packs.
 #[must_use]
 pub fn render_main_with_packs(
     page: &PageEntry,
     view: &LabelledView,
+    store: &StoreContext,
     planned: &PlannedPaths,
     packs: &PackSource<'_>,
     links: &crate::related::LinkIndex,
@@ -525,7 +597,7 @@ pub fn render_main_with_packs(
         how_it_works,
         worked_example,
         never_confuse,
-        company_calibration,
+        mut company_calibration,
         sources_part,
         change_note_part,
     ) = if is_brief {
@@ -544,6 +616,7 @@ pub fn render_main_with_packs(
             anchor: slug.to_owned(),
             is_empty: true,
             body_html: String::new(),
+            fold: None,
         };
         (
             dummy(part_names[0], "purpose"),
@@ -585,6 +658,17 @@ pub fn render_main_with_packs(
         let p7 = build_part_by_name(part_names[7], "change-note", false, page, &mut inline);
         (p0, p1, p2, p3, p4, p5, p6, p7)
     };
+
+    if !is_brief && matches!(store, StoreContext::Public) {
+        let mut questions = questions_in_part(page, view);
+        if page.meta.r#type == PageType::ClauseCard {
+            // A clause card also lists its front-matter questions as chips in this part.
+            questions.extend(page.meta.questions.iter().map(|q| q.as_str().to_owned()));
+        }
+        company_calibration.fold = Some(PartFold {
+            question_count: questions.len(),
+        });
+    }
 
     let distinct_claims = collect_distinct_cited_claims(page, view, &inline);
     let markers = inline.into_markers();
@@ -819,11 +903,11 @@ pub fn render_page_with_packs(
     links: &crate::related::LinkIndex,
 ) -> String {
     let page_path = format!("p/{}.html", page.id);
-    let main_html = render_main_with_packs(page, view, planned, packs, links);
-    let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
+    let main_html = render_main_with_packs(page, view, &store, planned, packs, links);
+    let edition = ctx.edition_info();
     let area_code = page.meta.area.as_str();
     let area_label = view
         .corpus()
