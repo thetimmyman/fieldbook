@@ -1,7 +1,7 @@
 # extract-and-locators
 
 - **Runs where:** home, CI Linux
-- **Schema impact:** additive
+- **Schema impact:** none
 - **Review:** auto
 
 ## Outcome

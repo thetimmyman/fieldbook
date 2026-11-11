@@ -2077,6 +2077,12 @@ Blocked text.
             overlap(&paths[0], &ScopePath::File("crates/a/b.rs".to_owned())),
             Some("crates/a/b.rs".to_owned())
         );
+
+        // A wildcard or a placeholder is refused, never read as a path, so coverage and
+        // overlap cannot agree on a path that no one declared.
+        let (wild_paths, wild_errors) = parse_scope("- Files: `crates/*`, `docs/<family>/x.rs`.");
+        assert!(wild_paths.is_empty());
+        assert_eq!(wild_errors.len(), 2);
     }
 
     #[test]
@@ -2272,6 +2278,25 @@ Text.
             findings.is_empty(),
             "expected clean findings for --test policy_load: {findings:?}"
         );
+
+        // Each flag that takes a value is read as a flag and its value, and each switch is a flag.
+        for command in [
+            "cargo nextest run --locked -p fieldbook --features net --test policy_load",
+            "cargo nextest run --locked -p fieldbook --no-default-features --exclude xtask cards::",
+            "cargo nextest run --locked -p xtask extract:: --run-ignored only",
+        ] {
+            let card_flags = Card {
+                slug: "test-card".to_owned(),
+                path: "docs/cards/test-card.md".to_owned(),
+                draft: false,
+                text: valid_card("test-card").replace(
+                    "```sh\njust check\n```",
+                    &format!("```sh\n{command}\njust check\n```"),
+                ),
+            };
+            let findings_flags = lint_nextest(&card_flags);
+            assert!(findings_flags.is_empty(), "`{command}`: {findings_flags:?}");
+        }
 
         // `--test known_bad` passes
         let card_test_known_bad = Card {

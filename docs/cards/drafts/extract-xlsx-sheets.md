@@ -77,7 +77,7 @@ A workbook can be extracted, cited and checked without saving it as CSV first. `
 ```sh
 cargo nextest run --locked -p fieldbook-core xlsx_sheets:: extraction:: check::extraction:: check::quotes:: add::
 cargo nextest run --locked -p fieldbook-core --test xlsx_sheets --test add
-cargo nextest run --locked -p xtask extract:: deps
+cargo nextest run --locked -p xtask extract::
 cargo nextest run --locked -p fieldbook --test adapters --test new --test known_bad
 cargo nextest run --locked -p fieldbook-render --test source --test xlsx_fixture
 cargo deny check bans licenses sources
