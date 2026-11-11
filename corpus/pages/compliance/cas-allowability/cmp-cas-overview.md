@@ -16,7 +16,7 @@ links = ["cmp-cas-applicability"]
 
 ## Purpose
 
-Introduces the Cost Accounting Standards: what they govern, when they apply, and what coverage brings with it.
+Introduces the Cost Accounting Standards (CAS): what the Cost Accounting Standards govern, when they apply, and what coverage brings with it.
 
 ## The rule
 
@@ -43,6 +43,7 @@ Which business units have full coverage, modified coverage or neither, and wheth
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-10: Reworded the purpose to name the Cost Accounting Standards twice, so that a search for them finds this page.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-05: Dated the coverage figures to 2026-10-01 as the Board's regulation, named the exemption figure, and stated that the FAR text still prints earlier figures.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited coverage and allowability sentences; removed uncited process claims.

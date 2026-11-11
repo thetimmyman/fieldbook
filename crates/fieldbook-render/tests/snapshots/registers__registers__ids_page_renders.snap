@@ -371,6 +371,12 @@ expression: html
 
 <div class="banners" id="fb:banners">
 
+<div class="banner warn build-status" role="region" aria-label="Build status">
+  <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 14 13H2L8 2.5Z"/><path d="M8 6.5v3"/><circle cx="8" cy="11.2" r="0.6"/></svg>
+  <div class="body"><b>This is an unreleased build, not an edition.</b> 5 of 5 claims are AI-drafted; 4 of 5 are unchecked. 1 of 5 has been checked and found supported. See <a href="claims.html">the claims register</a>.</div>
+</div>
+
+
 </div>
 <main id="fb:main" tabindex="-1"><div class="ids-view">
   <header class="page-head">

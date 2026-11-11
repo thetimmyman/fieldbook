@@ -300,7 +300,7 @@ The view has three lists, in this order:
 
 The command line shows every exact row, at most 10 page rows, then at most 5 other rows; when there is no page row, other rows fill to 10.
 
-The [regression set](#regression-set) still judges the unit list, not this view: its verdicts and FB0127 counts do not depend on grouping.
+The [regression set](#regression-set) judges this view: an expected page holds when its row is within the first `top` page rows.
 
 ### Worked example
 
@@ -544,10 +544,12 @@ expect_none = true
 |---|---|
 | `id` | Unique, `rg-NNN` |
 | `query` | The text a person would type |
-| `expect` | Unit ids, each of which must appear within the first `top` results. Each id must exist in the Corpus |
-| `top` | Default 5 |
+| `expect` | Unit ids, usually page ids, each judged on [the page view](#the-page-view): an id holds when its page is within the first `top` page rows, or when an exact row stands for it. A section id `<page-id>#<anchor>` counts for its page. Each id must exist in the Corpus |
+| `top` | Default 5: how many leading page rows an expected page may appear in |
 | `expect_none` | The result list must be empty. Write the query so that none of its tokens appears anywhere in the Corpus |
 | `critical` | Default false. A miss on a critical case is an error; a miss on any other case is a warning |
+
+**What a case judges.** A case judges what a reader is shown, the page view of the full ranked list, not the flat unit list: claim rows, which are two thirds of the units, never push a page out of the count, and a page found only by its sections counts by its best section. Exact rows are never cut, so an expected page that an exact row stands for holds. An expected id that is not a page or a clause (a claim or another kind) is judged on the exact rows, then on the other rows of the view. `expect_none` is unchanged: the query must return no unit at all. The flat list stays available as `fieldbook search --units`, and ranking, scores and tokens are untouched.
 
 The gate "zero critical failures" at Day 1 counts the errors from this set. Recording the questions as cases is the lead's or the owner's work, and the question log lists the candidates; nobody tunes the ranking to pass a case.
 

@@ -3,7 +3,8 @@
 //! **Responsibility.** `WorkspaceHeader`, then every section of the default workspace in HANDOFF
 //! order under an in-page jump list. A section whose object has not landed shows `Unavailable`
 //! with the release that brings it; a landed section with no rows shows its empty-state line.
-//! Every count, link and line comes from the permitted [`LabelledView`].
+//! Every count, link and line comes from the permitted [`LabelledView`]. The Overview holds the
+//! area's charts (`build-charts`), each a ChartPanel or an `Unavailable` panel.
 
 use askama::Template;
 use fieldbook_core::check::PageEntry;
@@ -11,6 +12,7 @@ use fieldbook_core::egress::LabelledView;
 use fieldbook_core::schema::corpus_toml::AreaDef;
 use fieldbook_core::schema::vocab::{PageType, QuestionStatus};
 
+use crate::charts::area_charts;
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
 use crate::home::{coverage_of, render_three_up};
 use crate::inline::first_sentence_of_purpose;
@@ -65,6 +67,7 @@ struct AreaTemplate {
     summary: String,
     jump: Vec<JumpLink>,
     three_up_html: String,
+    charts_html: String,
     bar_html: String,
     coverage: String,
     legend_html: String,
@@ -204,6 +207,7 @@ fn render_main(area: &AreaDef, view: &LabelledView, planned: &PlannedPaths) -> S
         summary: area.summary.clone(),
         jump,
         three_up_html: render_three_up(&from_path, view, planned, Some(&area.code), "h3"),
+        charts_html: area_charts(&area.code),
         bar_html: coverage_bar(&counts),
         coverage: counts.summary(),
         legend_html: if counts.total() == 0 {
