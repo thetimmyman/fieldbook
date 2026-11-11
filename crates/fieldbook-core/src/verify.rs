@@ -17,7 +17,7 @@ use crate::date::CivilDate;
 use crate::ids::VersionId;
 use crate::schema::locator::LocatorKind;
 use crate::schema::table::{is_normal, normalize as normalize_register, write as write_csv};
-use crate::schema::vocab::{Lifecycle, Verification, VerifiedByRole};
+use crate::schema::vocab::{Lifecycle, SourceRole, Verification, VerifiedByRole};
 use crate::schema::{ClaimRow, Register, SourceRow};
 
 /// The line required in `settings.toml` for the repository owner.
@@ -305,6 +305,39 @@ pub fn shown(model: &Model, claim_id: &str, on: CivilDate) -> Result<Shown, Refu
     })
 }
 
+/// The two cases of `FB0209` condition 1 that [`promotion_problems`] leaves to other `check` codes
+/// (`FB0207` for a version with no `sources.csv` row, `FB0204` for a `generated_synthesis` or
+/// `working_draft` role). `check` reports them under those codes; `verify` never runs those codes,
+/// so it refuses them here, naming `FB0209`. `check`'s own output is unchanged.
+fn unreported_source_problem(
+    claim: &ClaimRow,
+    source: Option<&SourceRow>,
+) -> Option<PromotionProblem> {
+    if matches!(claim.locator_kind, Some(LocatorKind::RecordField)) {
+        return None;
+    }
+    let (Some(sid), Some(ver)) = (&claim.source_id, claim.version) else {
+        return None;
+    };
+    let cid = &claim.claim_id;
+    match source {
+        None => Some(PromotionProblem {
+            column: "version",
+            message: format!(
+                "supported claim `{cid}` cites `{sid}-v{ver}`, which has no row in `sources.csv`"
+            ),
+        }),
+        Some(src) if src.source_role != SourceRole::PrimaryEvidence => Some(PromotionProblem {
+            column: "source_id",
+            message: format!(
+                "supported claim `{cid}` cites `{sid}-v{ver}` (`source_role = {}`), which cannot supply primary support",
+                src.source_role
+            ),
+        }),
+        Some(_) => None,
+    }
+}
+
 /// Plan the verification of one claim.
 ///
 /// # Errors
@@ -355,6 +388,7 @@ pub fn plan(
     };
 
     let mut problems = promotion_problems(&candidate, cited_source);
+    problems.extend(unreported_source_problem(&candidate, cited_source));
     if let Some(crp) = consequential_role_problem(&candidate) {
         problems.push(crp);
     }

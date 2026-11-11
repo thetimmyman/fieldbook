@@ -315,6 +315,112 @@ fn a_tier_c_source_is_refused() {
 }
 
 #[test]
+fn a_missing_source_version_is_refused() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    edit_cell(
+        root,
+        "corpus/registers/claims.csv",
+        "CL-CMP-0002",
+        "version",
+        "9",
+    );
+    let before = corpus_files(root);
+
+    let world = world_with_role(root, Some("owner"));
+    let out = run(&world, &verify_args("CL-CMP-0002", TODAY));
+    assert_eq!(out.code, 1);
+    assert!(out.stderr.contains("FB0209"));
+    assert!(world.prompts().is_empty());
+    assert_eq!(corpus_files(root), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
+fn a_generated_synthesis_source_is_refused() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    edit_cell(
+        root,
+        "corpus/registers/sources.csv",
+        "S-0001",
+        "source_role",
+        "generated_synthesis",
+    );
+    let before = corpus_files(root);
+
+    let world = world_with_role(root, Some("owner"));
+    let out = run(&world, &verify_args("CL-CMP-0002", TODAY));
+    assert_eq!(out.code, 1);
+    assert!(out.stderr.contains("FB0209"));
+    assert!(world.prompts().is_empty());
+    assert_eq!(corpus_files(root), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
+fn a_quarantined_version_is_refused() {
+    // "quarantined" and "withdrawn" are both valid non-active Lifecycle variants;
+    // verify plans under the model and refuses directly with FB0213.
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    edit_cell(
+        root,
+        "corpus/registers/sources.csv",
+        "S-0001",
+        "lifecycle",
+        "quarantined",
+    );
+    let before = corpus_files(root);
+
+    let world = world_with_role(root, Some("owner"));
+    let out = run(&world, &verify_args("CL-CMP-0002", TODAY));
+    assert_eq!(out.code, 1);
+    assert!(out.stderr.contains("FB0213"));
+    assert!(world.prompts().is_empty());
+    assert_eq!(corpus_files(root), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
+fn a_withdrawn_version_is_refused() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    edit_cell(
+        root,
+        "corpus/registers/sources.csv",
+        "S-0001",
+        "lifecycle",
+        "withdrawn",
+    );
+    let before = corpus_files(root);
+
+    let world = world_with_role(root, Some("owner"));
+    let out = run(&world, &verify_args("CL-CMP-0002", TODAY));
+    assert_eq!(out.code, 1);
+    assert!(out.stderr.contains("FB0213"));
+    assert!(world.prompts().is_empty());
+    assert_eq!(corpus_files(root), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
+fn an_as_of_after_the_date_is_refused() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    let before = corpus_files(root);
+
+    let world = world_with_role(root, Some("owner"));
+    let out = run(&world, &verify_args("CL-CMP-0002", "2026-01-20"));
+    assert_eq!(out.code, 1);
+    assert!(out.stderr.contains("as_of"));
+    assert!(out.stderr.contains("after the verification date"));
+    assert!(world.prompts().is_empty());
+    assert_eq!(corpus_files(root), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
 fn a_consequential_claim_needs_the_owner() {
     // 1. Role lead on consequential CL-CMP-0002: exit 1.
     let tmp1 = temp_copy(&fixture_root());
@@ -1023,14 +1129,35 @@ fn a_changed_request_is_refused_while_a_verification_is_pending() {
     assert!(root.join(".fieldbook/pending.toml").exists());
 
     // 4. A third hash on disk after writing planned bytes is refused.
-    let world_third = world_with_role(root, Some("owner"));
-    let mut tampered = planned.clone();
-    tampered.push(b'\n');
+    let mut tampered_table = read_csv(&before_claims).expect("parse before_claims");
+    let note_col = tampered_table
+        .header
+        .cells
+        .iter()
+        .position(|c| c == "note")
+        .expect("note column in claims.csv");
+    let target_row = tampered_table
+        .rows
+        .iter_mut()
+        .find(|r| r.cells.first().is_some_and(|c| c == "CL-EST-0001"))
+        .expect("CL-EST-0001 row in claims.csv");
+    target_row.cells[note_col] = "Tampered note for third hash test.".to_owned();
+    let tampered = write_csv(&tampered_table);
     std::fs::write(root.join("corpus/registers/claims.csv"), &tampered).expect("write tampered");
+
+    let world_third = world_with_role(root, Some("owner"));
+    let count_before = count(&world_third, "write.begin");
     answer(&world_third, "yes");
     let out_third = run(&world_third, &verify_args("CL-CMP-0002", TODAY));
-    assert_ne!(out_third.code, 0, "third hash must be refused");
+    assert_eq!(out_third.code, 3);
+    assert!(
+        out_third.stderr.contains("pending write error"),
+        "stderr: {}",
+        out_third.stderr
+    );
+    assert_eq!(claims_bytes(root).as_deref(), Some(tampered.as_bytes()));
     assert!(root.join(".fieldbook/pending.toml").exists());
+    assert_eq!(count(&world_third, "write.begin"), count_before);
 
     // 5. Restore and the same command completes.
     std::fs::write(root.join("corpus/registers/claims.csv"), &planned).expect("restore planned");
