@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: the pre-push hook runs the secret and Corpus scans and the denylist; the full check runs in CI only.
 - Changed: a page's Sources list each cited claim once, with links back to each place it is cited.
 - Fixed: the linked build date in the top bar is at least 24px tall at 375px, and the narrow-width check no longer exempts it.
 - Added: each page lists its related pages and the pages that link to it, by title.

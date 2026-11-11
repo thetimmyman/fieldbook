@@ -50,16 +50,21 @@ check:
     cargo deny --locked --all-features check bans licenses sources
     # 5. Spelling
     typos
-    # 6. Secrets in the commits not yet on main
-    just _gitleaks
-    # 7. Check the Corpus at the commit date under --strict
-    cargo run -q --locked -p fieldbook -- check --strict --today "$(git log -1 --format=%cs)"
+    # 6 and 7. Secrets in the commits not yet on main; the Corpus at the commit date under --strict
+    just scan
     # 8. Regenerate the generated docs and diff
     cargo xtask docs --check
     # 9. Published compatibility
     cargo xtask compat --base release-baseline.toml
 
 # Resolve Cargo.lock with the 14-day cooldown (AD-06). The pinned nightly only resolves; it never builds.
+# The scans that guard what leaves this machine; the pre-push hook runs these and no more.
+scan:
+    # Secrets in the commits not yet on main
+    just _gitleaks
+    # Check the Corpus at the commit date under --strict
+    cargo run -q --locked -p fieldbook -- check --strict --today "$(git log -1 --format=%cs)"
+
 lock:
     #!/usr/bin/env bash
     set -euo pipefail

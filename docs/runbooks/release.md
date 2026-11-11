@@ -215,7 +215,7 @@ The owner tags `edition-001` and `v0.1.0` on Day 1, only after the home gate in 
 | 2. Regression set, zero critical failures | The same `check` output; each row of [Critical failures](../controls.md#critical-failures) has its named test passing | Owner |
 | 3. The 15 consequential claims owner-verified | `cargo run --locked -q -p fieldbook -- status`; expected: none of the 15 listed as unreviewed | Owner |
 | 4. Five briefs accepted, each one printed page | Print each from the day-one binder; the owner accepts | Owner |
-| 5. Secret, marking and identity scans clean | `just check`, then `cargo xtask denylist "$FIELDBOOK_DENYLIST"` (the pre-push hook runs both) | Owner |
+| 5. Secret, marking and identity scans clean | `just check`, then `cargo xtask denylist "$FIELDBOOK_DENYLIST"` (the pre-push hook runs the two scans of `just check`, as `just scan`, and the denylist) | Owner |
 | 6. The Day-1 calculation cases CALC-01 to CALC-04 pass ([FM0](../decisions/0001-foundation.md#calculation-core-fm0)) | `cargo nextest run --locked -p fieldbook-calc` | Owner |
 | 7. Edge net-log shows no request that is not `file:`, in the tested pages and interactions | The `corpus` job is green on the commit | CI |
 | 8. Tier-0 intake pack in the edition | `unzip -l out/dist/fieldbook-edition-001.zip` lists `TRANSFER-STATEMENT.txt`, `edition.toml`, `SHA256SUMS` and `README.txt`; the owner reads the transfer statement | Owner |
