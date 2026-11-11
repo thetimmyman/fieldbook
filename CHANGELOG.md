@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: a context pack on each page.
+- Added: the verify command, for the owner at a terminal.
 - Changed: the zip reader and writer move to zip 9, which fixes five published advisories.
 - Changed: the regression set judges the page view of search, not the flat unit list.
 - Added: every page of an unreleased build states that the build is not an edition and counts its AI-drafted, unchecked claims.

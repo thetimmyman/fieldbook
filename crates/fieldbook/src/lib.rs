@@ -17,6 +17,7 @@ pub mod io;
 pub mod new;
 pub mod report;
 pub mod search;
+pub mod verify;
 
 pub use cli::Cli;
 pub use io::{Audited, Error, StoreLease, WorldError};
@@ -234,6 +235,18 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 search::run(&search_args, &overridden)
             } else {
                 search::run(&search_args, world)
+            }
+        }
+        Commands::Verify(verify_args) => {
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                verify::run(&verify_args, &overridden)
+            } else {
+                verify::run(&verify_args, world)
             }
         }
     }
