@@ -483,8 +483,14 @@ mod page {
             ),
             "expected first-sentence summary in PageLink popover data-pv-body, got:\n{html}"
         );
+        // The context pack lists related pages with their full lead; the popover summary is the
+        // rest of the page.
+        let outside_pack = html
+            .split("<details class=\"context-pack\">")
+            .next()
+            .unwrap();
         assert!(
-            !html.contains("Second sentence stays out"),
+            !outside_pack.contains("Second sentence stays out"),
             "second sentence of Purpose must not appear in PageLink popover summary"
         );
     }
