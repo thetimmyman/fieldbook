@@ -666,6 +666,16 @@ header.topbar > nav[aria-label="Sections"] [aria-current="true"],
   min-width: 0;
 }
 
+.banner.build-status > .ic {
+  color: var(--color-warn);
+  margin-top: var(--space-0-5);
+}
+
+.banner.build-status .body a {
+  color: var(--color-fg);
+  text-decoration: underline;
+}
+
 main {
   flex: 1;
   padding: var(--space-5);

@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: every page of an unreleased build states that the build is not an edition and counts its AI-drafted, unchecked claims.
 - Changed: a page's review date counts from its last change note as well as its as-of date.
 - Changed: `cargo xtask harness` opens pages in several browser processes at once (`--jobs N`, default half the available cores), and the `corpus` job of CI builds the site with a release binary; the findings and the summary counts do not depend on the job count.
 - Fixed: the hosted deploy no longer installs a tool into the runner's shared home folder, so it cannot fail beside a CI run, and the `corpus` job has 75 minutes instead of 45 when two runs overlap.
