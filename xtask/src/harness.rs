@@ -2706,9 +2706,12 @@ mod tests {
     }
 
     #[test]
-    fn narrow_probe_exempts_only_build_date_link_chip() {
-        assert!(NARROW_PROBE_JS.contains("classList.contains('build-date-link')"));
-        assert!(!NARROW_PROBE_JS.contains("chip: !!el.querySelector"));
+    fn narrow_probe_exempts_nothing() {
+        assert!(!NARROW_PROBE_JS.contains("chip:"));
+        assert!(NARROW_PROBE_JS.contains("floor:"));
+        assert!(!NARROW_CASES_JS.contains("known design failure"));
+        assert!(!NARROW_CASES_JS.contains("left out of the 32px rule"));
+        assert!(!NARROW_CASES_JS.contains("c.chip"));
     }
 
     #[test]
