@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: a context pack on each page.
+- Changed: the zip reader and writer move to zip 9, which fixes five published advisories.
 - Changed: the regression set judges the page view of search, not the flat unit list.
 - Added: every page of an unreleased build states that the build is not an edition and counts its AI-drafted, unchecked claims.
 - Changed: a page's review date counts from its last change note as well as its as-of date.
