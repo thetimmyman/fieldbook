@@ -1545,7 +1545,7 @@ The reader may look for these. None is in the Corpus, and the right column says 
 
 - **Strings.** Every frozen string comes from `window.FB_STRINGS` in `assets/strings.js`. The reader does not carry a frozen literal of its own, and a test fails on one in the code.
 - **Status chips.** A status chip has an icon and a word, so a status never rests on colour alone, and its word prints. The UI lane's design files choose the labels. The chip's title holds the raw vocabulary value, such as `primary_source_supported`.
-- **Overdue banner.** The build writes the banner hidden, with the page's `review_by`. `app.js` shows it when the viewer's own date is past that day. The build never reads the clock.
+- **Overdue banner.** The build writes the banner hidden, with the page's `review_by`. `app.js` shows it when the viewer's own date is past that day. The build never reads the clock. An unreleased build writes no such banner: its build status banner says each page shows its review date and none is flagged, and the meta row keeps the date as text.
 - **Part order.** The reader draws the parts in the order of the page type. It adds nothing between them that the page does not hold, and an empty part shows `Not established.`
 - **Page type blocks.** The reader adds a table, a numbered list or a print layout for the types that carry one (see [Page files](#page-files)). It adds no other content.
 - **Links.** Where each token links is in [Syntax at a glance](#syntax-at-a-glance).

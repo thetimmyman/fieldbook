@@ -167,17 +167,14 @@ expression: html
 
 <div class="banner warn build-status" role="region" aria-label="Build status">
   <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 14 13H2L8 2.5Z"/><path d="M8 6.5v3"/><circle cx="8" cy="11.2" r="0.6"/></svg>
-  <div class="body"><b>This is an unreleased build, not an edition.</b> 5 of 5 claims are AI-drafted; 4 of 5 are unchecked. 1 of 5 has been checked and found supported. See the claims register.</div>
+  <div class="body"><b>This is an unreleased build, not an edition.</b> 5 of 5 claims are AI-drafted; 4 of 5 are unchecked. 1 of 5 has been checked and found supported. Each page shows its review date; none is flagged as overdue. See the claims register.</div>
 </div>
 
 
 </div>
 <main id="fb:main" tabindex="-1"><div class="reader" id="fb:reader">
   <article class="prose">
-    <div class="banner warn" id="fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="2027-02-01" hidden>
-      <div class="body"><b>Review overdue.</b> Review date <time datetime="2027-02-01">2027-02-01</time> has passed; re-check cited sources before relying on this page.</div>
-      
-    </div>
+    
     
     <div class="banner" role="region" aria-label="Readiness notice">
       <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>

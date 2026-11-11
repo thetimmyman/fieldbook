@@ -63,6 +63,9 @@ pub struct MetaRowView {
     /// Hidden per-claim rows of the overdue banner, one per computed review date, with the `verify`
     /// chip or, until that command lands, one landing line for the fold.
     pub due_claims_html: String,
+    /// True when the page writes the hidden review-overdue banner, false on an unreleased build,
+    /// where the build status banner says each page shows its review date.
+    pub overdue_banner: bool,
 }
 
 /// A part that the reader shows as a closed fold under its heading.
@@ -547,23 +550,30 @@ const DEFAULT_PACK_BUDGET_CHARS: usize = 12_000;
 /// Render the inner `<main>` content (`templates/page.html`) for `page`.
 #[must_use]
 pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths) -> String {
-    render_main_in(page, view, &StoreContext::Public, planned)
+    render_main_in(page, view, &StoreContext::Public, planned, true)
 }
 
 /// Render the inner `<main>` content for `page` in the given store context; with no company overlay (`StoreContext::Public`) the Company calibration part is a closed fold, in a company view it is open.
+///
+/// `overdue_banner` is true when the page writes the hidden review-overdue banner,
+/// false on an unreleased build.
 #[must_use]
 pub fn render_main_in(
     page: &PageEntry,
     view: &LabelledView,
     store: &StoreContext,
     planned: &PlannedPaths,
+    overdue_banner: bool,
 ) -> String {
     let packs = PackSource::new(view);
     let links = crate::related::LinkIndex::new(view);
-    render_main_with_packs(page, view, store, planned, &packs, &links)
+    render_main_with_packs(page, view, store, planned, &packs, &links, overdue_banner)
 }
 
 /// Render the inner `<main>` content (`templates/page.html`) for `page` in the given store context, reusing pre-built context packs.
+///
+/// `overdue_banner` is true when the page writes the hidden review-overdue banner,
+/// false on an unreleased build where the build status banner says each page shows its review date.
 #[must_use]
 pub fn render_main_with_packs(
     page: &PageEntry,
@@ -572,6 +582,7 @@ pub fn render_main_with_packs(
     planned: &PlannedPaths,
     packs: &PackSource<'_>,
     links: &crate::related::LinkIndex,
+    overdue_banner: bool,
 ) -> String {
     let from_path = format!("p/{}.html", page.id);
     let area_title = view
@@ -704,6 +715,17 @@ pub fn render_main_with_packs(
         }
     }
 
+    let due_claims_html = if overdue_banner {
+        render_due_claims(
+            &from_path,
+            &distinct_claims,
+            view,
+            planned,
+            chip::VERIFY_LANDED,
+        )
+    } else {
+        String::new()
+    };
     let meta_row = MetaRowView {
         page_id: page.id.to_string(),
         as_of: page.meta.as_of.to_string(),
@@ -712,13 +734,8 @@ pub fn render_main_with_packs(
         total_claims: distinct_claims.len(),
         last_verified: latest_verified.map(|d| d.to_string()),
         readiness: page.meta.readiness.as_str().to_owned(),
-        due_claims_html: render_due_claims(
-            &from_path,
-            &distinct_claims,
-            view,
-            planned,
-            chip::VERIFY_LANDED,
-        ),
+        due_claims_html,
+        overdue_banner,
     };
 
     let superseded_by_html = page
@@ -906,8 +923,10 @@ pub fn render_page_with_packs(
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
-    let main_html = render_main_with_packs(page, view, &store, planned, packs, links);
     let edition = ctx.edition_info();
+    let overdue_banner = crate::edition::built_date(edition).is_some();
+    let main_html =
+        render_main_with_packs(page, view, &store, planned, packs, links, overdue_banner);
     let area_code = page.meta.area.as_str();
     let area_label = view
         .corpus()

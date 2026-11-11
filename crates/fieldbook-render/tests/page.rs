@@ -19,7 +19,7 @@ mod page {
         render_area_chip, render_citation_chip, render_claim_chip, render_conflict_chip,
         render_page_link, render_question_chip, render_term_link,
     };
-    use fieldbook_render::meta::BuildInfo;
+    use fieldbook_render::meta::{BuildInfo, BuildProfile};
     use fieldbook_render::nav;
     use fieldbook_render::page::{render_due_claims, render_main, render_page};
     use fieldbook_render::site::{self, PlannedPaths};
@@ -1392,5 +1392,56 @@ mod page {
             html.contains("href=\"../s/S-0002-v2.html\""),
             "the active comparison version keeps its link: {html}"
         );
+    }
+
+    #[test]
+    fn unreleased_page_has_no_overdue_banner() {
+        let (_model, view) = load_view(fixture_tree());
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let navigation = nav::build(&view, &planned);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_page(page, &view, &ctx, &navigation, &planned);
+
+        assert!(!html.contains("fb:overdueBanner"));
+        assert!(!html.contains("Review overdue"));
+        assert!(!html.contains("due-claims"));
+        assert!(!html.contains("data-claim-review-by"));
+        assert!(html.contains("Review by <time datetime="));
+    }
+
+    #[test]
+    fn released_page_keeps_overdue_banner() {
+        let mut tree = fixture_tree();
+        tree.insert_bytes(
+            "corpus/changes.md",
+            b"# Changes\n\nSynthetic changes log.\n\n## edition-001\n\n- Added: initial.\n",
+        );
+        let (_model, view) = load_view(tree);
+        let date = CivilDate::parse("2026-03-01").unwrap();
+        let sha = "0123456789abcdef0123456789abcdef01234567".to_owned();
+        let released_info = BuildInfo::new(Some(date), Some(sha), BuildProfile::Silent, None);
+        let ctx = site::render_context(&view, &released_info).unwrap();
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let navigation = nav::build(&view, &planned);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_page(page, &view, &ctx, &navigation, &planned);
+
+        assert!(html.contains("id=\"fb:overdueBanner\""));
+        assert!(html.contains("data-review-by=\""));
+        let banner_start = html.find("id=\"fb:overdueBanner\"").unwrap();
+        let banner_tag_end = html[banner_start..].find('>').unwrap();
+        let banner_tag = &html[banner_start..banner_start + banner_tag_end];
+        assert!(banner_tag.contains("hidden"));
+        assert!(html.contains("Review overdue."));
+        assert!(!html.contains("This is an unreleased build"));
     }
 }
