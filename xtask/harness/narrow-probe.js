@@ -34,8 +34,8 @@
             name: name,
             tag: el.tagName.toLowerCase(),
             icon: el.classList.contains('icon-btn'),
-            // The one status link (a.build-date-link) is a linked chip, with a 24px design floor, left for its own card.
-            chip: el.tagName === 'A' && el.classList.contains('build-date-link') && !!el.querySelector('.chip'),
+            // a link around a chip has the design's 24px --target-min floor, every other control 32px.
+            floor: (el.tagName === 'A' && !!el.querySelector('.chip')) ? 24 : 32,
             width: Math.round(rect.width * 100) / 100,
             height: Math.round(rect.height * 100) / 100
           });

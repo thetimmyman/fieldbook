@@ -2758,6 +2758,9 @@ svg .bar1.tot {
 }
 
 .build-date-link {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--target-min);
   color: inherit;
   text-decoration: none;
 }
