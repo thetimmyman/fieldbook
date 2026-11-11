@@ -54,10 +54,16 @@ jobs:
         run: cargo build --locked --package fieldbook
       - name: Scan the development binary imports
         run: cargo xtask binscan target/debug/fieldbook --build silent
+      # The corpus job builds the site with this binary. A release build of the same commit
+      # renders the same bytes (AD-12, Determinism) in much less time.
+      - name: Build the release binary for the corpus job
+        run: cargo build --locked --release --package fieldbook
+      - name: Scan the release binary imports
+        run: cargo xtask binscan target/release/fieldbook --build silent
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: fieldbook-dev
-          path: target/debug/fieldbook
+          path: target/release/fieldbook
           if-no-files-found: error
           retention-days: 7
 
