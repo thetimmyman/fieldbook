@@ -29,7 +29,8 @@ pub const REQUIRED_FILES: &[&str] = &[
     "index.html",
     "about.html",
     "corpus/corpus.toml",
-    "ASSISTANT.md",
+    // `ASSISTANT.md`: one frozen spelling, from `strings`.
+    fieldbook_core::strings::PATHS[6],
     "README.txt",
     "TRANSFER-STATEMENT.txt",
     "edition.toml",
