@@ -145,7 +145,7 @@
       }
     });
 
-    guarded('top_bar_buttons_keep_the_control_height', function (problems, notes) {
+    guarded('top_bar_buttons_keep_the_control_height', function (problems) {
       if (!measures) {
         problems.push('no result from the frame: the probe did not report');
         return;
@@ -161,18 +161,10 @@
       var measured = 0;
       for (var i = 0; i < measures.controls.length; i++) {
         var c = measures.controls[i];
-        if (c.chip === true) {
-          if (c.height < 24) {
-            notes.push('known design failure: chip link "' + c.name + '" is ' + c.height + 'px tall, under the design\'s 24px --target-min for a linked chip (HANDOFF.md section 0, WCAG 2.5.8; section 5, Chip row); left for its own card');
-          } else {
-            notes.push('chip link "' + c.name + '" is ' + c.height + 'px tall, left out of the 32px rule (a linked chip has a 24px floor)');
-          }
-          continue;
-        }
         measured += 1;
         var tag = c.tag === 'a' ? 'a' : 'button';
-        if (c.height < 32) {
-          problems.push(tag + ' "' + c.name + '" is ' + c.height + 'px tall, under 32px');
+        if (c.height < c.floor) {
+          problems.push(tag + ' "' + c.name + '" is ' + c.height + 'px tall, under ' + c.floor + 'px');
         } else if (c.icon && c.width < 32) {
           problems.push('icon ' + tag + ' "' + c.name + '" is ' + c.width + 'px wide, under 32px');
         }
