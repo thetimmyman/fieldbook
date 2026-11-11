@@ -1,6 +1,6 @@
 # ADR 0002 Corpus format v1
 
-Status: Accepted (F0; amended before edition-001 for five-digit claim continuation)
+Status: Accepted (F0; amended before edition-001 for five-digit claim continuation and the review date basis)
 
 ## Context
 
@@ -78,6 +78,14 @@ A change to the frozen format is a new ADR that supersedes or amends this one, n
 - **Trigger:** Content needs something the format cannot say (reopen trigger 1): the compliance (`CMP`) claim series reached `CL-CMP-9999` during Day-1 public clause-card drafting while compliance sections remain to be cited.
 - **Decision:** A public claim series continues with five digits from `10000` to `99999` (`^CL-[A-Z]{3}-([0-9]{4}|[1-9][0-9]{4})$`, with no leading zero in five-digit numbers so every number has one canonical spelling) in both the Identifiers table and the citation grammar, and `claims.csv` sorts by area and then by claim number as an integer (`CL-CMP-9999` before `CL-CMP-10000`). Company claims (`^CL-X[A-Z]{2}-[0-9]{6,10}$`) remain disjoint by area prefix and digit width.
 - **Versioning and migration:** Every existing four-digit `CL-AAA-0001` to `CL-AAA-9999` claim id remains valid and keeps the identical relative order under `(area, number)` as under byte order. Because neither `edition-001` nor any `fieldbook-core` identifier, CSV or citation reader has landed yet, this amendment is folded into `schema_version = 1` before the first reader or edition ships, and no existing register row or page citation needs rewriting.
+
+## Amendment: review date basis (pre-edition-001)
+
+- **Trigger:** None of the listed triggers fits exactly, so the owner's acceptance also decides that this record may be amended for it. The computed meaning of `review_by` misleads readers: it counted a page's interval from `as_of`, "the date the page's content describes", so `FB0117` marks a page overdue the day it is written whenever the page describes an older source. At the commit date, 665 of 1,709 pages raise `FB0117`; under this amendment 6 do (`fieldbook check --strict --today` the commit date: 994 warnings before, 335 after). The six are the six `brief` pages, which have no Change note part and keep counting from `as_of`.
+- **Decision:** A page's `review_by` is the later of its `as_of` and the date of the newest valid entry in its `## Change note` part, plus the interval of its volatility. A valid entry has a known change class, a real calendar date and a sentence; an entry that is not valid is not read (`FB0114` and `FB0137` still report it), and a page with no valid entry counts from its `as_of`. The order of the entries is not read. The new rule reads only what the page already holds: no file is rewritten and no field is added. A claim's `review_by`, `FB0221` and `verify` are unchanged.
+- **Why the Change note:** `review_by` answers "when should a person look at this page again". The last time a person or an agent changed the page is its Change note: every page of the eight-part types has one, its oldest entry is `NEW_KNOWLEDGE` (`FB0137`) and each entry carries a date (`FB0114`). A page nobody has touched stays overdue, and a page of the eight-part types written today from an older source is not overdue at birth.
+- **Schema impact:** Breaking by the definition in [Scope and versioning](../reference/corpus-format.md#scope-and-versioning), because a meaning changes: the same page can have an earlier `review_by` before this amendment than after it. No valid file needs rewriting, and no value that a Corpus holds changes except the computed `review_by`.
+- **Versioning and migration:** As for the five-digit claim continuation, this amendment is folded into `schema_version = 1` before `edition-001`: no edition, tag or release has shipped, so no reader of an earlier meaning exists. The alternative, a bump to `schema_version = 2`, would refuse every Corpus the tool reads today for a computed date; it is not needed until an edition has shipped under the earlier meaning.
 
 ## Additive input support
 

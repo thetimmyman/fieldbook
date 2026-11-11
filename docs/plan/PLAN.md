@@ -140,6 +140,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - build-home-and-areas: `index.html` and the 13 area pages with coverage bars
 - build-about: `about.html` and the command chip
 - build-charts: inline SVG charts and the calc table, `Unavailable` where data is missing
+- build-charts-2: the calc table on calc pages from the case its Fixture line names
 
 ### Day-1 content
 
