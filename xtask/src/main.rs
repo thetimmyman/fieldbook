@@ -42,6 +42,7 @@
     )
 )]
 mod allowlist;
+mod archive_release;
 mod audit_doc;
 mod binscan;
 mod cards;
@@ -147,6 +148,10 @@ fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
     let root = std::env::var_os("XTASK_REPO_ROOT").map_or_else(proc::repo_root, PathBuf::from);
     if let Err(message) = raw_release::register_raw_provider() {
+        eprintln!("error: {message}");
+        return ExitCode::from(3);
+    }
+    if let Err(message) = archive_release::register_release_providers() {
         eprintln!("error: {message}");
         return ExitCode::from(3);
     }
