@@ -65,8 +65,7 @@ pub fn state_mini_events() -> Vec<EventPayload> {
         EventPayload::JournalOpen {
             writer: Count::new(0),
             event_schema: Count::new(1),
-            // The checked-in journals under tests/fixtures record this version; it must not follow a release.
-            tool_version: SemVer::parse("0.0.0").expect("valid semver"),
+            tool_version: SemVer::parse(env!("CARGO_PKG_VERSION")).expect("valid semver"),
             stores: Vec::new(),
         },
         // 2: settings.change
