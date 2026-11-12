@@ -2102,6 +2102,10 @@ th[aria-sort="descending"] .sort-arrow::after {
   background-color: var(--color-mark);
 }
 
+.loc-line:has(.loc-anchor:target) .loc-no {
+  color: var(--color-fg);
+}
+
 .loc-no {
   color: var(--color-muted);
   user-select: none;
