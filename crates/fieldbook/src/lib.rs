@@ -17,6 +17,7 @@ pub mod cli;
 pub mod io;
 pub mod new;
 pub mod report;
+pub mod restore;
 pub mod search;
 pub mod verify;
 
@@ -275,6 +276,9 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             }
         }
         Commands::Backup(backup_args) => backup::run(&backup_args, parsed.state.as_deref(), world),
+        Commands::Restore(restore_args) => {
+            restore::run(&restore_args, parsed.state.as_deref(), world)
+        }
     };
 
     if io::journal::thread_wrote_store() && (outcome.code == 0 || outcome.code == 1) {

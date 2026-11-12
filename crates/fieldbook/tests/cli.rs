@@ -24,7 +24,6 @@ const NOT_BUILT: &[&str] = &[
     "status",
     "new note",
     "audit export",
-    "restore",
     "context",
     "cite-check",
     "queue list",

@@ -48,7 +48,8 @@ use crate::io::journal::{
     newest_successful_snapshot_verify_events, read_valid_events_prefix,
 };
 use crate::io::root::git_context;
-use crate::io::state::{self, BackupSettings, BackupTargetConfig, read_backup_settings};
+use crate::io::state;
+pub(crate) use crate::io::state::{BackupSettings, BackupTargetConfig, read_backup_settings};
 use crate::{Outcome, StateOverrideWorld, World};
 
 /// Options for snapshot creation.
