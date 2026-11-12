@@ -42,6 +42,12 @@ mod source {
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
     const S_0001_V1_TXT: &[u8] =
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
+    const S_0001_V1_EXTRACTION_TOML: &str = include_str!(
+        "../../../tests/fixtures/corpus-mini/corpus/sources/text/S-0001-v1/extraction.toml"
+    );
+    const S_0001_V1_P0001_TXT: &[u8] = include_bytes!(
+        "../../../tests/fixtures/corpus-mini/corpus/sources/text/S-0001-v1/p0001.txt"
+    );
     const CMP_SYSTEM_REVIEW_MD: &str = include_str!(
         "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
     );
@@ -72,6 +78,24 @@ mod source {
     /// stored under `corpus/sources/public/`.
     fn tree_with(extra_rows: &str, extra_files: &[(&str, &[u8])]) -> Tree {
         tree_full(extra_rows, extra_files, CLAIMS_CSV, CMP_SYSTEM_REVIEW_MD)
+    }
+
+    fn tree_with_extraction(
+        extra_rows: &str,
+        extra_files: &[(&str, &[u8])],
+        extraction_toml: &str,
+        p0001_bytes: &[u8],
+    ) -> Tree {
+        let mut tree = tree_with(extra_rows, extra_files);
+        for dir in ["corpus/sources/text", "corpus/sources/text/S-0001-v1"] {
+            tree.insert_dir(dir);
+        }
+        tree.insert_bytes(
+            "corpus/sources/text/S-0001-v1/extraction.toml",
+            extraction_toml.as_bytes(),
+        );
+        tree.insert_bytes("corpus/sources/text/S-0001-v1/p0001.txt", p0001_bytes);
+        tree
     }
 
     /// Like [`tree_with`], with the claims register and the one reader page replaced.
@@ -677,5 +701,62 @@ mod source {
 
         let css = include_str!("../assets/app.css");
         assert!(css.contains(".ans-meta {"), "the row class needs a rule");
+    }
+
+    #[test]
+    fn anchors_and_marks_on_s_page() {
+        let tree = tree_with_extraction("", &[], S_0001_V1_EXTRACTION_TOML, S_0001_V1_P0001_TXT);
+        let (_model, view) = load_view(tree);
+        let site = render_site(&view);
+
+        let html = page_text(&site, "S-0001-v1");
+        assert!(html.contains("id=\"sec-1\""), "must contain id=sec-1");
+        assert!(html.contains("id=\"sec-2\""), "must contain id=sec-2");
+        assert!(
+            html.contains("<mark>Synthetic compliance reviews occur every 30 days.</mark>"),
+            "must contain marked passage"
+        );
+        assert!(
+            html.contains("<blockquote class=\"excerpt\">"),
+            "must contain excerpt blockquote"
+        );
+        assert!(
+            html.contains("<blockquote class=\"excerpt\"><mark>Synthetic compliance reviews occur every 30 days.</mark></blockquote>"),
+            "must contain excerpt with passage"
+        );
+        assert!(!html.contains("style=\""), "must not contain style=");
+        assert!(
+            html.contains("class=\"locator-view\""),
+            "must contain class=locator-view"
+        );
+
+        let s0002_html = page_text(&site, "S-0002-v2");
+        let excerpt = format_not_available("Excerpt", "this version is extracted");
+        let locator = format_not_available("Locator view", "this version is extracted");
+        assert!(
+            s0002_html.contains(&excerpt),
+            "S-0002-v2 must say excerpt is not available"
+        );
+        assert!(
+            s0002_html.contains(&locator),
+            "S-0002-v2 must say locator view is not available"
+        );
+
+        // Second tree: page text containing markup is escaped
+        let script_p0001 = b"Section 1: <script>x</script> Synthetic compliance reviews occur every 30 days.\nSection 2: Synthetic withholding threshold is 5 percent.\n";
+        let script_sha = fieldbook_core::hash::sha256_hex(script_p0001);
+        let script_toml = S_0001_V1_EXTRACTION_TOML.replace(
+            "p0001 = \"0fba4a465337f7383e693c1348ff428c4ce68dbfc6f6a3b5b64014d35d0eb73d\"",
+            &format!("p0001 = \"{script_sha}\""),
+        );
+        let tree2 = tree_with_extraction("", &[], &script_toml, script_p0001);
+        let (_model2, view2) = load_view(tree2);
+        let site2 = render_site(&view2);
+        let html2 = page_text(&site2, "S-0001-v1");
+        assert!(html2.contains("&lt;script&gt;"), "must escape script tag");
+        assert!(
+            !html2.contains("<script>x"),
+            "must not contain raw script tag"
+        );
     }
 }

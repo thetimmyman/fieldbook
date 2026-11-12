@@ -1,0 +1,16 @@
+<section class="panel src-text">
+  <div class="panel-head"><h2 class="panel-title">Extracted text</h2><span class="panel-sub mono">{{ pages_sub }}</span></div>
+  {% if let Some(note) = thin_note %}
+  <p class="muted">{{ note }}</p>
+  {% endif %}
+  <div class="locator-view" role="region" tabindex="0" aria-label="{{ version_id }}">
+    {% for p in pages %}
+    <div class="loc-page" data-page="{{ p.page_num }}">
+      <div class="loc-pageno mono">p. {{ p.page_num }}</div>
+      {% for line in &p.lines %}
+      <div class="loc-line">{% for anchor in &line.anchors %}<span class="loc-anchor" id="{{ anchor }}"></span>{% endfor %}<span class="loc-no mono">{{ line.line_no }}</span><span class="loc-text">{{ line.text_html|safe }}</span></div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>

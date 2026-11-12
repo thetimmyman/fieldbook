@@ -20,6 +20,7 @@ pub mod page_links;
 pub mod page_parts;
 pub mod pages;
 pub mod promotion;
+pub mod quotes;
 pub mod register_cells;
 pub mod register_links;
 pub mod registers;
@@ -79,6 +80,7 @@ const PASSES: &[Pass] = &[
     claim_value::check,
     register_links::check,
     extraction::check,
+    quotes::check,
     promotion::check,
     pages::check,
     page_links::check,
