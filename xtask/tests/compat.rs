@@ -1393,8 +1393,8 @@ fn missing_adapter_or_template_runner_refuses() {
     assert!(!res.status.success());
     let stderr = String::from_utf8_lossy(&res.stderr);
     assert!(
-        stderr.contains("unknown@1"),
-        "error must name the unknown adapter binding: {stderr}"
+        stderr.contains("unknown adapter binding `adapter:extractor:unknown@1` in runner dispatch"),
+        "error must be the runner refusal naming the unknown adapter binding: {stderr}"
     );
 
     // 2. Template binding of an unknown id without `synthetic` refuses and names the binding.
@@ -1422,8 +1422,8 @@ fn missing_adapter_or_template_runner_refuses() {
     assert!(!res.status.success());
     let stderr = String::from_utf8_lossy(&res.stderr);
     assert!(
-        stderr.contains("unknown@1"),
-        "error must name the unknown template binding: {stderr}"
+        stderr.contains("unknown template binding `template:unknown@1` in runner dispatch"),
+        "error must be the runner refusal naming the unknown template binding: {stderr}"
     );
 
     // 3. Registry coverage fails when a Built row has no binding in the manifest.
