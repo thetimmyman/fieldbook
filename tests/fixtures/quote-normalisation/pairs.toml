@@ -114,3 +114,43 @@ quote = "applies immediately"
 page = "The guideline \u201CProcedure Alpha\u201D applies immediately to all units."
 expect = "match"
 matched = "applies immediately"
+
+[[pair]]
+name = "precomposed_quote_decomposed_page"
+quote = "café au lait"
+page = "A café au lait menu."
+expect = "match"
+matched = "café au lait"
+
+[[pair]]
+name = "decomposed_quote_precomposed_page"
+quote = "café au lait"
+page = "A café au lait menu."
+expect = "match"
+matched = "café au lait"
+
+[[pair]]
+name = "no_match_unaccented_quote_precomposed_page"
+quote = "cafe"
+page = "A café menu."
+expect = "none"
+
+[[pair]]
+name = "no_match_unaccented_quote_decomposed_page"
+quote = "cafe"
+page = "A café menu."
+expect = "none"
+
+[[pair]]
+name = "span_excludes_adjacent_quote_marks_precomposed"
+quote = "café"
+page = "He said “café” twice."
+expect = "match"
+matched = "café"
+
+[[pair]]
+name = "span_excludes_adjacent_quote_marks_decomposed"
+quote = "café"
+page = "He said “café” twice."
+expect = "match"
+matched = "café"

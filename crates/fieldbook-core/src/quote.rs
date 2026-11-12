@@ -233,37 +233,53 @@ fn process_chunk(chunk_str: &str, orig_start: usize, orig_end: usize, state: &mu
     }
 }
 
-fn process_segment(s: &str, base_offset: usize, state: &mut WhitespaceState) {
-    let mut byte_idx = 0;
-    let bytes = s.as_bytes();
-    while byte_idx < bytes.len() {
-        let Some(&b) = bytes.get(byte_idx) else {
-            break;
-        };
-        if b < 128 {
-            let orig_start = base_offset.saturating_add(byte_idx);
-            let orig_end = orig_start.saturating_add(1);
-            if let Some(chunk_str) = s.get(byte_idx..byte_idx.saturating_add(1)) {
-                process_chunk(chunk_str, orig_start, orig_end, state);
-            }
-            byte_idx = byte_idx.saturating_add(1);
-        } else {
-            let start = byte_idx;
-            while byte_idx < bytes.len() {
-                let Some(&b2) = bytes.get(byte_idx) else {
-                    break;
-                };
-                if b2 < 128 {
-                    break;
-                }
-                byte_idx = byte_idx.saturating_add(1);
-            }
-            let orig_start = base_offset.saturating_add(start);
-            let orig_end = base_offset.saturating_add(byte_idx);
-            if let Some(chunk_str) = s.get(start..byte_idx) {
-                process_chunk(chunk_str, orig_start, orig_end, state);
-            }
+/// A chunk may start before `c` only when nothing earlier can compose or reorder with it:
+/// the first character of its compatibility decomposition is a starter that never
+/// combines backward (every ASCII character is one).
+fn starts_chunk(c: char) -> bool {
+    if c.is_ascii() {
+        return true;
+    }
+    let mut first = None;
+    unicode_normalization::char::decompose_compatible(c, |d| {
+        if first.is_none() {
+            first = Some(d);
         }
+    });
+    let lead = first.unwrap_or(c);
+    unicode_normalization::char::canonical_combining_class(lead) == 0
+        && unicode_normalization::is_nfkc_quick(std::iter::once(lead))
+            == unicode_normalization::IsNormalized::Yes
+}
+
+fn process_segment(s: &str, base_offset: usize, state: &mut WhitespaceState) {
+    let mut chunk_start: Option<usize> = None;
+    for (i, c) in s.char_indices() {
+        if starts_chunk(c) {
+            if let Some(start) = chunk_start
+                && let Some(chunk_str) = s.get(start..i)
+            {
+                process_chunk(
+                    chunk_str,
+                    base_offset.saturating_add(start),
+                    base_offset.saturating_add(i),
+                    state,
+                );
+            }
+            chunk_start = Some(i);
+        } else if chunk_start.is_none() {
+            chunk_start = Some(i);
+        }
+    }
+    if let Some(start) = chunk_start
+        && let Some(chunk_str) = s.get(start..)
+    {
+        process_chunk(
+            chunk_str,
+            base_offset.saturating_add(start),
+            base_offset.saturating_add(s.len()),
+            state,
+        );
     }
 }
 
