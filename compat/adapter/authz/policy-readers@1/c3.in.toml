@@ -1,0 +1,6 @@
+[groups]
+
+[[store]]
+id = "state"
+readers = "unknown-grp"
+changers = "unknown-grp"

@@ -27,10 +27,92 @@ fn xtask_bin() -> PathBuf {
     PathBuf::from(env!("CARGO_BIN_EXE_xtask"))
 }
 
+/// The calculation and run-schema bindings of a manifest, without any adapter or template binding.
+fn legacy_manifest(text: &str) -> String {
+    let mut parts = text.split("[[binding]]\n");
+    let header = parts.next().unwrap_or_default();
+    let mut out = header.to_owned();
+    for block in parts {
+        if block.starts_with("kind = \"calculation\"") || block.starts_with("kind = \"run-schema\"")
+        {
+            out.push_str("[[binding]]\n");
+            out.push_str(block);
+        }
+    }
+    out
+}
+
+/// Insert `block` into `manifest` keeping bindings sorted by (kind, port, id).
+fn insert_binding_sorted(manifest: &str, block: &str) -> String {
+    fn key(b: &str) -> (u8, String, String) {
+        let field = |name: &str| {
+            b.lines()
+                .find_map(|l| l.strip_prefix(name).and_then(|r| r.strip_prefix(" = \"")))
+                .and_then(|r| r.strip_suffix('"'))
+                .unwrap_or_default()
+                .to_owned()
+        };
+        let rank = match field("kind").as_str() {
+            "adapter" => 0,
+            "calculation" => 1,
+            "run-schema" => 2,
+            "schema-keyword" => 3,
+            _ => 4,
+        };
+        (rank, field("port"), field("id"))
+    }
+    let mut parts = manifest.split("[[binding]]\n");
+    let header = parts.next().unwrap_or_default().to_owned();
+    let mut blocks: Vec<String> = parts
+        .map(|b| format!("[[binding]]\n{}", b.trim_end_matches('\n')))
+        .collect();
+    blocks.push(format!(
+        "[[binding]]\n{}",
+        block
+            .trim_start_matches("[[binding]]\n")
+            .trim_end_matches('\n')
+    ));
+    blocks.sort_by_key(|b| key(b.strip_prefix("[[binding]]\n").unwrap_or(b)));
+    let mut out = header;
+    for b in blocks {
+        out.push_str(&b);
+        out.push_str("\n\n");
+    }
+    out.trim_end_matches('\n').to_owned() + "\n"
+}
+
+fn copy_dir_all(src: &Path, dst: &Path) {
+    if !src.exists() {
+        return;
+    }
+    let _ = std::fs::create_dir_all(dst);
+    if let Ok(entries) = std::fs::read_dir(src) {
+        for entry in entries.flatten() {
+            let path = entry.path();
+            let dest = dst.join(entry.file_name());
+            if path.is_dir() {
+                copy_dir_all(&path, &dest);
+            } else if path.is_file() {
+                let _ = std::fs::copy(&path, &dest);
+            }
+        }
+    }
+}
+
 type CompatSpec<'a> = (&'a str, &'a str, &'a [(String, String)]);
 
 struct TempRepo {
     dir: PathBuf,
+}
+
+struct BindingSpec<'a> {
+    kind: &'a str,
+    port: Option<&'a str>,
+    id: &'a str,
+    runner: &'a str,
+    dir: &'a str,
+    impl_path: &'a str,
+    cases: &'a [&'a str],
 }
 
 impl TempRepo {
@@ -83,6 +165,42 @@ impl TempRepo {
             }
             std::fs::copy(&from, &to).unwrap_or_else(|e| panic!("copy {rel}: {e}"));
         }
+        copy_dir_all(&src.join("compat"), &self.dir.join("compat"));
+        copy_dir_all(
+            &src.join("crates/fieldbook-core/src/versions"),
+            &self.dir.join("crates/fieldbook-core/src/versions"),
+        );
+        copy_dir_all(
+            &src.join("crates/fieldbook-core/src/ports/templates"),
+            &self.dir.join("crates/fieldbook-core/src/ports/templates"),
+        );
+        copy_dir_all(
+            &src.join("crates/fieldbook/src/io/versions"),
+            &self.dir.join("crates/fieldbook/src/io/versions"),
+        );
+        copy_dir_all(
+            &src.join("xtask/src/versions"),
+            &self.dir.join("xtask/src/versions"),
+        );
+        // The synthetic scenarios below build on the calculation bindings alone; the real
+        // adapter and template bindings are replayed by `published_adapters_and_templates_replay`.
+        let legacy = legacy_manifest(&self.read("compat/published.toml"));
+        self.write("compat/published.toml", &legacy);
+    }
+
+    /// Restore the workspace manifest and its registry so that coverage of every Built row is checked.
+    fn use_real_manifest(&self) {
+        let src = repo_root();
+        self.write(
+            "compat/published.toml",
+            &std::fs::read_to_string(src.join("compat/published.toml"))
+                .unwrap_or_else(|e| panic!("read real manifest: {e}")),
+        );
+        self.write(
+            "crates/fieldbook/src/adapters/registry.rs",
+            &std::fs::read_to_string(src.join("crates/fieldbook/src/adapters/registry.rs"))
+                .unwrap_or_else(|e| panic!("read registry: {e}")),
+        );
     }
 
     fn init_git(&self) {
@@ -247,6 +365,48 @@ impl TempRepo {
         self.write("compat/published.toml", &formatted);
     }
 
+    fn format_binding(&self, spec: &BindingSpec<'_>) -> String {
+        let mut s = String::new();
+        s.push_str("[[binding]]\n");
+        s.push_str(&format!("kind = \"{}\"\n", spec.kind));
+        if let Some(p) = spec.port {
+            s.push_str(&format!("port = \"{p}\"\n"));
+        }
+        s.push_str(&format!("id = \"{}\"\n", spec.id));
+        s.push_str(&format!("runner = \"{}\"\n\n", spec.runner));
+
+        // contract
+        let contract_path = format!("{}/contract.toml", spec.dir);
+        s.push_str("[[binding.files]]\nrole = \"contract\"\n");
+        s.push_str(&format!("path = \"{contract_path}\"\n"));
+        s.push_str(&format!("sha256 = \"{}\"\n\n", self.sha256(&contract_path)));
+
+        // expected
+        for case in spec.cases {
+            let exp_path = format!("{}/{case}.out.txt", spec.dir);
+            s.push_str("[[binding.files]]\nrole = \"expected\"\n");
+            s.push_str(&format!("case = \"{case}\"\n"));
+            s.push_str(&format!("path = \"{exp_path}\"\n"));
+            s.push_str(&format!("sha256 = \"{}\"\n\n", self.sha256(&exp_path)));
+        }
+
+        // implementation
+        s.push_str("[[binding.files]]\nrole = \"implementation\"\n");
+        s.push_str(&format!("path = \"{}\"\n", spec.impl_path));
+        s.push_str(&format!("sha256 = \"{}\"\n\n", self.sha256(spec.impl_path)));
+
+        // input
+        for case in spec.cases {
+            let in_path = format!("{}/{case}.in.toml", spec.dir);
+            s.push_str("[[binding.files]]\nrole = \"input\"\n");
+            s.push_str(&format!("case = \"{case}\"\n"));
+            s.push_str(&format!("path = \"{in_path}\"\n"));
+            s.push_str(&format!("sha256 = \"{}\"\n\n", self.sha256(&in_path)));
+        }
+
+        s
+    }
+
     fn run_compat(&self, base_arg: &str) -> Output {
         Command::new(xtask_bin())
             .args(["compat", "--base", base_arg])
@@ -355,7 +515,7 @@ fn old_prompt_and_golden_cannot_change_together() {
     // Add a synthetic template binding to compat/published.toml before tagging v0.1.0.
     repo.write(
         "compat/template/ask-answer@1/contract.toml",
-        "kind = \"template\"\nid = \"ask-answer@1\"\n",
+        "kind = \"template\"\nid = \"ask-answer@1\"\nsynthetic = true\n",
     );
     repo.write(
         "crates/fieldbook-core/src/ports/templates/ask-answer@1.txt",
@@ -459,7 +619,7 @@ fn new_version_keeps_old_vectors() {
     // alongside the existing bindings without changing build_up@1 or canonical-run@1.
     repo.write(
         "compat/template/ask-answer@2/contract.toml",
-        "kind = \"template\"\nid = \"ask-answer@2\"\n",
+        "kind = \"template\"\nid = \"ask-answer@2\"\nsynthetic = true\n",
     );
     repo.write(
         "crates/fieldbook-core/src/ports/templates/ask-answer@2.txt",
@@ -912,7 +1072,7 @@ fn baseline_streams_remain_independent() {
     // Now v0.1.0 tool release adds template ask-answer@1 and advances compatibility & tool while preserving edition-001.
     repo_a.write(
         "compat/template/ask-answer@1/contract.toml",
-        "kind = \"template\"\nid = \"ask-answer@1\"\n",
+        "kind = \"template\"\nid = \"ask-answer@1\"\nsynthetic = true\n",
     );
     repo_a.write(
         "crates/fieldbook-core/src/ports/templates/ask-answer@1.txt",
@@ -1139,5 +1299,153 @@ fn epoch_increase_preserves_historical_vectors() {
         out.status.success(),
         "historical vectors with pinned epoch 2 must still pass at epoch 3: {}",
         String::from_utf8_lossy(&out.stderr)
+    );
+}
+
+#[test]
+fn published_adapters_and_templates_replay() {
+    let root = repo_root();
+    let pub_text = std::fs::read_to_string(root.join("compat/published.toml"))
+        .unwrap_or_else(|e| panic!("read published.toml: {e}"));
+    let parsed: toml::Value =
+        toml::from_str(&pub_text).unwrap_or_else(|e| panic!("parse published.toml: {e}"));
+    let bindings = parsed
+        .get("binding")
+        .and_then(toml::Value::as_array)
+        .unwrap_or_else(|| panic!("bindings array"));
+
+    let required = [
+        ("adapter", Some("extractor"), "plain@1"),
+        ("adapter", Some("extractor"), "html-strip@1"),
+        ("adapter", Some("extractor"), "pdftotext-layout@1"),
+        ("adapter", Some("backup"), "folder@1"),
+        ("adapter", Some("store"), "folder@1"),
+        ("adapter", Some("authz"), "policy-readers@1"),
+        ("template", None, "ask@1"),
+    ];
+
+    for (kind, port, id) in required {
+        let present = bindings.iter().any(|b| {
+            b.get("kind").and_then(toml::Value::as_str) == Some(kind)
+                && b.get("id").and_then(toml::Value::as_str) == Some(id)
+                && b.get("port").and_then(toml::Value::as_str) == port
+        });
+        assert!(
+            present,
+            "manifest must contain binding for {kind} {port:?} {id}"
+        );
+    }
+
+    let status = Command::new(xtask_bin())
+        .args(["compat", "--base", "release-baseline.toml"])
+        .current_dir(&root)
+        .output()
+        .unwrap_or_else(|e| panic!("run xtask compat: {e}"));
+    assert!(
+        status.status.success(),
+        "compat check on real repo must succeed:\nstdout: {}\nstderr: {}",
+        String::from_utf8_lossy(&status.stdout),
+        String::from_utf8_lossy(&status.stderr)
+    );
+}
+
+#[test]
+fn missing_adapter_or_template_runner_refuses() {
+    let repo = TempRepo::new("missing-runner-refuses");
+    repo.copy_from_workspace();
+    repo.use_real_manifest();
+    repo.init_git();
+    repo.commit_all("baseline v0.1.0");
+
+    let real_pub = repo.read("compat/published.toml");
+    let first = repo.run_compat("release-baseline.toml");
+    assert!(
+        first.status.success(),
+        "the real manifest replays in the fixture: {}",
+        String::from_utf8_lossy(&first.stderr)
+    );
+
+    // 1. Adapter binding of an unknown id refuses with an error naming the binding.
+    repo.write(
+        "compat/adapter/extractor/unknown@1/contract.toml",
+        "kind = \"adapter\"\nport = \"extractor\"\nid = \"unknown@1\"\n",
+    );
+    repo.write("compat/adapter/extractor/unknown@1/impl.rs", "// impl\n");
+    repo.write(
+        "compat/adapter/extractor/unknown@1/c1.in.toml",
+        "hex = \"\"\n",
+    );
+    repo.write("compat/adapter/extractor/unknown@1/c1.out.txt", "ok\n");
+    let unknown_adapter = repo.format_binding(&BindingSpec {
+        kind: "adapter",
+        port: Some("extractor"),
+        id: "unknown@1",
+        runner: "adapter",
+        dir: "compat/adapter/extractor/unknown@1",
+        impl_path: "compat/adapter/extractor/unknown@1/impl.rs",
+        cases: &["c1"],
+    });
+    repo.write(
+        "compat/published.toml",
+        &insert_binding_sorted(&real_pub, &unknown_adapter),
+    );
+    let res = repo.run_compat("release-baseline.toml");
+    assert!(!res.status.success());
+    let stderr = String::from_utf8_lossy(&res.stderr);
+    assert!(
+        stderr.contains("unknown@1"),
+        "error must name the unknown adapter binding: {stderr}"
+    );
+
+    // 2. Template binding of an unknown id without `synthetic` refuses and names the binding.
+    repo.write(
+        "compat/template/unknown@1/contract.toml",
+        "kind = \"template\"\nid = \"unknown@1\"\n",
+    );
+    repo.write("compat/template/unknown@1/impl.txt", "template\n");
+    repo.write("compat/template/unknown@1/c1.in.toml", "x = 1\n");
+    repo.write("compat/template/unknown@1/c1.out.txt", "out\n");
+    let unknown_template = repo.format_binding(&BindingSpec {
+        kind: "template",
+        port: None,
+        id: "unknown@1",
+        runner: "template",
+        dir: "compat/template/unknown@1",
+        impl_path: "compat/template/unknown@1/impl.txt",
+        cases: &["c1"],
+    });
+    repo.write(
+        "compat/published.toml",
+        &insert_binding_sorted(&real_pub, &unknown_template),
+    );
+    let res = repo.run_compat("release-baseline.toml");
+    assert!(!res.status.success());
+    let stderr = String::from_utf8_lossy(&res.stderr);
+    assert!(
+        stderr.contains("unknown@1"),
+        "error must name the unknown template binding: {stderr}"
+    );
+
+    // 3. Registry coverage fails when a Built row has no binding in the manifest.
+    let without_plain: String = {
+        let mut parts = real_pub.split("[[binding]]\n");
+        let mut out = parts.next().unwrap_or_default().to_owned();
+        for block in parts {
+            if block.contains("port = \"extractor\"\nid = \"plain@1\"") {
+                continue;
+            }
+            out.push_str("[[binding]]\n");
+            out.push_str(block);
+        }
+        out
+    };
+    assert_ne!(without_plain, real_pub, "the plain@1 binding was removed");
+    repo.write("compat/published.toml", &without_plain);
+    let res = repo.run_compat("release-baseline.toml");
+    assert!(!res.status.success());
+    let stderr = String::from_utf8_lossy(&res.stderr);
+    assert!(
+        stderr.contains("ADAPTERS adapter `(extractor, plain@1)`"),
+        "coverage check must name the Built row without a binding: {stderr}"
     );
 }

@@ -3,6 +3,318 @@ calculation_epoch = 1
 case_set_sha256 = "749cd0ca62154bdb58fcdc04735a5714a32321cfd8b6d6bed86a0baca916ad70"
 
 [[binding]]
+kind = "adapter"
+port = "authz"
+id = "policy-readers@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/authz/policy-readers@1/contract.toml"
+sha256 = "c927c8a8b56cceb4104b8972b584a5e6dcd573e00c8dd7e0286c60ddb7cf72fd"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/authz/policy-readers@1/c1.out.txt"
+sha256 = "99179ea089a876cb35e3216e4a4c44e375caa72398fa03d99119df922a6fd077"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/authz/policy-readers@1/c2.out.txt"
+sha256 = "46ed4ed1da4b9a5474fcc172461459c7f5f08e927c7616f95842b3919cf4e918"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/authz/policy-readers@1/c3.out.txt"
+sha256 = "094ce35da5bd5c41988becd2ba0ec614d38bdd346fe5dcbf4be1ec7eacdde793"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/versions/policy_readers_v1.rs"
+sha256 = "9d624eac30c4e7eb0b5af247db98732b5118b13f403a381c096b8fa21b85988a"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/authz/policy-readers@1/c1.in.toml"
+sha256 = "113798721644abe23c329ba410946295fdfd3bd92b9419bc7a8d79c6502fcfb9"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/authz/policy-readers@1/c2.in.toml"
+sha256 = "87a66d94b20d2a7eb644e84a1f50189c2ad24117e4b353c35091897b6e41a6b0"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/authz/policy-readers@1/c3.in.toml"
+sha256 = "9e808681da93367ba1662bfacf9edfdee7dfd23071a6745bfcdc56728bb0003d"
+
+[[binding]]
+kind = "adapter"
+port = "backup"
+id = "folder@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/backup/folder@1/contract.toml"
+sha256 = "7b75e4dc73c3cc3a38fc3c5bb6ec642967c69245b2dd17fa3abf45ffabef489f"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/backup/folder@1/c1.out.txt"
+sha256 = "c7393701c8ad7d4844a294d14270cb21fe2b38f8e303d29d223667b895520bc5"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/backup/folder@1/c2.out.txt"
+sha256 = "d691b0d119f0f342173268b4e4457cc65fae60db99e81291cbb812b6b92298f5"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/backup/folder@1/c3.out.txt"
+sha256 = "49665655eaf23f0e0d5976b6aba2f947f3be57113462f374e0080d981723eacd"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook/src/io/versions/backup_folder_v1.rs"
+sha256 = "e5d822a83c6c52e700edb32bd04b711239cb7f1f4c1ff79893f6bece911ee59f"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/backup/folder@1/c1.in.toml"
+sha256 = "51bfd672ebf86c3e0dcc9d7bdbfba6335db6db837878d13f5d09ab888fe0732a"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/backup/folder@1/c2.in.toml"
+sha256 = "afeec3f080ef86f50281aa4dc740d73e9ff9cc17bf6e6334cfba84bbda62a659"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/backup/folder@1/c3.in.toml"
+sha256 = "d472710af9d49d751522784376af82cd7b1a2ac607a042b12fc48774477ab953"
+
+[[binding]]
+kind = "adapter"
+port = "extractor"
+id = "html-strip@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/extractor/html-strip@1/contract.toml"
+sha256 = "a5a7dd672915cb2b28898dc789fc5bbb73861724d6006c26b3bae84e17c2acde"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/extractor/html-strip@1/c1.out.txt"
+sha256 = "ebe2742fa5efa627ac959549dff6599d470704807608a4520ee327ab1564e5dc"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/extractor/html-strip@1/c2.out.txt"
+sha256 = "897481eb72254df20ac7c76ccaf79fb5ccbed727877d86fbb09be511d797c27e"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/extractor/html-strip@1/c3.out.txt"
+sha256 = "6988fab479706f16be30823363186ff33f3d2eea3c784c4161a5a514e18b86f9"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/versions/html_strip_v1.rs"
+sha256 = "e76aa64ca926de9ba34a02f5c0f4e47b8d52bb38333ebeeaa1d777d7ee7440ff"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/extractor/html-strip@1/c1.in.toml"
+sha256 = "232de8775572fff2fb35465316108d4e9967bc540550eb3c06dde8736cf42514"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/extractor/html-strip@1/c2.in.toml"
+sha256 = "5eeeb2be511875fddd2658579855719534bbe0c3c7e042352ae47b1d132c1aba"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/extractor/html-strip@1/c3.in.toml"
+sha256 = "539a2b9b1e9710de108c04f83912dc69258d88b4330fb0fc434adc6d3c78d89a"
+
+[[binding]]
+kind = "adapter"
+port = "extractor"
+id = "pdftotext-layout@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/extractor/pdftotext-layout@1/contract.toml"
+sha256 = "ad66fbe4067941e45ed21d42dac816238a933ac84471e93d4d2e3375de09a1d1"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/extractor/pdftotext-layout@1/c1.out.txt"
+sha256 = "321c9c73ca85748836898062db81ceb17103b675330c78fd97506ac36dcf6a13"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/extractor/pdftotext-layout@1/c2.out.txt"
+sha256 = "b65475b82a2461ece60155ae4324866e5634dbcbba4cf2f59c98dffbca5520b3"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/extractor/pdftotext-layout@1/c3.out.txt"
+sha256 = "1a6b1a2dc2171a96c3cb523d1283003b75a9be1229d915893ed4b09caf80285c"
+
+[[binding.files]]
+role = "implementation"
+path = "xtask/src/versions/pdftotext_layout_v1.rs"
+sha256 = "a4455d877bba40b47659771157d8fa7ba4390ba17a679511cf87cac5a8fb6678"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/extractor/pdftotext-layout@1/c1.in.toml"
+sha256 = "92fbc59f3d5f5ad02780895731992b32246b9f21ff009f077e72b269d5c3870a"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/extractor/pdftotext-layout@1/c2.in.toml"
+sha256 = "75fef0a82fd5c000a97557d5006e28bbb4a1b498ac458b39a2514f865c978e2c"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/extractor/pdftotext-layout@1/c3.in.toml"
+sha256 = "c3e1e537a0cc69d8348020959c4e64f51d251ab8903090ea632b9d3538e705fa"
+
+[[binding]]
+kind = "adapter"
+port = "extractor"
+id = "plain@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/extractor/plain@1/contract.toml"
+sha256 = "8ea0c9dc60d48221d9657ec6e3e272dcb2ebf448c557e8d9c777229431c1ba07"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/extractor/plain@1/c1.out.txt"
+sha256 = "5113e532590564df1af145fddb6f31410dfd00f6201f7cb1c8e23847d166372e"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/extractor/plain@1/c2.out.txt"
+sha256 = "9dea04399daa92aed0ff40239f297057b495ad049373f7f94d323b1839bdd28c"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/extractor/plain@1/c3.out.txt"
+sha256 = "6988fab479706f16be30823363186ff33f3d2eea3c784c4161a5a514e18b86f9"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/versions/plain_v1.rs"
+sha256 = "8a08622f2f4976366066e213a47ad195a4d0cb7c51dcb6fb55d3cbfe0a85b787"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/extractor/plain@1/c1.in.toml"
+sha256 = "210b25bd99b545624212496c7a8021a9c3ca0941a07c2b90d8170caf82f8531d"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/extractor/plain@1/c2.in.toml"
+sha256 = "2ad0ea40f3d67a411ae51b635f585a680f999e47aeeb19bbfc28885006398783"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/extractor/plain@1/c3.in.toml"
+sha256 = "539a2b9b1e9710de108c04f83912dc69258d88b4330fb0fc434adc6d3c78d89a"
+
+[[binding]]
+kind = "adapter"
+port = "store"
+id = "folder@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/store/folder@1/contract.toml"
+sha256 = "0eebbb03005fa4800072507ed2e255cc129e6358e8fba7b6ab036ddfa13c0a11"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/store/folder@1/c1.out.txt"
+sha256 = "20f259f19ec3da6edd378852b01ffcbdefb9d604a635b2f081f361fd9d3590af"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/store/folder@1/c2.out.txt"
+sha256 = "e36113cbda063e750a12e4081da83a96e5e0a42dca7d2ae6a512c8073bb44342"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/store/folder@1/c3.out.txt"
+sha256 = "f34149497b101f4ffe618399181d12070baa72232576c1264780bd656dac017b"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook/src/io/versions/store_folder_v1.rs"
+sha256 = "aaa1d9c8c47ff020bd48d55456229e7a749775a65e275b2febd426727c2a5ce2"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/store/folder@1/c1.in.toml"
+sha256 = "485459a0b9baac17290f289ce615f2ec47ec44d10100fad9222707c628c0e3c3"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/store/folder@1/c2.in.toml"
+sha256 = "50fe18bb94d917ee182f00a32dfdab53aa75927bf9309bb9836e0c338750129c"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/store/folder@1/c3.in.toml"
+sha256 = "f2e21a33c38892cf75aa42f70e5b72dddd43c71435c591db6341874c01af1085"
+
+[[binding]]
 kind = "calculation"
 id = "build_up@1"
 runner = "calculation"
@@ -106,3 +418,54 @@ role = "input"
 case = "calc-01"
 path = "compat/run-schema/canonical-run@1/calc-01.in.toml"
 sha256 = "9b5c584298800e0b252a84731e6e84f3793775d585af3e5e94b4a7fd33f9251c"
+
+[[binding]]
+kind = "template"
+id = "ask@1"
+runner = "template"
+
+[[binding.files]]
+role = "contract"
+path = "compat/template/ask@1/contract.toml"
+sha256 = "4cbd40263e4d295e12605fbd562432c8e6e05cd79e5f7c4b35ddc1ed0f94c034"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/template/ask@1/c1.out.txt"
+sha256 = "d308e5cc8e0aa49c60ad0f2caf3beffb2eb0463e7deb84fefd2986486db78715"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/template/ask@1/c2.out.txt"
+sha256 = "f7899398dff32c052ac1c5cd8a6686f6fab0adefdbccf3037345db1c873c01f2"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/template/ask@1/c3.out.txt"
+sha256 = "c6e1aa81032a60a9dc240aef561897e4902dc6b8614f093afd49b7ab3a58f3a2"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/ports/templates/ask@1.txt"
+sha256 = "47d8b04fdbccbccc03335166612c192825a2664fe59d7fab06cc99b64ac55cec"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/template/ask@1/c1.in.toml"
+sha256 = "21a3d4de46a19d89d46f3fc875ee62f548720f51dbf077963223223ddf5bcabf"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/template/ask@1/c2.in.toml"
+sha256 = "dc4f82cc1d937e6bc91bf1b316b9ebea0b2892bfee63eab26dd4e3d069c675fe"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/template/ask@1/c3.in.toml"
+sha256 = "e6acb5bd150dd77c7a0a764d0aef1b1cd02397479449c0fb8d3ec0af41e7f8cb"

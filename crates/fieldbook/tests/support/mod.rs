@@ -10,9 +10,11 @@
 
 use std::path::Path;
 
+pub mod authz_suite;
 pub mod backup_suite;
 pub mod faulty;
 pub mod state;
+pub mod store_suite;
 pub mod world;
 
 use fieldbook_core::check::Severity;

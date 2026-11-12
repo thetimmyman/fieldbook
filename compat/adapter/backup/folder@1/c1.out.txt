@@ -1,0 +1,6 @@
+dir fieldbook-backup-0007
+partial fieldbook-backup-0007.partial
+parse 7
+is-partial true
+is-partial false
+latest 7\n0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef\n

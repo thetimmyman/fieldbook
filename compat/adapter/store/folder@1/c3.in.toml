@@ -1,0 +1,9 @@
+ops = [
+    "path ",
+    "path /absolute/path",
+    "path \\win\\absolute",
+    "path C:\\drive",
+    "path a/../b",
+    "path ../parent",
+    "path a/..",
+]

@@ -1,0 +1,22 @@
+[groups]
+"grp-true" = true
+"grp-false" = false
+"grp-unreadable" = "unreadable"
+
+[[store]]
+id = "corpus"
+
+[[store]]
+id = "working"
+readers = "grp-unreadable"
+changers = "grp-false"
+
+[[store]]
+id = "overlay"
+readers = "grp-true"
+changers = "grp-false"
+
+[[store]]
+id = "state"
+readers = "grp-false"
+changers = "grp-true"
