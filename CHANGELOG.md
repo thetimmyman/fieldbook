@@ -4,7 +4,6 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
-- Added: four indirect-rates practitioner pages: the wrap-rate build-up, the structure of fringe, overhead and G&A pools and their bases, the cycle from provisional billing rates to final rates, and an incurred cost submission walkthrough.
 - Added: `just edition` builds the edition and originals zips.
 - Changed: the IT documents describe the silent build and the AI build separately.
 - Added: `just new-card`, `cargo xtask cards --check` and `cargo xtask scope`, which lint the card files, the plan, the links and the documents, and fail a pull request that closes a card and changes a path the card does not list.
