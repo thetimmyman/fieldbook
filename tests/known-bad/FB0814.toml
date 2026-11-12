@@ -1,0 +1,6 @@
+verb = "backup list"
+state = "state-known-bad/FB0814"
+
+[expect]
+code = "FB0814"
+status = 1

@@ -10,6 +10,8 @@
 )]
 
 pub mod atomic;
+pub mod backup_classify;
+pub mod backup_folder;
 pub mod dirs;
 pub mod journal;
 pub mod out;
@@ -19,7 +21,10 @@ pub mod store_lease;
 pub mod tree;
 pub mod win;
 
-pub use journal::{Audited, Journal, JournalError, Recovery};
+pub use journal::{
+    Audited, BackupRecovery, Journal, JournalError, PreparedBackupBegin, Recovery, RestoreEndInfo,
+};
+pub use state::{BackupSettings, BackupSettingsError, BackupTargetConfig, read_backup_settings};
 pub use store_lease::{GenerationStatus, LeaseMode, StoreLease};
 pub use tree::{Disk, Error, WorldError, find_root, read_file, read_tree};
 
@@ -216,6 +221,13 @@ impl Disk {
     pub fn prompt(&self, flag: &str) -> Result<(), Error> {
         let _ = self;
         prompt(flag)
+    }
+
+    /// Return folder placement facts for `path` via [`win::place`].
+    #[must_use]
+    pub fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
+        let _ = self;
+        win::place(path)
     }
 }
 

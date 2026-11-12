@@ -38,9 +38,6 @@ const PENDING: &str = r#"
 fieldbook fmt
 fieldbook status
 fieldbook status --page
-fieldbook backup
-fieldbook backup verify
-fieldbook backup list
 fieldbook restore --snapshot <n> --drill
 fieldbook context "<question>"
 fieldbook cite-check <file>
@@ -421,6 +418,15 @@ fn new_chip_cases_write_one_object_on_a_fresh_home_copy() {
     for case in new_cases {
         let tmp = temp_copy(&repo_root.join(case.fixture));
         let world = TestWorld::new(tmp.path());
+        if let Ok(tree) = fieldbook::io::read_tree(tmp.path())
+            && let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+                &tree,
+                "1111111111111111111111111111111111111111",
+            )
+        {
+            let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+            world.set_support_catalogue(cat, cat_sha);
+        }
         let args: Vec<String> = substitute_chip(case.chip, case.samples)
             .into_iter()
             .skip(1)
@@ -435,7 +441,9 @@ fn new_chip_cases_write_one_object_on_a_fresh_home_copy() {
             out.stdout
         );
         assert!(
-            out.stderr.is_empty(),
+            out.stderr
+                .lines()
+                .all(|l| l.starts_with("fieldbook: no verified backup yet")),
             "chip `{}`: {}",
             case.chip,
             out.stderr
@@ -480,6 +488,15 @@ fn terminal_chip_cases_need_a_terminal_and_write_nothing() {
     for case in terminal_cases {
         let tmp = temp_copy(&repo_root.join(case.fixture));
         let world = TestWorld::new(tmp.path());
+        if let Ok(tree) = fieldbook::io::read_tree(tmp.path())
+            && let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+                &tree,
+                "1111111111111111111111111111111111111111",
+            )
+        {
+            let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+            world.set_support_catalogue(cat, cat_sha);
+        }
         let before = world.read_tree().expect("read tree before");
         let args: Vec<String> = substitute_chip(case.chip, case.samples)
             .into_iter()
@@ -504,6 +521,83 @@ fn terminal_chip_cases_need_a_terminal_and_write_nothing() {
             before,
             "chip `{}` must leave the Corpus unchanged",
             case.chip
+        );
+    }
+}
+
+/// Backup chip cases run on a fresh copy with a target configured outside the copy and state.
+#[test]
+fn backup_chip_cases_run() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let chips = fieldbook_core::strings::chips();
+    let backup_chip = chips
+        .iter()
+        .find(|c| c.intent == "Back up the working data")
+        .expect("backup chip")
+        .chip;
+    let backup_list_chip = chips
+        .iter()
+        .find(|c| c.intent == "List backups")
+        .expect("backup list chip")
+        .chip;
+    let backup_cases: Vec<&ChipCase> = CASES
+        .iter()
+        .filter(|c| c.chip.starts_with(backup_chip))
+        .collect();
+    assert_eq!(backup_cases.len(), 3);
+
+    for case in backup_cases {
+        let tmp = temp_copy(&repo_root.join(case.fixture));
+        let target_temp = tempfile::tempdir().expect("create target tempdir");
+        let target_str = target_temp.path().to_string_lossy().to_string();
+
+        let state_dir = tmp.path().join(".fieldbook");
+        std::fs::create_dir_all(&state_dir).expect("create state dir");
+        let settings_path = state_dir.join("settings.toml");
+        let settings_content = format!(
+            "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+            target_str.replace('\\', "/")
+        );
+        std::fs::write(&settings_path, settings_content).expect("write settings");
+
+        let world = TestWorld::new(tmp.path());
+        if let Ok(tree) = fieldbook::io::read_tree(tmp.path())
+            && let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+                &tree,
+                "1111111111111111111111111111111111111111",
+            )
+        {
+            let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+            world.set_support_catalogue(cat, cat_sha);
+        }
+
+        // Pre-run a successful backup before verify/list
+        if case.chip != backup_chip {
+            let backup_args = vec!["backup".to_string()];
+            let pre_out = fieldbook::run(&backup_args, &world);
+            assert_eq!(pre_out.code, 0, "pre-run backup failed: {}", pre_out.stderr);
+        }
+
+        // For backup list, also pre-run backup verify so it doesn't warn FB0814 "none yet"
+        if case.chip == backup_list_chip {
+            let verify_args = vec!["backup".to_string(), "verify".to_string()];
+            let verify_out = fieldbook::run(&verify_args, &world);
+            assert_eq!(
+                verify_out.code, 0,
+                "pre-run verify failed: {}",
+                verify_out.stderr
+            );
+        }
+
+        let args: Vec<String> = substitute_chip(case.chip, case.samples)
+            .into_iter()
+            .skip(1)
+            .collect();
+        let out = fieldbook::run(&args, &world);
+        assert_eq!(
+            out.code, 0,
+            "chip `{}` failed: stderr={}",
+            case.chip, out.stderr
         );
     }
 }

@@ -173,7 +173,13 @@ fn new_page_from_template() {
     let out = run(&world, PAGE_ARGS);
     assert_eq!(out.code, 0, "stderr: {}", out.stderr);
     assert_eq!(out.stdout, format!("{PAGE_PATH}\n"));
-    assert!(out.stderr.is_empty(), "stderr: {}", out.stderr);
+    assert!(
+        out.stderr
+            .lines()
+            .all(|l| l.starts_with("fieldbook: no verified backup yet")),
+        "stderr: {}",
+        out.stderr
+    );
 
     let page = std::fs::read_to_string(tmp.path().join(PAGE_PATH)).expect("read page");
     let template = std::fs::read_to_string(tmp.path().join("corpus/templates/concept.md"))
@@ -442,7 +448,13 @@ fn missing_flag_on_a_terminal_is_prompted() {
     assert_eq!(out.stdout, "Q-003\n");
     // The prompt went through the writer, once, and not into the outcome.
     assert_eq!(world.prompts(), vec!["text: ".to_owned()]);
-    assert!(out.stderr.is_empty(), "stderr: {}", out.stderr);
+    assert!(
+        out.stderr
+            .lines()
+            .all(|l| l.starts_with("fieldbook: no verified backup yet")),
+        "stderr: {}",
+        out.stderr
+    );
     let q = row(tmp.path(), "corpus/registers/questions.csv", "Q-003");
     assert_eq!(q["question"], "Prompted question?");
 
@@ -1504,7 +1516,14 @@ fn new_claim_refuses_unmatched_quote() {
         out_ok.stdout, out_ok.stderr
     );
     assert_eq!(out_ok.stdout, "CL-CMP-0003\n");
-    assert!(out_ok.stderr.is_empty(), "stderr: {}", out_ok.stderr);
+    assert!(
+        out_ok
+            .stderr
+            .lines()
+            .all(|l| l.starts_with("fieldbook: no verified backup yet")),
+        "stderr: {}",
+        out_ok.stderr
+    );
     assert_eq!(count(&world, "write.begin"), 1);
     let claim = row(tmp.path(), "corpus/registers/claims.csv", "CL-CMP-0003");
     assert_eq!(

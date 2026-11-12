@@ -50,7 +50,7 @@ pub fn write_in_root(
     } else {
         root.path().join(rel)
     };
-    if !audited.has_active_lease() {
+    if !audited.has_active_lease() || audited.is_recovery_only() {
         return Err(Error::OutOfScope(raw_path));
     }
     if audited.is_state_only() && root.store() != StoreId::State {
@@ -104,6 +104,9 @@ pub fn write_outside(
     audited: &Audited,
 ) -> Result<Sha256, Error> {
     if audited.is_state_only() || !audited.has_active_lease() {
+        return Err(Error::OutOfScope(path.to_path_buf()));
+    }
+    if audited.is_recovery_only() && !audited.is_approved_recovery(allowed) {
         return Err(Error::OutOfScope(path.to_path_buf()));
     }
     let resolved = check_outside_write_binding(allowed, path, bytes)?;
