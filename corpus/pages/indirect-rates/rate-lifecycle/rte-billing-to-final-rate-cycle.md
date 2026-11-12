@@ -52,7 +52,7 @@ DCAA publishes its guidance for contractors at https://www.dcaa.mil/Guidance/Aud
 
 ## Company calibration
 
-Which estimating, billing and final indirect-rate sets are approved for each purpose and period [@Q-011], and which fiscal years remain open for incurred cost submission, audit, or rate settlement [@Q-035].
+Which estimating, billing and final indirect-rate sets are approved for each purpose and period [@Q-011], and which fiscal years are still open for incurred cost: not submitted, submitted, under audit, or settled [@Q-035].
 
 ## Sources
 
