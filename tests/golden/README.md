@@ -14,7 +14,7 @@ The behaviour they pin is specified in [search.md](../../docs/reference/search.m
 | `search/` | ranked | `seed-ranked-company.json` | 4 | Counted in the 30 above | Card `r2-company-ids` (Rust) |
 | `search/` | page-view | `page-view.json` (not a seed) | 14 | At least 8 | Card `search-page-view` (Rust); card `search-js` (Edge) |
 | `citations/` | citation | `seed-citations.json` | 30 | No minimum | Card `check-citations` (Rust, the lexer); the Day-30 Handoff cards (Edge); card `r2-company-ids` for `citations-company.json` (Rust) |
-| `handoff/` | cite-check | `seed-*.json` | 20 | No minimum | The Day-30 Handoff cards (Rust and Edge) |
+| `handoff/` | cite-check | `seed-cite-check.json` | 20 (ids `cc-s-01` to `cc-s-20`) | No minimum | The Day-30 Handoff cards (Rust and Edge) |
 | `context/` | context | `cases.json` | 0 (written with `handoff-context`) | At least 6 | Card `handoff-context` (Rust); card `assistant-page` (Edge) |
 | `assist/` | marking | `scan.json` | 0 (written with `assistant-page`) | At least 12 | Card `assistant-page` (Rust and Edge) |
 
@@ -42,7 +42,7 @@ The behaviour they pin is specified in [search.md](../../docs/reference/search.m
 | ranked | `ranked-<topic>.json` | Seed `rk-s-01` onwards; others `rk-01` onwards |
 | page-view | `page-view.json` | `pv-01` onwards |
 | citation | `citations-<topic>.json` | Seed `cit-s-001` onwards; others `cit-001` onwards |
-| cite-check | `cite-check-<topic>.json` | Fixed when its seed is written |
+| cite-check | `cite-check-<topic>.json` | Seed `cc-s-01` onwards; others `cc-01` onwards |
 
 - A case id is unique across its folder.
 - Every expected value must follow from the specification, not from what the code prints today. A case whose expected value the specification does not settle is not added; the question goes to the lead.
@@ -214,7 +214,40 @@ What a citation vector pins, and what it leaves to other checks:
 
 ### Cite-check
 
-The cite-check format is fixed when the lead writes its seed, before Day 30. This section is extended in the same pull request. Whatever the format, a case pins the exit code and the summary line: `cite-check` exits 1 when any citation does not resolve and prints "N of M citations do not resolve". "Resolves" means the applicable reference, locator and direct quotation checks passed, not that the answer is correct. Ordinary fact/evidence vectors are defined in [Citation checks](../../docs/reference/citation-check.md#shared-cases); the seed files are not rewritten to add them. A case may carry `context`, a list of unit ids. The check then runs with that context and may give `outside_context`; a case with no `context` runs with none and never gives it. At least three of the seeds carry a `context`: one reference that exists and is outside it, one that is outside both the Corpus and the list (`broken`, because the first status that applies wins), and one that is inside it. A verdict names its status in one of the nine words `broken`, `broken_locator`, `outside_context`, `superseded`, `weak`, `unchecked_locator`, `unchecked_quote`, `quote_mismatch`, `verified`. The seed files written against the earlier six-word set remain valid and are not rewritten; new outcomes are covered by the ordinary fact/evidence vectors of [Citation checks](../../docs/reference/citation-check.md#shared-cases).
+`kind` is `cite-check`. The file has the top-level keys `kind`, `version` and `cases`. A case has `id`, `answer`, an optional `context`, `expect` and an optional `note`. A case with no `context` runs with none and never gives `outside_context`. A case with a `context` (even an empty list) runs with it as the set of ids the answer read. The cases run on `corpus-mini`.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `answer` | string | The text read by the tolerant reader and the sentence splitter |
+| `context` | array of strings, optional | Unit ids. Present: the check runs with this context and may give `outside_context`. Absent: no context |
+| `expect.citations` | array | One entry per citation that is not neutral, in reading order |
+| `expect.neutral` | array of strings | The references to a question or a conflict, in reading order |
+| `expect.uncited` | array of strings | The uncited sentences in reading order. A sentence is its text trimmed of white space, final punctuation kept |
+| `expect.abstentions` | integer | The sentences that contain the abstention phrase |
+| `expect.unresolved` | integer | The citations counted unresolved, each once, under any display status |
+| `expect.total` | integer | The citations that are not neutral |
+| `expect.nothing_verifies` | boolean | The nothing-verifies refusal: no `verified` citation and the answer is not made only of abstentions. It carries FB0707 and the line "Do not use this answer." |
+| `expect.exit` | `0` or `1` | 1 when `unresolved` is above 0 or `nothing_verifies` is true, else 0 |
+| `expect.summary` | string or `null` | "N of M citations do not resolve" (N is `unresolved`, M is `total`) when `unresolved` is above 0, else `null` |
+| `expect.verdict` | `"ok"`, `"unresolved"` or `"refused"`, optional | The `verdict` of the JSON report. Written only where the specification settles it: `ok` when `exit` is 0, `unresolved` when `unresolved` is above 0 and something verifies, `refused` when `nothing_verifies` is true and `unresolved` is 0. Left out when both apply |
+
+Fields of each entry of `expect.citations`:
+
+| Field | Type | Meaning |
+|---|---|---|
+| `reference` | string | The cite as written in the answer, without the enclosing brackets (`@S-0001-v1, sec. 1`, or `CL-CMP-9999` when the at sign is missing). A cite joined to another by `; ` is its own entry |
+| `status` | string | One of the nine words `broken`, `broken_locator`, `outside_context`, `superseded`, `weak`, `unchecked_locator`, `unchecked_quote`, `quote_mismatch`, `verified`: the first that applies |
+| `source_exists` | boolean | Whether the id exists in the view |
+| `locator`, `quote` | `"not_applicable"`, `"verified"`, `"unchecked"` or `"mismatch"`, optional | The independent fact verdicts of [Citation checks](../../docs/reference/citation-check.md#facts-and-evidence). Left out where the specification does not settle them (for a broken id, or for a claim reference) |
+| `code` | string, optional | The primary code of the precedence verdict: `FB0701` for `broken`, `FB0702` for `broken_locator`, `FB0703` for `superseded`, `FB0704` for `weak`. Absent for every other status |
+| `non_canonical` | boolean | A recognisable non-canonical form (FB0706). Independent of `status` and `code`: one citation can hold both |
+
+What a seed pins, and what it leaves out:
+- It pins the status of each citation, its primary code, the two fact verdicts where settled, the unresolved and total counts, the neutral, uncited and abstention findings, the refusal and the exit code. The text printer and the JSON report are built from the same facts.
+- It does not pin the excerpt of a verified citation, the order of the lines of the text printer, or the text of a `note`. Loaders ignore the text of a `note`.
+- A seed never makes one citation unresolved for two facts at once, a claim reference whose evidence locator is unavailable, or a sentence whose only citation is a question or conflict reference, because the specification does not yet settle those counts.
+- A quotation is written in ASCII double quotes, then one space, then the citation, as in `"six or more words" [@S-0001-v1, sec. 1]`.
+- "Resolves" means the applicable reference, locator and direct quotation checks passed, not that the answer is correct. `outside_context` has no code, is never counted as verified and does not by itself change the exit code. A reference outside both the Corpus and the `context` is `broken`, because the first status that applies wins. Ordinary fact and evidence vectors are in [Citation checks](../../docs/reference/citation-check.md#shared-cases) and are not seeds.
 
 ### Context
 
