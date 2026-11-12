@@ -95,8 +95,6 @@ pub struct IdListPage {
     pub crumb: String,
     /// Stable group slug (`"pages"`, `"sources"`, `"versions"`, `"claims"`, `"questions"`, `"conflicts"`, `"terms"`).
     pub slug: &'static str,
-    /// Subtitle under `<h1>`.
-    pub subtitle: String,
     /// Sorted entries displayed in this list page.
     pub items: Vec<IdItemView>,
 }
@@ -152,14 +150,23 @@ pub struct IdsPageView {
     pub file_name: String,
     /// Page `<h1>` and `<title>`.
     pub title: String,
-    /// Subtitle under `<h1>`.
-    pub subtitle: String,
+    /// Subtitle under `<h1>`; `None` on list pages, which show no lede.
+    pub subtitle: Option<String>,
     /// Count chip label in the header eyebrow (`"<N> IDs"` or `"None recorded"`).
     pub count_chip: String,
     /// Index view model when rendering `ids.html`.
     pub index: Option<IdsIndexView>,
     /// List view model when rendering a list page under `ids/`.
     pub list: Option<IdsListView>,
+}
+
+/// Count chip text for a nonzero count: `1 ID`, `2 IDs`.
+fn count_chip_label(count: usize) -> String {
+    if count == 1 {
+        "1 ID".to_owned()
+    } else {
+        format!("{count} IDs")
+    }
 }
 
 #[derive(Template)]
@@ -357,17 +364,11 @@ fn list_pages_from_ids_view(ids_view: &IdsView, view: &LabelledView) -> Vec<IdLi
         let path = format!("ids/{slug}.html");
         let title = format!("All IDs: {}", group.title);
         let crumb = group.title.to_owned();
-        let subtitle = format!(
-            "All {} in this edition, each with its link.",
-            group.title.to_ascii_lowercase()
-        );
-
         pages.push(IdListPage {
             path,
             title,
             crumb,
             slug: group.slug,
-            subtitle,
             items: group.items.clone(),
         });
     }
@@ -397,10 +398,6 @@ fn list_pages_from_ids_view(ids_view: &IdsView, view: &LabelledView) -> Vec<IdLi
             part.area_name, part.ordinal, part.of
         );
         let crumb = format!("{}, part {} of {}", part.area_name, part.ordinal, part.of);
-        let subtitle = format!(
-            "The {} claims from {} to {} in this edition, each with its link.",
-            part.count, part.first_id, part.last_id
-        );
         let items = claims_by_part
             .remove(&(part.area_code.clone(), part.part))
             .unwrap_or_default();
@@ -410,7 +407,6 @@ fn list_pages_from_ids_view(ids_view: &IdsView, view: &LabelledView) -> Vec<IdLi
             title,
             crumb,
             slug: "claims",
-            subtitle,
             items,
         });
     }
@@ -493,13 +489,13 @@ fn render_index_main(ids_view: &IdsView, view: &LabelledView, planned: &PlannedP
     let count_chip = if ids_view.total_count == 0 {
         "None recorded".to_owned()
     } else {
-        format!("{} IDs", ids_view.total_count)
+        count_chip_label(ids_view.total_count)
     };
     let index_view = build_ids_index_view(ids_view, view, planned);
     let page_view = IdsPageView {
         file_name: OUTPUT_PATH.to_owned(),
         title: ids_view.title.to_owned(),
-        subtitle: ids_view.subtitle.to_owned(),
+        subtitle: Some(ids_view.subtitle.to_owned()),
         count_chip,
         index: Some(index_view),
         list: None,
@@ -563,7 +559,7 @@ pub fn render_list_main(page: &IdListPage) -> String {
     let count_chip = if page.items.is_empty() {
         "None recorded".to_owned()
     } else {
-        format!("{} IDs", page.items.len())
+        count_chip_label(page.items.len())
     };
     let panel_title = if page.slug == "claims" {
         page.title.clone()
@@ -573,7 +569,7 @@ pub fn render_list_main(page: &IdListPage) -> String {
     let page_view = IdsPageView {
         file_name: page.path.clone(),
         title: page.title.clone(),
-        subtitle: page.subtitle.clone(),
+        subtitle: None,
         count_chip,
         index: None,
         list: Some(IdsListView {

@@ -2449,6 +2449,42 @@ const compareDecimal = function (x, y) {
     }
 
     #[test]
+    fn ids_one_id_part_page_reads_one_id() {
+        let mut tree = empty_registers_tree();
+        tree.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+        let mut claims_csv = format!("{claims_header}\n");
+        claims_csv.push_str(&make_claim_row("CL-CMP-0501"));
+        claims_csv.push('\n');
+        tree.insert_bytes("corpus/registers/claims.csv", claims_csv.into_bytes());
+
+        let (_model, view) = load_view(tree);
+        let planned = site::planned_paths(&view);
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let nav = nav::build(&view, &planned);
+
+        let list_pages = ids::list_pages(&view, &planned);
+        let page = list_pages
+            .iter()
+            .find(|p| p.path == "ids/claims-CMP-2.html")
+            .unwrap();
+        let html = ids::render_list_page(page, &ctx, &nav, &planned);
+        assert!(html.contains("<span class=\"chip mono\">1 ID</span>"));
+        assert!(!html.contains("1 IDs"));
+        assert!(!html.contains("1 claims"));
+        assert!(!html.contains("class=\"muted\">The "));
+
+        let pages_page = list_pages
+            .iter()
+            .find(|p| p.path == "ids/pages.html")
+            .unwrap();
+        let pages_html = ids::render_list_page(pages_page, &ctx, &nav, &planned);
+        assert!(!pages_html.contains("<p class=\"muted\">All "));
+    }
+
+    #[test]
     fn parts_hold_exactly_their_own_claim_rows() {
         let (_model, view) = continuous_view();
         let planned = site::planned_paths(&view);
