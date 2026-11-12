@@ -543,7 +543,7 @@ mod frame {
                         entry.id
                     );
                     assert!(
-                        html.contains(&entry.label),
+                        html.contains(&entry.label.replace('&', "&#38;")),
                         "built entry `{}` label `{}` must appear in html",
                         entry.id,
                         entry.label

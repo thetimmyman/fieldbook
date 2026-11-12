@@ -1,0 +1,82 @@
+<div class="binder page-w">
+  <header class="binder-head">
+    <h1>Day-one binder</h1>
+    <p class="meta">The briefs, then the pages of stages 1 and 2, one per printed page.</p>
+  </header>
+  {% if pages.is_empty() %}
+  <p class="muted">None recorded</p>
+  {% else %}
+  {% for page in &pages %}
+  <article class="binder-page prose{% if page.is_brief %} sheet{% endif %}" data-page-id="{{ page.id }}">
+    <table class="print-t" role="presentation">
+    <tbody><tr><td class="print-body">
+    <header class="binder-page-head">
+      <div class="eyebrow"><span class="chip">{{ page.page_type }}</span><span class="chip">Stage {{ page.stage }}</span></div>
+      <h2>{{ page.title }}</h2>
+    </header>
+    {% for part in &page.parts %}
+    <section class="part">
+      <h3>{{ part.heading }}</h3>
+      {% if part.is_empty %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      {{ part.body_html|safe }}
+      {% endif %}
+    </section>
+    {% endfor %}
+    <section class="part">
+      <h3>{{ sources_heading }}</h3>
+      {% if page.sources_rows.is_empty() %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      <ol class="sources-list" aria-label="Sources cited on this page">
+      {% for row in &page.sources_rows %}
+        <li id="b-{{ page.id }}-cite-{{ row.number }}" class="source-row">
+          <span class="source-num">{{ row.number }}.</span>
+          <div class="source-body">
+          {% match &row.kind %}
+          {% when crate::sources_block::SourceRowKind::Claim with (c) %}
+            <div class="source-chips">
+              {{ c.claim_mark_html|safe }}
+              {{ c.status_chip_html|safe }}
+              {{ c.citation_chip_html|safe }}
+            </div>
+            {% if !c.statement.is_empty() %}
+            <p class="source-stmt">{{ c.statement }}</p>
+            {% endif %}
+            {% if let Some(q) = &c.quote %}
+            <blockquote class="source-quote">“{{ q }}”</blockquote>
+            {% endif %}
+            <div class="source-meta">
+              {% if let Some(vdate) = &c.verified_on %}
+              <span>Verified <time datetime="{{ vdate }}">{{ vdate }}</time>{% if let Some(role) = &c.verified_by_role %} ({{ role }}){% endif %}</span>
+              {% else %}
+              <span class="unver">Never verified</span>
+              {% endif %}
+            </div>
+          {% when crate::sources_block::SourceRowKind::Version with (v) %}
+            <div class="source-chips">
+              {{ v.citation_chip_html|safe }}
+            </div>
+            {% if let Some(title) = &v.title %}
+            <p class="source-stmt">{{ title }}{% if let Some(pub_name) = &v.publisher %} — <span class="muted">{{ pub_name }}</span>{% endif %}</p>
+            {% endif %}
+            {% if let Some(as_of) = &v.as_of %}
+            <div class="source-meta">
+              <span>As of <time datetime="{{ as_of }}">{{ as_of }}</time>{% if let Some(published) = &v.published %} · Published <time datetime="{{ published }}">{{ published }}</time>{% endif %}</span>
+            </div>
+            {% endif %}
+          {% endmatch %}
+          </div>
+        </li>
+      {% endfor %}
+      </ol>
+      {% endif %}
+    </section>
+    </td></tr></tbody>
+    <tfoot><tr><td class="print-foot"><span>{{ product }}</span> <span>{{ edition_label }}</span> <span>{{ page.id }}</span> <span>{{ print_check }}</span></td></tr></tfoot>
+    </table>
+  </article>
+  {% endfor %}
+  {% endif %}
+</div>
