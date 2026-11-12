@@ -292,9 +292,15 @@ path = "compat/adapter/store/folder@1/c3.out.txt"
 sha256 = "f34149497b101f4ffe618399181d12070baa72232576c1264780bd656dac017b"
 
 [[binding.files]]
+role = "expected"
+case = "c4"
+path = "compat/adapter/store/folder@1/c4.out.txt"
+sha256 = "471112cb556165c9bfb4f4f50cd0080912cd7cb32d8a6f4cd962b10541e4e082"
+
+[[binding.files]]
 role = "implementation"
 path = "crates/fieldbook/src/io/versions/store_folder_v1.rs"
-sha256 = "aaa1d9c8c47ff020bd48d55456229e7a749775a65e275b2febd426727c2a5ce2"
+sha256 = "6cf64aad4a09cacfb61e2ed748a6bc88693dc695479619b884e4a9c70ae180c3"
 
 [[binding.files]]
 role = "input"
@@ -313,6 +319,12 @@ role = "input"
 case = "c3"
 path = "compat/adapter/store/folder@1/c3.in.toml"
 sha256 = "f2e21a33c38892cf75aa42f70e5b72dddd43c71435c591db6341874c01af1085"
+
+[[binding.files]]
+role = "input"
+case = "c4"
+path = "compat/adapter/store/folder@1/c4.in.toml"
+sha256 = "b662020271a6372240612b3dcccd82c25a7c008a5cee1055b84b75530df40396"
 
 [[binding]]
 kind = "calculation"
