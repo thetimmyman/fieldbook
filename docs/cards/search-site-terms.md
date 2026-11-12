@@ -29,7 +29,7 @@ Search on the site finds glossary terms by their labels and aliases: a query of 
 
 ## Preconditions
 
-- Cards merged: `adr-0006-glossary-units`, `search-glossary-aliases`, `search-palette-design-items` (it also changes `search.js`), `design-search-term-rows` (the design revision that shows a term row on the search page and in the palette).
+- Cards merged: `adr-0006-glossary-units`, `search-glossary-aliases`, `search-palette-design-items` (it also changes `search.js`), `design-search-term-rows` (the design revision that shows a term row on the search page and in the palette), `search-section-snippets` (the cut of section snippets to 100 code points that the amended ADR 0006 requires before or with the term units; it changes `search_index.rs` and its test file first).
 - The draft `r2-company-ids` also changes `search_index.rs`; it lists this card under Cards merged, so it waits for this one.
 
 ## Steps
