@@ -199,122 +199,96 @@ expression: html
     <div class="eyebrow">
       <span class="chip accent">Library</span>
       <span class="chip mono">ids.html</span>
-      
       <span class="chip mono">28 IDs</span>
-      
     </div>
     <h1>All IDs</h1>
     <p class="muted">Every permitted page, source, version, claim, question, conflict, and glossary term identifier in this edition.</p>
   </header>
 
+  
   <div class="id-groups">
     
     <section class="panel id-group" id="fb:ids-pages" data-id-kind="pages">
       <div class="panel-head">
-        <h2 class="panel-title">Pages</h2>
+        
+        <h2 class="panel-title"><a href="ids/pages.html">Pages</a></h2>
+        
         <span class="panel-sub mono">9</span>
       </div>
-      
-      <ul class="id-list">
-        <li class="id-row" data-id="cmp-clause-9900-101"><span class="id-chip"><a class="cite neutral" href="p/cmp-clause-9900-101.html">cmp-clause-9900-101</a></span> <span class="id-label">Synthetic clause card for 48 CFR 9900.101 compliance review</span></li>
-        <li class="id-row" data-id="cmp-onboarding-checklist"><span class="id-chip"><a class="cite neutral" href="p/cmp-onboarding-checklist.html">cmp-onboarding-checklist</a></span> <span class="id-label">Synthetic compliance onboarding checklist across two windows</span></li>
-        <li class="id-row" data-id="cmp-review-steps"><span class="id-chip"><a class="cite neutral" href="p/cmp-review-steps.html">cmp-review-steps</a></span> <span class="id-label">Synthetic procedure for running a business-system review</span></li>
-        <li class="id-row" data-id="cmp-system-review"><span class="id-chip"><a class="cite neutral" href="p/cmp-system-review.html">cmp-system-review</a></span> <span class="id-label">Synthetic business-system review and withholding overview</span></li>
-        <li class="id-row" data-id="cmp-withhold-case"><span class="id-chip"><a class="cite neutral" href="p/cmp-withhold-case.html">cmp-withhold-case</a></span> <span class="id-label">Synthetic case study on business-system review and billing withhold</span></li>
-        <li class="id-row" data-id="est-baseline-template"><span class="id-chip"><a class="cite neutral" href="p/est-baseline-template.html">est-baseline-template</a></span> <span class="id-label">Synthetic fill-in template for a cost baseline update note</span></li>
-        <li class="id-row" data-id="est-calc-01"><span class="id-chip"><a class="cite neutral" href="p/est-calc-01.html">est-calc-01</a></span> <span class="id-label">Synthetic landed cost and overhead build-up calculation</span></li>
-        <li class="id-row" data-id="est-rate-reference"><span class="id-chip"><a class="cite neutral" href="p/est-rate-reference.html">est-rate-reference</a></span> <span class="id-label">Synthetic reference table of pricing rate windows and placeholders</span></li>
-        <li class="id-row" data-id="est-rate-window-brief"><span class="id-chip"><a class="cite neutral" href="p/est-rate-window-brief.html">est-rate-window-brief</a></span> <span class="id-label">Synthetic decision brief on forward pricing rate review window</span></li>
-      </ul>
       
     </section>
     
     <section class="panel id-group" id="fb:ids-sources" data-id-kind="sources">
       <div class="panel-head">
-        <h2 class="panel-title">Sources</h2>
+        
+        <h2 class="panel-title"><a href="ids/sources.html">Sources</a></h2>
+        
         <span class="panel-sub mono">3</span>
       </div>
-      
-      <ul class="id-list">
-        <li class="id-row" data-id="S-0001"><span class="id-chip"><a class="cite neutral" href="sources.html#S-0001-v1">S-0001</a></span> <span class="id-label">Synthetic Cost Rule, made up for tests</span></li>
-        <li class="id-row" data-id="S-0002"><span class="id-chip"><a class="cite neutral" href="sources.html#S-0002-v1">S-0002</a></span> <span class="id-label">Synthetic Pricing Guide v1, made up for tests</span></li>
-        <li class="id-row" data-id="S-0003"><span class="id-chip"><a class="cite neutral" href="sources.html#S-0003-v1">S-0003</a></span> <span class="id-label">Synthetic Trade Press Bulletin, invented fixture text for tests</span></li>
-      </ul>
       
     </section>
     
     <section class="panel id-group" id="fb:ids-versions" data-id-kind="versions">
       <div class="panel-head">
-        <h2 class="panel-title">Source versions</h2>
+        
+        <h2 class="panel-title"><a href="ids/versions.html">Source versions</a></h2>
+        
         <span class="panel-sub mono">4</span>
       </div>
-      
-      <ul class="id-list">
-        <li class="id-row" data-id="S-0001-v1"><span class="id-chip"><a class="cite meta-only" href="sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="meta-only-tag">Metadata only</span></a></span> <span class="id-label">Synthetic Cost Rule, made up for tests</span></li>
-        <li class="id-row" data-id="S-0002-v1"><span class="id-chip"><a class="cite meta-only" href="sources.html#S-0002-v1" data-pv="src:S-0002-v1" data-pv-title="Synthetic Pricing Guide v1, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v1</span> <span class="meta-only-tag">Metadata only</span></a></span> <span class="id-label">Synthetic Pricing Guide v1, made up for tests</span></li>
-        <li class="id-row" data-id="S-0002-v2"><span class="id-chip"><a class="cite" href="sources.html#S-0002-v2" data-pv="src:S-0002-v2" data-pv-title="Synthetic Pricing Guide v2, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v2</span></a></span> <span class="id-label">Synthetic Pricing Guide v2, made up for tests</span></li>
-        <li class="id-row" data-id="S-0003-v1"><span class="id-chip"><a class="cite meta-only" href="sources.html#S-0003-v1" data-pv="src:S-0003-v1" data-pv-title="Synthetic Trade Press Bulletin, invented fixture text for tests" data-pv-body="Synthetic Trade Press"><span>S-0003-v1</span> <span class="meta-only-tag">Metadata only</span></a></span> <span class="id-label">Synthetic Trade Press Bulletin, invented fixture text for tests</span></li>
-      </ul>
       
     </section>
     
     <section class="panel id-group" id="fb:ids-claims" data-id-kind="claims">
       <div class="panel-head">
+        
         <h2 class="panel-title">Claims</h2>
+        
         <span class="panel-sub mono">5</span>
       </div>
       
-      <ul class="id-list">
-        <li class="id-row" data-id="CL-CMP-0001"><span class="id-chip"><a class="cite neutral" href="claims/CMP-1.html#CL-CMP-0001" data-claim="CL-CMP-0001">CL-CMP-0001</a></span> <span class="id-label">Synthetic compliance reviews occur every 30 days under the synthetic rule.</span></li>
-        <li class="id-row" data-id="CL-CMP-0002"><span class="id-chip"><a class="cite neutral" href="claims/CMP-1.html#CL-CMP-0002" data-claim="CL-CMP-0002">CL-CMP-0002</a></span> <span class="id-label">Synthetic withholding threshold is 5 percent of billed amounts.</span></li>
-        <li class="id-row" data-id="CL-EST-0001"><span class="id-chip"><a class="cite neutral" href="claims/EST-1.html#CL-EST-0001" data-claim="CL-EST-0001">CL-EST-0001</a></span> <span class="id-label">Synthetic escalation placeholder is 3 percent per year for fixture examples.</span></li>
-        <li class="id-row" data-id="CL-EST-0002"><span class="id-chip"><a class="cite neutral" href="claims/EST-1.html#CL-EST-0002" data-claim="CL-EST-0002">CL-EST-0002</a></span> <span class="id-label">Synthetic rate review window was 15 days under prior guidance.</span></li>
-        <li class="id-row" data-id="CL-EST-0003"><span class="id-chip"><a class="cite neutral" href="claims/EST-1.html#CL-EST-0003" data-claim="CL-EST-0003">CL-EST-0003</a></span> <span class="id-label">Synthetic rate review window is 10 days under current guidance.</span></li>
-      </ul>
+        
+        <ul class="id-list">
+          <li class="id-row"><span class="id-chip"><a class="cite neutral" href="ids/claims-CMP-1.html">CL-CMP-0001 to CL-CMP-0002</a></span> <span class="id-label">Compliance, part 1 of 1, 2 claims</span></li>
+          <li class="id-row"><span class="id-chip"><a class="cite neutral" href="ids/claims-EST-1.html">CL-EST-0001 to CL-EST-0003</a></span> <span class="id-label">Estimating, part 1 of 1, 3 claims</span></li>
+        </ul>
+        
       
     </section>
     
     <section class="panel id-group" id="fb:ids-questions" data-id-kind="questions">
       <div class="panel-head">
-        <h2 class="panel-title">Questions</h2>
+        
+        <h2 class="panel-title"><a href="ids/questions.html">Questions</a></h2>
+        
         <span class="panel-sub mono">2</span>
       </div>
-      
-      <ul class="id-list">
-        <li class="id-row" data-id="Q-001"><span class="id-chip"><a class="cite neutral" href="questions.html#Q-001" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</a></span> <span class="id-label">Which synthetic business-system control owner approves the monthly compliance review?</span></li>
-        <li class="id-row" data-id="Q-002"><span class="id-chip"><a class="cite neutral" href="questions.html#Q-002" data-pv="q:Q-002" data-pv-title="Q-002" data-pv-body="Which synthetic escalation index applies to multi-year pricing workbooks?">Q-002</a></span> <span class="id-label">Which synthetic escalation index applies to multi-year pricing workbooks?</span></li>
-      </ul>
       
     </section>
     
     <section class="panel id-group" id="fb:ids-conflicts" data-id-kind="conflicts">
       <div class="panel-head">
-        <h2 class="panel-title">Conflicts</h2>
+        
+        <h2 class="panel-title"><a href="ids/conflicts.html">Conflicts</a></h2>
+        
         <span class="panel-sub mono">1</span>
       </div>
-      
-      <ul class="id-list">
-        <li class="id-row" data-id="XC-01"><span class="id-chip"><a class="cite neutral" href="conflicts.html#XC-01" data-pv="xc:XC-01" data-pv-title="XC-01" data-pv-body="Synthetic review interval versus withholding check timing">XC-01</a></span> <span class="id-label">Synthetic review interval versus withholding check timing</span></li>
-      </ul>
       
     </section>
     
     <section class="panel id-group" id="fb:ids-terms" data-id-kind="terms">
       <div class="panel-head">
-        <h2 class="panel-title">Glossary terms</h2>
+        
+        <h2 class="panel-title"><a href="ids/terms.html">Glossary terms</a></h2>
+        
         <span class="panel-sub mono">4</span>
       </div>
-      
-      <ul class="id-list">
-        <li class="id-row" data-id="billing_withhold"><span class="id-chip"><a class="cite neutral" href="glossary.html#billing_withhold">billing_withhold</a></span> <span class="id-label">billing withhold</span></li>
-        <li class="id-row" data-id="cost_baseline"><span class="id-chip"><a class="cite neutral" href="glossary.html#cost_baseline">cost_baseline</a></span> <span class="id-label">cost baseline</span></li>
-        <li class="id-row" data-id="rate_window"><span class="id-chip"><a class="cite neutral" href="glossary.html#rate_window">rate_window</a></span> <span class="id-label">rate window</span></li>
-        <li class="id-row" data-id="system_review"><span class="id-chip"><a class="cite neutral" href="glossary.html#system_review">system_review</a></span> <span class="id-label">system review</span></li>
-      </ul>
       
     </section>
     
   </div>
+  
+
+  
 </div></main>
 </div>
 </div>

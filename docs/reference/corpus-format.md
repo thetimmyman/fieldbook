@@ -1562,7 +1562,8 @@ One HTML file per page. A `#` is used only for anchors and for `search.html#q=`.
 | `s/<version-id>.html` | Source version: row, hash, the original at its locator, section anchors, citing claims, extraction status | Day 1 |
 | `claims.html`, `claims/<AREA>-<part>.html` | The claims index, one entry per area part with its id range and count; and one register page per area part of 500 claim numbers, with an anchor per row | Day 1 |
 | `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
-| `ids.html`, `search.html` | Every id with its link; results for `#q=` | Day 1 |
+| `ids.html`, `ids/<slug>.html`, `ids/claims-<AREA>-<part>.html` | The id index: the seven id groups with their counts. One page per group but claims (`<slug>` is `pages`, `sources`, `versions`, `questions`, `conflicts` or `terms`), each holding every id of the group with its link; the claims group in one page per area part of 500 claim numbers, by the claims register's part rule, so no id-list page is over 3 MB | Day 1 |
+| `search.html` | Results for `#q=` | Day 1 |
 | `about.html` | Tool version, edition, commit, the label statement (an edition holds `public` only), status counts, stale and unreviewed items; the build profile (silent or AI) and the AI position as text. A built page cannot know the store, the policy or the connected company data sources: `fieldbook policy show` and `fieldbook sync --dry-run` print them on the laptop | Day 1 |
 | `day-one.html` | The day-one binder: the `brief` pages and the pages of stages 1 and 2, ready to print | Day 1 |
 | `changes.html` | `corpus/changes.md` plus the ids added since the previous edition (`build --since`) | `edition-002` |
