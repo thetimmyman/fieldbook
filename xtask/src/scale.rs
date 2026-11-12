@@ -159,6 +159,12 @@ fn count_source_ids(source_versions: u64) -> u64 {
     full_cycles.saturating_mul(3).saturating_add(rem_sources)
 }
 
+/// Minimum byte size for a stored original.
+///
+/// A stored original starts with a prefix of at least 54 characters, so any value of at
+/// least twice the threshold leaves a page that is never thin.
+const MIN_ORIGINAL_BYTES: u64 = 2 * (fieldbook_core::extraction::THIN_PAGE_CHARS as u64);
+
 /// Validate configuration and capacity before generating files.
 pub fn validate(base: &Base, m: u64) -> Result<Sizes, String> {
     if m == 0 {
@@ -231,6 +237,14 @@ pub fn validate(base: &Base, m: u64) -> Result<Sizes, String> {
 
     if stored_originals < 1 {
         return Err("`stored_originals` must be at least 1".to_owned());
+    }
+
+    if base.original_bytes < MIN_ORIGINAL_BYTES {
+        return Err(format!(
+            "`original_bytes` {} is below the minimum of {MIN_ORIGINAL_BYTES}: the one extracted page must reach the {} characters that core treats as not thin",
+            base.original_bytes,
+            fieldbook_core::extraction::THIN_PAGE_CHARS
+        ));
     }
 
     if base.original_bytes > 50_000_000 {
@@ -322,7 +336,7 @@ pub struct Generated {
     pub files: Vec<(String, Vec<u8>)>,
     /// Summary counts of generated items.
     pub counts: Counts,
-    /// The most common generated pseudo-word (search query).
+    /// The most common word in the filler of the page sections (stored originals are left out because the search index does not hold them).
     pub query: String,
 }
 
@@ -400,12 +414,13 @@ fn pick_filler(
     dict: &[String],
     word_freq: &mut [u64; 2000],
     count: usize,
+    weight: u64,
 ) -> String {
     let mut out = String::new();
     for i in 0..count {
         let val = rng.next_u64();
         let idx = pick_word_index(val);
-        word_freq[idx] = word_freq[idx].saturating_add(1);
+        word_freq[idx] = word_freq[idx].saturating_add(weight);
         if i > 0 {
             out.push(' ');
         }
@@ -526,6 +541,7 @@ fn generate_sources_and_originals(
     let original_bytes_usize = usize::try_from(sizes.original_bytes).map_err(|e| e.to_string())?;
     let mut source_hashes: BTreeMap<String, String> = BTreeMap::new();
     let mut files = Vec::new();
+    let mut original_freq = [0u64; 2000];
 
     for (idx, sv) in source_versions_list.iter().enumerate() {
         let vid = format!("{}-v{}", sv.source_id, sv.version);
@@ -534,7 +550,7 @@ fn generate_sources_and_originals(
             let prefix = format!("Synthetic fixture original for {vid}. Automated tests.\n");
             text_bytes.extend_from_slice(prefix.as_bytes());
             while text_bytes.len() < original_bytes_usize {
-                let filler = pick_filler(text_gen.rng, text_gen.dict, text_gen.word_freq, 16);
+                let filler = pick_filler(text_gen.rng, text_gen.dict, &mut original_freq, 16, 1);
                 text_bytes.extend_from_slice(filler.as_bytes());
                 text_bytes.push(b'\n');
             }
@@ -915,6 +931,28 @@ fn render_brief_body(
     body
 }
 
+/// Maximum word count for a brief body, mirroring the FB0138 limit in `fieldbook-core`.
+const BRIEF_MAX_WORDS: usize = 400;
+
+/// Number of sections in a concept or procedure page that receive filler text.
+const CONCEPT_FILLER_SECTIONS: usize = 6;
+
+/// Number of sections in a brief page that receive filler text.
+const BRIEF_FILLER_SECTIONS: usize = 4;
+
+/// Computes the per-section filler word limit for a brief page.
+///
+/// Distributes the remaining word capacity evenly across the four filler sections
+/// so that the total brief body word count stays within [`BRIEF_MAX_WORDS`].
+fn brief_filler_words(words_ceiling: usize) -> usize {
+    let base_words = render_brief_body("P", "C", "C", "Q", "")
+        .split_whitespace()
+        .count();
+    let room = BRIEF_MAX_WORDS.saturating_sub(base_words);
+    let share = room / BRIEF_FILLER_SECTIONS;
+    words_ceiling.min(share)
+}
+
 fn generate_pages(
     sizes: &Sizes,
     areas: &[GeneratedArea],
@@ -924,6 +962,7 @@ fn generate_pages(
     text_gen: &mut TextGen<'_>,
 ) -> (Vec<(String, Vec<u8>)>, u64) {
     let words_ceiling = usize::try_from(sizes.words_per_section).unwrap_or(0);
+    let brief_filler_limit = brief_filler_words(words_ceiling);
     let mut total_sections = 0u64;
     let mut files = Vec::with_capacity(usize::try_from(sizes.pages).unwrap_or(0));
 
@@ -962,6 +1001,7 @@ fn generate_pages(
                     text_gen.dict,
                     text_gen.word_freq,
                     words_ceiling,
+                    u64::try_from(CONCEPT_FILLER_SECTIONS).unwrap_or(1),
                 );
                 render_concept_body(&page_id, claim_a, claim_b, today_trimmed, &filler)
             }
@@ -972,17 +1012,18 @@ fn generate_pages(
                     text_gen.dict,
                     text_gen.word_freq,
                     words_ceiling,
+                    u64::try_from(CONCEPT_FILLER_SECTIONS).unwrap_or(1),
                 );
                 render_procedure_body(&page_id, claim_a, claim_b, today_trimmed, &filler)
             }
             PageType::Brief => {
                 total_sections = total_sections.saturating_add(6);
-                let brief_filler_limit = words_ceiling.min(30);
                 let filler = pick_filler(
                     text_gen.rng,
                     text_gen.dict,
                     text_gen.word_freq,
                     brief_filler_limit,
+                    u64::try_from(BRIEF_FILLER_SECTIONS).unwrap_or(1),
                 );
                 let qid = format!("Q-{:03}", (p % sizes.questions) + 1);
                 render_brief_body(&page_id, claim_a, claim_b, &qid, &filler)
@@ -1277,9 +1318,10 @@ impl Drop for DirGuard {
     }
 }
 
+#[cfg(windows)]
 #[expect(
     clippy::permissions_set_readonly_false,
-    reason = "clear read-only flag before directory removal across platforms"
+    reason = "clear read-only flag before directory removal on Windows"
 )]
 fn make_writable(path: &Path) {
     if let Ok(metadata) = std::fs::symlink_metadata(path) {
@@ -1289,12 +1331,19 @@ fn make_writable(path: &Path) {
     }
 }
 
+#[cfg(windows)]
 fn walk_and_set_writable(dir: &Path) {
     make_writable(dir);
     if let Ok(entries) = std::fs::read_dir(dir) {
         for entry in entries.flatten() {
+            let Ok(file_type) = entry.file_type() else {
+                continue;
+            };
+            if file_type.is_symlink() {
+                continue;
+            }
             let path = entry.path();
-            if path.is_dir() {
+            if file_type.is_dir() {
                 walk_and_set_writable(&path);
             } else {
                 make_writable(&path);
@@ -1304,9 +1353,10 @@ fn walk_and_set_writable(dir: &Path) {
 }
 
 fn remove_dir_all_writable(dir: &Path) {
-    if !dir.exists() {
+    if std::fs::symlink_metadata(dir).is_err() {
         return;
     }
+    #[cfg(windows)]
     walk_and_set_writable(dir);
     let _ = std::fs::remove_dir_all(dir);
 }
@@ -2213,5 +2263,316 @@ mod tests {
         assert_eq!(run(root, &["--sizes"], &mut out), 2);
         assert_eq!(run(root, &["--base"], &mut out), 2);
         assert_eq!(run(root, &["--bin"], &mut out), 2);
+    }
+
+    #[test]
+    fn brief_filler_fills_the_room_at_base_1x() {
+        let base = Base::parse(BASE_TOML).expect("parse base");
+        let expected_words = usize::try_from(base.words_per_section).expect("fits in usize");
+        let generated = generate(&base, 1, TODAY_TEXT).expect("generation failed");
+        let mut brief_seen = false;
+
+        for (path, bytes) in &generated.files {
+            if path.starts_with("corpus/pages/") {
+                let text = std::str::from_utf8(bytes).expect("valid utf-8");
+                if text.contains("type = \"brief\"") {
+                    let (_, body) = text.split_once("+++\n\n").expect("closing front matter");
+                    assert!(body.split_whitespace().count() <= 400);
+
+                    let question_line = body
+                        .lines()
+                        .find(|line| line.starts_with("Synthetic question for brief "))
+                        .expect("question line exists");
+                    let tokens: Vec<&str> = question_line.split_whitespace().collect();
+                    assert!(tokens.len() >= 5);
+                    let filler_words = tokens.len() - 5;
+                    assert_eq!(filler_words, expected_words);
+                    brief_seen = true;
+                }
+            }
+        }
+
+        assert!(brief_seen, "at least one brief page was seen");
+        assert_eq!(brief_filler_words(expected_words), expected_words);
+    }
+
+    #[test]
+    fn a_large_words_per_section_still_passes_strict_check() {
+        let mut base = Base::parse(TINY_TOML).expect("parse tiny");
+        base.words_per_section = 400;
+        let today = CivilDate::parse(TODAY_TEXT.trim()).expect("valid TODAY date");
+        let generated = generate(&base, 1, TODAY_TEXT).expect("generation failed");
+        let tree = tree_from_generated(&generated);
+        let report = check_run(&Host::new(tree, today), &Options::new(true));
+
+        let label = "tiny 1x large words_per_section";
+        assert!(
+            report.diagnostics.is_empty(),
+            "diagnostics found for {label} (count {}):\n{}",
+            report.diagnostics.len(),
+            report
+                .diagnostics
+                .iter()
+                .take(20)
+                .map(|d| format!("  {} {}:{}:{} {}", d.code, d.path, d.line, d.col, d.message))
+                .collect::<Vec<_>>()
+                .join("\n")
+        );
+
+        let mut clamped_brief_seen = false;
+        for (path, bytes) in &generated.files {
+            if path.starts_with("corpus/pages/") {
+                let text = std::str::from_utf8(bytes).expect("valid utf-8");
+                if text.contains("type = \"brief\"") {
+                    let (_, body) = text.split_once("+++\n\n").expect("closing front matter");
+                    let question_line = body
+                        .lines()
+                        .find(|line| line.starts_with("Synthetic question for brief "))
+                        .expect("question line exists");
+                    let tokens: Vec<&str> = question_line.split_whitespace().collect();
+                    assert!(tokens.len() >= 5);
+                    let filler_words = tokens.len() - 5;
+                    assert!(filler_words < 400);
+                    clamped_brief_seen = true;
+                }
+            }
+        }
+        assert!(clamped_brief_seen, "at least one brief page must be seen");
+        assert!(brief_filler_words(400) < 400);
+    }
+
+    #[test]
+    fn original_bytes_below_the_thin_page_threshold_is_refused() {
+        let mut base = Base::parse(TINY_TOML).expect("parse tiny");
+        base.original_bytes = 30;
+
+        let val_err = validate(&base, 1).expect_err("original_bytes = 30 must fail validate");
+        assert!(
+            val_err.contains("original_bytes"),
+            "validate error must mention `original_bytes`: {val_err}"
+        );
+
+        let gen_err =
+            generate(&base, 1, TODAY_TEXT).expect_err("original_bytes = 30 must fail generate");
+        assert!(
+            gen_err.contains("original_bytes"),
+            "generate error must mention `original_bytes`: {gen_err}"
+        );
+
+        let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .expect("repo root");
+        let pid = std::process::id();
+        let temp_dir = std::env::temp_dir();
+        let test_base_dir = temp_dir.join(format!("fieldbook-scale-test-base-{pid}"));
+        let _guard = DirGuard {
+            path: test_base_dir.clone(),
+        };
+
+        remove_dir_all_writable(&test_base_dir);
+        std::fs::create_dir_all(&test_base_dir).expect("create test base dir");
+        let base_file = test_base_dir.join("base.toml");
+        let modified_toml = TINY_TOML.replace("original_bytes = 2000", "original_bytes = 30");
+        assert_ne!(modified_toml, TINY_TOML, "replace must change text");
+        std::fs::write(&base_file, &modified_toml).expect("write modified base file");
+
+        let base_path_str = base_file.to_str().expect("valid utf-8 path");
+        let mut out = String::new();
+        let code = run(
+            root,
+            &[
+                "--sizes",
+                "1",
+                "--base",
+                base_path_str,
+                "--bin",
+                "/bin/false",
+            ],
+            &mut out,
+        );
+        assert_eq!(code, 2);
+    }
+
+    #[test]
+    fn the_smallest_accepted_original_bytes_is_strict_clean() {
+        let mut base = Base::parse(TINY_TOML).expect("parse tiny");
+        base.original_bytes = MIN_ORIGINAL_BYTES;
+        let today = CivilDate::parse(TODAY_TEXT.trim()).expect("valid TODAY date");
+
+        let generated = generate(&base, 1, TODAY_TEXT).expect("generation failed");
+        let tree = tree_from_generated(&generated);
+        let report = check_run(&Host::new(tree, today), &Options::new(true));
+
+        let label = "tiny 1x min original_bytes";
+        assert!(
+            report.diagnostics.is_empty(),
+            "diagnostics found for {label} (count {}):\n{}",
+            report.diagnostics.len(),
+            report
+                .diagnostics
+                .iter()
+                .take(20)
+                .map(|d| format!("  {} {}:{}:{} {}", d.code, d.path, d.line, d.col, d.message))
+                .collect::<Vec<_>>()
+                .join("\n")
+        );
+
+        let mut invalid_base = base;
+        invalid_base.original_bytes = MIN_ORIGINAL_BYTES - 1;
+        let err = validate(&invalid_base, 1)
+            .expect_err("original_bytes below minimum must fail validate");
+        assert!(
+            err.contains("original_bytes"),
+            "validate error must mention `original_bytes`: {err}"
+        );
+    }
+
+    #[test]
+    fn the_query_occurs_in_a_page_section() {
+        let small_base = Base {
+            seed: 1,
+            areas: 3,
+            pages: 1,
+            words_per_section: 1,
+            source_versions: 1,
+            stored_originals: 1,
+            original_bytes: 2000,
+            claims: 4,
+            questions: 2,
+            conflicts: 1,
+            glossary_terms: 2,
+        };
+        let sizes = validate(&small_base, 1).expect("validate accepts small base");
+        assert!(sizes.conflicts * 2 <= sizes.claims);
+        assert!(sizes.conflicts <= sizes.questions);
+
+        let gen_small = generate(&small_base, 1, TODAY_TEXT).expect("generation failed");
+
+        let page_contains_word = |generated: &Generated, word: &str| -> bool {
+            generated
+                .files
+                .iter()
+                .filter(|(path, _)| path.starts_with("corpus/pages/"))
+                .any(|(_, bytes)| {
+                    std::str::from_utf8(bytes).is_ok_and(|text| {
+                        let body = text.split_once("+++\n\n").map_or(text, |(_, body)| body);
+                        body.split_whitespace()
+                            .any(|w| w.trim_end_matches('.') == word)
+                    })
+                })
+        };
+
+        let sources_contain_word = |generated: &Generated, word: &str| -> bool {
+            generated
+                .files
+                .iter()
+                .filter(|(path, _)| path.starts_with("corpus/sources/"))
+                .any(|(_, bytes)| {
+                    std::str::from_utf8(bytes).is_ok_and(|text| {
+                        text.split_whitespace()
+                            .any(|w| w.trim_end_matches('.') == word)
+                    })
+                })
+        };
+
+        let in_pages_small = page_contains_word(&gen_small, &gen_small.query);
+        let in_sources_small = sources_contain_word(&gen_small, &gen_small.query);
+        assert!(
+            in_pages_small,
+            "query `{}` must appear in at least one page body",
+            gen_small.query
+        );
+        assert!(
+            !(in_sources_small && !in_pages_small),
+            "query `{}` must not only occur in files under corpus/sources/",
+            gen_small.query
+        );
+
+        let tiny_base = Base::parse(TINY_TOML).expect("parse tiny");
+        let gen_tiny = generate(&tiny_base, 1, TODAY_TEXT).expect("generate tiny 1x");
+        let in_pages_tiny = page_contains_word(&gen_tiny, &gen_tiny.query);
+        let in_sources_tiny = sources_contain_word(&gen_tiny, &gen_tiny.query);
+        assert!(
+            in_pages_tiny,
+            "tiny base query `{}` must appear in at least one page body",
+            gen_tiny.query
+        );
+        assert!(
+            !(in_sources_tiny && !in_pages_tiny),
+            "tiny base query `{}` must not only occur in files under corpus/sources/",
+            gen_tiny.query
+        );
+
+        let full_base = Base::parse(BASE_TOML).expect("parse base");
+        let gen_full = generate(&full_base, 1, TODAY_TEXT).expect("generate base 1x");
+        let in_pages_full = page_contains_word(&gen_full, &gen_full.query);
+        let in_sources_full = sources_contain_word(&gen_full, &gen_full.query);
+        assert!(
+            in_pages_full,
+            "base.toml query `{}` must appear in at least one page body",
+            gen_full.query
+        );
+        assert!(
+            !(in_sources_full && !in_pages_full),
+            "base.toml query `{}` must not only occur in files under corpus/sources/",
+            gen_full.query
+        );
+    }
+
+    #[test]
+    #[cfg(unix)]
+    fn cleanup_does_not_follow_symlinks() {
+        use std::os::unix::fs::PermissionsExt;
+
+        let pid = std::process::id();
+        let temp_dir = std::env::temp_dir();
+        let outside = temp_dir.join(format!("fieldbook-scale-test-outside-{pid}"));
+        let folder = temp_dir.join(format!("fieldbook-scale-test-folder-{pid}"));
+
+        let _ = std::fs::remove_dir_all(&outside);
+        let _ = std::fs::remove_dir_all(&folder);
+
+        std::fs::create_dir_all(&outside).expect("create outside directory");
+        let outside_file = outside.join("target.txt");
+        std::fs::write(&outside_file, b"target").expect("write target.txt");
+        std::fs::set_permissions(&outside_file, std::fs::Permissions::from_mode(0o644))
+            .expect("set target.txt permissions");
+
+        let outside_dir = outside.join("dir");
+        std::fs::create_dir_all(&outside_dir).expect("create outside subdir");
+        std::fs::set_permissions(&outside_dir, std::fs::Permissions::from_mode(0o700))
+            .expect("set outside dir permissions");
+
+        std::fs::create_dir_all(&folder).expect("create scale folder");
+        std::fs::write(folder.join("a.txt"), b"real file").expect("write a.txt");
+        std::os::unix::fs::symlink(&outside_file, folder.join("link-file"))
+            .expect("symlink to outside file");
+        std::os::unix::fs::symlink(&outside_dir, folder.join("link-dir"))
+            .expect("symlink to outside dir");
+
+        remove_dir_all_writable(&folder);
+
+        let folder_gone = std::fs::symlink_metadata(&folder).is_err();
+        let file_mode = std::fs::symlink_metadata(&outside_file)
+            .map(|m| m.permissions().mode() & 0o777)
+            .ok();
+        let dir_mode = std::fs::symlink_metadata(&outside_dir)
+            .map(|m| m.permissions().mode() & 0o777)
+            .ok();
+
+        let _ = std::fs::remove_dir_all(&outside);
+        let _ = std::fs::remove_dir_all(&folder);
+
+        assert!(folder_gone, "scale folder must no longer exist");
+        assert_eq!(
+            file_mode,
+            Some(0o644),
+            "outside file must still exist with mode 0o644"
+        );
+        assert_eq!(
+            dir_mode,
+            Some(0o700),
+            "outside dir must still exist with mode 0o700"
+        );
     }
 }
