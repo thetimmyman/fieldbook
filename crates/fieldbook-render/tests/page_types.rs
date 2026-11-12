@@ -38,6 +38,8 @@ mod page_types {
         include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/glossary.csv");
     const S_0002_V2_TXT: &[u8] =
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const S_0001_V1_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
 
     const CMP_SYSTEM_REVIEW_MD: &str = include_str!(
         "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
@@ -112,6 +114,7 @@ mod page_types {
         tree.insert_bytes("corpus/registers/conflicts.csv", CONFLICTS_CSV.as_bytes());
         tree.insert_bytes("corpus/registers/glossary.csv", GLOSSARY_CSV.as_bytes());
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/cmp-system-review.md",

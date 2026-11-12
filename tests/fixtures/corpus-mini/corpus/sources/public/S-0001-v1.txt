@@ -1,0 +1,3 @@
+Synthetic fixture original for automated tests. The numbers are made up.
+Section 1: Synthetic compliance reviews occur every 30 days.
+Section 2: Synthetic withholding threshold is 5 percent.

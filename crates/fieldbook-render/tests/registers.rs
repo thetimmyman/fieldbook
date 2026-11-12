@@ -59,6 +59,8 @@ mod registers {
         include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/glossary.csv");
     const S_0002_V2_TXT: &[u8] =
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const S_0001_V1_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
 
     const CMP_SYSTEM_REVIEW_MD: &str = include_str!(
         "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
@@ -97,6 +99,14 @@ mod registers {
         "conflicts.html",
         "glossary.html",
         "ids.html",
+        "ids/pages.html",
+        "ids/sources.html",
+        "ids/versions.html",
+        "ids/questions.html",
+        "ids/conflicts.html",
+        "ids/terms.html",
+        "ids/claims-CMP-1.html",
+        "ids/claims-EST-1.html",
         "p/cmp-clause-9900-101.html",
         "p/cmp-onboarding-checklist.html",
         "p/cmp-review-steps.html",
@@ -131,6 +141,7 @@ mod registers {
         tree.insert_bytes("corpus/registers/conflicts.csv", CONFLICTS_CSV.as_bytes());
         tree.insert_bytes("corpus/registers/glossary.csv", GLOSSARY_CSV.as_bytes());
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/cmp-system-review.md",
@@ -560,108 +571,281 @@ mod registers {
     }
 
     #[test]
-    fn ids_lists_every_id_once() {
+    fn ids_index_lists_groups_with_counts() {
         let (_model, view) = load_view(fixture_tree());
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
         let ids_view = ids::build_ids_view(&view, &planned);
         let html = ids::render_main(&view, &planned);
 
-        let slugs: Vec<&str> = ids_view.groups.iter().map(|g| g.slug).collect();
-        assert_eq!(
-            slugs,
-            vec![
-                "pages",
-                "sources",
-                "versions",
-                "claims",
-                "questions",
-                "conflicts",
-                "terms"
-            ],
-            "ids.html must include all 7 ID groups in order"
-        );
+        let expected_slugs = [
+            "pages",
+            "sources",
+            "versions",
+            "claims",
+            "questions",
+            "conflicts",
+            "terms",
+        ];
 
-        let mut seen = BTreeSet::new();
+        let mut last_pos = 0;
+        for slug in expected_slugs {
+            let marker = format!("data-id-kind=\"{slug}\"");
+            let pos = html
+                .find(&marker)
+                .unwrap_or_else(|| panic!("group section `{slug}` must be present in ids.html"));
+            assert!(
+                pos >= last_pos,
+                "group section `{slug}` appeared out of order in ids.html"
+            );
+            last_pos = pos;
+
+            let grp = ids_view
+                .groups
+                .iter()
+                .find(|g| g.slug == slug)
+                .unwrap_or_else(|| panic!("group `{slug}` missing in ids_view"));
+            let expected_count = if grp.items.is_empty() {
+                "None recorded".to_owned()
+            } else {
+                grp.items.len().to_string()
+            };
+            let count_needle = format!("<span class=\"panel-sub mono\">{expected_count}</span>");
+            assert!(
+                html[pos..].contains(&count_needle),
+                "group `{slug}` count `{expected_count}` missing in panel-sub span"
+            );
+        }
+
         for grp in &ids_view.groups {
-            for item in &grp.items {
+            if grp.slug != "claims" {
+                let heading_link = format!("<a href=\"ids/{}.html\">{}</a>", grp.slug, grp.title);
                 assert!(
-                    seen.insert(item.id.clone()),
-                    "id `{}` appeared more than once on ids.html",
-                    item.id
+                    html.contains(&heading_link),
+                    "non-claims group `{}` heading must link to ids/{}.html",
+                    grp.slug,
+                    grp.slug
                 );
             }
         }
 
-        for page in view.pages() {
-            let needle = format!("data-id=\"{}\"", page.id);
+        let parts = claims_parts(&view);
+        assert!(!parts.is_empty(), "claims parts must be present in fixture");
+        for part in &parts {
+            let part_href = format!("ids/claims-{}-{}.html", part.area_code, part.part);
+            let href_needle = format!("href=\"{part_href}\"");
             assert_eq!(
-                html.matches(&needle).count(),
+                html.matches(&href_needle).count(),
                 1,
-                "ids.html must list page `{}` exactly once",
-                page.id
+                "claims section must list exactly one link with href `{part_href}`"
             );
-            assert!(html.contains(&page.meta.title));
+        }
+
+        assert!(
+            !html.contains("data-id="),
+            "no data-id= row of any id appears on the index"
+        );
+    }
+
+    #[test]
+    fn ids_group_pages_hold_every_id() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let list_pages = ids::list_pages(&view, &planned);
+
+        let mut expected_ids = BTreeSet::new();
+        for page in view.pages() {
+            expected_ids.insert(page.id.as_str().to_owned());
         }
         let distinct_sids: BTreeSet<&SourceId> =
             view.sources().iter().map(|s| &s.value.source_id).collect();
         for sid in distinct_sids {
-            let sid_needle = format!("data-id=\"{sid}\"");
-            assert_eq!(
-                html.matches(&sid_needle).count(),
-                1,
-                "ids.html must list source `{sid}` exactly once"
-            );
+            expected_ids.insert(sid.as_str().to_owned());
         }
         for s in view.sources() {
-            let vid_needle = format!("data-id=\"{}-v{}\"", s.value.source_id, s.value.version);
+            expected_ids.insert(format!("{}-v{}", s.value.source_id, s.value.version));
+        }
+        for c in view.claims() {
+            expected_ids.insert(c.value.claim_id.as_str().to_owned());
+        }
+        for q in view.questions() {
+            expected_ids.insert(q.value.question_id.as_str().to_owned());
+        }
+        for xc in view.conflicts() {
+            expected_ids.insert(xc.value.conflict_id.as_str().to_owned());
+        }
+        for t in view.glossary() {
+            expected_ids.insert(t.value.term_id.as_str().to_owned());
+        }
+
+        let rendered: Vec<(String, String)> = list_pages
+            .iter()
+            .map(|p| (p.path.clone(), ids::render_list_main(p)))
+            .collect();
+
+        let mut id_occurrences: BTreeMap<String, usize> = BTreeMap::new();
+        for (_path, html) in &rendered {
+            let mut cursor = 0;
+            while let Some(start) = html[cursor..].find("data-id=\"") {
+                let id_start = cursor + start + "data-id=\"".len();
+                let end = html[id_start..].find('"').unwrap();
+                let id = &html[id_start..id_start + end];
+                *id_occurrences.entry(id.to_owned()).or_default() += 1;
+                cursor = id_start + end + 1;
+            }
+        }
+
+        for (id, count) in &id_occurrences {
             assert_eq!(
-                html.matches(&vid_needle).count(),
-                1,
-                "ids.html must list source version `{}-v{}` exactly once",
-                s.value.source_id,
-                s.value.version
+                *count, 1,
+                "id `{id}` must appear on exactly one page, found {count}"
+            );
+        }
+
+        let union_ids: BTreeSet<String> = id_occurrences.into_keys().collect();
+        assert_eq!(
+            union_ids, expected_ids,
+            "union of data-id values across list pages must equal independent view ids"
+        );
+
+        let all_html = rendered
+            .iter()
+            .map(|(_, h)| h.as_str())
+            .collect::<Vec<_>>()
+            .join("\n");
+
+        for page in view.pages() {
+            assert!(
+                all_html.contains(&page.meta.title),
+                "page title `{}` must be present in html",
+                page.meta.title
             );
         }
         for c in view.claims() {
-            let needle = format!("data-id=\"{}\"", c.value.claim_id);
-            assert_eq!(
-                html.matches(&needle).count(),
-                1,
-                "ids.html must list claim `{}` exactly once",
-                c.value.claim_id
+            assert!(
+                all_html.contains(&c.value.statement),
+                "claim statement `{}` must be present in html",
+                c.value.statement
             );
-            assert!(html.contains(&c.value.statement));
         }
         for q in view.questions() {
-            let needle = format!("data-id=\"{}\"", q.value.question_id);
-            assert_eq!(
-                html.matches(&needle).count(),
-                1,
-                "ids.html must list question `{}` exactly once",
-                q.value.question_id
+            assert!(
+                all_html.contains(&q.value.question),
+                "question `{}` must be present in html",
+                q.value.question
             );
-            assert!(html.contains(&q.value.question));
         }
         for xc in view.conflicts() {
-            let needle = format!("data-id=\"{}\"", xc.value.conflict_id);
-            assert_eq!(
-                html.matches(&needle).count(),
-                1,
-                "ids.html must list conflict `{}` exactly once",
-                xc.value.conflict_id
+            assert!(
+                all_html.contains(&xc.value.topic),
+                "conflict topic `{}` must be present in html",
+                xc.value.topic
             );
-            assert!(html.contains(&xc.value.topic));
         }
         for t in view.glossary() {
-            let needle = format!("data-id=\"{}\"", t.value.term_id);
-            assert_eq!(
-                html.matches(&needle).count(),
-                1,
-                "ids.html must list glossary term `{}` exactly once",
-                t.value.term_id
+            assert!(
+                all_html.contains(&t.value.label),
+                "glossary label `{}` must be present in html",
+                t.value.label
             );
-            assert!(html.contains(&t.value.label));
         }
+    }
+
+    #[test]
+    fn ids_claims_split_by_area() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let list_pages = ids::list_pages(&view, &planned);
+
+        let group_page_slugs: Vec<&str> = list_pages
+            .iter()
+            .filter(|p| p.slug != "claims")
+            .map(|p| p.slug)
+            .collect();
+        assert_eq!(
+            group_page_slugs,
+            vec![
+                "pages",
+                "sources",
+                "versions",
+                "questions",
+                "conflicts",
+                "terms"
+            ],
+            "the six group pages' slugs must be exactly pages, sources, versions, questions, conflicts, terms"
+        );
+
+        let rendered_pages: Vec<(String, &ids::IdListPage, String)> = list_pages
+            .iter()
+            .map(|p| (p.path.clone(), p, ids::render_list_main(p)))
+            .collect();
+
+        for (_path, page, _html) in &rendered_pages {
+            if page.slug == "claims" {
+                assert!(
+                    page.items.len() <= fieldbook_core::ids::CLAIMS_PER_PART as usize,
+                    "claims part page `{}` holds {} ids, exceeding CLAIMS_PER_PART {}",
+                    page.path,
+                    page.items.len(),
+                    fieldbook_core::ids::CLAIMS_PER_PART
+                );
+            }
+        }
+
+        for c in view.claims() {
+            let (area, part) = claim_part(c.value.claim_id.as_str())
+                .unwrap_or_else(|| panic!("claim {} must have area and part", c.value.claim_id));
+            let expected_page = format!("ids/claims-{area}-{part}.html");
+            let needle = format!("data-id=\"{}\"", c.value.claim_id);
+
+            for (path, _page, html) in &rendered_pages {
+                let count = html.matches(&needle).count();
+                if path == &expected_page {
+                    assert_eq!(
+                        count, 1,
+                        "claim `{}` must appear exactly once on expected page `{expected_page}`",
+                        c.value.claim_id
+                    );
+                } else {
+                    assert_eq!(
+                        count, 0,
+                        "claim `{}` must not appear on page `{path}`",
+                        c.value.claim_id
+                    );
+                }
+            }
+        }
+
+        let (area500, part500) = claim_part("CL-CMP-0500").unwrap();
+        let path500 = format!("ids/claims-{area500}-{part500}.html");
+        assert_eq!(path500, "ids/claims-CMP-1.html");
+
+        let (area501, part501) = claim_part("CL-CMP-0501").unwrap();
+        let path501 = format!("ids/claims-{area501}-{part501}.html");
+        assert_eq!(path501, "ids/claims-CMP-2.html");
+    }
+
+    #[test]
+    fn ids_list_pages_link_with_the_ids_directory_prefix() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let navigation = nav::build(&view, &planned);
+        let list_pages = ids::list_pages(&view, &planned);
+
+        let pages_page = list_pages
+            .iter()
+            .find(|p| p.slug == "pages")
+            .unwrap_or_else(|| panic!("pages list page must exist"));
+        let html = ids::render_list_page(pages_page, &ctx, &navigation, &planned);
+
+        assert!(
+            html.contains("href=\"../p/"),
+            "page chip href in ids list page must start with `../p/`: {html}"
+        );
+        assert!(
+            html.contains("href=\"../ids.html\""),
+            "crumb link to ids.html in ids list page must be `../ids.html`: {html}"
+        );
     }
 
     #[test]
@@ -1002,7 +1186,7 @@ mod registers {
             Some("s/S-0002-v2.html".to_owned())
         );
 
-        // 3. In sources.html and ids.html, S-0004-v1 register metadata row exists (<tr id="S-0004-v1">),
+        // 3. In sources.html and ids/versions.html, S-0004-v1 register metadata row exists (<tr id="S-0004-v1">),
         //    but no <a> link targets #S-0004-v1 or s/S-0004-v1.html, while S-0002-v2 is linked.
         let sources_html = render_main(Register::Sources, &view, &planned);
         assert!(
@@ -1020,19 +1204,21 @@ mod registers {
             "sources.html must link active version S-0002-v2"
         );
 
-        let ids_html = ids::render_main(&view, &planned);
+        let list_pages = ids::list_pages(&view, &planned);
+        let versions_page = list_pages.iter().find(|p| p.slug == "versions").unwrap();
+        let ids_html = ids::render_list_main(versions_page);
         assert!(
             ids_html.contains("data-id=\"S-0004-v1\""),
-            "ids.html must list S-0004-v1"
+            "ids/versions.html must list S-0004-v1"
         );
         assert!(
             !ids_html.contains("href=\"sources.html#S-0004-v1\"")
                 && !ids_html.contains("s/S-0004-v1.html"),
-            "ids.html must never link to quarantined version S-0004-v1:\n{ids_html}"
+            "ids/versions.html must never link to quarantined version S-0004-v1:\n{ids_html}"
         );
         assert!(
-            ids_html.contains("href=\"s/S-0002-v2.html\""),
-            "ids.html must link active version S-0002-v2"
+            ids_html.contains("href=\"../s/S-0002-v2.html\""),
+            "ids/versions.html must link active version S-0002-v2"
         );
 
         // 4. Every emitted link across the rendered site passes FB0603.
@@ -1381,11 +1567,13 @@ mod registers {
         );
         let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
         let navigation = nav::build(&view, &planned);
-        let ids_html = ids::render_page(&view, &ctx, &navigation, &planned);
+        let list_pages = ids::list_pages(&view, &planned);
+        let conflicts_page = list_pages.iter().find(|p| p.slug == "conflicts").unwrap();
+        let ids_html = ids::render_list_page(conflicts_page, &ctx, &navigation, &planned);
         let at = |id: &str| ids_html.find(&format!(">{id}<")).unwrap();
         assert!(
             at("XC-01") < at("XC-99") && at("XC-99") < at("XC-100"),
-            "ids.html lists conflicts in numeric order"
+            "ids/conflicts.html lists conflicts in numeric order"
         );
 
         let html = render_main(Register::Conflicts, &view, &planned);
@@ -2123,6 +2311,7 @@ const compareDecimal = function (x, y) {
         let mut tree_continuous = empty_registers_tree();
         tree_continuous.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
         tree_continuous.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree_continuous.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         let claims_header = CLAIMS_CSV.lines().next().unwrap();
         let mut continuous_csv = format!("{claims_header}\n");
@@ -2160,6 +2349,7 @@ const compareDecimal = function (x, y) {
         let mut tree_gap = empty_registers_tree();
         tree_gap.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
         tree_gap.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree_gap.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         let gap_ids = ["CL-CMP-0001", "CL-CMP-0501", "CL-CMP-1501"];
         let mut gap_csv = format!("{claims_header}\n");
@@ -2264,6 +2454,43 @@ const compareDecimal = function (x, y) {
     }
 
     #[test]
+    fn ids_one_id_part_page_reads_one_id() {
+        let mut tree = empty_registers_tree();
+        tree.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
+
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+        let mut claims_csv = format!("{claims_header}\n");
+        claims_csv.push_str(&make_claim_row("CL-CMP-0501"));
+        claims_csv.push('\n');
+        tree.insert_bytes("corpus/registers/claims.csv", claims_csv.into_bytes());
+
+        let (_model, view) = load_view(tree);
+        let planned = site::planned_paths(&view);
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let nav = nav::build(&view, &planned);
+
+        let list_pages = ids::list_pages(&view, &planned);
+        let page = list_pages
+            .iter()
+            .find(|p| p.path == "ids/claims-CMP-2.html")
+            .unwrap();
+        let html = ids::render_list_page(page, &ctx, &nav, &planned);
+        assert!(html.contains("<span class=\"chip mono\">1 ID</span>"));
+        assert!(!html.contains("1 IDs"));
+        assert!(!html.contains("1 claims"));
+        assert!(!html.contains("class=\"muted\">The "));
+
+        let pages_page = list_pages
+            .iter()
+            .find(|p| p.path == "ids/pages.html")
+            .unwrap();
+        let pages_html = ids::render_list_page(pages_page, &ctx, &nav, &planned);
+        assert!(!pages_html.contains("<p class=\"muted\">All "));
+    }
+
+    #[test]
     fn parts_hold_exactly_their_own_claim_rows() {
         let (_model, view) = continuous_view();
         let planned = site::planned_paths(&view);
@@ -2364,24 +2591,24 @@ const compareDecimal = function (x, y) {
             );
         }
 
-        let ids_bytes = site.files().get("ids.html").expect("ids.html exists");
-        let ids_html = std::str::from_utf8(ids_bytes).unwrap();
-        assert!(
-            ids_html.contains("href=\"claims/CMP-1.html#CL-CMP-0001\""),
-            "ids.html must contain link to claims/CMP-1.html#CL-CMP-0001"
-        );
-        assert!(
-            ids_html.contains("href=\"claims/CMP-2.html#CL-CMP-0501\""),
-            "ids.html must contain link to claims/CMP-2.html#CL-CMP-0501"
-        );
-        assert!(
-            ids_html.contains("href=\"claims/CMP-3.html#CL-CMP-1001\""),
-            "ids.html must contain link to claims/CMP-3.html#CL-CMP-1001"
-        );
-        assert!(
-            ids_html.contains("href=\"claims/CMP-4.html#CL-CMP-1501\""),
-            "ids.html must contain link to claims/CMP-4.html#CL-CMP-1501"
-        );
+        for (part, id) in [
+            (1, "CL-CMP-0001"),
+            (2, "CL-CMP-0501"),
+            (3, "CL-CMP-1001"),
+            (4, "CL-CMP-1501"),
+        ] {
+            let part_path = format!("ids/claims-CMP-{part}.html");
+            let part_bytes = site
+                .files()
+                .get(&part_path)
+                .unwrap_or_else(|| panic!("{part_path} exists"));
+            let part_html = std::str::from_utf8(part_bytes).unwrap();
+            let expected_link = format!("href=\"../claims/CMP-{part}.html#{id}\"");
+            assert!(
+                part_html.contains(&expected_link),
+                "{part_path} must contain link to ../claims/CMP-{part}.html#{id}"
+            );
+        }
 
         let claim_links_found = assert_claim_links_land_on_their_part(&site);
         assert!(

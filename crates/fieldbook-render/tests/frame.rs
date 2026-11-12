@@ -27,6 +27,8 @@ mod frame {
         include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/claims.csv");
     const S_0002_V2_TXT: &[u8] =
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const S_0001_V1_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
 
     fn edition_info(built: &str, number: u32) -> EditionInfo {
         EditionInfo {
@@ -135,6 +137,7 @@ mod frame {
         );
         tree.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         let claims_header = CLAIMS_CSV.lines().next().unwrap();
         let mut claims_content = format!("{claims_header}\n");

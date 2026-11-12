@@ -261,6 +261,16 @@ pub fn resolve_route(path: &str, page_area: Option<&str>) -> Option<(SectionId, 
     {
         return Some((SectionId::Library, "claims".to_owned()));
     }
+    // An ID list page under `ids/`; `app.js` (at its size budget) keeps no map row for it, because
+    // the frame sets `data-section` and `data-item` from this function.
+    if let Some(name) = clean
+        .strip_prefix("ids/")
+        .and_then(|s| s.strip_suffix(".html"))
+        && !name.is_empty()
+        && !name.contains('/')
+    {
+        return Some((SectionId::Library, "browse".to_owned()));
+    }
     for row in route_sections() {
         if row.route == clean {
             return Some((row.section, row.item.to_owned()));

@@ -5,6 +5,36 @@ use std::cmp::Ordering;
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
+/// The outcome of checking an installed poppler version against its pin.
+#[derive(Debug, PartialEq, Eq)]
+pub enum PinCheck {
+    /// The installed version matches the pin.
+    Match,
+    /// The installed version differs from the pin.
+    Differs(String),
+}
+
+/// Check an installed poppler / pdftotext version against the pinned poppler version.
+pub fn poppler_pin_check(pin: &str, found: &str) -> PinCheck {
+    let match_found = match (Version::parse(pin), Version::parse(found)) {
+        (Some(p), Some(f)) => p == f,
+        _ => pin == found,
+    };
+    if match_found {
+        PinCheck::Match
+    } else {
+        PinCheck::Differs(format!(
+            "pdftotext {found} differs from the pinned poppler {pin}; extracting anyway"
+        ))
+    }
+}
+
+/// The version of poppler pinned in `.config/tools.toml`.
+pub fn poppler_pin(root: &Path) -> Result<String, String> {
+    let pins = Pins::read(&root.join(".config/tools.toml"))?;
+    pins.get("poppler", "version").map(str::to_owned)
+}
+
 /// A version such as `1.99.1`, compared number by number. Missing parts count as zero.
 #[derive(Debug, Clone)]
 pub struct Version(Vec<u64>);
@@ -274,6 +304,31 @@ pub fn doctor(root: &Path, exact: bool) -> Result<bool, String> {
         } else {
             println!("warn  git hooks      not enabled: run `just setup`");
         }
+        let pin = tools.get("poppler", "version")?;
+        let want = Version::parse(pin)
+            .ok_or_else(|| format!("the pin for poppler (`{pin}`) is not a version"))?;
+        let found = output("pdftotext", &["-v"], root).ok().and_then(|out| {
+            let err_text = String::from_utf8_lossy(&out.stderr);
+            Version::find_in(&err_text).or_else(|| {
+                let out_text = String::from_utf8_lossy(&out.stdout);
+                Version::find_in(&out_text)
+            })
+        });
+        match found {
+            Some(found) if version_ok(&found, &want, false) => {
+                println!("ok    pdftotext      {found} (pinned {pin})");
+            }
+            Some(found) => {
+                println!(
+                    "warn  pdftotext      {found} is older than the pinned {pin}: install poppler {pin} or newer"
+                );
+            }
+            None => {
+                println!(
+                    "warn  pdftotext      not found: install poppler (it provides pdftotext, needed only for `cargo xtask extract` of PDFs)"
+                );
+            }
+        }
     }
     Ok(all_good)
 }
@@ -402,7 +457,10 @@ fn download_and_install(work: &Path, version: &str, want_hash: &str) -> Result<(
 
 #[cfg(test)]
 mod tests {
-    use super::{Pins, TOOLS, Version, installed, pinned, version_ok};
+    use super::{
+        PinCheck, Pins, TOOLS, Version, installed, pinned, poppler_pin, poppler_pin_check,
+        version_ok,
+    };
     use std::path::Path;
 
     fn v(text: &str) -> Version {
@@ -503,5 +561,32 @@ mod tests {
             let spec = format!("{action_name}@{}", tools.get("cargo", key).expect("pin"));
             assert!(workflow.contains(&spec), "ci.yml does not install {spec}");
         }
+    }
+
+    #[test]
+    fn the_poppler_pin_is_readable() {
+        let pin = poppler_pin(root()).expect("poppler pin");
+        assert!(Version::parse(&pin).is_some());
+    }
+
+    #[test]
+    fn a_differing_version_is_a_warning() {
+        let check = poppler_pin_check("26.10.0", "25.01.0");
+        match check {
+            PinCheck::Differs(msg) => {
+                assert!(msg.contains("25.01.0"));
+                assert!(msg.contains("26.10.0"));
+            }
+            PinCheck::Match => panic!("expected differs"),
+        }
+        assert_eq!(poppler_pin_check("26.10.0", "26.10.0"), PinCheck::Match);
+        assert!(matches!(
+            poppler_pin_check("26.10.0", "27.01.0"),
+            PinCheck::Differs(_)
+        ));
+        assert!(matches!(
+            poppler_pin_check("26.10.0", "invalid-version"),
+            PinCheck::Differs(_)
+        ));
     }
 }

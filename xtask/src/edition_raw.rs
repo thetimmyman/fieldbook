@@ -1525,7 +1525,7 @@ pub(crate) mod tests {
     pub(crate) fn write_corpus(root: &Path) {
         let orig_sha = sha256_hex(ORIG_BYTES);
         let held_sha = sha256_hex(HELD_BYTES);
-        let page_txt = b"extracted page one text\n";
+        let page_txt = b"extracted page one text, synthetic and long enough to count\n";
         let page_sha = sha256_hex(page_txt);
         let extraction = format!(
             "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{orig_sha}\"\n\n[pages]\np0001 = \"{page_sha}\"\n"

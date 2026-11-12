@@ -844,7 +844,8 @@ mod tests {
         let codes: Vec<Code> = report.diagnostics.iter().map(|d| d.code).collect();
         assert_eq!(
             codes,
-            vec![Code::Fb0222],
+            // `S-0002-v1` is also metadata-only, so the consequential claim raises FB0223 too.
+            vec![Code::Fb0222, Code::Fb0223],
             "diagnostics: {:?}",
             report.diagnostics
         );
