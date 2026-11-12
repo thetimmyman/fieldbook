@@ -478,6 +478,9 @@ fn plan(
     };
     let row = result.map_err(|e| new_err_outcome(&e))?;
     let bytes = render_register(model, kind, &row).map_err(|e| new_err_outcome(&e))?;
+    if kind == RowKind::Claim && recorded_id.is_none() {
+        refuse_unmatched_claim(model, &row)?;
+    }
     let mut input_labels = LabelSet::public();
     if kind == RowKind::Claim
         && let Some(version) = job.fields.get("source")
@@ -489,6 +492,35 @@ fn plan(
             .unwrap_or_else(LabelSet::unlabelled);
     }
     Ok(row_planned(&row, bytes, input_labels))
+}
+
+/// Validate that a newly planned claim's quote matches its cited extraction before admitting
+/// the write. Returns `Err(Outcome)` with `EXIT_FINDINGS` when unmatched or unresolvable.
+fn refuse_unmatched_claim(model: &Model, row: &RowPlan) -> Result<(), Outcome> {
+    let mut trial_row = row.clone();
+    if trial_row.cells.get(3).is_some_and(|s| s.is_empty()) {
+        trial_row.cells[3] = "Synthetic statement.".to_owned();
+    }
+    let trial_bytes =
+        render_register(model, RowKind::Claim, &trial_row).map_err(|e| new_err_outcome(&e))?;
+    let mut tree = model.tree().clone();
+    let path = trial_row.path.to_string_lossy().replace('\\', "/");
+    tree.insert_bytes(path, trial_bytes);
+    let host = Host::new(tree, model.today());
+    let (trial, _) = check::load(&host, &check::Options::new(false));
+    if let Some(located) = trial
+        .claims()
+        .iter()
+        .find(|c| c.value.claim_id.as_str() == row.id)
+        && let Some(diag) = check::quotes::match_claim(&trial, &located.value)
+    {
+        return Err(Outcome {
+            stdout: format!("{}\n", diag.render_text()),
+            stderr: String::new(),
+            code: EXIT_FINDINGS,
+        });
+    }
+    Ok(())
 }
 
 fn row_planned(row: &RowPlan, bytes: Vec<u8>, input_labels: LabelSet) -> Planned {
