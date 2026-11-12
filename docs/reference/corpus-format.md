@@ -749,7 +749,7 @@ In the edition, both copies hold only the rows the edition keeps. A kept row's c
 **`registers.xlsx`.** Sheets are named `sources`, `claims`, `questions`, `conflicts` and `glossary`.
 - Every cell is a string, including dates, numbers and booleans. There are no formulas, no macros and no links.
 - The header row is frozen and has an autofilter.
-- A workbook cell holds at most 32,767 characters. A register cell longer than that, such as a long joined list, stops the build with FB0605; the message names the register, the row id and the column. `check` has no cell-length limit, so a strict-clean Corpus can reach this.
+- A workbook cell holds at most 32,767 characters. A register cell longer than that, such as a long joined list, stops the build with FB0605; the message names the register, the row id and the column. `check` limits each text cell (FB0204) and each item of a text list, but not the joined length of a list cell, so a strict-clean Corpus can reach this.
 - The file carries a fixed creation time taken from `SOURCE_DATE_EPOCH`, so two builds of the same commit give the same bytes. A test reads `docProps/core.xml` back.
 - The workbook is read-only by design: to change a register, edit the CSV and run `fieldbook check`.
 
