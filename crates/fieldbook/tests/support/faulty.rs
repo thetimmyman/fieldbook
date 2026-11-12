@@ -9,6 +9,7 @@ use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{Now, Principal, Sha256};
 use fieldbook_core::check::Tree;
 use fieldbook_core::egress::Allowed;
+use fieldbook_core::labels::PlaceFacts;
 
 use super::world::TestWorld;
 
@@ -71,6 +72,21 @@ impl FaultyWorld {
             fault,
             matches: AtomicUsize::new(0),
         }
+    }
+
+    /// Forward fault arming to inner world.
+    pub fn set_fault(&self, fault: Option<Fault>) {
+        self.inner.set_fault(fault);
+    }
+
+    /// Forward rename fault injection to inner world.
+    pub fn inject_rename_fault(&self, target: &Path, snapshot: fieldbook_core::backup::Number) {
+        self.inner.inject_rename_fault(target, snapshot);
+    }
+
+    /// Forward rename fault clearing to inner world.
+    pub fn clear_rename_fault(&self, target: &Path, snapshot: fieldbook_core::backup::Number) {
+        self.inner.clear_rename_fault(target, snapshot);
     }
 
     fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
@@ -190,5 +206,13 @@ impl World for FaultyWorld {
 
     fn state_dir(&self) -> &Path {
         self.inner.state_dir()
+    }
+
+    fn place(&self, path: &Path) -> PlaceFacts {
+        self.inner.place(path)
+    }
+
+    fn support_facts(&self) -> fieldbook::SupportFacts {
+        self.inner.support_facts()
     }
 }

@@ -616,7 +616,9 @@ struct RawSupportFile {
     sha256: String,
 }
 
-fn is_lower_hex(s: &str, expected_len: usize) -> bool {
+/// Check if a string slice consists of exactly `expected_len` lowercase hexadecimal characters.
+#[must_use]
+pub fn is_lower_hex(s: &str, expected_len: usize) -> bool {
     s.len() == expected_len
         && s.bytes()
             .all(|b| b.is_ascii_digit() || (b'a'..=b'f').contains(&b))
@@ -1066,6 +1068,93 @@ impl SupportCatalogue {
         }
 
         Ok(())
+    }
+}
+
+/// Verified support facts used for resolving public provenance of Corpus support files.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct SupportFacts {
+    /// Retained catalogues that have a verified binding: `(SupportCatalogue, full_catalogue_sha256)`.
+    pub catalogues: Vec<(SupportCatalogue, String)>,
+    /// Completed public writes per path: `(path, full_sha256_of_last_completed_write)`.
+    pub public_writes: BTreeMap<String, String>,
+}
+
+impl SupportFacts {
+    /// Construct empty support facts.
+    #[must_use]
+    pub const fn empty() -> Self {
+        Self {
+            catalogues: Vec::new(),
+            public_writes: BTreeMap::new(),
+        }
+    }
+
+    /// Construct `SupportFacts` with parsed retained catalogues and completed public writes.
+    #[must_use]
+    pub fn new(
+        catalogues: Vec<(SupportCatalogue, String)>,
+        public_writes: BTreeMap<String, String>,
+    ) -> Self {
+        Self {
+            catalogues,
+            public_writes,
+        }
+    }
+
+    /// Check if `rel_path` with `current_sha256` has public provenance.
+    #[must_use]
+    pub fn has_provenance(&self, rel_path: &str, current_sha256: &str) -> bool {
+        let clean = rel_path.replace('\\', "/");
+        let stripped = clean.trim_start_matches('/');
+        let corpus_rel = stripped.strip_prefix("corpus/").unwrap_or(stripped);
+
+        // (a) last completed public write for that path in admitted verified journal history
+        if self
+            .public_writes
+            .get(corpus_rel)
+            .is_some_and(|sha| sha.eq_ignore_ascii_case(current_sha256))
+            || self
+                .public_writes
+                .get(stripped)
+                .is_some_and(|sha| sha.eq_ignore_ascii_case(current_sha256))
+        {
+            return true;
+        }
+
+        // Also check by canonical path digest
+        if let Ok(canon) = crate::audit::CorpusPath::parse(corpus_rel) {
+            let h = crate::audit::Sha256::digest(canon.as_str().as_bytes()).to_string();
+            if self
+                .public_writes
+                .get(&h)
+                .is_some_and(|sha| sha.eq_ignore_ascii_case(current_sha256))
+            {
+                return true;
+            }
+        }
+        let prefixed = format!("corpus/{corpus_rel}");
+        if let Ok(canon) = crate::audit::CorpusPath::parse(&prefixed) {
+            let h = crate::audit::Sha256::digest(canon.as_str().as_bytes()).to_string();
+            if self
+                .public_writes
+                .get(&h)
+                .is_some_and(|sha| sha.eq_ignore_ascii_case(current_sha256))
+            {
+                return true;
+            }
+        }
+
+        // (b) the same path's entry in a retained, verified catalogue
+        for (cat, _cat_sha) in &self.catalogues {
+            if cat.files.iter().any(|entry| {
+                entry.path == corpus_rel && entry.sha256.eq_ignore_ascii_case(current_sha256)
+            }) {
+                return true;
+            }
+        }
+
+        false
     }
 }
 

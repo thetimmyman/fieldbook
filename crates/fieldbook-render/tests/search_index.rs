@@ -32,8 +32,8 @@ mod search_index {
     /// A long two-sentence Purpose for `cmp-system-review`, longer than 160 code points.
     const LONG_PURPOSE: &str = "Explain how a synthetic system review interacts with a synthetic billing withhold across every synthetic billing cycle of the year. A second synthetic sentence follows so the paragraph runs past the snippet limit.";
 
-    /// A `Never confuse` first paragraph ending that quotes two remote URLs.
-    const URL_SENTENCE: &str = "with a final contract closeout audit, listed at https://example.org/closeout and HTTP://example.org/x.";
+    /// A `Never confuse` paragraph starting with two remote URLs and running past 100 code points.
+    const URL_SENTENCE: &str = "See https://example.org/closeout and HTTP://example.org/x for the closeout audit, which a synthetic system review must not be confused with, and this long synthetic sentence runs on well past the section snippet limit.";
 
     fn insert_all(tree: &mut Tree, dir: &Path, rel: &str) {
         tree.insert_dir(rel);
@@ -125,7 +125,7 @@ mod search_index {
                 LONG_PURPOSE,
             )
             .replace(
-                "with a final contract closeout audit.",
+                "Do not confuse a synthetic system review or a synthetic billing withhold with a final contract closeout audit.",
                 URL_SENTENCE,
             )
             .replace(
@@ -632,7 +632,6 @@ mod search_index {
         let lower = text.to_ascii_lowercase();
         assert!(!lower.contains("http://") && !lower.contains("https://"));
 
-        // The snippet still reads as the paragraph, with the address kept and its scheme removed.
         let index = parsed(&text);
         let doc = index["docs"]
             .as_array()
@@ -643,11 +642,90 @@ mod search_index {
         let snippet = doc[4].as_str().unwrap();
         assert_eq!(
             snippet,
-            search_index::strip_url_schemes(&section.display.snippet)
+            search_index::strip_url_schemes(&search_index::cut_section_snippet(
+                &section.id,
+                &section.display.snippet,
+            ))
         );
+        assert!(section.display.snippet.chars().count() > 100);
+        assert!(snippet.contains("example.org/closeout"), "{snippet}");
+        assert!(snippet.contains("example.org/x"), "{snippet}");
+        assert!(snippet.chars().count() <= 100, "{snippet}");
+    }
+
+    #[test]
+    fn section_snippets_hold_at_most_100_code_points() {
+        let (_model, view, site) = built();
+        let index = parsed(&delivered(&site));
+        let docs = index["docs"].as_array().unwrap();
+        for doc in docs {
+            let id = doc[0].as_str().unwrap();
+            let snippet = doc[4].as_str().unwrap();
+            if id.contains('#') {
+                assert!(snippet.chars().count() <= 100, "{snippet}");
+            }
+        }
+
+        let (units, _glossary) = search_index::view_units(&view);
+        let edition = search_index::edition_units(units);
+        let long_count = edition
+            .iter()
+            .filter(|u| u.id.contains('#') && u.display.snippet.chars().count() > 100)
+            .count();
         assert!(
-            snippet.contains("closeout audit, listed at example.org/closeout and"),
-            "{snippet}"
+            long_count >= 1,
+            "at least one section unit must exceed 100 code points"
         );
+
+        let has_cut_section = edition
+            .iter()
+            .filter(|u| u.id.contains('#') && u.display.snippet.chars().count() > 100)
+            .any(|u| {
+                let doc = docs
+                    .iter()
+                    .find(|d| d[0].as_str().unwrap() == u.id)
+                    .unwrap();
+                let snippet = doc[4].as_str().unwrap();
+                snippet.ends_with('\u{2026}')
+                    && snippet
+                        == search_index::strip_url_schemes(&search_index::cut_section_snippet(
+                            &u.id,
+                            &u.display.snippet,
+                        ))
+            });
+        assert!(
+            has_cut_section,
+            "at least one long section's delivered snippet must end with ellipsis and equal the cut, stripped snippet"
+        );
+    }
+
+    #[test]
+    fn lead_snippets_stay_at_160() {
+        let (_model, _view, site) = built();
+        let index = parsed(&delivered(&site));
+        let docs = index["docs"].as_array().unwrap();
+
+        let lead = docs.iter().find(|d| d[0] == "cmp-system-review").unwrap();
+        let snippet = lead[4].as_str().unwrap();
+        assert_eq!(snippet, make_snippet(LONG_PURPOSE));
+        assert!(snippet.ends_with('\u{2026}'), "{snippet}");
+
+        let has_long_lead = docs.iter().any(|d| {
+            let id = d[0].as_str().unwrap();
+            let s = d[4].as_str().unwrap();
+            !id.contains('#') && s.chars().count() > 100
+        });
+        assert!(
+            has_long_lead,
+            "at least one docs row whose id has no '#' must have a snippet of more than 100 code points"
+        );
+
+        for doc in docs {
+            let id = doc[0].as_str().unwrap();
+            let s = doc[4].as_str().unwrap();
+            if !id.contains('#') {
+                assert!(s.chars().count() <= 160, "{s}");
+            }
+        }
     }
 }
