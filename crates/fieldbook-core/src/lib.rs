@@ -15,6 +15,7 @@ pub mod add;
 pub mod assist;
 pub mod audit;
 pub mod authz;
+pub mod backup;
 pub mod cases;
 pub mod check;
 pub mod cite;
