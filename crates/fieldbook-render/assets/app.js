@@ -758,8 +758,10 @@ function paletteRows(ix, text) {
   const S = window.FB_SEARCH;
   const q = fold(text);
   const rows = [];
+  const seen = new Set();
   const add = function (h) {
-    if (!rows.some(function (r) { return r.id === h.id; })) {
+    if (!seen.has(h.id)) {
+      seen.add(h.id);
       rows.push(h);
     }
   };
