@@ -25,6 +25,7 @@ use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Tr
 use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, effective_item};
 use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
 use fieldbook_core::schema::Register;
+use fieldbook_render::day_one;
 use fieldbook_render::meta::BuildInfo;
 use fieldbook_render::site::Site;
 use serde::Deserialize;
@@ -52,6 +53,7 @@ const BUILT_SINKS: &[&str] = &[
     "journal_holds_ids_and_no_canary",
     "edition",
     "page_packs",
+    "day_one_binder",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -71,6 +73,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "page_packs",
         run: run_page_packs_surface,
+    },
+    Surface {
+        name: "day_one_binder",
+        run: run_day_one_binder_surface,
     },
 ];
 
@@ -1085,6 +1091,196 @@ fn run_page_packs_surface() {
     }
 }
 
+fn run_day_one_binder_surface() {
+    const FORBIDDEN_MARKER: &str = "Forbidden binder marker text";
+    const FORBIDDEN_TITLE: &str = "Forbidden binder canary page";
+    const FORBIDDEN_BRIEF_MARKER: &str = "Forbidden binder brief marker";
+    const FORBIDDEN_BRIEF_TITLE: &str = "Forbidden binder brief canary";
+
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+
+    let mut tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+    let forbidden_concept = format!(
+        "+++\nid = \"cmp-forbidden-binder\"\ntitle = \"Synthetic compliance {FORBIDDEN_TITLE}\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\n{FORBIDDEN_MARKER}.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
+    );
+    tree.insert_bytes(
+        "corpus/pages/compliance/business-systems/cmp-forbidden-binder.md",
+        forbidden_concept.into_bytes(),
+    );
+
+    let forbidden_brief = format!(
+        "+++\nid = \"est-forbidden-brief\"\ntitle = \"Synthetic decision brief on {FORBIDDEN_BRIEF_TITLE}\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"brief\"\nstage = 3\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nvolatility = \"V2\"\n+++\n\n## Question\n\nSynthetic brief question?\n\n## Recommendation\n\n{FORBIDDEN_BRIEF_MARKER}.\n\n## Evidence\n\n- Synthetic brief evidence.\n\n## Options\n\n- Synthetic option.\n\n## Unknowns\n\n- Synthetic unknown.\n\n## Next action\n\nSynthetic next action.\n"
+    );
+    tree.insert_bytes(
+        "corpus/pages/estimating/pricing/est-forbidden-brief.md",
+        forbidden_brief.into_bytes(),
+    );
+
+    let (model, _report) = load(&Host::new(tree, world.today()), &Options::new(false));
+
+    let eff = EffectivePolicy::floor(false);
+    let now = default_now();
+    let shipped = Shipped::Hours(1);
+    let Decision::Allowed(sel_token) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+        panic!("expected edition selection Allowed");
+    };
+    let view = LabelledView::new(&model, &sel_token, &ReadableStores::corpus());
+    assert!(
+        view.pages()
+            .iter()
+            .all(|p| p.id.as_str() != "cmp-forbidden-binder"
+                && p.id.as_str() != "est-forbidden-brief"),
+        "the edition selection leaves the forbidden pages out"
+    );
+
+    let mut plan = plan_edition(
+        &view,
+        &BuildInfo::default(),
+        out_tmp.path(),
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    )
+    .unwrap_or_else(|e| panic!("plan_edition failed: {e:?}"))
+    .unwrap_or_else(|d| panic!("plan_edition denied: {d:?}"));
+
+    let binder_path = day_one::OUTPUT_PATH;
+
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("build", &plan.write_set, &plan.allowed, &plan.out_dir)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Negative plants at the final sink: for every non-public fixture canary, plant it into the
+    // planned day-one.html bytes and require write_edition_outputs to return OutOfScope and leave
+    // no day-one.html on disk.
+    let orig_site = plan.site.clone();
+    for rec in &fixture.record {
+        if rec.label != "public" {
+            let mut mutated = Site::new();
+            for (rel, bytes) in orig_site.files() {
+                if rel == binder_path {
+                    let mut planted = bytes.clone();
+                    planted.extend_from_slice(rec.canary.as_bytes());
+                    mutated.insert(rel, planted);
+                } else {
+                    mutated.insert(rel, bytes.clone());
+                }
+            }
+            plan.site = mutated;
+            let res = write_edition_outputs(&plan, &audited);
+            assert!(
+                matches!(res, Err(Error::OutOfScope(_))),
+                "a canary for `{}` planted in day-one.html must be refused at write_edition_outputs",
+                rec.label
+            );
+        }
+    }
+    plan.site = orig_site;
+    assert!(
+        !plan.edition_dir.join(binder_path).exists(),
+        "a refused write must not leave day-one.html on disk"
+    );
+
+    // Deliver the approved plan outputs and complete the export journal transaction.
+    write_edition_outputs(&plan, &audited).unwrap_or_else(|e| panic!("{e}"));
+    journal
+        .end(audited, Word::new_static("ok"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let delivered_bytes =
+        std::fs::read(plan.edition_dir.join(binder_path)).unwrap_or_else(|e| panic!("{e}"));
+    let delivered = String::from_utf8(delivered_bytes.clone()).unwrap_or_else(|e| panic!("{e}"));
+
+    let planned_bytes = plan
+        .site
+        .files()
+        .get(binder_path)
+        .unwrap_or_else(|| panic!("missing planned {binder_path}"));
+    assert_eq!(
+        &delivered_bytes, planned_bytes,
+        "the delivered binder must equal the planned day-one.html bytes"
+    );
+
+    for title in [
+        "Synthetic decision brief on forward pricing rate review window",
+        "Synthetic compliance onboarding checklist across two windows",
+        "Synthetic reference table of pricing rate windows and placeholders",
+        "Synthetic business-system review and withholding overview",
+    ] {
+        assert!(
+            delivered.contains(title),
+            "permitted canary title `{title}` must appear in day-one.html"
+        );
+    }
+
+    let pos_brief = delivered
+        .find("data-page-id=\"est-rate-window-brief\"")
+        .unwrap_or_else(|| panic!("est-rate-window-brief missing in binder"));
+    let pos_st1 = delivered
+        .find("data-page-id=\"cmp-onboarding-checklist\"")
+        .unwrap_or_else(|| panic!("cmp-onboarding-checklist missing in binder"));
+    let pos_st2_ref = delivered
+        .find("data-page-id=\"est-rate-reference\"")
+        .unwrap_or_else(|| panic!("est-rate-reference missing in binder"));
+    let pos_st2_sys = delivered
+        .find("data-page-id=\"cmp-system-review\"")
+        .unwrap_or_else(|| panic!("cmp-system-review missing in binder"));
+
+    assert!(
+        pos_brief < pos_st1,
+        "brief must precede stage 1 (brief: {pos_brief}, stage 1: {pos_st1})"
+    );
+    assert!(
+        pos_st1 < pos_st2_ref && pos_st1 < pos_st2_sys,
+        "stage 1 must precede stage 2 (stage 1: {pos_st1}, stage 2 ref: {pos_st2_ref}, stage 2 sys: {pos_st2_sys})"
+    );
+
+    assert!(
+        !delivered.contains("data-page-id=\"cmp-review-steps\""),
+        "page of another stage (cmp-review-steps) must have no article in binder"
+    );
+
+    for forbidden in [
+        FORBIDDEN_TITLE,
+        FORBIDDEN_MARKER,
+        FORBIDDEN_BRIEF_TITLE,
+        FORBIDDEN_BRIEF_MARKER,
+        "cmp-forbidden-binder",
+        "est-forbidden-brief",
+        "np-0007",
+    ] {
+        assert!(
+            !delivered.contains(forbidden),
+            "forbidden string `{forbidden}` reached the binder"
+        );
+    }
+    for rec in &fixture.record {
+        if rec.label != "public" {
+            assert!(
+                !delivered.contains(&rec.canary),
+                "non-public fixture canary `{}` reached the binder",
+                rec.canary
+            );
+        }
+    }
+
+    assert!(
+        !delivered.contains("left out"),
+        "the text `left out` must be absent from the binder"
+    );
+    if let Some(idx) = delivered.find("omitted") {
+        let after = &delivered[idx + "omitted".len()..];
+        let digits = after.chars().take(10).any(|c| c.is_ascii_digit());
+        assert!(!digits, "omitted followed by digits found in binder");
+    }
+}
+
 #[test]
 fn output_surfaces_cover_built_sinks() {
     let mut surface_names = Vec::new();
@@ -1113,4 +1309,9 @@ fn real_outputs_keep_permitted_canaries_and_refuse_others() {
 #[test]
 fn journal_holds_ids_and_no_canary() {
     run_journal_holds_ids_and_no_canary();
+}
+
+#[test]
+fn delivered_binder_filters_articles() {
+    run_day_one_binder_surface();
 }
