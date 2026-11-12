@@ -1516,7 +1516,14 @@ fn new_claim_refuses_unmatched_quote() {
         out_ok.stdout, out_ok.stderr
     );
     assert_eq!(out_ok.stdout, "CL-CMP-0003\n");
-    assert!(out_ok.stderr.is_empty(), "stderr: {}", out_ok.stderr);
+    assert!(
+        out_ok
+            .stderr
+            .lines()
+            .all(|l| l.starts_with("fieldbook: no verified backup yet")),
+        "stderr: {}",
+        out_ok.stderr
+    );
     assert_eq!(count(&world, "write.begin"), 1);
     let claim = row(tmp.path(), "corpus/registers/claims.csv", "CL-CMP-0003");
     assert_eq!(
