@@ -14,7 +14,9 @@ use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
 use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
-use crate::{about, area, edition, home, ids, nav, register, search_index, search_page, source};
+use crate::{
+    about, area, day_one, edition, home, ids, nav, register, search_index, search_page, source,
+};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 /// `assets/app.js`, which the harness also loads into its shortcut pages.
@@ -142,6 +144,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     paths.extend([
         home::OUTPUT_PATH.to_owned(),
         about::OUTPUT_PATH.to_owned(),
+        day_one::OUTPUT_PATH.to_owned(),
         edition::OUTPUT_PATH.to_owned(),
     ]);
     paths.extend(area::page_paths(view));
@@ -191,6 +194,10 @@ pub fn render_with_context(
     }
     let about_html = about::render_page(view, ctx, profile, &navigation, &planned);
     site.insert(about::OUTPUT_PATH, about_html.into_bytes());
+    site.insert(
+        day_one::OUTPUT_PATH,
+        day_one::render_page(view, ctx, &navigation, &planned).into_bytes(),
+    );
     site.insert(edition::OUTPUT_PATH, edition::toml_bytes(ctx));
     let packs = fieldbook_core::assist::PackSource::new(view);
     let links = crate::related::LinkIndex::new(view);

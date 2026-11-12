@@ -10,6 +10,7 @@ pub mod charts;
 pub mod chip;
 pub mod cite;
 pub mod csp;
+pub mod day_one;
 pub mod edition;
 pub mod frame;
 pub mod home;

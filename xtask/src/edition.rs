@@ -40,6 +40,8 @@ pub const REQUIRED_FILES: &[&str] = &[
     "intake/integrity-guide.md",
     "intake/network-silence.md",
     "intake/network-silence-summary.txt",
+    // `day-one.html`: the day-one binder, a Site page.
+    fieldbook_core::strings::PATHS[3],
 ];
 
 /// The two attestation files that carry measured browser evidence and are compared separately.
@@ -1525,7 +1527,9 @@ pub fn command_edition_compare(args: &[&str]) -> Result<bool, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::edition_raw::tests::{CONTACT, commit_all, git, write, write_corpus};
+    use crate::edition_raw::tests::{
+        CONTACT, clean_repo, commit_all, git, package, write, write_corpus, zip_map,
+    };
     use fieldbook_core::edition::{BuildInfo, BuildProfile};
 
     /// The commit time of every fixture repository (2026-03-02T12:00:00Z, set by `commit_all`).
@@ -1634,6 +1638,11 @@ mod tests {
             root,
             "out/edition/about.html",
             format!("{}<!-- build {build_no} -->\n", page("About")).as_bytes(),
+        );
+        write(
+            root,
+            &format!("out/edition/{}", fieldbook_core::strings::PATHS[3]),
+            page("Day-One Binder").as_bytes(),
         );
         write(
             root,
@@ -2250,6 +2259,59 @@ mod tests {
                 assert!(
                     m.contains("FB0601") && m.contains(path),
                     "expected FB0601 and {path}, got: {m}"
+                );
+            }
+            other => panic!("expected Err(Stop::Refused), got: {other:?}"),
+        }
+    }
+
+    #[test]
+    fn missing_binder_is_fb0601() {
+        // Part one: healthy Raw-profile stage without day-one.html succeeds.
+        let raw_repo = clean_repo();
+        let raw_out = tempfile::tempdir().expect("raw out");
+        let mut runner = crate::edition_raw::tests::Scripted::clean();
+        let _raw_pkg = package(raw_repo.path(), raw_out.path(), &mut runner).expect("raw package");
+        let raw_edition = zip_map(&raw_out.path().join("fieldbook-edition-001.zip"), "edition");
+        let raw_originals = zip_map(
+            &raw_out.path().join("fieldbook-originals-001.zip"),
+            "originals",
+        );
+        let binder = fieldbook_core::strings::PATHS[3];
+        assert!(
+            !raw_edition.contains_key(binder),
+            "raw edition must not hold day-one.html"
+        );
+        verify_staged_maps(AllowlistProfile::Raw, &raw_edition, &raw_originals, &[])
+            .expect("healthy raw stage succeeds without day-one.html");
+
+        // Part two: healthy Site stage holds day-one.html and passes, then fails FB0601 when removed.
+        let repo = fixture_repo();
+        let (res, _) = run(repo.path());
+        let pkg = res.expect("package");
+        let delivery = delivery_from_files(&pkg.files).expect("delivery");
+        assert!(
+            delivery.edition.contains_key(binder),
+            "healthy site stage must hold day-one.html"
+        );
+        verify_delivery(&delivery).expect("healthy site stage delivery verifies");
+        verify_staged_maps(
+            AllowlistProfile::Site,
+            &delivery.edition,
+            &delivery.originals,
+            REQUIRED_FILES,
+        )
+        .expect("healthy site stage passes verify_staged_maps");
+
+        let d = rebuilt(&pkg, true, |e, _| {
+            let removed = e.remove(binder);
+            assert!(removed.is_some(), "day-one.html was present before removal");
+        });
+        match verify_delivery(&d) {
+            Err(Stop::Refused(m)) => {
+                assert!(
+                    m.contains("FB0601") && m.contains(binder),
+                    "expected FB0601 and {binder}, got: {m}"
                 );
             }
             other => panic!("expected Err(Stop::Refused), got: {other:?}"),

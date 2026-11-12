@@ -428,6 +428,10 @@ fn build_synthetic_edition_set(
             );
             ed_files.insert("index.html".to_owned(), b"<!doctype html>\n".to_vec());
             ed_files.insert("about.html".to_owned(), b"<!doctype html>\n".to_vec());
+            ed_files.insert(
+                fieldbook_core::strings::paths()[3].to_owned(),
+                b"<!doctype html>\n".to_vec(),
+            );
         }
     }
 

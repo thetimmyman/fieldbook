@@ -3365,3 +3365,337 @@ dialog.dlg .note:empty {
 .context-pack { margin-top: var(--space-4); border-top: var(--border-w) solid var(--color-border); }
 .context-pack > summary { cursor: pointer; padding: var(--space-1) 0; font-size: var(--text-sm); color: var(--color-muted); }
 .context-pack pre { margin: var(--space-2) 0 0; padding: var(--space-2-5) var(--space-3); font-family: var(--font-mono); font-size: var(--text-xs); background-color: var(--color-surface-2); border-radius: var(--radius-md); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 28rem; overflow: auto; }
+
+/* Day-one binder (`day-one.html`): the briefs, then the pages of stages 1 and 2, one article each. */
+.binder-head {
+  margin-bottom: var(--space-5);
+}
+
+.binder-head h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-2);
+}
+
+.binder-page {
+  margin: 0 0 var(--space-6);
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.binder-page.sheet {
+  padding: var(--space-12);
+}
+
+.binder-page-head h2 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-2);
+}
+
+.binder-page .part h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+  font-weight: var(--weight-semibold);
+  margin: 0 0 var(--space-2);
+}
+
+/* The page frame of a binder article is a table only so that print repeats its footer on every sheet. */
+.print-t,
+.print-t > tbody,
+.print-t > tfoot,
+.print-t > tbody > tr,
+.print-t > tfoot > tr,
+.print-t > tbody > tr > td,
+.print-t > tfoot > tr > td {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+}
+
+.print-foot {
+  margin-top: var(--space-4);
+  padding-top: var(--space-2);
+  border-top: var(--border-w) solid var(--color-border);
+  color: var(--color-muted);
+  font-size: var(--text-2xs);
+  line-height: var(--leading-snug);
+}
+
+.print-foot span + span::before {
+  content: "\0000b7\0000a0";
+}
+
+@media print {
+  @page { size: Letter; margin: 0; }
+
+  html,
+  body {
+    height: auto;
+  }
+
+  body {
+    margin: 0;
+    padding: 0 var(--space-8);
+  }
+
+  .app,
+  .shell {
+    display: block;
+    min-height: 0;
+  }
+
+  /* Navigation, search, dialogs and every button act on a screen only. */
+  .sidebar,
+  .crumbs,
+  .rail,
+  .scrim,
+  .skip,
+  .toast,
+  dialog,
+  .topbar > nav,
+  .topbar .menu-btn,
+  .topbar .searchbox,
+  .topbar .build-chip,
+  .topbar .icon-btn,
+  .page-actions,
+  .context-pack,
+  .btn,
+  button {
+    display: none !important;
+  }
+
+  main {
+    flex: none;
+    padding: var(--space-6) 0 var(--space-12);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .reader {
+    display: block;
+  }
+
+  /* A brief is one Letter page, the build status banner included, so print sets type and
+     spacing to the dense end of the scale. */
+  .prose {
+    max-width: none;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+  }
+
+  .banners:not(:empty) {
+    padding: var(--space-2) 0 0;
+  }
+
+  .banner {
+    padding: var(--space-1-5) var(--space-2-5);
+    font-size: var(--text-xs);
+    break-inside: avoid;
+  }
+
+  .page-head {
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-2);
+  }
+
+  .page-head h1 {
+    font-size: var(--text-xl);
+    margin: var(--space-1) 0 var(--space-1-5);
+  }
+
+  .meta-row {
+    margin-bottom: var(--space-1);
+  }
+
+  .part {
+    margin: var(--space-3) 0;
+  }
+
+  .prose h2,
+  .prose h3 {
+    margin: var(--space-3) 0 var(--space-1);
+    padding-bottom: var(--space-0-5);
+  }
+
+  .prose p {
+    margin: var(--space-1) 0;
+  }
+
+  /* The footer of every printed page: product, edition, page id and the check line. The edition
+     chip of the top bar and the route of the frame (it carries the page id) stand in the band. */
+  .topbar {
+    position: static;
+    height: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .topbar-end {
+    display: block;
+  }
+
+  .build-date-link {
+    position: fixed;
+    left: var(--space-8);
+    bottom: var(--space-3);
+    z-index: var(--z-topbar);
+    color: var(--color-muted);
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+    text-decoration: none;
+  }
+
+  .build-date-link::before {
+    content: "Fieldbook \0000b7\0000a0";
+  }
+
+  .build-date-link .chip {
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+    color: var(--color-muted);
+  }
+
+  .app::before {
+    content: "";
+    position: fixed;
+    left: var(--space-8);
+    right: var(--space-8);
+    bottom: var(--space-8);
+    border-top: var(--border-w) solid var(--color-border);
+  }
+
+  .app::after {
+    content: attr(data-route) "\0000a0\0000b7\0000a0Check the current edition";
+    position: fixed;
+    right: var(--space-8);
+    bottom: var(--space-3);
+    color: var(--color-muted);
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+  }
+
+  /* The binder carries a footer in each article, so the frame's own band is not drawn. */
+  .app:has(.binder)::before,
+  .app:has(.binder)::after,
+  .app:has(.binder) .build-date-link {
+    display: none;
+  }
+
+  .app:has(.binder) main {
+    padding-bottom: 0;
+  }
+
+  /* Status words, chips and the verification marks print as text; fills drop out in print. */
+  .chip,
+  .cite-n {
+    border: var(--border-w) solid var(--color-border-strong);
+    background: none;
+  }
+
+  /* Citations print as footnotes: a raised number in the text and the numbered row below. */
+  .cite-back {
+    display: none;
+  }
+
+  /* A brief is one sheet: its footnotes run in two columns, one claim statement each, and the
+     quoted text stays on the source page. Every status word and locator still prints. */
+  .sheet .sources-list {
+    columns: 2;
+    column-gap: var(--space-4);
+    display: block;
+  }
+
+  .sheet .source-row {
+    grid-template-columns: var(--space-4) minmax(0, 1fr);
+    gap: var(--space-1);
+    margin-bottom: var(--space-1);
+  }
+
+  .sheet .source-quote {
+    display: none;
+  }
+
+  .sheet .source-row,
+  .sheet .source-stmt,
+  .sheet .source-meta {
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+  }
+
+  .source-row {
+    border: 0;
+    border-radius: 0;
+    padding: var(--space-0-5) 0;
+    background: none;
+    font-size: var(--text-xs);
+    break-inside: avoid;
+  }
+
+  .sheet,
+  .binder-page,
+  .binder-page.sheet {
+    max-width: none;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+
+  a,
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* One article per sheet; the table frame repeats the footer on each sheet of the article. */
+  .binder-page {
+    break-before: page;
+    margin: 0;
+  }
+
+  .binder-head + .binder-page {
+    break-before: auto;
+  }
+
+  .print-t {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .print-t > tbody {
+    display: table-row-group;
+  }
+
+  .print-t > tfoot {
+    display: table-footer-group;
+  }
+
+  .print-t > tbody > tr,
+  .print-t > tfoot > tr {
+    display: table-row;
+  }
+
+  .print-t > tbody > tr > td,
+  .print-t > tfoot > tr > td {
+    display: table-cell;
+    width: auto;
+  }
+
+  .print-foot {
+    margin: 0;
+    padding: var(--space-1-5) 0 var(--space-3);
+  }
+}
