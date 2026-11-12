@@ -328,6 +328,80 @@
       }
     },
     {
+      "name": "enum_max_length_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "long"
+        ],
+        "maxLength": 1
+      },
+      "input": "\"long\"",
+      "expect": {
+        "code": "max_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "enum_min_length_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "a"
+        ],
+        "minLength": 2
+      },
+      "input": "\"a\"",
+      "expect": {
+        "code": "min_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "enum_with_bounds_ok",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "abc"
+        ],
+        "minLength": 1,
+        "maxLength": 3
+      },
+      "input": "\"abc\"",
+      "expect": "ok"
+    },
+    {
+      "name": "enum_empty_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": []
+      },
+      "input": "\"x\"",
+      "expect": {
+        "schema_error": "enum"
+      }
+    },
+    {
+      "name": "enum_inverted_bounds_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "a"
+        ],
+        "minLength": 3,
+        "maxLength": 1
+      },
+      "input": "\"a\"",
+      "expect": {
+        "schema_error": "minLength"
+      }
+    },
+    {
       "name": "min_length_ok",
       "keyword": "minLength",
       "schema": {

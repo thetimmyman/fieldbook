@@ -531,3 +531,15 @@ fn validate_never_panics_on_random_bytes() -> Result<(), Box<dyn Error>> {
     }
     Ok(())
 }
+
+#[test]
+fn enum_bounds_survive_a_round_trip() -> Result<(), Box<dyn Error>> {
+    let raw: serde_json::Value =
+        serde_json::from_str(r#"{"type":"string","enum":["long"],"maxLength":1}"#)?;
+    let doc = json_from_serde_value(&raw)?;
+    let schema = from_json_schema(&doc)?;
+    assert_eq!(to_json_schema(&schema), doc);
+    let failure = validate(&schema, &JsonValue::String("long".into())).unwrap_err();
+    assert_eq!(failure.code, FailureCode::MaxLength);
+    Ok(())
+}

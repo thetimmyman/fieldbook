@@ -177,10 +177,23 @@ pub fn to_json_schema(schema: &Schema) -> JsonValue {
                     .iter()
                     .map(|s| JsonValue::String(s.clone()))
                     .collect();
-                JsonValue::Object(vec![
+                let mut entries = vec![
                     ("type".to_string(), JsonValue::String("string".to_string())),
                     ("enum".to_string(), JsonValue::Array(variants)),
-                ])
+                ];
+                if *min_len != 0 {
+                    entries.push((
+                        "minLength".to_string(),
+                        JsonValue::Integer(i64::from(*min_len)),
+                    ));
+                }
+                if *max_len != u32::MAX {
+                    entries.push((
+                        "maxLength".to_string(),
+                        JsonValue::Integer(i64::from(*max_len)),
+                    ));
+                }
+                JsonValue::Object(entries)
             } else {
                 JsonValue::Object(vec![
                     ("type".to_string(), JsonValue::String("string".to_string())),
@@ -302,6 +315,24 @@ impl fmt::Display for SchemaDocError {
 
 impl std::error::Error for SchemaDocError {}
 
+fn read_length_bound(
+    entries: &[(String, JsonValue)],
+    key: &'static str,
+    default: Option<u32>,
+) -> Result<u32, SchemaDocError> {
+    if let Some((_, val)) = entries.iter().find(|(k, _)| k == key) {
+        let JsonValue::Integer(n) = val else {
+            return Err(SchemaDocError::NonIntegerBound(key));
+        };
+        if *n < 0 || *n > i64::from(u32::MAX) {
+            return Err(SchemaDocError::BoundOutOfRange(key));
+        }
+        u32::try_from(*n).map_err(|_| SchemaDocError::BoundOutOfRange(key))
+    } else {
+        default.ok_or(SchemaDocError::MissingBound(key))
+    }
+}
+
 /// Parses a [`JsonValue`] schema document into a typed [`Schema`].
 ///
 /// # Errors
@@ -395,34 +426,22 @@ pub fn from_json_schema(value: &JsonValue) -> Result<Schema, SchemaDocError> {
                     };
                     one_of.push(s.clone());
                 }
-                Ok(Schema::string_enum(one_of))
-            } else {
-                let min_len = if let Some((_, min_val)) =
-                    entries.iter().find(|(k, _)| k == "minLength")
-                {
-                    let JsonValue::Integer(n) = min_val else {
-                        return Err(SchemaDocError::NonIntegerBound("minLength"));
-                    };
-                    if *n < 0 || *n > i64::from(u32::MAX) {
-                        return Err(SchemaDocError::BoundOutOfRange("minLength"));
-                    }
-                    u32::try_from(*n).map_err(|_| SchemaDocError::BoundOutOfRange("minLength"))?
-                } else {
-                    0
-                };
-
-                let Some((_, max_val)) = entries.iter().find(|(k, _)| k == "maxLength") else {
-                    return Err(SchemaDocError::MissingBound("maxLength"));
-                };
-                let JsonValue::Integer(n) = max_val else {
-                    return Err(SchemaDocError::NonIntegerBound("maxLength"));
-                };
-                if *n < 0 || *n > i64::from(u32::MAX) {
-                    return Err(SchemaDocError::BoundOutOfRange("maxLength"));
+                if one_of.is_empty() {
+                    return Err(SchemaDocError::InvalidEnum);
                 }
-                let max_len =
-                    u32::try_from(*n).map_err(|_| SchemaDocError::BoundOutOfRange("maxLength"))?;
-
+                let min_len = read_length_bound(entries, "minLength", Some(0))?;
+                let max_len = read_length_bound(entries, "maxLength", Some(u32::MAX))?;
+                if min_len > max_len {
+                    return Err(SchemaDocError::InvertedBounds("minLength"));
+                }
+                Ok(Schema::Str {
+                    min_len,
+                    max_len,
+                    one_of,
+                })
+            } else {
+                let min_len = read_length_bound(entries, "minLength", Some(0))?;
+                let max_len = read_length_bound(entries, "maxLength", None)?;
                 if min_len > max_len {
                     return Err(SchemaDocError::InvertedBounds("minLength"));
                 }
