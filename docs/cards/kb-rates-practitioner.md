@@ -11,7 +11,7 @@ The indirect-rates area holds four practitioner pages, each drafted at entry val
 ## Why
 
 - The gap. Indirect rates has 35 pages, almost all clause cards. "wrap rate" appears on no page and "provisional billing" on two, and no page says how fringe, overhead and G&A pools are built and stacked. A reader who knows the rules cannot find how the work is done.
-- Sources. FAR 42.704 and 42.705 (`S-0005`), the allowable-cost and payment clause in FAR 52 (`S-0006`), CAS 418 and 410 (`S-0014`), CAM chapter 6 (`S-0037`) and the chapters and guidance that `kb-dcaa-dcma-guidance-sources` adds. A step of practice that no public source states is an `assumption` claim with an evidence grade, never a fact ([corpus/AGENTS.md](../../corpus/AGENTS.md#claims-quotes-and-citations)).
+- Sources. FAR 42.704 and 42.705 (`S-0005`), the allowable-cost and payment clause in FAR 52 (`S-0006`), CAS 418 and 410 (`S-0014`), CAM chapter 6 (`S-0037`) and the Contract Audit Manual chapters the Corpus already holds (`S-0036`). A step of practice that no public source states is an `assumption` claim with an evidence grade, never a fact ([corpus/AGENTS.md](../../corpus/AGENTS.md#claims-quotes-and-citations)).
 - Entry values only: every new claim is `unchecked`, drafted by the role that wrote it; no page is `stable`. Corpus work runs on `kb/rates-practitioner`.
 - Size: each page adds to the edition search index, which has little headroom under its 15 MB cap ([ADR 0006](../decisions/0006-edition-search-index.md)).
 - Design: none. The pages use existing page types.
@@ -29,7 +29,7 @@ The indirect-rates area holds four practitioner pages, each drafted at entry val
 
 ## Preconditions
 
-- Cards merged: `kb-dcaa-dcma-guidance-sources`, `search-ranking-warnings` (it edits `corpus/pages/`).
+- Cards merged: `search-ranking-warnings` (it edits `corpus/pages/`).
 
 ## Steps
 
