@@ -296,6 +296,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - views-and-day-n: the CPY, CPT and PGM views, Day-N and the plan's today line
 - day-n-strings: add `set_start_date`, `set_start_date_plan`, `day_n_of_90` and `day_n_today` to `fieldbook-core::strings`, the corpus-format Strings section and the `strings.js` snapshot (owner review)
 - views-and-day-n-2: the second part of `views-and-day-n`: the Day-N chip, "Set your start date", the `fieldbook.start` key and the plan's today line
+- design-app-map-page: the next design revision after 23: the App map's Releases rows in the ADR 0001 release names, the Stores and effective labels panel in the four ADR 0004 labels and its stores, and the unbuilt-pill state (owner review)
 - app-map: `map.html`
 - day30-strict-lints: the quote match and the number-unit lint become errors; proptest
 - release-0-2-0: the `v0.2.0` release pull request, with the Day-30 drill for the parts that merged
