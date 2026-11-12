@@ -356,7 +356,8 @@ One Rust tokenizer defines how text is split and folded. BM25F ranking with inte
 | `s/<version-id>.html` | Source version: metadata, hash, the original at its locator, section anchors, citing claims, extraction status | Day 1 |
 | `claims.html`, `claims/<AREA>-<part>.html` | The claims index, one entry per area part with its id range and count; and one register page per area part of 500 claim numbers, with an anchor per row | Day 1 |
 | `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
-| `ids.html`, `search.html` | Every id with its link; results for `#q=` | Day 1 |
+| `ids.html`, `ids/<slug>.html`, `ids/claims-<AREA>-<part>.html` | The id index: the seven id groups with their counts. One page per group but claims (`<slug>` is `pages`, `sources`, `versions`, `questions`, `conflicts` or `terms`), each holding every id of the group with its link; the claims group in one page per area part of 500 claim numbers, by the claims register's part rule, so no id-list page is over 3 MB | Day 1 |
+| `search.html` | Results for `#q=` | Day 1 |
 | `about.html` | Tool version, edition, commit, handling statement, status counts, stale and unreviewed items; the build profile (silent or AI) and the AI position as text | Day 1 |
 | `day-one.html` | The day-one binder: briefs and day-one pages, ready to print | Day 1 |
 | `changes.html` | `corpus/changes.md` plus an id diff against the previous `edition.toml` (`build --since`) | `edition-002` |
@@ -943,6 +944,7 @@ fieldbook-edition-NNN.zip            -> %LOCALAPPDATA%\Fieldbook\edition\
     claims.html sources.html questions.html conflicts.html glossary.html
     changes.html (from edition-002)   assistant.html map.html (Day 30)
     claims/<AREA>-<part>.html
+    ids/<slug>.html  ids/claims-<AREA>-<part>.html
     a/<area>.html  p/<page-id>.html  s/<version-id>.html
     assets/  app.css app.js search.js search-index.js strings.js
              (assist.js and assist-data.js from Day 30)
