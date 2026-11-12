@@ -743,9 +743,16 @@ mod tests {
                 },
             );
         }
+        let page_text: &[u8] =
+            b"synthetic text, long enough that no page is thin in this fixture\n";
+        tree.insert_bytes("corpus/sources/text/S-0001-v1/p0001.txt", page_text);
         tree.insert_bytes(
-            "corpus/sources/text/S-0001-v1/p0001.txt",
-            b"synthetic text\n",
+            "corpus/sources/text/S-0001-v1/extraction.toml",
+            format!(
+                "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{EMPTY_SHA256}\"\n\n[pages]\np0001 = \"{}\"\n",
+                crate::hash::sha256_hex(page_text)
+            )
+            .into_bytes(),
         );
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/cmp-sample.md",

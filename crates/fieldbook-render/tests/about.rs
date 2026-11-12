@@ -591,24 +591,28 @@ mod about {
                 ",S-0002-v2.txt,",
                 ",https://example.invalid/synthetic-pricing-guide,",
             )
+            .replace(
+                ",S-0001-v1.txt,",
+                ",https://example.invalid/synthetic-cost-rule,",
+            )
         };
         let (_model, view) = load_view(tree_with_register("sources", web_address));
-        assert_eq!(source::shipped_originals(&view).len(), 1);
+        assert_eq!(source::shipped_originals(&view).len(), 2);
         let site = built(
             tree_with_register("sources", web_address),
             &BuildInfo::default(),
         );
         let html = text(&site, about::OUTPUT_PATH);
         assert!(
-            about_main(&html).contains("<dt>Originals</dt><dd class=\"mono\">1</dd>"),
+            about_main(&html).contains("<dt>Originals</dt><dd class=\"mono\">2</dd>"),
             "{html}"
         );
-        assert!(text(&site, "edition.toml").contains("\noriginals = 1\n"));
+        assert!(text(&site, "edition.toml").contains("\noriginals = 2\n"));
 
         let held = tree_with_register("sources", |csv| {
             csv.lines()
                 .map(|line| {
-                    if line.starts_with("S-0002,2,") {
+                    if line.starts_with("S-0002,2,") || line.starts_with("S-0001,1,") {
                         line.replace(",active,", ",quarantined,")
                     } else {
                         line.to_owned()

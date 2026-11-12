@@ -1485,6 +1485,8 @@ mod tests {
         include_str!("../../../../tests/fixtures/corpus-mini/corpus/registers/conflicts.csv");
     const FIX_SOURCE_TEXT: &str =
         include_str!("../../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const FIX_SOURCE_TEXT_S0001: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
     const FIX_CORPUS_TOML: &str =
         include_str!("../../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
     const FIX_PAGE_REVIEW: &str = include_str!(
@@ -2445,6 +2447,10 @@ mod tests {
         tree.insert_bytes(
             "corpus/sources/public/S-0002-v2.txt",
             FIX_SOURCE_TEXT.as_bytes(),
+        );
+        tree.insert_bytes(
+            "corpus/sources/public/S-0001-v1.txt",
+            FIX_SOURCE_TEXT_S0001.as_bytes(),
         );
         tree.insert_bytes(
             format!("{PAGE_DIR}/cmp-system-review.md"),

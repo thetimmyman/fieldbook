@@ -1,0 +1,4 @@
+pdftotext-layout|pdf|p|tool,tool_version,method,page_count,thin_pages,original_sha256,pages,locators|pdftotext-layout@1|xtask/tests/fixtures/synthetic-two-pages.pdf
+html-strip|html,htm,xhtml,svg|p|tool,tool_version,method,page_count,thin_pages,original_sha256,pages,locators|html-strip@1|tests/fixtures/extract/html-strip/sample.html
+plain|txt,md,markdown|p|tool,tool_version,method,page_count,thin_pages,original_sha256,pages,locators|plain@1|tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt
+supplied||p|tool,tool_version,method,page_count,thin_pages,original_sha256,pages,locators|-|tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt

@@ -356,6 +356,13 @@ edits = [
 ]
 
 [[case]]
+code = "FB0212"
+at = "corpus/sources/text/S-0001-v1/p0001.txt:1"
+edits = [
+  { path = "corpus/sources/text/S-0001-v1/p0001.txt", find = "The numbers are made up.", replace = "The numbers are made up!" },
+]
+
+[[case]]
 code = "FB0213"
 at = "corpus/registers/claims.csv:2"
 edits = [
@@ -387,8 +394,17 @@ edits = [
 [[case]]
 code = "FB0222"
 at = "corpus/registers/claims.csv:6"
+also = ["FB0223"]
 edits = [
   { path = "corpus/registers/claims.csv", find = "CL-EST-0003,est,fact,Synthetic rate review window is 10 days under current guidance.,2026-02-01,S-0002,2,", replace = "CL-EST-0003,est,fact,Synthetic rate review window is 10 days under current guidance.,2026-02-01,S-0002,1," },
+]
+
+[[case]]
+code = "FB0223"
+at = "corpus/registers/claims.csv:2"
+also = ["FB0212"]
+edits = [
+  { path = "corpus/sources/text/S-0001-v1/extraction.toml", find = "thin_pages = []", replace = "thin_pages = [1]" },
 ]
 
 [[case]]

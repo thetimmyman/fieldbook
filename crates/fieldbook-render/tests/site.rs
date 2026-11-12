@@ -24,6 +24,8 @@ mod site {
         include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/claims.csv");
     const S_0002_V2_TXT: &[u8] =
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const S_0001_V1_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
 
     fn build_public_view(changes_md: &str) -> (Model, LabelledView) {
         let mut tree = Tree::new();
@@ -119,6 +121,7 @@ mod site {
         }
         tree.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
         tree.insert_bytes("corpus/registers/claims.csv", claims_csv.as_bytes());
 
         let today = CivilDate::parse("2026-03-01").unwrap();

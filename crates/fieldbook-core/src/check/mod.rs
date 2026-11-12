@@ -10,6 +10,7 @@ pub mod claim_value;
 pub mod code;
 pub mod corpus_toml;
 pub mod diag;
+pub mod extraction;
 pub mod files;
 pub mod index;
 pub mod markdown;
@@ -77,6 +78,7 @@ const PASSES: &[Pass] = &[
     claim_cells::check,
     claim_value::check,
     register_links::check,
+    extraction::check,
     promotion::check,
     pages::check,
     page_links::check,

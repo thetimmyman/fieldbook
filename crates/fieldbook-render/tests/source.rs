@@ -40,6 +40,8 @@ mod source {
         include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/glossary.csv");
     const S_0002_V2_TXT: &[u8] =
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const S_0001_V1_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
     const CMP_SYSTEM_REVIEW_MD: &str = include_str!(
         "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
     );
@@ -104,6 +106,7 @@ mod source {
         tree.insert_bytes("corpus/registers/conflicts.csv", CONFLICTS_CSV.as_bytes());
         tree.insert_bytes("corpus/registers/glossary.csv", GLOSSARY_CSV.as_bytes());
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/cmp-system-review.md",
             page_md.as_bytes(),
@@ -223,7 +226,8 @@ mod source {
         assert!(names.0.contains("S-0004-v1.html.txt"));
         assert!(names.0.contains("S-0005-v1.pdf"));
         assert!(names.0.contains("S-0002-v2.txt"));
-        assert_eq!(names.0.len(), 3);
+        assert!(names.0.contains("S-0001-v1.txt"));
+        assert_eq!(names.0.len(), 4);
 
         let site = render_site(&view);
         assert!(page_text(&site, "S-0004-v1").contains("../../originals/S-0004-v1.html.txt"));
@@ -236,7 +240,7 @@ mod source {
     fn metadata_only_has_no_link() {
         let (_model, view) = load_view(tree_with("", &[]));
         let site = render_site(&view);
-        let html = page_text(&site, "S-0001-v1");
+        let html = page_text(&site, "S-0003-v1");
         assert!(
             !html.contains("originals/"),
             "a metadata-only page must not link an original"
@@ -246,7 +250,7 @@ mod source {
         assert!(
             shipped_originals(&view)
                 .iter()
-                .all(|o| o.version_id() != "S-0001-v1"),
+                .all(|o| o.version_id() != "S-0003-v1"),
             "a metadata-only version ships no original"
         );
     }
@@ -287,7 +291,7 @@ mod source {
         );
         // A metadata-only version stores no bytes, so nothing can be extracted: its banner
         // stands in for the excerpt and the locator view (HANDOFF sections 5 and 11).
-        for vid in ["S-0001-v1", "S-0002-v1", "S-0003-v1"] {
+        for vid in ["S-0002-v1", "S-0003-v1"] {
             let html = page_text(&site, vid);
             assert!(html.contains("Metadata only."), "{vid}");
             assert!(!html.contains(&excerpt), "{vid} must show no excerpt line");
@@ -524,7 +528,7 @@ mod source {
             "a held original ships nothing"
         );
         assert_eq!(
-            avail.shipped_name("S-0001-v1"),
+            avail.shipped_name("S-0003-v1"),
             None,
             "metadata-only ships nothing"
         );
