@@ -18,7 +18,7 @@
 ## Scope
 
 - Files: `xtask/src/scale.rs` (its tests are in its `mod tests`), `xtask/tests/{scale.rs,scale-tiny.toml}` (`scale.rs` holds the one test that runs the built program), `scale/base.toml` (new), `xtask/Cargo.toml` and `Cargo.lock` (only xtask's `dependencies` list, and only if an edge is missing: `toml`, `serde`, `serde_json`, `sha2` and the path edge to `fieldbook-core` are the ones this card uses).
-- Registration lines: `xtask/src/main.rs` (the `mod scale;` line and one arm of the dispatch); the Commands line of `AGENTS.md` and, if an edge was added, the Used by cell of its row in `docs/reference/dependencies.md` (both in Docs to update).
+- Registration lines: `xtask/src/main.rs` (the `mod scale;` line and one arm of the dispatch); the Commands line of `AGENTS.md`; the one inbound link to this card in `docs/cards/scheduled-workflow.md`, which becomes plain code when the card closes (Closing a card, step 2); and, if an edge was added, the Used by cell of its row in `docs/reference/dependencies.md` (both in Docs to update).
 - Docs to update: `AGENTS.md` (Commands: `cargo xtask scale`, advisory and not part of `just check`). `docs/reference/dependencies.md` only if an edge was added: the Used by cell of that row.
 
 ## Out of scope
