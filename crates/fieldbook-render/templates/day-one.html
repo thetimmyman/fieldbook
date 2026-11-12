@@ -11,6 +11,12 @@
     <table class="print-t" role="presentation">
     <tbody><tr><td class="print-body">
     <header class="binder-page-head">
+      {% if page.overdue_banner %}
+      <div class="banner warn" id="b-{{ page.id }}-fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="{{ page.review_by }}" hidden>
+        <div class="body"><b>Review overdue.</b> Review date <time datetime="{{ page.review_by }}">{{ page.review_by }}</time> has passed; re-check cited sources before relying on this page.</div>
+        {{ page.due_claims_html|safe }}
+      </div>
+      {% endif %}
       {% if page.is_synthetic_now %}
       <div class="banner" role="region" aria-label="Readiness notice">
         <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>

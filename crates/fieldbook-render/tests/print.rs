@@ -3,6 +3,8 @@
 #![expect(clippy::unwrap_used, reason = "integration test helpers")]
 
 mod print {
+    use std::collections::HashSet;
+
     use fieldbook_core::audit::Now;
     use fieldbook_core::authz::ReadableStores;
     use fieldbook_core::check::{Host, Model, Options, Tree, load};
@@ -12,7 +14,7 @@ mod print {
     use fieldbook_core::strings;
     use fieldbook_render::day_one;
     use fieldbook_render::frame::PRODUCT_TITLE;
-    use fieldbook_render::meta::BuildInfo;
+    use fieldbook_render::meta::{BuildInfo, BuildProfile};
     use fieldbook_render::site;
 
     const CORPUS_TOML: &str =
@@ -518,5 +520,141 @@ mod print {
         assert!(rule.contains("href=\"#b-est-rate-reference-cite-1\""));
         assert!(!rule.contains(" id=\"cite-"));
         assert!(!rule.contains("href=\"#cite-"));
+    }
+
+    #[test]
+    fn checklist_binder_article_has_numbered_steps_and_timeline() {
+        let (_model, view) = fixture_view();
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let a = article(&html, "cmp-onboarding-checklist");
+
+        let at = a.find(&h3(strings::parts()[2])).unwrap();
+        let end = a.find(&h3(strings::parts()[3])).unwrap();
+        let slice = &a[at..end];
+
+        assert!(slice.contains("<ol class=\"steps\">"));
+        assert!(!slice.contains("<ul>"));
+        assert!(a.contains("class=\"panel plan-panel\""));
+        assert!(a.contains("Day 1 to Day 30"));
+        assert!(a.contains("Day 31 to Day 60"));
+
+        let panel_idx = slice
+            .find("class=\"panel plan-panel\"")
+            .expect("timeline panel in How it works slice");
+        let steps_idx = slice
+            .find("<ol class=\"steps\">")
+            .expect("steps list in How it works slice");
+        assert!(
+            panel_idx < steps_idx,
+            "timeline panel appears before the first <ol class=\"steps\"> in How it works"
+        );
+
+        let panel_start = slice[..panel_idx].rfind('<').unwrap();
+        let panel_end = slice[panel_idx..].find('>').unwrap() + panel_idx;
+        let panel_tag = &slice[panel_start..=panel_end];
+        assert!(
+            panel_tag
+                .contains("aria-labelledby=\"b-cmp-onboarding-checklist-fb:plan-timeline-head\"")
+        );
+
+        assert!(a.contains("id=\"b-cmp-onboarding-checklist-fb:plan-timeline-head\""));
+        assert!(!a.contains(" id=\"fb:plan-timeline-head\""));
+        assert!(!a.contains("aria-labelledby=\"fb:plan-timeline-head\""));
+    }
+
+    #[test]
+    fn released_binder_articles_carry_the_hidden_overdue_banner() {
+        let mut tree = fixture_tree();
+        tree.insert_bytes(
+            "corpus/changes.md",
+            b"# Changes\n\nSynthetic changes log.\n\n## edition-001\n\n- Added: initial.\n",
+        );
+        let (_model, view) = load_view(tree);
+        let date = CivilDate::parse("2026-03-01").unwrap();
+        let sha = "0123456789abcdef0123456789abcdef01234567".to_owned();
+        let released_info = BuildInfo::new(Some(date), Some(sha), BuildProfile::Silent, None);
+
+        let html = day_one::render(&view, &released_info).unwrap();
+        let site = site::render(&view, &released_info).unwrap();
+
+        for id in ["cmp-system-review", "est-rate-window-brief"] {
+            let a = article(&html, id);
+            let banner_id_attr = format!("id=\"b-{id}-fb:overdueBanner\"");
+            assert!(a.contains(&banner_id_attr));
+            assert!(a.contains("Review overdue."));
+            assert!(a.contains("data-review-by=\""));
+
+            let banner_id_pos = a.find(&banner_id_attr).unwrap();
+            let div_start = a[..banner_id_pos].rfind("<div").unwrap();
+            let gt_pos = a[banner_id_pos..].find('>').unwrap() + banner_id_pos;
+            let banner_tag = &a[div_start..=gt_pos];
+            assert!(banner_tag.contains(" hidden"));
+
+            let drb_marker = "data-review-by=\"";
+            let drb_start = banner_tag.find(drb_marker).unwrap() + drb_marker.len();
+            let drb_end = banner_tag[drb_start..].find('"').unwrap() + drb_start;
+            let banner_review_by = &banner_tag[drb_start..drb_end];
+
+            let page_path = format!("p/{id}.html");
+            let page_bytes = site
+                .files()
+                .get(&page_path)
+                .unwrap_or_else(|| panic!("{page_path} not found in site files"));
+            let page_html = std::str::from_utf8(page_bytes).unwrap();
+            let time_marker = "Review by <time datetime=\"";
+            let time_start = page_html.find(time_marker).unwrap() + time_marker.len();
+            let time_end = page_html[time_start..].find('"').unwrap() + time_start;
+            let page_review_by = &page_html[time_start..time_end];
+
+            assert_eq!(banner_review_by, page_review_by);
+            assert_eq!(a.contains("due-claims"), page_html.contains("due-claims"));
+        }
+
+        let ids: Vec<&str> = html
+            .split(" id=\"")
+            .skip(1)
+            .map(|rest| rest.split('"').next().unwrap())
+            .collect();
+        assert!(!ids.is_empty(), "binder html must contain element ids");
+        let mut seen_ids = HashSet::new();
+        for id in &ids {
+            assert!(
+                seen_ids.insert(*id),
+                "duplicate id found in binder html: {id}"
+            );
+        }
+
+        let href_targets: Vec<&str> = html
+            .split("href=\"#")
+            .skip(1)
+            .map(|rest| rest.split('"').next().unwrap())
+            .collect();
+        assert!(
+            !href_targets.is_empty(),
+            "binder html must contain fragment links"
+        );
+        for target in href_targets {
+            assert!(
+                seen_ids.contains(target),
+                "fragment link target #{target} does not match any element id in binder"
+            );
+        }
+
+        for rest in html.split("aria-labelledby=\"").skip(1) {
+            let target = rest.split('"').next().unwrap();
+            assert!(
+                seen_ids.contains(target),
+                "aria-labelledby target {target} does not match any element id in binder"
+            );
+        }
+    }
+
+    #[test]
+    fn unreleased_binder_has_no_review_banner() {
+        let (_model, view) = fixture_view();
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        assert!(!html.contains("data-review-by"));
+        assert!(!html.contains("Review overdue"));
+        assert!(!html.contains("fb:overdueBanner"));
     }
 }
