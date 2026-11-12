@@ -912,6 +912,8 @@ pub struct PreparedBackupBegin {
     pub seq: u64,
     /// Journal head hash chained from.
     pub head: Sha256,
+    /// Segment file name in the audit folder the event will be appended to.
+    pub segment: String,
     /// Exact encoded event bytes (including trailing newline).
     pub bytes: Vec<u8>,
     /// The resulting new head hash.
@@ -1837,6 +1839,13 @@ impl<'a> Journal<'a> {
         now: Now,
     ) -> Result<PreparedBackupBegin, JournalError> {
         let tail = inspect_tail_strict(&self.state_dir)?;
+        let target_seg_num =
+            if tail.active_segment_len > 0 && tail.active_segment_len >= self.segment_limit {
+                tail.active_segment_num + 1
+            } else {
+                tail.active_segment_num
+            };
+        let segment = segment_filename(target_seg_num);
         let seq = tail.last_seq + 1;
         let env = EventEnvelope {
             actor: self.actor.principal.clone(),
@@ -1855,6 +1864,7 @@ impl<'a> Journal<'a> {
         let prepared = PreparedBackupBegin {
             seq,
             head: tail.last_hash,
+            segment,
             bytes: line.into_bytes(),
             new_head: new_hash,
             labels: labels.clone(),
@@ -1911,46 +1921,7 @@ impl<'a> Journal<'a> {
         let lock = acquire_journal_lock(&self.state_dir)?;
         let tail = inspect_tail_strict(&self.state_dir)?;
 
-        let prepared = match self.prepared_backup.lock().ok().and_then(|mut g| g.take()) {
-            Some(p) => {
-                if p.head != tail.last_hash || p.seq != tail.last_seq + 1 {
-                    return Err(JournalError::InvalidLease(
-                        "journal head changed after backup preparation".to_owned(),
-                    ));
-                }
-                if p.snapshot != snapshot || &p.labels != allowed_labels || p.policy != policy {
-                    return Err(JournalError::Vocab(
-                        "prepared backup parameters do not match begin_backup".to_owned(),
-                    ));
-                }
-                if let Some(transfers) = allowed.transfers() {
-                    let mut full_bytes = std::fs::read(&tail.active_segment).unwrap_or_default();
-                    full_bytes.extend_from_slice(&p.bytes);
-                    let expected_sha = fieldbook_core::hash::sha256_hex(&full_bytes);
-                    for t in transfers {
-                        if let Target::Path(p_target) = &t.target {
-                            let s = p_target.to_string_lossy();
-                            if (s.ends_with("state/audit/journal.jsonl")
-                                || s.ends_with("data/state/audit/journal.jsonl"))
-                                && t.sha256 != expected_sha
-                            {
-                                return Err(JournalError::Vocab(
-                                    "prepared backup event bytes do not match delivery".to_owned(),
-                                ));
-                            }
-                        }
-                    }
-                }
-                p
-            }
-            None => {
-                return Err(JournalError::Vocab(
-                    "begin_backup requires a prepared backup begin event".to_owned(),
-                ));
-            }
-        };
-
-        let (_target_num, target_path, _base_len) =
+        let (target_num, target_path, _base_len) =
             if tail.active_segment_len > 0 && tail.active_segment_len >= self.segment_limit {
                 let next_num = tail.active_segment_num + 1;
                 let next_path = self
@@ -1965,6 +1936,46 @@ impl<'a> Journal<'a> {
                     tail.active_segment_len,
                 )
             };
+        let target_segment_name = segment_filename(target_num);
+
+        let prepared = match self.prepared_backup.lock().ok().and_then(|mut g| g.take()) {
+            Some(p) => {
+                if p.head != tail.last_hash
+                    || p.seq != tail.last_seq + 1
+                    || p.segment != target_segment_name
+                {
+                    return Err(JournalError::InvalidLease(
+                        "journal head changed after backup preparation".to_owned(),
+                    ));
+                }
+                if p.snapshot != snapshot || &p.labels != allowed_labels || p.policy != policy {
+                    return Err(JournalError::Vocab(
+                        "prepared backup parameters do not match begin_backup".to_owned(),
+                    ));
+                }
+                if let Some(transfers) = allowed.transfers() {
+                    let mut full_bytes = std::fs::read(&target_path).unwrap_or_default();
+                    full_bytes.extend_from_slice(&p.bytes);
+                    let expected_sha = fieldbook_core::hash::sha256_hex(&full_bytes);
+                    for t in transfers {
+                        if let Target::Path(p_target) = &t.target
+                            && path_ends_with_audit_segment(p_target, &target_segment_name)
+                            && t.sha256 != expected_sha
+                        {
+                            return Err(JournalError::Vocab(
+                                "prepared backup event bytes do not match delivery".to_owned(),
+                            ));
+                        }
+                    }
+                }
+                p
+            }
+            None => {
+                return Err(JournalError::Vocab(
+                    "begin_backup requires a prepared backup begin event".to_owned(),
+                ));
+            }
+        };
 
         let mut file = OpenOptions::new()
             .create(true)
@@ -2689,6 +2700,14 @@ fn segment_filename(num: u32) -> String {
     } else {
         format!("journal-{num:04}.jsonl")
     }
+}
+
+fn path_ends_with_audit_segment(path: &Path, segment_name: &str) -> bool {
+    let mut iter = path.components().rev();
+    iter.next().map(|c| c.as_os_str()) == Some(std::ffi::OsStr::new(segment_name))
+        && iter.next().map(|c| c.as_os_str()) == Some(std::ffi::OsStr::new("audit"))
+        && iter.next().map(|c| c.as_os_str()) == Some(std::ffi::OsStr::new("state"))
+        && iter.next().map(|c| c.as_os_str()) == Some(std::ffi::OsStr::new("data"))
 }
 
 fn inspect_and_recover_tail(

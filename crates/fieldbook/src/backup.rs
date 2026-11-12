@@ -17,8 +17,9 @@ use fieldbook_core::audit::{
     Count, DestKind, Event, EventPayload, LabelSet, Now, RefuseAbout, Sha256, Via, Word,
 };
 use fieldbook_core::backup::{
-    BACKUP_TARGET_TEMPLATE, BackupTarget, BackupToml, Number, SnapshotInfo, corpus_entries,
-    manifest_sha256, path_budget, plan_backup, plan_retention, snapshot_labels, target_place,
+    BACKUP_TARGET_TEMPLATE, BackupFileKind, BackupTarget, BackupToml, CopiedFile, Number,
+    SnapshotInfo, corpus_entries, manifest_sha256, path_budget, plan_backup, plan_retention,
+    snapshot_labels, target_place,
 };
 use fieldbook_core::check::{Code, Host, Model, Options, load};
 use fieldbook_core::egress::{
@@ -388,13 +389,22 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
 
     // 6. Enumerate files in roots (corpus and state), skipping derived folders
     let include_rules = target_cfg.include.as_deref().unwrap_or(&[]);
-    let listing = enumerate_roots(world);
+    let listing = match enumerate_roots(world) {
+        Ok(l) => l,
+        Err(err) => {
+            return Outcome {
+                stdout: notices,
+                stderr: format!("error: {err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
 
     // Determine next snapshot number
     let existing_snapshots = list_existing_snapshots(&target_path);
     let next_number = existing_snapshots.last().copied().unwrap_or(0) + 1;
 
-    let plan = plan_backup(&listing, include_rules, next_number);
+    let mut plan = plan_backup(&listing, include_rules, next_number);
 
     // Check path budget
     let longest_rel = plan
@@ -419,7 +429,16 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     let mut file_bytes_cache = Vec::new();
 
     for file_rel in &plan.files {
-        let bytes = read_file_content(world, file_rel);
+        let bytes = match read_file_content(world, file_rel) {
+            Ok(b) => b,
+            Err(err) => {
+                return Outcome {
+                    stdout: notices,
+                    stderr: format!("error: {err}\n"),
+                    code: EXIT_IO,
+                };
+            }
+        };
         let cf = classify_file(world, model.as_ref(), eff, file_rel, &bytes);
         copied_files.push(cf);
         file_bytes_cache.push((file_rel.clone(), bytes));
@@ -497,6 +516,40 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         }
     };
 
+    if let Some(prep) = &prepared_begin {
+        let segment_rel = format!("state/audit/{}", prep.segment);
+        if !plan_backup(&[&segment_rel], include_rules, next_number)
+            .files
+            .is_empty()
+            && !plan.files.contains(&segment_rel)
+        {
+            if let Err(err) = path_budget(&target_str, &segment_rel) {
+                return Outcome {
+                    stdout: notices,
+                    stderr: format!("error: {err}\n"),
+                    code: EXIT_FINDINGS,
+                };
+            }
+            if !plan.roots.iter().any(|r| r == "state") {
+                plan.roots.push("state".to_string());
+                plan.roots.sort();
+            }
+            let idx = match plan.files.binary_search(&segment_rel) {
+                Ok(i) | Err(i) => i,
+            };
+            plan.files.insert(idx, segment_rel.clone());
+            file_bytes_cache.insert(idx, (segment_rel.clone(), Vec::new()));
+            copied_files.insert(
+                idx,
+                CopiedFile::new(
+                    segment_rel,
+                    BackupFileKind::TextFreeControl,
+                    LabelSet::public(),
+                ),
+            );
+        }
+    }
+
     let partial_dir_name = format!("fieldbook-backup-{next_number:04}.partial");
     let final_dir_name = format!("fieldbook-backup-{next_number:04}");
     let partial_path = target_path.join(&partial_dir_name);
@@ -508,10 +561,14 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     let mut tree_entries = Vec::new();
     let mut total_bytes = 0u64;
 
+    let prep_segment_rel = prepared_begin
+        .as_ref()
+        .map(|p| format!("state/audit/{}", p.segment));
+
     for (file_rel, mut bytes) in file_bytes_cache {
         // If this is the active journal file and we prepared begin, append prepared bytes
-        if let Some(prep) = &prepared_begin
-            && file_rel == "state/audit/journal.jsonl"
+        if let (Some(prep), Some(prep_rel)) = (&prepared_begin, &prep_segment_rel)
+            && file_rel == *prep_rel
         {
             bytes.extend_from_slice(&prep.bytes);
         }
@@ -776,7 +833,16 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
 
     // Copy files one at a time
     for file_rel in &plan.files {
-        let bytes = read_file_content(world, file_rel);
+        let bytes = match read_file_content(world, file_rel) {
+            Ok(b) => b,
+            Err(err) => {
+                return Outcome {
+                    stdout: notices,
+                    stderr: format!("error: {err}\n"),
+                    code: EXIT_IO,
+                };
+            }
+        };
 
         let snap_rel = PathBuf::from(format!("data/{file_rel}"));
         if let Err(err) = stage.write(&snap_rel, &bytes) {

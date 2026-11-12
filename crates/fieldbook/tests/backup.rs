@@ -1684,9 +1684,21 @@ fn backup_200_mb() {
     let chunk_size = 20 * 1024 * 1024;
     let chunk = vec![0x42u8; chunk_size];
     let sources_dir = fix.tree_root().join("corpus/sources/public");
+    let sources_csv = fix.tree_root().join("corpus/registers/sources.csv");
+    let mut sources_file = std::fs::OpenOptions::new()
+        .append(true)
+        .open(&sources_csv)
+        .expect("open sources.csv");
+    use std::io::Write as _;
     for i in 0..10 {
-        std::fs::write(sources_dir.join(format!("large-{i}.bin")), &chunk)
-            .expect("write 20MB file");
+        let sid = format!("S-900{i}");
+        let fname = format!("{sid}-v1.bin");
+        std::fs::write(sources_dir.join(&fname), &chunk).expect("write 20MB file");
+        writeln!(
+            sources_file,
+            "{sid},1,synthetic-perf,\"Large {i}\",PerfBoard,primary_law,primary_evidence,A,\"Synthetic\",synthetic_perf,reviewed,{fname},0000000000000000000000000000000000000000000000000000000000000000,2026-01-10,2026-01-15,2026-02-01,2026-02-01,active,,V2,public,Note,Purpose,,,,,"
+        )
+        .expect("write row to sources.csv");
     }
 
     let options = BackupOptions {
@@ -2661,6 +2673,7 @@ labels = ["np-0007"]
 [[store]]
 id = "state"
 holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+default = ["np-0007"]
 readers = 'EXAMPLE\Fieldbook-Readers'
 
 [[destination]]
@@ -2689,6 +2702,7 @@ labels = ["np-0007"]
 [[store]]
 id = "state"
 holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+default = ["np-0007"]
 readers = 'EXAMPLE\Fieldbook-Readers'
 
 [[destination]]
@@ -4752,10 +4766,12 @@ fn snapshot_labels_are_the_union() {
         &fieldbook_core::check::Options::new(false),
     );
 
-    let listing = fieldbook::io::backup_classify::enumerate_roots(&fix.world);
+    let listing =
+        fieldbook::io::backup_classify::enumerate_roots(&fix.world).expect("enumerate roots");
     let mut files = Vec::new();
     for rel in &listing {
-        let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel);
+        let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel)
+            .expect("read file content");
         let cf = fieldbook::io::backup_classify::classify_file(
             &fix.world,
             Some(&model),
@@ -4784,11 +4800,19 @@ fn snapshot_labels_are_the_union() {
     let custom_content = "+++\nid = \"custom-page\"\ntitle = \"Custom\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nCustom.\n";
     std::fs::write(&custom_page, custom_content).expect("write custom page");
 
-    let listing2 = fieldbook::io::backup_classify::enumerate_roots(&fix.world);
+    let listing2 =
+        fieldbook::io::backup_classify::enumerate_roots(&fix.world).expect("enumerate roots 2");
     let mut files2 = Vec::new();
     for rel in &listing2 {
-        let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel);
-        let cf = fieldbook::io::backup_classify::classify_file(&fix.world, None, &eff, rel, &bytes);
+        let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel)
+            .expect("read file content 2");
+        let cf = fieldbook::io::backup_classify::classify_file(
+            &fix.world,
+            Some(&model),
+            &eff,
+            rel,
+            &bytes,
+        );
         files2.push(cf);
     }
     let union_labels2 = fieldbook_core::backup::snapshot_labels(&files2);
@@ -4799,4 +4823,323 @@ fn snapshot_labels_are_the_union() {
         union_labels2,
         LabelSet::from_ids([OWNER_SUPPLIED, custom_id])
     );
+}
+
+#[test]
+fn backup_succeeds_with_a_two_segment_journal() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let state_dir = fix.state_dir();
+
+    // 1. Using a Journal handle on the fixture's state dir with set_segment_limit set to a small value,
+    // append events until audit/journal-0002.jsonl exists.
+    {
+        let mut journal = Journal::open(&fix.world, state_dir, Via::Cli).expect("open journal");
+        journal.set_segment_limit(500);
+        let about = RefuseAbout::default();
+        while !state_dir.join("audit/journal-0002.jsonl").exists() {
+            journal
+                .refuse(
+                    Some("backup"),
+                    Code::Fb0415,
+                    Word::new_static("place"),
+                    &about,
+                )
+                .expect("refuse event");
+        }
+    }
+
+    assert!(state_dir.join("audit/journal-0002.jsonl").exists());
+
+    // 2. run_backup (floor A, target main) must exit 0
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    // 3. The snapshot's data/state/audit holds both segments
+    let snap1_audit = fix
+        .target_path()
+        .join("fieldbook-backup-0001/data/state/audit");
+    assert!(
+        snap1_audit.join("journal.jsonl").exists(),
+        "snapshot missing journal.jsonl"
+    );
+    assert!(
+        snap1_audit.join("journal-0002.jsonl").exists(),
+        "snapshot missing journal-0002.jsonl"
+    );
+
+    // 4. run_verify must exit 0 and print "snapshot 1 verified"
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_outcome = run_verify(&fix.world, &verify_args);
+    assert_eq!(v_outcome.code, 0, "verify failed: {}", v_outcome.stderr);
+    assert!(v_outcome.stdout.contains("snapshot 1 verified"));
+}
+
+#[test]
+fn backup_begin_that_rotates_the_journal_succeeds() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // 1. Make the active segment at least DEFAULT_SEGMENT_LIMIT long by appending a valid
+    // hash-chained filler to the fixture's audit/journal.jsonl.
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let content = std::fs::read_to_string(&journal_path).expect("read journal");
+    let last_line = content.lines().rfind(|l| !l.is_empty()).expect("last line");
+    let (last_event, _) = fieldbook_core::audit::Event::parse_line(last_line).expect("parse line");
+
+    let mut cur_seq = last_event.seq + 1;
+    let mut prev_hash = last_event.hash;
+    let now = fix.world.now();
+    let env = fieldbook_core::audit::EventEnvelope {
+        actor: fieldbook_core::audit::Principal::local(),
+        role: fieldbook_core::audit::Role::Lead,
+        store: fieldbook_core::audit::StoreId::State,
+        via: Via::Cli,
+    };
+
+    {
+        use std::io::Write as _;
+        let mut f = std::fs::OpenOptions::new()
+            .append(true)
+            .open(&journal_path)
+            .expect("open journal for appending");
+        while f.metadata().expect("meta").len() < fieldbook::io::journal::DEFAULT_SEGMENT_LIMIT {
+            let payload = EventPayload::BackupPrune {
+                snapshots: vec![Count::new(10_000_000_000_000_000_000); 40_000],
+                reason: Word::new_static("retention"),
+            };
+            let (line, hash) = payload.format_line(cur_seq, now, &env, prev_hash.as_str());
+            writeln!(f, "{line}").expect("write line");
+            cur_seq += 1;
+            prev_hash = hash;
+        }
+    }
+
+    // 2. run_backup must exit 0
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    // 3. audit/journal-0002.jsonl must exist in the live state and contain backup.begin and backup.end
+    let live_seg2 = fix.state_dir().join("audit/journal-0002.jsonl");
+    assert!(live_seg2.exists(), "live state missing journal-0002.jsonl");
+    let seg2_content = std::fs::read_to_string(&live_seg2).expect("read live seg2");
+    assert!(
+        seg2_content.contains("\"kind\":\"backup.begin\""),
+        "seg2 missing backup.begin"
+    );
+    assert!(
+        seg2_content.contains("\"kind\":\"backup.end\""),
+        "seg2 missing backup.end"
+    );
+
+    // 4. The snapshot must contain data/state/audit/journal-0002.jsonl
+    let snap_seg2 = fix
+        .target_path()
+        .join("fieldbook-backup-0001/data/state/audit/journal-0002.jsonl");
+    assert!(snap_seg2.exists(), "snapshot missing journal-0002.jsonl");
+
+    // 5. backup verify must exit 0
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_outcome = run_verify(&fix.world, &verify_args);
+    assert_eq!(v_outcome.code, 0, "verify failed: {}", v_outcome.stderr);
+    assert!(v_outcome.stdout.contains("snapshot 1 verified"));
+}
+
+#[cfg(unix)]
+#[test]
+fn an_unreadable_state_subfolder_fails_closed() {
+    use std::os::unix::fs::PermissionsExt;
+
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let subfolder = fix.state_dir().join("reports");
+    std::fs::create_dir_all(&subfolder).expect("create reports subfolder");
+    let test_file = subfolder.join("test.txt");
+    std::fs::write(&test_file, b"content").expect("write test file");
+
+    struct PermGuard(PathBuf);
+    impl Drop for PermGuard {
+        fn drop(&mut self) {
+            let _ = std::fs::set_permissions(&self.0, std::fs::Permissions::from_mode(0o755));
+        }
+    }
+
+    let _guard = PermGuard(subfolder.clone());
+    std::fs::set_permissions(&subfolder, std::fs::Permissions::from_mode(0o000))
+        .expect("chmod 000 subfolder");
+
+    if std::fs::read_dir(&subfolder).is_ok() {
+        return;
+    }
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 3);
+    assert!(
+        outcome.stderr.contains(&subfolder.display().to_string()),
+        "stderr should name subfolder path: {}",
+        outcome.stderr
+    );
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+    assert!(!fix.target_path().join("LATEST").exists());
+}
+
+#[cfg(unix)]
+#[test]
+fn an_unreadable_state_file_fails_closed() {
+    use std::os::unix::fs::PermissionsExt;
+
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let reports_dir = fix.state_dir().join("reports");
+    std::fs::create_dir_all(&reports_dir).expect("create reports");
+    let unreadable_file = reports_dir.join("last-add.json");
+    std::fs::write(&unreadable_file, b"{\"report_version\":1}").expect("write file");
+
+    struct PermGuard(PathBuf);
+    impl Drop for PermGuard {
+        fn drop(&mut self) {
+            let _ = std::fs::set_permissions(&self.0, std::fs::Permissions::from_mode(0o644));
+        }
+    }
+
+    let _guard = PermGuard(unreadable_file.clone());
+    std::fs::set_permissions(&unreadable_file, std::fs::Permissions::from_mode(0o000))
+        .expect("chmod 000 file");
+
+    if std::fs::read(&unreadable_file).is_ok() {
+        return;
+    }
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 3);
+    assert!(
+        outcome
+            .stderr
+            .contains(&unreadable_file.display().to_string()),
+        "stderr should name unreadable file: {}",
+        outcome.stderr
+    );
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+    assert!(!fix.target_path().join("LATEST").exists());
+}
+
+#[cfg(unix)]
+#[test]
+fn a_symbolic_link_is_never_read_through() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let canary_dir = tempfile::tempdir().expect("create canary tempdir");
+    let canary_file = canary_dir.path().join("canary.txt");
+    let canary_str = "CANARY_LEAK_TEST_STRING_9876543210";
+    std::fs::write(&canary_file, canary_str.as_bytes()).expect("write canary");
+
+    let leak_link = fix.tree_root().join("corpus/sources/public/leak.txt");
+    std::os::unix::fs::symlink(&canary_file, &leak_link).expect("symlink canary");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 3);
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+    assert!(!fix.target_path().join("LATEST").exists());
+
+    fn walk_check_no_canary(dir: &Path, canary: &str) {
+        if let Ok(entries) = std::fs::read_dir(dir) {
+            for entry in entries.flatten() {
+                let p = entry.path();
+                if p.is_dir() {
+                    walk_check_no_canary(&p, canary);
+                } else if p.is_file() {
+                    let content = std::fs::read_to_string(&p).unwrap_or_default();
+                    assert!(
+                        !content.contains(canary),
+                        "canary leaked to target file {}",
+                        p.display()
+                    );
+                }
+            }
+        }
+    }
+    walk_check_no_canary(fix.target_path(), canary_str);
+}
+
+#[test]
+fn an_unregistered_original_is_unlabelled() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let unreg_orig = fix.tree_root().join("corpus/sources/public/S-9999-v1.txt");
+    std::fs::write(&unreg_orig, b"unregistered original content\n")
+        .expect("write unregistered original");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn an_unregistered_extraction_folder_is_unlabelled() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let unreg_ext_dir = fix.tree_root().join("corpus/sources/text/S-9999-v1");
+    std::fs::create_dir_all(&unreg_ext_dir).expect("create ext dir");
+    let unreg_ext = unreg_ext_dir.join("page-0001.txt");
+    std::fs::write(&unreg_ext, b"unregistered extraction text\n").expect("write extraction");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
 }

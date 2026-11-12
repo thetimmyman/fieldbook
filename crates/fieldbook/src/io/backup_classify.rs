@@ -127,10 +127,10 @@ pub fn classify_file(
             }) {
                 parse_handling_vec(&src.value.handling)
             } else {
-                LabelSet::public()
+                LabelSet::unlabelled()
             }
         } else {
-            LabelSet::public()
+            LabelSet::unlabelled()
         };
         return CopiedFile::new(path, BackupFileKind::Original, labels);
     }
@@ -145,10 +145,10 @@ pub fn classify_file(
             }) {
                 parse_handling_vec(&src.value.handling)
             } else {
-                LabelSet::public()
+                LabelSet::unlabelled()
             }
         } else {
-            LabelSet::public()
+            LabelSet::unlabelled()
         };
         return CopiedFile::new(path, BackupFileKind::ExtractionText, labels);
     }
@@ -469,55 +469,124 @@ fn extract_handling_from_markdown(bytes: &[u8]) -> LabelSet {
     LabelSet::unlabelled()
 }
 
-/// Enumerates all relative file paths under `corpus/` and `state/`, skipping derived directories.
-#[must_use]
-pub fn enumerate_roots(world: &dyn World) -> Vec<String> {
-    let mut files = Vec::new();
-    let corpus_root = world.tree_root().join("corpus");
-    if corpus_root.is_dir() {
-        collect_rel_files(&corpus_root, "corpus", &mut files);
-    }
-    let state_root = world.state_dir();
-    if state_root.is_dir() {
-        collect_rel_files(state_root, "state", &mut files);
-    }
-    files
+/// An error encountered while enumerating or reading files for backup.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct BackupReadError {
+    pub path: String,
+    pub reason: String,
 }
 
-fn collect_rel_files(dir: &Path, prefix: &str, out: &mut Vec<String>) {
-    let Ok(read_dir) = std::fs::read_dir(dir) else {
-        return;
-    };
-    for entry in read_dir.flatten() {
-        let path = entry.path();
-        let Some(name) = path.file_name().and_then(|n| n.to_str()) else {
-            continue;
+impl std::fmt::Display for BackupReadError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "cannot read {}: {}", self.path, self.reason)
+    }
+}
+
+impl std::error::Error for BackupReadError {}
+
+/// Enumerates all relative file paths under `corpus/` and `state/`, skipping derived directories.
+///
+/// # Errors
+///
+/// Returns [`BackupReadError`] if root or subdirectories cannot be enumerated or contain non-regular files.
+pub fn enumerate_roots(world: &dyn World) -> Result<Vec<String>, BackupReadError> {
+    let mut files = Vec::new();
+    let corpus_root = world.tree_root().join("corpus");
+    if let Ok(meta) = std::fs::symlink_metadata(&corpus_root) {
+        if meta.file_type().is_dir() {
+            collect_rel_files(&corpus_root, "corpus", &mut files)?;
+        } else if !meta.file_type().is_file() {
+            return Err(BackupReadError {
+                path: corpus_root.display().to_string(),
+                reason: "not a regular file or folder (symbolic link or special file)".to_string(),
+            });
+        }
+    }
+    let state_root = world.state_dir();
+    if let Ok(meta) = std::fs::symlink_metadata(state_root) {
+        if meta.file_type().is_dir() {
+            collect_rel_files(state_root, "state", &mut files)?;
+        } else if !meta.file_type().is_file() {
+            return Err(BackupReadError {
+                path: state_root.display().to_string(),
+                reason: "not a regular file or folder (symbolic link or special file)".to_string(),
+            });
+        }
+    }
+    Ok(files)
+}
+
+fn collect_rel_files(
+    dir: &Path,
+    prefix: &str,
+    out: &mut Vec<String>,
+) -> Result<(), BackupReadError> {
+    let read_dir = std::fs::read_dir(dir).map_err(|err| BackupReadError {
+        path: dir.display().to_string(),
+        reason: err.to_string(),
+    })?;
+    for entry_res in read_dir {
+        let entry = entry_res.map_err(|err| BackupReadError {
+            path: dir.display().to_string(),
+            reason: err.to_string(),
+        })?;
+        let entry_path = entry.path();
+        let Some(name) = entry_path.file_name().and_then(|n| n.to_str()) else {
+            return Err(BackupReadError {
+                path: entry_path.display().to_string(),
+                reason: "file name is not valid UTF-8".to_string(),
+            });
         };
+        let file_type = entry.file_type().map_err(|err| BackupReadError {
+            path: entry_path.display().to_string(),
+            reason: err.to_string(),
+        })?;
         let rel = format!("{prefix}/{name}");
-        if path.is_dir() {
-            // Skip derived folders
+        if file_type.is_dir() {
+            // Skip derived folders when they are real directories
             if rel == "state/pages" || rel == "state/drill" || rel == "corpus/out" {
                 continue;
             }
-            collect_rel_files(&path, &rel, out);
-        } else if path.is_file() {
+            collect_rel_files(&entry_path, &rel, out)?;
+        } else if file_type.is_file() {
             out.push(rel);
+        } else {
+            return Err(BackupReadError {
+                path: entry_path.display().to_string(),
+                reason: "not a regular file or folder (symbolic link or special file)".to_string(),
+            });
         }
     }
+    Ok(())
 }
 
 /// Reads file bytes given a normalized relative path starting with `corpus/` or `state/`.
-#[must_use]
-pub fn read_file_content(world: &dyn World, rel_path: &str) -> Vec<u8> {
+///
+/// # Errors
+///
+/// Returns [`BackupReadError`] if the path is not a regular file or cannot be read.
+pub fn read_file_content(world: &dyn World, rel_path: &str) -> Result<Vec<u8>, BackupReadError> {
     let norm = rel_path.replace('\\', "/");
     let path = norm.trim_start_matches('/');
-    if let Some(corpus_rel) = path.strip_prefix("corpus/") {
-        let p = world.tree_root().join("corpus").join(corpus_rel);
-        std::fs::read(&p).unwrap_or_default()
+    let p = if let Some(corpus_rel) = path.strip_prefix("corpus/") {
+        world.tree_root().join("corpus").join(corpus_rel)
     } else if let Some(state_rel) = path.strip_prefix("state/") {
-        let p = world.state_dir().join(state_rel);
-        std::fs::read(&p).unwrap_or_default()
+        world.state_dir().join(state_rel)
     } else {
-        std::fs::read(world.tree_root().join(path)).unwrap_or_default()
+        world.tree_root().join(path)
+    };
+    let meta = std::fs::symlink_metadata(&p).map_err(|err| BackupReadError {
+        path: p.display().to_string(),
+        reason: err.to_string(),
+    })?;
+    if !meta.file_type().is_file() {
+        return Err(BackupReadError {
+            path: p.display().to_string(),
+            reason: "not a regular file or folder (symbolic link or special file)".to_string(),
+        });
     }
+    std::fs::read(&p).map_err(|err| BackupReadError {
+        path: p.display().to_string(),
+        reason: err.to_string(),
+    })
 }
