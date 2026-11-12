@@ -244,7 +244,8 @@ The edition as a usable reference for the owner without company data: search tha
 - kb-rates-practitioner: wrap-rate build-up, pool and base structure, the billing-to-final-rate cycle and an incurred cost submission walkthrough
 - kb-hub-pages: the FAR 31.205 cost-principles overview, one page per contract type and the first Cost Accounting Standard hubs, in parts
 - search-section-snippets: the edition's site search index cuts each section unit's snippet to 100 code points, as the amended ADR 0006 decided, to stay within its 15 MB cap
-- kb-hub-pages-2: concept hubs for Cost Accounting Standards 404 to 420, after the three of the first part
+- kb-hub-pages-2: concept hubs for Cost Accounting Standards 404 to 415, after the three of the first part, in parts
+- kb-hub-pages-3: concept hubs for Cost Accounting Standards 416, 417, 418 and 420, the last of the family
 - search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
 - design-search-term-rows: a design revision after revision 22 that shows a glossary term row on the edition's search page and in the palette (owner review)
 - search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)
