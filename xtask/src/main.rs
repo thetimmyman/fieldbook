@@ -20,6 +20,7 @@
 //! - `release-check TAG --base FILE [--evidence-out DIR] [--output FILE]`: check a v* or edition-* tag the way release.yml does.
 //! - `harness [--edition DIR]`: open every page of an edition in headless Edge (or Chromium) with a net-log.
 //! - `hosted-limits DIR`: fail if a file in DIR is over 25 MiB or DIR holds more than 20,000 files (Cloudflare Workers static assets limits).
+//! - `print-count <pdf>`: check that a brief PDF prints on one page (FB0607).
 //! - `extract VERSION...` and `extract --source VERSION --text FILE`: write corpus/sources/text/<VERSION>/ (one text file per page and extraction.toml) from the stored original, at home; the second form attaches supplied text.
 //! - `scale [--sizes 1,5,20] [--base FILE] [--bin PATH]`: time check, build and search over synthetic Corpora (advisory; fails nothing).
 //!
@@ -102,6 +103,7 @@ mod hosted;
 mod links;
 #[cfg(test)]
 mod literals;
+mod print_count;
 mod proc;
 mod raw_release;
 mod release;
@@ -147,6 +149,7 @@ const USAGE: &str = "usage: cargo xtask <command>
   edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version
   harness [--edition DIR]           open every page and renderable original in headless Edge (or Chromium) with a net-log
   hosted-limits DIR                 fail if a file in DIR is over 25 MiB or DIR holds more than 20,000 files (Cloudflare Workers static assets limits)
+  print-count <pdf>                 check that a brief PDF prints on one page (FB0607)
   extract VERSION...                write the text pages and extraction.toml of stored originals (home only; PDFs need pdftotext)
   extract --source VERSION --text FILE
                                     attach supplied UTF-8 text to a stored original of any type (method supplied)
@@ -195,6 +198,7 @@ fn main() -> ExitCode {
         ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
         ["harness", rest @ ..] => harness::command(&root, rest),
         ["hosted-limits", dir] => hosted::command(&PathBuf::from(dir)),
+        ["print-count", file] => print_count::command(&PathBuf::from(file)),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         ["scale", rest @ ..] => return scale::command(&root, rest),
         ["extract", "--source", version, "--text", file] => {
