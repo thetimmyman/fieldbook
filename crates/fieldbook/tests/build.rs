@@ -2736,8 +2736,9 @@ mod build {
         )
     }
 
-    /// The delivered index holds the permitted page and section units, their snippets and
-    /// postings, and no record the view leaves out, no held version and no unit of another kind.
+    /// The delivered index holds the permitted page, section and term units, their snippets and
+    /// postings, and no record the view leaves out, no held version and no claim, source version,
+    /// question or conflict unit.
     #[test]
     fn build_search_index_uses_the_permitted_view() {
         let tmp = temp_copy(&fixture_root());
@@ -2806,19 +2807,20 @@ mod build {
             ] {
                 assert!(!id.starts_with(forbidden), "unit {id} must not be indexed");
             }
-            for other_kind in [
-                "CL-CMP-0001",
-                "S-0002-v2",
-                "Q-001",
-                "XC-01",
-                "system_review",
-            ] {
+            for other_kind in ["CL-CMP-0001", "S-0002-v2", "Q-001", "XC-01"] {
                 assert_ne!(id, other_kind, "a {other_kind} unit must not be indexed");
             }
         }
         for doc in docs {
-            assert!(doc[1] == "page" || doc[1] == "clause", "{doc}");
+            assert!(
+                doc[1] == "page" || doc[1] == "clause" || doc[1] == "term",
+                "{doc}"
+            );
         }
+        assert!(
+            ids.iter().any(|d| d == "system_review"),
+            "a permitted glossary term is indexed"
+        );
         for needle in [
             "Forbidden",
             "Dependent ",

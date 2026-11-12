@@ -145,6 +145,15 @@
     return list.map(function (h) { return h.id; });
   }
 
+  // What search.js shows of `list` (ids in view order): the first `limit`, with places held for term rows, at most `cap`, kept in the original order.
+  function heldRows(index, list, limit, cap) {
+    var kind = {};
+    index.docs.forEach(function (d) { kind[d[0]] = d[1]; });
+    var terms = list.filter(function (id) { return kind[id] === 'term'; }).slice(0, cap);
+    var rest = list.filter(function (id) { return terms.indexOf(id) < 0; }).slice(0, limit - terms.length);
+    return list.filter(function (id) { return terms.indexOf(id) >= 0 || rest.indexOf(id) >= 0; });
+  }
+
   function pageViewCases() {
     goldens('page-view').forEach(function (g) {
       g.file.cases.forEach(function (c) {
@@ -154,8 +163,9 @@
   }
 
   // The view against the golden, then what search.js does with it: run() renders the first
-  // 50 of the exact, page and other rows in that order and returns their count. The CLI's
-  // shown_pages and shown_other cut is Rust's to test; the site has its own rule.
+  // 50 of the exact, page and other rows with places held for term rows (at most 5), and
+  // returns their count. The CLI's shown_pages and shown_other cut is Rust's to test; the
+  // site has its own rule.
   function pageViewCase(g, c) {
     var fields = ['kind', 'title', 'parent', 'status', 'as_of', 'effective_from', 'verified_on'];
     var problems = [];
@@ -205,8 +215,8 @@
     if (count !== rows.length) {
       problems.push(differ('run count', rows.length, count));
     }
-    if (!same(shown, rows.slice(0, 50))) {
-      problems.push(differ('rows shown', rows.slice(0, 50), shown));
+    if (!same(shown, heldRows(g.index, rows, 50, 5))) {
+      problems.push(differ('rows shown', heldRows(g.index, rows, 50, 5), shown));
     }
     return problems;
   }
@@ -297,6 +307,135 @@
       if (window.__hit !== undefined) {
         problems.push('an index string ran');
       }
+      return problems;
+    });
+  }
+
+  // Term rows render with aliases and metadata, and held places keep terms in the cut.
+  function termRowsAndHeldPlaces() {
+    function markTexts(node) {
+      return Array.prototype.map.call(node.querySelectorAll('mark'), function (m) {
+        return m.textContent;
+      });
+    }
+
+    // A term row renders its link, alias line, snippet, metadata and query marks.
+    guarded('term_row_renders_its_link_alias_line_and_meta', function () {
+      var problems = [];
+      var list = document.createElement('ul');
+      var hit = { id: 'wrap_rate', kind: 'term', title: 'wrap rate',
+        parent: 'fully burdened rate|FBR', snippet: 'A direct labour rate.',
+        status: 'general_practice', as_of: '', effective_from: '', verified_on: '' };
+      S.render([hit], 'burdened rate', list);
+      document.body.appendChild(list);
+      try {
+        var li = list.querySelector('li');
+        if (!li || li.getAttribute('data-kind') !== 'term') {
+          problems.push('the row li has no data-kind term');
+        }
+        if (!li || li.getAttribute('role') !== 'option') {
+          problems.push('the row li is not an option');
+        }
+        var titleA = li ? li.querySelector('a.sr-title') : null;
+        var href = titleA ? (titleA.getAttribute('href') || '') : '';
+        if (!titleA || !/(^|\/)glossary\.html#wrap_rate$/.test(href)) {
+          problems.push('title link does not end in glossary.html#wrap_rate');
+        }
+        var parent = li ? li.querySelector('.sr-parent') : null;
+        if (!parent) {
+          problems.push('no .sr-parent rendered');
+        } else {
+          if (parent.textContent !== 'Also called: fully burdened rate') {
+            problems.push(differ('sr-parent text', 'Also called: fully burdened rate', parent.textContent));
+          }
+          var pMarks = markTexts(parent);
+          if (!same(pMarks, ['burdened', 'rate'])) {
+            problems.push(differ('sr-parent marks', ['burdened', 'rate'], pMarks));
+          }
+        }
+        var snip = li ? li.querySelector('.sr-snip') : null;
+        if (!snip || snip.textContent !== 'A direct labour rate.') {
+          problems.push(differ('snippet text', 'A direct labour rate.', snip ? snip.textContent : null));
+        }
+        var meta = li ? li.querySelector('.sr-meta') : null;
+        if (!meta || meta.textContent !== 'glossary term \u00b7 general practice') {
+          problems.push(differ('meta text', 'glossary term \u00b7 general practice', meta ? meta.textContent : null));
+        }
+        var tMarks = titleA ? markTexts(titleA) : [];
+        if (!same(tMarks, ['rate'])) {
+          problems.push(differ('title marks', ['rate'], tMarks));
+        }
+
+        S.render([hit], 'wrap', list);
+        if (list.querySelector('.sr-parent')) {
+          problems.push('sr-parent rendered when no alias matches query');
+        }
+
+        hit.parent = '';
+        S.render([hit], 'rate', list);
+        if (list.querySelector('.sr-parent')) {
+          problems.push('sr-parent rendered when parent is empty');
+        }
+
+        S.render([{ id: 't_markup', kind: 'term', title: 'term', parent: '<i>x</i>|y',
+          snippet: '', status: '', as_of: '', effective_from: '',
+          verified_on: '' }], 'x', list);
+        if (list.querySelector('i')) {
+          problems.push('markup in alias built an i element');
+        }
+      } finally {
+        list.remove();
+      }
+      return problems;
+    });
+
+    // Hold keeps up to cap term rows within limit without mutating the input rows.
+    guarded('held_places_keep_term_rows_in_the_cut', function () {
+      var problems = [];
+      var rows = [];
+      var i;
+      for (i = 1; i <= 60; i += 1) {
+        rows.push({
+          id: 'p-' + (i < 10 ? '0' : '') + i, kind: 'page', title: 'P', parent: '',
+          snippet: '', status: '', as_of: '', effective_from: '', verified_on: ''
+        });
+      }
+      for (i = 1; i <= 7; i += 1) {
+        rows.push({
+          id: 't_' + i, kind: 'term', title: 'T', parent: '',
+          snippet: '', status: '', as_of: '', effective_from: '', verified_on: ''
+        });
+      }
+
+      var got1 = ids(S.hold(rows, 50, 5));
+      var want1 = ids(rows.slice(0, 45)).concat(ids(rows.slice(60, 65)));
+      if (!same(got1, want1)) {
+        problems.push(differ('hold 50 5', want1, got1));
+      }
+
+      var got2 = ids(S.hold(rows.slice(0, 62), 50, 5));
+      var want2 = ids(rows.slice(0, 48)).concat(ids(rows.slice(60, 62)));
+      if (!same(got2, want2)) {
+        problems.push(differ('hold 50 5 with 2 terms', want2, got2));
+      }
+
+      var slice30 = rows.slice(0, 30);
+      var got3 = ids(S.hold(slice30, 50, 5));
+      var want3 = ids(slice30);
+      if (!same(got3, want3)) {
+        problems.push(differ('hold 30 under limit', want3, got3));
+      }
+
+      var got4 = ids(S.hold(rows, 8, 2));
+      var want4 = ids(rows.slice(0, 6)).concat(ids(rows.slice(60, 62)));
+      if (!same(got4, want4)) {
+        problems.push(differ('hold 8 2', want4, got4));
+      }
+
+      if (rows.length !== 67) {
+        problems.push(differ('rows length', 67, rows.length));
+      }
+
       return problems;
     });
   }
@@ -573,6 +712,7 @@
     pageViewCases();
     orderedHitsRenderWithoutReranking();
     indexTextGoesInAsText();
+    termRowsAndHeldPlaces();
     hashCases(function () { finish(timing(SITE)); });
   }
 }());

@@ -17,8 +17,8 @@ Search on the site finds glossary terms by their labels and aliases: a query of 
 
 ## Scope
 
-- Files: `crates/fieldbook-render/src/search_index.rs`, `crates/fieldbook-render/assets/search.js`, `crates/fieldbook-render/tests/search_index.rs`, `crates/fieldbook-render/tests/search_page.rs`, `docs/reference/search.md` (The site index, Budgets), `docs/reference/corpus-format.md` (the FB0605 row), `docs/reference/errors.md` (generated), `CHANGELOG.md`.
-- Docs to update: `search.md` and the FB0605 row as above; `errors.md` through `cargo xtask docs`; `CHANGELOG.md` (`- Added: site search finds glossary terms by their labels and aliases.`).
+- Files: `crates/fieldbook-render/src/search_index.rs`, `crates/fieldbook-render/src/lint.rs` (`SEARCH_JS`), `crates/fieldbook-render/src/search_page.rs` (the budget in a doc comment), `crates/fieldbook-render/assets/search.js`, `crates/fieldbook-render/assets/app.js` (the palette's held places), `crates/fieldbook-render/assets/app.css` (the Also-called mark colour), `crates/fieldbook-render/tests/search_index.rs`, `crates/fieldbook-render/tests/search_page.rs`, `crates/fieldbook-render/tests/site_lints.rs` (the FB0605 assertion), `crates/fieldbook/tests/build.rs`, `crates/fieldbook/tests/leak_outputs.rs` (the delivered index now holds term units), `xtask/harness/search_goldens.js` (the page view cut keeps held places), `docs/reference/search.md` (The site index, Budgets), `docs/reference/corpus-format.md` (the FB0605 row), `docs/decisions/0001-foundation.md` (AD-11 and AD-15), `docs/controls.md` (WB-03), `docs/reference/errors.md` (generated), `CHANGELOG.md`.
+- Docs to update: `search.md`, the FB0605 row, ADR 0001 AD-11 and AD-15 and the WB-03 row of `controls.md` as above; `errors.md` through `cargo xtask docs`; `CHANGELOG.md` (`- Added: site search finds glossary terms by their labels and aliases.`).
 
 ## Out of scope
 
@@ -34,8 +34,8 @@ Search on the site finds glossary terms by their labels and aliases: a query of 
 
 ## Steps
 
-1. In `search_index.rs`, admit units of kind `term` beside `page` and `clause`, with the term's link to its `glossary.html` row. Keep the serialization order and the URL stripping.
-2. In `search.js`, render a term row as the design revision says, in the page view's other rows, with `textContent` only. Keep `search.js` within 10 KB.
+1. In `search_index.rs`, admit units of kind `term` beside `page` and `clause`, with the term's link to its `glossary.html` row, and carry the term's aliases as written, joined with `|`, in the `parent` position of its entry (revision 23, change 3). Keep the serialization order and the URL stripping.
+2. In `search.js`, render a term row as the design revision says, in the page view's other rows, with `textContent` only, and hold places for term rows in the search page's cut (revision 23, changes 1 and 2; the palette's cut in `app.js`). Keep `search.js` within 11 KB (revision 23, AD-15): raise `SEARCH_JS` in `lint.rs` to 11,000, the FB0605 assertion in `tests/site_lints.rs`, the literal in `tests/search_page.rs` (WB-03), AD-11 and AD-15 of ADR 0001 and the WB-03 row of `controls.md` to match.
 3. Tests in `tests/search_index.rs`: `the_edition_index_holds_term_units_with_aliases` (a fixture term with an alias is in `docs`, and its alias tokens have postings) and `the_edition_index_holds_no_claim_units`. In `tests/search_page.rs`: a term row has its link and no `innerHTML`.
 4. Run `just site` and record the size of `assets/search-index.js` against the amendment's figure, and the result rows for "wrap rate" and "T&M", in the pull request.
 5. Update `search.md`, the FB0605 row and `CHANGELOG.md`. Run `cargo xtask docs`, so `errors.md` takes the new FB0605 row.

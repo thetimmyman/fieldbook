@@ -10,7 +10,7 @@ use crate::site::Site;
 /// Budget for `assets/app.js` in decimal bytes (`FB0605`).
 pub const APP_JS: u64 = 32_000;
 /// Budget for `assets/search.js` in decimal bytes (`FB0605`).
-pub const SEARCH_JS: u64 = 10_000;
+pub const SEARCH_JS: u64 = 11_000;
 /// Budget for `assets/assist.js` in decimal bytes (`FB0605`).
 pub const ASSIST_JS: u64 = 20_000;
 /// Total budget across all script files in decimal bytes (`FB0605`).
@@ -18,7 +18,7 @@ pub const SCRIPTS_TOTAL: u64 = 64_000;
 /// Budget for each data file other than the search index (`assets/assist-data.js`, `data/*`) in decimal bytes (`FB0605`).
 pub const DATA_FILE: u64 = 3_000_000;
 /// Budget for `assets/search-index.js` alone in decimal bytes (`FB0605`). The edition index holds
-/// page and section units only (`docs/reference/search.md#the-site-index`).
+/// page, section and glossary term units (`docs/reference/search.md#the-site-index`).
 pub const SEARCH_INDEX: u64 = 15_000_000;
 
 /// Shipped filenames that `originals/` will contain (an HTML or SVG original is `<version-id>.<ext>.txt`).

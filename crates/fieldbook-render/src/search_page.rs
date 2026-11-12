@@ -26,7 +26,7 @@ pub const OUTPUT_PATH: &str = "search.html";
 /// Site-relative output path of the search script.
 pub const SCRIPT_PATH: &str = "assets/search.js";
 
-/// The search script, a classic script that stays within 10 KB (`FB0605`, `WB-03`).
+/// The search script, a classic script that stays within 11 KB (`FB0605`, `WB-03`).
 pub const SCRIPT: &str = include_str!("../assets/search.js");
 
 /// Page title for `search.html`.

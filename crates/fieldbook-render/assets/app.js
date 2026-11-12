@@ -759,7 +759,7 @@ function paletteRows(ix, text) {
   const q = fold(text);
   const rows = [];
   const add = function (h) {
-    if (rows.length < 8 && !rows.some(function (r) { return r.id === h.id; })) {
+    if (!rows.some(function (r) { return r.id === h.id; })) {
       rows.push(h);
     }
   };
@@ -775,7 +775,7 @@ function paletteRows(ix, text) {
   }
   const v = S.view(ix, S.rank(ix, text).hits);
   v.exact.concat(v.pages, v.other).forEach(add);
-  return rows;
+  return S.hold(rows, 8, 2);
 }
 
 // The six page leads with the latest as_of, compared as written.

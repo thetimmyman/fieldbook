@@ -212,8 +212,8 @@ mod site_lints {
             "APP_JS must match `app.js` 32 KB (32,000 bytes)"
         );
         assert!(
-            fb0605_line.contains("`search.js` 10 KB") && SEARCH_JS == 10_000,
-            "SEARCH_JS must match `search.js` 10 KB (10,000 bytes)"
+            fb0605_line.contains("`search.js` 11 KB") && SEARCH_JS == 11_000,
+            "SEARCH_JS must match `search.js` 11 KB (11,000 bytes)"
         );
         assert!(
             fb0605_line.contains("`assist.js` 20 KB") && ASSIST_JS == 20_000,

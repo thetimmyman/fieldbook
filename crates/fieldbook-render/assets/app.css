@@ -3007,6 +3007,10 @@ svg .bar1.tot {
   font-size: var(--text-xs);
 }
 
+.sr-parent mark {
+  color: var(--color-fg);
+}
+
 .sr-snip {
   margin: var(--space-1) 0;
   font-size: var(--text-sm);

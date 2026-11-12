@@ -2,14 +2,15 @@
 //! `docs/reference/search.md#the-site-index`).
 //!
 //! **Responsibility.** Build the public units of a [`LabelledView`], keep the page and section
-//! units (the kinds `page` and `clause`) the edition's index holds, build the [`Index`] from that
-//! unit set alone, and serialise it as one classic script that assigns `window.FB_INDEX`.
+//! units (the kinds `page` and `clause`) and the glossary term units (the kind `term`) the
+//! edition's index holds, build the [`Index`] from that unit set alone, and serialise it as one
+//! classic script that assigns `window.FB_INDEX`.
 //!
 //! **Rules.** Pure: no I/O. The units come from the permitted view only and every kept unit is
 //! `public`. N, document frequencies, average field lengths and impacts are those of the kept unit
 //! set: a full index is never built and then filtered. Equal views give equal bytes.
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::VersionId;
@@ -25,8 +26,8 @@ pub const OUTPUT_PATH: &str = "assets/search-index.js";
 /// The site index format, the `v` key.
 pub const FORMAT_VERSION: u32 = 1;
 
-/// The unit kinds the edition's index holds: page leads and page sections.
-pub const EDITION_KINDS: [&str; 2] = ["page", "clause"];
+/// The unit kinds the edition's index holds: page leads and page sections, and glossary terms.
+pub const EDITION_KINDS: [&str; 3] = ["page", "clause", "term"];
 
 /// Every public unit of `view`, every kind, in natural id order, with the glossary of the kept
 /// terms: the unit list before the edition's kind filter. A held (`quarantined`) source version
@@ -63,7 +64,7 @@ pub fn view_units(view: &LabelledView) -> (Vec<Unit>, Glossary) {
     (units, glossary)
 }
 
-/// The units the edition's index holds: the `public` units of kind `page` or `clause`.
+/// The units the edition's index holds: the `public` units of kind `page`, `clause` or `term`.
 #[must_use]
 pub fn edition_units(units: Vec<Unit>) -> Vec<Unit> {
     units
@@ -72,13 +73,25 @@ pub fn edition_units(units: Vec<Unit>) -> Vec<Unit> {
         .collect()
 }
 
-/// Builds the edition's [`Index`] over the page and section units of `view` alone, with the URL
-/// schemes removed from its display strings ([`strip_url_schemes`]).
+/// Builds the edition's [`Index`] over the page, section and term units of `view` alone. A term's
+/// entry carries its aliases as written, joined with `|`, in the `parent` position, which is empty
+/// for a term otherwise; the URL schemes are removed from every display string
+/// ([`strip_url_schemes`]).
 #[must_use]
 pub fn build(view: &LabelledView) -> Index {
     let (units, glossary) = view_units(view);
     let mut index = Index::build(edition_units(units), &glossary);
+    let aliases: BTreeMap<&str, String> = view
+        .glossary()
+        .iter()
+        .map(|t| (t.value.term_id.as_str(), t.value.aliases.join("|")))
+        .collect();
     for doc in &mut index.docs {
+        if doc.kind == "term"
+            && let Some(joined) = aliases.get(doc.id.as_str())
+        {
+            doc.parent.clone_from(joined);
+        }
         for field in [
             &mut doc.id,
             &mut doc.kind,
