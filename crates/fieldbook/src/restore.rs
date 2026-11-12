@@ -8,17 +8,23 @@
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex, OnceLock};
 
+use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{DestKind, LabelId, LabelSet, RefuseAbout, StoreId, Via, Word};
 use fieldbook_core::backup::{
-    BACKUP_TARGET_TEMPLATE, DestinationFacts, PlannedFile, RestoreShell, plan_restore, rename_help,
+    BACKUP_TARGET_TEMPLATE, DRILL_STEPS, DestinationFacts, PlannedFile, RestoreShell,
+    corpus_entries, plan_restore, rename_help,
 };
-use fieldbook_core::check::Code;
+use fieldbook_core::check::{Code, Host, Options};
 use fieldbook_core::egress::{
     Decision, Delivery, Dest, Operation, Shipped, Target, Transfer, hash_tree_manifest,
 };
+use fieldbook_core::manifest;
 use fieldbook_core::policy::EffectivePolicy;
 
-use crate::cli::{EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE, RestoreArgs};
+use crate::cli::{
+    AuditArgs, AuditSubcommand, AuditVerifyArgs, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE,
+    RestoreArgs,
+};
 use crate::io::backup_folder::write_restore_to;
 use crate::io::journal::{JournalError, RestoreExportRequest};
 use crate::io::root::resolve_canonical_with_tail;
@@ -84,17 +90,140 @@ pub struct DrillFailure {
     pub step: &'static str,
     /// Detailed diagnostic of the failure.
     pub detail: String,
+    /// Verification lines that succeeded before the failure occurred.
+    pub ok_lines: Vec<String>,
 }
 
-/// Stub for drill verification steps 3 to 5 (check, journal, fingerprint).
-///
-/// Steps 3 to 5 will be implemented in a subsequent task.
+/// Runs drill verification steps 3 to 5 (check, journal, fingerprint) in order.
 fn drill_verify(
-    _world: &dyn World,
-    _check: &crate::backup::SnapshotCheck,
-    _drill_dir: &Path,
+    world: &dyn World,
+    check: &crate::backup::SnapshotCheck,
+    drill_dir: &Path,
 ) -> Result<Vec<String>, DrillFailure> {
-    Ok(Vec::new())
+    let mut ok_lines = Vec::new();
+
+    // Step 3: check
+    let tree = match crate::io::tree::read_tree(drill_dir) {
+        Ok(t) => t,
+        Err(err) => {
+            return Err(DrillFailure {
+                step: DRILL_STEPS[2],
+                detail: err.to_string(),
+                ok_lines,
+            });
+        }
+    };
+
+    let date_str = if check.info.created_utc.len() >= 10 {
+        &check.info.created_utc[..10]
+    } else {
+        &check.info.created_utc
+    };
+    let date = match CivilDate::parse(date_str) {
+        Ok(d) => d,
+        Err(err) => {
+            return Err(DrillFailure {
+                step: DRILL_STEPS[2],
+                detail: format!("cannot parse created_utc date `{date_str}`: {err}"),
+                ok_lines,
+            });
+        }
+    };
+
+    let host = Host::new(tree, date);
+    let options = Options::new(true);
+    let report = fieldbook_core::check::run(&host, &options);
+    if !report.is_ok() {
+        let rendered = report.render_text();
+        let first_line = rendered.lines().next().unwrap_or("").to_string();
+        let count = report.diagnostics.len();
+        let detail = if count > 1 {
+            format!("{first_line} ({count} findings)")
+        } else {
+            first_line
+        };
+        return Err(DrillFailure {
+            step: DRILL_STEPS[2],
+            detail,
+            ok_lines,
+        });
+    }
+    ok_lines.push("ok: check --strict clean".to_string());
+
+    // Step 4: journal
+    let audit_args = AuditArgs {
+        command: AuditSubcommand::Verify(AuditVerifyArgs {
+            expect_seq: Some(check.info.journal_seq),
+            expect_head: Some(check.info.journal_head.clone()),
+            anchor_seq: None,
+            anchor_head: None,
+            repair: false,
+            json: false,
+        }),
+    };
+    let state_dir = drill_dir.join("state");
+    let audit_outcome = crate::audit::run(&audit_args, Some(&state_dir), world);
+    if audit_outcome.code != EXIT_OK {
+        let all_lines: Vec<&str> = audit_outcome
+            .stdout
+            .lines()
+            .chain(audit_outcome.stderr.lines())
+            .map(str::trim)
+            .filter(|l| !l.is_empty())
+            .collect();
+        let detail = all_lines
+            .iter()
+            .find(|l| l.contains("FB0"))
+            .copied()
+            .or_else(|| all_lines.first().copied())
+            .unwrap_or("journal verification failed")
+            .to_string();
+        return Err(DrillFailure {
+            step: DRILL_STEPS[3],
+            detail,
+            ok_lines,
+        });
+    }
+    let short_head = if check.info.journal_head.len() >= 12 {
+        &check.info.journal_head[..12]
+    } else {
+        &check.info.journal_head
+    };
+    ok_lines.push(format!(
+        "ok: journal ok (seq {}, head {short_head})",
+        check.info.journal_seq
+    ));
+
+    // Step 5: fingerprint
+    let corpus_pairs = corpus_entries(&check.sums_text);
+    let recomputed = manifest::fingerprint(&corpus_pairs);
+    if recomputed != check.info.fingerprint {
+        let snap_short = if check.info.fingerprint.len() >= 12 {
+            &check.info.fingerprint[..12]
+        } else {
+            &check.info.fingerprint
+        };
+        let recomputed_short = if recomputed.len() >= 12 {
+            &recomputed[..12]
+        } else {
+            &recomputed
+        };
+        return Err(DrillFailure {
+            step: DRILL_STEPS[4],
+            detail: format!(
+                "fingerprint mismatch: snapshot says {snap_short} but the restored files give {recomputed_short}"
+            ),
+            ok_lines,
+        });
+    }
+    let short_fp = if check.info.fingerprint.len() >= 12 {
+        &check.info.fingerprint[..12]
+    } else {
+        &check.info.fingerprint
+    };
+    ok_lines.push(format!("ok: fingerprint {short_fp} matches"));
+
+    Ok(ok_lines)
 }
 
 /// Dispatches `fieldbook restore` from parsed CLI arguments.
@@ -140,7 +269,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         };
     }
 
-    // a. State path cannot be a file
     if world.state_dir().is_file() {
         return Outcome {
             stdout: String::new(),
@@ -196,7 +324,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         }
     };
 
-    // b. Verify snapshot
     let check = match crate::backup::check_snapshot(&target_dir, Some(u64::from(options.snapshot)))
     {
         Ok(c) => c,
@@ -223,7 +350,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         };
     }
 
-    // c. Open the journal
     let mut journal = match state::open(world, world.state_dir(), Via::Cli) {
         Ok(j) => j,
         Err(JournalError::BrokenChain(_)) => {
@@ -257,7 +383,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
     }
     let labels = LabelSet::from_ids(label_ids);
 
-    // d. Destination & plan
     let mode = if options.drill { "drill" } else { "real" };
     let canonical_tree_root = match resolve_canonical_with_tail(world.cwd(), world.tree_root()) {
         Ok(p) => p,
@@ -362,7 +487,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         (to_dir.clone(), canon_dest, plan, facts)
     };
 
-    // e. Placement
     let ctx = match crate::io::root::git_context(world, &destination) {
         Ok(c) => c,
         Err(err) => {
@@ -400,7 +524,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         };
     }
 
-    // f. Classify: State write vs Export
     let is_state_write = options.drill || canon_dest.starts_with(&canonical_state_dir);
 
     // Build planned files list from SHA256SUMS
@@ -529,7 +652,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         }
     };
 
-    // g. Hold store lease and begin transaction
     let _lease = match world.write_lease() {
         Ok(l) => l,
         Err(err) => {
@@ -573,7 +695,6 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         }
     };
 
-    // h. Copy
     if options.drill
         && let Err(err) = world.reset_drill(&audited)
     {
@@ -781,8 +902,18 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
                     "failed",
                     Some(Code::Fb0816),
                 );
+                let mut stdout = format!(
+                    "ok: snapshot {} verified\nok: restored {} files, {} bytes into drill folder\n",
+                    options.snapshot, check.info.files, check.info.bytes
+                );
+                for line in &failure.ok_lines {
+                    stdout.push_str(line);
+                    if !line.ends_with('\n') {
+                        stdout.push('\n');
+                    }
+                }
                 Outcome {
-                    stdout: String::new(),
+                    stdout,
                     stderr: format!(
                         "error[FB0816]: drill step {} failed: {}\n",
                         failure.step, failure.detail
