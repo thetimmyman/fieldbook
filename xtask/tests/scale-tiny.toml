@@ -1,0 +1,12 @@
+# A tiny base for the scale end-to-end test. Synthetic.
+seed = 7
+areas = 3
+pages = 6
+words_per_section = 12
+source_versions = 6
+stored_originals = 2
+original_bytes = 2000
+claims = 12
+questions = 4
+conflicts = 2
+glossary_terms = 6

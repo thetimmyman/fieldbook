@@ -484,6 +484,9 @@ pub const ASSISTANT_LABEL_TEXTS: [&str; 8] = [
 /// The two labels for an AI-drafted note (`ai_note_label`): unreviewed first, reviewed second.
 pub const AI_NOTE_LABELS: [&str; 2] = ["AI-drafted · unreviewed", "AI-drafted · reviewed"];
 
+/// The note on a source page whose text was supplied by hand (corpus-format.md, Extraction, `supplied`).
+pub const EXTRACTION_SUPPLIED: &str = "text supplied by hand; not checked against the original";
+
 /// The abstention phrase (`abstention`).
 #[must_use]
 pub const fn abstention() -> &'static str {

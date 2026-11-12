@@ -1,0 +1,13 @@
+# Day 1 counts for `cargo xtask scale`. Synthetic: a rounded estimate of the
+# Day 1 Corpus. The lead edits these when `fieldbook status` shows real counts.
+seed = 1
+areas = 13
+pages = 120
+words_per_section = 80
+source_versions = 90
+stored_originals = 30
+original_bytes = 150000
+claims = 300
+questions = 49
+conflicts = 10
+glossary_terms = 80
