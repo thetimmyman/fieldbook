@@ -1,7 +1,5 @@
 # Build outputs. `out/` holds the generated edition and its zips; it is never committed.
 target/
-# A planted backup snapshot of a known-bad fixture is a tracked fixture, not a build output.
-!tests/fixtures/state-known-bad/*/target/
 out/
 # Agent tools keep their state outside the product; Serena's project folder is never committed.
 .serena/

@@ -1,0 +1,2 @@
+# A planted backup snapshot of a known-bad fixture is a tracked fixture, not a build output.
+!*/target/
