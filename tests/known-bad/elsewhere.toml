@@ -148,7 +148,7 @@ test = "two_builds_are_identical"
 [[elsewhere]]
 code = "FB0607"
 card = "day-one-binder-and-registers-xlsx"
-test = ""
+test = "two_page_pdf_is_fb0607"
 
 [[elsewhere]]
 code = "FB0608"
