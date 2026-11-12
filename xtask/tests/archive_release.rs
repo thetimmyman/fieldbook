@@ -432,6 +432,16 @@ fn build_synthetic_edition_set(
                 fieldbook_core::strings::paths()[3].to_owned(),
                 b"<!doctype html>\n".to_vec(),
             );
+            for data in [
+                fieldbook_core::strings::PATHS[0],
+                "data/claims.csv",
+                "data/conflicts.csv",
+                "data/glossary.csv",
+                "data/questions.csv",
+                "data/sources.csv",
+            ] {
+                ed_files.insert(data.to_owned(), b"synthetic\n".to_vec());
+            }
         }
     }
 

@@ -53,7 +53,12 @@
             <span class="meta">The briefs and the pages of stages 1 and 2, ready to print.</span>
           </li>
           <li class="tu-item">
+            {% if let Some(href) = &registers_href %}
+            <a href="{{ href }}">Registers workbook</a>
+            <span class="meta">One workbook with a sheet for each register, as text only.</span>
+            {% else %}
             <span class="meta">{{ registers_line }}</span>
+            {% endif %}
           </li>
         </ul>
       </section>

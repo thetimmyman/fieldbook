@@ -42,6 +42,13 @@ pub const REQUIRED_FILES: &[&str] = &[
     "intake/network-silence-summary.txt",
     // `day-one.html`: the day-one binder, a Site page.
     fieldbook_core::strings::PATHS[3],
+    // data/: the workbook and the CSV copies of the registers.
+    fieldbook_core::strings::PATHS[0],
+    "data/claims.csv",
+    "data/conflicts.csv",
+    "data/glossary.csv",
+    "data/questions.csv",
+    "data/sources.csv",
 ];
 
 /// The two attestation files that carry measured browser evidence and are compared separately.
@@ -1671,6 +1678,16 @@ mod tests {
             b"// synthetic index of S-0001-v1\n",
         );
         write(root, "out/edition/edition.toml", info.to_toml().as_bytes());
+        write(
+            root,
+            "out/edition/data/registers.xlsx",
+            b"PK synthetic workbook",
+        );
+        write(root, "out/edition/data/claims.csv", b"claim_id\r\n");
+        write(root, "out/edition/data/conflicts.csv", b"conflict_id\r\n");
+        write(root, "out/edition/data/glossary.csv", b"term_id\r\n");
+        write(root, "out/edition/data/questions.csv", b"question_id\r\n");
+        write(root, "out/edition/data/sources.csv", b"source_id\r\n");
         let original = fs::read(root.join("corpus/sources/public/S-0001-v1.html"))
             .map_err(|e| e.to_string())?;
         write(root, "out/originals/S-0001-v1.html.txt", &original);
@@ -2312,6 +2329,32 @@ mod tests {
                 assert!(
                     m.contains("FB0601") && m.contains(binder),
                     "expected FB0601 and {binder}, got: {m}"
+                );
+            }
+            other => panic!("expected Err(Stop::Refused), got: {other:?}"),
+        }
+    }
+
+    #[test]
+    fn missing_workbook_is_fb0601() {
+        let repo = fixture_repo();
+        let (res, _) = run(repo.path());
+        let pkg = res.expect("package");
+        let delivery = delivery_from_files(&pkg.files).expect("delivery");
+        assert!(
+            delivery
+                .edition
+                .contains_key(fieldbook_core::strings::PATHS[0]),
+            "healthy site stage must hold data/registers.xlsx"
+        );
+        let d = rebuilt(&pkg, true, |e, _| {
+            e.remove(fieldbook_core::strings::PATHS[0]);
+        });
+        match verify_delivery(&d) {
+            Err(Stop::Refused(m)) => {
+                assert!(
+                    m.contains("FB0601") && m.contains(fieldbook_core::strings::PATHS[0]),
+                    "expected FB0601 and data/registers.xlsx, got: {m}"
                 );
             }
             other => panic!("expected Err(Stop::Refused), got: {other:?}"),
