@@ -1,0 +1,903 @@
+{
+  "keywords": [
+    "type",
+    "properties",
+    "required",
+    "additionalProperties",
+    "enum",
+    "minLength",
+    "maxLength",
+    "minimum",
+    "maximum",
+    "items",
+    "maxItems"
+  ],
+  "cases": [
+    {
+      "name": "type_boolean_ok",
+      "keyword": "type",
+      "schema": {
+        "type": "boolean"
+      },
+      "input": "true",
+      "expect": "ok"
+    },
+    {
+      "name": "type_boolean_wrong_type",
+      "keyword": "type",
+      "schema": {
+        "type": "boolean"
+      },
+      "input": "123",
+      "expect": {
+        "code": "type",
+        "node": 0
+      }
+    },
+    {
+      "name": "type_missing_in_schema",
+      "keyword": "type",
+      "schema": {
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "input": "{}",
+      "expect": {
+        "schema_error": "type"
+      }
+    },
+    {
+      "name": "type_unknown_in_schema",
+      "keyword": "type",
+      "schema": {
+        "type": "float"
+      },
+      "input": "1.0",
+      "expect": {
+        "schema_error": "type"
+      }
+    },
+    {
+      "name": "properties_object_ok",
+      "keyword": "properties",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "input": "{\"count\": 42}",
+      "expect": "ok"
+    },
+    {
+      "name": "properties_empty_object_ok",
+      "keyword": "properties",
+      "schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "input": "{}",
+      "expect": "ok"
+    },
+    {
+      "name": "properties_field_type_mismatch",
+      "keyword": "properties",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "input": "{\"count\": \"invalid\"}",
+      "expect": {
+        "code": "type",
+        "node": 1
+      }
+    },
+    {
+      "name": "required_field_present_ok",
+      "keyword": "required",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "input": "{\"id\": 10}",
+      "expect": "ok"
+    },
+    {
+      "name": "required_field_missing",
+      "keyword": "required",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "input": "{}",
+      "expect": {
+        "code": "required",
+        "node": 0
+      }
+    },
+    {
+      "name": "additional_properties_ok",
+      "keyword": "additionalProperties",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false
+      },
+      "input": "{\"title\": \"book\"}",
+      "expect": "ok"
+    },
+    {
+      "name": "additional_properties_extra_key_refused",
+      "keyword": "additionalProperties",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false
+      },
+      "input": "{\"title\": \"book\", \"extra\": 1}",
+      "expect": {
+        "code": "additional",
+        "node": 0
+      }
+    },
+    {
+      "name": "additional_properties_missing_in_schema",
+      "keyword": "additionalProperties",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          }
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "input": "{\"title\": \"book\"}",
+      "expect": {
+        "schema_error": "additionalProperties"
+      }
+    },
+    {
+      "name": "additional_properties_true_refused_in_schema",
+      "keyword": "additionalProperties",
+      "schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": true
+      },
+      "input": "{}",
+      "expect": {
+        "schema_error": "additionalProperties"
+      }
+    },
+    {
+      "name": "duplicate_object_key_refused",
+      "keyword": "additionalProperties",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "input": "{\"a\": 1, \"a\": 2}",
+      "expect": {
+        "code": "duplicate",
+        "node": 0
+      }
+    },
+    {
+      "name": "enum_ok",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "alpha",
+          "beta",
+          "gamma"
+        ]
+      },
+      "input": "\"beta\"",
+      "expect": "ok"
+    },
+    {
+      "name": "enum_at_bound_first",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "alpha",
+          "beta",
+          "gamma"
+        ]
+      },
+      "input": "\"alpha\"",
+      "expect": "ok"
+    },
+    {
+      "name": "enum_at_bound_last",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "alpha",
+          "beta",
+          "gamma"
+        ]
+      },
+      "input": "\"gamma\"",
+      "expect": "ok"
+    },
+    {
+      "name": "enum_unknown_variant",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "alpha",
+          "beta",
+          "gamma"
+        ]
+      },
+      "input": "\"delta\"",
+      "expect": {
+        "code": "enum",
+        "node": 0
+      }
+    },
+    {
+      "name": "enum_empty_string_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "alpha",
+          "beta",
+          "gamma"
+        ]
+      },
+      "input": "\"\"",
+      "expect": {
+        "code": "enum",
+        "node": 0
+      }
+    },
+    {
+      "name": "enum_max_length_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "long"
+        ],
+        "maxLength": 1
+      },
+      "input": "\"long\"",
+      "expect": {
+        "code": "max_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "enum_min_length_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "a"
+        ],
+        "minLength": 2
+      },
+      "input": "\"a\"",
+      "expect": {
+        "code": "min_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "enum_with_bounds_ok",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "abc"
+        ],
+        "minLength": 1,
+        "maxLength": 3
+      },
+      "input": "\"abc\"",
+      "expect": "ok"
+    },
+    {
+      "name": "enum_empty_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": []
+      },
+      "input": "\"x\"",
+      "expect": {
+        "schema_error": "enum"
+      }
+    },
+    {
+      "name": "enum_inverted_bounds_refused",
+      "keyword": "enum",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "a"
+        ],
+        "minLength": 3,
+        "maxLength": 1
+      },
+      "input": "\"a\"",
+      "expect": {
+        "schema_error": "minLength"
+      }
+    },
+    {
+      "name": "min_length_ok",
+      "keyword": "minLength",
+      "schema": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 10
+      },
+      "input": "\"hello\"",
+      "expect": "ok"
+    },
+    {
+      "name": "min_length_at_bound",
+      "keyword": "minLength",
+      "schema": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 10
+      },
+      "input": "\"hi\"",
+      "expect": "ok"
+    },
+    {
+      "name": "min_length_under_bound",
+      "keyword": "minLength",
+      "schema": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 10
+      },
+      "input": "\"h\"",
+      "expect": {
+        "code": "min_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "min_length_empty_string",
+      "keyword": "minLength",
+      "schema": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 10
+      },
+      "input": "\"\"",
+      "expect": {
+        "code": "min_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "min_length_multibyte_ok",
+      "keyword": "minLength",
+      "schema": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 2
+      },
+      "input": "\"🎉🎉\"",
+      "expect": "ok"
+    },
+    {
+      "name": "min_length_multibyte_under",
+      "keyword": "minLength",
+      "schema": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 2
+      },
+      "input": "\"🎉\"",
+      "expect": {
+        "code": "min_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "max_length_ok",
+      "keyword": "maxLength",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 3
+      },
+      "input": "\"ab\"",
+      "expect": "ok"
+    },
+    {
+      "name": "max_length_at_bound",
+      "keyword": "maxLength",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 3
+      },
+      "input": "\"abc\"",
+      "expect": "ok"
+    },
+    {
+      "name": "max_length_over_bound",
+      "keyword": "maxLength",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 3
+      },
+      "input": "\"abcd\"",
+      "expect": {
+        "code": "max_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "max_length_empty_string_ok",
+      "keyword": "maxLength",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 3
+      },
+      "input": "\"\"",
+      "expect": "ok"
+    },
+    {
+      "name": "max_length_multibyte_over",
+      "keyword": "maxLength",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 2
+      },
+      "input": "\"café\"",
+      "expect": {
+        "code": "max_length",
+        "node": 0
+      }
+    },
+    {
+      "name": "minimum_ok",
+      "keyword": "minimum",
+      "schema": {
+        "type": "integer",
+        "minimum": 5,
+        "maximum": 15
+      },
+      "input": "10",
+      "expect": "ok"
+    },
+    {
+      "name": "minimum_at_bound",
+      "keyword": "minimum",
+      "schema": {
+        "type": "integer",
+        "minimum": 5,
+        "maximum": 15
+      },
+      "input": "5",
+      "expect": "ok"
+    },
+    {
+      "name": "minimum_under_bound",
+      "keyword": "minimum",
+      "schema": {
+        "type": "integer",
+        "minimum": 5,
+        "maximum": 15
+      },
+      "input": "4",
+      "expect": {
+        "code": "minimum",
+        "node": 0
+      }
+    },
+    {
+      "name": "minimum_negative_at_bound",
+      "keyword": "minimum",
+      "schema": {
+        "type": "integer",
+        "minimum": -10,
+        "maximum": 10
+      },
+      "input": "-10",
+      "expect": "ok"
+    },
+    {
+      "name": "minimum_negative_under_bound",
+      "keyword": "minimum",
+      "schema": {
+        "type": "integer",
+        "minimum": -10,
+        "maximum": 10
+      },
+      "input": "-11",
+      "expect": {
+        "code": "minimum",
+        "node": 0
+      }
+    },
+    {
+      "name": "maximum_ok",
+      "keyword": "maximum",
+      "schema": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 20
+      },
+      "input": "15",
+      "expect": "ok"
+    },
+    {
+      "name": "maximum_at_bound",
+      "keyword": "maximum",
+      "schema": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 20
+      },
+      "input": "20",
+      "expect": "ok"
+    },
+    {
+      "name": "maximum_over_bound",
+      "keyword": "maximum",
+      "schema": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 20
+      },
+      "input": "21",
+      "expect": {
+        "code": "maximum",
+        "node": 0
+      }
+    },
+    {
+      "name": "maximum_fractional_input_refused",
+      "keyword": "maximum",
+      "schema": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 20
+      },
+      "input": "1.5",
+      "expect": {
+        "parse_error": "number"
+      }
+    },
+    {
+      "name": "maximum_overflow_input_refused",
+      "keyword": "maximum",
+      "schema": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 20
+      },
+      "input": "1e999",
+      "expect": {
+        "parse_error": "number"
+      }
+    },
+    {
+      "name": "items_ok",
+      "keyword": "items",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "maxItems": 5
+      },
+      "input": "[1, 5, 10]",
+      "expect": "ok"
+    },
+    {
+      "name": "items_element_failure",
+      "keyword": "items",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "maxItems": 5
+      },
+      "input": "[1, 15]",
+      "expect": {
+        "code": "maximum",
+        "node": 1
+      }
+    },
+    {
+      "name": "items_element_type_mismatch",
+      "keyword": "items",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "maxItems": 5
+      },
+      "input": "[1, true]",
+      "expect": {
+        "code": "type",
+        "node": 1
+      }
+    },
+    {
+      "name": "items_missing_in_schema",
+      "keyword": "items",
+      "schema": {
+        "type": "array",
+        "maxItems": 5
+      },
+      "input": "[]",
+      "expect": {
+        "schema_error": "items"
+      }
+    },
+    {
+      "name": "max_items_ok",
+      "keyword": "maxItems",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        },
+        "maxItems": 2
+      },
+      "input": "[true]",
+      "expect": "ok"
+    },
+    {
+      "name": "max_items_at_bound",
+      "keyword": "maxItems",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        },
+        "maxItems": 2
+      },
+      "input": "[true, false]",
+      "expect": "ok"
+    },
+    {
+      "name": "max_items_over_bound",
+      "keyword": "maxItems",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        },
+        "maxItems": 2
+      },
+      "input": "[true, false, true]",
+      "expect": {
+        "code": "max_items",
+        "node": 0
+      }
+    },
+    {
+      "name": "max_items_empty_array_ok",
+      "keyword": "maxItems",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        },
+        "maxItems": 2
+      },
+      "input": "[]",
+      "expect": "ok"
+    },
+    {
+      "name": "max_items_missing_in_schema",
+      "keyword": "maxItems",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        }
+      },
+      "input": "[]",
+      "expect": {
+        "schema_error": "maxItems"
+      }
+    },
+    {
+      "name": "unknown_keyword_pattern",
+      "keyword": "type",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 10,
+        "pattern": ".*"
+      },
+      "input": "\"test\"",
+      "expect": {
+        "schema_error": "pattern"
+      }
+    },
+    {
+      "name": "unknown_keyword_oneOf",
+      "keyword": "type",
+      "schema": {
+        "oneOf": []
+      },
+      "input": "\"test\"",
+      "expect": {
+        "schema_error": "oneOf"
+      }
+    },
+    {
+      "name": "unknown_keyword_ref",
+      "keyword": "type",
+      "schema": {
+        "$ref": "#/definitions/Item"
+      },
+      "input": "\"test\"",
+      "expect": {
+        "schema_error": "$ref"
+      }
+    },
+    {
+      "name": "unknown_keyword_format",
+      "keyword": "type",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 10,
+        "format": "email"
+      },
+      "input": "\"test\"",
+      "expect": {
+        "schema_error": "format"
+      }
+    },
+    {
+      "name": "unknown_keyword_default",
+      "keyword": "type",
+      "schema": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 10,
+        "default": "abc"
+      },
+      "input": "\"test\"",
+      "expect": {
+        "schema_error": "default"
+      }
+    },
+    {
+      "name": "unknown_keyword_minItems",
+      "keyword": "type",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        },
+        "maxItems": 5,
+        "minItems": 1
+      },
+      "input": "[true]",
+      "expect": {
+        "schema_error": "minItems"
+      }
+    },
+    {
+      "name": "invalid_keyword_for_type_minLength_on_integer",
+      "keyword": "minLength",
+      "schema": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 10,
+        "minLength": 1
+      },
+      "input": "5",
+      "expect": {
+        "schema_error": "minLength"
+      }
+    },
+    {
+      "name": "non_integer_bound_maximum",
+      "keyword": "maximum",
+      "schema": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": "invalid"
+      },
+      "input": "5",
+      "expect": {
+        "schema_error": "maximum"
+      }
+    }
+  ]
+}

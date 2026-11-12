@@ -1,0 +1,8 @@
+ops = [
+    "dir 0",
+    "partial 0",
+    "parse fieldbook-backup-0000",
+    "dir 10000",
+    "partial 10000",
+    "parse fieldbook-backup-10000",
+]

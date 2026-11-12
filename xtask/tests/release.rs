@@ -171,6 +171,16 @@ impl Repo {
             }
             std::fs::copy(&from, &to).unwrap_or_else(|e| panic!("copy {rel}: {e}"));
         }
+
+        for dir in [
+            "compat",
+            "crates/fieldbook-core/src/versions",
+            "crates/fieldbook-core/src/ports/templates",
+            "crates/fieldbook/src/io/versions",
+            "xtask/src/versions",
+        ] {
+            copy_tree(&src.join(dir), &self.dir.join(dir));
+        }
     }
 
     fn compatibility_files_from_published(&self) -> Vec<(String, String)> {
@@ -1197,5 +1207,20 @@ fn release_yml_has_no_release_page_or_signing() {
     }
     for (name, _) in jobs(&workflow_text) {
         assert!(!name.contains("sign"), "job name contains sign: {name}");
+    }
+}
+
+fn copy_tree(from: &std::path::Path, to: &std::path::Path) {
+    std::fs::create_dir_all(to).unwrap_or_else(|e| panic!("create {}: {e}", to.display()));
+    for entry in std::fs::read_dir(from).unwrap_or_else(|e| panic!("read {}: {e}", from.display()))
+    {
+        let entry = entry.unwrap_or_else(|e| panic!("entry: {e}"));
+        let path = entry.path();
+        let dest = to.join(entry.file_name());
+        if path.is_dir() {
+            copy_tree(&path, &dest);
+        } else {
+            std::fs::copy(&path, &dest).unwrap_or_else(|e| panic!("copy {}: {e}", path.display()));
+        }
     }
 }
