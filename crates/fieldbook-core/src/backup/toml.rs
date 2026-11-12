@@ -69,7 +69,9 @@ impl BackupToml {
             });
         }
 
-        if parsed.journal_state != "ok" && parsed.journal_state != "broken" {
+        if parsed.journal_state != "ok"
+            && parsed.journal_state != crate::strings::cite_statuses()[0]
+        {
             return Err(BackupError::InvalidValue {
                 key: "journal_state",
                 reason: format!("expected `ok` or `broken`, got `{}`", parsed.journal_state),

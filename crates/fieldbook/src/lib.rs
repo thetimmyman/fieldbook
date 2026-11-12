@@ -23,6 +23,7 @@ pub mod verify;
 pub use backup::render_backup_list_json;
 pub use cli::Cli;
 pub use fieldbook_core::labels::PlaceFacts;
+pub use fieldbook_core::manifest::SupportFacts;
 pub use io::{Audited, Error, StoreLease, WorldError};
 
 use std::ffi::OsString;
@@ -101,6 +102,9 @@ pub trait World {
 
     /// Return folder placement facts for `path`.
     fn place(&self, path: &Path) -> PlaceFacts;
+
+    /// Return facts about public support provenance: retained verified catalogues and completed public writes.
+    fn support_facts(&self) -> SupportFacts;
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -357,6 +361,15 @@ impl World for StateOverrideWorld<'_> {
     fn place(&self, path: &Path) -> PlaceFacts {
         self.inner.place(path)
     }
+
+    fn support_facts(&self) -> SupportFacts {
+        let facts = self.inner.support_facts();
+        if !facts.catalogues.is_empty() || !facts.public_writes.is_empty() {
+            return facts;
+        }
+        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+        disk.support_facts()
+    }
 }
 
 fn run_check(args: &CheckArgs, world: &dyn World) -> Outcome {
@@ -459,7 +472,9 @@ mod tests {
     use fieldbook_core::audit::{Now, Principal};
     use fieldbook_core::check::Tree;
 
-    use super::{PlaceFacts, StoreLease, World, WorldError, identity, run, version_line};
+    use super::{
+        PlaceFacts, StoreLease, SupportFacts, World, WorldError, identity, run, version_line,
+    };
 
     struct FakeWorld {
         cwd: PathBuf,
@@ -551,6 +566,10 @@ mod tests {
 
         fn place(&self, _path: &Path) -> PlaceFacts {
             PlaceFacts::local()
+        }
+
+        fn support_facts(&self) -> SupportFacts {
+            SupportFacts::default()
         }
     }
 

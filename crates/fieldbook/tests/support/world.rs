@@ -32,6 +32,7 @@ pub struct TestWorld {
     prompts: Mutex<Vec<String>>,
     prompt_ready: Condvar,
     place: Mutex<BTreeMap<PathBuf, PlaceFacts>>,
+    support_facts: Mutex<Option<fieldbook::SupportFacts>>,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -81,6 +82,7 @@ impl TestWorld {
             prompts: Mutex::new(Vec::new()),
             prompt_ready: Condvar::new(),
             place: Mutex::new(BTreeMap::new()),
+            support_facts: Mutex::new(None),
         }
     }
 
@@ -103,6 +105,7 @@ impl TestWorld {
             prompts: Mutex::new(Vec::new()),
             prompt_ready: Condvar::new(),
             place: Mutex::new(BTreeMap::new()),
+            support_facts: Mutex::new(None),
         }
     }
 
@@ -182,6 +185,24 @@ impl TestWorld {
         if let Ok(mut map) = self.place.lock() {
             map.insert(path.to_path_buf(), facts);
         }
+    }
+
+    /// Override the support facts returned by [`World::support_facts`].
+    pub fn set_support_facts(&self, facts: fieldbook::SupportFacts) {
+        if let Ok(mut g) = self.support_facts.lock() {
+            *g = Some(facts);
+        }
+    }
+
+    /// Set synthetic support catalogue facts for [`World::support_facts`].
+    pub fn set_support_catalogue(
+        &self,
+        cat: fieldbook_core::manifest::SupportCatalogue,
+        sha256: impl Into<String>,
+    ) {
+        let sha = sha256.into();
+        let facts = fieldbook::SupportFacts::new(vec![(cat, sha)], BTreeMap::new());
+        self.set_support_facts(facts);
     }
 }
 
@@ -288,5 +309,15 @@ impl World for TestWorld {
         } else {
             PlaceFacts::local()
         }
+    }
+
+    fn support_facts(&self) -> fieldbook::SupportFacts {
+        if let Ok(g) = self.support_facts.lock()
+            && let Some(facts) = g.as_ref()
+        {
+            return facts.clone();
+        }
+        let disk = Disk::with_state(self.tree_root(), &self.state_dir);
+        disk.support_facts()
     }
 }

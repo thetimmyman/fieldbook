@@ -499,7 +499,7 @@ pub struct BackupListSnapshot {
     pub journal_seq: u64,
     /// Hash of the snapshot's `backup.begin` journal event.
     pub journal_head: String,
-    /// Journal state (`"ok"` or `"broken"`).
+    /// Journal state (`ok` or `broken`).
     pub journal_state: String,
     /// Manifest SHA-256 hash.
     pub manifest_sha256: String,

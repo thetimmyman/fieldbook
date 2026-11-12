@@ -1896,6 +1896,10 @@ mod build {
         fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
             self.inner.place(path)
         }
+
+        fn support_facts(&self) -> fieldbook::SupportFacts {
+            self.inner.support_facts()
+        }
     }
 
     /// The real `build` path: a valid preflight (the row of `S-0098-v1` is public and active, and

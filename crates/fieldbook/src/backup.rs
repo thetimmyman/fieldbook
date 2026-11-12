@@ -564,7 +564,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         journal_seq,
         journal_head: journal_head.clone(),
         journal_state: if is_broken_chain {
-            "broken".to_string()
+            fieldbook_core::strings::cite_statuses()[0].to_string()
         } else {
             "ok".to_string()
         },
@@ -941,11 +941,21 @@ pub fn run_verify_with_policy(
                 code: EXIT_USAGE,
             };
         }
-        return Outcome {
-            stdout: String::new(),
-            stderr: "public support verification not built yet\n".to_string(),
-            code: EXIT_IO,
+        let Some(raw_path) = args.raw.as_deref() else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "error: --support-catalogue and --expect-support-sha256 require --raw\n"
+                    .to_string(),
+                code: EXIT_USAGE,
+            };
         };
+        return run_verify_raw(
+            world,
+            eff,
+            raw_path,
+            args.support_catalogue.as_deref(),
+            args.expect_support_sha256.as_deref(),
+        );
     }
 
     // 2. Raw copy verification
@@ -958,7 +968,7 @@ pub fn run_verify_with_policy(
                 code: EXIT_USAGE,
             };
         }
-        return run_verify_raw(world, raw_path);
+        return run_verify_raw(world, eff, raw_path, None, None);
     }
 
     // 3. Numbered snapshot verification
@@ -1030,7 +1040,13 @@ pub fn run_verify_with_policy(
     run_verify_numbered(world, eff, args, &target_path, warn_stale)
 }
 
-fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
+fn run_verify_raw(
+    world: &dyn World,
+    eff: &EffectivePolicy,
+    raw_path: &Path,
+    support_catalogue: Option<&Path>,
+    expect_support_sha256: Option<&str>,
+) -> Outcome {
     if !raw_path.is_dir() {
         return Outcome {
             stdout: String::new(),
@@ -1042,7 +1058,19 @@ fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
         };
     }
 
-    let corpus_root = if raw_path.join("data/corpus").is_dir() {
+    let has_data_corpus = raw_path.join("data/corpus").is_dir();
+    let has_corpus = raw_path.join("corpus").is_dir();
+    if support_catalogue.is_some()
+        && ((has_data_corpus && has_corpus) || (!has_data_corpus && !has_corpus))
+    {
+        return Outcome {
+            stdout: String::new(),
+            stderr: "error[FB0811]: raw copy public corpus root is zero or ambiguous\n".to_string(),
+            code: EXIT_FINDINGS,
+        };
+    }
+
+    let corpus_root = if has_data_corpus {
         raw_path.join("data")
     } else {
         raw_path.to_path_buf()
@@ -1067,6 +1095,17 @@ fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
         };
     };
 
+    let lease = match world.write_lease() {
+        Ok(l) => l,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("cannot acquire store lease: {err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+
     let mut errors = String::new();
     if !is_journal_chain_clean(&state_dir) {
         errors.push_str("error[FB0800]: journal hash chain is broken\n");
@@ -1083,7 +1122,7 @@ fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
         }
     };
 
-    let host = Host::new(tree, world.today());
+    let host = Host::new(tree.clone(), world.today());
     let (_model, report) = load(&host, &Options::new(false));
 
     for diag in &report.diagnostics {
@@ -1107,16 +1146,177 @@ fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
         .canonicalize()
         .unwrap_or_else(|_| raw_path.to_path_buf());
     let raw_sha256 = Sha256::digest(raw_canonical.to_string_lossy().as_bytes());
-    let verified = BackupVerified::Raw {
-        path_sha256: raw_sha256,
-        public_support_sha256: None,
-    };
-    if let Ok(mut j) = Journal::open(world, world.state_dir(), Via::Cli) {
-        let _ = j.append_backup_verify(Word::new_static("ok"), verified);
+
+    if support_catalogue.is_none() {
+        let verified = BackupVerified::Raw {
+            path_sha256: raw_sha256,
+            public_support_sha256: None,
+        };
+        if let Ok(mut j) = Journal::open(world, world.state_dir(), Via::Cli) {
+            let _ = j.append_backup_verify(Word::new_static("ok"), verified);
+        }
+        return Outcome {
+            stdout: "raw copy consistent\n".to_string(),
+            stderr: String::new(),
+            code: EXIT_OK,
+        };
     }
 
+    let (Some(cat_file), Some(expected_hex)) = (support_catalogue, expect_support_sha256) else {
+        unreachable!("already checked flags are paired");
+    };
+
+    if !manifest::is_lower_hex(expected_hex, 64) {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("error[FB0811]: expected support sha256 is invalid: {expected_hex}\n"),
+            code: EXIT_FINDINGS,
+        };
+    }
+
+    let cat_bytes = match std::fs::read(cat_file) {
+        Ok(b) => b,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("cannot read support catalogue: {err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+
+    let cat = match manifest::verify_support_catalogue_bytes(&cat_bytes, expected_hex) {
+        Ok(c) => c,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("error[FB0811]: support catalogue verification failed: {err}\n"),
+                code: EXIT_FINDINGS,
+            };
+        }
+    };
+
+    if let Err(err) = cat.verify_present_support_files(&tree) {
+        let code_str = match &err {
+            manifest::SupportCatalogueError::FileBindingMismatch { reason, .. }
+                if reason.starts_with("sha256 mismatch") =>
+            {
+                "FB0810"
+            }
+            _ => "FB0811",
+        };
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("error[{code_str}]: {err}\n"),
+            code: EXIT_FINDINGS,
+        };
+    }
+
+    let Ok(cat_text) = std::str::from_utf8(&cat_bytes) else {
+        return Outcome {
+            stdout: String::new(),
+            stderr: "error[FB0811]: support catalogue is not valid UTF-8\n".to_string(),
+            code: EXIT_FINDINGS,
+        };
+    };
+    let rules = eff.marking_rules();
+    let mut cat_labels = LabelSet::public();
+    if let Some(mark_set) = markings_in(cat_text, &rules) {
+        cat_labels = cat_labels.union(&mark_set);
+    }
+    let state_rule = eff.store_rule(&StoreId::State);
+    if labels::admit(&cat_labels, &state_rule).is_err() {
+        return Outcome {
+            stdout: String::new(),
+            stderr: "error[FB0811]: support catalogue labels not admitted to state\n".to_string(),
+            code: EXIT_FINDINGS,
+        };
+    }
+    let dest_rel = format!("public-support/{expected_hex}.toml");
+    let dest_path = world.state_dir().join(&dest_rel);
+    let git_ok = git_context(world, &dest_path)
+        .map(|ctx| labels::git_guard(&cat_labels, ctx).is_ok())
+        .unwrap_or(false);
+    if !git_ok {
+        return Outcome {
+            stdout: String::new(),
+            stderr: "error[FB0811]: git guard refuses support catalogue retention\n".to_string(),
+            code: EXIT_FINDINGS,
+        };
+    }
+
+    let mut journal = match Journal::open(world, world.state_dir(), Via::Cli) {
+        Ok(j) => j,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("cannot open journal: {err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+
+    if dest_path.is_file() {
+        let existing_bytes = match std::fs::read(&dest_path) {
+            Ok(b) => b,
+            Err(err) => {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("cannot read existing retained catalogue: {err}\n"),
+                    code: EXIT_IO,
+                };
+            }
+        };
+        if existing_bytes != cat_bytes {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "error[FB0811]: existing retained catalogue has differing bytes\n"
+                    .to_string(),
+                code: EXIT_FINDINGS,
+            };
+        }
+    } else {
+        let state_audited = match journal.state_scope(&lease) {
+            Ok(t) => t,
+            Err(err) => {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("cannot acquire state scope: {err}\n"),
+                    code: EXIT_IO,
+                };
+            }
+        };
+        if let Err(err) = world.write_file(&state_audited, &dest_path, &cat_bytes) {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("cannot retain public support catalogue: {err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    }
+
+    let Ok(support_sha) = Sha256::parse(expected_hex) else {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("error[FB0811]: invalid support sha256: {expected_hex}\n"),
+            code: EXIT_FINDINGS,
+        };
+    };
+    let verified = BackupVerified::Raw {
+        path_sha256: raw_sha256,
+        public_support_sha256: Some(support_sha),
+    };
+    if let Err(err) = journal.append_backup_verify(Word::new_static("ok"), verified) {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("cannot append backup.verify event: {err}\n"),
+            code: EXIT_IO,
+        };
+    }
+
+    let short = &expected_hex[..12];
     Outcome {
-        stdout: "raw copy consistent\n".to_string(),
+        stdout: format!("raw copy consistent\npublic support catalogue verified: {short}\n"),
         stderr: String::new(),
         code: EXIT_OK,
     }

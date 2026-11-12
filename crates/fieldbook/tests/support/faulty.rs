@@ -196,4 +196,8 @@ impl World for FaultyWorld {
     fn place(&self, path: &Path) -> PlaceFacts {
         self.inner.place(path)
     }
+
+    fn support_facts(&self) -> fieldbook::SupportFacts {
+        self.inner.support_facts()
+    }
 }

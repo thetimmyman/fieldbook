@@ -713,6 +713,9 @@ fn held_open_target_is_in_use() {
         fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
             self.inner.place(path)
         }
+        fn support_facts(&self) -> fieldbook::SupportFacts {
+            self.inner.support_facts()
+        }
     }
 
     let tmp = temp_copy(&fixture_root());

@@ -105,9 +105,11 @@ fn backup_settings_parses_defaults_and_targets() {
     assert_eq!(empty_cfg.keep_weekly, 4);
     assert!(empty_cfg.targets.is_empty());
 
-    let toml = r#"
+    let bin = fieldbook_core::strings::binary();
+    let toml = format!(
+        r#"
 [general]
-app = "fieldbook"
+app = "{bin}"
 
 [backup]
 default = "main"
@@ -126,8 +128,9 @@ company_storage = true
 id = "cloud"
 kind = "synced"
 path = "C:/Users/test/OneDrive/backups"
-"#;
-    let cfg = BackupSettings::parse(toml).expect("parse custom");
+"#
+    );
+    let cfg = BackupSettings::parse(&toml).expect("parse custom");
     assert_eq!(cfg.default.as_deref(), Some("main"));
     assert_eq!(cfg.warn_after_days, 14);
     assert_eq!(cfg.keep_last, 10);
@@ -782,6 +785,15 @@ fn journal_backup_verify_prune_and_queries() {
     assert_eq!(drill_info.code, None);
 }
 
+fn make_raw_copy(tree_root: &Path, state_dir: &Path) -> tempfile::TempDir {
+    let raw = tempfile::tempdir().expect("raw tempdir");
+    let corpus_dest = raw.path().join("corpus");
+    let state_dest = raw.path().join("state");
+    support::copy_dir_recursive(&tree_root.join("corpus"), &corpus_dest).expect("copy corpus");
+    support::copy_dir_recursive(state_dir, &state_dest).expect("copy state");
+    raw
+}
+
 struct TestFixture {
     _tree_dir: tempfile::TempDir,
     _state_dir: tempfile::TempDir,
@@ -790,6 +802,10 @@ struct TestFixture {
 }
 
 impl TestFixture {
+    fn raw_copy(&self) -> tempfile::TempDir {
+        make_raw_copy(self.tree_root(), self.state_dir())
+    }
+
     fn new() -> Self {
         let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
         let corpus_mini = repo.join("tests/fixtures/corpus-mini");
@@ -808,6 +824,14 @@ impl TestFixture {
         std::fs::write(&settings_path, settings_text).expect("write settings.toml");
 
         let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+        let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+        let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+            &tree,
+            "1111111111111111111111111111111111111111",
+        )
+        .expect("catalogue from corpus-mini");
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
         Self {
             _tree_dir: tree_dir,
             _state_dir: state_dir,
@@ -899,6 +923,14 @@ fn latest_is_written_last() {
 
     // Second backup fails on LATEST write using FaultyWorld
     let world2 = TestWorld::with_state(fix.tree_root(), fix.state_dir());
+    let tree = fieldbook::io::read_tree(fix.tree_root()).expect("read tree");
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world2.set_support_catalogue(cat, cat_sha);
+    }
     let faulty = FaultyWorld::new(
         world2,
         Fault::FailOnName {
@@ -1166,11 +1198,14 @@ fn backup_runs_on_a_refused_journal() {
     assert!(snap_dir.is_dir());
     assert!(snap_dir.join("SHA256SUMS").is_file());
 
-    // backup.toml records journal_state = "broken"
+    // backup.toml records journal_state = `broken`
     let toml_text =
         std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read backup.toml");
     let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
-    assert_eq!(info.journal_state, "broken");
+    assert_eq!(
+        info.journal_state,
+        fieldbook_core::strings::cite_statuses()[0]
+    );
 
     // No event appended to journal
     let journal_after = std::fs::read_to_string(&journal_path).expect("read journal after");
@@ -1196,6 +1231,14 @@ fn backup_after_an_earlier_break_records_broken() {
     std::fs::write(&settings_path, settings_text).expect("write settings");
 
     let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
     let eff = floor_a_effective();
     let options = BackupOptions {
         target: Some("main".to_string()),
@@ -1209,7 +1252,10 @@ fn backup_after_an_earlier_break_records_broken() {
     let toml_text =
         std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read backup.toml");
     let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
-    assert_eq!(info.journal_state, "broken");
+    assert_eq!(
+        info.journal_state,
+        fieldbook_core::strings::cite_statuses()[0]
+    );
 
     // begin and end are appended
     let journal_text = std::fs::read_to_string(state_dir.path().join("audit/journal.jsonl"))
@@ -1781,6 +1827,14 @@ fn no_target_no_snapshot_prints_nothing() {
         .expect("write settings");
 
     let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
     let list_args = BackupListArgs {
         target: None,
         in_dir: None,
@@ -1971,6 +2025,14 @@ fn wrote_store_ignores_build() {
     let state_dir = support::temp_copy(&state_mini);
     let out_dir = tempfile::tempdir().expect("out dir");
     let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
 
     // 1. Build leaves wrote_store false
     let build_out = fieldbook::run(
@@ -2200,6 +2262,14 @@ fn one_off_verification_survives_reopen() {
     std::fs::write(&settings_path, "role = \"lead\"\n").expect("write settings");
 
     let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
 
     // One-off backup to DIR
     let b_out = fieldbook::run(
@@ -2970,4 +3040,895 @@ fn an_unknown_handoff_file_adds_unlabelled() {
         "unknown handoff file must add unlabelled and refuse FB0901"
     );
     assert!(out.stderr.contains("FB0901"));
+}
+
+#[test]
+fn complete_corpus_support_files_are_backed_up() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let corpus = fix.tree_root().join("corpus");
+    std::fs::write(corpus.join("AGENTS.md"), b"Agents doc\n").expect("write AGENTS.md");
+    std::fs::write(
+        corpus.join(fieldbook_core::strings::paths()[6]),
+        b"Assistant doc\n",
+    )
+    .expect("write assistant");
+    std::fs::write(corpus.join("README.md"), b"Readme doc\n").expect("write README.md");
+    std::fs::write(corpus.join("changes.md"), b"Changes doc\n").expect("write changes.md");
+    std::fs::write(corpus.join("scan-allow.toml"), b"# scan allow\n")
+        .expect("write scan-allow.toml");
+
+    let t_dir = corpus.join("templates");
+    std::fs::create_dir_all(&t_dir).expect("create templates");
+    std::fs::write(t_dir.join("concept.md"), b"+++\ntype = \"concept\"\n+++\n")
+        .expect("write concept.md");
+    let wb_dir = t_dir.join("workbooks");
+    std::fs::create_dir_all(&wb_dir).expect("create wb dir");
+    std::fs::write(wb_dir.join("financial.csv"), b"code,amount\n").expect("write financial.csv");
+
+    let eval_dir = corpus.join("eval");
+    std::fs::create_dir_all(&eval_dir).expect("create eval");
+    std::fs::write(eval_dir.join("regression.toml"), b"# regression\n")
+        .expect("write regression.toml");
+
+    let pipe_dir = corpus.join("pipeline");
+    std::fs::create_dir_all(&pipe_dir).expect("create pipeline");
+    std::fs::write(pipe_dir.join("rules.toml"), b"# rules\n").expect("write rules.toml");
+
+    let tree = fieldbook::io::read_tree(fix.tree_root()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    fix.world.set_support_catalogue(cat, cat_sha);
+
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).expect("read SHA256SUMS");
+
+    assert!(sums_text.contains("data/corpus/AGENTS.md"));
+    assert!(sums_text.contains("data/corpus/ASSISTANT.md"));
+    assert!(sums_text.contains("data/corpus/README.md"));
+    assert!(sums_text.contains("data/corpus/corpus.toml"));
+    assert!(sums_text.contains("data/corpus/changes.md"));
+    assert!(sums_text.contains("data/corpus/scan-allow.toml"));
+    assert!(sums_text.contains("data/corpus/templates/concept.md"));
+    assert!(sums_text.contains("data/corpus/templates/workbooks/financial.csv"));
+    assert!(sums_text.contains("data/corpus/eval/regression.toml"));
+    assert!(sums_text.contains("data/corpus/pipeline/rules.toml"));
+}
+
+#[test]
+fn support_without_public_provenance_refuses_backup() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let tree = fieldbook::io::read_tree(fix.tree_root()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let incomplete_files: Vec<_> = cat
+        .files
+        .iter()
+        .filter(|f| f.path != "changes.md")
+        .cloned()
+        .collect();
+    let mut incomplete_pairs = Vec::new();
+    for f in incomplete_files {
+        incomplete_pairs.push((f.path, f.sha256));
+    }
+    let incomplete_cat = fieldbook_core::manifest::SupportCatalogue::new(
+        cat.corpus_schema,
+        &cat.commit,
+        incomplete_pairs,
+    )
+    .expect("new cat");
+    let (_, inc_sha) = incomplete_cat.to_toml_bytes_and_sha256();
+    fix.world.set_support_catalogue(incomplete_cat, inc_sha);
+
+    let outcome_a = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome_a.code, 2,
+        "must refuse missing provenance with exit 2"
+    );
+    assert!(outcome_a.stderr.contains("FB0901"));
+
+    let (complete_cat, cat_sha) = {
+        let c = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+            &tree,
+            "1111111111111111111111111111111111111111",
+        )
+        .expect("from_public_source");
+        let (_, s) = c.to_toml_bytes_and_sha256();
+        (c, s)
+    };
+    fix.world.set_support_catalogue(complete_cat, cat_sha);
+
+    let changes_path = fix.tree_root().join("corpus/changes.md");
+    std::fs::write(&changes_path, b"Mutated changes content\n").expect("write changes");
+
+    let outcome_b = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome_b.code, 2, "must refuse mutated byte with exit 2");
+    assert!(outcome_b.stderr.contains("FB0901"));
+}
+
+#[test]
+fn raw_integrity_does_not_grant_public_provenance() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let raw = fix.raw_copy();
+    let raw_args = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let verify_out = run_verify(&fix.world, &raw_args);
+    assert_eq!(
+        verify_out.code, 0,
+        "ordinary raw verify must succeed: {}",
+        verify_out.stderr
+    );
+    assert!(verify_out.stdout.contains("raw copy consistent\n"));
+    assert!(
+        !verify_out
+            .stdout
+            .contains("public support catalogue verified")
+    );
+
+    let events = fieldbook::io::journal::read_valid_events_prefix(fix.state_dir());
+    let last_verify = events
+        .iter()
+        .filter_map(|e| {
+            if let EventPayload::BackupVerify { verified, outcome } = &e.payload {
+                Some((verified, outcome))
+            } else {
+                None
+            }
+        })
+        .next_back()
+        .expect("must have backup.verify event");
+    assert_eq!(last_verify.1.as_str(), "ok");
+    if let BackupVerified::Raw {
+        public_support_sha256,
+        ..
+    } = last_verify.0
+    {
+        assert_eq!(*public_support_sha256, None);
+    } else {
+        panic!("expected BackupVerified::Raw");
+    }
+
+    fix.world
+        .set_support_facts(fieldbook::SupportFacts::empty());
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let backup_out = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        backup_out.code, 2,
+        "must refuse with exit 2 when unlabelled"
+    );
+    assert!(backup_out.stderr.contains("FB0901"));
+}
+
+#[test]
+fn public_support_needs_an_independent_expected_digest() {
+    let fix = TestFixture::new();
+    let raw = fix.raw_copy();
+
+    let tree = fieldbook::io::read_tree(fix.tree_root()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
+    let cat_file = fix.tree_root().join("corpus-support.toml");
+    std::fs::write(&cat_file, &cat_bytes).expect("write cat");
+
+    // Missing expect_support_sha256 -> exit 2
+    let args1 = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file.clone()),
+        expect_support_sha256: None,
+    };
+    let out1 = run_verify(&fix.world, &args1);
+    assert_eq!(out1.code, 2);
+
+    // Missing support_catalogue -> exit 2
+    let args2 = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: None,
+        expect_support_sha256: Some(cat_sha.clone()),
+    };
+    let out2 = run_verify(&fix.world, &args2);
+    assert_eq!(out2.code, 2);
+
+    // Support flags without raw -> exit 2
+    let args3 = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: None,
+        support_catalogue: Some(cat_file.clone()),
+        expect_support_sha256: Some(cat_sha.clone()),
+    };
+    let out3 = run_verify(&fix.world, &args3);
+    assert_eq!(out3.code, 2);
+
+    // Support flags with target -> exit 2
+    let args4 = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file.clone()),
+        expect_support_sha256: Some(cat_sha.clone()),
+    };
+    let out4 = run_verify(&fix.world, &args4);
+    assert_eq!(out4.code, 2);
+
+    // Mismatched expected digest -> exit 1, FB0811
+    let wrong_sha = "0000000000000000000000000000000000000000000000000000000000000000";
+    let args5 = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file),
+        expect_support_sha256: Some(wrong_sha.to_string()),
+    };
+    let out5 = run_verify(&fix.world, &args5);
+    assert_eq!(out5.code, 1);
+    assert!(out5.stderr.contains("FB0811"));
+
+    // Forged candidate raw journal grants nothing in live state
+    let forged_journal = raw.path().join("state/audit/journal.jsonl");
+    let forged_event = format!(
+        "{{\"seq\":10,\"at\":\"2026-03-01T12:00:00Z\",\"principal\":\"local\",\"role\":\"owner\",\"store\":\"state\",\"via\":\"cli\",\"kind\":\"backup.verify\",\"verified\":{{\"mode\":\"raw\",\"target_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"path_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"public_support_sha256\":\"{cat_sha}\"}},\"outcome\":\"ok\",\"hash\":\"0000000000000000000000000000000000000000000000000000000000000000\"}}\n"
+    );
+    std::fs::write(&forged_journal, forged_event).expect("write forged event");
+    fix.world
+        .set_support_facts(fieldbook::SupportFacts::empty());
+    assert!(
+        !fix.world
+            .support_facts()
+            .has_provenance("corpus.toml", "dummy")
+    );
+}
+
+#[test]
+fn verified_support_is_exact_and_reopens() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+
+    let settings_path = state_dir.path().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_dir.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let eff = floor_a_effective();
+
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
+    let cat_file = tree_dir.path().join("corpus-support.toml");
+    std::fs::write(&cat_file, &cat_bytes).expect("write cat file");
+
+    let raw = make_raw_copy(tree_dir.path(), state_dir.path());
+
+    let verify_args = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file),
+        expect_support_sha256: Some(cat_sha.clone()),
+    };
+    let v_out = run_verify(&world, &verify_args);
+    assert_eq!(v_out.code, 0, "optional verify failed: {}", v_out.stderr);
+    assert!(v_out.stdout.contains("raw copy consistent\n"));
+    let short_hex = &cat_sha[..12];
+    assert!(
+        v_out
+            .stdout
+            .contains(&format!("public support catalogue verified: {short_hex}"))
+    );
+
+    drop(world);
+    let world2 = TestWorld::with_state(tree_dir.path(), state_dir.path());
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let b_out1 = run_backup(&world2, &eff, &options);
+    assert_eq!(
+        b_out1.code, 0,
+        "backup after reopen must succeed: {}",
+        b_out1.stderr
+    );
+    let latest1 = std::fs::read_to_string(target_dir.path().join("LATEST")).expect("read LATEST");
+    assert!(latest1.starts_with("1\n"));
+
+    let changes_path = tree_dir.path().join("corpus/changes.md");
+    let mutated_bytes = b"Mutated after verify\n";
+    std::fs::write(&changes_path, mutated_bytes).expect("write mutated");
+
+    let b_out2 = run_backup(&world2, &eff, &options);
+    assert_eq!(b_out2.code, 2, "mutated support byte must refuse FB0901");
+    assert!(b_out2.stderr.contains("FB0901"));
+    let latest2 = std::fs::read_to_string(target_dir.path().join("LATEST")).expect("read LATEST");
+    assert_eq!(latest2, latest1);
+    assert!(!target_dir.path().join("fieldbook-backup-0002").exists());
+
+    // Record a write that fails: does not count!
+    let mutated_sha = fieldbook_core::hash::sha256_hex(mutated_bytes);
+    let ws = fieldbook_core::audit::WriteSet {
+        labels: LabelSet::public(),
+        files: vec![fieldbook_core::audit::WriteFile::new(
+            "corpus/changes.md",
+            mutated_sha.clone(),
+        )],
+        affected: Vec::new(),
+    };
+    let intent_failed = fieldbook_core::audit::OperationIntent {
+        schema: 1,
+        key: fieldbook_core::audit::OperationKey {
+            verb: fieldbook_core::audit::Verb::parse("add").unwrap(),
+            subject_sha256: Sha256::digest(b"failed_sub"),
+        },
+        request_sha256: Sha256::digest(b"req_failed"),
+        allocated: Vec::new(),
+        allocated_store_uid: None,
+        planned_on: CivilDate::from_ymd(2026, 3, 1).unwrap(),
+    };
+    {
+        let lease = world2.write_lease().expect("lease");
+        let mut journal = Journal::open(&world2, world2.state_dir(), Via::Cli).expect("journal");
+        let token_failed = journal
+            .begin(&lease, &intent_failed, &ws)
+            .expect("begin failed");
+        // Pending intent does not grant provenance
+        assert!(
+            !world2
+                .support_facts()
+                .has_provenance("corpus/changes.md", &mutated_sha)
+        );
+        journal
+            .end(token_failed, Word::new_static("failed"))
+            .expect("end failed");
+    }
+    // Failed write does not grant provenance
+    let b_out_failed = run_backup(&world2, &eff, &options);
+    assert_eq!(
+        b_out_failed.code, 2,
+        "failed write must not grant provenance"
+    );
+
+    // Clear pending.toml after failed write so next write can begin
+    let pending_file = state_dir.path().join("pending.toml");
+    if pending_file.exists() {
+        let _ = std::fs::remove_file(&pending_file);
+    }
+
+    // Complete write with outcome ok
+    let intent_ok = fieldbook_core::audit::OperationIntent {
+        schema: 1,
+        key: fieldbook_core::audit::OperationKey {
+            verb: fieldbook_core::audit::Verb::parse("add").unwrap(),
+            subject_sha256: Sha256::digest(b"ok_sub"),
+        },
+        request_sha256: Sha256::digest(b"req_ok"),
+        allocated: Vec::new(),
+        allocated_store_uid: None,
+        planned_on: CivilDate::from_ymd(2026, 3, 1).unwrap(),
+    };
+    {
+        let lease = world2.write_lease().expect("lease");
+        let mut journal = Journal::open(&world2, world2.state_dir(), Via::Cli).expect("journal");
+        let token_ok = journal.begin(&lease, &intent_ok, &ws).expect("begin ok");
+        journal
+            .end(token_ok, Word::new_static("ok"))
+            .expect("end ok");
+    }
+
+    drop(world2);
+    let world3 = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let b_out3 = run_backup(&world3, &eff, &options);
+    assert_eq!(
+        b_out3.code, 0,
+        "backup after completed public write must succeed: {}",
+        b_out3.stderr
+    );
+    let latest3 = std::fs::read_to_string(target_dir.path().join("LATEST")).expect("read LATEST");
+    assert!(latest3.starts_with("2\n"));
+}
+
+#[test]
+fn support_cache_without_success_is_unresolved() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+
+    let settings_path = state_dir.path().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_dir.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
+    let orphan_path = state_dir
+        .path()
+        .join("public-support")
+        .join(format!("{cat_sha}.toml"));
+    std::fs::create_dir_all(orphan_path.parent().unwrap()).expect("create dir");
+    std::fs::write(&orphan_path, &cat_bytes).expect("write orphan");
+
+    // Orphan catalogue (no matching verify event) grants nothing
+    let out_orphan = run_backup(&world, &eff, &options);
+    assert_eq!(
+        out_orphan.code, 2,
+        "orphan catalogue must not grant provenance"
+    );
+    assert!(out_orphan.stderr.contains("FB0901"));
+
+    // Real verify succeeds and retains binding
+    let raw = make_raw_copy(tree_dir.path(), state_dir.path());
+    let cat_file = tree_dir.path().join("cat.toml");
+    std::fs::write(&cat_file, &cat_bytes).expect("write cat file");
+    let verify_args = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file),
+        expect_support_sha256: Some(cat_sha.clone()),
+    };
+    let v_out = run_verify(&world, &verify_args);
+    assert_eq!(v_out.code, 0, "real verify succeeds: {}", v_out.stderr);
+
+    // Normal backup succeeds
+    let out_retry = run_backup(&world, &eff, &options);
+    assert_eq!(
+        out_retry.code, 0,
+        "backup after verify must succeed: {}",
+        out_retry.stderr
+    );
+
+    // Schema-valid recovery prefix establishes proof before planted tail fault
+    let journal_path = state_dir.path().join("audit/journal.jsonl");
+    let content = std::fs::read_to_string(&journal_path).expect("read journal");
+    let last = content
+        .lines()
+        .rfind(|l| !l.trim().is_empty())
+        .expect("last line");
+    let (last_event, _) = fieldbook_core::audit::Event::parse_line(last).expect("parse last");
+    let next_seq = last_event.seq + 1;
+    let (prefix, _) = last.rsplit_once(',').expect("split comma");
+    let seq_str = format!("\"seq\":{}", last_event.seq);
+    let new_seq_str = format!("\"seq\":{next_seq}");
+    let prefix_with_next_seq = prefix.replace(&seq_str, &new_seq_str);
+    let bad_tail_line = format!(
+        "{prefix_with_next_seq},\"hash\":\"0000000000000000000000000000000000000000000000000000000000000000\"}}\n"
+    );
+    let mut j_content = content.clone();
+    j_content.push_str(&bad_tail_line);
+    std::fs::write(&journal_path, j_content).expect("write corrupted journal");
+
+    let out_prefix = run_backup(&world, &eff, &options);
+    assert_eq!(
+        out_prefix.code, 1,
+        "recovery prefix establishes proof before fault: {}",
+        out_prefix.stderr
+    );
+}
+
+#[test]
+fn public_support_keeps_markings_and_admission() {
+    let fix = TestFixture::new();
+
+    let tree = fieldbook::io::read_tree(fix.tree_root()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+
+    let agents_path = fix.tree_root().join("corpus/AGENTS.md");
+    let marked_content = "# Agent instructions\n\nCOMPANY CONFIDENTIAL\n";
+    std::fs::write(&agents_path, marked_content).expect("write marked agents");
+    let marked_sha = fieldbook_core::hash::sha256_hex(marked_content.as_bytes());
+
+    let mut pairs = Vec::new();
+    for f in &cat.files {
+        if f.path == "AGENTS.md" {
+            pairs.push((f.path.clone(), marked_sha.clone()));
+        } else {
+            pairs.push((f.path.clone(), f.sha256.clone()));
+        }
+    }
+    let cat_with_marked =
+        fieldbook_core::manifest::SupportCatalogue::new(cat.corpus_schema, &cat.commit, pairs)
+            .expect("new cat with marked");
+    let (_, cat_sha) = cat_with_marked.to_toml_bytes_and_sha256();
+    fix.world.set_support_catalogue(cat_with_marked, cat_sha);
+
+    let eff_floor_a = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let out = run_backup(&fix.world, &eff_floor_a, &options);
+    assert_eq!(
+        out.code, 2,
+        "unmapped marking must keep marked and refuse export"
+    );
+    assert!(out.stderr.contains("FB0901"));
+
+    // Mapped restrictive label: when policy maps marking and destination allows it, backup succeeds
+    let target_str = fix
+        .target_path()
+        .canonicalize()
+        .expect("canon")
+        .to_string_lossy()
+        .replace('\\', "/");
+    let policy_toml = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "COMPANY CONFIDENTIAL"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied", "np-0007"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy = Policy::parse(&policy_toml, None).expect("parse policy");
+    let eff_loaded = EffectivePolicy::new(&PolicyState::Loaded(policy), &OwnerSettings::unset());
+    let out_loaded = run_backup(&fix.world, &eff_loaded, &options);
+    assert_eq!(
+        out_loaded.code, 0,
+        "mapped restrictive label allowed by destination must succeed: {}",
+        out_loaded.stderr
+    );
+
+    // Destination without restrictive label must refuse
+    let policy_toml_no_dest = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "COMPANY CONFIDENTIAL"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy2 = Policy::parse(&policy_toml_no_dest, None).expect("parse policy");
+    let eff_no_dest = EffectivePolicy::new(&PolicyState::Loaded(policy2), &OwnerSettings::unset());
+    let out_refused = run_backup(&fix.world, &eff_no_dest, &options);
+    assert_eq!(
+        out_refused.code, 2,
+        "destination without restrictive label must refuse"
+    );
+    assert!(out_refused.stderr.contains("FB0901"));
+
+    // Floor B route: restore clean AGENTS.md, but remove support provenance facts so support is unlabelled.
+    // Configure target with company_storage = true.
+    let fix2 = TestFixture::new();
+    let target2_str = fix2
+        .target_path()
+        .canonicalize()
+        .expect("canon")
+        .to_string_lossy()
+        .replace('\\', "/");
+    let settings_cs = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{target2_str}\"\ncompany_storage = true\n"
+    );
+    std::fs::write(fix2.state_dir().join("settings.toml"), settings_cs).expect("write settings");
+    fix2.world
+        .set_support_facts(fieldbook::SupportFacts::empty());
+
+    // Under Floor A: unlabelled support refuses
+    let out_floor_a_unlabelled = run_backup(&fix2.world, &eff_floor_a, &options);
+    assert_eq!(out_floor_a_unlabelled.code, 2, "floor A refuses unlabelled");
+
+    // Under Floor B with company_storage: true, unlabelled is permitted
+    let eff_floor_b =
+        EffectivePolicy::new(&PolicyState::Floor(FloorKind::B), &OwnerSettings::unset());
+    let out_floor_b = run_backup(&fix2.world, &eff_floor_b, &options);
+    assert_eq!(
+        out_floor_b.code, 0,
+        "floor B route permits export of unlabelled: {}",
+        out_floor_b.stderr
+    );
+}
+
+#[test]
+fn one_executable_accepts_two_supported_editions() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let eff = floor_a_effective();
+
+    // Dataset A:
+    let tree_a = support::temp_copy(&corpus_mini);
+    let state_a = support::temp_copy(&state_mini);
+    let target_a = tempfile::tempdir().expect("target a");
+    let settings_a = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_a.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(state_a.path().join("settings.toml"), settings_a).expect("write settings a");
+    let world_a = TestWorld::with_state(tree_a.path(), state_a.path());
+
+    let t_a = fieldbook::io::read_tree(tree_a.path()).expect("read tree a");
+    let cat_a = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &t_a,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source a");
+    let (cat_bytes_a, cat_sha_a) = cat_a.to_toml_bytes_and_sha256();
+    let cat_file_a = tree_a.path().join("cat_a.toml");
+    std::fs::write(&cat_file_a, &cat_bytes_a).expect("write cat a");
+
+    let raw_a = make_raw_copy(tree_a.path(), state_a.path());
+
+    let v_a = run_verify(
+        &world_a,
+        &BackupVerifyArgs {
+            target: None,
+            in_dir: None,
+            snapshot: None,
+            raw: Some(raw_a.path().to_path_buf()),
+            support_catalogue: Some(cat_file_a),
+            expect_support_sha256: Some(cat_sha_a),
+        },
+    );
+    assert_eq!(v_a.code, 0, "verify dataset A: {}", v_a.stderr);
+    let b_a = run_backup(
+        &world_a,
+        &eff,
+        &BackupOptions {
+            target: Some("main".to_string()),
+            to: None,
+            dry_run: false,
+        },
+    );
+    assert_eq!(b_a.code, 0, "backup dataset A: {}", b_a.stderr);
+
+    // Dataset B: different support bytes (templates and regression.toml changed)
+    let tree_b = support::temp_copy(&corpus_mini);
+    let state_b = support::temp_copy(&state_mini);
+    let target_b = tempfile::tempdir().expect("target b");
+    let settings_b = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_b.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(state_b.path().join("settings.toml"), settings_b).expect("write settings b");
+
+    std::fs::create_dir_all(tree_b.path().join("corpus/eval")).expect("create eval");
+    std::fs::write(
+        tree_b.path().join("corpus/eval/regression.toml"),
+        b"# regression variant B\n",
+    )
+    .expect("write regression b");
+    std::fs::write(
+        tree_b.path().join("corpus/templates/concept.md"),
+        b"+++\ntype = \"concept\"\nvariant = \"B\"\n+++\n",
+    )
+    .expect("write concept b");
+
+    let world_b = TestWorld::with_state(tree_b.path(), state_b.path());
+    let t_b = fieldbook::io::read_tree(tree_b.path()).expect("read tree b");
+    let cat_b = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &t_b,
+        "2222222222222222222222222222222222222222",
+    )
+    .expect("from_public_source b");
+    let (cat_bytes_b, cat_sha_b) = cat_b.to_toml_bytes_and_sha256();
+    let cat_file_b = tree_b.path().join("cat_b.toml");
+    std::fs::write(&cat_file_b, &cat_bytes_b).expect("write cat b");
+
+    let raw_b = make_raw_copy(tree_b.path(), state_b.path());
+
+    let v_b = run_verify(
+        &world_b,
+        &BackupVerifyArgs {
+            target: None,
+            in_dir: None,
+            snapshot: None,
+            raw: Some(raw_b.path().to_path_buf()),
+            support_catalogue: Some(cat_file_b),
+            expect_support_sha256: Some(cat_sha_b),
+        },
+    );
+    assert_eq!(v_b.code, 0, "verify dataset B: {}", v_b.stderr);
+    let b_b = run_backup(
+        &world_b,
+        &eff,
+        &BackupOptions {
+            target: Some("main".to_string()),
+            to: None,
+            dry_run: false,
+        },
+    );
+    assert_eq!(b_b.code, 0, "backup dataset B: {}", b_b.stderr);
+}
+
+#[test]
+fn support_process_smoke_uses_an_independent_digest() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = tempfile::tempdir().expect("state tempdir");
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let _j = Journal::open(&world, state_dir.path(), Via::Cli).expect("open journal");
+
+    let settings_path = state_dir.path().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_dir.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let eff = floor_a_effective();
+
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let (cat_bytes, expected_digest) = cat.to_toml_bytes_and_sha256();
+    let cat_file = tree_dir.path().join("corpus-support.toml");
+    std::fs::write(&cat_file, &cat_bytes).expect("write cat");
+
+    let raw = make_raw_copy(tree_dir.path(), state_dir.path());
+
+    let v_args = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file),
+        expect_support_sha256: Some(expected_digest.clone()),
+    };
+    let v_out = run_verify(&world, &v_args);
+    assert_eq!(v_out.code, 0, "verify failed: {}", v_out.stderr);
+    assert!(v_out.stdout.contains("raw copy consistent\n"));
+    let short_12 = &expected_digest[..12];
+    assert!(
+        v_out
+            .stdout
+            .contains(&format!("public support catalogue verified: {short_12}"))
+    );
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let b_out = run_backup(&world, &eff, &options);
+    assert_eq!(b_out.code, 0, "backup failed: {}", b_out.stderr);
+
+    let latest_saved =
+        std::fs::read_to_string(target_dir.path().join("LATEST")).expect("read LATEST");
+    let snap_count_before =
+        fieldbook::io::backup_folder::list_existing_snapshots(target_dir.path()).len();
+
+    let changes_file = tree_dir.path().join("corpus/changes.md");
+    std::fs::write(&changes_file, b"Changed byte in smoke\n").expect("write changed byte");
+
+    let b_repeat = run_backup(&world, &eff, &options);
+    assert_eq!(
+        b_repeat.code, 2,
+        "repeat backup must refuse with exit 2 (FB0901)"
+    );
+    assert!(b_repeat.stderr.contains("FB0901"));
+
+    let latest_after =
+        std::fs::read_to_string(target_dir.path().join("LATEST")).expect("read LATEST");
+    assert_eq!(latest_after, latest_saved);
+    let snap_count_after =
+        fieldbook::io::backup_folder::list_existing_snapshots(target_dir.path()).len();
+    assert_eq!(snap_count_after, snap_count_before);
 }

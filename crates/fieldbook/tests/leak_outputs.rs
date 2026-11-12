@@ -154,6 +154,14 @@ fn run_atomic_outside_writer() {
 
     let tmp = temp_copy(&corpus_mini());
     let world = TestWorld::new(tmp.path());
+    let tree = fieldbook::io::read_tree(tmp.path()).unwrap_or_else(|e| panic!("{e}"));
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
+    }
     let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
     let out_dir_str = out_tmp.path().to_string_lossy().replace('\\', "/");
 
@@ -260,6 +268,14 @@ fn run_journal_holds_ids_and_no_canary() {
     let fixture = load_fixture();
     let tmp = temp_copy(&corpus_mini());
     let world = TestWorld::new(tmp.path());
+    let tree = fieldbook::io::read_tree(tmp.path()).unwrap_or_else(|e| panic!("{e}"));
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
+    }
     let journal =
         state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
 
@@ -422,6 +438,14 @@ fn run_edition_surface() {
     let fixture = load_fixture();
     let tmp = temp_copy(&corpus_mini());
     let world = TestWorld::new(tmp.path());
+    let tree = fieldbook::io::read_tree(tmp.path()).unwrap_or_else(|e| panic!("{e}"));
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
+    }
     let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
 
     let mut tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
@@ -945,6 +969,14 @@ fn run_page_packs_surface() {
     let fixture = load_fixture();
     let tmp = temp_copy(&corpus_mini());
     let world = TestWorld::new(tmp.path());
+    let tree = fieldbook::io::read_tree(tmp.path()).unwrap_or_else(|e| panic!("{e}"));
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
+    }
     let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
 
     // A page the edition selection leaves out, under the title of the page under test, so that a
@@ -1094,6 +1126,14 @@ fn run_backup_surface() {
     let fixture = load_fixture();
     let tmp = temp_copy(&corpus_mini());
     let world = TestWorld::new(tmp.path());
+    let tree = fieldbook::io::read_tree(tmp.path()).unwrap_or_else(|e| panic!("{e}"));
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
+    }
     let target_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
     let target_path = target_tmp.path().to_path_buf();
 

@@ -25,12 +25,17 @@ use crate::World;
 use crate::io::state::BackupSettings;
 
 /// Check whether a Corpus support file has public provenance.
-///
-/// For now this returns true for all recognized support files. The next-but-one part
-/// replaces it with the real catalogue/journal check of steps 20-23a.
 #[must_use]
-pub fn support_has_public_provenance(_world: &dyn World, _rel_path: &str, _bytes: &[u8]) -> bool {
-    true
+pub fn support_has_public_provenance(world: &dyn World, rel_path: &str, bytes: &[u8]) -> bool {
+    let norm = rel_path.replace('\\', "/");
+    let clean = norm.trim_start_matches('/');
+    let corpus_rel = clean.strip_prefix("corpus/").unwrap_or(clean);
+    if fieldbook_core::manifest::classify_support_path(corpus_rel).is_err() {
+        return false;
+    }
+    let current_sha256 = fieldbook_core::hash::sha256_hex(bytes);
+    let facts = world.support_facts();
+    facts.has_provenance(corpus_rel, &current_sha256)
 }
 
 /// Checks if a relative path under `corpus/` corresponds to a recognized Corpus support file.
@@ -38,28 +43,10 @@ pub fn support_has_public_provenance(_world: &dyn World, _rel_path: &str, _bytes
 pub fn is_corpus_support(rel_path: &str) -> bool {
     let norm = rel_path.replace('\\', "/");
     let clean = norm.trim_start_matches('/');
-    if clean == "corpus/AGENTS.md"
-        || clean == "corpus/ASSISTANT.md"
-        || clean == "corpus/README.md"
-        || clean == "corpus/corpus.toml"
-        || clean == "corpus/changes.md"
-        || clean == "corpus/scan-allow.toml"
-        || clean == "corpus/eval/regression.toml"
-        || clean == "corpus/pipeline/rules.toml"
-    {
-        return true;
-    }
-    if let Some(rest) = clean.strip_prefix("corpus/templates/") {
-        if rest.ends_with(".md") {
-            return true;
-        }
-        if let Some(wb_rest) = rest.strip_prefix("workbooks/")
-            && wb_rest.ends_with(".csv")
-        {
-            return true;
-        }
-    }
-    false
+    let Some(corpus_rel) = clean.strip_prefix("corpus/") else {
+        return false;
+    };
+    fieldbook_core::manifest::classify_support_path(corpus_rel).is_ok()
 }
 
 struct ModelLabelGraph<'a> {
@@ -188,11 +175,27 @@ pub fn classify_file(
     // 5. Corpus support files
     if is_corpus_support(path) {
         let prov = support_has_public_provenance(world, path, bytes);
-        let labels = if prov {
+        let mut labels = if prov {
             LabelSet::public()
         } else {
             LabelSet::unlabelled()
         };
+        if prov {
+            if let Ok(text) = std::str::from_utf8(bytes) {
+                let rules = eff.marking_rules();
+                if let Some(mark_set) = markings_in(text, &rules) {
+                    labels = labels.union(&mark_set);
+                }
+            } else {
+                labels = LabelSet::unlabelled();
+            }
+            if let PolicyState::Loaded(p) = eff.state() {
+                let corpus_rule = p.store_rule(&StoreId::Corpus);
+                if !corpus_rule.default.contains(&UNLABELLED) {
+                    labels = labels.union(&corpus_rule.default);
+                }
+            }
+        }
         return CopiedFile::new(path, BackupFileKind::CorpusSupport, labels);
     }
 
@@ -394,7 +397,44 @@ pub fn classify_file(
         return CopiedFile::new(path, BackupFileKind::HandoffPack, LabelSet::unlabelled());
     }
 
-    // 14. Everything else is Stray
+    // 14. Retained public support catalogues
+    if let Some(subpath) = path.strip_prefix("state/public-support/") {
+        if !subpath.contains('/')
+            && let Some(stem) = subpath.strip_suffix(".toml")
+            && fieldbook_core::manifest::is_lower_hex(stem, 64)
+        {
+            let actual_sha = fieldbook_core::hash::sha256_hex(bytes);
+            let facts = world.support_facts();
+            let has_event = facts
+                .catalogues
+                .iter()
+                .any(|(_, sha)| sha.eq_ignore_ascii_case(stem));
+            let parse_ok = fieldbook_core::manifest::SupportCatalogue::parse_bytes(bytes).is_ok();
+
+            if actual_sha == stem && has_event && parse_ok {
+                let mut labels = LabelSet::public();
+                if let Ok(text) = std::str::from_utf8(bytes) {
+                    let rules = eff.marking_rules();
+                    if let Some(mark_set) = markings_in(text, &rules) {
+                        labels = labels.union(&mark_set);
+                    }
+                } else {
+                    labels = LabelSet::unlabelled();
+                }
+                if let PolicyState::Loaded(p) = eff.state() {
+                    let state_rule = p.store_rule(&StoreId::State);
+                    if !state_rule.default.contains(&UNLABELLED) {
+                        labels = labels.union(&state_rule.default);
+                    }
+                }
+                return CopiedFile::new(path, BackupFileKind::CorpusSupport, labels);
+            }
+            return CopiedFile::new(path, BackupFileKind::CorpusSupport, LabelSet::unlabelled());
+        }
+        return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+    }
+
+    // 15. Everything else is Stray
     CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled())
 }
 
