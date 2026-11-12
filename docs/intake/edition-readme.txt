@@ -32,6 +32,14 @@ CHECK, THEN EXTRACT
    the rollback. Never mix the two editions.
 6. Open edition\index.html in Microsoft Edge from disk, then the About
    page. The edition number must be {edition_number}.
+7. First transfer only: create your working folder and mark it not
+   content-indexed. In PowerShell:
+     $w = "$env:LOCALAPPDATA\Fieldbook\working"
+     New-Item -ItemType Directory -Force $w | Out-Null
+     attrib +I $w /S /D
+     attrib $w
+   The last command prints one line with I before the path. If a file
+   you add later lacks the flag, run the attrib +I line again.
 
 The transfer runbook has the commands for each step. If this file and
 the runbook differ, the runbook is right.

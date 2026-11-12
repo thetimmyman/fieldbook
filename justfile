@@ -1,6 +1,6 @@
 # Fieldbook developer recipes. Run `just` to list them.
 # Bootstrap: `cargo install --locked just@1.58.0`, then `just setup`.
-# Recipes still to come: edition and release. Each arrives with its card.
+# Recipe still to come: release. It arrives with its card.
 
 set shell := ["bash", "-euo", "pipefail", "-c"]
 

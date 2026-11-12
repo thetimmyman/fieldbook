@@ -2097,6 +2097,22 @@ mod tests {
         compare_payload(&d_a, &d_b).expect("compare payload");
     }
 
+    // control: DR-01
+    #[test]
+    fn readme_gives_the_working_folder_and_attrib_instruction() {
+        let repo = fixture_repo();
+        let (result, _) = run(repo.path());
+        let pkg = result.expect("package");
+        let (edition_tree, _) = trees(&pkg);
+        let readme = text(edition_tree.get("README.txt").expect("README.txt"));
+        assert!(readme.contains("attrib +I"), "{readme}");
+        assert!(
+            readme.contains("$env:LOCALAPPDATA\\Fieldbook\\working"),
+            "{readme}"
+        );
+        assert!(readme.contains("First transfer only"), "{readme}");
+    }
+
     // control: IN-01
     #[test]
     fn placeholders_all_filled() {
