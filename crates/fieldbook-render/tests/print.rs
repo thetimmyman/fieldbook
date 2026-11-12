@@ -414,4 +414,109 @@ mod print {
             "included app.css must not contain `{needle}`"
         );
     }
+
+    fn article<'a>(html: &'a str, id: &str) -> &'a str {
+        let marker = format!("data-page-id=\"{id}\"");
+        let at = html.find(&marker).unwrap();
+        let start = html[..at].rfind("<article").unwrap();
+        let end = html[at..].find("</article>").unwrap() + at;
+        &html[start..end]
+    }
+
+    fn headings(article: &str) -> Vec<&str> {
+        article
+            .split("<h3>")
+            .skip(1)
+            .filter_map(|s| s.split("</h3>").next())
+            .collect()
+    }
+
+    fn h3(heading: &str) -> String {
+        format!("<h3>{heading}</h3>")
+    }
+
+    fn the_rule(article: &str) -> &str {
+        let at = article.find(&h3(strings::parts()[1])).unwrap();
+        let end = article.find(&h3(strings::parts()[2])).unwrap();
+        &article[at..end]
+    }
+
+    #[test]
+    fn binder_articles_carry_the_whole_page() {
+        let (_model, view) = fixture_view();
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let a = article(&html, "cmp-system-review");
+
+        assert_eq!(headings(a), strings::parts());
+        let calib = a.find(&h3(strings::parts()[5])).unwrap();
+        let sources = a.find(&h3(strings::parts()[6])).unwrap();
+        assert!(
+            a[calib..sources].contains("Q-001"),
+            "calibration cites Q-001"
+        );
+        assert!(a.contains("<span>Draft</span>"), "status word");
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+        let page_html = std::str::from_utf8(
+            site.files()
+                .get("p/cmp-system-review.html")
+                .expect("p/cmp-system-review.html in site files"),
+        )
+        .unwrap();
+        let review_by = page_html
+            .split("Review by <time datetime=\"")
+            .nth(1)
+            .and_then(|s| s.split('"').next())
+            .expect("review-by date on the standalone page");
+        assert!(
+            a.contains(&format!(
+                "Review by <time datetime=\"{review_by}\">{review_by}</time>"
+            )),
+            "binder article prints the review-by date {review_by} the page shows"
+        );
+        assert!(a.contains("SYNTHETIC-NOW."), "readiness notice");
+        let never = a.find(&h3(strings::parts()[4])).unwrap();
+        assert!(
+            a[never..calib].contains("XC-01"),
+            "conflict box sits under Never confuse"
+        );
+        let change = a.find(&h3(strings::parts()[7])).unwrap();
+        assert!(sources < change);
+        assert!(
+            a[change..].contains("NEW_KNOWLEDGE") && a[change..].contains("Added the synthetic"),
+            "change note body"
+        );
+    }
+
+    #[test]
+    fn brief_binder_article_keeps_six_parts_and_status() {
+        let (_model, view) = fixture_view();
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let a = article(&html, "est-rate-window-brief");
+        let mut expected: Vec<&str> = strings::brief_parts().to_vec();
+        expected.push(strings::parts()[6]);
+        assert_eq!(headings(a), expected);
+        assert!(a.contains("<span>Draft</span>"));
+        assert!(!a.contains(&h3(strings::parts()[7])));
+    }
+
+    #[test]
+    fn reference_rule_renders_as_dated_table() {
+        let (_model, view) = fixture_view();
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let rule = the_rule(article(&html, "est-rate-reference"));
+        assert!(rule.contains("<table>"), "reference rule is a table");
+        assert!(rule.contains("class=\"ref-as-of\""), "row dates");
+        assert!(rule.contains("data-as-of=\"2026-02-01\""));
+    }
+
+    #[test]
+    fn reference_rule_ids_and_links_are_prefixed() {
+        let (_model, view) = fixture_view();
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let rule = the_rule(article(&html, "est-rate-reference"));
+        assert!(rule.contains("id=\"b-est-rate-reference-cite-ref-1-1\""));
+        assert!(rule.contains("href=\"#b-est-rate-reference-cite-1\""));
+        assert!(!rule.contains(" id=\"cite-"));
+        assert!(!rule.contains("href=\"#cite-"));
+    }
 }

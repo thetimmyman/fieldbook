@@ -8,15 +8,19 @@ use askama::Template;
 use fieldbook_core::check::PageEntry;
 use fieldbook_core::edition::EditionInfo;
 use fieldbook_core::egress::LabelledView;
-use fieldbook_core::schema::PageType;
+use fieldbook_core::schema::{PageType, Readiness};
 use fieldbook_core::strings;
 
 use crate::cite::OriginalAvailability;
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
 use crate::inline::InlineRenderer;
-use crate::links::escape_html;
 use crate::meta::{BuildInfo, MetadataError, RenderContext};
 use crate::nav::{Navigation, SectionId};
+use crate::page::{
+    build_conflict_boxes, build_meta_row, build_part_by_name, collect_distinct_cited_claims,
+    collect_distinct_conflicts, render_change_note, render_conflict_boxes, render_meta_row,
+    render_page_status_chip, render_superseded_by,
+};
 use crate::site::PlannedPaths;
 use crate::sources_block::NumberedSourceRow;
 
@@ -34,6 +38,8 @@ pub struct BinderPartView {
     pub is_empty: bool,
     /// Rendered HTML of the part body.
     pub body_html: String,
+    /// HTML printed after the body inside the same part (the conflict boxes under Never confuse).
+    pub after_html: String,
 }
 
 /// One rendered page article in the binder.
@@ -46,10 +52,20 @@ pub struct BinderPageView {
     pub page_type: String,
     /// Numerical stage.
     pub stage: u8,
+    /// Page status chip HTML.
+    pub status_chip_html: String,
+    /// Rendered metadata row HTML.
+    pub meta_row_html: String,
+    /// `true` when `page.meta.readiness == Readiness::SyntheticNow`.
+    pub is_synthetic_now: bool,
+    /// Rendered superseded-by link HTML.
+    pub superseded_by_html: String,
     /// `true` when `page_type == PageType::Brief`.
     pub is_brief: bool,
     /// Ordered rendered parts for the page.
     pub parts: Vec<BinderPartView>,
+    /// Change note part HTML.
+    pub change_note_html: String,
     /// Numbered sources cited on the page.
     pub sources_rows: Vec<NumberedSourceRow>,
 }
@@ -63,6 +79,12 @@ struct DayOneTemplate<'a> {
     print_check: &'a str,
     empty_part_text: &'a str,
     sources_heading: &'a str,
+    change_note_heading: &'a str,
+}
+
+fn prefix_ids(html: &str, page_id: &str) -> String {
+    html.replace(" id=\"", &format!(" id=\"b-{page_id}-"))
+        .replace("href=\"#", &format!("href=\"#b-{page_id}-"))
 }
 
 /// Returns the pages included in the day-one binder in their printed order.
@@ -103,46 +125,83 @@ pub fn render_main(view: &LabelledView, edition: &EditionInfo, planned: &Planned
     let mut rendered_pages = Vec::with_capacity(pages_to_render.len());
     for page in pages_to_render {
         let is_brief = page.meta.r#type == PageType::Brief;
-        let part_headings: &[&str] = if is_brief {
-            strings::brief_parts().as_slice()
+        let mut inline = InlineRenderer::new(OUTPUT_PATH, page, view, planned);
+
+        let parts = if is_brief {
+            let mut brief_parts = Vec::with_capacity(6);
+            for &heading in strings::brief_parts() {
+                let fallback = heading.to_ascii_lowercase().replace(' ', "-");
+                let part = build_part_by_name(heading, &fallback, true, page, &mut inline);
+                let body_html = if part.is_empty {
+                    String::new()
+                } else {
+                    prefix_ids(&part.body_html, page.id.as_str())
+                };
+                brief_parts.push(BinderPartView {
+                    heading: heading.to_owned(),
+                    is_empty: part.is_empty,
+                    body_html,
+                    after_html: String::new(),
+                });
+            }
+            brief_parts
         } else {
-            &strings::parts()[..5]
+            let part_names = strings::parts();
+            let p0 = build_part_by_name(part_names[0], "purpose", true, page, &mut inline);
+            let p1 = if page.meta.r#type == PageType::Reference {
+                crate::types::render_reference_the_rule(page, view, &mut inline)
+            } else {
+                build_part_by_name(part_names[1], "the-rule", true, page, &mut inline)
+            };
+            let p2 = build_part_by_name(part_names[2], "how-it-works", true, page, &mut inline);
+            let p3 = build_part_by_name(part_names[3], "worked-example", true, page, &mut inline);
+            let p4 = build_part_by_name(part_names[4], "never-confuse", true, page, &mut inline);
+            let p5 = build_part_by_name(
+                part_names[5],
+                "company-calibration",
+                true,
+                page,
+                &mut inline,
+            );
+
+            let conflict_ids = collect_distinct_conflicts(page, view);
+            let conflict_boxes = build_conflict_boxes(OUTPUT_PATH, &conflict_ids, view, planned);
+            let conflict_boxes_html =
+                prefix_ids(&render_conflict_boxes(conflict_boxes), page.id.as_str());
+
+            let raw_parts = [p0, p1, p2, p3, p4, p5];
+            let mut non_brief_parts = Vec::with_capacity(raw_parts.len());
+            for (idx, part) in raw_parts.into_iter().enumerate() {
+                let body_html = if part.is_empty {
+                    String::new()
+                } else {
+                    prefix_ids(&part.body_html, page.id.as_str())
+                };
+                non_brief_parts.push(BinderPartView {
+                    heading: part.heading,
+                    is_empty: part.is_empty,
+                    body_html,
+                    after_html: if idx == 4 {
+                        conflict_boxes_html.clone()
+                    } else {
+                        String::new()
+                    },
+                });
+            }
+            non_brief_parts
         };
 
-        let mut inline = InlineRenderer::new(OUTPUT_PATH, page, view, planned);
-        let mut parts = Vec::with_capacity(part_headings.len());
-        for &heading in part_headings {
-            let part_span = page.parts().get(heading);
-            let raw_body = match part_span {
-                Some(ps) if !ps.event_range.is_empty() => {
-                    inline.render_part(ps.event_range.clone())
-                }
-                _ => String::new(),
-            };
-            let empty_para = format!("<p>{}</p>", escape_html(strings::empty_part()));
-            let empty_li = format!(
-                "<ul>\n<li>{}</li>\n</ul>",
-                escape_html(strings::empty_part())
-            );
-            let trimmed_body = raw_body.trim();
-            let is_empty = part_span.is_none_or(|ps| ps.event_range.is_empty())
-                || trimmed_body == empty_para
-                || trimmed_body == empty_li;
-            let body_html = if is_empty {
-                String::new()
-            } else {
-                // The binder holds many pages in one document, so every id a page body defines
-                // (headings, citation markers) and every same-page link must carry the page id.
-                raw_body
-                    .replace(" id=\"", &format!(" id=\"b-{}-", page.id))
-                    .replace("href=\"#", &format!("href=\"#b-{}-", page.id))
-            };
-            parts.push(BinderPartView {
-                heading: heading.to_owned(),
-                is_empty,
-                body_html,
-            });
-        }
+        let status_chip_html = render_page_status_chip(page.meta.status);
+        let is_synthetic_now = page.meta.readiness == Readiness::SyntheticNow;
+        let superseded_by_html = prefix_ids(
+            &render_superseded_by(OUTPUT_PATH, page, view, planned),
+            page.id.as_str(),
+        );
+
+        let distinct_claims = collect_distinct_cited_claims(page, view, &inline);
+        let meta_row = build_meta_row(page, view, &distinct_claims, String::new(), false);
+        let raw_meta_row = render_meta_row(&meta_row);
+        let meta_row_html = prefix_ids(&raw_meta_row, page.id.as_str());
 
         let markers = inline.into_markers();
         let sources_rows = crate::sources_block::build_sources_rows(
@@ -153,13 +212,24 @@ pub fn render_main(view: &LabelledView, edition: &EditionInfo, planned: &Planned
             &availability,
         );
 
+        let change_note_html = if is_brief {
+            String::new()
+        } else {
+            prefix_ids(&render_change_note(&page.body, page), page.id.as_str())
+        };
+
         rendered_pages.push(BinderPageView {
             id: page.id.to_string(),
             title: page.meta.title.clone(),
             page_type: page.meta.r#type.as_str().to_owned(),
             stage: page.meta.stage,
+            status_chip_html,
+            meta_row_html,
+            is_synthetic_now,
+            superseded_by_html,
             is_brief,
             parts,
+            change_note_html,
             sources_rows,
         });
     }
@@ -171,6 +241,7 @@ pub fn render_main(view: &LabelledView, edition: &EditionInfo, planned: &Planned
         print_check: strings::print_check(),
         empty_part_text: strings::empty_part(),
         sources_heading: strings::parts()[6],
+        change_note_heading: strings::parts()[7],
     }
     .render()
     .unwrap_or_else(|e| unreachable!("day-one.html is infallible: {e}"))
