@@ -34,7 +34,7 @@ The standard illustrates consistency by pairing an estimated average direct labo
 
 Synthetic example. The numbers are made up.
 
-A business unit estimates 600,000 of engineering labor for a proposal as a single lump sum covering design, test and drafting, and subsequently records actual engineering labor in one undifferentiated account, meaning no individual function can be compared with its estimate. This approach is inconsistent. If the unit instead estimates design at 300,000, test at 200,000 and drafting at 100,000, summing to 600,000 (300,000 plus 200,000 plus 100,000), and records actual labor in those same three separate functional accounts, each function can be directly compared with its estimate. This example is illustrative only, and the contract itself governs.
+A business unit estimates engineering labor for a proposal by function: design at 300,000, test at 200,000 and drafting at 100,000, which sum to 600,000. It then records actual engineering labor in one undifferentiated engineering account, so no function can be compared with its estimate. The estimating practice and the accumulating practice do not match, which is the pairing of 48 CFR 9904.401-60(b) illustration 5, and CAS 401 is not met. If the unit instead keeps the same three functions in its accounts, with design, test and drafting each accumulated separately, each function can be compared with its estimate and the two practices are consistent. A unit that estimated the whole 600,000 as one lump sum and also recorded it in one lump-sum account would likewise be consistent, because the standard does not prescribe how much detail accumulation needs (9904.401-61(d)). This example is illustrative only, and the contract itself governs.
 
 ## Never confuse
 

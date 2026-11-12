@@ -28,7 +28,7 @@ If a contractor has not submitted a Disclosure Statement, whether specific costs
 
 A direct cost is defined as any cost identified specifically with a particular final cost objective [@CL-CMP-2782]. An indirect cost is defined as any cost not directly identified with a single final cost objective, but identified with two or more final cost objectives or with at least one intermediate cost objective [@CL-CMP-2783].
 
-In the travel illustration, travel costs of personnel whose time is accounted for as direct labor on contracts are incurred for the same purpose and may no longer remain in indirect cost pools for allocation to any covered contract [@CL-CMP-2784]. Conversely, in the tooling illustration, allocating general purpose tooling from an indirect pool while directly charging special tooling to a contract does not violate the standard when disclosed criteria establish that the two types of cost were not incurred for the same purpose [@CL-CMP-2786; @CL-CMP-2787].
+In the travel illustration, a contractor normally allocates all travel as an indirect cost and, for a new proposal, intends to charge the travel of direct-labor personnel directly to that contract [@CL-CMP-2877]. The travel of personnel whose time is accounted for as direct labor on other contracts is then incurred for the same purpose and may no longer remain in indirect cost pools for allocation to any covered contract [@CL-CMP-2784]. Conversely, in the tooling illustration, allocating general purpose tooling from an indirect pool while directly charging special tooling to a contract does not violate the standard when disclosed criteria establish that the two types of cost were not incurred for the same purpose [@CL-CMP-2786; @CL-CMP-2787].
 
 ## Worked example
 
