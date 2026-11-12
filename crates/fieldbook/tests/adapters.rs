@@ -469,6 +469,9 @@ fn scan_impls_in_file(
             .unwrap_or("")
             .split_whitespace()
             .last()
+            .unwrap_or("")
+            .rsplit("::")
+            .next()
             .unwrap_or("");
         let type_name = type_part
             .split('<')
@@ -775,6 +778,31 @@ fn drift_names_a_planted_adapter_file() {
     assert!(
         err.contains("planted.rs"),
         "error message must name planted.rs: {err}"
+    );
+}
+
+#[test]
+fn drift_names_a_planted_adapter_file_with_a_qualified_trait_path() {
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let planted_dir = tmp.path().join("crates/fieldbook/src/adapters");
+    std::fs::create_dir_all(&planted_dir).expect("create planted dir");
+    let planted_file = planted_dir.join("planted_qualified.rs");
+    std::fs::write(
+        &planted_file,
+        b"pub struct Planted;\n\nimpl fieldbook_core::extraction::Extractor for Planted {\n    fn id(&self) -> &'static str {\n        \"planted@1\"\n    }\n}\n",
+    )
+    .expect("write planted_qualified.rs");
+
+    let ports_md = synthetic_ports_md(ADAPTERS);
+    let res = registry_drift(ADAPTERS, tmp.path(), &ports_md, None);
+    assert!(
+        res.is_err(),
+        "a planted adapter with a qualified trait path must be rejected"
+    );
+    let err = res.unwrap_err();
+    assert!(
+        err.contains("planted_qualified.rs"),
+        "error message must name planted_qualified.rs: {err}"
     );
 }
 
