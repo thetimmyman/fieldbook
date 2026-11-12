@@ -1,0 +1,5 @@
+state read deny:authz
+state propose allow
+state accept allow
+state export allow
+state admin deny:authz

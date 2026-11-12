@@ -1,0 +1,7 @@
+template = "ask@1"
+purpose = "classify"
+
+[[part]]
+kind = "question"
+labels = ["owner-supplied"]
+text = "Classify this."

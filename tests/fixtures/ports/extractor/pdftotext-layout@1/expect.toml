@@ -1,0 +1,3 @@
+method = "pdftotext-layout"
+pages = 2
+thin_pages = []
