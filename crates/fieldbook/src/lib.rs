@@ -323,7 +323,8 @@ impl World for StateOverrideWorld<'_> {
         path: &Path,
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
-        self.inner.write_file(audited, path, bytes)
+        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+        disk.write_file(audited, path, bytes)
     }
 
     fn write_outside(
@@ -401,11 +402,13 @@ impl World for StateOverrideWorld<'_> {
     }
 
     fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
-        self.inner.reset_drill(audited)
+        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+        disk.reset_drill(audited)
     }
 
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
-        self.inner.remove_drill(audited)
+        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+        disk.remove_drill(audited)
     }
 }
 

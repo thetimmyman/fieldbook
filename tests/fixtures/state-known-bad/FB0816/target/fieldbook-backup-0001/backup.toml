@@ -1,0 +1,16 @@
+backup_version = 1
+tool_version = "0.0.0"
+snapshot = 1
+created_utc = "2026-03-01T12:00:00Z"
+labels = ["owner-supplied"]
+roots = [
+    "corpus",
+    "state",
+]
+files = 30
+bytes = 28727
+fingerprint = "0000000000000000000000000000000000000000000000000000000000000000"
+journal_seq = 15
+journal_head = "cff6a81c9f48df7ba6a40426ceaddd08ba18fe2364375cdacade8e876f2d4e30"
+journal_state = "ok"
+manifest_sha256 = "2219c1b826a831fc0d22da1f9a30367a4e6bf5484c23e5682495450f466ee791"

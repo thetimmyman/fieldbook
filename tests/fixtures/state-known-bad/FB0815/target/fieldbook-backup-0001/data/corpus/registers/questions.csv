@@ -1,0 +1,3 @@
+question_id,area,question,owner_role,blocks,why_it_matters,default_assumption,work_can_continue,day_one,status,answer,answered_on,adoption
+Q-001,cmp,Which synthetic business-system control owner approves the monthly compliance review?,Compliance Lead,Synthetic compliance review sign-off workflow,Synthetic withholding exposure depends on timely review sign-off.,Synthetic reviews follow the 30-day cycle until confirmed.,yes,true,open,,,
+Q-002,est,Which synthetic escalation index applies to multi-year pricing workbooks?,,,,,,false,open,,,

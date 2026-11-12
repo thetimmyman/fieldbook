@@ -10,14 +10,6 @@ code = "FB0808"
 card = "r2-state-and-journal"
 
 [[pending]]
-code = "FB0815"
-card = "restore-and-drill"
-
-[[pending]]
-code = "FB0816"
-card = "restore-and-drill"
-
-[[pending]]
 code = "FB0820"
 card = "review-queue"
 

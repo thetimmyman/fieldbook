@@ -1,0 +1,7 @@
+verb = "restore"
+args = ["--snapshot", "1", "--from", "../state/target", "--to", "../state/occupied"]
+state = "state-known-bad/FB0815"
+
+[expect]
+code = "FB0815"
+status = 1
