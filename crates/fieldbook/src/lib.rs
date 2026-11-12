@@ -362,13 +362,24 @@ impl World for StateOverrideWorld<'_> {
         self.inner.place(path)
     }
 
+    /// Support facts follow the selected state directory specified by `--state`.
+    ///
+    /// Facts that equal what the default State yields are derived from the default State:
+    /// ignore them; anything else was injected by a test world: keep it. Otherwise,
+    /// support facts are read from the selected State directory only.
     fn support_facts(&self) -> SupportFacts {
-        let facts = self.inner.support_facts();
-        if !facts.catalogues.is_empty() || !facts.public_writes.is_empty() {
-            return facts;
+        let selected =
+            io::Disk::with_state(self.inner.tree_root(), &self.state_dir).support_facts();
+        let inner_default =
+            io::Disk::with_state(self.inner.tree_root(), self.inner.state_dir()).support_facts();
+        let inner = self.inner.support_facts();
+        // facts that equal what the default State yields are derived from the default State: ignore them;
+        // anything else was injected by a test world: keep it.
+        if inner == inner_default {
+            selected
+        } else {
+            inner
         }
-        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
-        disk.support_facts()
     }
 }
 

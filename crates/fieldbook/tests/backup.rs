@@ -16,11 +16,13 @@ use std::time::Duration;
 
 use fieldbook::World;
 use fieldbook::backup::{
-    BackupListArgs, BackupOptions, BackupVerifyArgs, backup_age, run_backup, run_list, run_verify,
+    BackupListArgs, BackupOptions, BackupVerifyArgs, backup_age, refusal_text, run_backup,
+    run_list, run_verify,
 };
 use fieldbook::cli::AddArgs;
 use fieldbook::io::Disk;
 use fieldbook::io::atomic::{write_in_root, write_outside};
+use fieldbook::io::backup_folder::newest_verified_snapshot_for_target;
 use fieldbook::io::dirs::{Removable, remove_outside, rename_dir_outside};
 use fieldbook::io::journal::{
     Audited, Journal, JournalError, acquire_write_lease, set_lock_timeout_for_test,
@@ -36,7 +38,7 @@ use fieldbook_core::backup::{
 };
 use fieldbook_core::check::Code;
 use fieldbook_core::egress::{
-    Allowed, Decision, Delivery, Dest, Operation, Shipped, Target, Transfer, check,
+    Allowed, Decision, Delivery, Dest, Operation, Reason, Shipped, Target, Transfer, check,
     hash_tree_manifest,
 };
 use fieldbook_core::labels::{OWNER_SUPPLIED, PlaceFacts};
@@ -5142,4 +5144,524 @@ fn an_unregistered_extraction_folder_is_unlabelled() {
     assert_eq!(outcome.code, 2);
     assert!(outcome.stderr.contains("FB0901"));
     assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn refusal_counts_the_items_that_cause_it() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Plant ONE stray file corpus/stray-one.txt
+    let stray1 = fix.tree_root().join("corpus/stray-one.txt");
+    std::fs::write(&stray1, b"stray one content\n").expect("write stray-one");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome1.code, 2);
+    assert!(outcome1.stderr.contains("FB0901"));
+    assert!(outcome1.stderr.contains("1 item is unlabelled"));
+    assert!(!outcome1.stderr.contains("2 items"));
+
+    // Plant a SECOND stray corpus/stray-two.txt
+    let stray2 = fix.tree_root().join("corpus/stray-two.txt");
+    std::fs::write(&stray2, b"stray two content\n").expect("write stray-two");
+
+    let outcome2 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome2.code, 2);
+    assert!(outcome2.stderr.contains("FB0901"));
+    assert!(outcome2.stderr.contains("2 items are unlabelled"));
+}
+
+#[test]
+fn refusal_names_the_way_out_for_each_reason() {
+    // 1. unlabelled: integration test with stray file
+    let fix_unlabelled = TestFixture::new();
+    let eff_a = floor_a_effective();
+    let stray = fix_unlabelled.tree_root().join("corpus/stray.txt");
+    std::fs::write(&stray, b"unlabelled stray file\n").expect("write stray");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome_unlabelled = run_backup(&fix_unlabelled.world, &eff_a, &options);
+    assert_eq!(outcome_unlabelled.code, 2);
+    assert!(outcome_unlabelled.stderr.contains("FB0901"));
+    assert!(outcome_unlabelled.stderr.contains("way out:"));
+    assert!(outcome_unlabelled.stderr.contains("[[source]]"));
+    assert!(outcome_unlabelled.stderr.contains("label add"));
+
+    // 2. no-row: copy setup of target_outside_every_backup_row_is_fb0918
+    let fix_norow = TestFixture::new();
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let policy_path = repo.join("tests/fixtures/policy/policy.toml");
+    let policy_toml = std::fs::read_to_string(policy_path).expect("read policy");
+    let policy = Policy::parse(&policy_toml, None).expect("parse policy");
+    let state = PolicyState::Loaded(policy);
+    let eff_loaded = EffectivePolicy::new(&state, &OwnerSettings::unset());
+
+    let outcome_norow = run_backup(&fix_norow.world, &eff_loaded, &options);
+    assert_eq!(outcome_norow.code, 2);
+    assert!(outcome_norow.stderr.contains("FB0918"));
+    assert!(outcome_norow.stderr.contains("way out:"));
+    assert!(outcome_norow.stderr.contains("[[destination]]"));
+    let count: usize = outcome_norow
+        .stderr
+        .split("backup refused: ")
+        .nth(1)
+        .and_then(|s| s.split(" items").next())
+        .and_then(|s| s.parse().ok())
+        .expect("parsed count of items from refusal");
+    assert!(count >= 1);
+    let expected_substr = format!("{count} items go to a target that no backup row names");
+    assert!(
+        outcome_norow.stderr.contains(&expected_substr),
+        "expected stderr to contain '{expected_substr}', got: {}",
+        outcome_norow.stderr
+    );
+
+    // 3. marked & all reasons tested directly through refusal_text
+    let text_marked_1 = refusal_text(Code::Fb0901, Reason::Marked, 1);
+    assert!(text_marked_1.contains("error[FB0901]: backup refused: 1 item is marked"));
+    assert!(text_marked_1.contains("way out:"));
+    assert!(text_marked_1.contains("[[marking]]"));
+    assert!(text_marked_1.contains("label reapply"));
+
+    let text_marked_2 = refusal_text(Code::Fb0901, Reason::Marked, 2);
+    assert!(text_marked_2.contains("error[FB0901]: backup refused: 2 items are marked"));
+    assert!(text_marked_2.contains("way out:"));
+    assert!(text_marked_2.contains("[[marking]]"));
+    assert!(text_marked_2.contains("label reapply"));
+
+    let text_unlabelled_1 = refusal_text(Code::Fb0901, Reason::Unlabelled, 1);
+    assert!(text_unlabelled_1.contains("error[FB0901]: backup refused: 1 item is unlabelled"));
+    assert!(text_unlabelled_1.contains("way out:"));
+    assert!(text_unlabelled_1.contains("[[source]]"));
+    assert!(text_unlabelled_1.contains("label add"));
+
+    let text_unlabelled_3 = refusal_text(Code::Fb0901, Reason::Unlabelled, 3);
+    assert!(text_unlabelled_3.contains("error[FB0901]: backup refused: 3 items are unlabelled"));
+    assert!(text_unlabelled_3.contains("way out:"));
+
+    let text_label_1 = refusal_text(Code::Fb0901, Reason::Label, 1);
+    assert!(text_label_1.contains(
+        "error[FB0901]: backup refused: 1 item carries a label this target does not allow"
+    ));
+    assert!(text_label_1.contains("way out:"));
+    assert!(text_label_1.contains(
+        "choose a target whose backup row allows these labels, or change the labels of the items"
+    ));
+
+    let text_label_3 = refusal_text(Code::Fb0901, Reason::Label, 3);
+    assert!(text_label_3.contains(
+        "error[FB0901]: backup refused: 3 items carry a label this target does not allow"
+    ));
+    assert!(text_label_3.contains("way out:"));
+
+    let text_norow_1 = refusal_text(Code::Fb0918, Reason::NoRow, 1);
+    assert!(text_norow_1.contains(
+        "error[FB0918]: backup refused: 1 item goes to a target that no backup row names"
+    ));
+    assert!(text_norow_1.contains("way out:"));
+    assert!(text_norow_1.contains("[[destination]]"));
+
+    let text_norow_5 = refusal_text(Code::Fb0918, Reason::NoRow, 5);
+    assert!(text_norow_5.contains(
+        "error[FB0918]: backup refused: 5 items go to a target that no backup row names"
+    ));
+    assert!(text_norow_5.contains("way out:"));
+    assert!(text_norow_5.contains("[[destination]]"));
+
+    let text_generic = refusal_text(Code::Fb0413, Reason::Closed, 5);
+    assert!(text_generic.contains("error[FB0413]: backup refused: 5 items\n"));
+    assert!(!text_generic.contains("way out:"));
+
+    let text_generic_1 = refusal_text(Code::Fb0413, Reason::Closed, 1);
+    assert!(text_generic_1.contains("error[FB0413]: backup refused: 1 item\n"));
+    assert!(!text_generic_1.contains("way out:"));
+}
+
+#[test]
+fn dry_run_creates_nothing_when_state_is_absent() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let tree_dir = support::temp_copy(&corpus_mini);
+
+    let base_temp = tempfile::tempdir().expect("tempdir");
+    let absent_state_dir = base_temp.path().join("absent-state");
+
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+    let target_path = target_dir.path().to_path_buf();
+
+    let world = TestWorld::with_state(tree_dir.path(), &absent_state_dir);
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
+
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: None,
+        to: Some(target_path.clone()),
+        dry_run: true,
+    };
+
+    // Variant 1: Absent State folder
+    assert!(!absent_state_dir.exists());
+    let outcome = run_backup(&world, &eff, &options);
+    assert_ne!(
+        outcome.code, 3,
+        "must not fail with exit 3: {}",
+        outcome.stderr
+    );
+    assert_eq!(outcome.code, 0);
+    assert!(outcome.stdout.contains("would write snapshot 1:"));
+    assert!(
+        !absent_state_dir.exists(),
+        "State path must still not exist"
+    );
+
+    // Variant 2: Existing but empty State folder
+    let empty_state_dir = base_temp.path().join("empty-state");
+    std::fs::create_dir_all(&empty_state_dir).expect("create empty state dir");
+    assert!(empty_state_dir.is_dir());
+    assert_eq!(std::fs::read_dir(&empty_state_dir).unwrap().count(), 0);
+
+    let world_empty = TestWorld::with_state(tree_dir.path(), &empty_state_dir);
+    let cat2 = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat2_sha) = cat2.to_toml_bytes_and_sha256();
+    world_empty.set_support_catalogue(cat2, cat2_sha);
+
+    let outcome_empty = run_backup(&world_empty, &eff, &options);
+    assert_ne!(
+        outcome_empty.code, 3,
+        "must not fail with exit 3: {}",
+        outcome_empty.stderr
+    );
+    assert_eq!(outcome_empty.code, 0);
+    assert!(outcome_empty.stdout.contains("would write snapshot 1:"));
+    assert_eq!(
+        std::fs::read_dir(&empty_state_dir).unwrap().count(),
+        0,
+        "State folder must still be empty"
+    );
+}
+
+#[test]
+fn a_changed_manifest_inherits_no_verification() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let b_out = run_backup(&fix.world, &eff, &options);
+    assert_eq!(b_out.code, 0, "backup failed: {}", b_out.stderr);
+
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_out = run_verify(&fix.world, &verify_args);
+    assert_eq!(v_out.code, 0, "verify failed: {}", v_out.stderr);
+
+    let list_json_args = BackupListArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        json: true,
+    };
+    let l_out = run_list(&fix.world, &list_json_args);
+    assert_eq!(l_out.code, 0);
+    let report: BackupList = serde_json::from_str(&l_out.stdout).expect("parse json");
+    assert_eq!(report.snapshots.len(), 1);
+    assert!(report.snapshots[0].verified);
+    assert_eq!(
+        newest_verified_snapshot_for_target(fix.state_dir(), fix.target_path(), &[1]),
+        Some(1)
+    );
+
+    let toml_path = fix.target_path().join("fieldbook-backup-0001/backup.toml");
+    let toml_text = std::fs::read_to_string(&toml_path).expect("read backup.toml");
+    let mut info = BackupToml::parse(&toml_text).expect("parse backup.toml");
+    info.labels = vec!["custom-label".to_string()];
+    let rewritten = toml::to_string_pretty(&info).expect("serialize backup.toml");
+    std::fs::write(&toml_path, rewritten).expect("write rewritten backup.toml");
+
+    let l_after = run_list(&fix.world, &list_json_args);
+    assert_eq!(l_after.code, 0);
+    let report_after: BackupList = serde_json::from_str(&l_after.stdout).expect("parse json after");
+    assert_eq!(report_after.snapshots.len(), 1);
+    assert!(!report_after.snapshots[0].verified);
+    assert!(report_after.snapshots[0].verified_utc.is_none());
+    assert!(report_after.snapshots[0].latest_verification.is_none());
+    assert_eq!(
+        newest_verified_snapshot_for_target(fix.state_dir(), fix.target_path(), &[1]),
+        None
+    );
+
+    let list_text_args = BackupListArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        json: false,
+    };
+    let l_text = run_list(&fix.world, &list_text_args);
+    assert_eq!(l_text.code, 0);
+    let row = l_text
+        .stdout
+        .lines()
+        .find(|line| line.starts_with("1 "))
+        .expect("snapshot 1 row in table");
+    assert!(row.ends_with("no"));
+}
+
+#[test]
+fn verify_exits_3_when_the_event_cannot_be_recorded() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let b_out = run_backup(&fix.world, &eff, &options);
+    assert_eq!(b_out.code, 0, "backup failed: {}", b_out.stderr);
+
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let count_verify_events = || -> usize {
+        let content = std::fs::read_to_string(&journal_path).unwrap_or_default();
+        content.matches("\"kind\":\"backup.verify\"").count()
+    };
+    let before_count = count_verify_events();
+
+    let lease = acquire_write_lease(fix.tree_root(), fix.state_dir()).expect("acquire write lease");
+    let held_journal =
+        Journal::open(&fix.world, fix.state_dir(), Via::Cli).expect("open held journal");
+    let state_scope_token = held_journal.state_scope(&lease).expect("state scope token");
+
+    set_lock_timeout_for_test(Some(Duration::from_millis(50)));
+
+    let v_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_out = run_verify(&fix.world, &v_args);
+
+    set_lock_timeout_for_test(None);
+    drop(state_scope_token);
+    drop(held_journal);
+    drop(lease);
+
+    assert_eq!(v_out.code, 3);
+    assert!(!v_out.stdout.contains(" verified"));
+    assert!(v_out.stderr.contains("cannot record backup.verify"));
+
+    let after_count = count_verify_events();
+    assert_eq!(before_count, after_count);
+}
+
+#[test]
+fn verify_on_a_broken_chain_does_not_claim_success() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let b_out = run_backup(&fix.world, &eff, &options);
+    assert_eq!(b_out.code, 0, "backup failed: {}", b_out.stderr);
+
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let content = std::fs::read_to_string(&journal_path).expect("read journal");
+    let mut lines: Vec<&str> = content.lines().collect();
+    let last = lines.pop().expect("last line");
+    let (prefix, _) = last.rsplit_once(',').expect("split comma");
+    let corrupted_last = format!(
+        "{prefix},\"hash\":\"0000000000000000000000000000000000000000000000000000000000000000\"}}"
+    );
+    lines.push(&corrupted_last);
+    std::fs::write(&journal_path, format!("{}\n", lines.join("\n")))
+        .expect("write corrupted journal");
+
+    let v_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_out = run_verify(&fix.world, &v_args);
+
+    assert_eq!(v_out.code, 1);
+    assert!(!v_out.stdout.contains(" verified"));
+    assert!(v_out.stderr.contains("FB0800"));
+}
+
+#[test]
+fn support_facts_follow_the_selected_state() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_a = support::temp_copy(&state_mini);
+    let state_b = support::temp_copy(&state_mini);
+    let target_dir_1 = tempfile::tempdir().expect("target tempdir 1");
+
+    let settings_text_1 = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_dir_1.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(state_a.path().join("settings.toml"), &settings_text_1)
+        .expect("write settings A");
+    std::fs::write(state_b.path().join("settings.toml"), &settings_text_1)
+        .expect("write settings B");
+
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
+    let cat_file = tree_dir.path().join("corpus-support.toml");
+    std::fs::write(&cat_file, &cat_bytes).expect("write cat file");
+
+    // 1. Verified support facts exist only in the default State A
+    let raw_a = make_raw_copy(tree_dir.path(), state_a.path());
+    let disk_a = Disk::with_state(tree_dir.path(), state_a.path());
+    let v_args_a = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw_a.path().to_path_buf()),
+        support_catalogue: Some(cat_file.clone()),
+        expect_support_sha256: Some(cat_sha.clone()),
+    };
+    let v_out_a = run_verify(&disk_a, &v_args_a);
+    assert_eq!(
+        v_out_a.code, 0,
+        "verify against state A: {}",
+        v_out_a.stderr
+    );
+
+    assert!(!disk_a.support_facts().catalogues.is_empty());
+    assert!(
+        Disk::with_state(tree_dir.path(), state_b.path())
+            .support_facts()
+            .catalogues
+            .is_empty()
+    );
+
+    // Run backup --state B --to <target> floor A through fieldbook::backup::run with Some(B):
+    // support files have NO public provenance because facts of A are not used; refused with FB0901, exit 2.
+    let args_1 = fieldbook::cli::BackupArgs {
+        target: None,
+        to: Some(target_dir_1.path().to_path_buf()),
+        dry_run: false,
+        command: None,
+    };
+    let outcome_1 = fieldbook::backup::run(&args_1, Some(state_b.path()), &disk_a);
+    assert_eq!(
+        outcome_1.code, 2,
+        "must be refused with exit 2: {}",
+        outcome_1.stderr
+    );
+    assert!(
+        outcome_1.stderr.contains("FB0901"),
+        "stderr should mention FB0901: {}",
+        outcome_1.stderr
+    );
+    assert!(
+        std::fs::read_dir(target_dir_1.path())
+            .expect("read target 1")
+            .next()
+            .is_none(),
+        "nothing must be written to target"
+    );
+
+    // 2. Fresh pair of A' (default, no facts) and B with verified catalogue only in B
+    let state_a_prime = support::temp_copy(&state_mini);
+    let state_b_2 = support::temp_copy(&state_mini);
+    let target_dir_2 = tempfile::tempdir().expect("target tempdir 2");
+
+    let settings_text_2 = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_dir_2.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(state_a_prime.path().join("settings.toml"), &settings_text_2)
+        .expect("write settings A'");
+    std::fs::write(state_b_2.path().join("settings.toml"), &settings_text_2)
+        .expect("write settings B2");
+
+    let raw_b2 = make_raw_copy(tree_dir.path(), state_b_2.path());
+    let disk_b2 = Disk::with_state(tree_dir.path(), state_b_2.path());
+    let v_args_b2 = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw_b2.path().to_path_buf()),
+        support_catalogue: Some(cat_file),
+        expect_support_sha256: Some(cat_sha),
+    };
+    let v_out_b2 = run_verify(&disk_b2, &v_args_b2);
+    assert_eq!(
+        v_out_b2.code, 0,
+        "verify against state B: {}",
+        v_out_b2.stderr
+    );
+
+    let disk_a_prime = Disk::with_state(tree_dir.path(), state_a_prime.path());
+    assert!(disk_a_prime.support_facts().catalogues.is_empty());
+    assert!(
+        !Disk::with_state(tree_dir.path(), state_b_2.path())
+            .support_facts()
+            .catalogues
+            .is_empty()
+    );
+
+    // backup --state B succeeds (exit 0) because B's facts are honoured, and snapshot contains support files
+    let args_2 = fieldbook::cli::BackupArgs {
+        target: None,
+        to: None,
+        dry_run: false,
+        command: None,
+    };
+    let outcome_2 = fieldbook::backup::run(&args_2, Some(state_b_2.path()), &disk_a_prime);
+    assert_eq!(
+        outcome_2.code, 0,
+        "backup --state B must succeed: {}",
+        outcome_2.stderr
+    );
+
+    let snap_dir = target_dir_2.path().join("fieldbook-backup-0001");
+    assert!(snap_dir.is_dir(), "snapshot directory must exist");
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).expect("read SHA256SUMS");
+    assert!(
+        sums_text.contains("data/corpus/AGENTS.md"),
+        "snapshot must contain support files: {sums_text}"
+    );
 }

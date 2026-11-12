@@ -27,7 +27,7 @@ use fieldbook_core::egress::{
     hash_tree_manifest,
 };
 use fieldbook_core::hash::sha256_hex;
-use fieldbook_core::labels::{self, MARKED, StoreId, UNLABELLED, git_guard, markings_in};
+use fieldbook_core::labels::{self, StoreId, git_guard, markings_in};
 use fieldbook_core::manifest;
 use fieldbook_core::policy::{EffectivePolicy, PolicyState, path_matches_prefix};
 use fieldbook_core::report::{
@@ -189,6 +189,65 @@ fn run_with_world(args: &BackupArgs, world: &dyn World) -> Outcome {
     run_backup(world, &eff, &options)
 }
 
+/// Formats the refusal error message and way-out guidance for egress refusals (`AD-17`, `TASK R6`).
+#[must_use]
+pub fn refusal_text(code: Code, reason: Reason, count: usize) -> String {
+    let (detail, way_out) = match reason {
+        Reason::Unlabelled => (
+            if count == 1 {
+                "1 item is unlabelled".to_string()
+            } else {
+                format!("{count} items are unlabelled")
+            },
+            Some(
+                "give each item a real label: a [[source]] default in the policy sets one when an item is taken in, and `fieldbook label add` sets one by hand",
+            ),
+        ),
+        Reason::Marked => (
+            if count == 1 {
+                "1 item is marked".to_string()
+            } else {
+                format!("{count} items are marked")
+            },
+            Some(
+                "add a [[marking]] rule to the policy that maps the marking to a label, then run `fieldbook label reapply` (`label add` leaves the marking in place)",
+            ),
+        ),
+        Reason::Label => (
+            if count == 1 {
+                "1 item carries a label this target does not allow".to_string()
+            } else {
+                format!("{count} items carry a label this target does not allow")
+            },
+            Some(
+                "choose a target whose backup row allows these labels, or change the labels of the items",
+            ),
+        ),
+        Reason::NoRow => (
+            if count == 1 {
+                "1 item goes to a target that no backup row names".to_string()
+            } else {
+                format!("{count} items go to a target that no backup row names")
+            },
+            Some("add a [[destination]] row with kind = \"backup\" whose paths name the target"),
+        ),
+        _ => (
+            if count == 1 {
+                "1 item".to_string()
+            } else {
+                format!("{count} items")
+            },
+            None,
+        ),
+    };
+
+    if let Some(way) = way_out {
+        format!("error[{code}]: backup refused: {detail}\n  way out: {way}\n")
+    } else {
+        format!("error[{code}]: backup refused: {detail}\n")
+    }
+}
+
 /// Executes snapshot creation under the given effective policy.
 pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOptions) -> Outcome {
     // State path cannot be a file
@@ -284,15 +343,22 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         };
     }
 
-    // 3. Acquire exclusive store lease
-    let lease = match world.write_lease() {
-        Ok(l) => l,
-        Err(err) => {
-            return Outcome {
-                stdout: String::new(),
-                stderr: format!("cannot acquire store lease: {err}\n"),
-                code: EXIT_IO,
-            };
+    // 3. Acquire exclusive store lease (skipped for dry runs when State is absent or uninitialized)
+    let lease = if options.dry_run
+        && !(world.state_dir().join("store.lock").exists()
+            && world.state_dir().join(".init").exists())
+    {
+        None
+    } else {
+        match world.write_lease() {
+            Ok(l) => Some(l),
+            Err(err) => {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("cannot acquire store lease: {err}\n"),
+                    code: EXIT_IO,
+                };
+            }
         }
     };
 
@@ -311,7 +377,14 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
             }
             Err(JournalError::BrokenChain(_)) => {
                 is_broken_chain = true;
-                match Journal::open_backup_recovery(world, &lease) {
+                let Some(lease_ref) = &lease else {
+                    return Outcome {
+                        stdout: String::new(),
+                        stderr: "cannot open recovery mode without a store lease\n".to_string(),
+                        code: EXIT_IO,
+                    };
+                };
+                match Journal::open_backup_recovery(world, lease_ref) {
                     Ok(rec) => recovery_opt = Some(rec),
                     Err(err) => {
                         return Outcome {
@@ -729,20 +802,20 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 let _ = j.refuse(Some("backup"), denial.code, denial.reason.to_word(), &about);
             }
 
-            let causing_count = copied_files
+            let probe_count = copied_files
                 .iter()
-                .filter(|f| {
-                    if denial.labels.is_empty() {
-                        true
-                    } else {
-                        f.labels.ids().iter().any(|id| denial.labels.contains(id))
-                            || (denial.reason == Reason::Unlabelled
-                                && f.labels.contains(&UNLABELLED))
-                            || (denial.reason == Reason::Marked && f.labels.contains(&MARKED))
-                    }
+                .filter(|file| {
+                    matches!(
+                        check(eff, &dest, Some(&file.labels), None, now, shipped),
+                        Decision::Denied(d) if d.code == denial.code && d.reason == denial.reason
+                    )
                 })
                 .count();
-            let count = if causing_count == 0 { 1 } else { causing_count };
+            let count = if probe_count == 0 {
+                copied_files.len()
+            } else {
+                probe_count
+            };
             let exit_code = if denial.code == Code::Fb0901 || denial.code == Code::Fb0918 {
                 EXIT_USAGE
             } else {
@@ -750,7 +823,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
             };
             return Outcome {
                 stdout: notices,
-                stderr: format!("error[{}]: backup refused: {} items\n", denial.code, count),
+                stderr: refusal_text(denial.code, denial.reason, count),
                 code: exit_code,
             };
         }
@@ -1583,16 +1656,41 @@ fn run_verify_numbered(
         Word::new_static("ok")
     };
 
-    let verified_now = Journal::open(world, world.state_dir(), Via::Cli)
-        .ok()
-        .and_then(|mut j| {
-            j.append_backup_verify(outcome_word, verified_id)
-                .ok()
-                .map(|now| (j, now))
-        });
+    let mut findings_text = warn_stale;
+    for err_line in &finding_errors {
+        findings_text.push_str(err_line);
+    }
+
+    let record_res = (|| -> Result<(Journal, Now), JournalError> {
+        let mut j = Journal::open(world, world.state_dir(), Via::Cli)?;
+        let now = j.append_backup_verify(outcome_word, verified_id)?;
+        Ok((j, now))
+    })();
+
+    let (journal, now) = match record_res {
+        Ok(pair) => pair,
+        Err(JournalError::BrokenChain(_)) => {
+            findings_text.push_str(
+                "error[FB0800]: journal hash chain is broken; backup.verify not recorded\n",
+            );
+            return Outcome {
+                stdout: String::new(),
+                stderr: findings_text,
+                code: EXIT_FINDINGS,
+            };
+        }
+        Err(err) => {
+            findings_text.push_str(&format!("error: cannot record backup.verify: {err}\n"));
+            return Outcome {
+                stdout: String::new(),
+                stderr: findings_text,
+                code: EXIT_IO,
+            };
+        }
+    };
 
     let mut save_warn = None;
-    if let Some((j, now)) = (!has_failure).then_some(()).and(verified_now) {
+    if !has_failure {
         let mut cache_labels = LabelSet::owner_supplied();
         let rules = eff.marking_rules();
         let target_str = target_path.to_string_lossy();
@@ -1613,7 +1711,7 @@ fn run_verify_numbered(
 
         if admit_ok && git_ok {
             match world.write_lease() {
-                Ok(lease) => match j.state_scope(&lease) {
+                Ok(lease) => match journal.state_scope(&lease) {
                     Ok(state_audited) => {
                         let report = LastBackupReport {
                             verification: "snapshot".to_string(),
@@ -1647,28 +1745,23 @@ fn run_verify_numbered(
     }
 
     if has_failure {
-        let mut stderr = warn_stale;
-        for err_line in finding_errors {
-            stderr.push_str(&err_line);
-        }
         Outcome {
             stdout: String::new(),
-            stderr,
+            stderr: findings_text,
             code: EXIT_FINDINGS,
         }
     } else {
-        let mut stderr = warn_stale;
-        let exit_code = if !stderr.is_empty() {
+        let exit_code = if !findings_text.is_empty() {
             EXIT_FINDINGS
         } else {
             EXIT_OK
         };
         if let Some(w) = save_warn {
-            stderr.push_str(w);
+            findings_text.push_str(w);
         }
         Outcome {
             stdout: format!("snapshot {snap_num} verified\n"),
-            stderr,
+            stderr: findings_text,
             code: exit_code,
         }
     }
@@ -1879,19 +1972,34 @@ pub fn run_list(world: &dyn World, args: &BackupListArgs) -> Outcome {
                 continue;
             };
 
-            let manifest_sha256_val = match Sha256::parse(&info.manifest_sha256) {
-                Ok(s) => s,
-                Err(_) => Sha256::digest(b""),
-            };
+            let sums_path = snap_dir.join("SHA256SUMS");
+            let manifest_matches = std::fs::read_to_string(&sums_path)
+                .ok()
+                .and_then(|sums| manifest_sha256(&info, &sums).ok())
+                .is_some_and(|computed| computed.as_str() == info.manifest_sha256);
 
-            let last_succ = newest_successful_snapshot_verify_events(
-                &events,
-                &target_sha256,
-                num,
-                &manifest_sha256_val,
-            );
-            let latest_verify =
-                newest_snapshot_verify_events(&events, &target_sha256, num, &manifest_sha256_val);
+            let (last_succ, latest_verify) = if manifest_matches {
+                let manifest_sha256_val = match Sha256::parse(&info.manifest_sha256) {
+                    Ok(s) => s,
+                    Err(_) => Sha256::digest(b""),
+                };
+
+                let last_succ = newest_successful_snapshot_verify_events(
+                    &events,
+                    &target_sha256,
+                    num,
+                    &manifest_sha256_val,
+                );
+                let latest_verify = newest_snapshot_verify_events(
+                    &events,
+                    &target_sha256,
+                    num,
+                    &manifest_sha256_val,
+                );
+                (last_succ, latest_verify)
+            } else {
+                (None, None)
+            };
 
             list_snapshots.push(BackupListSnapshot {
                 snapshot: info.snapshot,

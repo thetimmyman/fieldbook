@@ -11,7 +11,7 @@ use std::path::{Path, PathBuf};
 
 use fieldbook_core::audit::{BackupVerified, Count, EventPayload, Sha256};
 use fieldbook_core::backup::{
-    BackupError, BackupTarget, BackupToml, Number, SnapshotInfo, SnapshotStage,
+    BackupError, BackupTarget, BackupToml, Number, SnapshotInfo, SnapshotStage, manifest_sha256,
 };
 use fieldbook_core::egress::{Allowed, Operation, Target, Transfer, hash_tree_manifest};
 
@@ -346,13 +346,25 @@ pub fn newest_verified_snapshot_for_target(
 
     let events = read_valid_events_prefix(state_dir);
     for &num in existing_snapshots.iter().rev() {
-        let toml_path = target_path.join(format!("fieldbook-backup-{num:04}/backup.toml"));
+        let snap_dir = target_path.join(format!("fieldbook-backup-{num:04}"));
+        let toml_path = snap_dir.join("backup.toml");
         let Ok(text) = std::fs::read_to_string(&toml_path) else {
             continue;
         };
         let Ok(info) = BackupToml::parse(&text) else {
             continue;
         };
+        let sums_path = snap_dir.join("SHA256SUMS");
+        let Ok(sums_text) = std::fs::read_to_string(&sums_path) else {
+            continue;
+        };
+        let Ok(computed) = manifest_sha256(&info, &sums_text) else {
+            continue;
+        };
+        if computed.as_str() != info.manifest_sha256 {
+            continue;
+        }
+
         let count_num = Count::new(u64::from(num));
         for e in events.iter().rev() {
             if let EventPayload::BackupVerify {
