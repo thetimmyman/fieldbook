@@ -38,7 +38,6 @@ const PENDING: &str = r#"
 fieldbook fmt
 fieldbook status
 fieldbook status --page
-fieldbook restore --snapshot <n> --drill
 fieldbook context "<question>"
 fieldbook cite-check <file>
 fieldbook new note --ai-drafted --confirm-public --area <a> --from <file>
@@ -600,4 +599,92 @@ fn backup_chip_cases_run() {
             case.chip, out.stderr
         );
     }
+}
+
+#[expect(clippy::expect_used, reason = "test helper preparing raw copy tempdir")]
+fn make_raw_copy(tree_root: &Path, state_dir: &Path) -> tempfile::TempDir {
+    let raw = tempfile::tempdir().expect("raw tempdir");
+    let corpus_dest = raw.path().join("corpus");
+    let state_dest = raw.path().join("state");
+    support::copy_dir_recursive(&tree_root.join("corpus"), &corpus_dest).expect("copy corpus");
+    support::copy_dir_recursive(state_dir, &state_dest).expect("copy state");
+    raw
+}
+
+#[test]
+fn restore_chip_case_runs() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let case = CASES
+        .iter()
+        .find(|c| c.chip == "fieldbook restore --snapshot <n> --drill")
+        .expect("restore chip case");
+
+    let tmp = temp_copy(&repo_root.join(case.fixture));
+    let target_temp = tempfile::tempdir().expect("create target tempdir");
+    let target_str = target_temp.path().to_string_lossy().to_string();
+
+    let state_dir = tmp.path().join(".fieldbook");
+    std::fs::create_dir_all(state_dir.join("audit")).expect("create state and audit dir");
+    let settings_path = state_dir.join("settings.toml");
+    let settings_content = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_str.replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_content).expect("write settings");
+
+    let world = TestWorld::with_state(tmp.path(), &state_dir);
+    let tree = fieldbook::io::read_tree(tmp.path()).expect("read tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("from_public_source");
+    let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha.clone());
+
+    let cat_file = tmp.path().join("corpus-support.toml");
+    std::fs::write(&cat_file, &cat_bytes).expect("write cat file");
+
+    let raw = make_raw_copy(tmp.path(), &state_dir);
+    let verify_args = fieldbook::backup::BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file),
+        expect_support_sha256: Some(cat_sha),
+    };
+    let verify_out = fieldbook::backup::run_verify(&world, &verify_args);
+    assert_eq!(
+        verify_out.code, 0,
+        "raw verify failed: stderr={}",
+        verify_out.stderr
+    );
+
+    let backup_args = vec!["backup".to_string()];
+    let backup_out = fieldbook::run(&backup_args, &world);
+    assert_eq!(
+        backup_out.code, 0,
+        "backup failed: stderr={}",
+        backup_out.stderr
+    );
+
+    let args: Vec<String> = substitute_chip(case.chip, case.samples)
+        .into_iter()
+        .skip(1)
+        .collect();
+    let out = fieldbook::run(&args, &world);
+    assert_eq!(out.code, 0, "restore chip failed: stderr={}", out.stderr);
+    assert!(
+        out.stdout
+            .contains("drill passed: check clean, journal ok, fingerprint"),
+        "stdout should report drill passed: {}",
+        out.stdout
+    );
+
+    let drill_dir = state_dir.join("drill");
+    assert!(
+        !drill_dir.exists(),
+        "drill folder must not exist afterwards"
+    );
 }
