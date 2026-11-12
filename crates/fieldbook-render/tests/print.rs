@@ -3,7 +3,7 @@
 #![expect(clippy::unwrap_used, reason = "integration test helpers")]
 
 mod print {
-    use std::collections::HashSet;
+    use std::collections::BTreeSet;
 
     use fieldbook_core::audit::Now;
     use fieldbook_core::authz::ReadableStores;
@@ -616,7 +616,7 @@ mod print {
             .map(|rest| rest.split('"').next().unwrap())
             .collect();
         assert!(!ids.is_empty(), "binder html must contain element ids");
-        let mut seen_ids = HashSet::new();
+        let mut seen_ids = BTreeSet::new();
         for id in &ids {
             assert!(
                 seen_ids.insert(*id),
