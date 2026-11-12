@@ -20,6 +20,7 @@ pub mod search;
 pub mod verify;
 
 pub use cli::Cli;
+pub use fieldbook_core::labels::PlaceFacts;
 pub use io::{Audited, Error, StoreLease, WorldError};
 
 use std::ffi::OsString;
@@ -95,6 +96,9 @@ pub trait World {
     ///
     /// Returns [`WorldError`] when the prompt cannot be written or flushed.
     fn prompt(&self, flag: &str) -> Result<(), WorldError>;
+
+    /// Return folder placement facts for `path`.
+    fn place(&self, path: &Path) -> PlaceFacts;
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -328,6 +332,10 @@ impl World for StateOverrideWorld<'_> {
     fn prompt(&self, flag: &str) -> Result<(), WorldError> {
         self.inner.prompt(flag)
     }
+
+    fn place(&self, path: &Path) -> PlaceFacts {
+        self.inner.place(path)
+    }
 }
 
 fn run_check(args: &CheckArgs, world: &dyn World) -> Outcome {
@@ -430,7 +438,7 @@ mod tests {
     use fieldbook_core::audit::{Now, Principal};
     use fieldbook_core::check::Tree;
 
-    use super::{StoreLease, World, WorldError, identity, run, version_line};
+    use super::{PlaceFacts, StoreLease, World, WorldError, identity, run, version_line};
 
     struct FakeWorld {
         cwd: PathBuf,
@@ -518,6 +526,10 @@ mod tests {
 
         fn state_dir(&self) -> &Path {
             &self.state_dir
+        }
+
+        fn place(&self, _path: &Path) -> PlaceFacts {
+            PlaceFacts::local()
         }
     }
 

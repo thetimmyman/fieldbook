@@ -452,6 +452,10 @@ mod tests {
         fn state_dir(&self) -> &Path {
             self.disk.state_dir()
         }
+
+        fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
+            self.disk.place(path)
+        }
     }
 
     #[test]

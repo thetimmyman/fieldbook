@@ -17,13 +17,13 @@ use std::thread::ThreadId;
 use std::time::{Duration, Instant};
 
 use fieldbook_core::audit::{
-    Actor, Count, DestKind, Event, EventEnvelope, EventPayload, Kind, Now, OperationIntent,
-    OperationKey, PendingFile, PendingKey, PendingOperation, PendingWrite, RecordRef, RefuseAbout,
-    SemVer, Sha256, StoreId, Verb, Via, Word, WriteSet, ZERO_HASH, completed_after_hash,
-    compute_file_hashes, normalize_affected, split_hash_suffix, verify_line,
+    Actor, BackupVerified, Count, DestKind, Event, EventEnvelope, EventPayload, Kind, LabelSet,
+    Now, OperationIntent, OperationKey, PendingFile, PendingKey, PendingOperation, PendingWrite,
+    RecordRef, RefuseAbout, SemVer, Sha256, StoreId, Verb, Via, Word, WriteSet, ZERO_HASH,
+    completed_after_hash, compute_file_hashes, normalize_affected, split_hash_suffix, verify_line,
 };
 use fieldbook_core::check::{Code, Tree};
-use fieldbook_core::egress::{Allowed, Operation, Target};
+use fieldbook_core::egress::{Allowed, Operation, Target, Transfer};
 
 use crate::World;
 use crate::io::WorldError;
@@ -758,10 +758,19 @@ struct ActiveTx {
     _lock: JournalLockGuard,
     has_write_begin: bool,
     state_scope_count: usize,
+    recovery: bool,
 }
 
-/// Proof token returned by [`Journal::begin`], [`Journal::begin_export`], [`Journal::recover`],
-/// or [`Journal::state_scope`].
+#[derive(Debug, Clone, PartialEq, Eq)]
+struct ApprovedRecovery {
+    kind: DestKind,
+    policy_hash: String,
+    labels: Option<fieldbook_core::audit::LabelSet>,
+    transfers: Vec<Transfer>,
+}
+
+/// Proof token returned by [`Journal::begin`], [`Journal::begin_export`], [`Journal::begin_backup`],
+/// [`Journal::recover`], [`Journal::state_scope`], or [`BackupRecovery::approve`].
 ///
 /// Can only be constructed inside `io::journal`. Dropping an unfinished [`Audited`] token
 /// releases its journal lease immediately.
@@ -775,6 +784,7 @@ pub struct Audited {
     affected: Vec<RecordRef>,
     export_context: Option<(DestKind, Sha256, Sha256)>,
     active_tx: Arc<Mutex<Option<ActiveTx>>>,
+    recovery_approved: Option<Box<ApprovedRecovery>>,
     ended: bool,
 }
 
@@ -783,6 +793,24 @@ impl Audited {
     #[must_use]
     pub const fn is_state_only(&self) -> bool {
         self.state_only
+    }
+
+    /// Return `true` when this token represents recovery-only authority ([`BackupRecovery`]).
+    #[must_use]
+    pub const fn is_recovery_only(&self) -> bool {
+        self.recovery_approved.is_some()
+    }
+
+    /// Check whether `allowed` matches the recovery-approved delivery binding.
+    #[must_use]
+    pub fn is_approved_recovery(&self, allowed: &Allowed) -> bool {
+        let Some(approved) = &self.recovery_approved else {
+            return false;
+        };
+        approved.kind == allowed.kind()
+            && approved.policy_hash == allowed.policy_hash()
+            && approved.labels.as_ref() == allowed.labels()
+            && Some(approved.transfers.as_slice()) == allowed.transfers()
     }
 
     /// Return the state folder bound to this token.
@@ -806,7 +834,9 @@ impl Audited {
             .ok()
             .and_then(|g| {
                 g.as_ref().map(|tx| {
-                    if self.state_only {
+                    if self.is_recovery_only() {
+                        tx.recovery
+                    } else if self.state_only {
                         tx.state_scope_count > 0
                     } else {
                         tx.has_write_begin
@@ -825,6 +855,10 @@ impl Drop for Audited {
         if let Ok(mut guard) = self.active_tx.lock()
             && let Some(tx) = guard.as_mut()
         {
+            if self.is_recovery_only() {
+                *guard = None;
+                return;
+            }
             if self.state_only {
                 tx.state_scope_count = tx.state_scope_count.saturating_sub(1);
             } else {
@@ -835,6 +869,38 @@ impl Drop for Audited {
             }
         }
     }
+}
+
+/// Encoded `backup.begin` event ready to be appended by [`Journal::begin_backup`].
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PreparedBackupBegin {
+    /// Sequence number of the prepared event.
+    pub seq: u64,
+    /// Journal head hash chained from.
+    pub head: Sha256,
+    /// Exact encoded event bytes (including trailing newline).
+    pub bytes: Vec<u8>,
+    /// The resulting new head hash.
+    pub new_head: Sha256,
+    pub(crate) labels: LabelSet,
+    pub(crate) policy: Sha256,
+    pub(crate) snapshot: u32,
+    pub(crate) now: Now,
+}
+
+/// Information about a `restore.end` event in the journal.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RestoreEndInfo {
+    /// Snapshot number.
+    pub snapshot: u32,
+    /// Restore mode (e.g. "drill").
+    pub mode: Word,
+    /// Outcome ("ok" or "failed").
+    pub outcome: Word,
+    /// Optional failing code when outcome is failed.
+    pub code: Option<Code>,
+    /// Timestamp of the event.
+    pub time: Now,
 }
 
 /// Handle to the append-only hash-chained journal under `<state>/audit/`.
@@ -849,6 +915,7 @@ pub struct Journal<'a> {
     segment_limit: u64,
     active_tx: Arc<Mutex<Option<ActiveTx>>>,
     wrote_store: bool,
+    prepared_backup: Mutex<Option<PreparedBackupBegin>>,
 }
 
 impl fmt::Debug for Journal<'_> {
@@ -870,6 +937,90 @@ struct TailState {
     active_segment: PathBuf,
     active_segment_num: u32,
     active_segment_len: u64,
+}
+
+/// Handle to recovery-only mode for an append-refused journal (`backup-snapshot` step 17).
+///
+/// Keeps the exclusive store lease and journal lock through preparation and delivery.
+/// Never appends to the journal, never repairs or initializes a chain.
+pub struct BackupRecovery<'a> {
+    world: &'a dyn World,
+    state_dir: PathBuf,
+    active_tx: Arc<Mutex<Option<ActiveTx>>>,
+}
+
+impl fmt::Debug for BackupRecovery<'_> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("BackupRecovery")
+            .field("state_dir", &self.state_dir)
+            .finish_non_exhaustive()
+    }
+}
+
+impl<'a> BackupRecovery<'a> {
+    /// Return the world instance bound to this recovery handle.
+    #[must_use]
+    pub fn world(&self) -> &'a dyn World {
+        self.world
+    }
+
+    /// Return the state directory bound to this recovery handle.
+    #[must_use]
+    pub fn state_dir(&self) -> &Path {
+        &self.state_dir
+    }
+
+    /// Approve an [`Allowed`] token for the final delivery under recovery-only mode.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `allowed` lacks a delivery or is not for destination `backup`.
+    pub fn approve(&self, allowed: &Allowed) -> Result<Audited, JournalError> {
+        if !allowed.has_delivery() {
+            return Err(JournalError::Vocab(
+                "BackupRecovery::approve requires a delivery-bound Allowed token".to_owned(),
+            ));
+        }
+        if allowed.kind() != DestKind::Backup {
+            return Err(JournalError::Vocab(
+                "BackupRecovery::approve requires backup destination".to_owned(),
+            ));
+        }
+        let policy = Sha256::parse(allowed.policy_hash())
+            .map_err(|err| JournalError::Vocab(err.to_string()))?;
+        let canon_hash_target = allowed
+            .transfers()
+            .unwrap_or(&[])
+            .first()
+            .and_then(|t| match &t.target {
+                Target::Path(p) => Some(Sha256::digest(p.to_string_lossy().as_bytes())),
+                _ => None,
+            })
+            .unwrap_or_else(|| Sha256::parse(ZERO_HASH).unwrap_or_else(|_| unreachable!()));
+
+        let approved = ApprovedRecovery {
+            kind: allowed.kind(),
+            policy_hash: allowed.policy_hash().to_owned(),
+            labels: allowed.labels().cloned(),
+            transfers: allowed
+                .transfers()
+                .map(<[Transfer]>::to_vec)
+                .unwrap_or_default(),
+        };
+
+        Ok(Audited {
+            state_only: false,
+            state_dir: self.state_dir.clone(),
+            begin_seq: None,
+            verb: None,
+            labels: allowed.labels().cloned(),
+            affected: Vec::new(),
+            export_context: Some((DestKind::Backup, canon_hash_target, policy)),
+            active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: Some(Box::new(approved)),
+            ended: false,
+        })
+    }
 }
 
 impl<'a> Journal<'a> {
@@ -974,6 +1125,7 @@ impl<'a> Journal<'a> {
             segment_limit: DEFAULT_SEGMENT_LIMIT,
             active_tx: Arc::new(Mutex::new(None)),
             wrote_store: false,
+            prepared_backup: Mutex::new(None),
         })
     }
 
@@ -1074,6 +1226,41 @@ impl<'a> Journal<'a> {
         )?;
 
         Ok(broken_dir)
+    }
+
+    /// Open the journal in recovery-only mode under `lease` for an append-refused tail (`backup-snapshot` step 17).
+    ///
+    /// Validates the lease roots, acquires the journal lock after the exclusive store lease,
+    /// appends nothing, and never repairs or initializes a chain.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `lease` is not exclusive or mismatches roots, or if
+    /// the journal lock cannot be acquired.
+    pub fn open_backup_recovery(
+        world: &'a dyn World,
+        lease: &StoreLease,
+    ) -> Result<BackupRecovery<'a>, JournalError> {
+        let state_dir = world.state_dir().to_path_buf();
+        if !lease.is_exclusive() || !lease.matches_roots(world.tree_root(), &state_dir) {
+            return Err(JournalError::InvalidLease(
+                "open_backup_recovery requires an exclusive matching StoreLease".to_owned(),
+            ));
+        }
+        init_state_locks(&state_dir)
+            .map_err(|err| JournalError::io(err.path(), err.to_string()))?;
+        let lock = acquire_journal_lock(&state_dir)?;
+        let active_tx = Arc::new(Mutex::new(Some(ActiveTx {
+            _lock: lock,
+            has_write_begin: false,
+            state_scope_count: 0,
+            recovery: true,
+        })));
+        Ok(BackupRecovery {
+            world,
+            state_dir,
+            active_tx,
+        })
     }
 
     /// Override the segment rotation byte limit on this [`Journal`] handle (used in tests).
@@ -1282,6 +1469,7 @@ impl<'a> Journal<'a> {
                 _lock: lock,
                 has_write_begin: true,
                 state_scope_count: 0,
+                recovery: false,
             });
         }
 
@@ -1294,6 +1482,7 @@ impl<'a> Journal<'a> {
             affected,
             export_context: None,
             active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: None,
             ended: false,
         })
     }
@@ -1453,6 +1642,7 @@ impl<'a> Journal<'a> {
                 _lock: lock,
                 has_write_begin: true,
                 state_scope_count: 0,
+                recovery: false,
             });
         }
 
@@ -1465,6 +1655,7 @@ impl<'a> Journal<'a> {
             affected,
             export_context: Some((dest, path_sha256, policy)),
             active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: None,
             ended: false,
         })
     }
@@ -1561,6 +1752,279 @@ impl<'a> Journal<'a> {
         Ok(())
     }
 
+    /// Prepare the exact encoded `backup.begin` event bytes, sequence number, and head hash
+    /// without appending to the journal.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if the journal tail cannot be inspected.
+    pub fn prepare_backup_begin(
+        &self,
+        labels: &LabelSet,
+        policy: &Sha256,
+        snapshot: u32,
+    ) -> Result<PreparedBackupBegin, JournalError> {
+        self.prepare_backup_begin_at(labels, policy, snapshot, self.world.now())
+    }
+
+    /// Prepare `backup.begin` with an explicit timestamp.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if the journal tail cannot be inspected.
+    pub fn prepare_backup_begin_at(
+        &self,
+        labels: &LabelSet,
+        policy: &Sha256,
+        snapshot: u32,
+        now: Now,
+    ) -> Result<PreparedBackupBegin, JournalError> {
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let seq = tail.last_seq + 1;
+        let env = EventEnvelope {
+            actor: self.actor.principal.clone(),
+            role: self.actor.role,
+            store: self.store,
+            via: self.actor.via,
+        };
+        let payload = EventPayload::BackupBegin {
+            labels: labels.clone(),
+            dest: DestKind::Backup,
+            policy: policy.clone(),
+            snapshot: Count::new(u64::from(snapshot)),
+        };
+        let (mut line, new_hash) = payload.format_line(seq, now, &env, tail.last_hash.as_str());
+        line.push('\n');
+        let prepared = PreparedBackupBegin {
+            seq,
+            head: tail.last_hash,
+            bytes: line.into_bytes(),
+            new_head: new_hash,
+            labels: labels.clone(),
+            policy: policy.clone(),
+            snapshot,
+            now,
+        };
+        if let Ok(mut slot) = self.prepared_backup.lock() {
+            *slot = Some(prepared.clone());
+        }
+        Ok(prepared)
+    }
+
+    /// Begin a backup transaction: append `backup.begin` exactly matching the prepared event
+    /// (re-checking that the journal head is unchanged), and return an [`Audited`] token.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `allowed` lacks a delivery, does not target `backup`,
+    /// or mismatches the prepared event, if the journal lock is busy, or if the head hash changed.
+    pub fn begin_backup(
+        &mut self,
+        allowed: &Allowed,
+        target: &Path,
+        kind: &str,
+        snapshot: u32,
+    ) -> Result<Audited, JournalError> {
+        if !allowed.has_delivery() {
+            return Err(JournalError::Vocab(
+                "begin_backup requires a delivery-bound Allowed token".to_owned(),
+            ));
+        }
+        if allowed.kind() != DestKind::Backup {
+            return Err(JournalError::Vocab(
+                "begin_backup requires backup destination".to_owned(),
+            ));
+        }
+        let _target_kind =
+            Word::from_closed(kind, fieldbook_core::audit::vocab::BACKUP_TARGET_KINDS)
+                .map_err(|_| JournalError::Vocab(format!("invalid target kind: {kind}")))?;
+
+        let allowed_labels = allowed
+            .labels()
+            .ok_or_else(|| JournalError::Vocab("Allowed token must carry labels".to_owned()))?;
+        let policy = Sha256::parse(allowed.policy_hash())
+            .map_err(|err| JournalError::Vocab(err.to_string()))?;
+
+        let already_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        if already_active {
+            let _ = acquire_journal_lock(&self.state_dir)?;
+            return Err(JournalError::Busy);
+        }
+
+        let lock = acquire_journal_lock(&self.state_dir)?;
+        let tail = inspect_tail_strict(&self.state_dir)?;
+
+        let prepared = match self.prepared_backup.lock().ok().and_then(|mut g| g.take()) {
+            Some(p) => {
+                if p.head != tail.last_hash || p.seq != tail.last_seq + 1 {
+                    return Err(JournalError::InvalidLease(
+                        "journal head changed after backup preparation".to_owned(),
+                    ));
+                }
+                if p.snapshot != snapshot || &p.labels != allowed_labels || p.policy != policy {
+                    return Err(JournalError::Vocab(
+                        "prepared backup parameters do not match begin_backup".to_owned(),
+                    ));
+                }
+                p
+            }
+            None => {
+                let env = EventEnvelope {
+                    actor: self.actor.principal.clone(),
+                    role: self.actor.role,
+                    store: self.store,
+                    via: self.actor.via,
+                };
+                let payload = EventPayload::BackupBegin {
+                    labels: allowed_labels.clone(),
+                    dest: DestKind::Backup,
+                    policy: policy.clone(),
+                    snapshot: Count::new(u64::from(snapshot)),
+                };
+                let (mut line, new_hash) = payload.format_line(
+                    tail.last_seq + 1,
+                    self.world.now(),
+                    &env,
+                    tail.last_hash.as_str(),
+                );
+                line.push('\n');
+                PreparedBackupBegin {
+                    seq: tail.last_seq + 1,
+                    head: tail.last_hash.clone(),
+                    bytes: line.into_bytes(),
+                    new_head: new_hash,
+                    labels: allowed_labels.clone(),
+                    policy: policy.clone(),
+                    snapshot,
+                    now: self.world.now(),
+                }
+            }
+        };
+
+        let (_target_num, target_path, _base_len) =
+            if tail.active_segment_len > 0 && tail.active_segment_len >= self.segment_limit {
+                let next_num = tail.active_segment_num + 1;
+                let next_path = self
+                    .state_dir
+                    .join("audit")
+                    .join(segment_filename(next_num));
+                (next_num, next_path, 0u64)
+            } else {
+                (
+                    tail.active_segment_num,
+                    tail.active_segment.clone(),
+                    tail.active_segment_len,
+                )
+            };
+
+        let mut file = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(&target_path)
+            .map_err(|err| JournalError::io(&target_path, err.to_string()))?;
+        file.write_all(&prepared.bytes)
+            .map_err(|err| JournalError::io(&target_path, err.to_string()))?;
+        file.sync_data()
+            .map_err(|err| JournalError::io(&target_path, err.to_string()))?;
+
+        if let Ok(mut guard) = self.active_tx.lock() {
+            *guard = Some(ActiveTx {
+                _lock: lock,
+                has_write_begin: true,
+                state_scope_count: 0,
+                recovery: false,
+            });
+        }
+
+        let canon_target =
+            crate::io::root::resolve_outside_path(target).unwrap_or_else(|_| target.to_path_buf());
+        let path_sha256 = Sha256::digest(canon_target.to_string_lossy().as_bytes());
+
+        Ok(Audited {
+            state_only: false,
+            state_dir: self.state_dir.clone(),
+            begin_seq: Some(prepared.seq),
+            verb: Verb::parse("backup").ok(),
+            labels: Some(allowed_labels.clone()),
+            affected: Vec::new(),
+            export_context: Some((DestKind::Backup, path_sha256, policy)),
+            active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: None,
+            ended: false,
+        })
+    }
+
+    /// Complete a backup transaction: append `backup.end` and release the journal lock.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `token` is invalid or ended, `outcome` is not `ok` or `failed`,
+    /// or the event cannot be written.
+    #[expect(
+        clippy::too_many_arguments,
+        reason = "card step 4 and prompt specify 10 arguments for end_backup"
+    )]
+    pub fn end_backup(
+        &mut self,
+        mut token: Audited,
+        outcome: Word,
+        files: u64,
+        bytes: u64,
+        manifest_sha256: Sha256,
+        journal_seq: u64,
+        journal_head: Sha256,
+        fingerprint: Sha256,
+        target_kind: Word,
+    ) -> Result<(), JournalError> {
+        if token.is_state_only() || token.is_recovery_only() {
+            return Err(JournalError::InvalidLease(
+                "invalid token passed to end_backup".to_owned(),
+            ));
+        }
+        if !matches!(outcome.as_str(), "ok" | "failed") {
+            return Err(JournalError::Vocab(format!(
+                "invalid backup.end outcome `{outcome}`"
+            )));
+        }
+        if !fieldbook_core::audit::vocab::BACKUP_TARGET_KINDS.contains(&target_kind.as_str()) {
+            return Err(JournalError::Vocab(format!(
+                "invalid target kind `{target_kind}`"
+            )));
+        }
+
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let payload = EventPayload::BackupEnd {
+            outcome,
+            files: Count::new(files),
+            bytes: Count::new(bytes),
+            manifest_sha256,
+            journal_seq: Count::new(journal_seq),
+            journal_head,
+            fingerprint,
+            target_kind,
+        };
+        let _ = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+
+        token.ended = true;
+        if let Ok(mut guard) = self.active_tx.lock()
+            && let Some(tx) = guard.as_mut()
+        {
+            tx.has_write_begin = false;
+            if tx.state_scope_count == 0 {
+                *guard = None;
+            }
+        }
+        Ok(())
+    }
+
     /// Append a `refuse` event to the journal, reusing the active transaction lease if one is
     /// held on this [`Journal`] handle or taking a short lock otherwise.
     ///
@@ -1616,6 +2080,182 @@ impl<'a> Journal<'a> {
         Ok(())
     }
 
+    /// Append a `backup.verify` event to the journal.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `outcome` is not `ok` or `failed`, or if the lock or append fails.
+    pub fn append_backup_verify(
+        &mut self,
+        outcome: Word,
+        verified: BackupVerified,
+    ) -> Result<(), JournalError> {
+        if !matches!(outcome.as_str(), "ok" | "failed") {
+            return Err(JournalError::Vocab(format!(
+                "invalid backup.verify outcome `{outcome}`"
+            )));
+        }
+        let has_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        let _short_lock = if has_active {
+            None
+        } else {
+            Some(acquire_journal_lock(&self.state_dir)?)
+        };
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let payload = EventPayload::BackupVerify { outcome, verified };
+        let _ = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+        Ok(())
+    }
+
+    /// Append a `backup.prune` event to the journal.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `reason` is invalid, or if the lock or append fails.
+    pub fn append_backup_prune(
+        &mut self,
+        snapshots: &[u32],
+        reason: Word,
+    ) -> Result<(), JournalError> {
+        let count_snaps: Vec<Count> = snapshots
+            .iter()
+            .map(|&s| Count::new(u64::from(s)))
+            .collect();
+        let has_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        let _short_lock = if has_active {
+            None
+        } else {
+            Some(acquire_journal_lock(&self.state_dir)?)
+        };
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let payload = EventPayload::BackupPrune {
+            snapshots: count_snaps,
+            reason,
+        };
+        let _ = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+        Ok(())
+    }
+
+    /// Return the timestamp of the newest successful snapshot verify matching
+    /// `(target_sha256, snapshot, manifest_sha256)`, or `None` if none matches.
+    #[must_use]
+    pub fn newest_successful_snapshot_verify(
+        &self,
+        target_sha256: &Sha256,
+        snapshot: u32,
+        manifest_sha256: &Sha256,
+    ) -> Option<Now> {
+        let events = read_valid_events_prefix(&self.state_dir);
+        let count_snap = Count::new(u64::from(snapshot));
+        for event in events.into_iter().rev() {
+            if let EventPayload::BackupVerify {
+                outcome,
+                verified:
+                    BackupVerified::Snapshot {
+                        target_sha256: t,
+                        snapshot: s,
+                        manifest_sha256: m,
+                    },
+            } = event.payload
+                && outcome.as_str() == "ok"
+                && &t == target_sha256
+                && s == count_snap
+                && &m == manifest_sha256
+            {
+                return Some(event.time);
+            }
+        }
+        None
+    }
+
+    /// Return the outcome and timestamp of the newest snapshot verify (either "ok" or "failed")
+    /// matching `(target_sha256, snapshot, manifest_sha256)`, or `None` if none matches.
+    #[must_use]
+    pub fn newest_snapshot_verify(
+        &self,
+        target_sha256: &Sha256,
+        snapshot: u32,
+        manifest_sha256: &Sha256,
+    ) -> Option<(Word, Now)> {
+        let events = read_valid_events_prefix(&self.state_dir);
+        let count_snap = Count::new(u64::from(snapshot));
+        for event in events.into_iter().rev() {
+            if let EventPayload::BackupVerify {
+                outcome,
+                verified:
+                    BackupVerified::Snapshot {
+                        target_sha256: t,
+                        snapshot: s,
+                        manifest_sha256: m,
+                    },
+            } = event.payload
+                && &t == target_sha256
+                && s == count_snap
+                && &m == manifest_sha256
+            {
+                return Some((outcome, event.time));
+            }
+        }
+        None
+    }
+
+    /// Return the timestamp of the newest successful snapshot verify across all snapshots,
+    /// or `None` if no successful snapshot verification is recorded.
+    #[must_use]
+    pub fn newest_successful_snapshot_verify_any(&self) -> Option<Now> {
+        let events = read_valid_events_prefix(&self.state_dir);
+        for event in events.into_iter().rev() {
+            if let EventPayload::BackupVerify { outcome, verified } = event.payload
+                && outcome.as_str() == "ok"
+                && matches!(verified, BackupVerified::Snapshot { .. })
+            {
+                return Some(event.time);
+            }
+        }
+        None
+    }
+
+    /// Return the newest `restore.end` event information in the journal, or `None` if none recorded.
+    #[must_use]
+    pub fn newest_restore_end(&self) -> Option<RestoreEndInfo> {
+        let events = read_valid_events_prefix(&self.state_dir);
+        for event in events.into_iter().rev() {
+            if let EventPayload::RestoreEnd {
+                snapshot,
+                mode,
+                outcome,
+                code,
+            } = event.payload
+            {
+                let snap = u32::try_from(snapshot.0).unwrap_or(0);
+                return Some(RestoreEndInfo {
+                    snapshot: snap,
+                    mode,
+                    outcome,
+                    code,
+                    time: event.time,
+                });
+            }
+        }
+        None
+    }
+
     /// Acquire a state-only [`Audited`] token (`Journal::state_scope(&self, lease)`) without
     /// appending any journal event.
     ///
@@ -1650,6 +2290,7 @@ impl<'a> Journal<'a> {
                 _lock: lock,
                 has_write_begin: false,
                 state_scope_count: 1,
+                recovery: false,
             });
         }
         drop(guard);
@@ -1663,6 +2304,7 @@ impl<'a> Journal<'a> {
             affected: Vec::new(),
             export_context: None,
             active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: None,
             ended: false,
         })
     }
@@ -1875,6 +2517,7 @@ impl<'a> Journal<'a> {
                 _lock: lock,
                 has_write_begin: true,
                 state_scope_count: 0,
+                recovery: false,
             });
         }
 
@@ -1888,6 +2531,7 @@ impl<'a> Journal<'a> {
                 affected: pw.affected,
                 export_context: None,
                 active_tx: Arc::clone(&self.active_tx),
+                recovery_approved: None,
                 ended: false,
             },
             intent: pw.intent,
@@ -2283,6 +2927,42 @@ fn read_verified_events(state_dir: &Path) -> Result<Vec<Event>, JournalError> {
         }
     }
     Ok(events)
+}
+
+/// Read all valid events from the journal in segment order, stopping at the first
+/// torn, broken, or unverified line.
+pub fn read_valid_events_prefix(state_dir: &Path) -> Vec<Event> {
+    let audit_dir = state_dir.join("audit");
+    let Ok(segments) = list_segments(&audit_dir) else {
+        return Vec::new();
+    };
+    let mut events = Vec::new();
+    let mut prev_hex = ZERO_HASH.to_owned();
+    let mut expected_seq = 1u64;
+
+    for (_, seg_path) in segments {
+        let Ok(raw) = std::fs::read_to_string(&seg_path) else {
+            break;
+        };
+        for line in raw.lines() {
+            if line.is_empty() {
+                continue;
+            }
+            let Ok(verified) = verify_line(&prev_hex, line) else {
+                return events;
+            };
+            let Ok((event, _)) = Event::parse_line(line) else {
+                return events;
+            };
+            if event.seq != expected_seq {
+                return events;
+            }
+            prev_hex = verified.hash.as_str().to_owned();
+            expected_seq = expected_seq.saturating_add(1);
+            events.push(event);
+        }
+    }
+    events
 }
 
 fn append_event_locked(

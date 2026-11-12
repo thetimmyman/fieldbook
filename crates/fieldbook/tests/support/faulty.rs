@@ -9,6 +9,7 @@ use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{Now, Principal, Sha256};
 use fieldbook_core::check::Tree;
 use fieldbook_core::egress::Allowed;
+use fieldbook_core::labels::PlaceFacts;
 
 use super::world::TestWorld;
 
@@ -190,5 +191,9 @@ impl World for FaultyWorld {
 
     fn state_dir(&self) -> &Path {
         self.inner.state_dir()
+    }
+
+    fn place(&self, path: &Path) -> PlaceFacts {
+        self.inner.place(path)
     }
 }

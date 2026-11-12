@@ -1,6 +1,6 @@
 //! [`TestWorld`]: configurable [`World`] wrapper around [`Disk`] (`audit-journal`).
 
-use std::collections::VecDeque;
+use std::collections::{BTreeMap, VecDeque};
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Condvar, Mutex};
@@ -13,6 +13,7 @@ use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{Now, Principal, Sha256};
 use fieldbook_core::check::Tree;
 use fieldbook_core::egress::Allowed;
+use fieldbook_core::labels::PlaceFacts;
 
 const FIXTURE_TODAY: &str = include_str!("../../../../tests/fixtures/corpus-mini/TODAY");
 
@@ -30,6 +31,7 @@ pub struct TestWorld {
     wait_for_input: AtomicBool,
     prompts: Mutex<Vec<String>>,
     prompt_ready: Condvar,
+    place: Mutex<BTreeMap<PathBuf, PlaceFacts>>,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -78,6 +80,7 @@ impl TestWorld {
             wait_for_input: AtomicBool::new(false),
             prompts: Mutex::new(Vec::new()),
             prompt_ready: Condvar::new(),
+            place: Mutex::new(BTreeMap::new()),
         }
     }
 
@@ -99,6 +102,7 @@ impl TestWorld {
             wait_for_input: AtomicBool::new(false),
             prompts: Mutex::new(Vec::new()),
             prompt_ready: Condvar::new(),
+            place: Mutex::new(BTreeMap::new()),
         }
     }
 
@@ -171,6 +175,13 @@ impl TestWorld {
     pub fn set_company_store(&self, has_company_store: bool) {
         self.company_store
             .store(has_company_store, Ordering::Relaxed);
+    }
+
+    /// Set placement facts for `path` in this test world.
+    pub fn set_place(&self, path: &Path, facts: PlaceFacts) {
+        if let Ok(mut map) = self.place.lock() {
+            map.insert(path.to_path_buf(), facts);
+        }
     }
 }
 
@@ -269,5 +280,13 @@ impl World for TestWorld {
 
     fn state_dir(&self) -> &Path {
         &self.state_dir
+    }
+
+    fn place(&self, path: &Path) -> PlaceFacts {
+        if let Ok(map) = self.place.lock() {
+            map.get(path).copied().unwrap_or_else(PlaceFacts::local)
+        } else {
+            PlaceFacts::local()
+        }
     }
 }
