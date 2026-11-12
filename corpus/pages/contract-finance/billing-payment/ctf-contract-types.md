@@ -11,7 +11,7 @@ as_of = 2025-12-18
 handling = ["public"]
 terms = ["billing", "provisional_billing_rate", "limitation_of_cost", "funding"]
 questions = ["Q-038", "Q-008"]
-links = ["ctf-limitation-of-cost", "ctf-financing-overview"]
+links = ["ctf-limitation-of-cost", "ctf-financing-overview", "ctf-type-firm-fixed-price", "ctf-type-fixed-price-incentive-firm-target", "ctf-type-fixed-price-economic-price-adjustment", "ctf-type-cost-plus-fixed-fee", "ctf-type-cost-plus-incentive-fee", "ctf-type-cost-plus-award-fee", "ctf-type-time-and-materials", "ctf-type-labor-hour"]
 +++
 
 ## Purpose
