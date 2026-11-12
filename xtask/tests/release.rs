@@ -688,6 +688,26 @@ fn check_refuses_changed_old_vectors() {
         "compat/calculation/build_up@1/calc-01.out.txt",
         &vec_content,
     );
+    // Make the v0.2.0 tree self-consistent: rewrite only the build_up@1 row of
+    // compat/published.toml to the new bytes' hash, so the sole possible
+    // refusal is the baseline comparison against the archived binding. The
+    // run-schema row shares the old hash and stays untouched.
+    let path_line = "path = \"compat/calculation/build_up@1/calc-01.out.txt\"\n";
+    let new_sha = repo.sha256("compat/calculation/build_up@1/calc-01.out.txt");
+    let published = repo.read("compat/published.toml");
+    let at = published.find(path_line).expect("build_up@1 row present") + path_line.len();
+    let rest = &published[at..];
+    let sha_start =
+        rest.find("sha256 = \"").expect("sha line follows the path") + "sha256 = \"".len();
+    let sha_end = sha_start + rest[sha_start..].find('"').expect("sha closes");
+    let patched = format!(
+        "{}{}{}{}",
+        &published[..at],
+        &rest[..sha_start],
+        new_sha,
+        &rest[sha_end..]
+    );
+    repo.write("compat/published.toml", &patched);
 
     let c2 = repo.commit_all("v0.2.0 with tampered vector");
     repo.set_origin_main(&c2);
@@ -697,9 +717,8 @@ fn check_refuses_changed_old_vectors() {
     assert_refusal(&out, "compatibility", "");
     let stderr = String::from_utf8_lossy(&out.stderr);
     assert!(
-        stderr.contains("compat/calculation/build_up@1/calc-01.out.txt")
-            || stderr.contains("calc-01"),
-        "stderr should contain calc-01:\nstdout: {}\nstderr: {stderr}",
+        stderr.contains("archived binding `calculation:build_up@1` was modified"),
+        "stderr should name the modified archived binding:\nstdout: {}\nstderr: {stderr}",
         String::from_utf8_lossy(&out.stdout)
     );
 }
