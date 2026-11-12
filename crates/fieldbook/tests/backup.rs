@@ -4776,10 +4776,24 @@ fn backup_waits_for_a_complete_store_generation() {
     let old_claims = std::fs::read(&claims_path).expect("read old claims");
     let old_questions = std::fs::read(&questions_path).expect("read old questions");
 
-    let mut new_claims = old_claims.clone();
-    new_claims.extend_from_slice(b"# gen-marker-1\n");
-    let mut new_questions = old_questions.clone();
-    new_questions.extend_from_slice(b"# gen-marker-2\n");
+    // Each generation edit keeps the register parsable: a note cell grows by a few words.
+    let new_claims = String::from_utf8(old_claims.clone())
+        .expect("claims utf8")
+        .replacen(
+            "Synthetic owner-verified fact for fixture tests.",
+            "Synthetic owner-verified fact for fixture tests (generation two).",
+            1,
+        )
+        .into_bytes();
+    assert_ne!(new_claims, old_claims, "claims edit must change the file");
+    let new_questions = String::from_utf8(old_questions.clone())
+        .expect("questions utf8")
+        .replacen("until confirmed.", "until confirmed (generation two).", 1)
+        .into_bytes();
+    assert_ne!(
+        new_questions, old_questions,
+        "questions edit must change the file"
+    );
 
     let claims_sha = Sha256::digest(&new_claims);
     let questions_sha = Sha256::digest(&new_questions);
@@ -4890,6 +4904,93 @@ fn backup_waits_for_a_complete_store_generation() {
         snap_questions, new_questions,
         "snapshot must contain file 2 from generation"
     );
+}
+
+fn append_np_source_row(tree_root: &Path, volatility: &str) {
+    let sources_path = tree_root.join("corpus/registers/sources.csv");
+    let mut content = std::fs::read_to_string(&sources_path).expect("read sources.csv");
+    if !content.ends_with('\n') {
+        content.push('\n');
+    }
+    let sha256 = "5".repeat(64);
+    let row = format!(
+        "S-0004,1,synthetic-np-row,\"Synthetic Cost Rule, made up for tests\",Synthetic Standards Board,primary_law,primary_evidence,A,\"Synthetic, no restrictions\",synthetic_cost_rule,reviewed,metadata-only: made up for tests,{sha256},2026-01-10,2026-01-15,2026-02-01,2026-02-01,active,,{volatility},np-0007,Synthetic fixture source for automated tests.,Synthetic rule baseline for fixture tests,,,,,\n"
+    );
+    content.push_str(&row);
+    std::fs::write(&sources_path, content).expect("write sources.csv");
+}
+
+#[test]
+fn backup_refuses_when_a_source_row_does_not_load() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    append_np_source_row(fix.tree_root(), "V9");
+
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn backup_refuses_registers_when_corpus_toml_does_not_load() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    append_np_source_row(fix.tree_root(), "V2");
+
+    let toml_path = fix.tree_root().join("corpus/corpus.toml");
+    let content = std::fs::read_to_string(&toml_path).expect("read corpus.toml");
+    std::fs::write(&toml_path, format!("unknown_key = 1\n{content}")).expect("write corpus.toml");
+
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"corpus/registers\"]\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn backup_refuses_a_claims_only_target_when_sources_row_is_np() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    append_np_source_row(fix.tree_root(), "V2");
+
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"corpus/registers/claims.csv\"]\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
 }
 
 #[test]

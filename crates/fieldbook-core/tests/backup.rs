@@ -9,8 +9,8 @@ use fieldbook_core::backup::{
 };
 use fieldbook_core::check::Code;
 use fieldbook_core::labels::{
-    ItemRef, LabelGraph, LabelId, LabelNode, LabelSet, Ledger, OWNER_SUPPLIED, PUBLIC, StoreId,
-    UNLABELLED, effective_item,
+    ItemRef, LabelGraph, LabelId, LabelNode, LabelSet, Ledger, MARKED, OWNER_SUPPLIED, PUBLIC,
+    StoreId, UNLABELLED, effective_item,
 };
 use fieldbook_core::labels::{PlaceFacts, RefuseReason};
 
@@ -412,6 +412,27 @@ fn a_file_that_should_declare_labels_and_does_not_adds_unlabelled() {
     ];
     let stray_labels = snapshot_labels(&stray);
     assert!(stray_labels.contains(&UNLABELLED));
+}
+
+#[test]
+fn snapshot_labels_keep_every_label_beside_unlabelled() {
+    let np = LabelId::parse("np-0007").unwrap();
+    let files = vec![
+        CopiedFile::new(
+            "corpus/pages/p1.md",
+            BackupFileKind::Page,
+            LabelSet::from_ids([UNLABELLED, MARKED]),
+        ),
+        CopiedFile::new(
+            "corpus/sources/public/S-0001/doc.pdf",
+            BackupFileKind::Original,
+            LabelSet::from_ids([UNLABELLED, np.clone()]),
+        ),
+    ];
+    let labels = snapshot_labels(&files);
+    assert!(labels.contains(&UNLABELLED));
+    assert!(labels.contains(&MARKED));
+    assert!(labels.contains(&np));
 }
 
 #[test]

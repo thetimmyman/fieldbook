@@ -78,8 +78,8 @@ impl CopiedFile {
 ///   yields [`LabelSet::public()`].
 /// - [`BackupFileKind::TextFreeControl`] files contribute no labels to a mixed selection.
 /// - [`BackupFileKind::Stray`] files add `unlabelled`.
-/// - Known files that should declare labels and do not (or have `unlabelled`) add `unlabelled`.
-/// - Otherwise, all file labels are unioned.
+/// - A file with an empty label set adds `unlabelled`.
+/// - Otherwise every id of a file's resolved set is unioned, `unlabelled` and `marked` included.
 #[must_use]
 pub fn snapshot_labels(files: &[CopiedFile]) -> LabelSet {
     if files.is_empty() {
@@ -104,7 +104,7 @@ pub fn snapshot_labels(files: &[CopiedFile]) -> LabelSet {
                 ids.insert(UNLABELLED.clone());
             }
             _ => {
-                if file.labels.contains(&UNLABELLED) || file.labels.ids().is_empty() {
+                if file.labels.ids().is_empty() {
                     ids.insert(UNLABELLED.clone());
                 } else {
                     for id in file.labels.ids() {

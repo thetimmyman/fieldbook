@@ -92,6 +92,21 @@ fn parse_handling_vec(items: &[String]) -> LabelSet {
     LabelSet::from_ids(ids)
 }
 
+/// True when the model parsed `register` and typed every one of its data rows.
+fn register_fully_loaded(model: &Model, register: Register) -> bool {
+    if model.register(register).is_none() {
+        return false;
+    }
+    let typed = match register {
+        Register::Sources => model.sources().len(),
+        Register::Claims => model.claims().len(),
+        Register::Questions => model.questions().len(),
+        Register::Conflicts => model.conflicts().len(),
+        Register::Glossary => model.glossary().len(),
+    };
+    model.register_rows(register).len() == typed
+}
+
 /// Classifies a single file and resolves its effective labels.
 #[must_use]
 pub fn classify_file(
@@ -159,17 +174,26 @@ pub fn classify_file(
         && !name.contains('/')
         && Register::ALL.iter().any(|r| r.file_name() == name)
     {
+        // Fail closed: a register contributes labels only when the model loaded it completely
+        // (every data row typed) and `sources.csv` itself is complete, so no source handling is
+        // dropped. Otherwise it is unlabelled, as the search index treats a register that does
+        // not parse.
+        let loaded = model.filter(|m| register_fully_loaded(m, Register::Sources));
+        let own_loaded = model.is_some_and(|m| {
+            Register::ALL
+                .iter()
+                .find(|r| r.file_name() == name)
+                .is_some_and(|r| register_fully_loaded(m, *r))
+        });
+        let Some(m) = loaded.filter(|_| own_loaded) else {
+            return CopiedFile::new(path, BackupFileKind::Record, LabelSet::unlabelled());
+        };
         let mut row_labels = BTreeSet::new();
         row_labels.insert(PUBLIC.clone());
-
-        if let Some(m) = model
-            && path == "corpus/registers/sources.csv"
-        {
-            for s in m.sources() {
-                let set = parse_handling_vec(&s.value.handling);
-                for id in set.ids() {
-                    row_labels.insert(id.clone());
-                }
+        for s in m.sources() {
+            let set = parse_handling_vec(&s.value.handling);
+            for id in set.ids() {
+                row_labels.insert(id.clone());
             }
         }
 
