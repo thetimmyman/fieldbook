@@ -938,6 +938,10 @@ function initPalette() {
     { type: 'button', 'aria-pressed': String(singleKeys) });
   const saved = make('p', 'note', failed, { role: 'status' });
   const close = make('button', 'btn ghost sm', 'Close', { type: 'button' });
+  const stale = document.getElementById('fb:keysTitle');
+  if (stale) {
+    stale.remove();
+  }
   keys.append(make('div', 'dlg-h', [make('h2', '', 'Keyboard shortcuts', { id: 'fb:keysTitle' }), close]), make('dl', 'keys', [
     make('dt', '', [kbd('/'), ' or ', kbd('Ctrl K')]), make('dd', '', 'Search'),
     make('dt', '', kbd('?')), make('dd', '', 'This list'),
