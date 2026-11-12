@@ -460,6 +460,14 @@ mod tests {
         fn support_facts(&self) -> fieldbook_core::manifest::SupportFacts {
             self.disk.support_facts()
         }
+
+        fn reset_drill(&self, audited: &Audited) -> Result<(), Error> {
+            self.disk.reset_drill(audited)
+        }
+
+        fn remove_drill(&self, audited: &Audited) -> Result<(), Error> {
+            self.disk.remove_drill(audited)
+        }
     }
 
     #[test]

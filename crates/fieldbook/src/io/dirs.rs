@@ -12,10 +12,11 @@
 
 use std::path::{Component, Path, PathBuf};
 
-use fieldbook_core::audit::Sha256;
+use fieldbook_core::audit::{Sha256, StoreId};
 use fieldbook_core::egress::{Allowed, Operation, Target, Transfer, hash_tree_manifest};
 use fieldbook_core::strings;
 
+use crate::io::root::RootPath;
 use crate::io::{Audited, Error};
 
 /// Name of the parent marker file written in `--out DIR` by `fieldbook build`.
@@ -412,4 +413,391 @@ pub fn rename_dir_outside(
     }
 
     std::fs::rename(&resolved_from, &resolved_to).map_err(|err| Error::new(from, err.to_string()))
+}
+
+/// Create directory `path` outside the data roots under `audited` and `allowed`.
+///
+/// Refuses with [`Error::OutOfScope`] if `audited` is state-only, has no active lease, or is
+/// recovery-only without approved recovery, if `path` escapes scope, if the folder already exists,
+/// or if `allowed` does not bind [`Operation::CreateDir`] on the resolved path with the empty-tree
+/// manifest (`hash_tree_manifest(&[])`).
+///
+/// # Errors
+///
+/// Returns [`Error::OutOfScope`] on permission or scope failures, or [`Error::Io`] on filesystem
+/// failure.
+pub fn make_dir_outside(audited: &Audited, allowed: &Allowed, path: &Path) -> Result<(), Error> {
+    if audited.is_state_only() || !audited.has_active_lease() {
+        return Err(Error::OutOfScope(path.to_path_buf()));
+    }
+    if audited.is_recovery_only() && !audited.is_approved_recovery(allowed) {
+        return Err(Error::OutOfScope(path.to_path_buf()));
+    }
+    let resolved = crate::io::root::resolve_outside_path(path)?;
+    match std::fs::symlink_metadata(&resolved) {
+        Ok(_) => return Err(Error::OutOfScope(path.to_path_buf())),
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => {}
+        Err(err) => return Err(Error::new(path, err.to_string())),
+    }
+
+    let (manifest_sha, total_bytes) = hash_tree_manifest(&[]);
+    let permitted = allowed.permits_manifest(
+        &Target::Path(resolved.clone()),
+        &Operation::CreateDir,
+        &manifest_sha,
+        total_bytes,
+    ) || allowed.transfers().unwrap_or(&[]).iter().any(|t| {
+        if let Target::Path(bound_path) = &t.target
+            && let Ok(bound_resolved) = crate::io::root::resolve_outside_path(bound_path)
+            && bound_resolved == resolved
+        {
+            allowed.permits_manifest(&t.target, &Operation::CreateDir, &manifest_sha, total_bytes)
+        } else {
+            false
+        }
+    });
+
+    if !permitted {
+        return Err(Error::OutOfScope(path.to_path_buf()));
+    }
+
+    std::fs::create_dir_all(&resolved).map_err(|err| Error::new(path, err.to_string()))
+}
+
+/// Create directory `path` inside `root` under `audited`.
+///
+/// Refuses with [`Error::OutOfScope`] if `audited` has no active lease or is recovery-only,
+/// or if `audited` is state-only and `root.store() != StoreId::State`. Resolves `path` with
+/// [`crate::io::root::resolve_in_root`].
+///
+/// # Errors
+///
+/// Returns [`Error::OutOfScope`] on permission or scope failures, or [`Error::Io`] on filesystem
+/// failure.
+pub fn make_dir_in_root(audited: &Audited, root: &RootPath, path: &Path) -> Result<(), Error> {
+    let raw_path = if path.is_absolute() {
+        path.to_path_buf()
+    } else {
+        root.path().join(path)
+    };
+    if !audited.has_active_lease() || audited.is_recovery_only() {
+        return Err(Error::OutOfScope(raw_path));
+    }
+    if audited.is_state_only() && root.store() != StoreId::State {
+        return Err(Error::OutOfScope(raw_path));
+    }
+    let resolved = crate::io::root::resolve_in_root(root, path)?;
+    std::fs::create_dir_all(&resolved).map_err(|err| Error::new(path, err.to_string()))
+}
+
+/// Reset the drill directory under `<state_root>/drill`.
+///
+/// Refuses with [`Error::OutOfScope`] unless `state_root.store() == StoreId::State`, `audited`
+/// has an active lease, and `audited` is not recovery-only. Clears read-only attributes and removes
+/// any existing `drill` directory or symlink, and recreates an empty `drill` directory.
+///
+/// # Errors
+///
+/// Returns [`Error::OutOfScope`] on permission or scope failures, or [`Error::Io`] on filesystem
+/// failure.
+pub fn reset_drill(audited: &Audited, state_root: &RootPath) -> Result<(), Error> {
+    let drill_path = state_root.path().join("drill");
+    if state_root.store() != StoreId::State
+        || !audited.has_active_lease()
+        || audited.is_recovery_only()
+    {
+        return Err(Error::OutOfScope(drill_path));
+    }
+    clean_drill_dir(&drill_path)?;
+    std::fs::create_dir(&drill_path).map_err(|err| Error::new(&drill_path, err.to_string()))
+}
+
+/// Remove the drill directory under `<state_root>/drill`.
+///
+/// Refuses with [`Error::OutOfScope`] unless `state_root.store() == StoreId::State`, `audited`
+/// has an active lease, and `audited` is not recovery-only. Clears read-only attributes and removes
+/// any existing `drill` directory or symlink, leaving the path absent. If absent, does nothing.
+///
+/// # Errors
+///
+/// Returns [`Error::OutOfScope`] on permission or scope failures, or [`Error::Io`] on filesystem
+/// failure.
+pub fn remove_drill(audited: &Audited, state_root: &RootPath) -> Result<(), Error> {
+    let drill_path = state_root.path().join("drill");
+    if state_root.store() != StoreId::State
+        || !audited.has_active_lease()
+        || audited.is_recovery_only()
+    {
+        return Err(Error::OutOfScope(drill_path));
+    }
+    clean_drill_dir(&drill_path)
+}
+
+fn clean_drill_dir(drill_path: &Path) -> Result<(), Error> {
+    match std::fs::symlink_metadata(drill_path) {
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ok(()),
+        Err(err) => Err(Error::new(drill_path, err.to_string())),
+        Ok(meta) => {
+            if meta.file_type().is_symlink() {
+                remove_symlink_only(drill_path)
+                    .map_err(|err| Error::new(drill_path, err.to_string()))
+            } else if meta.is_dir() {
+                clear_readonly_recursive(drill_path)?;
+                std::fs::remove_dir_all(drill_path)
+                    .map_err(|err| Error::new(drill_path, err.to_string()))
+            } else {
+                Err(Error::OutOfScope(drill_path.to_path_buf()))
+            }
+        }
+    }
+}
+
+fn remove_symlink_only(path: &Path) -> Result<(), std::io::Error> {
+    #[cfg(windows)]
+    {
+        if std::fs::remove_file(path).is_err() {
+            std::fs::remove_dir(path)?;
+        }
+        Ok(())
+    }
+    #[cfg(not(windows))]
+    {
+        std::fs::remove_file(path)
+    }
+}
+
+#[expect(
+    clippy::permissions_set_readonly_false,
+    reason = "drill cleanup must clear read-only bits before recursive removal"
+)]
+fn clear_readonly_recursive(dir: &Path) -> Result<(), Error> {
+    let read_dir = match std::fs::read_dir(dir) {
+        Ok(rd) => rd,
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => return Ok(()),
+        Err(err) => return Err(Error::new(dir, err.to_string())),
+    };
+    for entry in read_dir {
+        let entry = entry.map_err(|err| Error::new(dir, err.to_string()))?;
+        let path = entry.path();
+        let meta = match std::fs::symlink_metadata(&path) {
+            Ok(m) => m,
+            Err(err) if err.kind() == std::io::ErrorKind::NotFound => continue,
+            Err(err) => return Err(Error::new(&path, err.to_string())),
+        };
+        if meta.file_type().is_symlink() {
+            continue;
+        }
+        let mut perms = meta.permissions();
+        if perms.readonly() {
+            perms.set_readonly(false);
+            let _ = std::fs::set_permissions(&path, perms);
+        }
+        if meta.is_dir() {
+            clear_readonly_recursive(&path)?;
+        }
+    }
+    if let Ok(meta) = std::fs::symlink_metadata(dir)
+        && !meta.file_type().is_symlink()
+    {
+        let mut perms = meta.permissions();
+        if perms.readonly() {
+            perms.set_readonly(false);
+            let _ = std::fs::set_permissions(dir, perms);
+        }
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use std::path::Path;
+
+    use fieldbook_core::CivilDate;
+    use fieldbook_core::audit::{
+        LabelSet, Now, OperationIntent, OperationKey, RecordRef, Verb, Via, WriteFile, WriteSet,
+        request_sha256,
+    };
+    use fieldbook_core::egress::{
+        Decision, Delivery, Dest, Operation, Shipped, Target, Transfer, check, hash_tree_manifest,
+    };
+    use fieldbook_core::policy::{EffectivePolicy, FloorKind, OwnerSettings, PolicyState};
+
+    use super::*;
+    use crate::World;
+    use crate::io::journal::Journal;
+    use crate::io::root::Roots;
+
+    fn floor_a() -> EffectivePolicy {
+        EffectivePolicy::new(&PolicyState::Floor(FloorKind::A), &OwnerSettings::unset())
+    }
+
+    #[test]
+    fn test_reset_and_remove_drill() {
+        let tmp = tempfile::tempdir().unwrap();
+        let corpus_dir = tmp.path().join("corpus");
+        let state_dir = tmp.path().join(".fieldbook");
+        std::fs::create_dir_all(&corpus_dir).unwrap();
+        std::fs::create_dir_all(&state_dir).unwrap();
+
+        let roots = Roots::at_home(&corpus_dir, &state_dir);
+        let disk = crate::io::Disk::with_state(&corpus_dir, &state_dir);
+        let mut journal = Journal::open(&disk, &state_dir, Via::Cli).unwrap();
+
+        let labels = LabelSet::public();
+        let token = journal.begin_restore(1, "drill", &labels).unwrap();
+
+        let drill_path = state_dir.join("drill");
+        assert!(!drill_path.exists());
+
+        // reset_drill creates the empty directory
+        reset_drill(&token, &roots.state).unwrap();
+        assert!(drill_path.is_dir());
+
+        // populate drill directory with nested file and read-only attributes
+        let sub = drill_path.join("sub");
+        std::fs::create_dir_all(&sub).unwrap();
+        let file_path = sub.join("nested.txt");
+        std::fs::write(&file_path, b"test content").unwrap();
+        let mut perms = std::fs::metadata(&file_path).unwrap().permissions();
+        perms.set_readonly(true);
+        std::fs::set_permissions(&file_path, perms).unwrap();
+
+        // reset_drill clears read-only and recreates empty drill
+        reset_drill(&token, &roots.state).unwrap();
+        assert!(drill_path.is_dir());
+        assert!(!file_path.exists());
+        assert!(!sub.exists());
+
+        // remove_drill leaves it absent
+        remove_drill(&token, &roots.state).unwrap();
+        assert!(!drill_path.exists());
+
+        // remove_drill when absent succeeds
+        remove_drill(&token, &roots.state).unwrap();
+        assert!(!drill_path.exists());
+
+        // OutOfScope when not StoreId::State
+        let err = reset_drill(&token, &roots.corpus);
+        assert!(matches!(err, Err(Error::OutOfScope(_))));
+        let err2 = remove_drill(&token, &roots.corpus);
+        assert!(matches!(err2, Err(Error::OutOfScope(_))));
+    }
+
+    #[test]
+    fn test_make_dir_in_root() {
+        let tmp = tempfile::tempdir().unwrap();
+        let corpus_dir = tmp.path().join("corpus");
+        let state_dir = tmp.path().join(".fieldbook");
+        std::fs::create_dir_all(&corpus_dir).unwrap();
+        std::fs::create_dir_all(&state_dir).unwrap();
+
+        let roots = Roots::at_home(&corpus_dir, &state_dir);
+        let disk = crate::io::Disk::with_state(&corpus_dir, &state_dir);
+        let mut journal = Journal::open(&disk, &state_dir, Via::Cli).unwrap();
+
+        let labels = LabelSet::public();
+        let token = journal.begin_restore(1, "drill", &labels).unwrap();
+
+        // In-root creation under state_root succeeds
+        let rel_path = Path::new("sub/dir/nested");
+        make_dir_in_root(&token, &roots.state, rel_path).unwrap();
+        assert!(state_dir.join(rel_path).is_dir());
+
+        // Absolute path under root also succeeds
+        let abs_path = state_dir.join("another/dir");
+        make_dir_in_root(&token, &roots.state, &abs_path).unwrap();
+        assert!(abs_path.is_dir());
+
+        // OutOfScope for corpus root with state-only token
+        let err = make_dir_in_root(&token, &roots.corpus, Path::new("sub"));
+        assert!(matches!(err, Err(Error::OutOfScope(_))));
+
+        // OutOfScope when escaping root
+        let err_escape = make_dir_in_root(&token, &roots.state, Path::new("../escaped"));
+        assert!(matches!(err_escape, Err(Error::OutOfScope(_))));
+    }
+
+    #[test]
+    fn test_make_dir_outside() {
+        let tmp = tempfile::tempdir().unwrap();
+        let corpus_dir = tmp.path().join("corpus");
+        let state_dir = tmp.path().join(".fieldbook");
+        std::fs::create_dir_all(&corpus_dir).unwrap();
+        std::fs::create_dir_all(&state_dir).unwrap();
+
+        let disk = crate::io::Disk::with_state(&corpus_dir, &state_dir);
+        let mut journal = Journal::open(&disk, &state_dir, Via::Cli).unwrap();
+
+        let labels = LabelSet::public();
+        // State-only token is refused
+        let state_token = journal.begin_restore(1, "drill", &labels).unwrap();
+
+        let out_tmp = tempfile::tempdir().unwrap();
+        let out_dir = out_tmp.path().join("exported_dir");
+        let (dir_sha, dir_bytes) = hash_tree_manifest(&[]);
+        let delivery = Delivery {
+            entries: vec![Transfer {
+                target: Target::Path(out_dir.clone()),
+                operation: Operation::CreateDir,
+                sha256: dir_sha,
+                bytes: dir_bytes,
+            }],
+            markings: None,
+        };
+        let now = Now::new(CivilDate::from_ymd(2026, 3, 1).unwrap(), 43_200).unwrap();
+        let Decision::Allowed(allowed) = check(
+            &floor_a(),
+            &Dest::Export {
+                path: out_dir.to_string_lossy().into_owned(),
+            },
+            Some(&labels),
+            Some(&delivery),
+            now,
+            Shipped::Never,
+        ) else {
+            panic!("expected Decision::Allowed");
+        };
+
+        // State-only token returns OutOfScope
+        let res = make_dir_outside(&state_token, &allowed, &out_dir);
+        assert!(matches!(res, Err(Error::OutOfScope(_))));
+
+        // Release state_token
+        journal
+            .end_restore(state_token, 1, "drill", "ok", None)
+            .unwrap();
+
+        // Obtain non-state-only Audited token via begin write
+        let lease = disk.write_lease().unwrap();
+        let intent = OperationIntent {
+            schema: 1,
+            key: OperationKey::new(Verb::parse("add").unwrap(), Sha256::digest(b"tag")),
+            request_sha256: request_sha256(&[("req", b"tag")]).unwrap(),
+            allocated: vec![RecordRef::parse("corpus/S-0001").unwrap()],
+            allocated_store_uid: None,
+            planned_on: CivilDate::from_ymd(2026, 3, 1).unwrap(),
+        };
+        let ws = WriteSet {
+            labels: LabelSet::public(),
+            files: vec![WriteFile::new(
+                "corpus/sources/public/S-0004-v1.txt",
+                Sha256::digest(b"in-root\n").as_str().to_owned(),
+            )],
+            affected: vec![RecordRef::parse("corpus/S-0001").unwrap()],
+        };
+        let token = journal.begin(&lease, &intent, &ws).unwrap();
+
+        // With valid token and allowed, make_dir_outside succeeds
+        make_dir_outside(&token, &allowed, &out_dir).unwrap();
+        assert!(out_dir.is_dir());
+
+        // Calling it again when folder already exists returns OutOfScope
+        let res_exists = make_dir_outside(&token, &allowed, &out_dir);
+        assert!(matches!(res_exists, Err(Error::OutOfScope(_))));
+
+        // Calling with unauthorized path returns OutOfScope
+        let unauthorized = out_tmp.path().join("other_dir");
+        let res_unauth = make_dir_outside(&token, &allowed, &unauthorized);
+        assert!(matches!(res_unauth, Err(Error::OutOfScope(_))));
+    }
 }

@@ -35,6 +35,7 @@ pub struct TestWorld {
     support_facts: Mutex<Option<fieldbook::SupportFacts>>,
     fault: Mutex<Option<crate::support::faulty::Fault>>,
     fault_matches: std::sync::atomic::AtomicUsize,
+    written: Mutex<Vec<PathBuf>>,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -87,6 +88,7 @@ impl TestWorld {
             support_facts: Mutex::new(None),
             fault: Mutex::new(None),
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
+            written: Mutex::new(Vec::new()),
         }
     }
 
@@ -112,6 +114,7 @@ impl TestWorld {
             support_facts: Mutex::new(None),
             fault: Mutex::new(None),
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
+            written: Mutex::new(Vec::new()),
         }
     }
 
@@ -232,6 +235,12 @@ impl TestWorld {
         let _ = std::fs::remove_dir_all(&final_dir);
     }
 
+    /// Return in order every path written by a successful `write_file` or `write_outside`.
+    #[must_use]
+    pub fn written(&self) -> Vec<PathBuf> {
+        self.written.lock().map(|w| w.clone()).unwrap_or_default()
+    }
+
     fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
         let Ok(g) = self.fault.lock() else {
             return Ok(());
@@ -295,7 +304,11 @@ impl World for TestWorld {
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
         self.check_fault(path)?;
-        self.inner.write_file(audited, path, bytes)
+        let sha = self.inner.write_file(audited, path, bytes)?;
+        if let Ok(mut w) = self.written.lock() {
+            w.push(path.to_path_buf());
+        }
+        Ok(sha)
     }
 
     fn write_outside(
@@ -306,7 +319,11 @@ impl World for TestWorld {
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
         self.check_fault(path)?;
-        self.inner.write_outside(allowed, audited, path, bytes)
+        let sha = self.inner.write_outside(allowed, audited, path, bytes)?;
+        if let Ok(mut w) = self.written.lock() {
+            w.push(path.to_path_buf());
+        }
+        Ok(sha)
     }
 
     fn has_company_store(&self) -> bool {
@@ -390,5 +407,13 @@ impl World for TestWorld {
         }
         let disk = Disk::with_state(self.tree_root(), &self.state_dir);
         disk.support_facts()
+    }
+
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.reset_drill(audited)
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.remove_drill(audited)
     }
 }

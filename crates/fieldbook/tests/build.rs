@@ -1900,6 +1900,14 @@ mod build {
         fn support_facts(&self) -> fieldbook::SupportFacts {
             self.inner.support_facts()
         }
+
+        fn reset_drill(&self, audited: &fieldbook::Audited) -> Result<(), fieldbook::WorldError> {
+            self.inner.reset_drill(audited)
+        }
+
+        fn remove_drill(&self, audited: &fieldbook::Audited) -> Result<(), fieldbook::WorldError> {
+            self.inner.remove_drill(audited)
+        }
     }
 
     /// The real `build` path: a valid preflight (the row of `S-0098-v1` is public and active, and

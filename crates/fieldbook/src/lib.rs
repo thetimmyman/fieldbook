@@ -105,6 +105,20 @@ pub trait World {
 
     /// Return facts about public support provenance: retained verified catalogues and completed public writes.
     fn support_facts(&self) -> SupportFacts;
+
+    /// Reset the drill workspace under `<state>/drill`.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`WorldError`] if the drill workspace cannot be reset.
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError>;
+
+    /// Remove the drill workspace under `<state>/drill`.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`WorldError`] if the drill workspace cannot be removed.
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError>;
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -381,6 +395,14 @@ impl World for StateOverrideWorld<'_> {
             inner
         }
     }
+
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.reset_drill(audited)
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.remove_drill(audited)
+    }
 }
 
 fn run_check(args: &CheckArgs, world: &dyn World) -> Outcome {
@@ -581,6 +603,14 @@ mod tests {
 
         fn support_facts(&self) -> SupportFacts {
             SupportFacts::default()
+        }
+
+        fn reset_drill(&self, _audited: &super::Audited) -> Result<(), WorldError> {
+            Err(WorldError::OutOfScope(self.state_dir.join("drill")))
+        }
+
+        fn remove_drill(&self, _audited: &super::Audited) -> Result<(), WorldError> {
+            Err(WorldError::OutOfScope(self.state_dir.join("drill")))
         }
     }
 

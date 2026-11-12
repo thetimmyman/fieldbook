@@ -716,6 +716,12 @@ fn held_open_target_is_in_use() {
         fn support_facts(&self) -> fieldbook::SupportFacts {
             self.inner.support_facts()
         }
+        fn reset_drill(&self, audited: &fieldbook::Audited) -> Result<(), fieldbook::WorldError> {
+            self.inner.reset_drill(audited)
+        }
+        fn remove_drill(&self, audited: &fieldbook::Audited) -> Result<(), fieldbook::WorldError> {
+            self.inner.remove_drill(audited)
+        }
     }
 
     let tmp = temp_copy(&fixture_root());
