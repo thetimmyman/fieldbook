@@ -20,6 +20,7 @@ use fieldbook_core::labels::{
 };
 use fieldbook_core::policy::{EffectivePolicy, PolicyState};
 use fieldbook_core::report::{AddReport, LastBackupReport};
+use fieldbook_core::schema::Register;
 
 use crate::World;
 use crate::io::state::BackupSettings;
@@ -154,7 +155,10 @@ pub fn classify_file(
     }
 
     // 4. Registers
-    if path.starts_with("corpus/registers/") && path.ends_with(".csv") {
+    if let Some(name) = path.strip_prefix("corpus/registers/")
+        && !name.contains('/')
+        && Register::ALL.iter().any(|r| r.file_name() == name)
+    {
         let mut row_labels = BTreeSet::new();
         row_labels.insert(PUBLIC.clone());
 
@@ -349,7 +353,10 @@ pub fn classify_file(
         || path == "state/journal.lock"
         || path == "state/lock"
     {
-        return CopiedFile::new(path, BackupFileKind::TextFreeControl, LabelSet::public());
+        if bytes.is_empty() {
+            return CopiedFile::new(path, BackupFileKind::TextFreeControl, LabelSet::public());
+        }
+        return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
     }
 
     // 12. Audit journal files

@@ -1483,6 +1483,47 @@ fn a_stray_file_adds_unlabelled() {
 }
 
 #[test]
+fn text_in_a_state_lock_file_is_stray_and_refuses() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    std::fs::write(fix.state_dir().join("lock"), b"canary text in lock file")
+        .expect("write state lock");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn a_non_register_csv_under_registers_is_stray_and_refuses() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    std::fs::write(
+        fix.tree_root().join("corpus/registers/notes.csv"),
+        b"a,b\n1,2\n",
+    )
+    .expect("write non-register csv");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
 fn a_derived_folder_is_not_copied() {
     let fix = TestFixture::new();
     let eff = floor_a_effective();
