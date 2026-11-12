@@ -2,6 +2,8 @@
 //!
 //! **Responsibility.** Pure quote search across extracted pages ([`find`]), offset-preserving
 //! text normalisation ([`normalise`]), and locator-to-page-range resolution ([`locator_resolves`]).
+//! Each line-end hyphen is tried independently (kept with break as space, kept and joined,
+//! removed and joined, in that order) and the leftmost match on the first page in range is returned.
 //!
 //! **Rules.** Pure: no I/O, clock, environment, or process access. Never panics on arbitrary
 //! Unicode inputs.
@@ -91,17 +93,6 @@ pub struct Span {
     pub start: usize,
     /// Byte offset in the original page text where the match ends.
     pub end: usize,
-}
-
-/// Controls how line-end hyphens are handled during page normalisation.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum HyphenMode {
-    /// Ordinary rule: line break is whitespace (`inter-\nnational` -> `inter- national`).
-    Keep,
-    /// Hyphen kept, line break and indentation dropped (`inter-\nnational` -> `inter-national`).
-    JoinKept,
-    /// Hyphen, line break, and indentation dropped (`inter-\nnational` -> `international`).
-    JoinRemoved,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -283,7 +274,7 @@ fn process_segment(s: &str, base_offset: usize, state: &mut WhitespaceState) {
     }
 }
 
-fn normalise_with_offsets(text: &str, mode: HyphenMode) -> (String, Vec<(usize, usize)>) {
+fn normalise_with_offsets(text: &str) -> (String, Vec<(usize, usize)>) {
     let mut state = WhitespaceState {
         out: NormalisedOutput {
             text: String::with_capacity(text.len()),
@@ -293,52 +284,109 @@ fn normalise_with_offsets(text: &str, mode: HyphenMode) -> (String, Vec<(usize, 
         has_emitted_non_ws: false,
     };
 
-    match mode {
-        HyphenMode::Keep => {
-            process_segment(text, 0, &mut state);
-        }
-        HyphenMode::JoinKept | HyphenMode::JoinRemoved => {
-            let hyphens = find_line_end_hyphens(text);
-            if hyphens.is_empty() {
-                process_segment(text, 0, &mut state);
-            } else {
-                let mut cursor = 0;
-                for h in &hyphens {
-                    if cursor < h.hyphen_start
-                        && let Some(segment) = text.get(cursor..h.hyphen_start)
-                    {
-                        process_segment(segment, cursor, &mut state);
-                    }
-                    if mode == HyphenMode::JoinKept
-                        && let Some(hyphen_str) = text.get(h.hyphen_start..h.hyphen_end)
-                    {
-                        process_segment(hyphen_str, h.hyphen_start, &mut state);
-                    }
-                    cursor = h.break_end;
-                }
-                if cursor < text.len()
-                    && let Some(segment) = text.get(cursor..)
-                {
-                    process_segment(segment, cursor, &mut state);
-                }
-            }
-        }
-    }
+    process_segment(text, 0, &mut state);
 
     (state.out.text, state.out.ranges)
 }
 
-fn match_on_page(
-    norm_quote: &str,
-    page_text: &str,
-    page_num: u32,
-    mode: HyphenMode,
-) -> Option<Span> {
-    let (norm_page, byte_ranges) = normalise_with_offsets(page_text, mode);
-    let hit = norm_page.find(norm_quote)?;
-    let &(start, _) = byte_ranges.get(hit)?;
-    let last_idx = hit.checked_add(norm_quote.len())?.checked_sub(1)?;
-    let &(_, end) = byte_ranges.get(last_idx)?;
+fn page_sites(text: &str, norm: &str, ranges: &[(usize, usize)]) -> Vec<usize> {
+    let mut sites = Vec::new();
+    let norm_bytes = norm.as_bytes();
+    for h in find_line_end_hyphens(text) {
+        let ni = ranges.partition_point(|r| r.0 < h.hyphen_start);
+        if ranges.get(ni).map(|r| r.0) == Some(h.hyphen_start)
+            && norm_bytes.get(ni) == Some(&b'-')
+            && norm_bytes.get(ni.saturating_add(1)) == Some(&b' ')
+        {
+            sites.push(ni);
+        }
+    }
+    sites.sort_unstable();
+    sites.dedup();
+    sites
+}
+
+fn walk(
+    norm: &[u8],
+    sites: &[usize],
+    quote: &[u8],
+    mut i: usize,
+    mut q: usize,
+    mut last: Option<usize>,
+) -> Option<usize> {
+    loop {
+        if q == quote.len() {
+            return last;
+        }
+        let &nb = norm.get(i)?;
+        if sites.binary_search(&i).is_ok() {
+            if quote.get(q) == Some(&b'-') {
+                if let Some(res) = walk(
+                    norm,
+                    sites,
+                    quote,
+                    i.saturating_add(1),
+                    q.saturating_add(1),
+                    Some(i),
+                ) {
+                    return Some(res);
+                }
+                if let Some(res) = walk(
+                    norm,
+                    sites,
+                    quote,
+                    i.saturating_add(2),
+                    q.saturating_add(1),
+                    Some(i),
+                ) {
+                    return Some(res);
+                }
+            }
+            if q > 0
+                && let Some(res) = walk(norm, sites, quote, i.saturating_add(2), q, last)
+            {
+                return Some(res);
+            }
+            return None;
+        }
+        if Some(&nb) == quote.get(q) {
+            let i_old = i;
+            i = i.saturating_add(1);
+            q = q.saturating_add(1);
+            last = Some(i_old);
+            continue;
+        }
+        return None;
+    }
+}
+
+fn match_on_page(norm_quote: &str, page_text: &str, page_num: u32) -> Option<Span> {
+    if norm_quote.is_empty() {
+        return None;
+    }
+    let (norm, ranges) = normalise_with_offsets(page_text);
+    let sites = page_sites(page_text, &norm, &ranges);
+    let (start_idx, last_idx) = if sites.is_empty() {
+        let start = norm.find(norm_quote)?;
+        let last = start.checked_add(norm_quote.len())?.checked_sub(1)?;
+        (start, last)
+    } else {
+        let first_byte = norm_quote.as_bytes().first()?;
+        let norm_bytes = norm.as_bytes();
+        let quote_bytes = norm_quote.as_bytes();
+        let mut hit = None;
+        for (i, &b) in norm_bytes.iter().enumerate() {
+            if b == *first_byte
+                && let Some(last) = walk(norm_bytes, &sites, quote_bytes, i, 0, None)
+            {
+                hit = Some((i, last));
+                break;
+            }
+        }
+        hit?
+    };
+    let &(start, _) = ranges.get(start_idx)?;
+    let &(_, end) = ranges.get(last_idx)?;
     if start > end || !page_text.is_char_boundary(start) || !page_text.is_char_boundary(end) {
         return None;
     }
@@ -352,10 +400,13 @@ fn match_on_page(
 /// Normalises `text` for quote matching according to the Corpus specification.
 #[must_use]
 pub fn normalise(text: &str) -> String {
-    normalise_with_offsets(text, HyphenMode::Keep).0
+    normalise_with_offsets(text).0
 }
 
 /// Searches for `quote` across `pages` restricted to the 1-based page range `within`.
+///
+/// Each line-end hyphen is tried independently (kept with break as space, kept and joined,
+/// removed and joined, in that order) and the leftmost match on the first page in range is returned.
 #[must_use]
 pub fn find(quote: &str, pages: &[&str], within: RangeInclusive<u32>) -> Option<Span> {
     if within.is_empty() {
@@ -390,36 +441,7 @@ pub fn find(quote: &str, pages: &[&str], within: RangeInclusive<u32>) -> Option<
             continue;
         };
 
-        // Mode 1: Keep
-        if let Some(span) =
-            match_on_page(norm_quote.as_str(), page_text, page_num, HyphenMode::Keep)
-        {
-            return Some(span);
-        }
-
-        // Skip the two Join modes when the page has no line-end hyphen, for speed
-        let hyphens = find_line_end_hyphens(page_text);
-        if hyphens.is_empty() {
-            continue;
-        }
-
-        // Mode 2: JoinKept
-        if let Some(span) = match_on_page(
-            norm_quote.as_str(),
-            page_text,
-            page_num,
-            HyphenMode::JoinKept,
-        ) {
-            return Some(span);
-        }
-
-        // Mode 3: JoinRemoved
-        if let Some(span) = match_on_page(
-            norm_quote.as_str(),
-            page_text,
-            page_num,
-            HyphenMode::JoinRemoved,
-        ) {
+        if let Some(span) = match_on_page(norm_quote.as_str(), page_text, page_num) {
             return Some(span);
         }
     }
@@ -494,7 +516,7 @@ mod tests {
     #[test]
     fn normalise_matches_private_with_offsets() {
         let sample = "The \u{201C}quick\u{201D} brown   fox\u{2014}jumped.";
-        let (with_offsets, _) = normalise_with_offsets(sample, HyphenMode::Keep);
+        let (with_offsets, _) = normalise_with_offsets(sample);
         assert_eq!(normalise(sample), with_offsets);
     }
 }

@@ -154,3 +154,23 @@ quote = "café"
 page = "He said “café” twice."
 expect = "match"
 matched = "café"
+
+[[pair]]
+name = "mixed_hyphens_one_kept_one_removed"
+quote = "cost-plus international"
+page = "The cost-\nplus inter-\nnational contract."
+expect = "match"
+matched = "cost-\nplus inter-\nnational"
+
+[[pair]]
+name = "mixed_hyphens_one_removed_one_kept"
+quote = "international cost-effective"
+page = "inter-\nnational cost-\neffective"
+expect = "match"
+matched = "inter-\nnational cost-\neffective"
+
+[[pair]]
+name = "no_match_line_end_hyphen_never_a_space_join"
+quote = "cost plus"
+page = "cost-\nplus"
+expect = "none"
