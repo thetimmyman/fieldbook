@@ -10,6 +10,9 @@ pub mod html_strip_v1;
 pub mod plain_v1;
 pub mod policy_readers_v1;
 
+#[cfg(test)]
+mod tests;
+
 use crate::extraction::{ExtractError, Extraction};
 
 /// Retained extractor function signature for published version dispatch.

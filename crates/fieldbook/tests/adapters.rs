@@ -14,6 +14,12 @@ mod support;
 #[path = "../../../tests/support/extractor_suite.rs"]
 mod extractor_suite;
 
+// Included here so that the registered suites need no line in `support/mod.rs`.
+#[path = "support/authz_suite.rs"]
+mod authz_suite;
+#[path = "support/store_suite.rs"]
+mod store_suite;
+
 use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
 
@@ -178,7 +184,7 @@ fn contract_backup_folder_1() {
 
 #[test]
 fn contract_store_folder_1() {
-    support::store_suite::store_suite(&|p| Disk::with_state(p, p.join(".fieldbook")));
+    store_suite::store_suite(&|p| Disk::with_state(p, p.join(".fieldbook")));
 
     let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
     let fix_dir = repo_root.join("tests/fixtures/ports/store/folder@1");
@@ -203,14 +209,14 @@ fn contract_store_folder_1() {
     std::fs::create_dir_all(tmp.path().join(".fieldbook")).expect("create .fieldbook");
     let disk = Disk::with_state(tmp.path(), tmp.path().join(".fieldbook"));
 
-    let written_sha = support::store_suite::write_store_file(&disk, expected_path, &input)
-        .expect("write_store_file");
+    let written_sha =
+        store_suite::write_store_file(&disk, expected_path, &input).expect("write_store_file");
     assert_eq!(written_sha.to_string(), expected_sha);
 }
 
 #[test]
 fn contract_authz_policy_readers_1() {
-    support::authz_suite::authz_suite(&make_policy_readers);
+    authz_suite::authz_suite(&make_policy_readers);
 
     // Replay fixture
     let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
@@ -222,7 +228,7 @@ fn contract_authz_policy_readers_1() {
     let input_table: toml::Table = toml::from_str(&input_str).expect("parse input.toml");
     let expect_table: toml::Table = toml::from_str(&expect_str).expect("parse expect.toml");
 
-    let mut groups = support::authz_suite::ScriptedGroups::new();
+    let mut groups = authz_suite::ScriptedGroups::new();
     if let Some(grp_tbl) = input_table.get("groups").and_then(toml::Value::as_table) {
         for (k, v) in grp_tbl {
             let ans = match v {

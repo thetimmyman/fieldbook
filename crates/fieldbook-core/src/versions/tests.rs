@@ -2,12 +2,13 @@
 
 use std::error::Error;
 
-use fieldbook_core::audit::Word;
-use fieldbook_core::authz::{Act, AuthzDecision, Groups};
-use fieldbook_core::extraction::{ExtractError, Extractor, HtmlStrip, Plain};
-use fieldbook_core::versions::{extractor_v1, html_strip_v1, plain_v1, policy_readers_v1};
+use crate::audit::Word;
+use crate::authz::{Act, AuthzDecision, Groups};
+use crate::extraction::{ExtractError, Extractor, HtmlStrip, Plain};
+use crate::versions::{extractor_v1, html_strip_v1, plain_v1, policy_readers_v1};
 
-const SAMPLE_HTML: &[u8] = include_bytes!("../../../tests/fixtures/extract/html-strip/sample.html");
+const SAMPLE_HTML: &[u8] =
+    include_bytes!("../../../../tests/fixtures/extract/html-strip/sample.html");
 const EMPTY_INPUT: &[u8] = b"";
 const ASCII_INPUT: &[u8] = b"Hello, world!\nSecond line of plain ASCII text.\n";
 const BOM_INPUT: &[u8] = b"\xef\xbb\xbfText with a UTF-8 BOM.\nSecond line.\n";
