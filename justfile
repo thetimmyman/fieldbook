@@ -1,6 +1,5 @@
 # Fieldbook developer recipes. Run `just` to list them.
 # Bootstrap: `cargo install --locked just@1.58.0`, then `just setup`.
-# Recipe still to come: release. It arrives with its card.
 
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
@@ -24,6 +23,13 @@ binscan:
 # Build the static site into out/edition at the commit timestamp.
 site:
     SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)" cargo run -q --locked -p fieldbook -- build --out out
+
+# Prepare the release commit on a card branch: refuses on main, on a dirty tree, with a version that
+# is not higher than the workspace version or with nothing under Unreleased; edits Cargo.toml,
+# Cargo.lock and CHANGELOG.md, refreshes the lock and checks. It commits, tags and pushes nothing;
+# only the owner tags. Runbook: docs/runbooks/release.md.
+release VERSION:
+    cargo xtask release {{VERSION}}
 
 # Check, then build the Corpus, test the built site in Edge and write the two zips and their hashes to out/dist.
 edition: check
