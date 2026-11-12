@@ -118,12 +118,12 @@ test = "refuses_a_corpus_with_errors"
 [[elsewhere]]
 code = "FB0601"
 card = "edition-zips"
-test = ""
+test = "planted_ps1_is_fb0601"
 
 [[elsewhere]]
 code = "FB0602"
 card = "edition-zips"
-test = ""
+test = "long_path_is_fb0602"
 
 [[elsewhere]]
 code = "FB0603"
@@ -153,7 +153,7 @@ test = ""
 [[elsewhere]]
 code = "FB0608"
 card = "edition-zips"
-test = ""
+test = "changed_file_is_fb0608"
 
 [[elsewhere]]
 code = "FB0700"
