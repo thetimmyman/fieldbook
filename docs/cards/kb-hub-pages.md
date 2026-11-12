@@ -18,7 +18,8 @@ A reader can start from one overview of the FAR 31.205 cost principles, one page
 
 ## Scope
 
-- Files: `corpus/pages/compliance/cas-allowability/` (new hubs, and the `links` line of `cmp-cas-overview`), `corpus/pages/contract-finance/billing-payment/` (new contract-type pages, and `links` of `ctf-contract-types`), `corpus/registers/claims.csv` (appended rows only).
+- Files: `corpus/pages/compliance/cas-allowability/` (new hubs, and the `links` line of `cmp-cas-overview`), `corpus/pages/contract-finance/billing-payment/` (new contract-type pages, and `links` of `ctf-contract-types`), `corpus/registers/claims.csv` (appended rows only), `docs/cards/kb-hub-pages-2.md` (the new card for the standards this part leaves), `docs/cards/kb-fpa-core.md` (its Cards merged line names `kb-hub-pages-2`).
+- Registration lines: `docs/plan/PLAN.md` (the `kb-hub-pages-2` line after this card's line).
 - Docs to update: none.
 
 ## Out of scope

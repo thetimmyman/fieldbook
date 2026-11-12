@@ -28,7 +28,7 @@ The FP&A area holds three core pages, drafted at entry values: the annual budget
 
 ## Preconditions
 
-- Cards merged: `kb-hub-pages` (both append to `claims.csv`).
+- Cards merged: `kb-hub-pages`, `kb-hub-pages-2` (both append to `claims.csv`).
 
 ## Steps
 
