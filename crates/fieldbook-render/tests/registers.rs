@@ -59,6 +59,8 @@ mod registers {
         include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/glossary.csv");
     const S_0002_V2_TXT: &[u8] =
         include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const S_0001_V1_TXT: &[u8] =
+        include_bytes!("../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt");
 
     const CMP_SYSTEM_REVIEW_MD: &str = include_str!(
         "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
@@ -131,6 +133,7 @@ mod registers {
         tree.insert_bytes("corpus/registers/conflicts.csv", CONFLICTS_CSV.as_bytes());
         tree.insert_bytes("corpus/registers/glossary.csv", GLOSSARY_CSV.as_bytes());
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/cmp-system-review.md",
@@ -2123,6 +2126,7 @@ const compareDecimal = function (x, y) {
         let mut tree_continuous = empty_registers_tree();
         tree_continuous.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
         tree_continuous.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree_continuous.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         let claims_header = CLAIMS_CSV.lines().next().unwrap();
         let mut continuous_csv = format!("{claims_header}\n");
@@ -2160,6 +2164,7 @@ const compareDecimal = function (x, y) {
         let mut tree_gap = empty_registers_tree();
         tree_gap.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
         tree_gap.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+        tree_gap.insert_bytes("corpus/sources/public/S-0001-v1.txt", S_0001_V1_TXT);
 
         let gap_ids = ["CL-CMP-0001", "CL-CMP-0501", "CL-CMP-1501"];
         let mut gap_csv = format!("{claims_header}\n");

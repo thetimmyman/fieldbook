@@ -1,14 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# extract-and-locators
-[[pending]]
-code = "FB0212"
-card = "extract-and-locators"
-
-[[pending]]
-code = "FB0223"
-card = "extract-and-locators"
-
 # quote-match-and-anchors
 [[pending]]
 code = "FB0304"

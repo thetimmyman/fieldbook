@@ -295,7 +295,7 @@ expression: html
           <td>Synthetic compliance reviews occur every 30 days under the synthetic rule.</td>
           <td><span class="mono">2026-02-01</span></td>
           <td data-sort-val="S-0001"><a class="cite neutral" href="../sources.html#S-0001-v1">S-0001</a></td>
-          <td data-sort-val="0000000001"><a class="cite meta-only" href="../sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="meta-only-tag">Metadata only</span></a></td>
+          <td data-sort-val="0000000001"><a class="cite" href="../sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span></a></td>
           <td>text_section</td>
           <td>sec. 1</td>
           <td>Synthetic compliance reviews occur every 30 days.</td>
@@ -332,7 +332,7 @@ expression: html
           <td>Synthetic withholding threshold is 5 percent of billed amounts.</td>
           <td><span class="mono">2026-02-01</span></td>
           <td data-sort-val="S-0001"><a class="cite neutral" href="../sources.html#S-0001-v1">S-0001</a></td>
-          <td data-sort-val="0000000001"><a class="cite meta-only" href="../sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="meta-only-tag">Metadata only</span></a></td>
+          <td data-sort-val="0000000001"><a class="cite" href="../sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span></a></td>
           <td>text_section</td>
           <td>sec. 2</td>
           <td>Synthetic withholding threshold is 5 percent.</td>

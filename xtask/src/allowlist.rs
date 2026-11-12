@@ -1286,7 +1286,8 @@ mod tests {
     ) -> (BTreeMap<String, Vec<u8>>, BTreeMap<String, Vec<u8>>) {
         let orig_bytes = b"synthetic active original payload\n".to_vec();
         let orig_sha = sha256_hex(&orig_bytes);
-        let page_txt_bytes = b"extracted page one text\n".to_vec();
+        let page_txt_bytes =
+            b"extracted page one text, synthetic and long enough to count\n".to_vec();
         let page_txt_sha = sha256_hex(&page_txt_bytes);
         let extraction_toml = format!(
             "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{orig_sha}\"\n\n[pages]\np0001 = \"{page_txt_sha}\"\n"

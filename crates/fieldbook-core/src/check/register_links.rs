@@ -1087,6 +1087,9 @@ mod tests {
     const MINI_S0002_V2_TXT: &[u8] = include_bytes!(
         "../../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt"
     );
+    const MINI_S0001_V1_TXT: &[u8] = include_bytes!(
+        "../../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0001-v1.txt"
+    );
 
     fn sample_today() -> CivilDate {
         CivilDate::from_ymd(2026, 3, 1).expect("valid date")
@@ -1116,6 +1119,7 @@ mod tests {
             MINI_GLOSSARY_CSV.as_bytes(),
         );
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", MINI_S0002_V2_TXT);
+        tree.insert_bytes("corpus/sources/public/S-0001-v1.txt", MINI_S0001_V1_TXT);
         tree
     }
 
@@ -1207,13 +1211,16 @@ mod tests {
             .collect();
         assert_eq!(
             fb0211.len(),
-            1,
-            "expected FB0211 for missing S-0002-v2.txt: {:?}",
+            2,
+            "expected FB0211 for missing S-0001-v1.txt and S-0002-v2.txt: {:?}",
             report.diagnostics
         );
         assert_eq!(fb0211[0].path, "corpus/registers/sources.csv");
-        assert_eq!(fb0211[0].line, 4);
-        assert!(fb0211[0].message.contains("S-0002-v2"));
+        assert_eq!(fb0211[0].line, 2);
+        assert!(fb0211[0].message.contains("S-0001-v1"));
+        assert_eq!(fb0211[1].path, "corpus/registers/sources.csv");
+        assert_eq!(fb0211[1].line, 4);
+        assert!(fb0211[1].message.contains("S-0002-v2"));
     }
 
     #[test]

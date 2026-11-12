@@ -1104,9 +1104,20 @@ mod build {
         );
 
         // The left-out source version's extracted text: the view must leave its folder out.
+        let canary_text: &[u8] =
+            b"Forbidden extracted text canary. Synthetic padding so that the page is not thin.\n";
         tree_mixed.insert_bytes(
             "corpus/sources/text/S-0099-v1/p0001.txt",
-            b"Forbidden extracted text canary.\n".to_vec(),
+            canary_text.to_vec(),
+        );
+        tree_mixed.insert_bytes(
+            "corpus/sources/text/S-0099-v1/extraction.toml",
+            format!(
+                "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{}\"\n\n[pages]\np0001 = \"{}\"\n",
+                "9".repeat(64),
+                fieldbook_core::hash::sha256_hex(canary_text)
+            )
+            .into_bytes(),
         );
 
         // The loader reports the repository-Corpus handling errors of the canary source and page
@@ -1428,6 +1439,7 @@ mod build {
         let delivered = collect_tree_bytes(&tmp.path().join("out/originals"));
         let stored = collect_tree_bytes(&tmp.path().join("corpus/sources/public"));
         let expected: BTreeMap<String, Vec<u8>> = [
+            ("S-0001-v1.txt", stored["S-0001-v1.txt"].clone()),
             ("S-0002-v2.txt", stored["S-0002-v2.txt"].clone()),
             ("S-0004-v1.html.txt", HTML_BYTES.to_vec()),
             ("S-0005-v1.pdf", PDF_BYTES.to_vec()),
@@ -1535,7 +1547,7 @@ mod build {
 
         let edition_files = collect_tree_bytes(&tmp.path().join("out/edition")).len() as u64;
         let original_files = collect_tree_bytes(&tmp.path().join("out/originals")).len() as u64;
-        assert_eq!(original_files, 2);
+        assert_eq!(original_files, 3);
         let events = read_journal_events(&tmp.path().join(".fieldbook"));
         let begins: Vec<&Event> = events
             .iter()
@@ -1979,7 +1991,7 @@ mod build {
             collect_tree_bytes(&originals)
                 .into_keys()
                 .collect::<Vec<_>>(),
-            ["S-0002-v2.txt", "S-0004-v1.html.txt"],
+            ["S-0001-v1.txt", "S-0002-v2.txt", "S-0004-v1.html.txt"],
             "originals/ holds exactly the originals the permitted view selects"
         );
         assert_no_forbidden_text(
@@ -2457,7 +2469,7 @@ mod build {
             "<dt>Claims</dt><dd class=\"mono\">5</dd>",
             "<dt>Pages draft</dt><dd class=\"mono\">9</dd>",
             "<dt>Pages stable</dt><dd class=\"mono\">0</dd>",
-            "<dt>Originals</dt><dd class=\"mono\">1</dd>",
+            "<dt>Originals</dt><dd class=\"mono\">2</dd>",
             "<dt>Claims unchecked</dt><dd class=\"mono\">4</dd>",
             "This edition holds public only.",
             "silent build",
@@ -2471,7 +2483,7 @@ mod build {
             .unwrap_or_else(|e| panic!("edition.toml must parse: {e}"));
         assert_eq!(parsed.counts.pages, 9);
         assert_eq!(parsed.counts.claims, 5);
-        assert_eq!(parsed.counts.originals, 1);
+        assert_eq!(parsed.counts.originals, 2);
         assert!(!parsed.ids.claims.iter().any(|id| id == "CL-CMP-0098"));
         assert!(
             !parsed

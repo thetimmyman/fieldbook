@@ -402,7 +402,7 @@ fn build_about_counts_use_the_permitted_view(edition: &Path) {
     for shown in [
         "<dt>Pages</dt><dd class=\"mono\">9</dd>",
         "<dt>Claims</dt><dd class=\"mono\">5</dd>",
-        "<dt>Originals</dt><dd class=\"mono\">1</dd>",
+        "<dt>Originals</dt><dd class=\"mono\">2</dd>",
         "This edition holds public only.",
     ] {
         assert!(about.contains(shown), "about.html must show `{shown}`");
