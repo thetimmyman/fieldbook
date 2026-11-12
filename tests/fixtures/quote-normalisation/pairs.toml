@@ -1,0 +1,116 @@
+# Synthetic test pairs for quote matching and normalisation.
+
+[[pair]]
+name = "curly_double_quotes_in_page"
+quote = "\"standard tariff\""
+page = "The regulation defines \u201Cstandard tariff\u201D for maritime routes."
+expect = "match"
+matched = "\u201Cstandard tariff\u201D"
+
+[[pair]]
+name = "curly_apostrophe_in_page"
+quote = "vessel's log"
+page = "The officer inspects the vessel\u2019s log daily."
+expect = "match"
+matched = "vessel\u2019s log"
+
+[[pair]]
+name = "curly_apostrophe_in_quote"
+quote = "vessel\u2019s log"
+page = "The officer inspects the vessel's log daily."
+expect = "match"
+matched = "vessel's log"
+
+[[pair]]
+name = "dashes_and_minus_in_page"
+quote = "items 1-3 fee -5 credit -10"
+page = "Schedule A lists items 1\u20133 fee \u22125 credit \u201410 accordingly."
+expect = "match"
+matched = "items 1\u20133 fee \u22125 credit \u201410"
+
+[[pair]]
+name = "dashes_and_minus_in_quote"
+quote = "items 1\u20133 fee \u22125 credit \u201410"
+page = "Schedule A lists items 1-3 fee -5 credit -10 accordingly."
+expect = "match"
+matched = "items 1-3 fee -5 credit -10"
+
+[[pair]]
+name = "whitespace_run_collapsed"
+quote = "notice of departure"
+page = "Submission requires notice \t\n \u00A0 of departure within five days."
+expect = "match"
+matched = "notice \t\n \u00A0 of departure"
+
+[[pair]]
+name = "line_end_hyphen_kept_quote_hyphen"
+quote = "cost-plus"
+page = "The agency authorized a cost-\nplus contract for research."
+expect = "match"
+matched = "cost-\nplus"
+
+[[pair]]
+name = "line_end_hyphen_kept_quote_space"
+quote = "cost- plus"
+page = "The agency authorized a cost-\nplus contract for research."
+expect = "match"
+matched = "cost-\nplus"
+
+[[pair]]
+name = "line_end_hyphen_removed"
+quote = "international"
+page = "All carriers follow the inter-\nnational rate table."
+expect = "match"
+matched = "inter-\nnational"
+
+[[pair]]
+name = "mid_line_hyphen_match"
+quote = "cost-plus"
+page = "The agency authorized a cost-plus contract for research."
+expect = "match"
+matched = "cost-plus"
+
+[[pair]]
+name = "nfkc_ligature_in_page"
+quote = "final audit"
+page = "The inspector filed the \uFB01nal audit report."
+expect = "match"
+matched = "\uFB01nal audit"
+
+[[pair]]
+name = "nfkc_fullwidth_digits_in_page"
+quote = "section 15"
+page = "Applicable under section \uFF11\uFF15 rules."
+expect = "match"
+matched = "section \uFF11\uFF15"
+
+[[pair]]
+name = "no_match_case_difference"
+quote = "Withhold"
+page = "The clerk will withhold payment until review."
+expect = "none"
+
+[[pair]]
+name = "no_match_single_letter_difference"
+quote = "permit fee"
+page = "The permit few shall be determined annually."
+expect = "none"
+
+[[pair]]
+name = "no_match_mid_line_hyphen_not_removed"
+quote = "semiannual"
+page = "The board convenes for semi-annual reviews."
+expect = "none"
+
+[[pair]]
+name = "no_match_quote_longer_than_page"
+quote = "A very long quotation exceeding the total text of the page entirely"
+page = "Short page."
+expect = "none"
+
+[[pair]]
+name = "offsets_after_curly_quote"
+quote = "applies immediately"
+page = "The guideline \u201CProcedure Alpha\u201D applies immediately to all units."
+expect = "match"
+matched = "applies immediately"

@@ -444,6 +444,13 @@ edits = [
 ]
 
 [[case]]
+code = "FB0304"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:28"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "Synthetic reviewers check control operation and record open items before billing runs.", replace = "Synthetic reviewers check control operation and record open items before billing runs. [@S-0001-v1, p. 4]" },
+]
+
+[[case]]
 code = "FB0305"
 at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
 edits = [
@@ -462,6 +469,13 @@ code = "FB0307"
 at = "corpus/registers/claims.csv:3"
 edits = [
   { path = "corpus/registers/claims.csv", find = "S-0001,1,text_section,sec. 2,Synthetic withholding threshold is 5 percent.,true,", replace = "S-0001,1,text_section,sec. 2,,true," },
+]
+
+[[case]]
+code = "FB0308"
+at = "corpus/registers/claims.csv:2"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 days.,true,", replace = "S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 weeks.,true," },
 ]
 
 [[case]]

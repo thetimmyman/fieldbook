@@ -1,14 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# quote-match-and-anchors
-[[pending]]
-code = "FB0304"
-card = "quote-match-and-anchors"
-
-[[pending]]
-code = "FB0308"
-card = "quote-match-and-anchors"
-
 # Ranges 08 and 09 pending codes
 [[pending]]
 code = "FB0806"
