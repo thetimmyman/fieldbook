@@ -24,7 +24,7 @@ The palette's input placeholder, the quotes on its "Search for" row and the name
 
 ## Scope
 
-- Files: `crates/fieldbook-render/assets/app.js`, `crates/fieldbook-render/assets/search.js`, `crates/fieldbook-render/assets/app.css`, `crates/fieldbook-render/templates/base.html`, `crates/fieldbook-render/templates/search.html`, `crates/fieldbook-render/tests/palette.rs`, `crates/fieldbook-render/tests/tokens.rs`, `xtask/harness/shortcuts.html`, `xtask/harness/shortcuts.js`, `CHANGELOG.md`.
+- Files: `crates/fieldbook-render/assets/app.js`, `crates/fieldbook-render/assets/search.js`, `crates/fieldbook-render/assets/app.css`, `crates/fieldbook-render/templates/base.html`, `crates/fieldbook-render/templates/search.html`, `crates/fieldbook-render/tests/palette.rs`, `crates/fieldbook-render/tests/tokens.rs`, `crates/fieldbook-render/tests/snapshots/` (the page snapshots carry the `fb:keys` dialog tag Step 3 changes), `xtask/harness/shortcuts.html`, `xtask/harness/shortcuts.js`, `CHANGELOG.md`.
 - Registration lines: `xtask/src/harness.rs`, the case ids that Steps 1 and 2 add to the `shortcuts` entry of `SHORTCUT_PAGES` (nothing else in the file).
 - Docs to update: `CHANGELOG.md` (`- Changed: the search palette has a placeholder, quoted search text and a named shortcuts dialog.`).
 
