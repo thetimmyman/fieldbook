@@ -1013,8 +1013,9 @@ fn release_yml_edition_runs_the_harness() {
         ed.lines().any(|l| l.trim() == "run: cargo xtask edition"),
         "expected step run: cargo xtask edition"
     );
+    let fieldbook_build = format!("{} build", fieldbook_core::strings::binary());
     for forbidden in [
-        "fieldbook build",
+        fieldbook_build.as_str(),
         "just site",
         "just browser",
         "harness",

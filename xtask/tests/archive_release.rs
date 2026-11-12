@@ -518,7 +518,7 @@ fn build_synthetic_tool_package(pkg_dir: &Path, tag: &str, commit: &str) {
         .unwrap_or_else(|e| panic!("write package.toml: {e}"));
 
     let script = format!("#!/bin/sh\necho \"fieldbook {version} ({commit})\"\n");
-    let script_path = pkg_dir.join("fieldbook");
+    let script_path = pkg_dir.join(fieldbook_core::strings::binary());
     fs::write(&script_path, &script).unwrap_or_else(|e| panic!("write fieldbook: {e}"));
 
     #[cfg(unix)]
@@ -2088,7 +2088,8 @@ fn tool_archive_refuses_a_package_that_reports_another_commit() {
     let (tmp, out, to_dir) = archive_tampered_tool(&|pkg, _commit| {
         let other = "b".repeat(40);
         let script = format!("#!/bin/sh\necho \"fieldbook 0.1.0 ({other})\"\n");
-        fs::write(pkg.join("fieldbook"), &script).unwrap_or_else(|e| panic!("write: {e}"));
+        fs::write(pkg.join(fieldbook_core::strings::binary()), &script)
+            .unwrap_or_else(|e| panic!("write: {e}"));
         let sums = format!("{}  fieldbook\n", sha256_hex(script.as_bytes()));
         fs::write(pkg.join("SHA256SUMS"), sums).unwrap_or_else(|e| panic!("write: {e}"));
     });

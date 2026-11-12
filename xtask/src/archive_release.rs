@@ -287,7 +287,7 @@ pub fn tool_archive_provider(
         .map_err(|e| format!("package/SHA256SUMS is not UTF-8: {e}"))?;
     let sums_map = parse_sha256sums(sums_str, "package/SHA256SUMS").map_err(|e| e.to_string())?;
 
-    if !sums_map.contains_key("fieldbook") {
+    if !sums_map.contains_key(fieldbook_core::strings::binary()) {
         return Err("package/SHA256SUMS does not list `fieldbook`".to_owned());
     }
 
