@@ -16,11 +16,11 @@ fieldbook-win = { path = "../fieldbook-win" }
 serde = { workspace = true }
 serde_json = { workspace = true }
 clap = { workspace = true }
+toml = { workspace = true }
 
 [dev-dependencies]
 insta = { workspace = true }
 tempfile = { workspace = true }
-toml = { workspace = true }
 
 [lints]
 workspace = true

@@ -1,0 +1,7 @@
+verb = "backup verify"
+args = ["--in", "../state/target"]
+state = "state-known-bad/FB0811"
+
+[expect]
+code = "FB0811"
+status = 1

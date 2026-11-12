@@ -24,9 +24,6 @@ const NOT_BUILT: &[&str] = &[
     "status",
     "new note",
     "audit export",
-    "backup",
-    "backup verify",
-    "backup list",
     "restore",
     "context",
     "cite-check",
@@ -252,7 +249,10 @@ fn collect_clap_leaves(cmd: &clap::Command, prefix: &str, out: &mut Vec<String>)
         } else {
             format!("{prefix} {name}")
         };
-        if sub.is_subcommand_required_set() || sub.has_subcommands() {
+        if sub.has_subcommands() {
+            if !sub.is_subcommand_required_set() {
+                out.push(path.clone());
+            }
             collect_clap_leaves(sub, &path, out);
         } else {
             out.push(path);

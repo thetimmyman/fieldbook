@@ -260,6 +260,195 @@ impl Disk {
     pub fn state_dir(&self) -> &Path {
         &self.state_dir
     }
+
+    /// Return facts about public support provenance: retained verified catalogues and completed public writes.
+    #[must_use]
+    pub fn support_facts(&self) -> fieldbook_core::manifest::SupportFacts {
+        use crate::io::journal::read_valid_events_prefix;
+        use fieldbook_core::audit::kind::{BackupVerified, EventPayload};
+        use fieldbook_core::audit::{CorpusPath, Sha256, StoreId};
+        use fieldbook_core::manifest::{
+            SupportFacts, is_lower_hex, verify_support_catalogue_bytes,
+        };
+        use fieldbook_core::schema::PageType;
+        use std::collections::{BTreeMap, BTreeSet};
+
+        let events = read_valid_events_prefix(&self.state_dir);
+
+        // 1. Collect verified catalogue SHAs from successful backup.verify raw events
+        let mut verified_catalogue_shas = BTreeSet::new();
+        for event in &events {
+            if let EventPayload::BackupVerify {
+                outcome,
+                verified:
+                    BackupVerified::Raw {
+                        public_support_sha256: Some(sha),
+                        ..
+                    },
+            } = &event.payload
+                && outcome.as_str() == "ok"
+            {
+                let hex = sha.as_str().to_ascii_lowercase();
+                if is_lower_hex(&hex, 64) {
+                    verified_catalogue_shas.insert(hex);
+                }
+            }
+        }
+
+        // 2. Load and verify retained catalogues
+        let mut catalogues = Vec::new();
+        let pub_support_dir = self.state_dir.join("public-support");
+        for sha in &verified_catalogue_shas {
+            let cat_path = pub_support_dir.join(format!("{sha}.toml"));
+            if cat_path.is_file()
+                && let Ok(bytes) = std::fs::read(&cat_path)
+                && let Ok(cat) = verify_support_catalogue_bytes(&bytes, sha)
+            {
+                catalogues.push((cat, sha.clone()));
+            }
+        }
+
+        // 3. Collect candidate support paths
+        let mut candidate_paths: BTreeSet<String> = BTreeSet::new();
+
+        // 3a. Known root support files and regression/rules
+        for p in &[
+            "AGENTS.md",
+            fieldbook_core::strings::paths()[6],
+            "README.md",
+            "corpus.toml",
+            "changes.md",
+            "scan-allow.toml",
+            "eval/regression.toml",
+            "pipeline/rules.toml",
+        ] {
+            candidate_paths.insert((*p).to_owned());
+            candidate_paths.insert(format!("corpus/{p}"));
+        }
+
+        // 3b. Registered page templates
+        for ty in PageType::ALL {
+            let p = format!("templates/{}.md", ty.as_str());
+            candidate_paths.insert(p.clone());
+            candidate_paths.insert(format!("corpus/{p}"));
+        }
+
+        // 3c. Paths from retained verified catalogues
+        for (cat, _) in &catalogues {
+            for entry in &cat.files {
+                candidate_paths.insert(entry.path.clone());
+                candidate_paths.insert(format!("corpus/{}", entry.path));
+            }
+        }
+
+        // 3d. Scan tree on disk for any present files
+        collect_disk_support_paths(&self.tree_root, &mut candidate_paths);
+
+        // Precompute path_sha256 for all candidate paths
+        let mut path_sha_to_candidates: BTreeMap<Sha256, Vec<String>> = BTreeMap::new();
+        for cand in candidate_paths {
+            if let Ok(canon) = CorpusPath::parse(&cand) {
+                let p_sha = Sha256::digest(canon.as_str().as_bytes());
+                path_sha_to_candidates.entry(p_sha).or_default().push(cand);
+            }
+        }
+
+        // 4. Trace completed public writes from journal events
+        let mut public_writes: BTreeMap<String, String> = BTreeMap::new();
+        let mut open_begin = None;
+
+        for event in &events {
+            if event.envelope.store != StoreId::Corpus {
+                continue;
+            }
+            match &event.payload {
+                EventPayload::WriteBegin {
+                    verb,
+                    labels,
+                    file_hashes: Some(hashes),
+                    affected,
+                    dest: None,
+                    ..
+                } => {
+                    open_begin = Some((verb, labels, affected.as_slice(), hashes.as_slice()));
+                }
+                EventPayload::WriteEnd {
+                    verb,
+                    labels,
+                    affected,
+                    outcome,
+                    dest: None,
+                    ..
+                } => {
+                    if let Some((begin_verb, _begin_labels, begin_affected, hashes)) =
+                        open_begin.take()
+                        && begin_verb == verb
+                        && begin_affected == affected.as_slice()
+                        && outcome.as_str() == "ok"
+                        && labels.is_public()
+                    {
+                        for entry in hashes {
+                            let sha_hex = entry.sha256.as_str().to_ascii_lowercase();
+                            public_writes.insert(entry.path_sha256.to_string(), sha_hex.clone());
+                            if let Some(candidates) = path_sha_to_candidates.get(&entry.path_sha256)
+                            {
+                                for cand in candidates {
+                                    let clean = cand.strip_prefix("corpus/").unwrap_or(cand);
+                                    public_writes.insert(clean.to_owned(), sha_hex.clone());
+                                    public_writes
+                                        .insert(format!("corpus/{clean}"), sha_hex.clone());
+                                }
+                            }
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        SupportFacts::new(catalogues, public_writes)
+    }
+}
+
+fn collect_disk_support_paths(tree_root: &Path, paths: &mut std::collections::BTreeSet<String>) {
+    let mut check_dir = |dir: &Path, prefix: &str| {
+        if let Ok(entries) = std::fs::read_dir(dir) {
+            for entry in entries.flatten() {
+                if let Ok(ft) = entry.file_type()
+                    && ft.is_file()
+                {
+                    let name = entry.file_name();
+                    let name_str = name.to_string_lossy();
+                    let rel = if prefix.is_empty() {
+                        name_str.to_string()
+                    } else {
+                        format!("{prefix}/{name_str}")
+                    };
+                    if fieldbook_core::manifest::classify_support_path(&rel).is_ok() {
+                        paths.insert(rel.clone());
+                        paths.insert(format!("corpus/{rel}"));
+                    }
+                }
+            }
+        }
+    };
+
+    check_dir(tree_root, "");
+    check_dir(&tree_root.join("corpus"), "");
+    check_dir(&tree_root.join("templates"), "templates");
+    check_dir(&tree_root.join("corpus/templates"), "templates");
+    check_dir(
+        &tree_root.join("templates/workbooks"),
+        "templates/workbooks",
+    );
+    check_dir(
+        &tree_root.join("corpus/templates/workbooks"),
+        "templates/workbooks",
+    );
+    check_dir(&tree_root.join("eval"), "eval");
+    check_dir(&tree_root.join("corpus/eval"), "eval");
+    check_dir(&tree_root.join("pipeline"), "pipeline");
+    check_dir(&tree_root.join("corpus/pipeline"), "pipeline");
 }
 
 impl World for Disk {
@@ -337,5 +526,13 @@ impl World for Disk {
 
     fn state_dir(&self) -> &Path {
         &self.state_dir
+    }
+
+    fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
+        Disk::place(self, path)
+    }
+
+    fn support_facts(&self) -> fieldbook_core::manifest::SupportFacts {
+        Disk::support_facts(self)
     }
 }

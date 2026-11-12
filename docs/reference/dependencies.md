@@ -177,7 +177,7 @@ All come from crates.io. The two tables below are one table split for width: the
 | Crate | Version (released) | Features | Used by | Licence | MSRV |
 |---|---|---|---|---|---|
 | `serde` | 1.0.229 (2026-07-18) | `derive` | calc, core, render, fieldbook | MIT OR Apache-2.0 | 1.56 |
-| `toml` | 1.1.8+spec-1.1.0 (2026-10-09) | default | core, xtask | MIT OR Apache-2.0 | 1.85 |
+| `toml` | 1.1.8+spec-1.1.0 (2026-10-09) | default | core, fieldbook, xtask | MIT OR Apache-2.0 | 1.85 |
 | `csv` | 1.4.0 (2025-10-17) | default | core, render | Unlicense OR MIT | 1.73 |
 | `pulldown-cmark` | 0.13.4 (2026-05-20) | `default-features = false`, `html` | core, render, xtask | MIT | 1.71.1 |
 | `unicode-normalization` | 0.1.25 (2025-10-30) | default | core | MIT OR Apache-2.0 | 1.36 |

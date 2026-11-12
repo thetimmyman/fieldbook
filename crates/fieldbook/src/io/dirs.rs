@@ -231,18 +231,35 @@ fn collect_manifest_entries(
     Ok(())
 }
 
+fn is_partial_snapshot_name(name: &str) -> bool {
+    let Some(rest) = name.strip_prefix("fieldbook-backup-") else {
+        return false;
+    };
+    let Some(num_str) = rest.strip_suffix(".partial") else {
+        return false;
+    };
+    !num_str.is_empty() && num_str.bytes().all(|b| b.is_ascii_digit())
+}
+
+fn is_snapshot_name(name: &str) -> bool {
+    let Some(num_str) = name.strip_prefix("fieldbook-backup-") else {
+        return false;
+    };
+    !num_str.is_empty() && num_str.bytes().all(|b| b.is_ascii_digit())
+}
+
 /// Remove a directory tree outside the data roots under `audited` and `allowed`.
 ///
 /// Initially only [`Removable::BuildRoot`] operations are valid; `backup` adds its snapshot cases.
-/// Repeats [`check_build_roots`] on the parent folder, recomputes the tree manifest of `path`,
-/// and verifies that `allowed` binds [`Operation::RemoveTree`] for `path` with the exact manifest
+/// Repeats [`check_build_roots`] on the parent folder for build roots, recomputes the tree manifest of
+/// `path`, and verifies that `allowed` binds [`Operation::RemoveTree`] for `path` with the exact manifest
 /// SHA-256 and byte count before calling `std::fs::remove_dir_all`.
 ///
 /// # Errors
 ///
-/// Returns [`Error::OutOfScope`] if `audited` is state-only or inactive, if `what` is not a
-/// matching [`Removable::BuildRoot`], if [`check_build_roots`] fails, or if `allowed` does not
-/// permit the removal; returns [`Error::Io`] if `remove_dir_all` fails.
+/// Returns [`Error::OutOfScope`] if `audited` is state-only or inactive, if `what` does not match,
+/// if [`check_build_roots`] fails, or if `allowed` does not permit the removal; returns [`Error::Io`]
+/// if `remove_dir_all` fails.
 pub fn remove_outside(
     audited: &Audited,
     allowed: &Allowed,
@@ -252,19 +269,47 @@ pub fn remove_outside(
     if audited.is_state_only() || !audited.has_active_lease() {
         return Err(Error::OutOfScope(path.to_path_buf()));
     }
-    let Removable::BuildRoot(br) = what else {
-        return Err(Error::OutOfScope(path.to_path_buf()));
-    };
-    if path.file_name().and_then(|n| n.to_str()) != Some(br.as_str()) {
+    if audited.is_recovery_only() && !audited.is_approved_recovery(allowed) {
         return Err(Error::OutOfScope(path.to_path_buf()));
     }
     let Some(parent) = path.parent().filter(|p| !p.as_os_str().is_empty()) else {
         return Err(Error::OutOfScope(path.to_path_buf()));
     };
+    let file_name = path
+        .file_name()
+        .and_then(|n| n.to_str())
+        .ok_or_else(|| Error::OutOfScope(path.to_path_buf()))?;
 
-    check_build_roots(parent, &[br])?;
+    match what {
+        Removable::BuildRoot(br) => {
+            if file_name != br.as_str() {
+                return Err(Error::OutOfScope(path.to_path_buf()));
+            }
+            check_build_roots(parent, &[br])?;
+        }
+        Removable::PartialSnapshot => {
+            if !is_partial_snapshot_name(file_name) {
+                return Err(Error::OutOfScope(path.to_path_buf()));
+            }
+        }
+        Removable::Snapshot => {
+            if !is_snapshot_name(file_name) {
+                return Err(Error::OutOfScope(path.to_path_buf()));
+            }
+        }
+    }
 
     let resolved = crate::io::root::resolve_outside_path(path)?;
+    if what == Removable::Snapshot {
+        let backup_toml = resolved.join("backup.toml");
+        let Ok(meta) = std::fs::symlink_metadata(&backup_toml) else {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        };
+        if meta.file_type().is_symlink() || !meta.is_file() {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        }
+    }
+
     let (manifest_sha, total_bytes) = compute_dir_manifest(&resolved, &resolved)?;
     let permitted = allowed.permits_manifest(
         &Target::Path(resolved.clone()),
@@ -291,4 +336,80 @@ pub fn remove_outside(
     }
 
     std::fs::remove_dir_all(&resolved).map_err(|err| Error::new(path, err.to_string()))
+}
+
+/// Rename a directory tree outside the data roots under `audited` and `allowed`.
+///
+/// Verifies that `audited` holds an active lease, `from` and `to` resolve outside the data
+/// roots, `from` exists as a regular directory (not a symlink), and `allowed` binds
+/// [`Operation::RenameTree`] with `target` matching `from`, destination matching `to`,
+/// and exact manifest SHA-256 and total bytes before renaming via `std::fs::rename`.
+///
+/// # Errors
+///
+/// Returns [`Error::OutOfScope`] if `audited` is state-only or inactive, if `from` or `to`
+/// escape scope, or if `allowed` does not permit the rename; returns [`Error::Io`] on
+/// underlying filesystem failure.
+pub fn rename_dir_outside(
+    audited: &Audited,
+    allowed: &Allowed,
+    from: &Path,
+    to: &Path,
+) -> Result<(), Error> {
+    if audited.is_state_only() || !audited.has_active_lease() {
+        return Err(Error::OutOfScope(from.to_path_buf()));
+    }
+    if audited.is_recovery_only() && !audited.is_approved_recovery(allowed) {
+        return Err(Error::OutOfScope(from.to_path_buf()));
+    }
+    if from.as_os_str().is_empty() || to.as_os_str().is_empty() {
+        return Err(Error::OutOfScope(from.to_path_buf()));
+    }
+    let Some(_) = from.parent().filter(|p| !p.as_os_str().is_empty()) else {
+        return Err(Error::OutOfScope(from.to_path_buf()));
+    };
+    let Some(_) = to.parent().filter(|p| !p.as_os_str().is_empty()) else {
+        return Err(Error::OutOfScope(to.to_path_buf()));
+    };
+
+    let resolved_from = crate::io::root::resolve_outside_path(from)?;
+    let resolved_to = crate::io::root::resolve_outside_path(to)?;
+
+    let meta_from = match std::fs::symlink_metadata(&resolved_from) {
+        Ok(m) => m,
+        Err(err) => return Err(Error::new(from, err.to_string())),
+    };
+    if meta_from.file_type().is_symlink() || !meta_from.is_dir() {
+        return Err(Error::OutOfScope(from.to_path_buf()));
+    }
+
+    let (manifest_sha, total_bytes) = compute_dir_manifest(&resolved_from, &resolved_from)?;
+
+    let op = Operation::RenameTree {
+        to: resolved_to.clone(),
+    };
+    let permitted = allowed.permits_manifest(
+        &Target::Path(resolved_from.clone()),
+        &op,
+        &manifest_sha,
+        total_bytes,
+    ) || allowed.transfers().unwrap_or(&[]).iter().any(|t| {
+        if let Target::Path(bound_from) = &t.target
+            && let Operation::RenameTree { to: bound_to } = &t.operation
+            && let Ok(bound_resolved_from) = crate::io::root::resolve_outside_path(bound_from)
+            && let Ok(bound_resolved_to) = crate::io::root::resolve_outside_path(bound_to)
+            && bound_resolved_from == resolved_from
+            && bound_resolved_to == resolved_to
+        {
+            allowed.permits_manifest(&t.target, &t.operation, &manifest_sha, total_bytes)
+        } else {
+            false
+        }
+    });
+
+    if !permitted {
+        return Err(Error::OutOfScope(from.to_path_buf()));
+    }
+
+    std::fs::rename(&resolved_from, &resolved_to).map_err(|err| Error::new(from, err.to_string()))
 }

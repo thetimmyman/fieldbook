@@ -78,6 +78,16 @@ Record that the owner (or lead) verified a claim, at a terminal
 | `<CLAIM-ID>` | `CLAIM-ID` | - | The claim to verify (`CL-AAA-nnnn`) |
 | `--on` | `YYYY-MM-DD` | - | The calendar date (YYYY-MM-DD) the original was read at the locator |
 
+### `fieldbook backup`
+
+Create, verify, or list backup snapshots
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `--target` | `ID` | - | Backup target identifier in settings.toml |
+| `--to` | `DIR` | - | Destination directory for a one-off backup |
+| `--dry-run` | - | - | Perform checks and report what would be written without writing anything |
+
 ## Exit codes
 
 | Code | Meaning |
@@ -263,6 +273,60 @@ Record that the owner (or lead) verified a claim, at a terminal
   },
   "findings": [],
   "unfinished": [],
+  "exit": 0
+}
+```
+
+### `backup-list`
+
+```json
+{
+  "report_version": 1,
+  "verb": "backup list",
+  "target": {
+    "id": "it",
+    "kind": "it-location",
+    "path": "backups",
+    "company_storage": false
+  },
+  "warn_after_days": 7,
+  "keep_last": 7,
+  "keep_weekly": 4,
+  "snapshots": [
+    {
+      "snapshot": 3,
+      "backup_version": 1,
+      "tool_version": "0.1.0",
+      "created_utc": "2026-01-01T09:00:00Z",
+      "labels": [
+        "public"
+      ],
+      "roots": [
+        "corpus",
+        "state"
+      ],
+      "files": 412,
+      "bytes": 9120344,
+      "fingerprint": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+      "journal_seq": 118,
+      "journal_head": "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+      "journal_state": "ok",
+      "manifest_sha256": "c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+      "verified": true,
+      "verified_utc": "2026-01-01T09:05:00Z",
+      "latest_verification": {
+        "outcome": "failed",
+        "utc": "2026-01-01T10:00:00Z"
+      }
+    }
+  ],
+  "verified_utc": "2026-01-01T09:05:00Z",
+  "drill": {
+    "mode": "drill",
+    "outcome": "ok",
+    "utc": "2026-01-02T10:00:00Z"
+  },
+  "findings": [],
   "exit": 0
 }
 ```
