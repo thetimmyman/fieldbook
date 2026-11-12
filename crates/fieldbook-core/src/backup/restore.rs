@@ -65,6 +65,17 @@ pub struct PlannedRoot {
     pub path: PathBuf,
 }
 
+/// One file a restore writes to its destination.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PlannedFile {
+    /// Absolute destination file path.
+    pub path: PathBuf,
+    /// Expected SHA-256 digest in lowercase hexadecimal.
+    pub sha256: String,
+    /// Byte length of the file.
+    pub bytes: u64,
+}
+
 /// The validated plan of a restore.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RestorePlan {
