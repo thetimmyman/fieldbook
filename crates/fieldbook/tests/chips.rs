@@ -614,9 +614,14 @@ fn make_raw_copy(tree_root: &Path, state_dir: &Path) -> tempfile::TempDir {
 #[test]
 fn restore_chip_case_runs() {
     let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let restore_chip = fieldbook_core::strings::chips()
+        .iter()
+        .find(|c| c.intent == "Prove a backup restores")
+        .expect("restore chip")
+        .chip;
     let case = CASES
         .iter()
-        .find(|c| c.chip == "fieldbook restore --snapshot <n> --drill")
+        .find(|c| c.chip == restore_chip)
         .expect("restore chip case");
 
     let tmp = temp_copy(&repo_root.join(case.fixture));
