@@ -13,6 +13,10 @@ use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
 use fieldbook::World;
+use fieldbook_core::CivilDate;
+use fieldbook_core::check::{self, Host, Options};
+use fieldbook_core::ids::AreaCode;
+use fieldbook_core::new::{Fields, RowKind, plan_row, render_register};
 use fieldbook_core::schema::table::{Table, read as read_csv, write as write_csv};
 use serde_json::Value;
 
@@ -1425,4 +1429,236 @@ fn a_register_saved_after_planning_is_not_overwritten() {
     let saved = std::fs::read_to_string(tmp.path().join(rel)).expect("read register");
     assert!(saved.contains("Q-777"), "the authored row is kept");
     assert!(saved.contains("Synthetic question"), "the new row is added");
+}
+
+fn plant_claim_row(world: &TestWorld, root: &Path, at: &str, quote: &str) {
+    let tree = world.read_tree().expect("read tree");
+    let today = CivilDate::parse(TODAY).expect("valid today");
+    let (model, _) = check::load(&Host::new(tree, today), &Options::new(false));
+    let area = AreaCode::parse("cmp").expect("valid area");
+    let fields = Fields::new()
+        .with("area", "cmp")
+        .with("source", "S-0001-v1")
+        .with("at", at)
+        .with("quote", quote)
+        .with("drafted_by", "codex");
+    let mut plan = plan_row(&model, RowKind::Claim, Some(&area), &fields).expect("plan_row");
+    plan.cells[3] = "Synthetic statement.".to_owned();
+    let bytes = render_register(&model, RowKind::Claim, &plan).expect("render_register");
+    std::fs::write(root.join("corpus/registers/claims.csv"), bytes).expect("write claims.csv");
+}
+
+fn diagnostic_block(check_stdout: &str, code: &str) -> String {
+    let lines: Vec<&str> = check_stdout.lines().collect();
+    let pos = lines
+        .iter()
+        .position(|l| l.contains(&format!("[{code}]")))
+        .unwrap_or_else(|| panic!("no diagnostic for {code} in:\n{check_stdout}"));
+    format!("{}\n{}\n", lines[pos], lines[pos + 1])
+}
+
+#[test]
+fn new_claim_refuses_unmatched_quote() {
+    let tmp = temp_copy(&fixture_root());
+    let world = TestWorld::new(tmp.path());
+    let before = corpus_files(tmp.path());
+
+    let unmatched_args = &[
+        "new",
+        "claim",
+        "--confirm-public",
+        "--area",
+        "cmp",
+        "--source",
+        "S-0001-v1",
+        "--at",
+        "sec. 1",
+        "--quote",
+        "Synthetic compliance reviews occur every 31 days.",
+    ];
+    let out = run(&world, unmatched_args);
+    assert_eq!(out.code, 1, "stdout: {} stderr: {}", out.stdout, out.stderr);
+    assert!(out.stdout.contains("FB0308"), "stdout: {}", out.stdout);
+    assert!(out.stdout.contains("claims.csv"), "stdout: {}", out.stdout);
+    assert!(out.stderr.is_empty(), "stderr: {}", out.stderr);
+    assert_eq!(corpus_files(tmp.path()), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+
+    let matched_args = &[
+        "new",
+        "claim",
+        "--confirm-public",
+        "--area",
+        "cmp",
+        "--source",
+        "S-0001-v1",
+        "--at",
+        "sec. 1",
+        "--quote",
+        "Synthetic compliance reviews occur every 30 days.",
+    ];
+    let out_ok = run(&world, matched_args);
+    assert_eq!(
+        out_ok.code, 0,
+        "stdout: {} stderr: {}",
+        out_ok.stdout, out_ok.stderr
+    );
+    assert_eq!(out_ok.stdout, "CL-CMP-0003\n");
+    assert!(out_ok.stderr.is_empty(), "stderr: {}", out_ok.stderr);
+    assert_eq!(count(&world, "write.begin"), 1);
+    let claim = row(tmp.path(), "corpus/registers/claims.csv", "CL-CMP-0003");
+    assert_eq!(
+        claim["quote"],
+        "Synthetic compliance reviews occur every 30 days."
+    );
+}
+
+#[test]
+fn new_claim_and_check_give_the_same_diagnostic() {
+    // Case 1: a quote that does not match (FB0308)
+    {
+        let tmp1 = temp_copy(&fixture_root());
+        let world1 = TestWorld::new(tmp1.path());
+        let out1 = run(
+            &world1,
+            &[
+                "new",
+                "claim",
+                "--confirm-public",
+                "--area",
+                "cmp",
+                "--source",
+                "S-0001-v1",
+                "--at",
+                "sec. 1",
+                "--quote",
+                "Synthetic compliance reviews occur every 31 days.",
+            ],
+        );
+        assert_eq!(out1.code, 1);
+        assert!(out1.stdout.contains("FB0308"));
+        let d = out1.stdout;
+
+        let tmp2 = temp_copy(&fixture_root());
+        let world2 = TestWorld::new(tmp2.path());
+        plant_claim_row(
+            &world2,
+            tmp2.path(),
+            "sec. 1",
+            "Synthetic compliance reviews occur every 31 days.",
+        );
+        let check_out = run(&world2, &["check"]);
+        let block = diagnostic_block(&check_out.stdout, "FB0308");
+        assert_eq!(block, d);
+    }
+
+    // Case 2: a locator that does not resolve (FB0304)
+    // 2a: --at "p. 4" (page beyond page count)
+    {
+        let tmp1 = temp_copy(&fixture_root());
+        let world1 = TestWorld::new(tmp1.path());
+        let out1 = run(
+            &world1,
+            &[
+                "new",
+                "claim",
+                "--confirm-public",
+                "--area",
+                "cmp",
+                "--source",
+                "S-0001-v1",
+                "--at",
+                "p. 4",
+                "--quote",
+                "Synthetic compliance reviews occur every 30 days.",
+            ],
+        );
+        assert_eq!(out1.code, 1);
+        assert!(out1.stdout.contains("FB0304"));
+        let d = out1.stdout;
+
+        let tmp2 = temp_copy(&fixture_root());
+        let world2 = TestWorld::new(tmp2.path());
+        plant_claim_row(
+            &world2,
+            tmp2.path(),
+            "p. 4",
+            "Synthetic compliance reviews occur every 30 days.",
+        );
+        let check_out = run(&world2, &["check"]);
+        let block = diagnostic_block(&check_out.stdout, "FB0304");
+        assert_eq!(block, d);
+    }
+
+    // 2b: --at "sec. 9" (label not in [locators])
+    {
+        let tmp1 = temp_copy(&fixture_root());
+        let world1 = TestWorld::new(tmp1.path());
+        let out1 = run(
+            &world1,
+            &[
+                "new",
+                "claim",
+                "--confirm-public",
+                "--area",
+                "cmp",
+                "--source",
+                "S-0001-v1",
+                "--at",
+                "sec. 9",
+                "--quote",
+                "Synthetic compliance reviews occur every 30 days.",
+            ],
+        );
+        assert_eq!(out1.code, 1);
+        assert!(out1.stdout.contains("FB0304"));
+        let d = out1.stdout;
+
+        let tmp2 = temp_copy(&fixture_root());
+        let world2 = TestWorld::new(tmp2.path());
+        plant_claim_row(
+            &world2,
+            tmp2.path(),
+            "sec. 9",
+            "Synthetic compliance reviews occur every 30 days.",
+        );
+        let check_out = run(&world2, &["check"]);
+        let block = diagnostic_block(&check_out.stdout, "FB0304");
+        assert_eq!(block, d);
+    }
+
+    // Case 3: a quote that matches
+    {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let out = run(
+            &world,
+            &[
+                "new",
+                "claim",
+                "--confirm-public",
+                "--area",
+                "cmp",
+                "--source",
+                "S-0001-v1",
+                "--at",
+                "sec. 1",
+                "--quote",
+                "Synthetic compliance reviews occur every 30 days.",
+            ],
+        );
+        assert_eq!(out.code, 0, "stdout: {} stderr: {}", out.stdout, out.stderr);
+        assert_eq!(out.stdout, "CL-CMP-0003\n");
+        let check_out = run(&world, &["check"]);
+        assert!(
+            !check_out.stdout.contains("FB0304"),
+            "stdout: {}",
+            check_out.stdout
+        );
+        assert!(
+            !check_out.stdout.contains("FB0308"),
+            "stdout: {}",
+            check_out.stdout
+        );
+    }
 }

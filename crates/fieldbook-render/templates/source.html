@@ -12,6 +12,9 @@
     </div>
     <h1>{{ v.title }}</h1>
     <p class="muted">{{ v.publisher }}</p>
+    {% if !v.supplied_note_html.is_empty() %}
+    {{ v.supplied_note_html|safe }}
+    {% endif %}
   </header>
 
   {% if v.is_superseded %}
@@ -73,6 +76,9 @@
         <li>
           <div class="source-chips">{{ c.claim_chip_html|safe }} {{ c.status_chips_html|safe }}</div>
           <p>{{ c.statement }}</p>
+          {% if let Some(excerpt) = &c.excerpt_html %}
+          {{ excerpt|safe }}
+          {% endif %}
           <div class="ans-meta">
             {{ c.citation_chip_html|safe }}
             <span>{{ c.effective }}</span>

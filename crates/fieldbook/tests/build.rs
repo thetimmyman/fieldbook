@@ -1105,7 +1105,7 @@ mod build {
 
         // The left-out source version's extracted text: the view must leave its folder out.
         let canary_text: &[u8] =
-            b"Forbidden extracted text canary. Synthetic padding so that the page is not thin.\n";
+            b"Forbidden extracted text canary. Synthetic padding so that the page is not thin. Forbidden quote.\n";
         tree_mixed.insert_bytes(
             "corpus/sources/text/S-0099-v1/p0001.txt",
             canary_text.to_vec(),
@@ -1113,7 +1113,7 @@ mod build {
         tree_mixed.insert_bytes(
             "corpus/sources/text/S-0099-v1/extraction.toml",
             format!(
-                "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{}\"\n\n[pages]\np0001 = \"{}\"\n",
+                "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{}\"\n\n[pages]\np0001 = \"{}\"\n[locators]\n\"9\" = 1\n",
                 "9".repeat(64),
                 fieldbook_core::hash::sha256_hex(canary_text)
             )

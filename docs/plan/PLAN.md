@@ -243,6 +243,7 @@ The edition as a usable reference for the owner without company data: search tha
 - kb-dcaa-dcma-guidance-sources: the missing Contract Audit Manual chapters, DCAA guidance for contractors and the Contract Pricing Reference Guides, byte-exact public sources
 - kb-rates-practitioner: wrap-rate build-up, pool and base structure, the billing-to-final-rate cycle and an incurred cost submission walkthrough
 - kb-hub-pages: the FAR 31.205 cost-principles overview, one page per contract type and the first Cost Accounting Standard hubs, in parts
+- kb-hub-pages-2: concept hubs for Cost Accounting Standards 404 to 420, after the three of the first part
 - search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
 - design-search-term-rows: a design revision after revision 22 that shows a glossary term row on the edition's search page and in the palette (owner review)
 - search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)

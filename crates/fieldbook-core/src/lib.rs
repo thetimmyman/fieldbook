@@ -30,6 +30,7 @@ pub mod labels;
 pub mod manifest;
 pub mod new;
 pub mod policy;
+pub mod quote;
 pub mod report;
 pub mod review;
 pub mod scan;

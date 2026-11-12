@@ -13,11 +13,15 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use askama::Template;
+use fieldbook_core::check::quotes::{read_extraction, read_pages};
 use fieldbook_core::check::{Entry, Located};
 use fieldbook_core::cite::KeyKind;
 use fieldbook_core::egress::LabelledView;
+use fieldbook_core::extraction::{methods, section_anchor};
 use fieldbook_core::ids::VersionId;
+use fieldbook_core::quote;
 use fieldbook_core::schema::{Lifecycle, Register, SourceRow};
+use fieldbook_core::strings::EXTRACTION_SUPPLIED;
 
 use crate::cite::{OriginalAvailability, located_original_href};
 use crate::frame::render_page as render_frame_page;
@@ -246,6 +250,256 @@ pub fn render_unavailable(thing: &str, until: &str) -> String {
     .unwrap_or_else(|e| unreachable!("unavailable.html is infallible: {e}"))
 }
 
+/// Inputs and text of the `Supplied` provenance note (`parts/supplied-note.html`).
+#[derive(Template)]
+#[template(path = "parts/supplied-note.html")]
+struct SuppliedNoteTemplate<'a> {
+    text: &'a str,
+}
+
+/// Renders the note on a source page whose text was supplied by hand.
+#[must_use]
+pub fn render_supplied_note() -> String {
+    SuppliedNoteTemplate {
+        text: EXTRACTION_SUPPLIED,
+    }
+    .render()
+    .unwrap_or_else(|e| unreachable!("supplied-note.html is infallible: {e}"))
+}
+
+struct LocLineView {
+    anchors: Vec<String>,
+    line_no: usize,
+    text_html: String,
+}
+
+struct LocPageView {
+    page_num: u32,
+    lines: Vec<LocLineView>,
+}
+
+#[derive(Template)]
+#[template(path = "parts/locator-view.html")]
+struct LocatorViewTemplate<'a> {
+    version_id: &'a str,
+    pages_sub: &'a str,
+    thin_note: Option<String>,
+    pages: Vec<LocPageView>,
+}
+
+struct LineInfo<'a> {
+    line_no: usize,
+    display_text: &'a str,
+    start_byte: usize,
+    end_byte: usize,
+}
+
+fn page_lines(text: &str) -> Vec<LineInfo<'_>> {
+    let mut lines = Vec::new();
+    let mut offset = 0;
+    for (line_no, segment) in (1..).zip(text.split_inclusive('\n')) {
+        let raw = segment.strip_suffix('\n').unwrap_or(segment);
+        let disp = raw.strip_suffix('\r').unwrap_or(raw);
+        lines.push(LineInfo {
+            line_no,
+            display_text: disp,
+            start_byte: offset,
+            end_byte: offset + disp.len(),
+        });
+        offset += segment.len();
+    }
+    lines
+}
+
+fn match_section_prefix(line: &str) -> Option<&str> {
+    if let Some(rest) = line.strip_prefix('§') {
+        return Some(rest);
+    }
+    if line
+        .get(..8)
+        .is_some_and(|p| p.eq_ignore_ascii_case("section "))
+    {
+        return line.get(8..);
+    }
+    if line
+        .get(..5)
+        .is_some_and(|p| p.eq_ignore_ascii_case("sec. "))
+    {
+        return line.get(5..);
+    }
+    if line
+        .get(..4)
+        .is_some_and(|p| p.eq_ignore_ascii_case("sec "))
+    {
+        return line.get(4..);
+    }
+    None
+}
+
+fn line_matches_section_label(line: &str, label: &str) -> bool {
+    let trimmed = line.trim();
+    let Some(rest) = match_section_prefix(trimmed) else {
+        return false;
+    };
+    let Some(token) = rest.split_whitespace().next() else {
+        return false;
+    };
+    let token_clean = token.trim_end_matches(['.', ':', ',']);
+    token_clean == label
+}
+
+fn render_line(
+    line: &LineInfo<'_>,
+    anchors: &[String],
+    merged_ranges: &[std::ops::Range<usize>],
+) -> LocLineView {
+    let mut line_marks: Vec<std::ops::Range<usize>> = Vec::new();
+    for r in merged_ranges {
+        let mark_start = r.start.max(line.start_byte).min(line.end_byte);
+        let mark_end = r.end.max(line.start_byte).min(line.end_byte);
+        if mark_start < mark_end {
+            let rel_start = mark_start - line.start_byte;
+            let rel_end = mark_end - line.start_byte;
+            if line.display_text.is_char_boundary(rel_start)
+                && line.display_text.is_char_boundary(rel_end)
+            {
+                line_marks.push(rel_start..rel_end);
+            }
+        }
+    }
+
+    let mut text_html = String::new();
+    let mut cursor = 0;
+    for m in line_marks {
+        if cursor < m.start
+            && let Some(unmarked) = line.display_text.get(cursor..m.start)
+        {
+            text_html.push_str(&escape_html(unmarked));
+        }
+        if let Some(marked) = line.display_text.get(m.start..m.end) {
+            text_html.push_str("<mark>");
+            text_html.push_str(&escape_html(marked));
+            text_html.push_str("</mark>");
+        }
+        cursor = m.end;
+    }
+    if cursor < line.display_text.len()
+        && let Some(rest) = line.display_text.get(cursor..)
+    {
+        text_html.push_str(&escape_html(rest));
+    }
+
+    LocLineView {
+        anchors: anchors.to_vec(),
+        line_no: line.line_no,
+        text_html,
+    }
+}
+
+fn render_locator_view(
+    vid_str: &str,
+    record: &fieldbook_core::extraction::ExtractionToml,
+    pages: &[&str],
+    merged_passages: &BTreeMap<u32, Vec<std::ops::Range<usize>>>,
+) -> String {
+    let pages_sub = if record.page_count == 1 {
+        "1 page".to_owned()
+    } else {
+        format!("{} pages", record.page_count)
+    };
+
+    let thin_note = if !record.thin_pages.is_empty() {
+        let pages_list = record
+            .thin_pages
+            .iter()
+            .map(ToString::to_string)
+            .collect::<Vec<_>>()
+            .join(", ");
+        if record.thin_pages.len() == 1 {
+            Some(format!(
+                "1 page has little or no text; read the original. Page {pages_list}."
+            ))
+        } else {
+            Some(format!(
+                "{} pages have little or no text; read the original. Pages {pages_list}.",
+                record.thin_pages.len()
+            ))
+        }
+    } else {
+        None
+    };
+
+    let mut all_page_lines: Vec<Vec<LineInfo<'_>>> = Vec::with_capacity(pages.len());
+    for &p_text in pages {
+        all_page_lines.push(page_lines(p_text));
+    }
+
+    let mut line_anchors: BTreeMap<(u32, usize), Vec<String>> = BTreeMap::new();
+    let mut emitted_anchors: BTreeSet<String> = BTreeSet::new();
+
+    for (label, loc_pages) in &record.locators {
+        let anchor_id = section_anchor(label);
+        if !emitted_anchors.insert(anchor_id.clone()) {
+            continue;
+        }
+        let first_page = loc_pages.first;
+        if first_page < 1 {
+            continue;
+        }
+        let Ok(page_idx) = usize::try_from(first_page.saturating_sub(1)) else {
+            continue;
+        };
+        let Some(page_lines_for_first) = all_page_lines.get(page_idx) else {
+            continue;
+        };
+        if page_lines_for_first.is_empty() {
+            continue;
+        }
+
+        let mut matched_line_no = None;
+        for line in page_lines_for_first {
+            if line_matches_section_label(line.display_text, label) {
+                matched_line_no = Some(line.line_no);
+                break;
+            }
+        }
+
+        let target_line_no = matched_line_no.unwrap_or(1);
+        line_anchors
+            .entry((first_page, target_line_no))
+            .or_default()
+            .push(anchor_id);
+    }
+
+    let mut loc_pages = Vec::with_capacity(all_page_lines.len());
+    for (page_idx, plines) in all_page_lines.iter().enumerate() {
+        let page_num = u32::try_from(page_idx + 1).unwrap_or(u32::MAX);
+        let page_merged = merged_passages
+            .get(&page_num)
+            .map_or(&[][..], |v| v.as_slice());
+        let mut rendered_lines = Vec::with_capacity(plines.len());
+        for line in plines {
+            let anchors = line_anchors
+                .get(&(page_num, line.line_no))
+                .map_or(&[][..], |v| v.as_slice());
+            rendered_lines.push(render_line(line, anchors, page_merged));
+        }
+        loc_pages.push(LocPageView {
+            page_num,
+            lines: rendered_lines,
+        });
+    }
+
+    LocatorViewTemplate {
+        version_id: vid_str,
+        pages_sub: &pages_sub,
+        thin_note,
+        pages: loc_pages,
+    }
+    .render()
+    .unwrap_or_else(|e| unreachable!("locator-view.html is infallible: {e}"))
+}
+
 /// One claim that cites the version.
 struct CitingClaimView {
     claim_chip_html: String,
@@ -255,6 +509,7 @@ struct CitingClaimView {
     /// `Effective <date>`, `No effective date` or `vN superseded`.
     effective: String,
     statement: String,
+    excerpt_html: Option<String>,
     verified_on: Option<String>,
     verified_role: Option<String>,
 }
@@ -298,6 +553,7 @@ struct SourcePageView {
     pages: Vec<CitingPageView>,
     excerpt_html: String,
     locator_view_html: String,
+    supplied_note_html: String,
     answer_meta_html: String,
     lock_icon: &'static str,
     clock_icon: &'static str,
@@ -420,6 +676,14 @@ fn build_view(
 
     let source_row = Some(row);
     let is_superseded = !superseders.is_empty();
+
+    let extraction = read_extraction(view.tree(), &vid);
+    let extracted_pages = extraction
+        .as_ref()
+        .and_then(|rec| read_pages(view.tree(), &vid, 1..=rec.page_count));
+    let extracted_info = extraction.as_ref().zip(extracted_pages.as_ref());
+
+    let mut page_passages: BTreeMap<u32, Vec<std::ops::Range<usize>>> = BTreeMap::new();
     let mut cited_locators: BTreeSet<String> = BTreeSet::new();
     let claims = view
         .claims()
@@ -436,6 +700,37 @@ fn build_view(
             let locator_text = claim.locator.as_deref().filter(|l| !l.is_empty());
             if let Some(loc) = locator_text {
                 cited_locators.insert(loc.to_owned());
+            }
+            let mut excerpt_html = None;
+            if let Some((record, pages)) = extracted_info
+                && let (Some(loc), Some(quote)) = (
+                    locator_text,
+                    claim.quote.as_deref().filter(|q| !q.is_empty()),
+                )
+                && let Ok(Some(range)) = quote::locator_resolves(record, loc)
+                && let Some(span) = quote::find(quote, pages, range)
+            {
+                page_passages
+                    .entry(span.page)
+                    .or_default()
+                    .push(span.start..span.end);
+                if let Ok(p_idx) = usize::try_from(span.page.saturating_sub(1))
+                    && let Some(p_text) = pages.get(p_idx)
+                    && let Some(matched_raw) = p_text.get(span.start..span.end)
+                {
+                    let collapsed = matched_raw.split_whitespace().collect::<Vec<_>>().join(" ");
+                    let char_count = collapsed.chars().count();
+                    let passage = if char_count > 150 {
+                        let prefix: String = collapsed.chars().take(150).collect();
+                        format!("{prefix}…")
+                    } else {
+                        collapsed
+                    };
+                    excerpt_html = Some(format!(
+                        "<blockquote class=\"excerpt\"><mark>{}</mark></blockquote>",
+                        escape_html(&passage)
+                    ));
+                }
             }
             let effective = if is_superseded {
                 format!("v{} superseded", row.version)
@@ -458,6 +753,7 @@ fn build_view(
                 ),
                 effective,
                 statement: claim.statement.clone(),
+                excerpt_html,
                 verified_on: claim.verified_on.map(|d| d.to_string()),
                 verified_role: claim
                     .verified_on
@@ -529,16 +825,48 @@ fn build_view(
         Vec::new()
     };
 
+    let mut merged_passages: BTreeMap<u32, Vec<std::ops::Range<usize>>> = BTreeMap::new();
+    for (page_num, mut ranges) in page_passages {
+        ranges.sort_unstable_by_key(|r| (r.start, r.end));
+        let mut merged: Vec<std::ops::Range<usize>> = Vec::new();
+        for r in ranges {
+            if let Some(last) = merged.last_mut() {
+                if r.start <= last.end {
+                    last.end = last.end.max(r.end);
+                } else {
+                    merged.push(r);
+                }
+            } else {
+                merged.push(r);
+            }
+        }
+        merged_passages.insert(page_num, merged);
+    }
+
     // A metadata-only version has no stored bytes to extract, so its banner stands in for the
-    // excerpt and the locator view (HANDOFF section 5 `Excerpt`, section 11).
-    let (excerpt_html, locator_view_html) = if metadata_only {
-        (String::new(), String::new())
-    } else {
-        (
-            render_unavailable("Excerpt", "this version is extracted"),
-            render_unavailable("Locator view", "this version is extracted"),
-        )
-    };
+    // excerpt and the locator view (HANDOFF section 5 `Excerpt`, section 11). An extracted
+    // version shows the locator view and suppresses the page-level excerpt panel.
+    let (excerpt_html, locator_view_html, supplied_note_html) =
+        if let Some((record, pages)) = extracted_info {
+            let supplied_note = if record.method.name() == methods::SUPPLIED {
+                render_supplied_note()
+            } else {
+                String::new()
+            };
+            (
+                String::new(),
+                render_locator_view(&vid_str, record, pages, &merged_passages),
+                supplied_note,
+            )
+        } else if metadata_only {
+            (String::new(), String::new(), String::new())
+        } else {
+            (
+                render_unavailable("Excerpt", "this version is extracted"),
+                render_unavailable("Locator view", "this version is extracted"),
+                String::new(),
+            )
+        };
     let answer_meta_html = if claims.is_empty() {
         render_unavailable("Answer metadata", "a claim cites this version")
     } else {
@@ -561,6 +889,7 @@ fn build_view(
         pages,
         excerpt_html,
         locator_view_html,
+        supplied_note_html,
         answer_meta_html,
         lock_icon: ICON_LOCK,
         clock_icon: ICON_CLOCK,

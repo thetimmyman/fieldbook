@@ -2058,6 +2058,71 @@ th[aria-sort="descending"] .sort-arrow::after {
   font-size: var(--text-sm);
 }
 
+/* Excerpt per citing claim (`HANDOFF.md` section 5). */
+.excerpt {
+  margin: var(--space-1-5) 0;
+  padding-inline-start: var(--space-2-5);
+  border-left: var(--border-w-strong) solid var(--color-border-strong);
+  font-size: var(--text-sm);
+}
+
+/* LocatorView (`HANDOFF.md` section 5). */
+.locator-view {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  max-height: 280px;
+  overflow: auto;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  background-color: var(--color-surface-2);
+}
+
+.loc-page {
+  margin-bottom: var(--space-3);
+}
+
+.loc-page:last-child {
+  margin-bottom: 0;
+}
+
+.loc-pageno {
+  color: var(--color-muted);
+  margin-bottom: var(--space-1);
+}
+
+.loc-line {
+  position: relative;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: var(--space-2);
+}
+
+.loc-line:has(.loc-anchor:target) {
+  background-color: var(--color-mark);
+}
+
+.loc-line:has(.loc-anchor:target) .loc-no {
+  color: var(--color-fg);
+}
+
+.loc-no {
+  color: var(--color-muted);
+  user-select: none;
+}
+
+.loc-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.loc-anchor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  scroll-margin-top: calc(var(--topbar-h) + var(--space-4));
+}
+
 /* Answer metadata (`AnswerMeta`): citation, effective date and the verified line. */
 .ans-meta {
   display: flex;

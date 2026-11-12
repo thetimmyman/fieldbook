@@ -16,7 +16,7 @@
 - The weekly run checks the committed lock with stable Cargo and the existing checks; it does not resolve a new lock or claim recorded-cutoff/snapshot replay ([Dependencies and the lock file](README.md#dependencies-and-the-lock-file)).
 - Controls brought here: SC-01 (the weekly full-history run and the planted-token test), DP-01 (a git-source dependency fails cargo-deny), DP-05 (advisories and the fixture lockfile), NS-02, CD-01 and DT-04 (the weekly lint controls) and the Linux half of DT-02, all in [controls.md](../controls.md). NS-02, CD-01 and DP-01 are built by `workspace-skeleton` and had no test that plants their fault; this card builds it, and their rows name this card in Brought by.
 - The full Windows run and the cross-OS compare itself join with `transfer-and-windows-drill`. The freshness report waits for `status-command`: [AD-08](../decisions/0001-foundation.md#ad-08-ci-design) defines it as the stale-items list of `fieldbook status`, and that card adds the step to `scheduled.yml`.
-- The `scale` job runs `cargo xtask scale` ([scale-fixture](scale-fixture.md)) and uploads its table. It is advisory: the card that builds the command says why, and a figure never fails the job.
+- The `scale` job runs `cargo xtask scale` (`scale-fixture`) and uploads its table. It is advisory: the card that builds the command says why, and a figure never fails the job.
 - Trade-off: the lint controls run weekly, not on every pull request, because each plant is a full clippy run. A ban deleted from `clippy.toml` or from a lint table is found within a week and shows in the diff of the pull request that deleted it.
 
 ## Scope
