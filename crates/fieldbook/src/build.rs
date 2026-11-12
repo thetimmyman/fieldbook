@@ -259,8 +259,8 @@ fn build_plan_from_site(
 /// # Errors
 ///
 /// Returns [`BuildPlanError::Metadata`] if `RenderContext` validation fails,
-/// [`BuildPlanError::Lint`] if `fieldbook_render::lint::lint` reports findings, or
-/// [`BuildPlanError::Io`] if `dirs::check_build_roots` or path resolution fails.
+/// [`BuildPlanError::Lint`] if `fieldbook_render::lint::lint` reports findings or workbook
+/// rendering fails, or [`BuildPlanError::Io`] if `dirs::check_build_roots` or path resolution fails.
 pub fn plan_edition(
     view: &LabelledView,
     info: &BuildInfo,
@@ -271,7 +271,16 @@ pub fn plan_edition(
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(view, &context, info.profile);
+    let site = site::render_with_info(view, &context, info).map_err(|e| {
+        BuildPlanError::Lint(vec![Diagnostic::new(
+            Code::Fb0605,
+            false,
+            fieldbook_render::xlsx::OUTPUT_PATH.to_owned(),
+            1,
+            1,
+            e.to_string(),
+        )])
+    })?;
     build_plan_from_site(
         view,
         context,
@@ -308,7 +317,16 @@ pub fn plan_edition_with_originals(
     originals: BTreeMap<String, Vec<u8>>,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(view, &context, info.profile);
+    let site = site::render_with_info(view, &context, info).map_err(|e| {
+        BuildPlanError::Lint(vec![Diagnostic::new(
+            Code::Fb0605,
+            false,
+            fieldbook_render::xlsx::OUTPUT_PATH.to_owned(),
+            1,
+            1,
+            e.to_string(),
+        )])
+    })?;
     let names = OriginalNames(originals.keys().cloned().collect());
     build_plan_from_site(
         view, context, site, originals, &names, out_dir, eff, labels, now, shipped,

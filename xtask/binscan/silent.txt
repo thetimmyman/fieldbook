@@ -136,6 +136,7 @@ close
 closedir
 dirfd
 dl_iterate_phdr
+dlsym
 dup
 exit
 fcntl
@@ -153,6 +154,7 @@ getrandom
 gettid
 # from the new-verbs terminal prompt (std::io::IsTerminal and console stdin reads)
 isatty
+log2
 lseek64
 lstat64
 lstrlenW
@@ -174,10 +176,15 @@ posix_memalign
 pthread_attr_destroy
 pthread_attr_getguardsize
 pthread_attr_getstack
+pthread_attr_init
+pthread_attr_setstacksize
+pthread_create
+pthread_detach
 pthread_getattr_np
 pthread_key_create
 pthread_key_delete
 pthread_self
+pthread_setname_np
 pthread_setspecific
 read
 readdir64

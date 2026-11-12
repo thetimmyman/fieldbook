@@ -24,6 +24,7 @@ use crate::nav::{Navigation, format_not_available};
 use crate::site::PlannedPaths;
 use crate::source::{is_held, page_path, render_unavailable};
 use crate::svg::{CoverageCounts, coverage_bar, coverage_legend};
+use crate::xlsx;
 
 /// Site-relative output path of the home page.
 pub const OUTPUT_PATH: &str = "index.html";
@@ -307,6 +308,7 @@ struct HomeTemplate {
     day_one: Vec<DayOneRow>,
     briefs: Vec<BriefRow>,
     binder_href: Option<String>,
+    registers_href: Option<String>,
     registers_line: String,
     next_up_html: String,
     legend_html: String,
@@ -388,6 +390,7 @@ pub fn render_main(view: &LabelledView, planned: &PlannedPaths) -> String {
         day_one: day_one_rows(view, planned),
         briefs: brief_rows(view, planned),
         binder_href: href_if_planned(OUTPUT_PATH, crate::day_one::OUTPUT_PATH, planned),
+        registers_href: href_if_planned(OUTPUT_PATH, xlsx::OUTPUT_PATH, planned),
         registers_line: format_not_available(strings::paths()[0], "a later build"),
         // HANDOFF section 5: its order rule "what unblocks the most" depends on ADR 0001.
         next_up_html: render_unavailable("Next up", "ADR 0001 decides its order rule"),
