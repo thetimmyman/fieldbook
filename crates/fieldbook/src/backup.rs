@@ -1488,22 +1488,59 @@ fn run_verify_raw(
     }
 }
 
-fn run_verify_numbered(
-    world: &dyn World,
-    eff: &EffectivePolicy,
-    args: &BackupVerifyArgs,
+/// Returns the folder name for a numbered snapshot, e.g. `fieldbook-backup-0001`.
+pub(crate) fn snapshot_dir_name(n: u32) -> String {
+    format!("fieldbook-backup-{n:04}")
+}
+
+/// A snapshot folder checked against its own backup.toml and SHA256SUMS; nothing is journaled.
+#[derive(Debug, Clone)]
+pub(crate) struct SnapshotCheck {
+    pub info: BackupToml,
+    pub sums_text: String,
+    pub snap_dir: PathBuf,
+    pub snap_num: u32,
+    pub canonical_target: PathBuf,
+    pub target_sha256: Sha256,
+    pub findings: Vec<String>,
+    pub has_fb0811: bool,
+    pub has_fb0810: bool,
+    pub has_fb0802: bool,
+}
+
+impl SnapshotCheck {
+    /// True when any of the three failure kinds was found.
+    pub fn failed(&self) -> bool {
+        self.has_fb0811 || self.has_fb0810 || self.has_fb0802
+    }
+
+    /// The first failing code in the order FB0810, FB0811, FB0802, as the text "FB0810" etc.; None when clean.
+    pub fn first_code(&self) -> Option<&'static str> {
+        if self.has_fb0810 {
+            Some("FB0810")
+        } else if self.has_fb0811 {
+            Some("FB0811")
+        } else if self.has_fb0802 {
+            Some("FB0802")
+        } else {
+            None
+        }
+    }
+}
+
+pub(crate) fn check_snapshot(
     target_path: &Path,
-    warn_stale: String,
-) -> Outcome {
+    snapshot: Option<u64>,
+) -> Result<SnapshotCheck, Outcome> {
     if !target_path.is_dir() {
-        return Outcome {
+        return Err(Outcome {
             stdout: String::new(),
             stderr: format!("target directory not found: {}\n", target_path.display()),
             code: EXIT_IO,
-        };
+        });
     }
 
-    let snap_num = if let Some(n) = args.snapshot {
+    let snap_num = if let Some(n) = snapshot {
         u32::try_from(n).unwrap_or(0)
     } else {
         let latest_file = target_path.join("LATEST");
@@ -1517,49 +1554,49 @@ fn run_verify_numbered(
             if let Some(&last) = existing.last() {
                 last
             } else {
-                return Outcome {
+                return Err(Outcome {
                     stdout: String::new(),
                     stderr: format!("no snapshots found in {}\n", target_path.display()),
                     code: EXIT_IO,
-                };
+                });
             }
         }
     };
 
-    let snap_dir = target_path.join(format!("fieldbook-backup-{snap_num:04}"));
+    let snap_dir = target_path.join(snapshot_dir_name(snap_num));
     if !snap_dir.is_dir() {
-        return Outcome {
+        return Err(Outcome {
             stdout: String::new(),
             stderr: format!(
                 "snapshot {snap_num} directory not found in {}\n",
                 target_path.display()
             ),
             code: EXIT_IO,
-        };
+        });
     }
 
     let toml_path = snap_dir.join("backup.toml");
     let toml_text = match std::fs::read_to_string(&toml_path) {
         Ok(t) => t,
         Err(err) => {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("cannot read {}: {err}\n", toml_path.display()),
                 code: EXIT_IO,
-            };
+            });
         }
     };
     let info = match BackupToml::parse(&toml_text) {
         Ok(i) => i,
         Err(err) => {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!(
                     "error[FB0811]: cannot parse {}: {err}\n",
                     toml_path.display()
                 ),
                 code: EXIT_FINDINGS,
-            };
+            });
         }
     };
 
@@ -1567,11 +1604,11 @@ fn run_verify_numbered(
     let sums_text = match std::fs::read_to_string(&sums_path) {
         Ok(t) => t,
         Err(err) => {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("cannot read {}: {err}\n", sums_path.display()),
                 code: EXIT_IO,
-            };
+            });
         }
     };
 
@@ -1579,15 +1616,6 @@ fn run_verify_numbered(
         .canonicalize()
         .unwrap_or_else(|_| target_path.to_path_buf());
     let target_sha256 = Sha256::digest(canonical_target.to_string_lossy().as_bytes());
-    let manifest_sha256_val = match Sha256::parse(&info.manifest_sha256) {
-        Ok(s) => s,
-        Err(_) => Sha256::digest(b""),
-    };
-    let verified_id = BackupVerified::Snapshot {
-        target_sha256: target_sha256.clone(),
-        snapshot: Count::new(u64::from(info.snapshot)),
-        manifest_sha256: manifest_sha256_val,
-    };
 
     let mut finding_errors = Vec::new();
     let mut has_fb0811 = false;
@@ -1676,7 +1704,44 @@ fn run_verify_numbered(
         has_fb0802 = true;
     }
 
-    let has_failure = has_fb0811 || has_fb0810 || has_fb0802;
+    Ok(SnapshotCheck {
+        info,
+        sums_text,
+        snap_dir,
+        snap_num,
+        canonical_target,
+        target_sha256,
+        findings: finding_errors,
+        has_fb0811,
+        has_fb0810,
+        has_fb0802,
+    })
+}
+
+fn run_verify_numbered(
+    world: &dyn World,
+    eff: &EffectivePolicy,
+    args: &BackupVerifyArgs,
+    target_path: &Path,
+    warn_stale: String,
+) -> Outcome {
+    let check = match check_snapshot(target_path, args.snapshot) {
+        Ok(c) => c,
+        Err(early) => return early,
+    };
+
+    let manifest_sha256_val = match Sha256::parse(&check.info.manifest_sha256) {
+        Ok(s) => s,
+        Err(_) => Sha256::digest(b""),
+    };
+    let verified_id = BackupVerified::Snapshot {
+        target_sha256: check.target_sha256.clone(),
+        snapshot: Count::new(u64::from(check.info.snapshot)),
+        manifest_sha256: manifest_sha256_val,
+    };
+
+    let has_failure = check.failed();
+    let _ = (check.first_code(), &check.sums_text, &check.snap_dir);
     let outcome_word = if has_failure {
         Word::new_static("failed")
     } else {
@@ -1684,7 +1749,7 @@ fn run_verify_numbered(
     };
 
     let mut findings_text = warn_stale;
-    for err_line in &finding_errors {
+    for err_line in &check.findings {
         findings_text.push_str(err_line);
     }
 
@@ -1742,11 +1807,11 @@ fn run_verify_numbered(
                     Ok(state_audited) => {
                         let report = LastBackupReport {
                             verification: "snapshot".to_string(),
-                            target_path: canonical_target.to_string_lossy().into_owned(),
+                            target_path: check.canonical_target.to_string_lossy().into_owned(),
                             labels: cache_labels.ids().to_vec(),
-                            target_sha256: target_sha256.to_string(),
-                            snapshot: snap_num,
-                            manifest_sha256: info.manifest_sha256.clone(),
+                            target_sha256: check.target_sha256.to_string(),
+                            snapshot: check.snap_num,
+                            manifest_sha256: check.info.manifest_sha256.clone(),
                             verified_utc: now.to_string(),
                         };
                         let mut json = serde_json::to_string_pretty(&report).unwrap_or_default();
@@ -1787,7 +1852,7 @@ fn run_verify_numbered(
             findings_text.push_str(w);
         }
         Outcome {
-            stdout: format!("snapshot {snap_num} verified\n"),
+            stdout: format!("snapshot {} verified\n", check.snap_num),
             stderr: findings_text,
             code: exit_code,
         }
