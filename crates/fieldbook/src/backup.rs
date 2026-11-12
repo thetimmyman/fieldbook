@@ -3,9 +3,17 @@
 //! Implements snapshot creation, verification preflight, egress policy gating,
 //! and retention management according to card steps 4, 5, 7, 14, and 30.
 
+#![expect(
+    clippy::disallowed_methods,
+    reason = "backup verify and list inspect snapshot directories and read manifests"
+)]
+
+use std::fmt::Write as _;
 use std::path::{Path, PathBuf};
 
-use fieldbook_core::audit::{DestKind, LabelSet, RefuseAbout, Sha256, Via, Word};
+use fieldbook_core::CivilDate;
+use fieldbook_core::audit::kind::BackupVerified;
+use fieldbook_core::audit::{Count, DestKind, Event, LabelSet, RefuseAbout, Sha256, Via, Word};
 use fieldbook_core::backup::{
     BACKUP_TARGET_TEMPLATE, BackupTarget, BackupToml, Number, SnapshotInfo, corpus_entries,
     manifest_sha256, path_budget, plan_backup, plan_retention, snapshot_labels, target_place,
@@ -19,16 +27,25 @@ use fieldbook_core::hash::sha256_hex;
 use fieldbook_core::labels::{MARKED, UNLABELLED, git_guard};
 use fieldbook_core::manifest;
 use fieldbook_core::policy::{EffectivePolicy, path_matches_prefix};
+use fieldbook_core::report::{
+    BackupLatestVerification, BackupList, BackupListDrill, BackupListFinding, BackupListSnapshot,
+    BackupListTarget,
+};
 
 use crate::cli::{BackupArgs, BackupSubcommand, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE};
+pub use crate::cli::{BackupListArgs, BackupVerifyArgs};
 use crate::io::backup_classify::{classify_file, enumerate_roots, read_file_content};
 use crate::io::backup_folder::{
     FolderTarget, list_existing_snapshots, list_partial_removals,
     newest_verified_snapshot_for_target, read_snapshot_infos, tree_remove_transfer,
 };
-use crate::io::journal::{Journal, JournalError, PreparedBackupBegin, read_valid_events_prefix};
+use crate::io::journal::{
+    Journal, JournalError, PreparedBackupBegin, is_journal_chain_clean, newest_restore_end_events,
+    newest_snapshot_verify_events, newest_successful_snapshot_verify_any_events,
+    newest_successful_snapshot_verify_events, read_valid_events_prefix,
+};
 use crate::io::root::git_context;
-use crate::io::state::{self, BackupTargetConfig, read_backup_settings};
+use crate::io::state::{self, BackupSettings, BackupTargetConfig, read_backup_settings};
 use crate::{Outcome, StateOverrideWorld, World};
 
 /// Options for snapshot creation.
@@ -56,15 +73,18 @@ pub fn run(args: &BackupArgs, state_flag: Option<&Path>, world: &dyn World) -> O
     }
 }
 
+fn days_elapsed(from: CivilDate, to: CivilDate) -> u32 {
+    u32::try_from(from.days_between(to).max(0)).unwrap_or(u32::MAX)
+}
+
 fn run_with_world(args: &BackupArgs, world: &dyn World) -> Outcome {
     if let Some(sub) = &args.command {
         match sub {
-            BackupSubcommand::Verify(_) | BackupSubcommand::List(_) => {
-                return Outcome {
-                    stdout: String::new(),
-                    stderr: "not built yet\n".to_string(),
-                    code: EXIT_IO,
-                };
+            BackupSubcommand::Verify(verify_args) => {
+                return run_verify(world, verify_args);
+            }
+            BackupSubcommand::List(list_args) => {
+                return run_list(world, list_args);
             }
         }
     }
@@ -101,6 +121,19 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
             };
         }
     };
+
+    let events = read_valid_events_prefix(world.state_dir());
+    let newest_succ = newest_successful_snapshot_verify_any_events(&events);
+    let mut warn_stale = String::new();
+    if let Some(t) = newest_succ {
+        let age_days = days_elapsed(t.date, world.today());
+        if age_days > settings.warn_after_days {
+            warn_stale.push_str(&format!(
+                "warning[FB0814]: last verified backup is {age_days} days old (warn after {})\n",
+                settings.warn_after_days
+            ));
+        }
+    }
 
     // Resolve target configuration
     let target_cfg = if let Some(to_dir) = &options.to {
@@ -739,6 +772,10 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         stderr.push_str("refusing to append to journal: hash chain broken\n");
     }
 
+    if !warn_stale.is_empty() {
+        stderr.insert_str(0, &warn_stale);
+    }
+
     let exit_code = if is_broken_chain {
         EXIT_FINDINGS
     } else {
@@ -774,4 +811,788 @@ fn load_model_if_available(
     let host = Host::new(tree, world.today());
     let (model, report) = load(&host, &Options::new(false));
     (Some(model), Some(report))
+}
+
+/// Executes backup verification for numbered snapshots or raw copies.
+pub fn run_verify(world: &dyn World, args: &BackupVerifyArgs) -> Outcome {
+    // 1. Enforce support catalogue flags
+    if args.support_catalogue.is_some() || args.expect_support_sha256.is_some() {
+        if args.snapshot.is_some() || args.target.is_some() || args.in_dir.is_some() {
+            return Outcome {
+                stdout: String::new(),
+                stderr:
+                    "error: support catalogue flags cannot be used with numbered snapshot flags\n"
+                        .to_string(),
+                code: EXIT_USAGE,
+            };
+        }
+        if args.raw.is_none() {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "error: support catalogue flags require --raw\n".to_string(),
+                code: EXIT_USAGE,
+            };
+        }
+        if args.support_catalogue.is_none() || args.expect_support_sha256.is_none() {
+            return Outcome {
+                stdout: String::new(),
+                stderr:
+                    "error: --support-catalogue and --expect-support-sha256 must be provided together\n"
+                        .to_string(),
+                code: EXIT_USAGE,
+            };
+        }
+        return Outcome {
+            stdout: String::new(),
+            stderr: "public support verification not built yet\n".to_string(),
+            code: EXIT_IO,
+        };
+    }
+
+    // 2. Raw copy verification
+    if let Some(raw_path) = &args.raw {
+        if args.snapshot.is_some() || args.target.is_some() || args.in_dir.is_some() {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "error: --raw cannot be combined with numbered snapshot flags\n"
+                    .to_string(),
+                code: EXIT_USAGE,
+            };
+        }
+        return run_verify_raw(world, raw_path);
+    }
+
+    // 3. Numbered snapshot verification
+    if world.state_dir().is_file() {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("state path is a file: {}\n", world.state_dir().display()),
+            code: EXIT_IO,
+        };
+    }
+
+    let settings = match read_backup_settings(world.state_dir()) {
+        Ok(s) => s,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("error[FB0812]: {err}\n"),
+                code: EXIT_FINDINGS,
+            };
+        }
+    };
+
+    let events = read_valid_events_prefix(world.state_dir());
+    let newest_succ = newest_successful_snapshot_verify_any_events(&events);
+    let mut warn_stale = String::new();
+    if let Some(t) = newest_succ {
+        let age_days = days_elapsed(t.date, world.today());
+        if age_days > settings.warn_after_days {
+            warn_stale.push_str(&format!(
+                "warning[FB0814]: last verified backup is {age_days} days old (warn after {})\n",
+                settings.warn_after_days
+            ));
+        }
+    }
+
+    let target_path = if let Some(in_dir) = &args.in_dir {
+        in_dir.clone()
+    } else if let Some(target_id) = &args.target {
+        let Some(found) = settings.targets.iter().find(|t| &t.id == target_id) else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("target `{target_id}` not found in settings.toml\n"),
+                code: EXIT_USAGE,
+            };
+        };
+        found.path.clone()
+    } else if let Some(def_id) = &settings.default {
+        let Some(found) = settings.targets.iter().find(|t| &t.id == def_id) else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("default target `{def_id}` not found in settings.toml\n"),
+                code: EXIT_USAGE,
+            };
+        };
+        found.path.clone()
+    } else if let Some(first) = settings.targets.first() {
+        first.path.clone()
+    } else {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!(
+                "no backup target; add this to settings.toml in the state folder:\n{}",
+                BACKUP_TARGET_TEMPLATE
+            ),
+            code: EXIT_USAGE,
+        };
+    };
+
+    run_verify_numbered(world, args, &target_path, warn_stale)
+}
+
+fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
+    if !raw_path.is_dir() {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!(
+                "raw path not found or not a directory: {}\n",
+                raw_path.display()
+            ),
+            code: EXIT_IO,
+        };
+    }
+
+    let corpus_root = if raw_path.join("data/corpus").is_dir() {
+        raw_path.join("data")
+    } else {
+        raw_path.to_path_buf()
+    };
+
+    let state_dir = if raw_path.join("data/state/audit").is_dir() {
+        raw_path.join("data/state")
+    } else if raw_path.join("state/audit").is_dir() {
+        raw_path.join("state")
+    } else if raw_path.join(".fieldbook/audit").is_dir() {
+        raw_path.join(".fieldbook")
+    } else if raw_path.join("audit").is_dir() {
+        raw_path.to_path_buf()
+    } else {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!(
+                "raw copy state/audit directory not found in {}\n",
+                raw_path.display()
+            ),
+            code: EXIT_IO,
+        };
+    };
+
+    let mut errors = String::new();
+    if !is_journal_chain_clean(&state_dir) {
+        errors.push_str("error[FB0800]: journal hash chain is broken\n");
+    }
+
+    let tree = match crate::io::read_tree(&corpus_root) {
+        Ok(t) => t,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("cannot read raw corpus tree: {err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+
+    let host = Host::new(tree, world.today());
+    let (_model, report) = load(&host, &Options::new(false));
+
+    for diag in &report.diagnostics {
+        if diag.code == Code::Fb0211 || diag.code == Code::Fb0212 {
+            errors.push_str(&format!(
+                "{}:{}:{}: error[{}]: {}\n",
+                diag.path, diag.line, diag.col, diag.code, diag.message
+            ));
+        }
+    }
+
+    if !errors.is_empty() {
+        return Outcome {
+            stdout: String::new(),
+            stderr: errors,
+            code: EXIT_FINDINGS,
+        };
+    }
+
+    let raw_canonical = raw_path
+        .canonicalize()
+        .unwrap_or_else(|_| raw_path.to_path_buf());
+    let raw_sha256 = Sha256::digest(raw_canonical.to_string_lossy().as_bytes());
+    let verified = BackupVerified::Raw {
+        path_sha256: raw_sha256,
+        public_support_sha256: None,
+    };
+    if let Ok(mut j) = Journal::open(world, world.state_dir(), Via::Cli) {
+        let _ = j.append_backup_verify(Word::new_static("ok"), verified);
+    }
+
+    Outcome {
+        stdout: "raw copy consistent\n".to_string(),
+        stderr: String::new(),
+        code: EXIT_OK,
+    }
+}
+
+fn run_verify_numbered(
+    world: &dyn World,
+    args: &BackupVerifyArgs,
+    target_path: &Path,
+    warn_stale: String,
+) -> Outcome {
+    if !target_path.is_dir() {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("target directory not found: {}\n", target_path.display()),
+            code: EXIT_IO,
+        };
+    }
+
+    let snap_num = if let Some(n) = args.snapshot {
+        u32::try_from(n).unwrap_or(0)
+    } else {
+        let latest_file = target_path.join("LATEST");
+        if let Ok(content) = std::fs::read_to_string(&latest_file)
+            && let Some(first_line) = content.lines().next()
+            && let Ok(n) = first_line.trim().parse::<u32>()
+        {
+            n
+        } else {
+            let existing = list_existing_snapshots(target_path);
+            if let Some(&last) = existing.last() {
+                last
+            } else {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("no snapshots found in {}\n", target_path.display()),
+                    code: EXIT_IO,
+                };
+            }
+        }
+    };
+
+    let snap_dir = target_path.join(format!("fieldbook-backup-{snap_num:04}"));
+    if !snap_dir.is_dir() {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!(
+                "snapshot {snap_num} directory not found in {}\n",
+                target_path.display()
+            ),
+            code: EXIT_IO,
+        };
+    }
+
+    let toml_path = snap_dir.join("backup.toml");
+    let toml_text = match std::fs::read_to_string(&toml_path) {
+        Ok(t) => t,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("cannot read {}: {err}\n", toml_path.display()),
+                code: EXIT_IO,
+            };
+        }
+    };
+    let info = match BackupToml::parse(&toml_text) {
+        Ok(i) => i,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!(
+                    "error[FB0811]: cannot parse {}: {err}\n",
+                    toml_path.display()
+                ),
+                code: EXIT_FINDINGS,
+            };
+        }
+    };
+
+    let sums_path = snap_dir.join("SHA256SUMS");
+    let sums_text = match std::fs::read_to_string(&sums_path) {
+        Ok(t) => t,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("cannot read {}: {err}\n", sums_path.display()),
+                code: EXIT_IO,
+            };
+        }
+    };
+
+    let canonical_target = target_path
+        .canonicalize()
+        .unwrap_or_else(|_| target_path.to_path_buf());
+    let target_sha256 = Sha256::digest(canonical_target.to_string_lossy().as_bytes());
+    let manifest_sha256_val = match Sha256::parse(&info.manifest_sha256) {
+        Ok(s) => s,
+        Err(_) => Sha256::digest(b""),
+    };
+    let verified_id = BackupVerified::Snapshot {
+        target_sha256,
+        snapshot: Count::new(u64::from(info.snapshot)),
+        manifest_sha256: manifest_sha256_val,
+    };
+
+    let mut finding_errors = Vec::new();
+    let mut has_fb0811 = false;
+    let mut has_fb0810 = false;
+    let mut has_fb0802 = false;
+
+    // 1. Computed manifest_sha256
+    let computed_manifest = fieldbook_core::backup::manifest_sha256(&info, &sums_text);
+    if computed_manifest.as_ref().map(|s| s.as_str()) != Ok(info.manifest_sha256.as_str()) {
+        finding_errors.push("error[FB0811]: manifest_sha256 mismatch in backup.toml\n".to_string());
+        has_fb0811 = true;
+    }
+
+    // 2. Parse SHA256SUMS lines
+    let mut sums_entries: Vec<(String, String)> = Vec::new();
+    for line in sums_text.lines() {
+        let trimmed = line.trim();
+        if trimmed.is_empty() {
+            continue;
+        }
+        if let Some((sha, rel)) = trimmed.split_once("  ") {
+            sums_entries.push((rel.to_string(), sha.to_string()));
+        } else {
+            finding_errors.push(format!(
+                "error[FB0811]: malformed line in SHA256SUMS: {trimmed}\n"
+            ));
+            has_fb0811 = true;
+        }
+    }
+
+    // 3. File count check
+    if sums_entries.len() as u64 != info.files {
+        finding_errors.push(format!(
+            "error[FB0811]: file count in backup.toml ({}) does not match SHA256SUMS ({})\n",
+            info.files,
+            sums_entries.len()
+        ));
+        has_fb0811 = true;
+    }
+
+    // 4. Collect all files under data/ on disk
+    let data_dir = snap_dir.join("data");
+    let mut files_on_disk = Vec::new();
+    if data_dir.is_dir() {
+        collect_files_recursive(&data_dir, Path::new("data"), &mut files_on_disk);
+    }
+    let disk_file_set: std::collections::BTreeSet<String> = files_on_disk.into_iter().collect();
+    let manifest_file_set: std::collections::BTreeSet<String> =
+        sums_entries.iter().map(|(rel, _)| rel.clone()).collect();
+
+    // Check for unlisted files under data/
+    for f in &disk_file_set {
+        if !manifest_file_set.contains(f) {
+            finding_errors.push(format!("error[FB0811]: unlisted file in snapshot: {f}\n"));
+            has_fb0811 = true;
+        }
+    }
+
+    // 5. Re-hash every file in SHA256SUMS (missing or different bytes -> FB0810)
+    for (rel, expected_sha) in &sums_entries {
+        let full_path = snap_dir.join(rel);
+        match std::fs::read(&full_path) {
+            Ok(bytes) => {
+                let actual_sha = fieldbook_core::hash::sha256_hex(&bytes);
+                if actual_sha != *expected_sha {
+                    finding_errors.push(format!("{rel}: error[FB0810]: checksum mismatch\n"));
+                    has_fb0810 = true;
+                }
+            }
+            Err(_) => {
+                finding_errors.push(format!("{rel}: error[FB0810]: file missing\n"));
+                has_fb0810 = true;
+            }
+        }
+    }
+
+    // 6. Check snapshot's journal reaches journal_head at journal_seq (FB0802)
+    let snap_state_dir = snap_dir.join("data/state");
+    let reaches_head =
+        check_snapshot_journal(&snap_state_dir, info.journal_seq, &info.journal_head);
+    if !reaches_head {
+        finding_errors.push(format!(
+            "error[FB0802]: snapshot journal does not reach {} at seq {}\n",
+            info.journal_head, info.journal_seq
+        ));
+        has_fb0802 = true;
+    }
+
+    let has_failure = has_fb0811 || has_fb0810 || has_fb0802;
+    let outcome_word = if has_failure {
+        Word::new_static("failed")
+    } else {
+        Word::new_static("ok")
+    };
+
+    if let Ok(mut j) = Journal::open(world, world.state_dir(), Via::Cli) {
+        let _ = j.append_backup_verify(outcome_word, verified_id);
+    }
+
+    if has_failure {
+        let mut stderr = warn_stale;
+        for err_line in finding_errors {
+            stderr.push_str(&err_line);
+        }
+        Outcome {
+            stdout: String::new(),
+            stderr,
+            code: EXIT_FINDINGS,
+        }
+    } else {
+        let stderr = warn_stale;
+        let exit_code = if !stderr.is_empty() {
+            EXIT_FINDINGS
+        } else {
+            EXIT_OK
+        };
+        Outcome {
+            stdout: format!("snapshot {snap_num} verified\n"),
+            stderr,
+            code: exit_code,
+        }
+    }
+}
+
+fn check_snapshot_journal(snap_state_dir: &Path, expected_seq: u64, expected_head: &str) -> bool {
+    let audit_dir = snap_state_dir.join("audit");
+    let Ok(entries) = std::fs::read_dir(&audit_dir) else {
+        return false;
+    };
+    for entry in entries.flatten() {
+        let path = entry.path();
+        if path.extension().and_then(|s| s.to_str()) == Some("jsonl") {
+            let Ok(content) = std::fs::read_to_string(&path) else {
+                continue;
+            };
+            for line in content.lines() {
+                if line.is_empty() {
+                    continue;
+                }
+                if let Ok((event, _)) = Event::parse_line(line)
+                    && event.seq == expected_seq
+                    && event.hash.as_str() == expected_head
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    false
+}
+
+fn collect_files_recursive(dir: &Path, rel_prefix: &Path, out: &mut Vec<String>) {
+    let Ok(entries) = std::fs::read_dir(dir) else {
+        return;
+    };
+    let mut sorted_entries: Vec<_> = entries.filter_map(Result::ok).collect();
+    sorted_entries.sort_by_key(|e| e.file_name());
+    for entry in sorted_entries {
+        let path = entry.path();
+        let name = entry.file_name();
+        let rel = rel_prefix.join(name);
+        if path.is_dir() {
+            collect_files_recursive(&path, &rel, out);
+        } else if path.is_file() {
+            out.push(rel.to_string_lossy().replace('\\', "/"));
+        }
+    }
+}
+
+/// Lists snapshots in target or one-off directory.
+pub fn run_list(world: &dyn World, args: &BackupListArgs) -> Outcome {
+    if world.state_dir().is_file() {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("state path is a file: {}\n", world.state_dir().display()),
+            code: EXIT_IO,
+        };
+    }
+
+    let mut findings = Vec::new();
+
+    let settings = match read_backup_settings(world.state_dir()) {
+        Ok(s) => s,
+        Err(err) => {
+            if args.json {
+                findings.push(BackupListFinding {
+                    code: "FB0812".to_string(),
+                    severity: "error".to_string(),
+                });
+                BackupSettings {
+                    default: None,
+                    warn_after_days: 7,
+                    keep_last: 7,
+                    keep_weekly: 4,
+                    targets: Vec::new(),
+                }
+            } else {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("error[FB0812]: {err}\n"),
+                    code: EXIT_FINDINGS,
+                };
+            }
+        }
+    };
+
+    let target_cfg = if let Some(in_dir) = &args.in_dir {
+        Some(BackupTargetConfig {
+            id: "one-off".to_owned(),
+            kind: "folder".to_owned(),
+            path: in_dir.clone(),
+            include: None,
+            company_storage: false,
+        })
+    } else if let Some(target_id) = &args.target {
+        let Some(found) = settings.targets.iter().find(|t| &t.id == target_id) else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("target `{target_id}` not found in settings.toml\n"),
+                code: EXIT_USAGE,
+            };
+        };
+        Some(found.clone())
+    } else if let Some(def_id) = &settings.default {
+        let Some(found) = settings.targets.iter().find(|t| &t.id == def_id) else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("default target `{def_id}` not found in settings.toml\n"),
+                code: EXIT_USAGE,
+            };
+        };
+        Some(found.clone())
+    } else {
+        settings.targets.first().cloned()
+    };
+
+    // Check place of target if present
+    if let Some(tc) = &target_cfg {
+        let corpus_root = world.tree_root().join("corpus");
+        let state_root = world.state_dir().to_path_buf();
+        if is_inside_or_equal(&tc.path, &corpus_root) || is_inside_or_equal(&tc.path, &state_root) {
+            findings.push(BackupListFinding {
+                code: "FB0812".to_string(),
+                severity: "error".to_string(),
+            });
+        }
+        let facts = world.place(&tc.path);
+        if facts.sync_root && tc.kind != "synced" {
+            findings.push(BackupListFinding {
+                code: "FB0813".to_string(),
+                severity: "warning".to_string(),
+            });
+        }
+    }
+
+    let existing_snapshots = if let Some(tc) = &target_cfg {
+        if tc.path.is_dir() {
+            list_existing_snapshots(&tc.path)
+        } else {
+            Vec::new()
+        }
+    } else {
+        Vec::new()
+    };
+
+    let has_target_or_snapshot = target_cfg.is_some() || !existing_snapshots.is_empty();
+
+    // If no target and no snapshots, print nothing in text mode and exit 0
+    if !has_target_or_snapshot && !args.json {
+        return Outcome {
+            stdout: String::new(),
+            stderr: String::new(),
+            code: EXIT_OK,
+        };
+    }
+
+    let events = read_valid_events_prefix(world.state_dir());
+    let newest_succ_any = newest_successful_snapshot_verify_any_events(&events);
+
+    let mut warn_stale = String::new();
+    if has_target_or_snapshot {
+        if newest_succ_any.is_none() {
+            findings.push(BackupListFinding {
+                code: "FB0814".to_string(),
+                severity: "warning".to_string(),
+            });
+            warn_stale = "warning[FB0814]: Last verified backup: none yet\n".to_string();
+        } else if let Some(t) = newest_succ_any {
+            let age_days = days_elapsed(t.date, world.today());
+            if age_days > settings.warn_after_days {
+                findings.push(BackupListFinding {
+                    code: "FB0814".to_string(),
+                    severity: "warning".to_string(),
+                });
+                warn_stale = format!(
+                    "warning[FB0814]: last verified backup is {age_days} days old (warn after {})\n",
+                    settings.warn_after_days
+                );
+            }
+        }
+    }
+
+    let drill = newest_restore_end_events(&events).map(|info| BackupListDrill {
+        mode: info.mode.as_str().to_string(),
+        outcome: if info.outcome.as_str() == "ok" {
+            "ok".to_string()
+        } else if let Some(c) = info.code {
+            c.to_string()
+        } else {
+            info.outcome.as_str().to_string()
+        },
+        utc: info.time.to_string(),
+    });
+
+    let mut list_snapshots = Vec::new();
+    if let Some(tc) = &target_cfg {
+        let canonical_target = tc.path.canonicalize().unwrap_or_else(|_| tc.path.clone());
+        let target_sha256 = Sha256::digest(canonical_target.to_string_lossy().as_bytes());
+
+        for &num in &existing_snapshots {
+            let snap_dir = tc.path.join(format!("fieldbook-backup-{num:04}"));
+            let toml_path = snap_dir.join("backup.toml");
+            let Ok(text) = std::fs::read_to_string(&toml_path) else {
+                continue;
+            };
+            let Ok(info) = BackupToml::parse(&text) else {
+                continue;
+            };
+
+            let manifest_sha256_val = match Sha256::parse(&info.manifest_sha256) {
+                Ok(s) => s,
+                Err(_) => Sha256::digest(b""),
+            };
+
+            let last_succ = newest_successful_snapshot_verify_events(
+                &events,
+                &target_sha256,
+                num,
+                &manifest_sha256_val,
+            );
+            let latest_verify =
+                newest_snapshot_verify_events(&events, &target_sha256, num, &manifest_sha256_val);
+
+            list_snapshots.push(BackupListSnapshot {
+                snapshot: info.snapshot,
+                backup_version: info.backup_version,
+                tool_version: info.tool_version,
+                created_utc: info.created_utc,
+                labels: info.labels,
+                roots: info.roots,
+                files: info.files,
+                bytes: info.bytes,
+                fingerprint: info.fingerprint,
+                journal_seq: info.journal_seq,
+                journal_head: info.journal_head,
+                journal_state: info.journal_state,
+                manifest_sha256: info.manifest_sha256,
+                verified: last_succ.is_some(),
+                verified_utc: last_succ.map(|t| t.to_string()),
+                latest_verification: latest_verify.map(|(outcome, time)| {
+                    BackupLatestVerification {
+                        outcome: outcome.as_str().to_string(),
+                        utc: time.to_string(),
+                    }
+                }),
+            });
+        }
+    }
+
+    let exit_code = if findings.is_empty() {
+        EXIT_OK
+    } else {
+        EXIT_FINDINGS
+    };
+
+    if args.json {
+        let report = BackupList {
+            report_version: 1,
+            verb: "backup list".to_string(),
+            target: target_cfg.as_ref().map(|tc| BackupListTarget {
+                id: tc.id.clone(),
+                kind: tc.kind.clone(),
+                path: tc.path.to_string_lossy().to_string(),
+                company_storage: tc.company_storage,
+            }),
+            warn_after_days: settings.warn_after_days,
+            keep_last: settings.keep_last,
+            keep_weekly: settings.keep_weekly,
+            snapshots: list_snapshots,
+            verified_utc: newest_succ_any.map(|t| t.to_string()),
+            drill,
+            findings,
+            exit: exit_code,
+        };
+
+        return Outcome {
+            stdout: render_backup_list_json(&report),
+            stderr: String::new(),
+            code: exit_code,
+        };
+    }
+
+    // Text table mode
+    let mut stdout = String::new();
+    if !list_snapshots.is_empty() {
+        let _ = writeln!(
+            stdout,
+            "{:<8}  {:<20}  {:<7}  {:<5}  {:<7}  {:<7}  Verified",
+            "Snapshot", "Created (UTC)", "Age (d)", "Files", "Bytes", "Journal"
+        );
+        for s in &list_snapshots {
+            let verified_str = if s.verified { "yes" } else { "no" };
+            let age_days = if s.created_utc.len() >= 10 {
+                match CivilDate::parse(&s.created_utc[..10]) {
+                    Ok(d) => days_elapsed(d, world.today()),
+                    Err(_) => 0,
+                }
+            } else {
+                0
+            };
+            let _ = writeln!(
+                stdout,
+                "{:<8}  {:<20}  {:<7}  {:<5}  {:<7}  {:<7}  {}",
+                s.snapshot,
+                s.created_utc,
+                age_days,
+                s.files,
+                s.bytes,
+                s.journal_state,
+                verified_str
+            );
+        }
+    }
+
+    if newest_succ_any.is_none() && has_target_or_snapshot {
+        stdout.push_str("Last verified backup: none yet\n");
+    }
+
+    let mut stderr = String::new();
+    if !warn_stale.is_empty() {
+        stderr.push_str(&warn_stale);
+    }
+    if let Some(tc) = &target_cfg {
+        let corpus_root = world.tree_root().join("corpus");
+        let state_root = world.state_dir().to_path_buf();
+        if is_inside_or_equal(&tc.path, &corpus_root) || is_inside_or_equal(&tc.path, &state_root) {
+            stderr.push_str(&format!(
+                "{}: error[FB0812]: target inside corpus or state\n",
+                tc.path.display()
+            ));
+        }
+        let facts = world.place(&tc.path);
+        if facts.sync_root && tc.kind != "synced" {
+            stderr.push_str(&format!(
+                "{}: warning[FB0813]: target is a sync root; declare kind = \"synced\" in settings.toml to acknowledge\n",
+                tc.path.display()
+            ));
+        }
+    }
+
+    Outcome {
+        stdout,
+        stderr,
+        code: exit_code,
+    }
+}
+
+/// Formats a [`BackupList`] report as pretty-printed JSON with a trailing newline.
+#[must_use]
+pub fn render_backup_list_json(report: &BackupList) -> String {
+    let mut json = serde_json::to_string_pretty(report).unwrap_or_default();
+    json.push('\n');
+    json
 }

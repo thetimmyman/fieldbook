@@ -38,9 +38,6 @@ const PENDING: &str = r#"
 fieldbook fmt
 fieldbook status
 fieldbook status --page
-fieldbook backup
-fieldbook backup verify
-fieldbook backup list
 fieldbook restore --snapshot <n> --drill
 fieldbook context "<question>"
 fieldbook cite-check <file>
@@ -504,6 +501,63 @@ fn terminal_chip_cases_need_a_terminal_and_write_nothing() {
             before,
             "chip `{}` must leave the Corpus unchanged",
             case.chip
+        );
+    }
+}
+
+/// Backup chip cases run on a fresh copy with a target configured outside the copy and state.
+#[test]
+fn backup_chip_cases_run() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let backup_cases: Vec<&ChipCase> = CASES
+        .iter()
+        .filter(|c| c.chip.starts_with("fieldbook backup"))
+        .collect();
+    assert_eq!(backup_cases.len(), 3);
+
+    for case in backup_cases {
+        let tmp = temp_copy(&repo_root.join(case.fixture));
+        let target_temp = tempfile::tempdir().expect("create target tempdir");
+        let target_str = target_temp.path().to_string_lossy().to_string();
+
+        let state_dir = tmp.path().join(".fieldbook");
+        std::fs::create_dir_all(&state_dir).expect("create state dir");
+        let settings_path = state_dir.join("settings.toml");
+        let settings_content = format!(
+            "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+            target_str.replace('\\', "/")
+        );
+        std::fs::write(&settings_path, settings_content).expect("write settings");
+
+        let world = TestWorld::new(tmp.path());
+
+        // Pre-run a successful backup before verify/list
+        if case.chip != "fieldbook backup" {
+            let backup_args = vec!["backup".to_string()];
+            let pre_out = fieldbook::run(&backup_args, &world);
+            assert_eq!(pre_out.code, 0, "pre-run backup failed: {}", pre_out.stderr);
+        }
+
+        // For backup list, also pre-run backup verify so it doesn't warn FB0814 "none yet"
+        if case.chip == "fieldbook backup list" {
+            let verify_args = vec!["backup".to_string(), "verify".to_string()];
+            let verify_out = fieldbook::run(&verify_args, &world);
+            assert_eq!(
+                verify_out.code, 0,
+                "pre-run verify failed: {}",
+                verify_out.stderr
+            );
+        }
+
+        let args: Vec<String> = substitute_chip(case.chip, case.samples)
+            .into_iter()
+            .skip(1)
+            .collect();
+        let out = fieldbook::run(&args, &world);
+        assert_eq!(
+            out.code, 0,
+            "chip `{}` failed: stderr={}",
+            case.chip, out.stderr
         );
     }
 }

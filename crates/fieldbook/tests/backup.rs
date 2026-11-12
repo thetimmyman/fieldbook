@@ -15,7 +15,9 @@ use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 use fieldbook::World;
-use fieldbook::backup::{BackupOptions, run_backup};
+use fieldbook::backup::{
+    BackupListArgs, BackupOptions, BackupVerifyArgs, run_backup, run_list, run_verify,
+};
 use fieldbook::io::Disk;
 use fieldbook::io::atomic::{write_in_root, write_outside};
 use fieldbook::io::dirs::{Removable, remove_outside, rename_dir_outside};
@@ -36,6 +38,7 @@ use fieldbook_core::egress::{
 use fieldbook_core::labels::{OWNER_SUPPLIED, PlaceFacts};
 use fieldbook_core::manifest;
 use fieldbook_core::policy::{EffectivePolicy, FloorKind, OwnerSettings, Policy, PolicyState};
+use fieldbook_core::report::BackupList;
 
 use support::faulty::{Fault, FaultKind, FaultyWorld};
 use support::world::TestWorld;
@@ -958,6 +961,7 @@ fn target_inside_the_corpus_is_fb0812() {
     assert!(outcome.stderr.contains("FB0812"));
 }
 
+// control: DR-02
 #[test]
 fn synced_path_warns_unless_declared() {
     let fix = TestFixture::new();
@@ -1087,10 +1091,23 @@ fn backup_events_are_begin_end_verify_prune() {
     let outcome3 = run_backup(&fix.world, &eff, &options);
     assert_eq!(outcome3.code, 0);
 
+    // Run verify on snapshot 3: logs verify
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(3),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let outcome_v = run_verify(&fix.world, &verify_args);
+    assert_eq!(outcome_v.code, 0, "verify failed: {}", outcome_v.stderr);
+
     let journal_text =
         std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
     assert!(journal_text.contains("\"kind\":\"backup.begin\""));
     assert!(journal_text.contains("\"kind\":\"backup.end\""));
+    assert!(journal_text.contains("\"kind\":\"backup.verify\""));
     assert!(journal_text.contains("\"kind\":\"backup.prune\""));
 }
 
@@ -1494,4 +1511,451 @@ fn backup_200_mb() {
     );
     let snap_dir = fix.target_path().join("fieldbook-backup-0001");
     assert!(snap_dir.is_dir());
+}
+
+// control: ED-04
+#[test]
+fn verify_names_a_changed_byte() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    // Corrupt one byte in a copied file
+    let corrupt_file = fix
+        .target_path()
+        .join("fieldbook-backup-0001/data/corpus/corpus.toml");
+    let content = std::fs::read_to_string(&corrupt_file).expect("read corpus.toml");
+    let corrupted = format!("{content}\n# corrupted");
+    std::fs::write(&corrupt_file, corrupted).expect("write corrupted file");
+
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let verify_outcome = run_verify(&fix.world, &verify_args);
+    assert_eq!(verify_outcome.code, 1);
+    assert!(verify_outcome.stderr.contains("FB0810"));
+    assert!(verify_outcome.stderr.contains("data/corpus/corpus.toml"));
+
+    // Check failed verify event logged
+    let journal_text =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    assert!(journal_text.contains("\"outcome\":\"failed\""));
+}
+
+#[test]
+fn verify_names_an_inconsistent_manifest() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    // Corrupt SHA256SUMS by deleting a line
+    let sums_path = fix.target_path().join("fieldbook-backup-0001/SHA256SUMS");
+    let sums_text = std::fs::read_to_string(&sums_path).expect("read sums");
+    let mut lines: Vec<&str> = sums_text.lines().collect();
+    lines.pop();
+    let new_sums = lines.join("\n") + "\n";
+    std::fs::write(&sums_path, new_sums).expect("write new sums");
+
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let verify_outcome = run_verify(&fix.world, &verify_args);
+    assert_eq!(verify_outcome.code, 1);
+    assert!(verify_outcome.stderr.contains("FB0811"));
+}
+
+#[test]
+fn verify_checks_the_journal_head() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    let toml_path = snap_dir.join("backup.toml");
+    let sums_path = snap_dir.join("SHA256SUMS");
+
+    let toml_text = std::fs::read_to_string(&toml_path).expect("read backup.toml");
+    let mut info = BackupToml::parse(&toml_text).expect("parse backup.toml");
+
+    // Change journal_head to mismatch actual journal at journal_seq
+    let fake_head = "0000000000000000000000000000000000000000000000000000000000000000";
+    info.journal_head = fake_head.to_string();
+
+    let sums_text = std::fs::read_to_string(&sums_path).expect("read sums");
+    let new_manifest_sha = manifest_sha256(&info, &sums_text).expect("calc manifest sha");
+    info.manifest_sha256 = new_manifest_sha.as_str().to_string();
+
+    let rendered = info.render();
+    std::fs::write(&toml_path, rendered).expect("write backup.toml");
+
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let verify_outcome = run_verify(&fix.world, &verify_args);
+    assert_eq!(verify_outcome.code, 1);
+    assert!(verify_outcome.stderr.contains("FB0802"));
+}
+
+#[test]
+fn raw_copy_is_checked() {
+    let fix = TestFixture::new();
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let raw_temp = tempfile::tempdir().expect("raw tempdir");
+    let raw_path = raw_temp.path();
+
+    // Copy corpus and state into raw copy
+    let corpus_dest = raw_path.join("corpus");
+    let state_dest = raw_path.join("state");
+    support::copy_dir_recursive(&corpus_mini.join("corpus"), &corpus_dest).expect("copy corpus");
+    support::copy_dir_recursive(&state_mini, &state_dest).expect("copy state");
+
+    // 1. Clean raw copy passes
+    let verify_clean = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw_path.to_path_buf()),
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let outcome_clean = run_verify(&fix.world, &verify_clean);
+    assert_eq!(
+        outcome_clean.code, 0,
+        "clean raw verify failed: {}",
+        outcome_clean.stderr
+    );
+    assert!(outcome_clean.stdout.contains("raw copy consistent"));
+
+    // Check journal logged BackupVerified::Raw
+    let journal_text =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    assert!(journal_text.contains("\"path_sha256\""));
+
+    // 2. Planted FB0211 (remove an original source file)
+    let s1 = corpus_dest.join("sources/public/S-0001-v1.txt");
+    std::fs::remove_file(&s1).expect("remove S-0001-v1.txt");
+    let outcome_211 = run_verify(&fix.world, &verify_clean);
+    assert_eq!(outcome_211.code, 1);
+    assert!(outcome_211.stderr.contains("FB0211"));
+
+    // Restore S-0001-v1.txt
+    std::fs::copy(corpus_mini.join("corpus/sources/public/S-0001-v1.txt"), &s1).expect("restore");
+
+    // 3. Planted FB0212 (corrupt an extraction file)
+    let ext1 = corpus_dest.join("sources/text/S-0001-v1/body.txt");
+    std::fs::write(&ext1, "corrupted extraction text\n").expect("corrupt extraction");
+    let outcome_212 = run_verify(&fix.world, &verify_clean);
+    assert_eq!(outcome_212.code, 1);
+    assert!(outcome_212.stderr.contains("FB0212"));
+}
+
+#[test]
+fn stale_backup_warns_fb0814() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Remove seeded backup.verify event from state-mini's journal
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let journal_text = std::fs::read_to_string(&journal_path).expect("read journal");
+    let lines: Vec<&str> = journal_text
+        .lines()
+        .filter(|line| !line.contains("\"kind\":\"backup.verify\""))
+        .collect();
+    std::fs::write(&journal_path, lines.join("\n") + "\n").expect("write journal");
+
+    // Start at 2026-03-01
+    let t0 = Now::new(CivilDate::from_ymd(2026, 3, 1).expect("date"), 3600).expect("now");
+    fix.world.set_now(t0);
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_outcome = run_verify(&fix.world, &verify_args);
+    assert_eq!(v_outcome.code, 0);
+
+    // Advance clock by 10 days (> default warn_after_days = 7)
+    let t1 = Now::new(CivilDate::from_ymd(2026, 3, 11).expect("date"), 3600).expect("now");
+    fix.world.set_now(t1);
+
+    // Run backup list: warns FB0814 on stderr and exits 1
+    let list_args = BackupListArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        json: false,
+    };
+    let l_stale = run_list(&fix.world, &list_args);
+    assert_eq!(l_stale.code, 1);
+    assert!(l_stale.stderr.contains("FB0814"));
+
+    // Run backup verify: warns FB0814 on stderr and exits 1 (judged before this run's event)
+    let v_stale = run_verify(&fix.world, &verify_args);
+    assert_eq!(v_stale.code, 1);
+    assert!(v_stale.stderr.contains("FB0814"));
+}
+
+#[test]
+fn none_yet_warns_fb0814_in_list() {
+    let fix = TestFixture::new();
+
+    // Remove seeded backup.verify event from state-mini's journal so no verify event exists
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let journal_text = std::fs::read_to_string(&journal_path).expect("read journal");
+    let lines: Vec<&str> = journal_text
+        .lines()
+        .filter(|line| !line.contains("\"kind\":\"backup.verify\""))
+        .collect();
+    std::fs::write(&journal_path, lines.join("\n") + "\n").expect("write journal");
+
+    // Target is configured ("main"), but no backups or verify events exist yet
+    let list_args = BackupListArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        json: false,
+    };
+    let outcome = run_list(&fix.world, &list_args);
+    assert_eq!(outcome.code, 1);
+    assert!(outcome.stdout.contains("Last verified backup: none yet"));
+    assert!(outcome.stderr.contains("FB0814"));
+}
+
+#[test]
+fn no_target_no_snapshot_prints_nothing() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    // Write empty settings (no backup target)
+    std::fs::write(state_dir.path().join("settings.toml"), "role = \"lead\"\n")
+        .expect("write settings");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let list_args = BackupListArgs {
+        target: None,
+        in_dir: None,
+        json: false,
+    };
+    let outcome = run_list(&world, &list_args);
+    assert_eq!(outcome.code, 0);
+    assert!(outcome.stdout.is_empty(), "stdout was: {}", outcome.stdout);
+    assert!(outcome.stderr.is_empty(), "stderr was: {}", outcome.stderr);
+}
+
+#[test]
+fn verification_is_scoped_to_target_and_manifest() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Create a second target directory
+    let target_b = tempfile::tempdir().expect("target b tempdir");
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n\n[[backup.target]]\nid = \"sec\"\nkind = \"folder\"\npath = \"{}\"\n",
+        fix.target_path().to_string_lossy().replace('\\', "/"),
+        target_b.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    // Take backup to target main (snapshot 1)
+    let opt_main = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome1 = run_backup(&fix.world, &eff, &opt_main);
+    assert_eq!(outcome1.code, 0);
+
+    // Take backup to target sec (snapshot 1)
+    let opt_sec = BackupOptions {
+        target: Some("sec".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome2 = run_backup(&fix.world, &eff, &opt_sec);
+    assert_eq!(outcome2.code, 0);
+
+    // Verify snapshot 1 of main
+    let v_main = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_out = run_verify(&fix.world, &v_main);
+    assert_eq!(v_out.code, 0);
+
+    // List main (json): snapshot 1 is verified
+    let l_main = run_list(
+        &fix.world,
+        &BackupListArgs {
+            target: Some("main".to_string()),
+            in_dir: None,
+            json: true,
+        },
+    );
+    assert_eq!(l_main.code, 0);
+    let report_main: BackupList = serde_json::from_str(&l_main.stdout).expect("parse json main");
+    assert_eq!(report_main.snapshots.len(), 1);
+    assert!(report_main.snapshots[0].verified);
+
+    // List sec (json): snapshot 1 in sec is NOT verified because verification is scoped to target
+    let l_sec = run_list(
+        &fix.world,
+        &BackupListArgs {
+            target: Some("sec".to_string()),
+            in_dir: None,
+            json: true,
+        },
+    );
+    let report_sec: BackupList = serde_json::from_str(&l_sec.stdout).expect("parse json sec");
+    assert_eq!(report_sec.snapshots.len(), 1);
+    assert!(!report_sec.snapshots[0].verified);
+
+    // Now replace manifest in target main (modify backup.toml to have different manifest_sha256)
+    let toml_path = fix.target_path().join("fieldbook-backup-0001/backup.toml");
+    let mut toml =
+        BackupToml::parse(&std::fs::read_to_string(&toml_path).expect("read toml")).expect("parse");
+    toml.manifest_sha256 =
+        "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef".to_string();
+    std::fs::write(&toml_path, toml.render()).expect("write toml");
+
+    // List main again: snapshot 1 is now NOT verified because manifest_sha256 no longer matches
+    let l_main_after = run_list(
+        &fix.world,
+        &BackupListArgs {
+            target: Some("main".to_string()),
+            in_dir: None,
+            json: true,
+        },
+    );
+    let report_after: BackupList =
+        serde_json::from_str(&l_main_after.stdout).expect("parse json main after");
+    assert!(!report_after.snapshots[0].verified);
+}
+
+#[test]
+fn latest_verification_keeps_failure_after_success() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    // 1. Verify successfully
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v1 = run_verify(&fix.world, &verify_args);
+    assert_eq!(v1.code, 0);
+
+    // List and get initial verified_utc
+    let l1 = run_list(
+        &fix.world,
+        &BackupListArgs {
+            target: Some("main".to_string()),
+            in_dir: None,
+            json: true,
+        },
+    );
+    let rep1: BackupList = serde_json::from_str(&l1.stdout).expect("parse json 1");
+    assert!(rep1.snapshots[0].verified);
+    let initial_verified_utc = rep1.snapshots[0].verified_utc.clone();
+    assert!(initial_verified_utc.is_some());
+
+    // 2. Corrupt a data byte without changing backup.toml identity
+    let data_file = fix
+        .target_path()
+        .join("fieldbook-backup-0001/data/corpus/corpus.toml");
+    let content = std::fs::read_to_string(&data_file).expect("read file");
+    std::fs::write(&data_file, format!("{content}\n# corrupted")).expect("write corrupt");
+
+    // Advance clock
+    let t_fail = Now::new(CivilDate::from_ymd(2026, 3, 2).expect("date"), 3600).expect("now");
+    fix.world.set_now(t_fail);
+
+    // 3. Verify fails
+    let v2 = run_verify(&fix.world, &verify_args);
+    assert_eq!(v2.code, 1);
+    assert!(v2.stderr.contains("FB0810"));
+
+    // 4. List again: verified_utc remains from earlier success and latest_verification.outcome is failed
+    let l2 = run_list(
+        &fix.world,
+        &BackupListArgs {
+            target: Some("main".to_string()),
+            in_dir: None,
+            json: true,
+        },
+    );
+    let rep2: BackupList = serde_json::from_str(&l2.stdout).expect("parse json 2");
+    assert!(rep2.snapshots[0].verified);
+    assert_eq!(rep2.snapshots[0].verified_utc, initial_verified_utc);
+    assert_eq!(
+        rep2.snapshots[0]
+            .latest_verification
+            .as_ref()
+            .map(|v| v.outcome.as_str()),
+        Some("failed")
+    );
 }

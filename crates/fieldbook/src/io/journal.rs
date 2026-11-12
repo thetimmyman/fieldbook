@@ -2172,26 +2172,7 @@ impl<'a> Journal<'a> {
         manifest_sha256: &Sha256,
     ) -> Option<Now> {
         let events = read_valid_events_prefix(&self.state_dir);
-        let count_snap = Count::new(u64::from(snapshot));
-        for event in events.into_iter().rev() {
-            if let EventPayload::BackupVerify {
-                outcome,
-                verified:
-                    BackupVerified::Snapshot {
-                        target_sha256: t,
-                        snapshot: s,
-                        manifest_sha256: m,
-                    },
-            } = event.payload
-                && outcome.as_str() == "ok"
-                && &t == target_sha256
-                && s == count_snap
-                && &m == manifest_sha256
-            {
-                return Some(event.time);
-            }
-        }
-        None
+        newest_successful_snapshot_verify_events(&events, target_sha256, snapshot, manifest_sha256)
     }
 
     /// Return the outcome and timestamp of the newest snapshot verify (either "ok" or "failed")
@@ -2204,25 +2185,7 @@ impl<'a> Journal<'a> {
         manifest_sha256: &Sha256,
     ) -> Option<(Word, Now)> {
         let events = read_valid_events_prefix(&self.state_dir);
-        let count_snap = Count::new(u64::from(snapshot));
-        for event in events.into_iter().rev() {
-            if let EventPayload::BackupVerify {
-                outcome,
-                verified:
-                    BackupVerified::Snapshot {
-                        target_sha256: t,
-                        snapshot: s,
-                        manifest_sha256: m,
-                    },
-            } = event.payload
-                && &t == target_sha256
-                && s == count_snap
-                && &m == manifest_sha256
-            {
-                return Some((outcome, event.time));
-            }
-        }
-        None
+        newest_snapshot_verify_events(&events, target_sha256, snapshot, manifest_sha256)
     }
 
     /// Return the timestamp of the newest successful snapshot verify across all snapshots,
@@ -2230,40 +2193,14 @@ impl<'a> Journal<'a> {
     #[must_use]
     pub fn newest_successful_snapshot_verify_any(&self) -> Option<Now> {
         let events = read_valid_events_prefix(&self.state_dir);
-        for event in events.into_iter().rev() {
-            if let EventPayload::BackupVerify { outcome, verified } = event.payload
-                && outcome.as_str() == "ok"
-                && matches!(verified, BackupVerified::Snapshot { .. })
-            {
-                return Some(event.time);
-            }
-        }
-        None
+        newest_successful_snapshot_verify_any_events(&events)
     }
 
     /// Return the newest `restore.end` event information in the journal, or `None` if none recorded.
     #[must_use]
     pub fn newest_restore_end(&self) -> Option<RestoreEndInfo> {
         let events = read_valid_events_prefix(&self.state_dir);
-        for event in events.into_iter().rev() {
-            if let EventPayload::RestoreEnd {
-                snapshot,
-                mode,
-                outcome,
-                code,
-            } = event.payload
-            {
-                let snap = u32::try_from(snapshot.0).unwrap_or(0);
-                return Some(RestoreEndInfo {
-                    snapshot: snap,
-                    mode,
-                    outcome,
-                    code,
-                    time: event.time,
-                });
-            }
-        }
-        None
+        newest_restore_end_events(&events)
     }
 
     /// Return `true` if the journal hash chain has zero breaks from sequence 1 to head.
@@ -3001,6 +2938,106 @@ pub fn read_valid_events_prefix(state_dir: &Path) -> Vec<Event> {
         }
     }
     events
+}
+
+/// Return the timestamp of the newest successful snapshot verify matching
+/// `(target_sha256, snapshot, manifest_sha256)` within `events`, or `None` if none matches.
+#[must_use]
+pub fn newest_successful_snapshot_verify_events(
+    events: &[Event],
+    target_sha256: &Sha256,
+    snapshot: u32,
+    manifest_sha256: &Sha256,
+) -> Option<Now> {
+    let count_snap = Count::new(u64::from(snapshot));
+    for event in events.iter().rev() {
+        if let EventPayload::BackupVerify {
+            outcome,
+            verified:
+                BackupVerified::Snapshot {
+                    target_sha256: t,
+                    snapshot: s,
+                    manifest_sha256: m,
+                },
+        } = &event.payload
+            && outcome.as_str() == "ok"
+            && t == target_sha256
+            && *s == count_snap
+            && m == manifest_sha256
+        {
+            return Some(event.time);
+        }
+    }
+    None
+}
+
+/// Return the outcome and timestamp of the newest snapshot verify (either "ok" or "failed")
+/// matching `(target_sha256, snapshot, manifest_sha256)` within `events`, or `None` if none matches.
+#[must_use]
+pub fn newest_snapshot_verify_events(
+    events: &[Event],
+    target_sha256: &Sha256,
+    snapshot: u32,
+    manifest_sha256: &Sha256,
+) -> Option<(Word, Now)> {
+    let count_snap = Count::new(u64::from(snapshot));
+    for event in events.iter().rev() {
+        if let EventPayload::BackupVerify {
+            outcome,
+            verified:
+                BackupVerified::Snapshot {
+                    target_sha256: t,
+                    snapshot: s,
+                    manifest_sha256: m,
+                },
+        } = &event.payload
+            && t == target_sha256
+            && *s == count_snap
+            && m == manifest_sha256
+        {
+            return Some((*outcome, event.time));
+        }
+    }
+    None
+}
+
+/// Return the timestamp of the newest successful snapshot verify across all snapshots in `events`,
+/// or `None` if no successful snapshot verification is recorded.
+#[must_use]
+pub fn newest_successful_snapshot_verify_any_events(events: &[Event]) -> Option<Now> {
+    for event in events.iter().rev() {
+        if let EventPayload::BackupVerify { outcome, verified } = &event.payload
+            && outcome.as_str() == "ok"
+            && matches!(verified, BackupVerified::Snapshot { .. })
+        {
+            return Some(event.time);
+        }
+    }
+    None
+}
+
+/// Return the newest `restore.end` event information in `events`, or `None` if none recorded.
+#[must_use]
+pub fn newest_restore_end_events(events: &[Event]) -> Option<RestoreEndInfo> {
+    for event in events.iter().rev() {
+        if let EventPayload::RestoreEnd {
+            snapshot,
+            mode,
+            outcome,
+            code,
+        } = &event.payload
+        {
+            let snap = u32::try_from(snapshot.0).unwrap_or(0);
+            return Some(RestoreEndInfo {
+                snapshot: snap,
+                mode: *mode,
+                outcome: *outcome,
+                code: *code,
+                time: event.time,
+            });
+        }
+    }
+    None
 }
 
 fn append_event_locked(

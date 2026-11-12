@@ -1,0 +1,6 @@
+role = "lead"
+
+[[backup.target]]
+id = "main"
+kind = "folder"
+path = "target"

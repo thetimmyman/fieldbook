@@ -20,6 +20,7 @@ pub mod report;
 pub mod search;
 pub mod verify;
 
+pub use backup::render_backup_list_json;
 pub use cli::Cli;
 pub use fieldbook_core::labels::PlaceFacts;
 pub use io::{Audited, Error, StoreLease, WorldError};

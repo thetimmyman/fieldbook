@@ -1,0 +1,7 @@
+verb = "backup"
+args = ["--to", "corpus"]
+state = "state-known-bad/FB0812"
+
+[expect]
+code = "FB0812"
+status = 1
