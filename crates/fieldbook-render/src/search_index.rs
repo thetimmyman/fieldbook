@@ -6,8 +6,9 @@
 //! unit set alone, and serialise it as one classic script that assigns `window.FB_INDEX`.
 //!
 //! **Rules.** Pure: no I/O. The units come from the permitted view only and every kept unit is
-//! `public`. N, document frequencies, average field lengths and impacts are those of the kept unit
-//! set: a full index is never built and then filtered. Equal views give equal bytes.
+//! `public`. Section snippets hold at most [`SECTION_SNIPPET_MAX`] code points. N, document
+//! frequencies, average field lengths and impacts are those of the kept unit set: a full index is
+//! never built and then filtered. Equal views give equal bytes.
 
 use std::collections::BTreeSet;
 
@@ -24,6 +25,9 @@ pub const OUTPUT_PATH: &str = "assets/search-index.js";
 
 /// The site index format, the `v` key.
 pub const FORMAT_VERSION: u32 = 1;
+
+/// The most code points a section unit's snippet holds in the site index (`search-section-snippets`).
+pub const SECTION_SNIPPET_MAX: usize = 100;
 
 /// The unit kinds the edition's index holds: page leads and page sections.
 pub const EDITION_KINDS: [&str; 2] = ["page", "clause"];
@@ -72,12 +76,36 @@ pub fn edition_units(units: Vec<Unit>) -> Vec<Unit> {
         .collect()
 }
 
-/// Builds the edition's [`Index`] over the page and section units of `view` alone, with the URL
-/// schemes removed from its display strings ([`strip_url_schemes`]).
+/// Cuts a section unit's snippet to at most [`SECTION_SNIPPET_MAX`] code points
+/// (`search-section-snippets`).
+///
+/// Returns `snippet.to_owned()` unchanged unless `id` contains `'#'` and
+/// `snippet.chars().count() > SECTION_SNIPPET_MAX`. Otherwise takes the first
+/// [`SECTION_SNIPPET_MAX`] - 1 code points, cuts back to the last space if there is one, trims,
+/// and appends `…` (`U+2026`).
+#[must_use]
+pub fn cut_section_snippet(id: &str, snippet: &str) -> String {
+    if !id.contains('#') || snippet.chars().count() <= SECTION_SNIPPET_MAX {
+        return snippet.to_owned();
+    }
+    let first: String = snippet.chars().take(SECTION_SNIPPET_MAX - 1).collect();
+    let prefix = match first.rfind(' ') {
+        Some(space_idx) => first[..space_idx].trim(),
+        None => first.trim(),
+    };
+    format!("{prefix}\u{2026}")
+}
+
+/// Builds the edition's [`Index`] over the page and section units of `view` alone, with section
+/// snippets cut to [`SECTION_SNIPPET_MAX`] code points ([`cut_section_snippet`]) before the URL
+/// schemes are removed from its display strings ([`strip_url_schemes`]).
 #[must_use]
 pub fn build(view: &LabelledView) -> Index {
     let (units, glossary) = view_units(view);
     let mut index = Index::build(edition_units(units), &glossary);
+    for doc in &mut index.docs {
+        doc.snippet = cut_section_snippet(&doc.id, &doc.snippet);
+    }
     for doc in &mut index.docs {
         for field in [
             &mut doc.id,
@@ -192,7 +220,66 @@ fn push_json_str(out: &mut String, s: &str) {
 mod tests {
     use fieldbook_core::search::{DocEntry, Index};
 
-    use super::{strip_url_schemes, write};
+    use super::{cut_section_snippet, strip_url_schemes, write};
+
+    #[test]
+    fn cut_leaves_page_lead_whole() {
+        let snippet = "a".repeat(160);
+        assert_eq!(cut_section_snippet("p-1", &snippet), snippet);
+    }
+
+    #[test]
+    fn cut_keeps_section_snippet_of_exactly_100() {
+        let snippet = "a".repeat(100);
+        assert_eq!(cut_section_snippet("p-1#a", &snippet), snippet);
+    }
+
+    #[test]
+    fn cut_shortens_101_code_point_section_snippet() {
+        let snippet = format!("{}ab", "ab ".repeat(33));
+        assert_eq!(snippet.chars().count(), 101);
+        let res = cut_section_snippet("p-1#a", &snippet);
+        assert!(res.chars().count() <= 100);
+        assert!(res.ends_with('\u{2026}'));
+    }
+
+    #[test]
+    fn cut_without_space_takes_99_and_stays_at_100() {
+        let snippet = "a".repeat(150);
+        let expected = format!("{}\u{2026}", "a".repeat(99));
+        let res = cut_section_snippet("p-1#a", &snippet);
+        assert_eq!(res, expected);
+        assert_eq!(res.chars().count(), 100);
+    }
+
+    #[test]
+    fn cut_counts_code_points_not_bytes() {
+        let snippet_two_byte = "\u{e9}".repeat(120);
+        let expected_two_byte = format!("{}\u{2026}", "\u{e9}".repeat(99));
+        let res_two_byte = cut_section_snippet("p-1#a", &snippet_two_byte);
+        assert_eq!(res_two_byte, expected_two_byte);
+        assert_eq!(res_two_byte.chars().count(), 100);
+
+        let snippet_astral = "\u{10000}".repeat(120);
+        let expected_astral = format!("{}\u{2026}", "\u{10000}".repeat(99));
+        let res_astral = cut_section_snippet("p-1#a", &snippet_astral);
+        assert_eq!(res_astral, expected_astral);
+        assert_eq!(res_astral.chars().count(), 100);
+    }
+
+    #[test]
+    fn cut_goes_back_to_last_space() {
+        let snippet = "aaaa ".repeat(30);
+        assert_eq!(snippet.chars().count(), 150);
+        let res = cut_section_snippet("p-1#a", &snippet);
+        assert!(!res.ends_with(" \u{2026}"));
+        assert!(res.ends_with('\u{2026}'));
+        assert!(res.chars().count() <= 100);
+        assert_eq!(
+            res.strip_suffix('\u{2026}').and_then(|s| s.chars().last()),
+            Some('a')
+        );
+    }
 
     #[test]
     fn strip_url_schemes_removes_every_scheme() {
