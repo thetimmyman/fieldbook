@@ -883,6 +883,27 @@ impl<'a> Journal<'a> {
     /// Returns [`JournalError`] if the journal lock is busy, the existing tail hash is broken,
     /// `settings.toml` is invalid, or an event cannot be written.
     pub fn open(world: &'a dyn World, state_dir: &Path, via: Via) -> Result<Self, JournalError> {
+        let tool_version = SemVer::parse(env!("CARGO_PKG_VERSION"))
+            .unwrap_or_else(|_| SemVer::parse("0.0.0").unwrap_or_else(|_| unreachable!()));
+        Self::open_stamped(world, state_dir, via, tool_version)
+    }
+
+    /// Open the journal like [`Journal::open`], recording `tool_version` in the `journal.open`
+    /// event instead of the crate version.
+    ///
+    /// Only tests that rebuild a checked-in journal fixture call this: the fixture pins the
+    /// version it was written with, and a release must not change it. The shipped program
+    /// always goes through [`Journal::open`], which stamps the real version.
+    ///
+    /// # Errors
+    ///
+    /// Same as [`Journal::open`].
+    pub fn open_stamped(
+        world: &'a dyn World,
+        state_dir: &Path,
+        via: Via,
+        tool_version: SemVer,
+    ) -> Result<Self, JournalError> {
         init_state_locks(state_dir).map_err(|err| JournalError::io(err.path(), err.to_string()))?;
         let (role, current_baseline) = crate::io::state::read_role_and_baseline(state_dir)?;
         let actor = Actor::new(world.principal(), role, via);
@@ -894,8 +915,7 @@ impl<'a> Journal<'a> {
         let open_payload = EventPayload::JournalOpen {
             writer: Count::new(0),
             event_schema: Count::new(1),
-            tool_version: SemVer::parse(env!("CARGO_PKG_VERSION"))
-                .unwrap_or_else(|_| SemVer::parse("0.0.0").unwrap_or_else(|_| unreachable!())),
+            tool_version,
             stores: Vec::new(),
         };
         tail = append_event_locked(

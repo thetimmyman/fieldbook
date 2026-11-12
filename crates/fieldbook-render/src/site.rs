@@ -137,10 +137,13 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         "assets/strings.js".to_owned(),
         search_page::OUTPUT_PATH.to_owned(),
         ids::OUTPUT_PATH.to_owned(),
+    ];
+    paths.extend(ids::page_paths(view));
+    paths.extend([
         home::OUTPUT_PATH.to_owned(),
         about::OUTPUT_PATH.to_owned(),
         edition::OUTPUT_PATH.to_owned(),
-    ];
+    ]);
     paths.extend(area::page_paths(view));
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
@@ -183,8 +186,9 @@ pub fn render_with_context(
         let html = register::render_claims_part_page(&parts, i, view, ctx, &navigation, &planned);
         site.insert(&part.route, html.into_bytes());
     }
-    let ids_html = ids::render_page(view, ctx, &navigation, &planned);
-    site.insert(ids::OUTPUT_PATH, ids_html.into_bytes());
+    for (path, html) in ids::render_all(view, ctx, &navigation, &planned) {
+        site.insert(&path, html.into_bytes());
+    }
     let about_html = about::render_page(view, ctx, profile, &navigation, &planned);
     site.insert(about::OUTPUT_PATH, about_html.into_bytes());
     site.insert(edition::OUTPUT_PATH, edition::toml_bytes(ctx));

@@ -318,16 +318,20 @@ mod search_index {
         );
 
         // One record of each other kind: a unit before the filter, absent after it, and still
-        // reachable through its register page and `ids.html`.
+        // reachable through its register page and its id list page.
         let (units, _glossary) = search_index::view_units(&view);
         let ids = doc_ids(&index);
-        let ids_html = String::from_utf8(site.files()["ids.html"].clone()).unwrap();
-        for (id, kind, register) in [
-            ("CL-CMP-0001", "claim", "claims/CMP-1.html"),
-            ("S-0002-v2", "source", "sources.html"),
-            ("Q-001", "question", "questions.html"),
-            ("XC-01", "conflict", "conflicts.html"),
-            ("system_review", "term", "glossary.html"),
+        for (id, kind, register, id_list_page) in [
+            (
+                "CL-CMP-0001",
+                "claim",
+                "claims/CMP-1.html",
+                "ids/claims-CMP-1.html",
+            ),
+            ("S-0002-v2", "source", "sources.html", "ids/versions.html"),
+            ("Q-001", "question", "questions.html", "ids/questions.html"),
+            ("XC-01", "conflict", "conflicts.html", "ids/conflicts.html"),
+            ("system_review", "term", "glossary.html", "ids/terms.html"),
         ] {
             assert!(
                 units.iter().any(|u| u.id == id && u.kind == kind),
@@ -342,9 +346,10 @@ mod search_index {
                 reg_html.contains(&format!("<tr id=\"{id}\"")),
                 "{id} must have its row in {register}"
             );
+            let id_page_html = String::from_utf8(site.files()[id_list_page].clone()).unwrap();
             assert!(
-                ids_html.contains(&format!("data-id=\"{id}\"")),
-                "{id} must be listed in ids.html"
+                id_page_html.contains(&format!("data-id=\"{id}\"")),
+                "{id} must be listed in {id_list_page}"
             );
         }
         // The register text of those records is not in the index either. (A page that cites a

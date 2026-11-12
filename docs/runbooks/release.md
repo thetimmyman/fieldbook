@@ -52,7 +52,7 @@ A green `just check` is not readiness. It shows that the code and the files pass
 
 ## Tool release (`vX.Y.Z`)
 
-Steps 1, 2 and 7 are Codex's, on a card the owner opens; steps 3 to 6 are the owner's. `just release` arrives with the card `release-workflow`.
+Steps 1, 2 and 7 are Codex's, on a card the owner opens; steps 3 to 6 are the owner's.
 
 ### Step 1. Prepare the release commit (Codex)
 
@@ -117,7 +117,7 @@ gh run watch <run-id> --exit-status
 
 The `gh` CLI and its authentication are an external prerequisite of this step: `just setup` and `just doctor` neither install nor authenticate it, so an unauthenticated `gh` is not evidence of anything and is not made to look like one. Without `gh`, the equivalent is the repository's Actions page in a browser: open `release.yml` at the exact tag and commit that was pushed, record the run identity and its result, and inspect the run's required artifacts there.
 
-Expected: the run succeeds, and the repository's Actions page lists it under `release.yml` with the same run id. Its `tag-check` job refuses a tag that is not on `main` or whose version differs from the workspace version. Its `binary` job rebuilds with the `dist` profile and uploads one artifact named `fieldbook-vX.Y.Z-linux` (`X.Y.Z` is the workspace version in `Cargo.toml`, which `tag-check` has proved equal to the tag) holding the Linux binary and its `SHA256SUMS`. Its `edition` job shows as skipped, because the tag is not an `edition-` tag. `release.yml` also runs on a pull request that changes the workflow and when started by hand from the Actions page. In those runs `tag-check` and `edition` show as skipped and `binary` builds and uploads the artifact under the same name, from the workspace version; a skipped job there is not a failure, and nothing is released, because no tag exists. Treat a build uploaded by such a run as a trial and never hand it to anyone.
+Expected: the run succeeds, and the repository's Actions page lists it under `release.yml` with the same run id. Its `tag-check` job runs `cargo xtask release-check "$GITHUB_REF_NAME" --base release-baseline.toml` in a full-history checkout of the tag, with no credentials stored, and refuses a tag that is not on `origin/main` (when `origin/main` is missing from the clone it refuses, and never passes) or whose version differs from the workspace version, or when the compatibility baseline does not hold; it prints one line naming the rule that failed. Its `binary` job rebuilds with the `dist` profile and uploads one artifact named `fieldbook-vX.Y.Z-linux` (`X.Y.Z` is the workspace version in `Cargo.toml`, which `tag-check` has proved equal to the tag) holding the Linux binary and its `SHA256SUMS`. Its `edition` job shows as skipped, because the tag is not an `edition-` tag. `release.yml` also runs on a pull request that changes the workflow and when started by hand from the Actions page. In those runs `tag-check` and `edition` show as skipped and `binary` builds and uploads the artifact under the same name, from the workspace version; a skipped job there is not a failure, and nothing is released, because no tag exists. Treat a build uploaded by such a run as a trial and never hand it to anyone.
 
 If the `tag-check` job fails, delete the tag as in step 5 and start again from step 4. If it fails anywhere else, open a card with the run id; do not retag the same version over a failed run that uploaded files.
 
@@ -129,7 +129,9 @@ After the run succeeds, post the tag and the run id as a comment on the card's w
 
 Before local packaging, set `FIELDBOOK_SECURITY_CONTACT` in the invoking environment to the owner-provided contact route; never put the value in a committed file. The owner provisions the same-named repository secret for CI packaging callers. Missing or blank values fail IN-01; tests supply synthetic text. This input also applies to raw editions and intake packaging.
 
-`just edition` arrives with the card `edition-zips` and `release.yml` with the card `release-workflow`. Editions follow the cadence in ADR 0001 (D-17): when content changes, no more often than every two weeks until E1, then as the transfer channel allows.
+`release.yml` binds no secret: its "Package the edition" step needs the same text in `FIELDBOOK_SECURITY_CONTACT`, and the owner adds that `env:` entry to the step before the first Site edition tag (a repository secret is an owner decision, and the workflow token stays read-only). Until then `cargo xtask edition` stops at IN-01 and the `edition` job fails closed.
+
+Editions follow the cadence in ADR 0001 (D-17): when content changes, no more often than every two weeks until E1, then as the transfer channel allows.
 
 ### Step 1. Merge the content (lead or an agent)
 
@@ -185,7 +187,7 @@ gh run watch <run-id> --exit-status
 
 As in the tool step 6, `gh` and its authentication are external prerequisites that `just setup` and `just doctor` do not supply; without them, use the Actions page for the exact tag and commit, record the run identity and result, and inspect the required artifacts there.
 
-Expected: success. The `tag-check` job refuses a tag that is not on `main` or whose number differs from the newest `corpus/changes.md` heading. The `edition` job builds the site, runs the Edge harness (Edge is preinstalled on the runner image), which writes the network-silence summary, builds the edition on Linux and uploads one artifact named `edition-NNN` with the two zips, `SHA256SUMS`, `corpus-support.toml` and `corpus-support.sha256`, and its log has one line for each zip with its size in whole megabytes (compare them with the channel limit, as in the transfer runbook, step 3). The `binary` job shows as skipped on an edition tag. The `edition` job runs only on an `edition-` tag: it needs the `## edition-NNN` heading, which a pull request does not have, so a trial run on a pull request or by hand does not build an edition. On release tags the `windows` job also runs its full run, which includes the Windows drill (from E1).
+Expected: success. The `tag-check` job refuses a tag that is not on `main` or whose number differs from the newest `corpus/changes.md` heading. The `tag-check` job also validates the committed `edition-release.toml` (absent means Site) and passes its kind to the later jobs: a raw edition tag leaves the `edition` job skipped, because `raw-edition.yml` handles it. For a Site tag it uploads the public compatibility evidence (the tagged `release-baseline.toml`, the optional `edition-release.toml`, `compat/published.toml` and every file it binds) as `edition-NNN-evidence`. The `edition` job runs `cargo xtask edition`, one operation that stamps and builds the site, runs the Edge harness (Edge is preinstalled on the runner image), which writes the network-silence summary, and packages the edition, and uploads one artifact named `edition-NNN` with the two zips, `SHA256SUMS`, `corpus-support.toml` and `corpus-support.sha256`, and its log has one line for each zip with its size in whole megabytes (compare them with the channel limit, as in the transfer runbook, step 3). The `binary` job shows as skipped on an edition tag. The `edition` job runs only on an `edition-` tag: it needs the `## edition-NNN` heading, which a pull request does not have, so a trial run on a pull request or by hand does not build an edition. On release tags the `windows` job also runs its full run, which includes the Windows drill (from E1).
 
 If it fails, read the log, fix on a card, and tag the next number. Do not move or reuse a tag.
 

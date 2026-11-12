@@ -2,34 +2,60 @@
   <header class="page-head">
     <div class="eyebrow">
       <span class="chip accent">Library</span>
-      <span class="chip mono">ids.html</span>
-      {% if view.total_count == 0 %}
-      <span class="chip mono">None recorded</span>
-      {% else %}
-      <span class="chip mono">{{ view.total_count }} IDs</span>
-      {% endif %}
+      <span class="chip mono">{{ view.file_name }}</span>
+      <span class="chip mono">{{ view.count_chip }}</span>
     </div>
     <h1>{{ view.title }}</h1>
-    <p class="muted">{{ view.subtitle }}</p>
+    {%- if let Some(subtitle) = &view.subtitle %}
+    <p class="muted">{{ subtitle }}</p>
+    {%- endif %}
   </header>
 
+  {% if let Some(index) = &view.index %}
   <div class="id-groups">
-    {% for group in view.groups %}
+    {% for group in index.groups %}
     <section class="panel id-group" id="fb:ids-{{ group.slug }}" data-id-kind="{{ group.slug }}">
       <div class="panel-head">
+        {% if let Some(href) = &group.href %}
+        <h2 class="panel-title"><a href="{{ href }}">{{ group.title }}</a></h2>
+        {% else %}
         <h2 class="panel-title">{{ group.title }}</h2>
-        <span class="panel-sub mono">{% if group.items.is_empty() %}None recorded{% else %}{{ group.items.len() }}{% endif %}</span>
+        {% endif %}
+        <span class="panel-sub mono">{{ group.count_label }}</span>
       </div>
-      {% if group.items.is_empty() %}
+      {% if group.slug == "claims" %}
+        {% if group.claim_parts.is_empty() %}
+        <p class="muted">None recorded</p>
+        {% else %}
+        <ul class="id-list">
+          {%- for part in group.claim_parts %}
+          <li class="id-row"><span class="id-chip">{% if let Some(href) = &part.href %}<a class="cite neutral" href="{{ href }}">{{ part.range_label }}</a>{% else %}<span class="cite neutral">{{ part.range_label }}</span>{% endif %}</span> <span class="id-label">{{ part.label }}</span></li>
+          {%- endfor %}
+        </ul>
+        {% endif %}
+      {% endif %}
+    </section>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if let Some(list) = &view.list %}
+  <div class="id-groups">
+    <section class="panel id-group" id="fb:ids-{{ list.slug }}" data-id-kind="{{ list.slug }}">
+      <div class="panel-head">
+        <h2 class="panel-title">{{ list.panel_title }}</h2>
+        <span class="panel-sub mono">{% if list.items.is_empty() %}None recorded{% else %}{{ list.items.len() }}{% endif %}</span>
+      </div>
+      {% if list.items.is_empty() %}
       <p class="muted">None recorded</p>
       {% else %}
       <ul class="id-list">
-        {%- for item in group.items %}
+        {%- for item in list.items %}
         <li class="id-row" data-id="{{ item.id }}"><span class="id-chip">{{ item.chip_html|safe }}</span> <span class="id-label">{{ item.label }}</span></li>
         {%- endfor %}
       </ul>
       {% endif %}
     </section>
-    {% endfor %}
   </div>
+  {% endif %}
 </div>

@@ -1062,6 +1062,12 @@ fn check_site_profile_path(path: &str) -> Result<(), AllowlistViolation> {
     if is_claims_part_page(path) {
         return Ok(());
     }
+    if is_ids_group_page(path) {
+        return Ok(());
+    }
+    if is_ids_claims_part_page(path) {
+        return Ok(());
+    }
     if let Some(rest) = path.strip_prefix("data/")
         && !rest.contains('/')
         && (rest == "registers.xlsx" || rest.ends_with(".csv"))
@@ -1108,16 +1114,7 @@ fn is_allowed_shipped_corpus_subpath(path: &str) -> bool {
     false
 }
 
-fn is_claims_part_page(path: &str) -> bool {
-    let Some(rest) = path.strip_prefix("claims/") else {
-        return false;
-    };
-    if rest.contains('/') {
-        return false;
-    }
-    let Some(stem) = rest.strip_suffix(".html") else {
-        return false;
-    };
+fn is_area_part_stem(stem: &str) -> bool {
     let Some((area, part)) = stem.split_once('-') else {
         return false;
     };
@@ -1129,6 +1126,50 @@ fn is_claims_part_page(path: &str) -> bool {
         return false;
     }
     part_bytes[1..].iter().all(u8::is_ascii_digit)
+}
+
+fn is_claims_part_page(path: &str) -> bool {
+    let Some(rest) = path.strip_prefix("claims/") else {
+        return false;
+    };
+    if rest.contains('/') {
+        return false;
+    }
+    let Some(stem) = rest.strip_suffix(".html") else {
+        return false;
+    };
+    is_area_part_stem(stem)
+}
+
+/// Match an ID group list page (`ids/<slug>.html`) for supported object kinds.
+fn is_ids_group_page(path: &str) -> bool {
+    let Some(rest) = path.strip_prefix("ids/") else {
+        return false;
+    };
+    if rest.contains('/') {
+        return false;
+    }
+    let Some(slug) = rest.strip_suffix(".html") else {
+        return false;
+    };
+    matches!(
+        slug,
+        "pages" | "sources" | "versions" | "questions" | "conflicts" | "terms"
+    )
+}
+
+/// Match an ID claims part page (`ids/claims-<AREA>-<part>.html`).
+fn is_ids_claims_part_page(path: &str) -> bool {
+    let Some(rest) = path.strip_prefix("ids/claims-") else {
+        return false;
+    };
+    if rest.contains('/') {
+        return false;
+    }
+    let Some(stem) = rest.strip_suffix(".html") else {
+        return false;
+    };
+    is_area_part_stem(stem)
 }
 
 fn verify_tree_sha256sums(
@@ -1724,6 +1765,55 @@ mod tests {
     }
 
     #[test]
+    fn site_profile_accepts_ids_list_pages() {
+        let accepted = [
+            "ids/pages.html",
+            "ids/sources.html",
+            "ids/versions.html",
+            "ids/questions.html",
+            "ids/conflicts.html",
+            "ids/terms.html",
+            "ids/claims-CMP-1.html",
+            "ids/claims-CMP-19.html",
+        ];
+        for path in accepted {
+            assert!(
+                check_site_profile_path(path).is_ok(),
+                "path `{path}` must be accepted by site profile"
+            );
+        }
+    }
+
+    #[test]
+    fn site_profile_refuses_malformed_ids_list_pages() {
+        let malformed = [
+            "ids/claims-cmp-1.html",
+            "ids/claims-CMP-01.html",
+            "ids/claims-CMP.html",
+            "ids/claims-CMP-1/x.html",
+            "ids/claims.html",
+            "ids/claims-CMP-0.html",
+            "ids/claims-CM-1.html",
+            "ids/claims-CMP-1.txt",
+            "ids/other.html",
+            "ids/pages.txt",
+            "ids/x/pages.html",
+        ];
+        for path in malformed {
+            assert!(
+                check_site_profile_path(path).is_err(),
+                "path `{path}` must be refused by site profile"
+            );
+        }
+    }
+
+    #[test]
+    fn raw_profile_refuses_ids_list_pages() {
+        assert!(check_raw_profile_path("ids/pages.html").is_err());
+        assert!(check_raw_profile_path("ids/claims-CMP-1.html").is_err());
+    }
+
+    #[test]
     fn every_path_of_a_rendered_site_passes_the_site_profile() {
         let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
         let fixture_dir = repo_root.join("tests/fixtures/corpus-mini");
@@ -1748,9 +1838,17 @@ mod tests {
                 .unwrap();
 
         let mut found_claims_part = false;
+        let mut found_ids_claims_part = false;
+        let mut found_ids_pages = false;
         for path in site.files().keys() {
             if path == "claims/CMP-1.html" {
                 found_claims_part = true;
+            }
+            if path == "ids/claims-CMP-1.html" {
+                found_ids_claims_part = true;
+            }
+            if path == "ids/pages.html" {
+                found_ids_pages = true;
             }
             assert!(
                 check_site_profile_path(path).is_ok(),
@@ -1760,6 +1858,14 @@ mod tests {
         assert!(
             found_claims_part,
             "site must contain `claims/CMP-1.html` to prove claims part pages are covered"
+        );
+        assert!(
+            found_ids_claims_part,
+            "site must contain `ids/claims-CMP-1.html` to prove ids claims part pages are covered"
+        );
+        assert!(
+            found_ids_pages,
+            "site must contain `ids/pages.html` to prove ids group pages are covered"
         );
     }
 }
