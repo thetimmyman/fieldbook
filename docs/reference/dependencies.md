@@ -188,7 +188,7 @@ All come from crates.io. The two tables below are one table split for width: the
 | `clap` | 4.6.7 (2026-09-14) | `default-features = false`, `std`, `derive`, `help`, `usage`, `error-context`, `suggestions` | fieldbook, xtask | MIT OR Apache-2.0 | 1.85 |
 | `rust_xlsxwriter` | 0.101.0 (2026-10-20) | none (the default set is empty); never `zlib` | render | MIT OR Apache-2.0 | 1.88 |
 | `calamine` (`extract-xlsx-sheets`) | 0.36.1 (2026-07-27) | `default-features = false`; never `chrono`, `dates` or `picture` | core | MIT | 1.88 |
-| `zip` (`extract-xlsx-sheets`) | 9.0.5 (2026-10-17) | `default-features = false`, `deflate` | core, xtask; render (tests) | MIT | 1.88 |
+| `zip` (`extract-xlsx-sheets`) | 9.0.5 (2026-10-17) | `default-features = false`, `deflate` | core, xtask; render and fieldbook (tests) | MIT | 1.88 |
 | `embed-resource` (R2) | 3.0.12 (2026-10-06) | default | `fieldbook` `build.rs`, Windows only | MIT | 1.76 |
 | `windows-sys` (`windows-facts`) | 0.61.2 (2025-10-06) | `default-features = false`, `Win32_Foundation`, `Win32_Security`, `Win32_Security_Authorization`, `Win32_Storage_FileSystem`, `Win32_Storage_CloudFilters`, `Win32_System_Com`, `Win32_System_RemoteDesktop`, `Win32_System_Threading`, `Win32_UI_Shell` | `fieldbook-win`, in `src/sys.rs`; Windows only | MIT OR Apache-2.0 | 1.71 |
 | `object` (`core-policy`) | 0.40.0 (2026-08-01) | `default-features = false`, `read_core`, `elf`, `pe` | `xtask`, in `binscan`; not shipped | MIT OR Apache-2.0 | 1.85 |

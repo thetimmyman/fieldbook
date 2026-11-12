@@ -15,7 +15,8 @@ use fieldbook_core::version::SCHEMA_VERSION_MAX;
 use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
 use crate::{
-    about, area, day_one, edition, home, ids, nav, register, search_index, search_page, source,
+    about, area, csv_copy, day_one, edition, home, ids, nav, register, search_index, search_page,
+    source, xlsx,
 };
 
 const APP_CSS: &str = include_str!("../assets/app.css");
@@ -151,6 +152,10 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
+    paths.push(xlsx::OUTPUT_PATH.to_owned());
+    for reg in Register::ALL {
+        paths.push(csv_copy::output_path(reg));
+    }
     paths.extend(register::claims_part_paths(view));
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
@@ -161,13 +166,9 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     PlannedPaths::from_owned(paths)
 }
 
-/// Renders a [`Site`] from `view`, a validated [`RenderContext`] and the compiled `profile`.
+/// Renders a [`Site`] from `view`, a validated [`RenderContext`] and [`BuildInfo`].
 #[must_use]
-pub fn render_with_context(
-    view: &LabelledView,
-    ctx: &RenderContext,
-    profile: BuildProfile,
-) -> Site {
+pub fn render_with_info(view: &LabelledView, ctx: &RenderContext, info: &BuildInfo) -> Site {
     let planned = planned_paths(view);
     let navigation = nav::build(view, &planned);
     let mut site = Site::new();
@@ -192,7 +193,7 @@ pub fn render_with_context(
     for (path, html) in ids::render_all(view, ctx, &navigation, &planned) {
         site.insert(&path, html.into_bytes());
     }
-    let about_html = about::render_page(view, ctx, profile, &navigation, &planned);
+    let about_html = about::render_page(view, ctx, info.profile, &navigation, &planned);
     site.insert(about::OUTPUT_PATH, about_html.into_bytes());
     site.insert(
         day_one::OUTPUT_PATH,
@@ -236,11 +237,28 @@ pub fn render_with_context(
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
     site.insert("assets/app.js", APP_JS.as_bytes().to_vec());
+    site.insert(xlsx::OUTPUT_PATH, xlsx::render(view, info.workbook_epoch));
+    for reg in Register::ALL {
+        site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
+    }
     debug_assert_eq!(
         site.files().keys().map(String::as_str).collect::<Vec<_>>(),
         planned.iter().collect::<Vec<_>>()
     );
     site
+}
+
+/// Renders a [`Site`] from `view`, a validated [`RenderContext`] and the compiled `profile`.
+///
+/// Uses the fixed fallback workbook time (2000-01-01T00:00:00Z) because no build time is supplied;
+/// the binary calls [`render_with_info`].
+#[must_use]
+pub fn render_with_context(
+    view: &LabelledView,
+    ctx: &RenderContext,
+    profile: BuildProfile,
+) -> Site {
+    render_with_info(view, ctx, &BuildInfo::unreleased(profile))
 }
 
 /// Renders the static edition [`Site`] from `view` and `info`.
@@ -252,5 +270,5 @@ pub fn render_with_context(
 /// Returns [`MetadataError`] if `view` is non-public or if `changes.md` fails edition metadata checks.
 pub fn render(view: &LabelledView, info: &BuildInfo) -> Result<Site, MetadataError> {
     let ctx = render_context(view, info)?;
-    Ok(render_with_context(view, &ctx, info.profile))
+    Ok(render_with_info(view, &ctx, info))
 }
