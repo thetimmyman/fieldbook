@@ -1689,6 +1689,11 @@ impl<'a> Journal<'a> {
             &payload,
         )?;
 
+        if !OUTSIDE_STORE_VERBS.contains(&parsed_verb.as_str()) {
+            self.wrote_store = true;
+            set_thread_wrote_store(true);
+        }
+
         if let Ok(mut guard) = self.active_tx.lock() {
             *guard = Some(ActiveTx {
                 _lock: lock,
@@ -1918,38 +1923,30 @@ impl<'a> Journal<'a> {
                         "prepared backup parameters do not match begin_backup".to_owned(),
                     ));
                 }
+                if let Some(transfers) = allowed.transfers() {
+                    let mut full_bytes = std::fs::read(&tail.active_segment).unwrap_or_default();
+                    full_bytes.extend_from_slice(&p.bytes);
+                    let expected_sha = fieldbook_core::hash::sha256_hex(&full_bytes);
+                    for t in transfers {
+                        if let Target::Path(p_target) = &t.target {
+                            let s = p_target.to_string_lossy();
+                            if (s.ends_with("state/audit/journal.jsonl")
+                                || s.ends_with("data/state/audit/journal.jsonl"))
+                                && t.sha256 != expected_sha
+                            {
+                                return Err(JournalError::Vocab(
+                                    "prepared backup event bytes do not match delivery".to_owned(),
+                                ));
+                            }
+                        }
+                    }
+                }
                 p
             }
             None => {
-                let env = EventEnvelope {
-                    actor: self.actor.principal.clone(),
-                    role: self.actor.role,
-                    store: self.store,
-                    via: self.actor.via,
-                };
-                let payload = EventPayload::BackupBegin {
-                    labels: allowed_labels.clone(),
-                    dest: DestKind::Backup,
-                    policy: policy.clone(),
-                    snapshot: Count::new(u64::from(snapshot)),
-                };
-                let (mut line, new_hash) = payload.format_line(
-                    tail.last_seq + 1,
-                    self.world.now(),
-                    &env,
-                    tail.last_hash.as_str(),
-                );
-                line.push('\n');
-                PreparedBackupBegin {
-                    seq: tail.last_seq + 1,
-                    head: tail.last_hash.clone(),
-                    bytes: line.into_bytes(),
-                    new_head: new_hash,
-                    labels: allowed_labels.clone(),
-                    policy: policy.clone(),
-                    snapshot,
-                    now: self.world.now(),
-                }
+                return Err(JournalError::Vocab(
+                    "begin_backup requires a prepared backup begin event".to_owned(),
+                ));
             }
         };
 

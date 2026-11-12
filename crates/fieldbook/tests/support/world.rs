@@ -33,6 +33,8 @@ pub struct TestWorld {
     prompt_ready: Condvar,
     place: Mutex<BTreeMap<PathBuf, PlaceFacts>>,
     support_facts: Mutex<Option<fieldbook::SupportFacts>>,
+    fault: Mutex<Option<crate::support::faulty::Fault>>,
+    fault_matches: std::sync::atomic::AtomicUsize,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -83,6 +85,8 @@ impl TestWorld {
             prompt_ready: Condvar::new(),
             place: Mutex::new(BTreeMap::new()),
             support_facts: Mutex::new(None),
+            fault: Mutex::new(None),
+            fault_matches: std::sync::atomic::AtomicUsize::new(0),
         }
     }
 
@@ -106,6 +110,8 @@ impl TestWorld {
             prompt_ready: Condvar::new(),
             place: Mutex::new(BTreeMap::new()),
             support_facts: Mutex::new(None),
+            fault: Mutex::new(None),
+            fault_matches: std::sync::atomic::AtomicUsize::new(0),
         }
     }
 
@@ -204,6 +210,69 @@ impl TestWorld {
         let facts = fieldbook::SupportFacts::new(vec![(cat, sha)], BTreeMap::new());
         self.set_support_facts(facts);
     }
+
+    /// Arm or disarm a fault injection on this test world.
+    pub fn set_fault(&self, fault: Option<crate::support::faulty::Fault>) {
+        if let Ok(mut g) = self.fault.lock() {
+            *g = fault;
+        }
+        self.fault_matches.store(0, Ordering::SeqCst);
+    }
+
+    /// Injects a rename blocker directory at `target/fieldbook-backup-NNNN`.
+    pub fn inject_rename_fault(&self, target: &Path, snapshot: fieldbook_core::backup::Number) {
+        let final_dir = target.join(format!("fieldbook-backup-{snapshot:04}"));
+        std::fs::create_dir_all(&final_dir).expect("create rename blocker dir");
+        std::fs::write(final_dir.join("blocker.txt"), b"blocker\n").expect("write blocker file");
+    }
+
+    /// Clears the rename blocker directory at `target/fieldbook-backup-NNNN`.
+    pub fn clear_rename_fault(&self, target: &Path, snapshot: fieldbook_core::backup::Number) {
+        let final_dir = target.join(format!("fieldbook-backup-{snapshot:04}"));
+        let _ = std::fs::remove_dir_all(&final_dir);
+    }
+
+    fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
+        let Ok(g) = self.fault.lock() else {
+            return Ok(());
+        };
+        let Some(fault) = g.as_ref() else {
+            return Ok(());
+        };
+        let actual = path.file_name().and_then(|n| n.to_str());
+        match fault {
+            crate::support::faulty::Fault::FailOnName { name, kind } => {
+                if actual == Some(*name) {
+                    return Err(match kind {
+                        crate::support::faulty::FaultKind::Io => {
+                            fieldbook::Error::new(path, "injected I/O write fault")
+                        }
+                        crate::support::faulty::FaultKind::InUse => {
+                            fieldbook::Error::InUse(path.to_path_buf())
+                        }
+                    });
+                }
+            }
+            crate::support::faulty::Fault::FailOnNthName { name, nth, kind } => {
+                if actual == Some(*name) {
+                    let count = self.fault_matches.fetch_add(1, Ordering::SeqCst) + 1;
+                    if count == *nth {
+                        return Err(match kind {
+                            crate::support::faulty::FaultKind::Io => {
+                                fieldbook::Error::new(path, "injected I/O write fault")
+                            }
+                            crate::support::faulty::FaultKind::InUse => {
+                                fieldbook::Error::InUse(path.to_path_buf())
+                            }
+                        });
+                    }
+                }
+            }
+            crate::support::faulty::Fault::BrokenPrompt
+            | crate::support::faulty::Fault::EditAfterTreeRead { .. } => {}
+        }
+        Ok(())
+    }
 }
 
 impl World for TestWorld {
@@ -225,6 +294,7 @@ impl World for TestWorld {
         path: &Path,
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
+        self.check_fault(path)?;
         self.inner.write_file(audited, path, bytes)
     }
 
@@ -235,6 +305,7 @@ impl World for TestWorld {
         path: &Path,
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
+        self.check_fault(path)?;
         self.inner.write_outside(allowed, audited, path, bytes)
     }
 

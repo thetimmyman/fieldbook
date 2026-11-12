@@ -23,7 +23,7 @@ use fieldbook::io::Disk;
 use fieldbook::io::atomic::{write_in_root, write_outside};
 use fieldbook::io::dirs::{Removable, remove_outside, rename_dir_outside};
 use fieldbook::io::journal::{
-    Journal, JournalError, acquire_write_lease, set_lock_timeout_for_test,
+    Audited, Journal, JournalError, acquire_write_lease, set_lock_timeout_for_test,
 };
 use fieldbook::io::root::Roots;
 use fieldbook::io::state::{BackupSettings, read_backup_settings};
@@ -31,10 +31,13 @@ use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{
     BackupVerified, Count, EventPayload, LabelSet, Now, RefuseAbout, Sha256, Via, Word,
 };
-use fieldbook_core::backup::{BACKUP_TARGET_TEMPLATE, BackupToml, corpus_entries, manifest_sha256};
+use fieldbook_core::backup::{
+    BACKUP_TARGET_TEMPLATE, BackupTarget, BackupToml, corpus_entries, manifest_sha256,
+};
 use fieldbook_core::check::Code;
 use fieldbook_core::egress::{
-    Decision, Delivery, Dest, Operation, Shipped, Target, Transfer, check, hash_tree_manifest,
+    Allowed, Decision, Delivery, Dest, Operation, Shipped, Target, Transfer, check,
+    hash_tree_manifest,
 };
 use fieldbook_core::labels::{OWNER_SUPPLIED, PlaceFacts};
 use fieldbook_core::manifest;
@@ -916,8 +919,8 @@ fn latest_is_written_last() {
         std::fs::read_to_string(fix.target_path().join("LATEST")).expect("read LATEST");
     assert!(latest_before.starts_with("1\n"));
 
-    // Plant a hand-made leftover partial folder
-    let planted_partial = fix.target_path().join("fieldbook-backup-0002.partial");
+    // Plant a hand-made leftover partial folder from a prior crash
+    let planted_partial = fix.target_path().join("fieldbook-backup-0099.partial");
     std::fs::create_dir_all(&planted_partial).expect("create planted partial");
     std::fs::write(planted_partial.join("leftover.txt"), b"junk").expect("write leftover");
 
@@ -954,6 +957,27 @@ fn latest_is_written_last() {
             .join("fieldbook-backup-0002.partial")
             .exists()
     );
+    assert!(
+        !planted_partial.exists(),
+        "leftover partial must be removed"
+    );
+
+    // Verification by that explicit number succeeds
+    let v_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(2),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_out = run_verify(&fix.world, &v_args);
+    assert_eq!(
+        v_out.code, 0,
+        "explicit verification of snapshot 2 must succeed: {}",
+        v_out.stderr
+    );
+    assert!(v_out.stdout.contains("snapshot 2 verified"));
 }
 
 #[test]
@@ -1198,6 +1222,14 @@ fn backup_runs_on_a_refused_journal() {
     assert!(snap_dir.is_dir());
     assert!(snap_dir.join("SHA256SUMS").is_file());
 
+    // Compare original and copied journal bytes (exact match in recovery mode)
+    let copied_journal = std::fs::read_to_string(snap_dir.join("data/state/audit/journal.jsonl"))
+        .expect("read copied journal");
+    assert_eq!(
+        copied_journal, journal_before,
+        "copied journal bytes must equal original refused journal"
+    );
+
     // backup.toml records journal_state = `broken`
     let toml_text =
         std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read backup.toml");
@@ -1210,6 +1242,123 @@ fn backup_runs_on_a_refused_journal() {
     // No event appended to journal
     let journal_after = std::fs::read_to_string(&journal_path).expect("read journal after");
     assert_eq!(journal_after, journal_before);
+
+    // Recovery token constraints and real create/write operations
+    let lease = fix.world.write_lease().expect("acquire store lease");
+    let rec = Journal::open_backup_recovery(&fix.world, &lease).expect("open recovery");
+    let test_file = fix.target_path().join("recovery-test.txt");
+    let test_bytes = b"recovery test bytes\n";
+    let delivery = Delivery::new(vec![Transfer::write_path(&test_file, test_bytes)], None);
+    let Decision::Allowed(allowed) = check(
+        &eff,
+        &Dest::Backup {
+            path: fix.target_path().to_string_lossy().into_owned(),
+            company_storage: false,
+        },
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        fix.world.now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected check Allowed for recovery test");
+    };
+
+    let recovery_audited = rec.approve(&allowed).expect("approve recovery delivery");
+    assert!(recovery_audited.is_recovery_only());
+
+    // 1. Recovery token cannot write in-root
+    let in_root_res = fix.world.write_file(
+        &recovery_audited,
+        &fix.tree_root().join("corpus/in_root.txt"),
+        b"forbidden in root",
+    );
+    assert!(
+        in_root_res.is_err(),
+        "recovery token must not write in-root"
+    );
+    let roots = Roots::at_home(fix.tree_root(), fix.state_dir());
+    let atomic_res = write_in_root(
+        &roots.corpus,
+        Path::new("in_root.txt"),
+        b"forbidden",
+        &recovery_audited,
+    );
+    assert!(
+        matches!(atomic_res, Err(fieldbook::Error::OutOfScope(_))),
+        "atomic write_in_root must refuse recovery-only token"
+    );
+
+    // 2. Recovery token cannot use another delivery
+    let other_file = fix.target_path().join("other.txt");
+    let other_delivery = Delivery::new(
+        vec![Transfer::write_path(&other_file, b"other bytes")],
+        None,
+    );
+    let Decision::Allowed(allowed_other) = check(
+        &eff,
+        &Dest::Backup {
+            path: fix.target_path().to_string_lossy().into_owned(),
+            company_storage: false,
+        },
+        Some(&LabelSet::public()),
+        Some(&other_delivery),
+        fix.world.now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected allowed for other delivery");
+    };
+    let other_res = fix.world.write_outside(
+        &allowed_other,
+        &recovery_audited,
+        &other_file,
+        b"other bytes",
+    );
+    assert!(
+        matches!(other_res, Err(fieldbook::Error::OutOfScope(_))),
+        "recovery token must not be used with another delivery"
+    );
+
+    // 3. Recovery token refuses changed paths
+    let changed_path = fix.target_path().join("unapproved-file.txt");
+    let changed_path_res =
+        fix.world
+            .write_outside(&allowed, &recovery_audited, &changed_path, test_bytes);
+    assert!(
+        matches!(changed_path_res, Err(fieldbook::Error::OutOfScope(_))),
+        "recovery token must refuse changed unapproved paths"
+    );
+
+    // 4. Real create/write through recovery token succeeds
+    let write_res = fix
+        .world
+        .write_outside(&allowed, &recovery_audited, &test_file, test_bytes);
+    assert!(
+        write_res.is_ok(),
+        "real write through recovery token must succeed"
+    );
+    assert_eq!(
+        std::fs::read(&test_file).expect("read written file"),
+        test_bytes
+    );
+    drop(recovery_audited);
+    drop(rec);
+    drop(lease);
+
+    // 5. Held lock still exits 3 with no snapshot
+    set_lock_timeout_for_test(Some(Duration::from_millis(50)));
+    let _held_lock = acquire_write_lease(fix.tree_root(), fix.state_dir()).expect("acquire lease");
+    let held_outcome = run_backup(&fix.world, &eff, &options);
+    set_lock_timeout_for_test(None);
+    drop(_held_lock);
+    assert_eq!(
+        held_outcome.code, 3,
+        "backup on held lock must exit 3: {}",
+        held_outcome.stderr
+    );
+    assert!(
+        !fix.target_path().join("fieldbook-backup-0002").exists(),
+        "no snapshot must be created when lock is held"
+    );
 }
 
 #[test]
@@ -3931,4 +4080,723 @@ fn support_process_smoke_uses_an_independent_digest() {
     let snap_count_after =
         fieldbook::io::backup_folder::list_existing_snapshots(target_dir.path()).len();
     assert_eq!(snap_count_after, snap_count_before);
+}
+
+struct FolderTargetFactory;
+
+impl support::backup_suite::BackupFactory for FolderTargetFactory {
+    fn make<'a>(
+        &self,
+        world: &'a support::world::TestWorld,
+        audited: &'a Audited,
+        allowed: &'a Allowed,
+        target: &'a Path,
+    ) -> Box<dyn BackupTarget + 'a> {
+        Box::new(fieldbook::io::backup_folder::FolderTarget::new(
+            world, audited, allowed, target,
+        ))
+    }
+}
+
+#[test]
+fn folder_target_contract() {
+    support::backup_suite::backup_target_contract(&FolderTargetFactory);
+}
+
+#[test]
+fn backup_binds_the_complete_delivery() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Set keep_last = 1, keep_weekly = 0 so third backup prunes snapshot 1
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[backup]\nkeep_last = 1\nkeep_weekly = 0\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    // First backup
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome1.code, 0,
+        "first backup must succeed: {}",
+        outcome1.stderr
+    );
+
+    // Second backup
+    let outcome2 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome2.code, 0,
+        "second backup must succeed: {}",
+        outcome2.stderr
+    );
+
+    // Verify snapshot 2 (making 2 the newest verified snapshot)
+    let v2 = run_verify(
+        &fix.world,
+        &BackupVerifyArgs {
+            target: Some("main".to_string()),
+            in_dir: None,
+            snapshot: Some(2),
+            raw: None,
+            support_catalogue: None,
+            expect_support_sha256: None,
+        },
+    );
+    assert_eq!(v2.code, 0);
+
+    // Plant a leftover partial directory
+    let leftover = fix.target_path().join("fieldbook-backup-0099.partial");
+    std::fs::create_dir_all(&leftover).expect("create leftover");
+    std::fs::write(leftover.join("file.txt"), b"leftover data").expect("write leftover file");
+
+    // Third backup: prunes snapshot 1, cleans up leftover, creates snapshot 3
+    let outcome3 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome3.code, 0,
+        "third backup must succeed: {}",
+        outcome3.stderr
+    );
+
+    // Assert:
+    // 1. Snapshot 3 exists and was renamed
+    let snap3_dir = fix.target_path().join("fieldbook-backup-0003");
+    assert!(snap3_dir.is_dir());
+    assert!(
+        !fix.target_path()
+            .join("fieldbook-backup-0003.partial")
+            .exists()
+    );
+
+    // 2. Leftover partial was cleaned up
+    assert!(!leftover.exists(), "leftover partial must be removed");
+
+    // 3. Snapshot 1 was pruned per retention
+    assert!(
+        !fix.target_path().join("fieldbook-backup-0001").exists(),
+        "snapshot 1 pruned"
+    );
+    assert!(
+        fix.target_path().join("fieldbook-backup-0002").exists(),
+        "snapshot 2 kept"
+    );
+
+    // 4. Copied journal head, sums and generated metadata equal prepared bytes
+    let snap_journal = std::fs::read_to_string(snap3_dir.join("data/state/audit/journal.jsonl"))
+        .expect("read snap journal");
+    let last_snap_line = snap_journal.lines().last().expect("last snap line");
+    assert!(last_snap_line.contains("\"kind\":\"backup.begin\""));
+
+    let snap_toml = std::fs::read_to_string(snap3_dir.join("backup.toml")).expect("read toml");
+    let info = BackupToml::parse(&snap_toml).expect("parse toml");
+    assert_eq!(info.snapshot, 3);
+
+    let sums_text = std::fs::read_to_string(snap3_dir.join("SHA256SUMS")).expect("read sums");
+    let computed_m_sha = manifest_sha256(&info, &sums_text).expect("manifest sha");
+    assert_eq!(info.manifest_sha256, computed_m_sha.as_str());
+
+    let latest_text =
+        std::fs::read_to_string(fix.target_path().join("LATEST")).expect("read LATEST");
+    assert_eq!(latest_text, format!("3\n{}\n", info.manifest_sha256));
+
+    // 5. Cleanup, retention and rename targets are bound by Allowed Delivery:
+    // Attempting an unapproved rename target or unapproved remove target with Allowed fails
+    let dummy_partial = fix.target_path().join("fieldbook-backup-0088.partial");
+    std::fs::create_dir_all(&dummy_partial).expect("create dummy partial");
+    let mut journal = Journal::open(&fix.world, fix.state_dir(), Via::Cli).expect("open");
+    let unapproved_delivery = Delivery::new(
+        vec![Transfer::write_path(
+            fix.target_path().join("other.txt"),
+            b"other",
+        )],
+        None,
+    );
+    let Decision::Allowed(allowed_unapproved) = check(
+        &eff,
+        &Dest::Backup {
+            path: fix.target_path().to_string_lossy().into_owned(),
+            company_storage: false,
+        },
+        Some(&LabelSet::public()),
+        Some(&unapproved_delivery),
+        fix.world.now(),
+        Shipped::Never,
+    ) else {
+        panic!("allowed");
+    };
+    let policy_sha = Sha256::parse(allowed_unapproved.policy_hash()).expect("sha");
+    let _prep = journal
+        .prepare_backup_begin(&LabelSet::public(), &policy_sha, 3)
+        .expect("prep");
+    let audited = journal
+        .begin_backup(&allowed_unapproved, fix.target_path(), "folder", 3)
+        .expect("begin");
+
+    // Unapproved partial removal fails
+    let rm_res = remove_outside(
+        &audited,
+        &allowed_unapproved,
+        &dummy_partial,
+        Removable::PartialSnapshot,
+    );
+    assert!(
+        matches!(rm_res, Err(fieldbook::Error::OutOfScope(_))),
+        "removal of unapproved partial must be refused by Allowed"
+    );
+
+    // Unapproved rename fails
+    let rename_res = rename_dir_outside(
+        &audited,
+        &allowed_unapproved,
+        &dummy_partial,
+        &fix.target_path().join("fieldbook-backup-0088"),
+    );
+    assert!(
+        matches!(rename_res, Err(fieldbook::Error::OutOfScope(_))),
+        "rename of unapproved snapshot must be refused by Allowed"
+    );
+    let _ = std::fs::remove_dir_all(&dummy_partial);
+}
+
+#[test]
+fn changed_prepared_event_writes_no_snapshot() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome1.code, 0);
+    let latest_before =
+        std::fs::read_to_string(fix.target_path().join("LATEST")).expect("read LATEST");
+    assert!(latest_before.starts_with("1\n"));
+
+    let state_dir = fix.state_dir();
+    let mut journal = Journal::open(&fix.world, state_dir, Via::Cli).expect("open journal");
+    let target = fix.target_path();
+    let now = fix.world.now();
+    let policy_sha = Sha256::parse(eff.hash()).unwrap_or_else(|_| Sha256::digest(b""));
+
+    // Prepare backup begin for snapshot 2
+    let prep1 = journal
+        .prepare_backup_begin_at(&LabelSet::public(), &policy_sha, 2, now)
+        .expect("prepare");
+
+    // Build delivery with prep1 bytes for journal.jsonl
+    let seg_path = state_dir.join("audit/journal.jsonl");
+    let mut journal_bytes = std::fs::read(&seg_path).expect("read journal");
+    journal_bytes.extend_from_slice(&prep1.bytes);
+
+    let partial_path = target.join("fieldbook-backup-0002.partial");
+    let dest_journal = partial_path.join("data/state/audit/journal.jsonl");
+    let delivery = Delivery::new(
+        vec![Transfer::write_path(&dest_journal, &journal_bytes)],
+        None,
+    );
+    let dest = Dest::Backup {
+        path: target.to_string_lossy().into_owned(),
+        company_storage: false,
+    };
+    let Decision::Allowed(allowed) = check(
+        &eff,
+        &dest,
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        now,
+        Shipped::Never,
+    ) else {
+        panic!("expected allowed");
+    };
+
+    // Change the prepared event after approval!
+    let later_now = Now::new(CivilDate::from_ymd(2026, 3, 2).expect("date"), 50_000).expect("now");
+    let _prep2 = journal
+        .prepare_backup_begin_at(&LabelSet::public(), &policy_sha, 2, later_now)
+        .expect("prepare altered");
+
+    // begin_backup must refuse!
+    let err = journal
+        .begin_backup(&allowed, target, "folder", 2)
+        .expect_err("begin_backup must fail with altered event");
+    assert!(matches!(err, JournalError::Vocab(_)));
+
+    // Assert: no snapshot 2, LATEST untouched
+    assert!(!target.join("fieldbook-backup-0002").exists());
+    assert!(!target.join("fieldbook-backup-0002.partial").exists());
+    let latest_after = std::fs::read_to_string(target.join("LATEST")).expect("read LATEST");
+    assert_eq!(latest_after, latest_before);
+}
+
+#[test]
+fn backup_waits_for_a_complete_store_generation() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Corpus files
+    let claims_rel = "corpus/registers/claims.csv";
+    let questions_rel = "corpus/registers/questions.csv";
+    let claims_path = fix.tree_root().join(claims_rel);
+    let questions_path = fix.tree_root().join(questions_rel);
+
+    let old_claims = std::fs::read(&claims_path).expect("read old claims");
+    let old_questions = std::fs::read(&questions_path).expect("read old questions");
+
+    let mut new_claims = old_claims.clone();
+    new_claims.extend_from_slice(b"# gen-marker-1\n");
+    let mut new_questions = old_questions.clone();
+    new_questions.extend_from_slice(b"# gen-marker-2\n");
+
+    let claims_sha = Sha256::digest(&new_claims);
+    let questions_sha = Sha256::digest(&new_questions);
+
+    let ws = fieldbook_core::audit::WriteSet {
+        labels: LabelSet::public(),
+        files: vec![
+            fieldbook_core::audit::WriteFile::new(claims_rel, claims_sha.as_str().to_owned()),
+            fieldbook_core::audit::WriteFile::new(questions_rel, questions_sha.as_str().to_owned()),
+        ],
+        affected: vec![
+            fieldbook_core::audit::RecordRef::parse("corpus/CL-CMP-0001").expect("ref"),
+            fieldbook_core::audit::RecordRef::parse("corpus/Q-001").expect("ref"),
+        ],
+    };
+    let intent = fieldbook_core::audit::OperationIntent {
+        schema: 1,
+        key: fieldbook_core::audit::OperationKey::new(
+            fieldbook_core::audit::Verb::parse("add").expect("verb"),
+            Sha256::digest(b"subj"),
+        ),
+        request_sha256: Sha256::digest(b"req"),
+        allocated: vec![
+            fieldbook_core::audit::RecordRef::parse("corpus/CL-CMP-0001").expect("ref"),
+        ],
+        allocated_store_uid: None,
+        planned_on: fieldbook_core::CivilDate::from_ymd(2026, 3, 1).expect("valid date"),
+    };
+
+    let mut journal = Journal::open(&fix.world, fix.state_dir(), Via::Cli).expect("open journal");
+    let lease = fix.world.write_lease().expect("acquire write lease");
+    let token = journal
+        .begin(&lease, &intent, &ws)
+        .expect("begin store write");
+
+    // Write file 1 only: pause before writing file 2
+    fieldbook::io::journal::write_sync_file(&claims_path, &new_claims).expect("write file 1");
+
+    // 1. Timeout test: while writer holds store lease, short lock timeout makes backup time out
+    set_lock_timeout_for_test(Some(Duration::from_millis(50)));
+    let outcome_timeout = run_backup(&fix.world, &eff, &options);
+    set_lock_timeout_for_test(None);
+    assert_eq!(
+        outcome_timeout.code, 3,
+        "backup racing mid-generation must time out on store lease"
+    );
+    assert!(
+        !fix.target_path().join("fieldbook-backup-0001").exists(),
+        "timed-out backup must write no snapshot"
+    );
+
+    // 2. Wait and copy complete generation test:
+    let (tx_ready, rx_ready) = std::sync::mpsc::channel();
+    let root_bg = fix.tree_root().to_path_buf();
+    let state_bg = fix.state_dir().to_path_buf();
+
+    let backup_handle = std::thread::spawn(move || {
+        let b_world = TestWorld::with_state(&root_bg, &state_bg);
+        let tree = fieldbook::io::read_tree(b_world.tree_root()).expect("read tree");
+        if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+            &tree,
+            "1111111111111111111111111111111111111111",
+        ) {
+            let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+            b_world.set_support_catalogue(cat, cat_sha);
+        }
+        let b_eff = floor_a_effective();
+        let b_opts = BackupOptions {
+            target: Some("main".to_string()),
+            to: None,
+            dry_run: false,
+        };
+        tx_ready.send(()).expect("send ready");
+        run_backup(&b_world, &b_eff, &b_opts)
+    });
+
+    rx_ready.recv().expect("rx ready");
+    // Small sleep so backup thread is blocked on store lease
+    std::thread::sleep(Duration::from_millis(40));
+
+    // Writer writes file 2, finishes transaction, releases lease
+    fieldbook::io::journal::write_sync_file(&questions_path, &new_questions).expect("write file 2");
+    journal
+        .end(token, Word::new_static("ok"))
+        .expect("end store write");
+    drop(lease);
+
+    // Backup thread completes now
+    let outcome_wait = backup_handle.join().expect("join backup thread");
+    assert_eq!(
+        outcome_wait.code, 0,
+        "backup must wait and succeed: {}",
+        outcome_wait.stderr
+    );
+
+    // Verify snapshot 1 contains BOTH new files (complete generation!)
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    assert!(snap_dir.is_dir());
+    let snap_claims =
+        std::fs::read(snap_dir.join(format!("data/{claims_rel}"))).expect("read snap claims");
+    assert_eq!(
+        snap_claims, new_claims,
+        "snapshot must contain file 1 from generation"
+    );
+    let snap_questions =
+        std::fs::read(snap_dir.join(format!("data/{questions_rel}"))).expect("read snap questions");
+    assert_eq!(
+        snap_questions, new_questions,
+        "snapshot must contain file 2 from generation"
+    );
+}
+
+#[test]
+fn audit_only_backup_under_floor_a_and_loaded_policy_refuses_unknown_file() {
+    let fix = TestFixture::new();
+    let eff_floor = floor_a_effective();
+
+    // 1. Audit-only target under Floor A
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"audit-only\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"audit\"]\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, &settings_text).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("audit-only".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Clean audit-only backup succeeds
+    let out_clean = run_backup(&fix.world, &eff_floor, &options);
+    assert_eq!(
+        out_clean.code, 0,
+        "clean audit backup under floor A must succeed: {}",
+        out_clean.stderr
+    );
+
+    // Plant an unknown file in state/audit/
+    let unknown_audit = fix.state_dir().join("audit/unknown-report.txt");
+    std::fs::write(&unknown_audit, b"stray unlabelled artifact\n").expect("write unknown file");
+
+    let out_stray = run_backup(&fix.world, &eff_floor, &options);
+    assert_eq!(
+        out_stray.code, 2,
+        "unknown file in state/audit must refuse with exit 2 (FB0901) under floor A"
+    );
+    assert!(out_stray.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0002").exists());
+
+    let _ = std::fs::remove_file(&unknown_audit);
+
+    // 2. Audit-only target under Loaded Policy
+    // Parse policy permitting public data at target path prefix
+    let target_prefix = fix.target_path().to_string_lossy().replace('\\', "/");
+    let policy_toml = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied"]
+
+[[destination]]
+kind = "backup"
+allow = ["public"]
+paths = ["{target_prefix}"]
+"#
+    );
+    let parsed_policy = Policy::parse(&policy_toml, None).expect("parse policy");
+    let eff_loaded =
+        EffectivePolicy::new(&PolicyState::Loaded(parsed_policy), &OwnerSettings::unset());
+
+    // Clean audit backup succeeds under loaded policy
+    let out_loaded_clean = run_backup(&fix.world, &eff_loaded, &options);
+    assert_eq!(
+        out_loaded_clean.code, 0,
+        "clean audit backup under loaded policy must succeed: {}",
+        out_loaded_clean.stderr
+    );
+
+    // Plant unknown file in state/audit/ again
+    std::fs::write(&unknown_audit, b"stray unlabelled artifact 2\n").expect("write unknown file");
+
+    let out_loaded_stray = run_backup(&fix.world, &eff_loaded, &options);
+    assert_eq!(
+        out_loaded_stray.code, 2,
+        "unknown file in state/audit must refuse with exit 2 (FB0901) under loaded policy"
+    );
+    assert!(out_loaded_stray.stderr.contains("FB0901"));
+    let _ = std::fs::remove_file(&unknown_audit);
+}
+
+#[test]
+fn backup_git_guard_uses_the_shared_context() {
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let git_repo = tmp.path().join("git-repo");
+    std::fs::create_dir_all(git_repo.join(".git")).expect("create .git");
+    std::fs::write(git_repo.join(".gitignore"), ".fieldbook\n").expect("write gitignore");
+
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    support::copy_dir_recursive(&corpus_mini, &git_repo).expect("copy corpus-mini");
+
+    let state = git_repo.join(".fieldbook");
+    support::copy_dir_recursive(&state_mini, &state).expect("copy state");
+
+    let git_target = git_repo.join("backup-target");
+    std::fs::create_dir_all(&git_target).expect("create git target");
+    let outside_target = tmp.path().join("outside-target");
+    std::fs::create_dir_all(&outside_target).expect("create outside target");
+
+    let world = TestWorld::with_state(&git_repo, &state);
+    let tree = fieldbook::io::read_tree(world.tree_root()).expect("tree");
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
+    }
+    let eff = floor_a_effective();
+
+    // 1. Outside git target passes
+    let options_outside = BackupOptions {
+        target: None,
+        to: Some(outside_target.clone()),
+        dry_run: false,
+    };
+    let out_outside = run_backup(&world, &eff, &options_outside);
+    assert_eq!(
+        out_outside.code, 0,
+        "outside-git target must pass: {}",
+        out_outside.stderr
+    );
+    assert!(outside_target.join("fieldbook-backup-0001").is_dir());
+
+    // 2. Full backup (containing owner-supplied settings.toml) to target under .git is REFUSED with FB0415
+    let sentinel = git_target.join("survivor.txt");
+    std::fs::write(&sentinel, b"sentinel bytes\n").expect("write sentinel");
+
+    let options_git = BackupOptions {
+        target: None,
+        to: Some(git_target.clone()),
+        dry_run: false,
+    };
+    let out_git = run_backup(&world, &eff, &options_git);
+    assert_eq!(
+        out_git.code, 1,
+        "backup target under .git must refuse owner-supplied labels with exit 1 (FB0415)"
+    );
+    assert!(out_git.stderr.contains("FB0415"));
+    assert!(
+        !git_target.join("fieldbook-backup-0001").exists(),
+        "no snapshot must be created under git"
+    );
+    assert!(!git_target.join("fieldbook-backup-0001.partial").exists());
+    assert_eq!(
+        std::fs::read(&sentinel).expect("read sentinel"),
+        b"sentinel bytes\n",
+        "existing target bytes must survive"
+    );
+
+    // 3. Public-only included target under .git passes
+    let settings_path = state.join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"git-audit\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"audit\"]\n",
+        git_target.to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let options_git_audit = BackupOptions {
+        target: Some("git-audit".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let out_git_audit = run_backup(&world, &eff, &options_git_audit);
+    assert_eq!(
+        out_git_audit.code, 0,
+        "public-only backup under .git must pass: {}",
+        out_git_audit.stderr
+    );
+    assert!(git_target.join("fieldbook-backup-0001").is_dir());
+
+    // 4. Owner-supplied under Git passes only in ignored Home State / drill
+    let drill_path = state.join("drill/restore");
+    let ctx_drill =
+        fieldbook::io::root::git_context(&world, &drill_path).expect("git context drill");
+    assert_eq!(
+        ctx_drill,
+        fieldbook_core::labels::GitContext::ignored_home_state()
+    );
+    let owner_labels = LabelSet::owner_supplied();
+    assert!(
+        fieldbook_core::labels::git_guard(&owner_labels, ctx_drill).is_ok(),
+        "owner-supplied labels must pass in ignored home state drill"
+    );
+
+    // 5. Unignored State under .git refuses owner-supplied (FB0415)
+    std::fs::write(git_repo.join(".gitignore"), "# nothing ignored\n")
+        .expect("write empty gitignore");
+    let ctx_unignored =
+        fieldbook::io::root::git_context(&world, &drill_path).expect("git context unignored");
+    assert!(
+        !ctx_unignored.ignored_home_state,
+        "unignored state must not have ignored_home_state set"
+    );
+    assert!(
+        fieldbook_core::labels::git_guard(&owner_labels, ctx_unignored).is_err(),
+        "unignored state under .git must refuse owner-supplied labels"
+    );
+}
+
+#[test]
+fn the_leak_matrix_plants_a_canary_in_working_in_the_site_and_in_a_stray_file() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Plant 1: Canary in derived site folder (corpus/out/edition/canary.txt)
+    let derived_site_canary = fix.tree_root().join("corpus/out/edition/canary.txt");
+    std::fs::create_dir_all(derived_site_canary.parent().expect("parent")).expect("create parent");
+    std::fs::write(&derived_site_canary, b"CANARY_IN_DERIVED_SITE_31415\n")
+        .expect("write derived canary");
+
+    let out1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        out1.code, 0,
+        "backup with derived site folder must succeed: {}",
+        out1.stderr
+    );
+
+    let snap1_dir = fix.target_path().join("fieldbook-backup-0001");
+    let sums_text = std::fs::read_to_string(snap1_dir.join("SHA256SUMS")).expect("read sums");
+    assert!(
+        !sums_text.contains("CANARY_IN_DERIVED_SITE_31415"),
+        "derived site canary must not appear in snapshot sums"
+    );
+    assert!(
+        !sums_text.contains("corpus/out/"),
+        "derived folder must not be copied"
+    );
+
+    // Plant 2: Canary in stray folder (state/working/)
+    let working_canary = fix.state_dir().join("working/canary.txt");
+    std::fs::create_dir_all(working_canary.parent().expect("parent")).expect("create parent");
+    std::fs::write(&working_canary, b"CANARY_IN_WORKING_STRAY_92653\n")
+        .expect("write working canary");
+
+    let out2 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        out2.code, 2,
+        "canary in working/ stray folder must cause refusal FB0901: {}",
+        out2.stderr
+    );
+    assert!(out2.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0002").exists());
+
+    let _ = std::fs::remove_file(&working_canary);
+
+    // Plant 3: Canary in stray file (corpus/stray.dat)
+    let stray_file = fix.tree_root().join("corpus/stray.dat");
+    std::fs::write(&stray_file, b"CANARY_IN_STRAY_FILE_58979\n").expect("write stray file");
+
+    let out3 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        out3.code, 2,
+        "canary in stray file must cause refusal FB0901: {}",
+        out3.stderr
+    );
+    assert!(out3.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0002").exists());
+}
+
+#[test]
+fn snapshot_labels_are_the_union() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let (model, _) = fieldbook_core::check::load(
+        &fieldbook_core::check::Host::new(
+            fieldbook::io::read_tree(fix.tree_root()).expect("read tree"),
+            fix.world.today(),
+        ),
+        &fieldbook_core::check::Options::new(false),
+    );
+
+    let listing = fieldbook::io::backup_classify::enumerate_roots(&fix.world);
+    let mut files = Vec::new();
+    for rel in &listing {
+        let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel);
+        let cf = fieldbook::io::backup_classify::classify_file(
+            &fix.world,
+            Some(&model),
+            &eff,
+            rel,
+            &bytes,
+        );
+        files.push(cf);
+    }
+    let union_labels = fieldbook_core::backup::snapshot_labels(&files);
+    assert_eq!(union_labels, LabelSet::owner_supplied());
+    assert!(union_labels.contains(&OWNER_SUPPLIED));
+
+    // A public-only subset yields public
+    let public_files: Vec<_> = files
+        .iter()
+        .filter(|f| f.path.starts_with("corpus/"))
+        .cloned()
+        .collect();
+    let public_union = fieldbook_core::backup::snapshot_labels(&public_files);
+    assert_eq!(public_union, LabelSet::public());
+    assert!(public_union.contains(&fieldbook_core::labels::PUBLIC));
+
+    // Plant a page with custom handling
+    let custom_page = fix.tree_root().join("corpus/pages/estimating/custom.md");
+    let custom_content = "+++\nid = \"custom-page\"\ntitle = \"Custom\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nCustom.\n";
+    std::fs::write(&custom_page, custom_content).expect("write custom page");
+
+    let listing2 = fieldbook::io::backup_classify::enumerate_roots(&fix.world);
+    let mut files2 = Vec::new();
+    for rel in &listing2 {
+        let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel);
+        let cf = fieldbook::io::backup_classify::classify_file(&fix.world, None, &eff, rel, &bytes);
+        files2.push(cf);
+    }
+    let union_labels2 = fieldbook_core::backup::snapshot_labels(&files2);
+    let custom_id = fieldbook_core::audit::LabelId::parse("np-0007").expect("parse id");
+    assert!(union_labels2.contains(&custom_id));
+    assert!(union_labels2.contains(&OWNER_SUPPLIED));
+    assert_eq!(
+        union_labels2,
+        LabelSet::from_ids([OWNER_SUPPLIED, custom_id])
+    );
 }

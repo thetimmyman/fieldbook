@@ -10,6 +10,7 @@
 
 use std::path::Path;
 
+pub mod backup_suite;
 pub mod faulty;
 pub mod state;
 pub mod world;

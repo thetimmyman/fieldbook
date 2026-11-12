@@ -74,6 +74,21 @@ impl FaultyWorld {
         }
     }
 
+    /// Forward fault arming to inner world.
+    pub fn set_fault(&self, fault: Option<Fault>) {
+        self.inner.set_fault(fault);
+    }
+
+    /// Forward rename fault injection to inner world.
+    pub fn inject_rename_fault(&self, target: &Path, snapshot: fieldbook_core::backup::Number) {
+        self.inner.inject_rename_fault(target, snapshot);
+    }
+
+    /// Forward rename fault clearing to inner world.
+    pub fn clear_rename_fault(&self, target: &Path, snapshot: fieldbook_core::backup::Number) {
+        self.inner.clear_rename_fault(target, snapshot);
+    }
+
     fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
         let actual = path.file_name().and_then(|n| n.to_str());
         match self.fault {

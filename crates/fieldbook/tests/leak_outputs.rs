@@ -1193,6 +1193,10 @@ fn run_backup_surface() {
     };
     let mut journal =
         state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let policy_sha = Sha256::parse(allowed.policy_hash()).unwrap_or_else(|e| panic!("{e}"));
+    let _prep = journal
+        .prepare_backup_begin(&LabelSet::public(), &policy_sha, 1)
+        .unwrap_or_else(|e| panic!("{e}"));
     let audited = journal
         .begin_backup(&allowed, &target_path, "folder", 1)
         .unwrap_or_else(|e| panic!("{e}"));
