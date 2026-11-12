@@ -13,7 +13,8 @@ use std::process::{Command, Stdio};
 use fieldbook_core::extraction::methods::{PDFTOTEXT_LAYOUT, PDFTOTEXT_LAYOUT_ID};
 use fieldbook_core::extraction::{
     ExtractError, Extraction, ExtractionToml, Extractor, LocatorPages, MAX_ORIGINAL_BYTES,
-    PageText, SUPPLIED_TOOL, SUPPLIED_TOOL_VERSION, build_record, page_file_name, select,
+    MAX_PAGES, PageText, SUPPLIED_TOOL, SUPPLIED_TOOL_VERSION, build_record, page_file_name,
+    select,
 };
 use fieldbook_core::ids::VersionId;
 
@@ -355,6 +356,14 @@ fn extract_one(
         }
     };
 
+    if extraction.pages.len() > MAX_PAGES {
+        let n = extraction.pages.len();
+        err.push(format!(
+            "{id}: {n} pages, over the {MAX_PAGES}-page limit; nothing written"
+        ));
+        return OneOutcome::Failure;
+    }
+
     let (tool, tool_version) = if is_pdf {
         let ver = match settings.pdf.tool_version() {
             Ok(v) => v,
@@ -501,6 +510,14 @@ pub fn run_supplied(root: &Path, version: &str, text_file: &Path) -> Outcome {
             return Outcome { exit: 1, out, err };
         }
     };
+
+    if extraction.pages.len() > MAX_PAGES {
+        let n = extraction.pages.len();
+        err.push(format!(
+            "{version}: {n} pages, over the {MAX_PAGES}-page limit; nothing written"
+        ));
+        return Outcome { exit: 1, out, err };
+    }
 
     for page in &extraction.pages {
         let findings = fieldbook_core::scan::marking::scan(&page.text);
@@ -1059,6 +1076,73 @@ Synthetic section text for the extraction tests, long enough that no page is thi
             p0001_bytes,
             b"Synthetic line 1 with CRLF\nSynthetic line 2 with CRLF\n"
         );
+    }
+
+    #[test]
+    fn supplied_text_over_9999_pages_is_refused() {
+        let tmp = corpus_with("S-0001-v1", "txt", &long_text());
+        let text_path = tmp.path().join("supplied.txt");
+        let content = "[page break]\n".repeat(9_999);
+        let ext =
+            fieldbook_core::extraction::supplied_text(content.as_bytes()).expect("supplied_text");
+        assert_eq!(ext.pages.len(), 10_000);
+        std::fs::write(&text_path, content.as_bytes()).expect("write supplied text");
+
+        let outcome = run_supplied(tmp.path(), "S-0001-v1", &text_path);
+        assert_eq!(outcome.exit, 1);
+        assert_eq!(outcome.err.len(), 1);
+        assert!(outcome.err[0].contains("S-0001-v1"));
+        assert!(outcome.err[0].contains("10000"));
+        assert!(!text_dir(tmp.path(), "S-0001-v1").exists());
+    }
+
+    #[test]
+    fn supplied_text_boundary_9999_pages_is_accepted() {
+        let tmp = corpus_with("S-0001-v1", "txt", &long_text());
+        let text_path = tmp.path().join("supplied.txt");
+        let content = "[page break]\n".repeat(9_998);
+        std::fs::write(&text_path, content.as_bytes()).expect("write supplied text");
+
+        let outcome = run_supplied(tmp.path(), "S-0001-v1", &text_path);
+        assert_eq!(outcome.exit, 0);
+
+        let tdir = text_dir(tmp.path(), "S-0001-v1");
+        assert!(tdir.join("p9999.txt").exists());
+        assert!(!tdir.join("p10000.txt").exists());
+    }
+
+    #[test]
+    fn existing_text_dir_is_unchanged_after_refused_supplied_run() {
+        let tmp = corpus_with("S-0001-v1", "txt", &long_text());
+        let tdir = text_dir(tmp.path(), "S-0001-v1");
+        std::fs::create_dir_all(&tdir).expect("create_dir_all");
+        let p0001_path = tdir.join("p0001.txt");
+        let marker_path = tdir.join("marker.txt");
+        let p0001_initial = b"existing p0001 content\n";
+        let marker_initial = b"existing marker content\n";
+        std::fs::write(&p0001_path, p0001_initial).expect("write p0001");
+        std::fs::write(&marker_path, marker_initial).expect("write marker");
+
+        let text_path = tmp.path().join("supplied.txt");
+        let content = "[page break]\n".repeat(9_999);
+        std::fs::write(&text_path, content.as_bytes()).expect("write supplied text");
+
+        let outcome = run_supplied(tmp.path(), "S-0001-v1", &text_path);
+        assert_eq!(outcome.exit, 1);
+        assert_eq!(outcome.err.len(), 1);
+        assert!(outcome.err[0].contains("S-0001-v1"));
+        assert!(outcome.err[0].contains("10000"));
+
+        assert_eq!(
+            std::fs::read(&p0001_path).expect("read p0001"),
+            p0001_initial
+        );
+        assert_eq!(
+            std::fs::read(&marker_path).expect("read marker"),
+            marker_initial
+        );
+        assert!(!tdir.join("p10000.txt").exists());
+        assert!(!tdir.join("extraction.toml").exists());
     }
 
     #[test]

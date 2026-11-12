@@ -19,6 +19,9 @@ pub use methods::{ExtractionMethod, METHODS, Method};
 /// Maximum original file size in bytes (32 MiB).
 pub const MAX_ORIGINAL_BYTES: u64 = 33_554_432;
 
+/// Maximum pages in one extraction: page files are named pNNNN.txt, so four digits.
+pub const MAX_PAGES: usize = 9_999;
+
 /// Character threshold below which a trimmed page is considered thin.
 pub const THIN_PAGE_CHARS: usize = 40;
 
@@ -435,43 +438,50 @@ fn strip_html(input: &str) -> String {
 
                     if !is_closing && (tag_name == "script" || tag_name == "style") {
                         pos += end_idx + 1;
-                        let closing_name = if tag_name == "script" {
-                            "script"
+                        if tag_inner.trim_end().ends_with('/') {
+                            // XML empty-element form: complete tag, opens no skip region.
                         } else {
-                            "style"
-                        };
-                        let mut found_close = false;
-                        let mut search_offset = 0;
-                        while let Some(current_rest) = input.get(pos + search_offset..) {
-                            if let Some(rel_idx) = current_rest.find("</") {
-                                let candidate_start = search_offset + rel_idx;
-                                if let Some(after_open) = input.get(pos + candidate_start + 2..) {
-                                    let name_len = closing_name.len();
-                                    if after_open.len() >= name_len
-                                        && after_open
-                                            .get(..name_len)
-                                            .is_some_and(|s| s.eq_ignore_ascii_case(closing_name))
+                            let closing_name = if tag_name == "script" {
+                                "script"
+                            } else {
+                                "style"
+                            };
+                            let mut found_close = false;
+                            let mut search_offset = 0;
+                            while let Some(current_rest) = input.get(pos + search_offset..) {
+                                if let Some(rel_idx) = current_rest.find("</") {
+                                    let candidate_start = search_offset + rel_idx;
+                                    if let Some(after_open) = input.get(pos + candidate_start + 2..)
                                     {
-                                        let rest_after = after_open.get(name_len..).unwrap_or("");
-                                        let next_char = rest_after.chars().next();
-                                        if matches!(
-                                            next_char,
-                                            None | Some('>' | '/' | ' ' | '\t' | '\r' | '\n')
-                                        ) && let Some(close_gt) = rest_after.find('>')
+                                        let name_len = closing_name.len();
+                                        if after_open.len() >= name_len
+                                            && after_open.get(..name_len).is_some_and(|s| {
+                                                s.eq_ignore_ascii_case(closing_name)
+                                            })
                                         {
-                                            pos += candidate_start + 2 + name_len + close_gt + 1;
-                                            found_close = true;
-                                            break;
+                                            let rest_after =
+                                                after_open.get(name_len..).unwrap_or("");
+                                            let next_char = rest_after.chars().next();
+                                            if matches!(
+                                                next_char,
+                                                None | Some('>' | '/' | ' ' | '\t' | '\r' | '\n')
+                                            ) && let Some(close_gt) = rest_after.find('>')
+                                            {
+                                                pos +=
+                                                    candidate_start + 2 + name_len + close_gt + 1;
+                                                found_close = true;
+                                                break;
+                                            }
                                         }
                                     }
+                                    search_offset = candidate_start + 2;
+                                } else {
+                                    break;
                                 }
-                                search_offset = candidate_start + 2;
-                            } else {
+                            }
+                            if !found_close {
                                 break;
                             }
-                        }
-                        if !found_close {
-                            break;
                         }
                     } else {
                         pos += end_idx + 1;
@@ -1454,6 +1464,40 @@ mod tests {
             ext.pages[0].text,
             "Synthetic & < > \" ' foo bar\n\nDecimal: © Hex: € Invalid: &#99999999999;\n"
         );
+    }
+
+    #[test]
+    fn html_strip_keeps_text_after_a_self_closing_script() {
+        let doc = "<html><head><script src=\"a.js\"/></head><body>\
+                   <p>This synthetic paragraph contains well over forty characters for testing extraction.</p>\
+                   </body></html>";
+        let ext = HtmlStrip.extract(doc.as_bytes()).expect("extract xhtml");
+        let para =
+            "This synthetic paragraph contains well over forty characters for testing extraction.";
+        assert!(ext.pages[0].text.contains(para));
+        assert!(ext.pages[0].text.trim().chars().count() >= THIN_PAGE_CHARS);
+        assert!(thin_page_numbers(&ext.pages).is_empty());
+    }
+
+    #[test]
+    fn html_strip_a_self_closing_script_does_not_swallow_a_later_inline_script() {
+        let doc = "<html><head><script src=\"a.js\"/></head><body>\
+                   <p>First synthetic paragraph.</p>\
+                   <p>Second synthetic paragraph.</p>\
+                   <script>var x = 1;</script>\
+                   <p>Third synthetic paragraph.</p>\
+                   </body></html>";
+        let ext = HtmlStrip.extract(doc.as_bytes()).expect("extract html");
+        assert!(ext.pages[0].text.contains("First synthetic paragraph."));
+        assert!(ext.pages[0].text.contains("Third synthetic paragraph."));
+        assert!(!ext.pages[0].text.contains("var x"));
+    }
+
+    #[test]
+    fn html_strip_keeps_svg_text_after_a_self_closing_style() {
+        let doc = "<svg><style/><text>Synthetic SVG text content</text></svg>";
+        let ext = HtmlStrip.extract(doc.as_bytes()).expect("extract svg");
+        assert!(ext.pages[0].text.contains("Synthetic SVG text content"));
     }
 
     #[test]
