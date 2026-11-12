@@ -205,8 +205,8 @@
       'the last row is the Search row');
     check(a && a.getAttribute('href') === 'search.html#q=' + encodeURIComponent(text),
       differ('Search href', 'search.html#q=' + encodeURIComponent(text), a && a.getAttribute('href')));
-    check(a && a.textContent === 'Search for ' + text,
-      differ('Search text', 'Search for ' + text, a && a.textContent));
+    check(a && a.textContent === 'Search for \u201c' + text + '\u201d',
+      differ('Search text', 'Search for \u201c' + text + '\u201d', a && a.textContent));
   }
 
   async function shortcutCases() {
@@ -282,6 +282,29 @@
       check(document.activeElement === link, 'Esc returns focus to the link');
     });
 
+    await guarded('shortcuts_dialog_has_an_accessible_name', async function (check) {
+      key('?', { shiftKey: true }, document.body);
+      check(keys().open, 'the dialog is open');
+      var labelledby = keys().getAttribute('aria-labelledby');
+      var name = '';
+      if (labelledby && labelledby.trim() !== '') {
+        name = labelledby.trim().split(/\s+/).map(function (id) {
+          var el = document.getElementById(id);
+          return el ? el.textContent.trim() : '';
+        }).filter(function (s) { return s.length > 0; }).join(' ');
+      } else {
+        name = (keys().getAttribute('aria-label') || '').trim();
+      }
+      var heading = keys().querySelector('h2');
+      check(name !== '', 'the dialog has no accessible name');
+      check(heading && name === heading.textContent.trim(),
+        differ('dialog name', heading && heading.textContent.trim(), name));
+      check(keys().getAttribute('aria-labelledby') === 'fb:keysTitle',
+        differ('aria-labelledby', 'fb:keysTitle', keys().getAttribute('aria-labelledby')));
+      check(heading && heading.id === 'fb:keysTitle',
+        differ('heading id', 'fb:keysTitle', heading && heading.id));
+    });
+
     await guarded('modal_dialogs_contain_focus', async function (check) {
       key('k', { ctrlKey: true }, document.body);
       check(pal().matches(':modal'), 'the palette is modal');
@@ -343,7 +366,8 @@
       check(r.opts[0].getAttribute('aria-selected') === 'true', 'the first row is selected');
       check($('fb:palIn').getAttribute('aria-activedescendant') === r.opts[0].id, 'activedescendant');
       check($('fb:palIn').getAttribute('aria-autocomplete') === 'list', 'aria-autocomplete is list');
-      check(!$('fb:palIn').hasAttribute('placeholder'), 'no placeholder the spec does not write');
+      check($('fb:palIn').getAttribute('placeholder') === 'Pages, clauses and terms\u2026',
+        differ('placeholder', 'Pages, clauses and terms\u2026', $('fb:palIn').getAttribute('placeholder')));
     });
 
     await guarded('palette_duplicates_appear_once', async function (check) {
@@ -457,6 +481,98 @@
       key('Enter', {}, $('fb:palIn'));
       check(same(followed, ['search.html#q=zzzq%20nothing']), differ('followed', ['search.html#q=zzzq%20nothing'], followed));
       check(!pal().open, 'the Search row closes the palette');
+    });
+
+    await guarded('palette_roles_follow_the_design', async function (check) {
+      var r = await search('ca');
+      var input = $('fb:palIn');
+      var list = $('fb:palList');
+      check(input.getAttribute('role') === 'combobox',
+        differ('input role', 'combobox', input.getAttribute('role')));
+      check(input.getAttribute('aria-controls') === list.id && list.id === 'fb:palList',
+        differ('input aria-controls', 'fb:palList', input.getAttribute('aria-controls')));
+      check(input.getAttribute('aria-expanded') === 'true',
+        differ('input aria-expanded', 'true', input.getAttribute('aria-expanded')));
+      check(input.getAttribute('aria-autocomplete') === 'list',
+        differ('input aria-autocomplete', 'list', input.getAttribute('aria-autocomplete')));
+      check(list.getAttribute('role') === 'listbox' && Boolean(list.getAttribute('aria-label') && list.getAttribute('aria-label').trim() !== ''),
+        'list role is listbox and list has a non-empty aria-label');
+      var firstNonOption = null;
+      for (var i = 0; i < r.opts.length; i += 1) {
+        if (r.opts[i].getAttribute('role') !== 'option') {
+          firstNonOption = r.opts[i].id || ('index ' + i);
+          break;
+        }
+      }
+      check(r.opts.length > 0 && !firstNonOption,
+        firstNonOption ? 'option without role option: ' + firstNonOption : 'options list is empty');
+      var selectedCount = 0;
+      var allSelectedValid = r.opts.length > 0;
+      for (var j = 0; j < r.opts.length; j += 1) {
+        var sel = r.opts[j].getAttribute('aria-selected');
+        if (sel === 'true') {
+          selectedCount += 1;
+        } else if (sel !== 'false') {
+          allSelectedValid = false;
+        }
+      }
+      check(allSelectedValid && selectedCount === 1,
+        'every option aria-selected is true or false and exactly one is true (found ' + selectedCount + ' true)');
+      check(pal().getAttribute('aria-label') === 'Search the library' && pal().matches(':modal'),
+        'palette aria-label is Search the library and is modal');
+    });
+
+    await guarded('palette_arrow_keys_move_the_active_option', async function (check) {
+      var r = await search('ca');
+      function state() {
+        var selectedIdx = -1;
+        var selectedCount = 0;
+        for (var i = 0; i < r.opts.length; i += 1) {
+          if (r.opts[i].getAttribute('aria-selected') === 'true') {
+            selectedCount += 1;
+            selectedIdx = i;
+          }
+        }
+        return {
+          selected: selectedCount === 1 ? selectedIdx : -1,
+          active: $('fb:palIn').getAttribute('aria-activedescendant')
+        };
+      }
+
+      var s = state();
+      check(s.selected === 0 && s.active === r.opts[0].id,
+        differ('initially', { selected: 0, active: r.opts[0].id }, s));
+
+      var ev = key('ArrowDown', {}, $('fb:palIn'));
+      check(ev.defaultPrevented, 'ArrowDown defaultPrevented is true');
+      s = state();
+      check(s.selected === 1 && s.active === r.opts[1].id,
+        differ('ArrowDown', { selected: 1, active: r.opts[1].id }, s));
+
+      key('ArrowDown', {}, $('fb:palIn'));
+      s = state();
+      check(s.selected === 2 && s.active === r.opts[2].id,
+        differ('ArrowDown again', { selected: 2, active: r.opts[2].id }, s));
+
+      var upEv = key('ArrowUp', {}, $('fb:palIn'));
+      check(upEv.defaultPrevented, 'ArrowUp defaultPrevented is true');
+      s = state();
+      check(s.selected === 1 && s.active === r.opts[1].id,
+        differ('ArrowUp', { selected: 1, active: r.opts[1].id }, s));
+
+      key('ArrowUp', {}, $('fb:palIn'));
+      key('ArrowUp', {}, $('fb:palIn'));
+      s = state();
+      check(s.selected === 0 && s.active === r.opts[0].id,
+        differ('ArrowUp twice more', { selected: 0, active: r.opts[0].id }, s));
+
+      for (var k = 0; k < 20; k += 1) {
+        key('ArrowDown', {}, $('fb:palIn'));
+      }
+      s = state();
+      var lastIdx = r.opts.length - 1;
+      check(s.selected === lastIdx && s.active === r.opts[lastIdx].id,
+        differ('ArrowDown 20 times', { selected: lastIdx, active: r.opts[lastIdx].id }, s));
     });
   }
 
