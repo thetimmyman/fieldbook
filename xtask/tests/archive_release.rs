@@ -2031,3 +2031,96 @@ fn site_archive_refuses_a_failing_browser_summary() {
     assert_failure(&out_verify, "verify-archive with failing verdict");
     assert_stderr_contains(&out_verify, "verdict");
 }
+
+/// Runs `archive-release` for a tool package whose `fieldbook` script or descriptor was altered
+/// by `tamper` after the honest builder wrote it.
+#[cfg(unix)]
+fn archive_tampered_tool(tamper: &dyn Fn(&Path, &str)) -> (tempfile::TempDir, Output, PathBuf) {
+    let tmp = tempfile::TempDir::new().unwrap_or_else(|e| panic!("tempdir: {e}"));
+    let commit = "a".repeat(40);
+    let pkg_dir = tmp.path().join("pkg-v0.1.0");
+    build_synthetic_tool_package(&pkg_dir, "v0.1.0", &commit);
+    tamper(&pkg_dir, &commit);
+
+    let ed_dir = tmp.path().join("ed-001");
+    build_synthetic_edition_set(
+        &ed_dir,
+        "001",
+        &commit,
+        DeliveryKind::Site,
+        &default_source_specs(),
+        None,
+    );
+    let baseline = "baseline_schema = 1\n\n[compatibility]\nkind = \"empty\"\n\n[tool]\nkind = \"empty\"\n\n[edition]\nkind = \"empty\"\n";
+    let ev_dir = tmp.path().join("ev");
+    build_synthetic_evidence_dir(&ev_dir, baseline, None, b"vector = 1\n");
+
+    let base_file = ev_dir.join("release-baseline.toml");
+    let to_dir = tmp.path().join("archives");
+    let pkg_str = pkg_dir.to_str().unwrap_or_else(|| panic!("utf8"));
+    let ed_str = ed_dir.to_str().unwrap_or_else(|| panic!("utf8"));
+    let ev_str = ev_dir.to_str().unwrap_or_else(|| panic!("utf8"));
+    let base_str = base_file.to_str().unwrap_or_else(|| panic!("utf8"));
+    let to_str = to_dir.to_str().unwrap_or_else(|| panic!("utf8"));
+    let out = run_xtask(
+        &[
+            "archive-release",
+            "--package",
+            pkg_str,
+            "--edition",
+            ed_str,
+            "--evidence",
+            ev_str,
+            "--base",
+            base_str,
+            "--to",
+            to_str,
+        ],
+        tmp.path(),
+        None,
+    );
+    (tmp, out, to_dir)
+}
+
+#[test]
+#[cfg(unix)]
+fn tool_archive_refuses_a_package_that_reports_another_commit() {
+    let (tmp, out, to_dir) = archive_tampered_tool(&|pkg, _commit| {
+        let other = "b".repeat(40);
+        let script = format!("#!/bin/sh\necho \"fieldbook 0.1.0 ({other})\"\n");
+        fs::write(pkg.join("fieldbook"), &script).unwrap_or_else(|e| panic!("write: {e}"));
+        let sums = format!("{}  fieldbook\n", sha256_hex(script.as_bytes()));
+        fs::write(pkg.join("SHA256SUMS"), sums).unwrap_or_else(|e| panic!("write: {e}"));
+    });
+    // The archive step records the bytes; the restore rehearsal is what runs the program.
+    assert_success(&out, "archive-release records the package bytes");
+    let arch_dir = to_dir.join(format!("v0.1.0-{}", "a".repeat(12)));
+    let restore = tmp.path().join("restore");
+    let arch_str = arch_dir.to_str().unwrap_or_else(|| panic!("utf8"));
+    let restore_str = restore.to_str().unwrap_or_else(|| panic!("utf8"));
+    let verify = run_xtask(
+        &["verify-archive", arch_str, "--restore-to", restore_str],
+        tmp.path(),
+        None,
+    );
+    assert_failure(
+        &verify,
+        "a package reporting another commit fails the rehearsal",
+    );
+    assert_stderr_contains(&verify, "smoke");
+}
+
+#[test]
+#[cfg(unix)]
+fn tool_archive_refuses_a_descriptor_for_another_commit() {
+    let (_tmp, out, _to) = archive_tampered_tool(&|pkg, _commit| {
+        let other = "b".repeat(40);
+        fs::write(
+            pkg.join("package.toml"),
+            format!("tag = \"v0.1.0\"\ncommit = \"{other}\"\n"),
+        )
+        .unwrap_or_else(|e| panic!("write: {e}"));
+    });
+    assert_failure(&out, "a descriptor for another commit is not archived");
+    assert_stderr_contains(&out, "paired edition commit");
+}
