@@ -320,13 +320,19 @@ mod home {
                 "module",
                 "The module card is not available until Release 3.",
             ),
-            ("history", "History is not available until a later release."),
         ];
         for (id, line) in unavailable {
             let body = section(&html, id);
             assert!(body.contains("class=\"unavailable\""), "{id}: {body}");
             assert!(body.contains(line), "{id} must say {line}: {body}");
         }
+        let history = section(&html, "history");
+        assert!(
+            history.contains("Nothing recorded yet. History fills as pages and registers change."),
+            "{history}"
+        );
+        assert!(history.contains("class=\"muted\""), "{history}");
+        assert!(!history.contains("History is not available"), "{history}");
         let library = section(&html, "library-pages");
         assert!(library.contains("No pages in M&#38;A yet."), "{library}");
         assert!(library.contains("sources.html"), "{library}");
@@ -363,7 +369,9 @@ mod home {
         for code in ["cmp", "est", "mna"] {
             assert!(main.contains(&format!("href=\"a/{code}.html\"")), "{code}");
         }
-        assert!(main.contains("Next up is not available until"));
+        assert!(!main.contains("Next up is not available"));
+        assert!(!main.contains("ADR 0001"));
+        assert!(!main.contains("id=\"next-up\""));
         assert!(main.contains("XC-01"), "an open conflict is a change");
         assert!(
             main.contains("p/est-baseline-template.html"),
@@ -612,6 +620,17 @@ mod home {
                 !html.contains("<style"),
                 "{path} must have no style element"
             );
+        }
+    }
+
+    #[test]
+    fn no_page_names_adr_0001() {
+        let site = built(fixture_tree());
+        for (path, bytes) in site.files() {
+            if path.ends_with(".html") {
+                let text = String::from_utf8_lossy(bytes);
+                assert!(!text.contains("ADR 0001"), "{path}");
+            }
         }
     }
 }
