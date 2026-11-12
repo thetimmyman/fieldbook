@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: restore and restore --drill.
 - Added: backup, backup verify and backup list, and a reminder after a write verb when the last verified backup is older than the warning age.
 - Added: the day-one binder and print styles.
 - Changed: the search palette has a placeholder, quoted search text and a named shortcuts dialog.

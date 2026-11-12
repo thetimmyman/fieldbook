@@ -34,6 +34,7 @@ struct TestFixture {
     _tree_dir: tempfile::TempDir,
     _state_dir: tempfile::TempDir,
     target_dir: tempfile::TempDir,
+    scratch: tempfile::TempDir,
     world: TestWorld,
 }
 
@@ -68,8 +69,14 @@ impl TestFixture {
             _tree_dir: tree_dir,
             _state_dir: state_dir,
             target_dir,
+            scratch: tempfile::tempdir().expect("scratch tempdir"),
             world,
         }
+    }
+
+    /// A path outside the data root that does not exist yet and is cleaned up with the fixture.
+    fn dest(&self, name: &str) -> PathBuf {
+        self.scratch.path().join(name)
     }
 
     fn tree_root(&self) -> &Path {
@@ -247,7 +254,7 @@ fn restore_to_a_new_folder_matches_the_snapshot() {
         std::fs::read_to_string(fix.state_dir().join("settings.toml")).expect("read settings");
     let kinds_before = journal_kinds(fix.state_dir());
 
-    let dest = tempfile::tempdir().expect("dest").path().join("restored");
+    let dest = fix.dest("restored");
     assert!(!dest.exists());
 
     let outcome = fix.restore(Some(dest.clone()), false);
@@ -363,7 +370,7 @@ fn restore_of_a_bad_snapshot_names_the_verify_code() {
         content[0] ^= 0xFF;
         std::fs::write(&target_data_file, content).expect("write file");
 
-        let dest1 = tempfile::tempdir().expect("dest").path().join("restored");
+        let dest1 = fix1.dest("restored");
         let outcome1 = fix1.restore(Some(dest1.clone()), false);
         assert_eq!(outcome1.code, 1);
         let first_line = outcome1.stderr.lines().next().unwrap_or("");
@@ -381,7 +388,7 @@ fn restore_of_a_bad_snapshot_names_the_verify_code() {
         let unlisted_file = fix2.snap_dir().join("data/unlisted.txt");
         std::fs::write(&unlisted_file, "unexpected").expect("write unlisted");
 
-        let dest2 = tempfile::tempdir().expect("dest").path().join("restored");
+        let dest2 = fix2.dest("restored");
         let outcome2 = fix2.restore(Some(dest2.clone()), false);
         assert_eq!(outcome2.code, 1);
         assert!(
@@ -400,7 +407,7 @@ fn restore_of_a_bad_snapshot_names_the_verify_code() {
             info.journal_seq = 999_999;
         });
 
-        let dest3 = tempfile::tempdir().expect("dest").path().join("restored");
+        let dest3 = fix3.dest("restored");
         let outcome3 = fix3.restore(Some(dest3.clone()), false);
         assert_eq!(outcome3.code, 1);
         assert!(
@@ -419,7 +426,7 @@ fn restore_from_a_folder_needs_no_settings() {
     let settings_path = fix.state_dir().join("settings.toml");
     std::fs::remove_file(&settings_path).expect("remove settings.toml");
 
-    let dest = tempfile::tempdir().expect("dest").path().join("restored");
+    let dest = fix.dest("restored");
     let options = RestoreOptions {
         snapshot: 1,
         to: Some(dest.clone()),
@@ -438,7 +445,7 @@ fn restore_prints_rename_lines_for_sh_and_powershell() {
     let fix = TestFixture::new();
     fix.backup();
 
-    let dest = tempfile::tempdir().expect("dest").path().join("restored");
+    let dest = fix.dest("restored");
     let outcome = fix.restore(Some(dest.clone()), false);
     assert_eq!(outcome.code, 0, "restore failed: {}", outcome.stderr);
 
@@ -800,7 +807,7 @@ fn restore_events_are_begin_then_end() {
     let out_drill = fix.restore(None, true);
     assert_eq!(out_drill.code, 0);
 
-    let dest = tempfile::tempdir().expect("dest").path().join("restored");
+    let dest = fix.dest("restored");
     let out_real = fix.restore(Some(dest), false);
     assert_eq!(out_real.code, 0);
 
@@ -985,4 +992,1235 @@ fn restore_starts_no_process_and_opens_no_socket() {
             "crates/fieldbook/src/restore.rs contains forbidden token `{token}`"
         );
     }
+}
+
+// ---------------------------------------------------------------------------
+// Second half helpers and integration tests
+// ---------------------------------------------------------------------------
+
+use fieldbook::cli::{BackupArgs, BackupVerifyArgs, RestoreArgs};
+use fieldbook::io::Disk;
+use fieldbook::io::journal::{Journal, RestoreExportRequest};
+use fieldbook_core::audit::{LabelSet, Via};
+use fieldbook_core::backup::{PlannedFile, RestorePlan};
+use fieldbook_core::egress::{
+    Decision, Delivery, Dest, Operation, Shipped, Target, Transfer, check, hash_tree_manifest,
+};
+use fieldbook_core::manifest::SupportCatalogue;
+use fieldbook_core::policy::Policy;
+
+fn make_raw_copy(tree_root: &Path, state_dir: &Path) -> tempfile::TempDir {
+    let raw = tempfile::tempdir().expect("raw tempdir");
+    let corpus_dest = raw.path().join("corpus");
+    let state_dest = raw.path().join("state");
+    support::copy_dir_recursive(&tree_root.join("corpus"), &corpus_dest).expect("copy corpus");
+    support::copy_dir_recursive(state_dir, &state_dest).expect("copy state");
+    raw
+}
+
+fn all_journal_events(state_dir: &Path) -> Vec<serde_json::Value> {
+    let audit_dir = state_dir.join("audit");
+    let mut files = Vec::new();
+    if let Ok(entries) = std::fs::read_dir(&audit_dir) {
+        for entry in entries.flatten() {
+            let p = entry.path();
+            if p.extension().and_then(|s| s.to_str()) == Some("jsonl") {
+                files.push(p);
+            }
+        }
+    }
+    files.sort();
+    let mut events = Vec::new();
+    for f in files {
+        let content = std::fs::read_to_string(&f).expect("read journal segment");
+        for line in content.lines() {
+            let trimmed = line.trim();
+            if trimmed.is_empty() {
+                continue;
+            }
+            let val: serde_json::Value = serde_json::from_str(trimmed).expect("parse journal line");
+            events.push(val);
+        }
+    }
+    events
+}
+
+struct GitFixture {
+    _tmp: tempfile::TempDir,
+    git_repo: PathBuf,
+    state: PathBuf,
+    target_dir: PathBuf,
+    world: TestWorld,
+}
+
+impl GitFixture {
+    fn new() -> Self {
+        let tmp = tempfile::tempdir().expect("tempdir");
+        let git_repo = tmp.path().join("git-repo");
+        std::fs::create_dir_all(git_repo.join(".git")).expect("create .git");
+        std::fs::write(git_repo.join(".gitignore"), ".fieldbook\n").expect("write gitignore");
+
+        let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+        let state_mini = repo.join("tests/fixtures/state-mini");
+
+        support::copy_dir_recursive(&corpus_mini, &git_repo).expect("copy corpus-mini");
+
+        let state = git_repo.join(".fieldbook");
+        support::copy_dir_recursive(&state_mini, &state).expect("copy state");
+
+        let outside_target = tmp.path().join("outside-target");
+        std::fs::create_dir_all(&outside_target).expect("create outside target");
+
+        let settings_path = state.join("settings.toml");
+        let settings_text = format!(
+            "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+            outside_target.to_string_lossy().replace('\\', "/")
+        );
+        std::fs::write(&settings_path, settings_text).expect("write settings");
+
+        let world = TestWorld::with_state(&git_repo, &state);
+        let tree = fieldbook::io::read_tree(world.tree_root()).expect("tree");
+        if let Ok(cat) =
+            SupportCatalogue::from_public_source(&tree, "1111111111111111111111111111111111111111")
+        {
+            let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+            world.set_support_catalogue(cat, cat_sha);
+        }
+
+        let eff = floor_a_effective();
+        let outcome = run_backup(
+            &world,
+            &eff,
+            &BackupOptions {
+                target: Some("main".to_string()),
+                to: None,
+                dry_run: false,
+            },
+        );
+        assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+        Self {
+            _tmp: tmp,
+            git_repo,
+            state,
+            target_dir: outside_target,
+            world,
+        }
+    }
+
+    fn snap_dir(&self) -> PathBuf {
+        self.target_dir.join("fieldbook-backup-0001")
+    }
+}
+
+// A. restore_with_an_unlabelled_snapshot_is_fb0901_and_exits_2
+#[test]
+fn restore_with_an_unlabelled_snapshot_is_fb0901_and_exits_2() {
+    let fix = TestFixture::new();
+    fix.backup();
+
+    // Paired positive control: permitted case succeeds
+    let dest_ok = fix.dest("restored_ok");
+    let out_ok = fix.restore(Some(dest_ok.clone()), false);
+    assert_eq!(out_ok.code, 0, "positive control failed: {}", out_ok.stderr);
+    assert!(dest_ok.is_dir());
+
+    // labels = ["unlabelled"]
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["unlabelled".to_string()];
+    });
+    let dest_unlabelled = fix.dest("restored");
+    let events_before_u = all_journal_events(fix.state_dir());
+    let out_u = fix.restore(Some(dest_unlabelled.clone()), false);
+    assert_eq!(
+        out_u.code, 2,
+        "must exit 2 on unlabelled export refusal: {}",
+        out_u.stderr
+    );
+    assert!(out_u.stderr.contains("FB0901"), "stderr: {}", out_u.stderr);
+    assert!(
+        !dest_unlabelled.exists(),
+        "absent destination must stay absent"
+    );
+
+    let events_after_u = all_journal_events(fix.state_dir());
+    let new_events_u = &events_after_u[events_before_u.len()..];
+    assert!(
+        !new_events_u.iter().any(|v| v["kind"] == "restore.begin"),
+        "no restore.begin appended"
+    );
+    let refuses_u: Vec<_> = new_events_u
+        .iter()
+        .filter(|v| v["kind"] == "refuse")
+        .collect();
+    assert_eq!(refuses_u.len(), 1, "exactly one refuse event expected");
+    assert_eq!(refuses_u[0]["reason"], "unlabelled");
+    assert_eq!(refuses_u[0]["code"], "FB0901");
+
+    // labels = ["marked"]
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["marked".to_string()];
+    });
+    let dest_marked = fix.dest("restored_marked");
+    let events_before_m = all_journal_events(fix.state_dir());
+    let out_m = fix.restore(Some(dest_marked.clone()), false);
+    assert_eq!(
+        out_m.code, 2,
+        "must exit 2 on marked export refusal: {}",
+        out_m.stderr
+    );
+    assert!(out_m.stderr.contains("FB0901"), "stderr: {}", out_m.stderr);
+    assert!(!dest_marked.exists(), "absent destination must stay absent");
+
+    let events_after_m = all_journal_events(fix.state_dir());
+    let new_events_m = &events_after_m[events_before_m.len()..];
+    assert!(
+        !new_events_m.iter().any(|v| v["kind"] == "restore.begin"),
+        "no restore.begin appended"
+    );
+    let refuses_m: Vec<_> = new_events_m
+        .iter()
+        .filter(|v| v["kind"] == "refuse")
+        .collect();
+    assert_eq!(refuses_m.len(), 1, "exactly one refuse event expected");
+    assert_eq!(refuses_m[0]["reason"], "marked");
+    assert_eq!(refuses_m[0]["code"], "FB0901");
+}
+
+// B. restore_outside_the_data_root_asks_for_an_export_token
+#[test]
+fn restore_outside_the_data_root_asks_for_an_export_token() {
+    let fix = TestFixture::new();
+    fix.backup();
+
+    let snap_toml =
+        std::fs::read_to_string(fix.snap_dir().join("backup.toml")).expect("read backup.toml");
+    let snap_info = BackupToml::parse(&snap_toml).expect("parse backup.toml");
+
+    // Drill restore.begin has neither dest nor policy
+    let out_drill = fix.restore(None, true);
+    assert_eq!(out_drill.code, 0, "drill failed: {}", out_drill.stderr);
+    let events_drill = all_journal_events(fix.state_dir());
+    let drill_begin = events_drill
+        .iter()
+        .find(|e| e["kind"] == "restore.begin" && e["mode"] == "drill")
+        .expect("drill restore.begin");
+    assert!(
+        drill_begin.get("dest").is_none(),
+        "drill restore.begin must have no dest"
+    );
+    assert!(
+        drill_begin.get("policy").is_none(),
+        "drill restore.begin must have no policy"
+    );
+
+    // Restore outside the data root asks for export token with dest: export, non-empty policy, snapshot labels
+    let dest = fix.dest("restored");
+    let out_to = fix.restore(Some(dest.clone()), false);
+    assert_eq!(out_to.code, 0, "restore --to failed: {}", out_to.stderr);
+    assert!(dest.is_dir());
+
+    let events_to = all_journal_events(fix.state_dir());
+    let export_begin = events_to
+        .iter()
+        .find(|e| e["kind"] == "restore.begin" && e["mode"] == "real")
+        .expect("real restore.begin");
+    assert_eq!(export_begin["dest"], "export");
+    assert!(
+        export_begin["policy"]
+            .as_str()
+            .is_some_and(|p| !p.is_empty()),
+        "policy field must be non-empty"
+    );
+    let begin_labels: Vec<String> = export_begin["labels"]
+        .as_array()
+        .expect("labels array")
+        .iter()
+        .map(|v| v.as_str().expect("str").to_string())
+        .collect();
+    assert_eq!(begin_labels, snap_info.labels);
+}
+
+// C. Journal-level export binding tests
+#[test]
+fn restore_export_binding_is_exact() {
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let tmp_canonical = tmp.path().canonicalize().expect("canonicalize");
+    let corpus_dir = tmp_canonical.join("corpus");
+    let state_dir = tmp_canonical.join(".fieldbook");
+    std::fs::create_dir_all(&corpus_dir).expect("create corpus dir");
+    std::fs::create_dir_all(&state_dir).expect("create state dir");
+
+    let disk = Disk::with_state(&corpus_dir, &state_dir);
+    let mut journal = Journal::open(&disk, &state_dir, Via::Cli).expect("open journal");
+
+    let export_dest = tmp_canonical.join("restored");
+    let file1_path = export_dest.join("corpus/corpus.toml");
+    let file2_path = export_dest.join("state/settings.toml");
+    let file1_sha = "1111111111111111111111111111111111111111111111111111111111111111".to_string();
+    let file2_sha = "2222222222222222222222222222222222222222222222222222222222222222".to_string();
+
+    let planned_files = vec![
+        PlannedFile {
+            path: file1_path.clone(),
+            sha256: file1_sha.clone(),
+            bytes: 100,
+        },
+        PlannedFile {
+            path: file2_path.clone(),
+            sha256: file2_sha.clone(),
+            bytes: 200,
+        },
+    ];
+    let plan = RestorePlan {
+        destination: export_dest.clone(),
+        roots: Vec::new(),
+    };
+    let labels = LabelSet::public();
+    let request = RestoreExportRequest {
+        snapshot: 1,
+        mode: "real",
+        labels: &labels,
+        plan: &plan,
+        files: &planned_files,
+        create_destination: true,
+    };
+
+    let (dir_sha, dir_bytes) = hash_tree_manifest(&[]);
+    let transfer_dir = Transfer {
+        target: Target::Path(export_dest.clone()),
+        operation: Operation::CreateDir,
+        sha256: dir_sha.clone(),
+        bytes: dir_bytes,
+    };
+    let transfer_file1 = Transfer {
+        target: Target::Path(file1_path),
+        operation: Operation::Write,
+        sha256: file1_sha,
+        bytes: 100,
+    };
+    let transfer_file2 = Transfer {
+        target: Target::Path(file2_path),
+        operation: Operation::Write,
+        sha256: file2_sha,
+        bytes: 200,
+    };
+    let matching_transfers = vec![transfer_dir, transfer_file1, transfer_file2];
+
+    let delivery = Delivery::new(matching_transfers.clone(), None);
+    let dest = Dest::Export {
+        path: export_dest.to_string_lossy().into_owned(),
+    };
+    let eff = floor_a_effective();
+    let Decision::Allowed(exact_token) = check(
+        &eff,
+        &dest,
+        Some(&labels),
+        Some(&delivery),
+        disk.now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected Allowed token for matching delivery");
+    };
+
+    // Positive control: exact token succeeds and appends restore.begin
+    let audited = journal
+        .begin_restore_export(&request, &exact_token)
+        .expect("begin_restore_export with exact token should succeed");
+    assert!(journal_kinds(&state_dir).contains(&"restore.begin".to_string()));
+    journal
+        .end_restore(audited, 1, "real", "ok", None)
+        .expect("end_restore");
+
+    // 1. Selection-only token (no delivery)
+    let Decision::Allowed(selection_token) =
+        check(&eff, &dest, Some(&labels), None, disk.now(), Shipped::Never)
+    else {
+        panic!("selection token");
+    };
+    let kinds_before_1 = journal_kinds(&state_dir);
+    let res1 = journal.begin_restore_export(&request, &selection_token);
+    assert!(res1.is_err(), "selection-only token must be refused");
+    assert_eq!(journal_kinds(&state_dir), kinds_before_1);
+    assert!(!export_dest.exists());
+
+    // 2. Token for a different destination path
+    let diff_dest_path = tmp_canonical.join("different_dest");
+    let diff_dest = Dest::Export {
+        path: diff_dest_path.to_string_lossy().into_owned(),
+    };
+    let diff_transfers = vec![
+        Transfer {
+            target: Target::Path(diff_dest_path.clone()),
+            operation: Operation::CreateDir,
+            sha256: dir_sha.clone(),
+            bytes: dir_bytes,
+        },
+        Transfer {
+            target: Target::Path(diff_dest_path.join("corpus/corpus.toml")),
+            operation: Operation::Write,
+            sha256: "1111111111111111111111111111111111111111111111111111111111111111".to_string(),
+            bytes: 100,
+        },
+        Transfer {
+            target: Target::Path(diff_dest_path.join("state/settings.toml")),
+            operation: Operation::Write,
+            sha256: "2222222222222222222222222222222222222222222222222222222222222222".to_string(),
+            bytes: 200,
+        },
+    ];
+    let Decision::Allowed(diff_path_token) = check(
+        &eff,
+        &diff_dest,
+        Some(&labels),
+        Some(&Delivery::new(diff_transfers, None)),
+        disk.now(),
+        Shipped::Never,
+    ) else {
+        panic!("diff path token");
+    };
+    let kinds_before_2 = journal_kinds(&state_dir);
+    let res2 = journal.begin_restore_export(&request, &diff_path_token);
+    assert!(
+        res2.is_err(),
+        "different destination path token must be refused"
+    );
+    assert_eq!(journal_kinds(&state_dir), kinds_before_2);
+    assert!(!export_dest.exists());
+
+    // 3. Token with a changed payload hash
+    let mut bad_hash_transfers = matching_transfers.clone();
+    bad_hash_transfers[1].sha256 =
+        "3333333333333333333333333333333333333333333333333333333333333333".to_string();
+    let Decision::Allowed(bad_hash_token) = check(
+        &eff,
+        &dest,
+        Some(&labels),
+        Some(&Delivery::new(bad_hash_transfers, None)),
+        disk.now(),
+        Shipped::Never,
+    ) else {
+        panic!("bad hash token");
+    };
+    let kinds_before_3 = journal_kinds(&state_dir);
+    let res3 = journal.begin_restore_export(&request, &bad_hash_token);
+    assert!(res3.is_err(), "changed payload hash token must be refused");
+    assert_eq!(journal_kinds(&state_dir), kinds_before_3);
+    assert!(!export_dest.exists());
+
+    // 4. Token with one extra transfer
+    let mut extra_transfers = matching_transfers.clone();
+    extra_transfers.push(Transfer {
+        target: Target::Path(export_dest.join("extra.txt")),
+        operation: Operation::Write,
+        sha256: "4444444444444444444444444444444444444444444444444444444444444444".to_string(),
+        bytes: 50,
+    });
+    let Decision::Allowed(extra_token) = check(
+        &eff,
+        &dest,
+        Some(&labels),
+        Some(&Delivery::new(extra_transfers, None)),
+        disk.now(),
+        Shipped::Never,
+    ) else {
+        panic!("extra token");
+    };
+    let kinds_before_4 = journal_kinds(&state_dir);
+    let res4 = journal.begin_restore_export(&request, &extra_token);
+    assert!(res4.is_err(), "extra transfer token must be refused");
+    assert_eq!(journal_kinds(&state_dir), kinds_before_4);
+    assert!(!export_dest.exists());
+
+    // 5. Token missing one file
+    let mut missing_transfers = matching_transfers;
+    missing_transfers.pop();
+    let Decision::Allowed(missing_token) = check(
+        &eff,
+        &dest,
+        Some(&labels),
+        Some(&Delivery::new(missing_transfers, None)),
+        disk.now(),
+        Shipped::Never,
+    ) else {
+        panic!("missing token");
+    };
+    let kinds_before_5 = journal_kinds(&state_dir);
+    let res5 = journal.begin_restore_export(&request, &missing_token);
+    assert!(res5.is_err(), "missing file token must be refused");
+    assert_eq!(journal_kinds(&state_dir), kinds_before_5);
+    assert!(!export_dest.exists());
+}
+
+// D1. drill_refuses_company_labels_under_git_before_copy
+#[test]
+fn drill_refuses_company_labels_under_git_before_copy() {
+    let fix = GitFixture::new();
+    let eff = floor_a_effective();
+
+    // Refusal: labels = ["np-0007"] under git
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["np-0007".to_string()];
+    });
+    let drill_dir = fix.state.join("drill");
+    std::fs::create_dir_all(&drill_dir).expect("create drill dir");
+    let canary_path = drill_dir.join("canary.txt");
+    let canary_bytes = b"canary drill bytes before copy\n";
+    std::fs::write(&canary_path, canary_bytes).expect("write canary");
+
+    let events_before_1 = all_journal_events(&fix.state);
+    let out_np = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: None,
+            drill: true,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        out_np.code, 1,
+        "drill must fail on company labels under git"
+    );
+    assert!(
+        out_np.stderr.contains("FB0415"),
+        "stderr: {}",
+        out_np.stderr
+    );
+
+    let events_after_1 = all_journal_events(&fix.state);
+    let new_events_1 = &events_after_1[events_before_1.len()..];
+    assert!(
+        !new_events_1.iter().any(|v| v["kind"] == "restore.begin"),
+        "no restore.begin appended"
+    );
+    let refuses_1: Vec<_> = new_events_1
+        .iter()
+        .filter(|v| v["kind"] == "refuse")
+        .collect();
+    assert_eq!(refuses_1.len(), 1, "exactly one refuse event expected");
+    assert_eq!(refuses_1[0]["reason"], "git");
+    assert_eq!(refuses_1[0]["code"], "FB0415");
+
+    assert_eq!(
+        std::fs::read(&canary_path).expect("read canary"),
+        canary_bytes,
+        "canary must be byte-identical"
+    );
+    let entries_1: Vec<_> = std::fs::read_dir(&drill_dir)
+        .expect("read drill dir")
+        .map(|e| e.expect("entry").file_name())
+        .collect();
+    assert_eq!(entries_1, vec![std::ffi::OsString::from("canary.txt")]);
+
+    // Paired permitted: labels = ["public"] drill passes under git
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["public".to_string()];
+    });
+    let out_public = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: None,
+            drill: true,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        out_public.code, 0,
+        "public drill must pass under git: {}",
+        out_public.stderr
+    );
+    assert!(!drill_dir.exists(), "drill folder deleted on success");
+
+    // Paired permitted: labels = ["owner-supplied"] drill passes when State is the IGNORED home State
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["owner-supplied".to_string()];
+    });
+    let out_owner = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: None,
+            drill: true,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        out_owner.code, 0,
+        "owner-supplied drill in ignored home state must pass: {}",
+        out_owner.stderr
+    );
+    assert!(!drill_dir.exists());
+
+    // Refuses FB0415 when .gitignore does not ignore it (remove the file)
+    std::fs::remove_file(fix.git_repo.join(".gitignore")).expect("remove .gitignore");
+    std::fs::create_dir_all(&drill_dir).expect("create drill dir");
+    std::fs::write(&canary_path, canary_bytes).expect("write canary");
+
+    let events_before_unignored = all_journal_events(&fix.state);
+    let out_unignored = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: None,
+            drill: true,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        out_unignored.code, 1,
+        "unignored state must refuse owner-supplied labels with exit 1"
+    );
+    assert!(
+        out_unignored.stderr.contains("FB0415"),
+        "stderr: {}",
+        out_unignored.stderr
+    );
+
+    let events_after_unignored = all_journal_events(&fix.state);
+    let new_events_un = &events_after_unignored[events_before_unignored.len()..];
+    assert!(
+        !new_events_un.iter().any(|v| v["kind"] == "restore.begin"),
+        "no restore.begin appended"
+    );
+    let refuses_un: Vec<_> = new_events_un
+        .iter()
+        .filter(|v| v["kind"] == "refuse")
+        .collect();
+    assert_eq!(refuses_un.len(), 1, "exactly one refuse event expected");
+    assert_eq!(refuses_un[0]["reason"], "git");
+    assert_eq!(refuses_un[0]["code"], "FB0415");
+
+    assert_eq!(
+        std::fs::read(&canary_path).expect("read canary"),
+        canary_bytes,
+        "canary must be byte-identical"
+    );
+    let entries_un: Vec<_> = std::fs::read_dir(&drill_dir)
+        .expect("read drill dir")
+        .map(|e| e.expect("entry").file_name())
+        .collect();
+    assert_eq!(entries_un, vec![std::ffi::OsString::from("canary.txt")]);
+}
+
+// D2. restore_to_refuses_company_labels_under_git_before_copy
+#[test]
+fn restore_to_refuses_company_labels_under_git_before_copy() {
+    let fix = GitFixture::new();
+
+    let tmp_prefix = fix
+        ._tmp
+        .path()
+        .canonicalize()
+        .expect("canon tmp")
+        .to_string_lossy()
+        .replace('\\', "/");
+    let plain_outside = tempfile::tempdir().expect("plain_outside");
+    let outside_prefix = plain_outside
+        .path()
+        .canonicalize()
+        .expect("canon outside")
+        .to_string_lossy()
+        .replace('\\', "/");
+
+    let policy_toml = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+restricted = true
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "export"
+allow = ["public", "owner-supplied", "np-0007"]
+paths = ["/", "{tmp_prefix}", "{outside_prefix}"]
+"#
+    );
+    let policy = Policy::parse(&policy_toml, None).expect("parse policy");
+    let eff = EffectivePolicy::new(&PolicyState::Loaded(policy), &OwnerSettings::unset());
+
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["np-0007".to_string()];
+    });
+
+    // (1) Absent folder under <tree>
+    let dest_absent_1 = fix.git_repo.join("dest_absent_1");
+    assert!(!dest_absent_1.exists());
+    let ev_before_1 = all_journal_events(&fix.state);
+    let out_1 = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_absent_1.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(out_1.code, 1);
+    assert!(out_1.stderr.contains("FB0415"));
+    assert!(!dest_absent_1.exists(), "absent folder must stay absent");
+    let ev_after_1 = all_journal_events(&fix.state);
+    let new_1 = &ev_after_1[ev_before_1.len()..];
+    assert!(!new_1.iter().any(|v| v["kind"] == "restore.begin"));
+    let refuses_1: Vec<_> = new_1.iter().filter(|v| v["kind"] == "refuse").collect();
+    assert_eq!(refuses_1.len(), 1);
+    assert_eq!(refuses_1[0]["reason"], "git");
+    assert_eq!(refuses_1[0]["code"], "FB0415");
+
+    // (2) Existing empty folder under <tree>
+    let dest_empty_1 = fix.git_repo.join("dest_empty_1");
+    std::fs::create_dir(&dest_empty_1).expect("create empty dir");
+    let ev_before_2 = all_journal_events(&fix.state);
+    let out_2 = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_empty_1.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(out_2.code, 1);
+    assert!(out_2.stderr.contains("FB0415"));
+    assert!(dest_empty_1.exists());
+    assert!(
+        std::fs::read_dir(&dest_empty_1)
+            .expect("read empty")
+            .next()
+            .is_none(),
+        "empty folder must stay empty"
+    );
+    let ev_after_2 = all_journal_events(&fix.state);
+    let new_2 = &ev_after_2[ev_before_2.len()..];
+    assert!(!new_2.iter().any(|v| v["kind"] == "restore.begin"));
+    let refuses_2: Vec<_> = new_2.iter().filter(|v| v["kind"] == "refuse").collect();
+    assert_eq!(refuses_2.len(), 1);
+    assert_eq!(refuses_2[0]["reason"], "git");
+    assert_eq!(refuses_2[0]["code"], "FB0415");
+
+    // (3) Replace .git directory with a FILE (gitdir: x)
+    std::fs::remove_dir_all(fix.git_repo.join(".git")).expect("remove .git dir");
+    std::fs::write(fix.git_repo.join(".git"), "gitdir: /some/worktree\n").expect("write .git file");
+
+    // (3a) Absent folder under <tree> when .git is a file
+    let dest_absent_2 = fix.git_repo.join("dest_absent_2");
+    assert!(!dest_absent_2.exists());
+    let ev_before_3 = all_journal_events(&fix.state);
+    let out_3 = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_absent_2.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(out_3.code, 1);
+    assert!(out_3.stderr.contains("FB0415"));
+    assert!(!dest_absent_2.exists(), "absent folder must stay absent");
+    let ev_after_3 = all_journal_events(&fix.state);
+    let new_3 = &ev_after_3[ev_before_3.len()..];
+    assert!(!new_3.iter().any(|v| v["kind"] == "restore.begin"));
+    let refuses_3: Vec<_> = new_3.iter().filter(|v| v["kind"] == "refuse").collect();
+    assert_eq!(refuses_3.len(), 1);
+    assert_eq!(refuses_3[0]["reason"], "git");
+    assert_eq!(refuses_3[0]["code"], "FB0415");
+
+    // (3b) Existing empty folder under <tree> when .git is a file
+    let dest_empty_2 = fix.git_repo.join("dest_empty_2");
+    std::fs::create_dir(&dest_empty_2).expect("create empty dir");
+    let ev_before_4 = all_journal_events(&fix.state);
+    let out_4 = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_empty_2.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(out_4.code, 1);
+    assert!(out_4.stderr.contains("FB0415"));
+    assert!(dest_empty_2.exists());
+    assert!(
+        std::fs::read_dir(&dest_empty_2)
+            .expect("read empty")
+            .next()
+            .is_none(),
+        "empty folder must stay empty"
+    );
+    let ev_after_4 = all_journal_events(&fix.state);
+    let new_4 = &ev_after_4[ev_before_4.len()..];
+    assert!(!new_4.iter().any(|v| v["kind"] == "restore.begin"));
+    let refuses_4: Vec<_> = new_4.iter().filter(|v| v["kind"] == "refuse").collect();
+    assert_eq!(refuses_4.len(), 1);
+    assert_eq!(refuses_4[0]["reason"], "git");
+    assert_eq!(refuses_4[0]["code"], "FB0415");
+
+    // Paired permitted: public labels to a folder under git succeed
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["public".to_string()];
+    });
+    let dest_public = fix.git_repo.join("dest_public");
+    let out_pub = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_public.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        out_pub.code, 0,
+        "public restore to folder under git must succeed: {}",
+        out_pub.stderr
+    );
+    assert!(dest_public.is_dir());
+
+    // Paired permitted: np-0007 labels to a folder outside any git ancestry succeed under same policy
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["np-0007".to_string()];
+    });
+    let dest_outside = plain_outside.path().join("restored_np");
+    let out_out = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_outside.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        out_out.code, 0,
+        "np-0007 restore outside git must succeed: {}",
+        out_out.stderr
+    );
+    assert!(dest_outside.is_dir());
+}
+
+// E1. drill_refuses_labels_not_held_by_state
+#[test]
+fn drill_refuses_labels_not_held_by_state() {
+    let fix = TestFixture::new();
+    fix.backup();
+
+    // Floor policy has no store row for np-0007
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["np-0007".to_string()];
+    });
+    let drill_dir = drill_folder(fix.state_dir());
+    std::fs::create_dir_all(&drill_dir).expect("create drill dir");
+    let canary_path = drill_dir.join("canary.txt");
+    let canary_bytes = b"canary state admission bytes\n";
+    std::fs::write(&canary_path, canary_bytes).expect("write canary");
+
+    let events_before = all_journal_events(fix.state_dir());
+    let outcome = fix.restore(None, true);
+    assert_eq!(
+        outcome.code, 1,
+        "drill must refuse labels not held by state"
+    );
+    assert!(
+        outcome.stderr.contains("FB0412"),
+        "stderr: {}",
+        outcome.stderr
+    );
+
+    let events_after = all_journal_events(fix.state_dir());
+    let new_events = &events_after[events_before.len()..];
+    assert!(
+        !new_events.iter().any(|v| v["kind"] == "restore.begin"),
+        "no restore.begin appended"
+    );
+    let refuses: Vec<_> = new_events
+        .iter()
+        .filter(|v| v["kind"] == "refuse")
+        .collect();
+    assert_eq!(refuses.len(), 1, "exactly one refuse event expected");
+    assert_eq!(refuses[0]["reason"], "store");
+    assert_eq!(refuses[0]["code"], "FB0412");
+
+    assert_eq!(
+        std::fs::read(&canary_path).expect("read canary"),
+        canary_bytes,
+        "canary must be byte-identical"
+    );
+    let entries: Vec<_> = std::fs::read_dir(&drill_dir)
+        .expect("read drill dir")
+        .map(|e| e.expect("entry").file_name())
+        .collect();
+    assert_eq!(entries, vec![std::ffi::OsString::from("canary.txt")]);
+
+    // Paired permitted case: drill passes with permitted public labels
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["public".to_string()];
+    });
+    let out_ok = fix.restore(None, true);
+    assert_eq!(
+        out_ok.code, 0,
+        "drill with public labels must succeed: {}",
+        out_ok.stderr
+    );
+    assert!(!drill_dir.exists(), "drill folder deleted on success");
+}
+
+// E2. drill_admits_permitted_state_labels
+#[test]
+fn drill_admits_permitted_state_labels() {
+    let fix = TestFixture::new();
+    fix.backup();
+
+    // 1. labels = ["owner-supplied", "public"] under floor policy (sorted)
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["owner-supplied".to_string(), "public".to_string()];
+    });
+    let outcome1 = fix.restore(None, true);
+    assert_eq!(
+        outcome1.code, 0,
+        "drill with public, owner-supplied must pass: {}",
+        outcome1.stderr
+    );
+
+    // 2. labels = ["np-0007"] under Loaded policy whose state store holds np-0007
+    let policy_toml = r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+restricted = true
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+"#;
+    let policy = Policy::parse(policy_toml, None).expect("parse policy");
+    let eff_loaded = EffectivePolicy::new(&PolicyState::Loaded(policy), &OwnerSettings::unset());
+
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["np-0007".to_string()];
+    });
+    let outcome2 = run_restore(
+        &fix.world,
+        &eff_loaded,
+        &RestoreOptions {
+            snapshot: 1,
+            to: None,
+            drill: true,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        outcome2.code, 0,
+        "drill with np-0007 must pass under admitting store: {}",
+        outcome2.stderr
+    );
+}
+
+// E3. restore_to_state_checks_admission
+#[test]
+fn restore_to_state_checks_admission() {
+    let fix = TestFixture::new();
+    fix.backup();
+
+    let dest = fix.state_dir().join("drill/restored");
+
+    // Refusal: labels = ["np-0007"] under floor policy
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["np-0007".to_string()];
+    });
+    let events_before_1 = all_journal_events(fix.state_dir());
+    let out_refused = fix.restore(Some(dest.clone()), false);
+    assert_eq!(
+        out_refused.code, 1,
+        "restore to state must refuse unadmitted label"
+    );
+    assert!(
+        out_refused.stderr.contains("FB0412"),
+        "stderr: {}",
+        out_refused.stderr
+    );
+    assert!(!dest.exists(), "nothing must be created at destination");
+
+    let events_after_1 = all_journal_events(fix.state_dir());
+    let new_events_1 = &events_after_1[events_before_1.len()..];
+    assert!(
+        !new_events_1.iter().any(|v| v["kind"] == "restore.begin"),
+        "no restore.begin appended"
+    );
+    let refuses_1: Vec<_> = new_events_1
+        .iter()
+        .filter(|v| v["kind"] == "refuse")
+        .collect();
+    assert_eq!(refuses_1.len(), 1, "exactly one refuse event expected");
+    assert_eq!(refuses_1[0]["reason"], "store");
+    assert_eq!(refuses_1[0]["code"], "FB0412");
+
+    // Permitted: permitted labels succeed, folder exists, restore.begin has no dest
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["owner-supplied".to_string(), "public".to_string()];
+    });
+    let events_before_2 = all_journal_events(fix.state_dir());
+    let out_ok = fix.restore(Some(dest.clone()), false);
+    assert_eq!(
+        out_ok.code, 0,
+        "restore to state must succeed: {}",
+        out_ok.stderr
+    );
+    assert!(dest.is_dir(), "restored folder must exist");
+
+    let events_after_2 = all_journal_events(fix.state_dir());
+    let new_events_2 = &events_after_2[events_before_2.len()..];
+    let begin_ev = new_events_2
+        .iter()
+        .find(|v| v["kind"] == "restore.begin")
+        .expect("restore.begin present");
+    assert!(
+        begin_ev.get("dest").is_none(),
+        "in-root state restore.begin must have no dest: {begin_ev:?}"
+    );
+}
+
+// F. restored_support_keeps_exact_proof
+#[test]
+fn restored_support_keeps_exact_proof() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_dir.path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(state_dir.path().join("settings.toml"), &settings_text).expect("write settings");
+
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read tree");
+    let cat =
+        SupportCatalogue::from_public_source(&tree, "1111111111111111111111111111111111111111")
+            .expect("from_public_source");
+    let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
+    let cat_file = tree_dir.path().join("corpus-support.toml");
+    std::fs::write(&cat_file, &cat_bytes).expect("write cat file");
+
+    let raw = make_raw_copy(tree_dir.path(), state_dir.path());
+    let disk = Disk::with_state(tree_dir.path(), state_dir.path());
+    let v_args = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: Some(cat_file),
+        expect_support_sha256: Some(cat_sha.clone()),
+    };
+    let v_out = fieldbook::backup::run_verify(&disk, &v_args);
+    assert_eq!(v_out.code, 0, "run_verify failed: {}", v_out.stderr);
+
+    let b_args = BackupArgs {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+        command: None,
+    };
+    let b_out = fieldbook::backup::run(&b_args, None, &disk);
+    assert_eq!(b_out.code, 0, "backup failed: {}", b_out.stderr);
+
+    let restored_dir = tempfile::tempdir().expect("restored dir");
+    let restored_path = restored_dir.path().join("restored");
+    let r_args = RestoreArgs {
+        snapshot: 1,
+        to: Some(restored_path.clone()),
+        drill: false,
+        target: None,
+        from: None,
+    };
+    let r_out = fieldbook::restore::run(&r_args, None, &disk);
+    assert_eq!(r_out.code, 0, "restore failed: {}", r_out.stderr);
+
+    let restored_corpus = restored_path.join("corpus");
+    let restored_state = restored_path.join("state");
+
+    // (1) Disk::with_state(<restored>/corpus, <restored>/state).support_facts() carries the same catalogue sha256
+    let orig_facts = disk.support_facts();
+    let orig_shas: Vec<String> = orig_facts
+        .catalogues
+        .iter()
+        .map(|(_, s)| s.clone())
+        .collect();
+    assert!(
+        orig_shas.contains(&cat_sha),
+        "original state must hold verified cat_sha"
+    );
+
+    let restored_disk = Disk::with_state(&restored_corpus, &restored_state);
+    let restored_facts = restored_disk.support_facts();
+    let restored_shas: Vec<String> = restored_facts
+        .catalogues
+        .iter()
+        .map(|(_, s)| s.clone())
+        .collect();
+    assert_eq!(
+        orig_shas, restored_shas,
+        "relocated state must retain exact support proof"
+    );
+
+    // (2) Forged state: fresh empty state plus ONLY copy of public-support/<sha>.toml yields EMPTY catalogues
+    let forged_dir = tempfile::tempdir().expect("forged tempdir");
+    let forged_state = forged_dir.path().join(".fieldbook");
+    let forged_pub_support = forged_state.join("public-support");
+    std::fs::create_dir_all(&forged_pub_support).expect("create forged public-support dir");
+    std::fs::copy(
+        restored_state
+            .join("public-support")
+            .join(format!("{cat_sha}.toml")),
+        forged_pub_support.join(format!("{cat_sha}.toml")),
+    )
+    .expect("copy catalogue to forged state");
+
+    let forged_disk = Disk::with_state(&restored_corpus, &forged_state);
+    let forged_facts = forged_disk.support_facts();
+    assert!(
+        forged_facts.catalogues.is_empty(),
+        "forged state without journal evidence must yield empty catalogues"
+    );
+
+    // (3) Restored copy whose public-support/<sha>.toml has one byte changed yields no catalogue for that sha
+    let tampered_copy = support::temp_copy(&restored_path);
+    let tampered_cat_file = tampered_copy
+        .path()
+        .join("state/public-support")
+        .join(format!("{cat_sha}.toml"));
+    let mut tampered_bytes = std::fs::read(&tampered_cat_file).expect("read cat file");
+    tampered_bytes[0] ^= 0xFF;
+    std::fs::write(&tampered_cat_file, tampered_bytes).expect("write tampered cat file");
+
+    let tampered_corpus = tampered_copy.path().join("corpus");
+    let tampered_state = tampered_copy.path().join("state");
+    let tampered_disk = Disk::with_state(&tampered_corpus, &tampered_state);
+    let tampered_facts = tampered_disk.support_facts();
+    assert!(
+        !tampered_facts.catalogues.iter().any(|(_, s)| s == &cat_sha),
+        "tampered catalogue file must yield no catalogue for that sha"
+    );
+
+    // (4) Restored copy whose journal backup.verify evidence line is removed yields no catalogue for that sha
+    let tampered_journal_copy = support::temp_copy(&restored_path);
+    let audit_dir = tampered_journal_copy.path().join("state/audit");
+    let mut found_journal = false;
+    for entry in std::fs::read_dir(&audit_dir)
+        .expect("read audit dir")
+        .flatten()
+    {
+        let p = entry.path();
+        if p.extension().and_then(|s| s.to_str()) == Some("jsonl") {
+            let content = std::fs::read_to_string(&p).expect("read journal segment");
+            let filtered: Vec<&str> = content
+                .lines()
+                .filter(|l| !l.contains("backup.verify"))
+                .collect();
+            let mut new_content = filtered.join("\n");
+            if !new_content.is_empty() {
+                new_content.push('\n');
+            }
+            std::fs::write(&p, new_content).expect("write modified journal");
+            found_journal = true;
+        }
+    }
+    assert!(found_journal, "must find and edit journal segment");
+
+    let tampered_journal_corpus = tampered_journal_copy.path().join("corpus");
+    let tampered_journal_state = tampered_journal_copy.path().join("state");
+    let tampered_journal_disk = Disk::with_state(&tampered_journal_corpus, &tampered_journal_state);
+    let tampered_journal_facts = tampered_journal_disk.support_facts();
+    assert!(
+        !tampered_journal_facts
+            .catalogues
+            .iter()
+            .any(|(_, s)| s == &cat_sha),
+        "journal without backup.verify evidence must yield no catalogue for that sha"
+    );
+}
+
+// G. drill_time_is_measured
+#[test]
+#[ignore = "advisory: takes > 20s in the unoptimized test profile"]
+fn drill_time_is_measured() {
+    let fix = TestFixture::new();
+
+    // Create 200 MB of synthetic public files (10 files of 20 MB each)
+    let chunk_size = 20 * 1024 * 1024;
+    let chunk = vec![0x42u8; chunk_size];
+    let actual_sha = fieldbook_core::hash::sha256_hex(&chunk);
+    let sources_dir = fix.tree_root().join("corpus/sources/public");
+    let sources_csv = fix.tree_root().join("corpus/registers/sources.csv");
+    let mut sources_file = std::fs::OpenOptions::new()
+        .append(true)
+        .open(&sources_csv)
+        .expect("open sources.csv");
+    use std::io::Write as _;
+    for i in 0..10 {
+        let sid = format!("S-900{i}");
+        let fname = format!("{sid}-v1.bin");
+        std::fs::write(sources_dir.join(&fname), &chunk).expect("write 20MB file");
+        writeln!(
+            sources_file,
+            "{sid},1,synthetic-perf,\"Large {i}\",PerfBoard,primary_law,primary_evidence,A,\"Synthetic\",synthetic_perf,reviewed,{fname},{actual_sha},2026-01-10,2026-01-15,2026-02-01,2026-02-01,active,,V2,public,Note,Purpose,,,,,"
+        )
+        .expect("write row to sources.csv");
+    }
+    drop(sources_file);
+
+    let raw_sources = std::fs::read(&sources_csv).expect("read sources.csv");
+    let norm_sources = fieldbook_core::schema::table::normalize(
+        fieldbook_core::schema::Register::Sources,
+        &raw_sources,
+    )
+    .expect("normalize sources.csv");
+    std::fs::write(&sources_csv, norm_sources).expect("write normalized sources.csv");
+
+    fix.backup();
+
+    let start = std::time::Instant::now();
+    let outcome = fix.restore(None, true);
+    let elapsed = start.elapsed();
+    assert_eq!(outcome.code, 0, "drill failed: {}", outcome.stderr);
+    println!("drill of 200 MB took {elapsed:?}");
 }
