@@ -775,9 +775,12 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         settings.keep_last,
         settings.keep_weekly,
     );
-    let pruned_snapshots: Vec<Number> = existing_snapshots
+    // Only an entry whose backup.toml was read and parsed is a snapshot: retention
+    // neither keeps nor removes a foreign folder or an unparsable one.
+    let pruned_snapshots: Vec<Number> = snapshot_infos
         .iter()
-        .copied()
+        .filter(|info| info.has_backup_toml && info.number != next_number)
+        .map(|info| info.number)
         .filter(|n| !retained_snapshots.contains(n))
         .collect();
 

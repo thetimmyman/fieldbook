@@ -462,11 +462,14 @@ fn extract_handling_from_markdown(bytes: &[u8]) -> LabelSet {
                     let mut ids = Vec::new();
                     for item in arr.split(',') {
                         let clean = item.trim().trim_matches('"');
-                        if !clean.is_empty()
-                            && let Ok(id) = LabelId::parse(clean)
-                        {
-                            ids.push(id);
+                        if clean.is_empty() {
+                            continue;
                         }
+                        // An id that is not a label makes the whole page unlabelled.
+                        let Ok(id) = LabelId::parse(clean) else {
+                            return LabelSet::unlabelled();
+                        };
+                        ids.push(id);
                     }
                     return LabelSet::from_ids(ids);
                 }

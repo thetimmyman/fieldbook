@@ -1404,6 +1404,109 @@ fn a_failed_prune_removal_exits_3_names_the_snapshot_and_is_not_recorded() {
     }
 }
 
+/// Reads every journal file under the State audit folder into one string.
+fn all_journal_text(fix: &TestFixture) -> String {
+    let mut text = String::new();
+    let audit_dir = fix.state_dir().join("audit");
+    if let Ok(entries) = std::fs::read_dir(&audit_dir) {
+        let mut paths: Vec<_> = entries
+            .flatten()
+            .map(|e| e.path())
+            .filter(|p| {
+                let name = p.file_name().and_then(|n| n.to_str()).unwrap_or("");
+                name.starts_with("journal") && name.ends_with(".jsonl")
+            })
+            .collect();
+        paths.sort();
+        for p in paths {
+            if let Ok(content) = std::fs::read_to_string(&p) {
+                text.push_str(&content);
+            }
+        }
+    }
+    text
+}
+
+#[test]
+fn retention_never_touches_an_entry_without_a_parsed_backup_toml() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[backup]\nkeep_last = 2\nkeep_weekly = 0\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome1.code, 0, "backup 1 failed: {}", outcome1.stderr);
+    let outcome2 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome2.code, 0, "backup 2 failed: {}", outcome2.stderr);
+
+    // A folder that carries the snapshot name but no backup.toml.
+    let foreign = fix.target_path().join("fieldbook-backup-0099");
+    std::fs::create_dir_all(&foreign).expect("create foreign folder");
+    std::fs::write(foreign.join("note.txt"), b"not a snapshot").expect("write note");
+
+    // The newest real snapshot gets a key this build does not know.
+    let newest_toml = fix.target_path().join("fieldbook-backup-0002/backup.toml");
+    let mut toml_text = std::fs::read_to_string(&newest_toml).expect("read backup.toml");
+    toml_text.push_str("an_unknown_key = \"from a newer writer\"\n");
+    std::fs::write(&newest_toml, toml_text).expect("write backup.toml");
+
+    // The dry run lists neither entry as a removal.
+    let dry = BackupOptions {
+        dry_run: true,
+        ..options.clone()
+    };
+    let dry_outcome = run_backup(&fix.world, &eff, &dry);
+    assert_eq!(
+        dry_outcome.code, 0,
+        "dry run failed: {}",
+        dry_outcome.stderr
+    );
+    assert!(
+        !dry_outcome.stdout.contains("would prune"),
+        "dry run must not list an entry without a parsed backup.toml: {}",
+        dry_outcome.stdout
+    );
+
+    // A real backup exits 0, leaves both in place, and records no prune naming them.
+    let outcome3 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome3.code, 0, "backup 3 failed: {}", outcome3.stderr);
+    assert!(
+        !outcome3.stderr.contains("could not remove"),
+        "no removal may be attempted: {}",
+        outcome3.stderr
+    );
+    assert!(foreign.exists(), "the foreign folder must stay");
+    assert!(
+        fix.target_path().join("fieldbook-backup-0002").exists(),
+        "the snapshot with an unparsable backup.toml must stay"
+    );
+    let journal_text = all_journal_text(&fix);
+    for line in journal_text
+        .lines()
+        .filter(|l| l.contains("\"kind\":\"backup.prune\""))
+    {
+        let val: serde_json::Value = serde_json::from_str(line).expect("parse prune event");
+        let nums: Vec<u64> = val["snapshots"]
+            .as_array()
+            .map(|a| a.iter().filter_map(serde_json::Value::as_u64).collect())
+            .unwrap_or_default();
+        assert!(
+            !nums.contains(&99) && !nums.contains(&2),
+            "backup.prune must not name an entry without a parsed backup.toml: {line}"
+        );
+    }
+}
+
 #[test]
 fn no_backup_without_a_journal() {
     let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
@@ -1694,6 +1797,34 @@ fn unlabelled_item_refuses_the_snapshot() {
         std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
     assert!(journal_text.contains("\"kind\":\"refuse\""));
     assert!(journal_text.contains("\"dest\":\"backup\""));
+}
+
+#[test]
+fn a_page_with_a_bad_handling_id_among_good_ones_refuses_the_snapshot() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Front matter the model cannot parse (no closing delimiter, bad TOML), with a
+    // handling list that holds one public id and one id that is not a label.
+    let bad_page = fix
+        .tree_root()
+        .join("corpus/pages/estimating/pricing/est-broken-front-matter.md");
+    let content = "+++\nid = \"est-broken\"\ntitle = \nhandling = [\"public\", \"NP-0007\"]\n+++\n\nSecret.\n";
+    std::fs::write(&bad_page, content).expect("write page");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome.code, 2,
+        "FB0901 refusal exits 2: {}",
+        outcome.stderr
+    );
+    assert!(outcome.stderr.contains("FB0901"), "{}", outcome.stderr);
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
 }
 
 #[test]
