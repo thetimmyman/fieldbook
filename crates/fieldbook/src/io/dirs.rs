@@ -657,7 +657,11 @@ mod tests {
         let sub = drill_path.join("sub");
         std::fs::create_dir_all(&sub).unwrap();
         let file_path = sub.join("nested.txt");
-        std::fs::write(&file_path, b"test content").unwrap();
+        std::fs::copy(
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("Cargo.toml"),
+            &file_path,
+        )
+        .unwrap();
         let mut perms = std::fs::metadata(&file_path).unwrap().permissions();
         perms.set_readonly(true);
         std::fs::set_permissions(&file_path, perms).unwrap();
