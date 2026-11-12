@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: a weekly `scheduled.yml` workflow runs the advisory check, a full-history secret scan, the lint controls (a planted banned call must fail clippy), the committed-lock check, an edition build for the cross-OS compare when `corpus/changes.md` has an edition heading, and the advisory scale table.
 - Added: `cargo xtask scale` times `check`, `build` and `search` over a synthetic Corpus at 1, 5 and 20 times the Day 1 counts and prints one table with the index size and peak memory; it is advisory and fails nothing.
 - Added: `cargo xtask extract` writes the text of a stored original, page by page, with its hashes, thin pages and locators, and `fieldbook check` reports an extraction that no longer matches its original (FB0212) and a consequential claim that rests on a metadata-only, thin or supplied version (FB0223).
 - Added: `just release` and the release workflow.
