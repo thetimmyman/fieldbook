@@ -19,6 +19,7 @@ pub mod root;
 pub mod state;
 pub mod store_lease;
 pub mod tree;
+pub mod versions;
 pub mod win;
 
 pub use journal::{

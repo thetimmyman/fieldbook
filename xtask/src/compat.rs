@@ -791,22 +791,199 @@ fn read_compiled_calc_epoch(root: &Path) -> u32 {
     CALC_EPOCH
 }
 
-fn execute_vector(
+fn decode_hex(hex: &str) -> Result<Vec<u8>, String> {
+    let trimmed = hex.trim();
+    if !trimmed.len().is_multiple_of(2) {
+        return Err("hex string length must be even".to_owned());
+    }
+    let mut bytes = Vec::with_capacity(trimmed.len() / 2);
+    for chunk in trimmed.as_bytes().chunks(2) {
+        let hi = (chunk[0] as char)
+            .to_digit(16)
+            .ok_or_else(|| format!("invalid hex digit '{}'", chunk[0] as char))?;
+        let lo = (chunk[1] as char)
+            .to_digit(16)
+            .ok_or_else(|| format!("invalid hex digit '{}'", chunk[1] as char))?;
+        let byte = u8::try_from((hi << 4) | lo).map_err(|e| e.to_string())?;
+        bytes.push(byte);
+    }
+    Ok(bytes)
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ExtractorCaseInput {
+    hex: String,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct PdftotextCaseInput {
+    stdout_hex: String,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ScriptCaseInput {
+    ops: Vec<String>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct AuthzCaseInput {
+    #[serde(default)]
+    groups: BTreeMap<String, toml::Value>,
+    #[serde(default)]
+    store: Vec<AuthzStoreCaseInput>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct AuthzStoreCaseInput {
+    id: String,
+    readers: Option<String>,
+    changers: Option<String>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct TemplateCaseInput {
+    template: String,
+    purpose: String,
+    #[serde(default)]
+    part: Vec<TemplatePartCaseInput>,
+    #[serde(default)]
+    max_out_tokens: Option<u32>,
+    #[serde(default)]
+    timeout_s: Option<u32>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct TemplatePartCaseInput {
+    kind: String,
+    #[serde(default)]
+    labels: Vec<String>,
+    text: String,
+    #[serde(default)]
+    ids: Vec<String>,
+}
+
+fn execute_template_ask_1(
+    input_str: &str,
+    case_id: &str,
+    binding_id: &BindingId,
+) -> Result<String, String> {
+    let parsed: TemplateCaseInput = toml::from_str(input_str).map_err(|e| {
+        format!("binding `{binding_id}` case `{case_id}` invalid template input: {e}")
+    })?;
+    let Ok(template) = fieldbook_core::ports::templates::Template::new(&parsed.template) else {
+        return Ok("refuse unknown-template\n".to_owned());
+    };
+    let purpose = match parsed.purpose.as_str() {
+        "ask" => fieldbook_core::ports::request::Purpose::Ask,
+        "classify" => fieldbook_core::ports::request::Purpose::Classify,
+        "correlate" => fieldbook_core::ports::request::Purpose::Correlate,
+        "draft" => fieldbook_core::ports::request::Purpose::Draft,
+        "decide" => fieldbook_core::ports::request::Purpose::Decide,
+        "embed" => fieldbook_core::ports::request::Purpose::Embed,
+        "suggest" => fieldbook_core::ports::request::Purpose::Suggest,
+        _ => {
+            return Ok("refuse purpose-mismatch\n".to_owned());
+        }
+    };
+
+    let mut parts = Vec::new();
+    for p in parsed.part {
+        let kind = match p.kind.as_str() {
+            "rules" => fieldbook_core::ports::request::PartKind::Rules,
+            "history" => fieldbook_core::ports::request::PartKind::History,
+            "context" => fieldbook_core::ports::request::PartKind::Context,
+            "question" => fieldbook_core::ports::request::PartKind::Question,
+            "subject" => fieldbook_core::ports::request::PartKind::Subject,
+            _ => {
+                return Err(format!(
+                    "binding `{binding_id}` case `{case_id}`: unknown part kind `{}`",
+                    p.kind
+                ));
+            }
+        };
+        let mut label_ids = Vec::new();
+        for l in p.labels {
+            let lid = fieldbook_core::labels::LabelId::parse(&l).map_err(|e| {
+                format!("binding `{binding_id}` case `{case_id}`: invalid label `{l}`: {e}")
+            })?;
+            label_ids.push(lid);
+        }
+        let labels = fieldbook_core::labels::LabelSet::from_ids(label_ids);
+        let mut ids = Vec::new();
+        for item in p.ids {
+            let (store_str, id_str) = item.split_once('/').ok_or_else(|| {
+                format!("binding `{binding_id}` case `{case_id}`: invalid item ref `{item}`")
+            })?;
+            let store =
+                fieldbook_core::labels::StoreId::from_root_name(store_str).ok_or_else(|| {
+                    format!(
+                        "binding `{binding_id}` case `{case_id}`: unknown store root `{store_str}`"
+                    )
+                })?;
+            ids.push(fieldbook_core::labels::ItemRef::new(store, id_str));
+        }
+        parts.push(fieldbook_core::ports::request::Part::new(
+            kind, labels, p.text, ids,
+        ));
+    }
+
+    let limits = fieldbook_core::ports::request::Limits::new(
+        parsed.max_out_tokens.unwrap_or(1024),
+        parsed.timeout_s.unwrap_or(30),
+    );
+    let req = match fieldbook_core::ports::request::ModelRequest::new(
+        purpose, template, parts, None, limits,
+    ) {
+        Ok(r) => r,
+        Err(fieldbook_core::ports::request::RequestError::PurposeMismatch { .. }) => {
+            return Ok("refuse purpose-mismatch\n".to_owned());
+        }
+        Err(fieldbook_core::ports::request::RequestError::PartNotInTemplate(_)) => {
+            return Ok("refuse part-not-in-template\n".to_owned());
+        }
+    };
+
+    let mut out = String::from("ok\n");
+    let labels = req.labels();
+    let mut label_strs: Vec<&str> = labels.ids().iter().map(|l| l.as_str()).collect();
+    label_strs.sort();
+    if label_strs.is_empty() {
+        out.push_str("labels\n");
+    } else {
+        out.push_str(&format!("labels {}\n", label_strs.join(" ")));
+    }
+    let ref_strs: Vec<String> = req
+        .input_refs()
+        .into_iter()
+        .map(|r| format!("{}/{}", r.store, r.id))
+        .collect();
+    if ref_strs.is_empty() {
+        out.push_str("refs\n");
+    } else {
+        out.push_str(&format!("refs {}\n", ref_strs.join(" ")));
+    }
+    out.push_str(&req.system());
+    out.push_str("--- prompt ---\n");
+    out.push_str(&req.prompt());
+    Ok(out)
+}
+
+fn run_vector(
     root: &Path,
     binding: &Binding,
     case_id: &str,
     input_bytes: &[u8],
-    expected_bytes: &[u8],
-) -> Result<(), String> {
+) -> Result<String, String> {
     let input_str = std::str::from_utf8(input_bytes).map_err(|e| {
         format!(
             "binding `{}` case `{case_id}` input is not UTF-8: {e}",
-            binding.id
-        )
-    })?;
-    let expected_str = std::str::from_utf8(expected_bytes).map_err(|e| {
-        format!(
-            "binding `{}` case `{case_id}` expected is not UTF-8: {e}",
             binding.id
         )
     })?;
@@ -818,6 +995,15 @@ fn execute_vector(
         .ok_or_else(|| format!("binding `{}` missing implementation file", binding.id))?;
     let impl_bytes = read_non_symlink_bytes(root, &impl_file.path)?;
     let impl_text = std::str::from_utf8(&impl_bytes).unwrap_or_default();
+
+    // Verify the implementation file on disk matches its manifest sha.
+    let current_impl_sha = sha256_hex(&impl_bytes);
+    if current_impl_sha != impl_file.sha256 {
+        return Err(format!(
+            "binding `{}` implementation `{}` sha256 mismatch on disk",
+            binding.id, impl_file.path
+        ));
+    }
 
     let actual_output = match binding.runner {
         RunnerKind::Calculation => {
@@ -837,14 +1023,6 @@ fn execute_vector(
                 return Err(format!(
                     "unknown calculation function `{}` in runner dispatch",
                     binding.id.id
-                ));
-            }
-            // Verify the implementation file on disk was not tampered with to alter calculation constants.
-            let current_impl_sha = sha256_hex(&impl_bytes);
-            if current_impl_sha != impl_file.sha256 {
-                return Err(format!(
-                    "binding `{}` implementation `{}` sha256 mismatch on disk",
-                    binding.id, impl_file.path
                 ));
             }
             if impl_text.contains("COMPAT_TAMPER") {
@@ -883,29 +1061,363 @@ fn execute_vector(
             })?;
             run.canonical()
         }
-        RunnerKind::Template => {
-            let table: toml::Table = toml::from_str(input_str).map_err(|e| {
-                format!(
-                    "binding `{}` case `{case_id}` invalid template input TOML: {e}",
-                    binding.id
-                )
-            })?;
-            let mut rendered = impl_text.to_owned();
-            for (k, v) in &table {
-                let placeholder = format!("{{{{{k}}}}}");
-                let replacement = v.as_str().map_or_else(|| v.to_string(), str::to_owned);
-                rendered = rendered.replace(&placeholder, &replacement);
+        RunnerKind::Adapter => {
+            let port = binding.id.port.as_deref().unwrap_or("");
+            let id = binding.id.id.as_str();
+            match (port, id) {
+                ("extractor", "plain@1") | ("extractor", "html-strip@1") => {
+                    let parsed: ExtractorCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid extractor input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let raw_bytes = decode_hex(&parsed.hex).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid hex in input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let extractor_fn = fieldbook_core::versions::extractor_v1(id)
+                        .ok_or_else(|| format!("unknown extractor `{id}` in core versions"))?;
+                    match extractor_fn(&raw_bytes) {
+                        Ok(extraction) => {
+                            let mut out = format!("ok\nmethod {id}\n");
+                            for page in extraction.pages {
+                                out.push_str(&format!("page {}\n", page.number));
+                                out.push_str(&page.text);
+                                if !page.text.ends_with('\n') {
+                                    out.push('\n');
+                                }
+                            }
+                            if !out.ends_with('\n') {
+                                out.push('\n');
+                            }
+                            out
+                        }
+                        Err(fieldbook_core::extraction::ExtractError::NotText) => {
+                            "refuse not-text\n".to_owned()
+                        }
+                        Err(fieldbook_core::extraction::ExtractError::TooLarge { .. }) => {
+                            "refuse too-large\n".to_owned()
+                        }
+                        Err(fieldbook_core::extraction::ExtractError::ToolMissing(tool)) => {
+                            format!("refuse tool-missing:{tool}\n")
+                        }
+                        Err(fieldbook_core::extraction::ExtractError::ToolFailed { status }) => {
+                            format!("refuse tool-failed:{status}\n")
+                        }
+                    }
+                }
+                ("extractor", "pdftotext-layout@1") => {
+                    let parsed: PdftotextCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid pdftotext input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let stdout_bytes = decode_hex(&parsed.stdout_hex).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid hex in input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let pages =
+                        crate::versions::pdftotext_layout_v1::pages_from_stdout(&stdout_bytes);
+                    let mut out = format!(
+                        "ok\nargv {}\n",
+                        crate::versions::pdftotext_layout_v1::ARGS.join(" ")
+                    );
+                    for (i, page_text) in pages.iter().enumerate() {
+                        let number = i + 1;
+                        out.push_str(&format!("page {number}\n"));
+                        out.push_str(page_text);
+                        if !page_text.ends_with('\n') {
+                            out.push('\n');
+                        }
+                    }
+                    if !out.ends_with('\n') {
+                        out.push('\n');
+                    }
+                    out
+                }
+                ("backup", "folder@1") => {
+                    let parsed: ScriptCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid backup folder input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let mut out = String::new();
+                    for op in parsed.ops {
+                        let mut parts = op.split_whitespace();
+                        let verb = parts.next().unwrap_or("");
+                        match verb {
+                            "dir" => {
+                                let n_str = parts.next().ok_or_else(|| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `dir` requires argument",
+                                        binding.id
+                                    )
+                                })?;
+                                let n: u32 = n_str.parse().map_err(|e| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `dir` invalid number: {e}",
+                                        binding.id
+                                    )
+                                })?;
+                                let name =
+                                    fieldbook::io::versions::backup_folder_v1::snapshot_dir_name(n);
+                                out.push_str(&format!("dir {name}\n"));
+                            }
+                            "partial" => {
+                                let n_str = parts.next().ok_or_else(|| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `partial` requires argument",
+                                        binding.id
+                                    )
+                                })?;
+                                let n: u32 = n_str.parse().map_err(|e| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `partial` invalid number: {e}",
+                                        binding.id
+                                    )
+                                })?;
+                                let name =
+                                    fieldbook::io::versions::backup_folder_v1::partial_dir_name(n);
+                                out.push_str(&format!("partial {name}\n"));
+                            }
+                            "parse" => {
+                                let name = parts.next().ok_or_else(|| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `parse` requires argument",
+                                        binding.id
+                                    )
+                                })?;
+                                match fieldbook::io::versions::backup_folder_v1::parse_snapshot_dir_name(name) {
+                                    Some(n) => out.push_str(&format!("parse {n}\n")),
+                                    None => out.push_str("refuse not-a-snapshot\n"),
+                                }
+                            }
+                            "is-partial" => {
+                                let name = parts.next().ok_or_else(|| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `is-partial` requires argument",
+                                        binding.id
+                                    )
+                                })?;
+                                let res =
+                                    fieldbook::io::versions::backup_folder_v1::is_partial_dir_name(
+                                        name,
+                                    );
+                                out.push_str(&format!("is-partial {res}\n"));
+                            }
+                            "latest" => {
+                                let n_str = parts.next().ok_or_else(|| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `latest` requires number",
+                                        binding.id
+                                    )
+                                })?;
+                                let n: u32 = n_str.parse().map_err(|e| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `latest` invalid number: {e}",
+                                        binding.id
+                                    )
+                                })?;
+                                let sha = parts.next().ok_or_else(|| {
+                                    format!(
+                                        "binding `{}` case `{case_id}`: `latest` requires sha",
+                                        binding.id
+                                    )
+                                })?;
+                                let content =
+                                    fieldbook::io::versions::backup_folder_v1::latest_content(
+                                        n, sha,
+                                    );
+                                let escaped = content.replace('\n', "\\n");
+                                out.push_str(&format!("latest {escaped}\n"));
+                            }
+                            other => {
+                                return Err(format!(
+                                    "binding `{}` case `{case_id}`: unknown backup op `{other}`",
+                                    binding.id
+                                ));
+                            }
+                        }
+                    }
+                    out
+                }
+                ("store", "folder@1") => {
+                    let parsed: ScriptCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid store folder input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let mut out = String::new();
+                    for op in parsed.ops {
+                        let (verb, rest) = op.split_once(' ').unwrap_or((op.as_str(), ""));
+                        match verb {
+                            "path" => {
+                                let rel = rest;
+                                match fieldbook::io::versions::store_folder_v1::check_rel_path(rel)
+                                {
+                                    Ok(()) => out.push_str("ok\n"),
+                                    Err(refusal) => {
+                                        out.push_str(&format!("refuse {}\n", refusal.word()));
+                                    }
+                                }
+                            }
+                            "sort" => {
+                                let mut names: Vec<String> =
+                                    rest.split_whitespace().map(str::to_owned).collect();
+                                fieldbook::io::versions::store_folder_v1::byte_order(&mut names);
+                                out.push_str(&names.join(" "));
+                                out.push('\n');
+                            }
+                            "sha" => {
+                                let hex =
+                                    fieldbook::io::versions::store_folder_v1::content_sha256_hex(
+                                        rest.as_bytes(),
+                                    );
+                                out.push_str(&hex);
+                                out.push('\n');
+                            }
+                            other => {
+                                return Err(format!(
+                                    "binding `{}` case `{case_id}`: unknown store op `{other}`",
+                                    binding.id
+                                ));
+                            }
+                        }
+                    }
+                    out
+                }
+                ("authz", "policy-readers@1") => {
+                    let parsed: AuthzCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid authz input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    struct InputGroups<'a> {
+                        groups: &'a BTreeMap<String, toml::Value>,
+                    }
+                    impl fieldbook_core::authz::Groups for InputGroups<'_> {
+                        fn in_group(&self, group: &str) -> Option<bool> {
+                            match self.groups.get(group) {
+                                Some(toml::Value::Boolean(b)) => Some(*b),
+                                Some(toml::Value::String(s)) if s == "unreadable" => None,
+                                _ => None,
+                            }
+                        }
+                    }
+                    let groups_lookup = InputGroups {
+                        groups: &parsed.groups,
+                    };
+                    let acts = [
+                        (fieldbook_core::authz::Act::Read, "read"),
+                        (fieldbook_core::authz::Act::Propose, "propose"),
+                        (fieldbook_core::authz::Act::Accept, "accept"),
+                        (fieldbook_core::authz::Act::Export, "export"),
+                        (fieldbook_core::authz::Act::Admin, "admin"),
+                    ];
+                    let mut out = String::new();
+                    for store in parsed.store {
+                        for (act, act_name) in acts {
+                            let decision = fieldbook_core::versions::policy_readers_v1::allow(
+                                act,
+                                store.readers.as_deref(),
+                                store.changers.as_deref(),
+                                &groups_lookup,
+                            );
+                            match decision {
+                                fieldbook_core::authz::AuthzDecision::Allow => {
+                                    out.push_str(&format!("{} {act_name} allow\n", store.id));
+                                }
+                                fieldbook_core::authz::AuthzDecision::Deny(word) => {
+                                    out.push_str(&format!(
+                                        "{} {act_name} deny:{}\n",
+                                        store.id,
+                                        word.as_str()
+                                    ));
+                                }
+                            }
+                        }
+                    }
+                    out
+                }
+                _ => {
+                    return Err(format!(
+                        "unknown adapter binding `{}` in runner dispatch",
+                        binding.id
+                    ));
+                }
             }
-            rendered
         }
-        RunnerKind::Adapter | RunnerKind::SchemaKeyword => {
+        RunnerKind::Template => {
+            if binding.id.id == "ask@1" {
+                execute_template_ask_1(input_str, case_id, &binding.id)?
+            } else {
+                // Legacy synthetic hook:
+                let contract_file = binding
+                    .files
+                    .iter()
+                    .find(|f| f.role == FileRole::Contract)
+                    .ok_or_else(|| format!("binding `{}` missing contract file", binding.id))?;
+                let contract_bytes = read_non_symlink_bytes(root, &contract_file.path)?;
+                let contract_text = std::str::from_utf8(&contract_bytes)
+                    .map_err(|e| format!("binding `{}` contract is not UTF-8: {e}", binding.id))?;
+                if contract_text
+                    .lines()
+                    .any(|l| l.trim() == "synthetic = true")
+                {
+                    let table: toml::Table = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid template input TOML: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let mut rendered = impl_text.to_owned();
+                    for (k, v) in &table {
+                        let placeholder = format!("{{{{{k}}}}}");
+                        let replacement = v.as_str().map_or_else(|| v.to_string(), str::to_owned);
+                        rendered = rendered.replace(&placeholder, &replacement);
+                    }
+                    rendered
+                } else {
+                    return Err(format!(
+                        "unknown template binding `{}` in runner dispatch",
+                        binding.id
+                    ));
+                }
+            }
+        }
+        RunnerKind::SchemaKeyword => {
             return Err(format!(
                 "runner `{}` for `{}` is not registered in this build",
                 binding.runner, binding.id
             ));
         }
     };
+    Ok(actual_output)
+}
 
+fn execute_vector(
+    root: &Path,
+    binding: &Binding,
+    case_id: &str,
+    input_bytes: &[u8],
+    expected_bytes: &[u8],
+) -> Result<(), String> {
+    let expected_str = std::str::from_utf8(expected_bytes).map_err(|e| {
+        format!(
+            "binding `{}` case `{case_id}` expected is not UTF-8: {e}",
+            binding.id
+        )
+    })?;
+    let actual_output = run_vector(root, binding, case_id, input_bytes)?;
     if actual_output != expected_str {
         return Err(format!(
             "binding `{}` case `{case_id}` output mismatch:\nexpected:\n{expected_str}\nactual:\n{actual_output}",
@@ -952,7 +1464,14 @@ fn check_binding_vectors(
         let in_bytes = file_loader(&in_file.path)?;
         let ex_bytes = file_loader(&ex_file.path)?;
         let ex_trimmed = std::str::from_utf8(&ex_bytes).unwrap_or("").trim();
-        if ex_trimmed.starts_with("FB05") && ex_trimmed.len() == 6 {
+        let is_refusal = match binding.runner {
+            RunnerKind::Calculation => ex_trimmed.starts_with("FB05") && ex_trimmed.len() == 6,
+            RunnerKind::Adapter | RunnerKind::Template => ex_trimmed
+                .lines()
+                .any(|l| l.starts_with("refuse") || l.contains(" deny:")),
+            _ => false,
+        };
+        if is_refusal {
             has_refusal = true;
         } else {
             has_positive = true;
@@ -965,6 +1484,46 @@ fn check_binding_vectors(
             "calculation binding `{}` must include both a positive vector and a refusal vector",
             binding.id
         ));
+    }
+
+    if binding.runner == RunnerKind::Adapter || binding.runner == RunnerKind::Template {
+        let is_pdftotext = binding.id.port.as_deref() == Some("extractor")
+            && binding.id.id == "pdftotext-layout@1";
+        if is_pdftotext {
+            if !has_positive || inputs.len() < 2 {
+                return Err(format!(
+                    "adapter binding `{}` requires at least 2 positive vectors",
+                    binding.id
+                ));
+            }
+        } else {
+            let is_synthetic = if binding.runner == RunnerKind::Template {
+                if let Some(contract_file) =
+                    binding.files.iter().find(|f| f.role == FileRole::Contract)
+                {
+                    if let Ok(c_bytes) = file_loader(&contract_file.path) {
+                        if let Ok(c_text) = std::str::from_utf8(&c_bytes) {
+                            c_text.lines().any(|l| l.trim() == "synthetic = true")
+                        } else {
+                            false
+                        }
+                    } else {
+                        false
+                    }
+                } else {
+                    false
+                }
+            } else {
+                false
+            };
+
+            if !is_synthetic && (!has_positive || !has_refusal) {
+                return Err(format!(
+                    "binding `{}` must include both a positive vector and a refusal vector",
+                    binding.id
+                ));
+            }
+        }
     }
 
     Ok(())
@@ -1116,6 +1675,46 @@ fn verify_all(root: &Path, published: &Published, baselines: &Baselines) -> Resu
             return Err(format!(
                 "CALC_FNS function `{}` has no binding in compat/published.toml",
                 row.id
+            ));
+        }
+    }
+
+    // Verify that every Built row in ADAPTERS is covered by an adapter binding in published.toml.
+    // The registry belongs to the tree under check, so a tree without it (a synthetic fixture of
+    // the calculation bindings alone) has no rows to cover.
+    let tree_has_registry = root
+        .join("crates/fieldbook/src/adapters/registry.rs")
+        .is_file();
+    for row in fieldbook::adapters::registry::ADAPTERS {
+        if tree_has_registry && row.state == fieldbook::adapters::registry::State::Built {
+            let port_str = row.port.as_str();
+            let covered = published.bindings.iter().any(|b| {
+                b.id.kind == RunnerKind::Adapter
+                    && b.id.port.as_deref() == Some(port_str)
+                    && b.id.id == row.id
+            });
+            if !covered {
+                return Err(format!(
+                    "ADAPTERS adapter `({port_str}, {})` has no binding in compat/published.toml",
+                    row.id
+                ));
+            }
+        }
+    }
+
+    // Verify that every template in TEMPLATES is covered by a template binding in published.toml.
+    for def in fieldbook_core::ports::templates::TEMPLATES {
+        if !tree_has_registry {
+            break;
+        }
+        let covered = published
+            .bindings
+            .iter()
+            .any(|b| b.id.kind == RunnerKind::Template && b.id.id == def.id);
+        if !covered {
+            return Err(format!(
+                "TEMPLATES template `{}` has no binding in compat/published.toml",
+                def.id
             ));
         }
     }

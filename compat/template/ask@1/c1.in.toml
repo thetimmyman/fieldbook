@@ -1,0 +1,20 @@
+template = "ask@1"
+purpose = "ask"
+max_out_tokens = 1024
+timeout_s = 30
+
+[[part]]
+kind = "rules"
+labels = ["public"]
+text = "Rules: Be concise."
+
+[[part]]
+kind = "context"
+labels = ["owner-supplied"]
+text = "Context item 1."
+ids = ["corpus/S-0001"]
+
+[[part]]
+kind = "question"
+labels = ["owner-supplied"]
+text = "What is item 1?"
