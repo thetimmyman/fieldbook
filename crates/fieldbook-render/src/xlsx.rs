@@ -7,6 +7,31 @@ use rust_xlsxwriter::{DocProperties, ExcelDateTime, Workbook};
 /// Canonical site-relative path to the workbook copy of the registers.
 pub const OUTPUT_PATH: &str = fieldbook_core::strings::PATHS[0];
 
+/// Error returned when a cell in a register sheet cannot be written to the workbook.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct WorkbookError {
+    /// Register sheet name.
+    pub register: String,
+    /// First cell of the failing row, or empty if the row is empty.
+    pub row: String,
+    /// Column header name.
+    pub column: String,
+    /// Error detail from the workbook writer.
+    pub detail: String,
+}
+
+impl std::fmt::Display for WorkbookError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "workbook cell cannot be written: register {}, row {}, column {}: {}",
+            self.register, self.row, self.column, self.detail
+        )
+    }
+}
+
+impl std::error::Error for WorkbookError {}
+
 /// Returns the worksheet name for `register` ("sources", "claims", "questions", "conflicts", "glossary").
 #[must_use]
 pub const fn sheet_name(register: Register) -> &'static str {
@@ -20,7 +45,12 @@ pub const fn sheet_name(register: Register) -> &'static str {
 }
 
 /// Writes a single worksheet with header, data rows, freeze pane, and autofilter.
-fn write_sheet(workbook: &mut Workbook, name: &str, headers: &[&str], rows: &[Vec<String>]) {
+fn write_sheet(
+    workbook: &mut Workbook,
+    name: &str,
+    headers: &[&str],
+    rows: &[Vec<String>],
+) -> Result<(), WorkbookError> {
     let worksheet = workbook.add_worksheet();
     worksheet
         .set_name(name)
@@ -43,7 +73,12 @@ fn write_sheet(workbook: &mut Workbook, name: &str, headers: &[&str], rows: &[Ve
                     .unwrap_or_else(|e| unreachable!("data col index fits in u16: {e}"));
                 worksheet
                     .write_string(row_idx, col_idx, cell)
-                    .unwrap_or_else(|e| unreachable!("writing cell string is infallible: {e}"));
+                    .map_err(|e| WorkbookError {
+                        register: name.to_owned(),
+                        row: row.first().cloned().unwrap_or_default(),
+                        column: headers[c_idx].to_owned(),
+                        detail: e.to_string(),
+                    })?;
             }
         }
     }
@@ -60,11 +95,16 @@ fn write_sheet(workbook: &mut Workbook, name: &str, headers: &[&str], rows: &[Ve
     worksheet
         .autofilter(0, 0, last_row, last_col)
         .unwrap_or_else(|e| unreachable!("setting autofilter is infallible: {e}"));
+
+    Ok(())
 }
 
 /// Renders the complete workbook containing all five registers in canonical order.
-#[must_use]
-pub fn render(view: &LabelledView, workbook_epoch: i64) -> Vec<u8> {
+///
+/// # Errors
+///
+/// Returns [`WorkbookError`] if any register cell exceeds the Excel cell character limit.
+pub fn render(view: &LabelledView, workbook_epoch: i64) -> Result<Vec<u8>, WorkbookError> {
     let datetime = ExcelDateTime::from_timestamp(workbook_epoch).unwrap_or_else(|_| {
         ExcelDateTime::from_timestamp(crate::meta::DEFAULT_WORKBOOK_EPOCH)
             .unwrap_or_else(|e| unreachable!("DEFAULT_WORKBOOK_EPOCH is a valid timestamp: {e}"))
@@ -76,12 +116,12 @@ pub fn render(view: &LabelledView, workbook_epoch: i64) -> Vec<u8> {
     for &register in &Register::ALL {
         let headers: Vec<&'static str> = register.columns().iter().map(|col| col.name).collect();
         let data_rows = crate::csv_copy::rows(view, register);
-        write_sheet(&mut workbook, sheet_name(register), &headers, &data_rows);
+        write_sheet(&mut workbook, sheet_name(register), &headers, &data_rows)?;
     }
 
-    workbook
+    Ok(workbook
         .save_to_buffer()
-        .unwrap_or_else(|e| unreachable!("saving workbook to buffer is infallible: {e}"))
+        .unwrap_or_else(|e| unreachable!("saving workbook to buffer is infallible: {e}")))
 }
 
 #[cfg(test)]
@@ -114,12 +154,12 @@ mod tests {
 
         let mut wb1 = Workbook::new();
         wb1.set_properties(&props);
-        write_sheet(&mut wb1, "test_sheet", &headers, &rows);
+        write_sheet(&mut wb1, "test_sheet", &headers, &rows).unwrap();
         let bytes1 = wb1.save_to_buffer().unwrap();
 
         let mut wb2 = Workbook::new();
         wb2.set_properties(&props);
-        write_sheet(&mut wb2, "test_sheet", &headers, &rows);
+        write_sheet(&mut wb2, "test_sheet", &headers, &rows).unwrap();
         let bytes2 = wb2.save_to_buffer().unwrap();
 
         assert_eq!(bytes1, bytes2);
@@ -130,8 +170,23 @@ mod tests {
         let mut wb = Workbook::new();
         let headers = ["col1", "col2"];
         let rows: Vec<Vec<String>> = Vec::new();
-        write_sheet(&mut wb, "empty", &headers, &rows);
+        write_sheet(&mut wb, "empty", &headers, &rows).unwrap();
         let bytes = wb.save_to_buffer().unwrap();
         assert!(!bytes.is_empty());
+    }
+
+    #[test]
+    fn test_write_sheet_over_limit_cell() {
+        let mut wb = Workbook::new();
+        let headers = ["col1", "col2", "col3"];
+        let rows = vec![vec![
+            "row-id-1".to_string(),
+            "second".to_string(),
+            "a".repeat(32_768),
+        ]];
+        let err = write_sheet(&mut wb, "t", &headers, &rows).unwrap_err();
+        assert_eq!(err.register, "t");
+        assert_eq!(err.row, "row-id-1");
+        assert_eq!(err.column, "col3");
     }
 }

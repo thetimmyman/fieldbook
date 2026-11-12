@@ -364,13 +364,13 @@ fn build_workbook_from_fixture(root: &Path, epoch: i64) -> Vec<u8> {
         panic!("edition selection must succeed");
     };
     let view = LabelledView::new(&model, &allowed, &ReadableStores::corpus());
-    xlsx::render(&view, epoch)
+    xlsx::render(&view, epoch).unwrap()
 }
 
 #[test]
 fn core_xml_has_the_fixed_time() {
     fixture_view_with(|view| {
-        let bytes = xlsx::render(view, 1_772_366_400);
+        let bytes = xlsx::render(view, 1_772_366_400).unwrap();
         let mut archive = ZipArchive::new(Cursor::new(bytes)).unwrap();
         let mut core_file = archive.by_name("docProps/core.xml").unwrap();
         let mut core_xml = String::new();
@@ -414,7 +414,7 @@ fn workbook_without_epoch_has_fixed_creation_time() {
 #[test]
 fn no_formula_macro_external_link_or_hyperlink() {
     fixture_view_with(|view| {
-        let bytes = xlsx::render(view, 1_772_366_400);
+        let bytes = xlsx::render(view, 1_772_366_400).unwrap();
         let viols = violations(&bytes);
         assert!(
             viols.is_empty(),
@@ -426,7 +426,7 @@ fn no_formula_macro_external_link_or_hyperlink() {
 #[test]
 fn every_cell_is_a_string_equal_to_its_register_cell() {
     fixture_view_with(|view| {
-        let bytes = xlsx::render(view, 1_772_366_400);
+        let bytes = xlsx::render(view, 1_772_366_400).unwrap();
         let sheets = read_workbook(&bytes);
         let sheets_by_name: BTreeMap<String, &SheetData> =
             sheets.iter().map(|s| (s.name.clone(), s)).collect();
@@ -517,7 +517,7 @@ fn every_cell_is_a_string_equal_to_its_register_cell() {
 #[test]
 fn header_frozen_with_autofilter() {
     fixture_view_with(|view| {
-        let bytes = xlsx::render(view, 1_772_366_400);
+        let bytes = xlsx::render(view, 1_772_366_400).unwrap();
         let sheets = read_workbook(&bytes);
         let sheets_by_name: BTreeMap<String, &SheetData> =
             sheets.iter().map(|s| (s.name.clone(), s)).collect();
@@ -568,7 +568,7 @@ fn header_frozen_with_autofilter() {
 #[test]
 fn every_header_equals_register_columns() {
     fixture_view_with(|view| {
-        let bytes = xlsx::render(view, 1_772_366_400);
+        let bytes = xlsx::render(view, 1_772_366_400).unwrap();
         let sheets = read_workbook(&bytes);
         let sheets_by_name: BTreeMap<String, &SheetData> =
             sheets.iter().map(|s| (s.name.clone(), s)).collect();
@@ -825,4 +825,70 @@ fn the_six_data_files_are_planned_and_built() {
             "site files under data/ must be exactly the six planned data files"
         );
     });
+}
+
+#[test]
+fn over_limit_list_cell_is_a_clean_error() {
+    fixture_view_with_tree(
+        |tree| {
+            let bytes = tree
+                .get_bytes("corpus/registers/glossary.csv")
+                .expect("glossary.csv in fixture tree");
+            let s = std::str::from_utf8(bytes).expect("glossary.csv is utf-8");
+            assert!(
+                s.contains(",withholding holdback,"),
+                "expected substring in glossary.csv"
+            );
+            let items: Vec<String> = (0..40)
+                .map(|i| format!("{i:02}{}", "x".repeat(900)))
+                .collect();
+            let replacement = format!(",{},", items.join("|"));
+            let new_text = s.replace(",withholding holdback,", &replacement);
+            tree.insert_bytes("corpus/registers/glossary.csv", new_text.into_bytes());
+        },
+        |view| {
+            let err = xlsx::render(view, 1_772_366_400).unwrap_err();
+            assert_eq!(err.register, "glossary");
+            assert_eq!(err.row, "billing_withhold");
+            assert_eq!(err.column, "aliases");
+            let msg = err.to_string();
+            assert!(msg.contains("glossary"), "expected 'glossary' in: {msg}");
+            assert!(
+                msg.contains("billing_withhold"),
+                "expected 'billing_withhold' in: {msg}"
+            );
+            assert!(msg.contains("aliases"), "expected 'aliases' in: {msg}");
+        },
+    );
+}
+
+#[test]
+fn over_limit_list_cell_stops_the_site_render() {
+    fixture_view_with_tree(
+        |tree| {
+            let bytes = tree
+                .get_bytes("corpus/registers/glossary.csv")
+                .expect("glossary.csv in fixture tree");
+            let s = std::str::from_utf8(bytes).expect("glossary.csv is utf-8");
+            assert!(
+                s.contains(",withholding holdback,"),
+                "expected substring in glossary.csv"
+            );
+            let items: Vec<String> = (0..40)
+                .map(|i| format!("{i:02}{}", "x".repeat(900)))
+                .collect();
+            let replacement = format!(",{},", items.join("|"));
+            let new_text = s.replace(",withholding holdback,", &replacement);
+            tree.insert_bytes("corpus/registers/glossary.csv", new_text.into_bytes());
+        },
+        |view| {
+            let err = site::render(view, &BuildInfo::default()).unwrap_err();
+            let msg = err.to_string();
+            assert!(
+                msg.contains("billing_withhold"),
+                "expected 'billing_withhold' in: {msg}"
+            );
+            assert!(msg.contains("aliases"), "expected 'aliases' in: {msg}");
+        },
+    );
 }
