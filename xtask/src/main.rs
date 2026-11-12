@@ -11,6 +11,8 @@
 //! - `scope BASE HEAD`: fail when a pull request that deletes a card changes a path the card does not list.
 //! - `guard-statuses BASE HEAD`: fail when an agent's commits certify their own work.
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
+//! - `edition`: check and build the Corpus, run the browser harness on that tree and write the edition and originals zips into `out/dist`.
+//! - `edition-compare --left DIR --right DIR`: verify two delivery folders and require equal payloads, apart from the browser attestations.
 //! - `edition-raw --out DIR`: package the raw edition floor from a clean commit.
 //! - `raw-edition-check TAG --base FILE --evidence-out DIR`: check a raw edition tag and collect its evidence.
 //! - `raw-edition-compare LOCAL DOWNLOADED`: require a downloaded raw delivery set to equal the local one.
@@ -80,6 +82,7 @@ mod deps_metadata;
 mod deps_references;
 mod docs;
 mod docs_lints;
+mod edition;
 mod edition_raw;
 mod edition_release;
 mod errors;
@@ -122,6 +125,9 @@ const USAGE: &str = "usage: cargo xtask <command>
   binscan EXE --build silent|ai     check imported OS symbols of EXE against its allowlist and group bans
   archive-release [FLAGS]           copy a verified release set and compatibility evidence into a durable archive
   verify-archive DIR [FLAGS]        reopen and verify a durable archive and its stream predecessor
+  edition                           check, build, test in the browser and package the edition and originals zips into out/dist
+  edition-compare --left DIR --right DIR
+                                    verify two delivery folders and require equal payloads, apart from the browser attestations
   edition-raw --out DIR [FLAGS]     package the raw edition floor (paired archives) from a clean commit
   raw-edition-check TAG --base FILE --evidence-out DIR
                                     check an owner-created raw edition tag and collect its evidence
@@ -160,6 +166,8 @@ fn main() -> ExitCode {
         ["binscan", exe, "--build", build] => binscan::command(&root, &PathBuf::from(exe), build),
         ["archive-release", rest @ ..] => edition_release::command_archive_release(rest),
         ["verify-archive", rest @ ..] => edition_release::command_verify_archive(rest),
+        ["edition", rest @ ..] => edition::command_edition(&root, rest),
+        ["edition-compare", rest @ ..] => edition::command_edition_compare(rest),
         ["edition-raw", rest @ ..] => edition_raw::command_edition_raw(&root, rest),
         ["raw-edition-check", rest @ ..] => raw_release::command_raw_edition_check(&root, rest),
         ["raw-edition-compare", rest @ ..] => raw_release::command_raw_edition_compare(rest),

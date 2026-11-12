@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: `just edition` builds the edition and originals zips.
 - Changed: the IT documents describe the silent build and the AI build separately.
 - Added: `just new-card`, `cargo xtask cards --check` and `cargo xtask scope`, which lint the card files, the plan, the links and the documents, and fail a pull request that closes a card and changes a path the card does not list.
 - Changed: an unreleased build shows the review notice in its build status banner, not as a second banner on each page.

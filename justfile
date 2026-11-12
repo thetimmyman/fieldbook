@@ -1,6 +1,6 @@
 # Fieldbook developer recipes. Run `just` to list them.
 # Bootstrap: `cargo install --locked just@1.58.0`, then `just setup`.
-# Recipes still to come: edition and release. Each arrives with its card.
+# Recipe still to come: release. It arrives with its card.
 
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
@@ -24,6 +24,10 @@ binscan:
 # Build the static site into out/edition at the commit timestamp.
 site:
     SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)" cargo run -q --locked -p fieldbook -- build --out out
+
+# Check, then build the Corpus, test the built site in Edge and write the two zips and their hashes to out/dist.
+edition: check
+    cargo xtask edition
 
 # Open every page of out/edition in headless Edge with a net-log (AD-08). Where Edge is not
 # installed (the Linux self-hosted runner), the harness falls back to Chromium and names it.
