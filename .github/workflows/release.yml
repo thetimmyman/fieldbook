@@ -1,0 +1,157 @@
+# Release delivery and trial builds (docs/runbooks/release.md).
+# Triggered on push of tags matching "v*" or "edition-*", workflow_dispatch, and pull_request
+# changes to .github/workflows/release.yml.
+# Only the owner creates and pushes tags.
+# Workflow runs upload workflow artifacts only; no release page is created.
+# Runs on pull_request or workflow_dispatch are trial builds; nothing is published.
+#
+# OWNER ITEM, deliberately not done here: the edition job's packaging step needs the
+# security-contact text in the environment variable FIELDBOOK_SECURITY_CONTACT (control IN-01).
+# A repository secret binding is an owner-only decision so this file binds none. Until the
+# owner adds an `env:` entry to the "Package the edition" step, `cargo xtask edition` refuses
+# with IN-01 and the edition job fails closed.
+name: release
+
+on:
+  push:
+    tags: ["v*", "edition-*"]
+  workflow_dispatch:
+  pull_request:
+    paths: [".github/workflows/release.yml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  tag-check:
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      kind: ${{ steps.check.outputs.kind }}
+      number: ${{ steps.check.outputs.number }}
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      - name: Check the tag against main, the workspace version or the newest edition heading, and the compatibility baseline
+        id: check
+        run: cargo xtask release-check "$GITHUB_REF_NAME" --base release-baseline.toml --evidence-out out/site-evidence --output "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.check.outputs.kind == 'site'
+        with:
+          name: edition-${{ steps.check.outputs.number }}-evidence
+          path: out/site-evidence
+          if-no-files-found: error
+          retention-days: 90
+
+  edition:
+    needs: [tag-check]
+    if: github.ref_type == 'tag' && startsWith(github.ref_name, 'edition-') && needs.tag-check.outputs.kind == 'site'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        with:
+          tool: just@1.58.0
+      - name: Package the edition
+        run: cargo xtask edition
+      - name: Log the size of each zip in whole megabytes
+        run: for f in out/dist/*.zip; do echo "$f $(( $(stat -c %s "$f") / 1048576 )) MB"; done
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: edition-${{ needs.tag-check.outputs.number }}
+          path: |
+            out/dist/fieldbook-edition-${{ needs.tag-check.outputs.number }}.zip
+            out/dist/fieldbook-originals-${{ needs.tag-check.outputs.number }}.zip
+            out/dist/SHA256SUMS
+            out/dist/corpus-support.toml
+            out/dist/corpus-support.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+  # On a tag run tag-check already proved the workspace version equals the tag; off a tag
+  # the same name is a trial build and nothing is published; never hand a trial build to anyone.
+  binary:
+    needs: [tag-check]
+    if: ${{ !cancelled() && needs.tag-check.result != 'failure' && !startsWith(github.ref_name, 'edition-') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      - name: Read the workspace version
+        id: version
+        run: |
+          set -euo pipefail
+          version="$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[] | select(.name == "fieldbook") | .version')"
+          test -n "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Build fieldbook with the dist profile, stamped with the checked-out commit
+        run: |
+          set -euo pipefail
+          sha="$(git rev-parse HEAD)"
+          if [[ ! "$sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "commit sha is not 40 lowercase hex: $sha" >&2
+            exit 1
+          fi
+          FIELDBOOK_GIT_SHA="$sha" cargo build --locked --profile dist --package fieldbook
+      - name: Check that the program reports the commit it was built from
+        run: |
+          set -euo pipefail
+          sha="$(git rev-parse HEAD)"
+          version_out="$(target/dist/fieldbook --version)"
+          case "$version_out" in
+            *"($sha)") ;;
+            *)
+              echo "unexpected version output: $version_out" >&2
+              exit 1
+              ;;
+          esac
+      - name: Scan the imported symbols
+        run: cargo xtask binscan target/dist/fieldbook --build silent
+      - name: Stage the binary and its checksum
+        run: |
+          set -euo pipefail
+          mkdir -p out/linux
+          cp target/dist/fieldbook out/linux/fieldbook
+          (cd out/linux && sha256sum fieldbook > SHA256SUMS)
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fieldbook-v${{ steps.version.outputs.version }}-linux
+          path: |
+            out/linux/fieldbook
+            out/linux/SHA256SUMS
+          if-no-files-found: error

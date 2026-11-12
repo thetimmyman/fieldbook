@@ -42,6 +42,12 @@ impl Plant {
     ];
 }
 
+/// The tool version the checked-in journal fixtures were written with. It is fixed: the
+/// fixtures are never rewritten, so a release must not change it.
+fn fixture_tool_version() -> SemVer {
+    SemVer::parse("0.0.0").expect("valid semver")
+}
+
 fn sha(byte: u8) -> Sha256 {
     let hex = format!("{byte:02x}").repeat(32);
     Sha256::parse(&hex).expect("valid synthetic sha256")
@@ -65,7 +71,7 @@ pub fn state_mini_events() -> Vec<EventPayload> {
         EventPayload::JournalOpen {
             writer: Count::new(0),
             event_schema: Count::new(1),
-            tool_version: SemVer::parse(env!("CARGO_PKG_VERSION")).expect("valid semver"),
+            tool_version: fixture_tool_version(),
             stores: Vec::new(),
         },
         // 2: settings.change
@@ -202,7 +208,8 @@ pub fn build_state(dir: &Path, events: &[EventPayload]) {
 
     let root = dir.parent().unwrap_or(dir);
     let world = TestWorld::with_state(root, dir);
-    let journal = Journal::open(&world, dir, Via::Cli).expect("Journal::open in build_state");
+    let journal = Journal::open_stamped(&world, dir, Via::Cli, fixture_tool_version())
+        .expect("Journal::open_stamped in build_state");
 
     let mut skip = 0usize;
     if matches!(events.first(), Some(EventPayload::JournalOpen { .. })) {
