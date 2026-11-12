@@ -275,7 +275,7 @@ pub fn plan_edition(
         BuildPlanError::Lint(vec![Diagnostic::new(
             Code::Fb0605,
             false,
-            "data/registers.xlsx".to_owned(),
+            fieldbook_render::xlsx::OUTPUT_PATH.to_owned(),
             1,
             1,
             e.to_string(),
@@ -321,7 +321,7 @@ pub fn plan_edition_with_originals(
         BuildPlanError::Lint(vec![Diagnostic::new(
             Code::Fb0605,
             false,
-            "data/registers.xlsx".to_owned(),
+            fieldbook_render::xlsx::OUTPUT_PATH.to_owned(),
             1,
             1,
             e.to_string(),
