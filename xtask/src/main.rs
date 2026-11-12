@@ -16,6 +16,8 @@
 //! - `edition-raw --out DIR`: package the raw edition floor from a clean commit.
 //! - `raw-edition-check TAG --base FILE --evidence-out DIR`: check a raw edition tag and collect its evidence.
 //! - `raw-edition-compare LOCAL DOWNLOADED`: require a downloaded raw delivery set to equal the local one.
+//! - `release X.Y.Z`: prepare the release commit on a branch (edits Cargo.toml, Cargo.lock, CHANGELOG.md; commits nothing).
+//! - `release-check TAG --base FILE [--evidence-out DIR] [--output FILE]`: check a v* or edition-* tag the way release.yml does.
 //! - `harness [--edition DIR]`: open every page of an edition in headless Edge (or Chromium) with a net-log.
 //! - `hosted-limits DIR`: fail if a file in DIR is over 25 MiB or DIR holds more than 20,000 files (Cloudflare Workers static assets limits).
 //!
@@ -40,6 +42,7 @@
     )
 )]
 mod allowlist;
+mod archive_release;
 mod audit_doc;
 mod binscan;
 mod cards;
@@ -98,6 +101,7 @@ mod links;
 mod literals;
 mod proc;
 mod raw_release;
+mod release;
 mod scope;
 mod tools;
 #[cfg_attr(
@@ -133,6 +137,9 @@ const USAGE: &str = "usage: cargo xtask <command>
                                     check an owner-created raw edition tag and collect its evidence
   raw-edition-compare LOCAL DOWNLOADED
                                     require a downloaded raw delivery set to equal the local one
+  release X.Y.Z                     prepare the release commit on a branch (edits Cargo.toml, Cargo.lock, CHANGELOG.md; commits nothing)
+  release-check TAG --base FILE [--evidence-out DIR] [--output FILE]
+                                    check a v* or edition-* tag the way release.yml does
   edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version
   harness [--edition DIR]           open every page and renderable original in headless Edge (or Chromium) with a net-log
   hosted-limits DIR                 fail if a file in DIR is over 25 MiB or DIR holds more than 20,000 files (Cloudflare Workers static assets limits)";
@@ -141,6 +148,10 @@ fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
     let root = std::env::var_os("XTASK_REPO_ROOT").map_or_else(proc::repo_root, PathBuf::from);
     if let Err(message) = raw_release::register_raw_provider() {
+        eprintln!("error: {message}");
+        return ExitCode::from(3);
+    }
+    if let Err(message) = archive_release::register_release_providers() {
         eprintln!("error: {message}");
         return ExitCode::from(3);
     }
@@ -171,6 +182,8 @@ fn main() -> ExitCode {
         ["edition-raw", rest @ ..] => edition_raw::command_edition_raw(&root, rest),
         ["raw-edition-check", rest @ ..] => raw_release::command_raw_edition_check(&root, rest),
         ["raw-edition-compare", rest @ ..] => raw_release::command_raw_edition_compare(rest),
+        ["release", rest @ ..] => release::command_release(&root, rest),
+        ["release-check", rest @ ..] => release::command_release_check(&root, rest),
         ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
         ["harness", rest @ ..] => harness::command(&root, rest),
         ["hosted-limits", dir] => hosted::command(&PathBuf::from(dir)),

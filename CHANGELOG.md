@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: `just release` and the release workflow.
 - Added: `just edition` builds the edition and originals zips.
 - Changed: the IT documents describe the silent build and the AI build separately.
 - Changed: the ID list is an index with one page per group, and claims in parts of 500 per area.
