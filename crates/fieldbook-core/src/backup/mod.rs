@@ -10,12 +10,17 @@ use std::fmt;
 
 pub mod labels;
 pub mod plan;
+pub mod restore;
 pub mod retention;
 pub mod target;
 pub mod toml;
 
 pub use labels::{BackupFileKind, CopiedFile, snapshot_labels};
 pub use plan::{BackupPlan, PlaceFinding, path_budget, plan_backup, target_place};
+pub use restore::{
+    DRILL_STEPS, DestinationFacts, PlannedRoot, RestorePlan, RestoreRefusal, RestoreRefusalKind,
+    RestoreShell, plan_restore, rename_help,
+};
 pub use retention::{SnapshotInfo, plan_retention};
 pub use target::{BackupTarget, SnapshotStage};
 pub use toml::{BackupToml, manifest_sha256};
