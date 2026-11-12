@@ -336,6 +336,7 @@ impl AddFileResult {
 
 /// One per-file entry in [`AddReport`].
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct AddFileReport {
     /// Relative `/`-separated file name (or basename in single-file mode).
     pub name: String,
@@ -357,6 +358,7 @@ pub struct AddFileReport {
 
 /// Aggregate file counts in [`AddReport`].
 #[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct AddCounts {
     /// Number of files with `result == added`.
     pub added: usize,
@@ -391,6 +393,7 @@ pub struct AddReport {
 }
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct RawAddReport {
     report_version: u32,
     verb: String,
@@ -447,4 +450,135 @@ impl TryFrom<RawAddReport> for AddReport {
             exit: raw.exit,
         })
     }
+}
+
+/// Target configuration in [`BackupList`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct BackupListTarget {
+    /// Target identifier from `settings.toml`.
+    pub id: String,
+    /// Kind of target (`"folder"`, `"it-location"`, `"synced"`).
+    pub kind: String,
+    /// Destination path as configured.
+    pub path: String,
+    /// Whether target is marked company storage.
+    pub company_storage: bool,
+}
+
+/// Latest verification outcome and timestamp in [`BackupListSnapshot`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct BackupLatestVerification {
+    /// Verification outcome (`"ok"` or `"failed"`).
+    pub outcome: String,
+    /// Event timestamp in ISO 8601 UTC.
+    pub utc: String,
+}
+
+/// One snapshot entry in [`BackupList`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct BackupListSnapshot {
+    /// Snapshot number.
+    pub snapshot: u32,
+    /// Schema version (`1`).
+    pub backup_version: u32,
+    /// Tool version that created the snapshot.
+    pub tool_version: String,
+    /// Creation timestamp in ISO 8601 UTC.
+    pub created_utc: String,
+    /// Sorted list of label identifiers.
+    pub labels: Vec<String>,
+    /// Roots copied into the snapshot.
+    pub roots: Vec<String>,
+    /// Total number of data files.
+    pub files: u64,
+    /// Total bytes of data files.
+    pub bytes: u64,
+    /// SHA-256 fingerprint over corpus files.
+    pub fingerprint: String,
+    /// Sequence number of the snapshot's `backup.begin` journal event.
+    pub journal_seq: u64,
+    /// Hash of the snapshot's `backup.begin` journal event.
+    pub journal_head: String,
+    /// Journal state (`ok` or `broken`).
+    pub journal_state: String,
+    /// Manifest SHA-256 hash.
+    pub manifest_sha256: String,
+    /// Whether this snapshot has ever been successfully verified.
+    pub verified: bool,
+    /// Timestamp of newest successful verification (omitted when unverified).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub verified_utc: Option<String>,
+    /// Outcome and timestamp of the latest verification (omitted when unverified).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub latest_verification: Option<BackupLatestVerification>,
+}
+
+/// Restore drill outcome in [`BackupList`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct BackupListDrill {
+    /// Drill mode (`"drill"` or `"real"`).
+    pub mode: String,
+    /// Outcome (`"ok"` or failing code).
+    pub outcome: String,
+    /// Timestamp in ISO 8601 UTC.
+    pub utc: String,
+}
+
+/// Diagnostic finding in [`BackupList`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct BackupListFinding {
+    /// Four-digit `FB08xx` catalogue code.
+    pub code: String,
+    /// Effective severity (`"error"` or `"warning"`).
+    pub severity: String,
+}
+
+/// The `--json` report produced by `fieldbook backup list`.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct BackupList {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Always `"backup list"`.
+    pub verb: String,
+    /// Target information (omitted when no target is configured).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub target: Option<BackupListTarget>,
+    /// Age in days after which unverified backups trigger a warning.
+    pub warn_after_days: u32,
+    /// Number of recent snapshots to retain.
+    pub keep_last: usize,
+    /// Number of weekly snapshots to retain.
+    pub keep_weekly: usize,
+    /// Snapshots present in the target (empty list when no target).
+    pub snapshots: Vec<BackupListSnapshot>,
+    /// Timestamp of newest successful verification across all snapshots (omitted when none).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub verified_utc: Option<String>,
+    /// Outcome of newest restore drill (omitted when none).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub drill: Option<BackupListDrill>,
+    /// Findings raised by the listing (`FB0812`, `FB0813`, `FB0814`).
+    pub findings: Vec<BackupListFinding>,
+    /// Process exit code (`0` or `1`).
+    pub exit: u8,
+}
+
+/// The persisted `reports/last-backup.json` verification cache (`backup-snapshot` step 21).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct LastBackupReport {
+    /// Verification mode (always `"snapshot"`).
+    pub verification: String,
+    /// Canonical path of the backup target.
+    pub target_path: String,
+    /// Effective classification labels of this cache record.
+    pub labels: Vec<LabelId>,
+    /// Lowercase SHA-256 digest of `target_path`.
+    pub target_sha256: String,
+    /// Verified snapshot number.
+    pub snapshot: u32,
+    /// Manifest SHA-256 digest of the verified snapshot.
+    pub manifest_sha256: String,
+    /// Verification timestamp in ISO 8601 UTC.
+    pub verified_utc: String,
 }

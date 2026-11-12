@@ -69,6 +69,8 @@ pub enum Commands {
     Search(SearchArgs),
     /// Record that the owner (or lead) verified a claim, at a terminal.
     Verify(VerifyArgs),
+    /// Create, verify, or list backup snapshots.
+    Backup(BackupArgs),
 }
 
 /// Arguments for `fieldbook verify`.
@@ -334,6 +336,80 @@ pub struct AuditShowArgs {
     /// Show only the journal sequence count and head hash (`events` array is empty).
     #[arg(long)]
     pub head: bool,
+
+    /// Print the report as a JSON object.
+    #[arg(long)]
+    pub json: bool,
+}
+
+/// Arguments for `fieldbook backup`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+#[command(args_conflicts_with_subcommands = true)]
+pub struct BackupArgs {
+    /// Backup target identifier in settings.toml.
+    #[arg(long, value_name = "ID")]
+    pub target: Option<String>,
+
+    /// Destination directory for a one-off backup.
+    #[arg(long, value_name = "DIR")]
+    pub to: Option<PathBuf>,
+
+    /// Perform checks and report what would be written without writing anything.
+    #[arg(long)]
+    pub dry_run: bool,
+
+    /// Backup subcommand (verify or list).
+    #[command(subcommand)]
+    pub command: Option<BackupSubcommand>,
+}
+
+/// Subcommands under `fieldbook backup`.
+#[derive(Debug, Clone, PartialEq, Eq, Subcommand)]
+pub enum BackupSubcommand {
+    /// Verify a backup snapshot or raw copy.
+    Verify(BackupVerifyArgs),
+    /// List backup snapshots in a target.
+    List(BackupListArgs),
+}
+
+/// Arguments for `fieldbook backup verify`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct BackupVerifyArgs {
+    /// Backup target identifier in settings.toml.
+    #[arg(long, value_name = "ID", conflicts_with = "in_dir")]
+    pub target: Option<String>,
+
+    /// Inspect snapshots in directory DIR.
+    #[arg(long = "in", value_name = "DIR", conflicts_with = "target")]
+    pub in_dir: Option<PathBuf>,
+
+    /// Snapshot number to verify.
+    #[arg(long, value_name = "N")]
+    pub snapshot: Option<u64>,
+
+    /// Verify a raw copy of data folders at PATH.
+    #[arg(long, value_name = "PATH")]
+    pub raw: Option<PathBuf>,
+
+    /// Support catalogue evidence file.
+    #[arg(long, value_name = "FILE")]
+    pub support_catalogue: Option<PathBuf>,
+
+    /// Expected SHA-256 digest of support catalogue evidence.
+    #[arg(long, value_name = "HEX")]
+    pub expect_support_sha256: Option<String>,
+}
+
+/// Arguments for `fieldbook backup list`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct BackupListArgs {
+    /// Backup target identifier in settings.toml.
+    #[arg(long, value_name = "ID", conflicts_with = "in_dir")]
+    pub target: Option<String>,
+
+    /// Inspect snapshots in directory DIR.
+    #[arg(long = "in", value_name = "DIR", conflicts_with = "target")]
+    pub in_dir: Option<PathBuf>,
 
     /// Print the report as a JSON object.
     #[arg(long)]
