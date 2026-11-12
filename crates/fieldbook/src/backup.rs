@@ -964,8 +964,13 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     }
 
     // 13. Retention pruning on disk before closing audited scope
+    let mut removed: Vec<Number> = Vec::new();
+    let mut prune_problems: Vec<String> = Vec::new();
     for num in &pruned_snapshots {
-        let _ = folder_target.remove(*num);
+        match folder_target.remove(*num) {
+            Ok(()) => removed.push(*num),
+            Err(err) => prune_problems.push(format!("could not remove snapshot {num:04}: {err}")),
+        }
     }
 
     // 14. End journal transaction if not recovery mode
@@ -1001,8 +1006,10 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
             };
         }
 
-        if !pruned_snapshots.is_empty() {
-            let _ = j.append_backup_prune(&pruned_snapshots, Word::new_static("retention"));
+        if !removed.is_empty()
+            && let Err(err) = j.append_backup_prune(&removed, Word::new_static("retention"))
+        {
+            prune_problems.push(format!("backup.prune journal append failed: {err}"));
         }
     } else {
         // Recovery mode: refusal stderr notification
@@ -1013,11 +1020,19 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         stderr.insert_str(0, &warn_stale);
     }
 
-    let exit_code = if is_broken_chain {
+    let mut exit_code = if is_broken_chain {
         EXIT_FINDINGS
     } else {
         EXIT_OK
     };
+
+    if !prune_problems.is_empty() {
+        for problem in &prune_problems {
+            stderr.push_str(problem);
+            stderr.push('\n');
+        }
+        exit_code = EXIT_IO;
+    }
 
     Outcome {
         stdout: format!(

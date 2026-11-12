@@ -1265,6 +1265,145 @@ fn backup_events_are_begin_end_verify_prune() {
     assert!(journal_text.contains("\"kind\":\"backup.prune\""));
 }
 
+#[cfg(unix)]
+#[test]
+fn a_failed_prune_removal_exits_3_names_the_snapshot_and_is_not_recorded() {
+    use std::os::unix::fs::PermissionsExt;
+
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // 1. Settings with keep_last = 3, keep_weekly = 0
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text_3 = format!(
+        "role = \"lead\"\n\n[backup]\nkeep_last = 3\nkeep_weekly = 0\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text_3).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Run three backups successfully (each exit 0)
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome1.code, 0, "backup 1 failed: {}", outcome1.stderr);
+    let outcome2 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome2.code, 0, "backup 2 failed: {}", outcome2.stderr);
+    let outcome3 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome3.code, 0, "backup 3 failed: {}", outcome3.stderr);
+
+    // 2. Make snapshot 2 impossible to remove: set permissions of data dir to 0o555
+    let data_dir = fix.target_path().join("fieldbook-backup-0002/data");
+
+    struct PermGuard(PathBuf);
+    impl Drop for PermGuard {
+        fn drop(&mut self) {
+            let _ = std::fs::set_permissions(&self.0, std::fs::Permissions::from_mode(0o755));
+        }
+    }
+
+    let guard = PermGuard(data_dir.clone());
+    std::fs::set_permissions(&data_dir, std::fs::Permissions::from_mode(0o555))
+        .expect("chmod 0o555 data dir");
+
+    // If running as root the permission has no effect: skip test body if writing succeeds
+    let probe_file = data_dir.join("probe_writable.tmp");
+    if std::fs::write(&probe_file, b"").is_ok() {
+        let _ = std::fs::remove_file(&probe_file);
+        drop(guard);
+        return;
+    }
+
+    // 3. Rewrite settings.toml with keep_last = 1, keep_weekly = 0
+    let settings_text_1 = format!(
+        "role = \"lead\"\n\n[backup]\nkeep_last = 1\nkeep_weekly = 0\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text_1).expect("rewrite settings");
+
+    // 4. Run fourth backup
+    let outcome4 = run_backup(&fix.world, &eff, &options);
+
+    // Restore permissions before final asserts so tempdir cleanup works even if asserts fail
+    drop(guard);
+    let _ = std::fs::set_permissions(&data_dir, std::fs::Permissions::from_mode(0o755));
+
+    // Assert fourth run outcome
+    assert_eq!(
+        outcome4.code, 3,
+        "expected exit 3 on prune failure: {}",
+        outcome4.stderr
+    );
+    assert!(
+        outcome4.stderr.contains("0002"),
+        "stderr should name failed snapshot 0002: {}",
+        outcome4.stderr
+    );
+    assert!(
+        fix.target_path().join("fieldbook-backup-0002").exists(),
+        "snapshot 2 folder must still exist"
+    );
+
+    // Collect all audit/journal*.jsonl files concatenated
+    let mut journal_text = String::new();
+    let audit_dir = fix.state_dir().join("audit");
+    if let Ok(entries) = std::fs::read_dir(&audit_dir) {
+        let mut paths: Vec<_> = entries
+            .flatten()
+            .map(|e| e.path())
+            .filter(|p| {
+                let name = p.file_name().and_then(|n| n.to_str()).unwrap_or("");
+                name.starts_with("journal") && name.ends_with(".jsonl")
+            })
+            .collect();
+        paths.sort();
+        for p in paths {
+            if let Ok(content) = std::fs::read_to_string(&p) {
+                journal_text.push_str(&content);
+            }
+        }
+    }
+
+    let prune_events: Vec<&str> = journal_text
+        .lines()
+        .filter(|line| line.contains("\"kind\":\"backup.prune\""))
+        .collect();
+
+    // Snapshot 1 was pruned, snapshot 2 was not: verify prune event lists snapshot 1 and not 2
+    if fix.target_path().join("fieldbook-backup-0001").exists() {
+        // In case only snapshot 2 was selected for pruning
+        assert!(
+            prune_events.is_empty(),
+            "no backup.prune event should be appended when only snapshot 2 failed to be removed"
+        );
+    } else {
+        assert_eq!(
+            prune_events.len(),
+            1,
+            "expected exactly one backup.prune event: {journal_text}"
+        );
+        let val: serde_json::Value =
+            serde_json::from_str(prune_events[0]).expect("parse prune event json");
+        let snaps = val["snapshots"]
+            .as_array()
+            .expect("snapshots field must be an array");
+        let nums: Vec<u64> = snaps.iter().filter_map(|v| v.as_u64()).collect();
+        assert!(
+            nums.contains(&1),
+            "backup.prune should list snapshot 1: {}",
+            prune_events[0]
+        );
+        assert!(
+            !nums.contains(&2),
+            "backup.prune must NOT list snapshot 2: {}",
+            prune_events[0]
+        );
+    }
+}
+
 #[test]
 fn no_backup_without_a_journal() {
     let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
