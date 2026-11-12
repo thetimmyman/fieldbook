@@ -208,7 +208,8 @@ struct PageTemplate {
     context_pack: String,
 }
 
-fn render_page_status_chip(status: PageStatus) -> String {
+/// Renders the page status chip HTML (`Stable`, `Reviewed`, or `Draft`).
+pub(crate) fn render_page_status_chip(status: PageStatus) -> String {
     match status {
         PageStatus::Stable => {
             format!("<span class=\"chip ok\">{ICON_CHECK}<span>Stable</span></span>")
@@ -239,7 +240,7 @@ fn parse_change_note_line(trimmed: &str) -> ChangeNoteLine {
     ChangeNoteLine::Plain(trimmed.to_owned())
 }
 
-fn parse_change_note(body: &str, page: &PageEntry) -> Vec<ChangeNoteLine> {
+pub(crate) fn parse_change_note(body: &str, page: &PageEntry) -> Vec<ChangeNoteLine> {
     let change_heading = strings::parts()[7];
     let Some(part_span) = page.parts().get(change_heading) else {
         return Vec::new();
@@ -262,7 +263,7 @@ fn parse_change_note(body: &str, page: &PageEntry) -> Vec<ChangeNoteLine> {
     entries
 }
 
-fn build_part_by_name(
+pub(crate) fn build_part_by_name(
     heading: &str,
     fallback_anchor: &str,
     render_prose: bool,
@@ -347,7 +348,8 @@ fn questions_in_part(page: &PageEntry, view: &LabelledView) -> BTreeSet<String> 
     distinct
 }
 
-fn collect_distinct_cited_claims(
+/// Collects distinct cited claim IDs on a page from rendered markers and citations.
+pub(crate) fn collect_distinct_cited_claims(
     page: &PageEntry,
     view: &LabelledView,
     inline: &InlineRenderer<'_>,
@@ -435,7 +437,8 @@ pub fn render_due_claims(
     )
 }
 
-fn collect_distinct_conflicts(page: &PageEntry, view: &LabelledView) -> Vec<ConflictId> {
+/// Collects distinct conflict IDs on a page from front matter and citations.
+pub(crate) fn collect_distinct_conflicts(page: &PageEntry, view: &LabelledView) -> Vec<ConflictId> {
     let mut seen = BTreeSet::new();
     let mut ordered = Vec::new();
     for cid in &page.meta.conflicts {
@@ -454,7 +457,8 @@ fn collect_distinct_conflicts(page: &PageEntry, view: &LabelledView) -> Vec<Conf
     ordered
 }
 
-fn build_conflict_boxes(
+/// Builds conflict box views for the given conflict IDs.
+pub(crate) fn build_conflict_boxes(
     from_path: &str,
     conflict_ids: &[ConflictId],
     view: &LabelledView,
@@ -542,6 +546,128 @@ fn build_evidence_cards(
         });
     }
     out
+}
+
+/// Builds the [`MetaRowView`] for `page` from its cited claims and overdue banner settings.
+#[must_use]
+pub(crate) fn build_meta_row(
+    page: &PageEntry,
+    view: &LabelledView,
+    distinct_claims: &[ClaimId],
+    due_claims_html: String,
+    overdue_banner: bool,
+) -> MetaRowView {
+    let cited_claim_rows: Vec<&ClaimRow> = distinct_claims
+        .iter()
+        .filter_map(|cid| find_claim(view, cid))
+        .collect();
+    let review_by_date = page_review_by(
+        &page.meta,
+        newest_change_note_date(&page.body),
+        cited_claim_rows.iter().copied(),
+    );
+
+    let mut supported_claims = 0usize;
+    let mut latest_verified: Option<CivilDate> = None;
+    for crow in &cited_claim_rows {
+        if crow.verification == Verification::PrimarySourceSupported {
+            supported_claims += 1;
+        }
+        if let Some(vdate) = crow.verified_on {
+            latest_verified = Some(match latest_verified {
+                Some(prev) if prev >= vdate => prev,
+                _ => vdate,
+            });
+        }
+    }
+
+    MetaRowView {
+        page_id: page.id.to_string(),
+        as_of: page.meta.as_of.to_string(),
+        review_by: review_by_date.to_string(),
+        supported_claims,
+        total_claims: distinct_claims.len(),
+        last_verified: latest_verified.map(|d| d.to_string()),
+        readiness: page.meta.readiness.as_str().to_owned(),
+        due_claims_html,
+        overdue_banner,
+    }
+}
+
+/// Renders the comma-separated superseded-by links HTML for `page`.
+#[must_use]
+pub(crate) fn render_superseded_by(
+    from_path: &str,
+    page: &PageEntry,
+    view: &LabelledView,
+    planned: &PlannedPaths,
+) -> String {
+    page.meta
+        .superseded_by
+        .iter()
+        .map(|pid| {
+            let target_page = find_page(view, pid.as_str());
+            let pv_title = target_page.map(|p| p.meta.title.as_str());
+            let pv_body = target_page.map(first_sentence_of_purpose);
+            render_page_link(
+                from_path,
+                pid.as_str(),
+                None,
+                &escape_html(pid.as_str()),
+                pv_title,
+                pv_body.as_deref(),
+                planned,
+            )
+        })
+        .collect::<Vec<_>>()
+        .join(", ")
+}
+
+#[derive(Template)]
+#[template(path = "parts/meta_row.html")]
+struct MetaRowTemplate<'a> {
+    meta_row: &'a MetaRowView,
+}
+
+/// Renders the metadata row HTML from a [`MetaRowView`].
+#[must_use]
+pub(crate) fn render_meta_row(meta_row: &MetaRowView) -> String {
+    MetaRowTemplate { meta_row }
+        .render()
+        .unwrap_or_else(|e| unreachable!("parts/meta_row.html is infallible: {e}"))
+}
+
+#[derive(Template)]
+#[template(path = "parts/conflict_box.html")]
+struct ConflictBoxTemplate {
+    conflict_boxes: Vec<ConflictBoxView>,
+}
+
+/// Renders conflict boxes HTML from a list of [`ConflictBoxView`]s.
+#[must_use]
+pub(crate) fn render_conflict_boxes(conflict_boxes: Vec<ConflictBoxView>) -> String {
+    ConflictBoxTemplate { conflict_boxes }
+        .render()
+        .unwrap_or_else(|e| unreachable!("parts/conflict_box.html is infallible: {e}"))
+}
+
+#[derive(Template)]
+#[template(path = "parts/change_note.html")]
+struct ChangeNoteTemplate<'a> {
+    change_entries: &'a [ChangeNoteLine],
+    empty_part_text: &'a str,
+}
+
+/// Renders change note section HTML for `page`.
+#[must_use]
+pub(crate) fn render_change_note(body: &str, page: &PageEntry) -> String {
+    let change_entries = parse_change_note(body, page);
+    ChangeNoteTemplate {
+        change_entries: &change_entries,
+        empty_part_text: strings::empty_part(),
+    }
+    .render()
+    .unwrap_or_else(|e| unreachable!("parts/change_note.html is infallible: {e}"))
 }
 
 /// Default character budget for context packs when unspecified in corpus settings (`HG-02`).
@@ -691,30 +817,6 @@ pub fn render_main_with_packs(
     let evidence_cards =
         build_evidence_cards(&from_path, &distinct_claims, view, planned, &availability);
 
-    let cited_claim_rows: Vec<&ClaimRow> = distinct_claims
-        .iter()
-        .filter_map(|cid| find_claim(view, cid))
-        .collect();
-    let review_by_date = page_review_by(
-        &page.meta,
-        newest_change_note_date(&page.body),
-        cited_claim_rows.iter().copied(),
-    );
-
-    let mut supported_claims = 0usize;
-    let mut latest_verified: Option<CivilDate> = None;
-    for crow in &cited_claim_rows {
-        if crow.verification == Verification::PrimarySourceSupported {
-            supported_claims += 1;
-        }
-        if let Some(vdate) = crow.verified_on {
-            latest_verified = Some(match latest_verified {
-                Some(prev) if prev >= vdate => prev,
-                _ => vdate,
-            });
-        }
-    }
-
     let due_claims_html = if overdue_banner {
         render_due_claims(
             &from_path,
@@ -726,38 +828,14 @@ pub fn render_main_with_packs(
     } else {
         String::new()
     };
-    let meta_row = MetaRowView {
-        page_id: page.id.to_string(),
-        as_of: page.meta.as_of.to_string(),
-        review_by: review_by_date.to_string(),
-        supported_claims,
-        total_claims: distinct_claims.len(),
-        last_verified: latest_verified.map(|d| d.to_string()),
-        readiness: page.meta.readiness.as_str().to_owned(),
+    let meta_row = build_meta_row(
+        page,
+        view,
+        &distinct_claims,
         due_claims_html,
         overdue_banner,
-    };
-
-    let superseded_by_html = page
-        .meta
-        .superseded_by
-        .iter()
-        .map(|pid| {
-            let target_page = find_page(view, pid.as_str());
-            let pv_title = target_page.map(|p| p.meta.title.as_str());
-            let pv_body = target_page.map(first_sentence_of_purpose);
-            render_page_link(
-                &from_path,
-                pid.as_str(),
-                None,
-                &escape_html(pid.as_str()),
-                pv_title,
-                pv_body.as_deref(),
-                planned,
-            )
-        })
-        .collect::<Vec<_>>()
-        .join(", ");
+    );
+    let superseded_by_html = render_superseded_by(&from_path, page, view, planned);
 
     let toc_items = if is_brief {
         let mut items: Vec<TocItem> = brief_parts

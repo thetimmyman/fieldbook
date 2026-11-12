@@ -822,7 +822,7 @@ function paint() {
     note.className = rows ? 'pal-msg panel' : 'pal-note';
     note.textContent = rows ? (rows.length ? '' : str('abstention')) : 'Latest pages';
     if (rows) {
-      list.append(make('li', 'sr-row pal-search', make('a', 'sr-title', 'Search for ' + q, {
+      list.append(make('li', 'sr-row pal-search', make('a', 'sr-title', 'Search for \u201c' + q + '\u201d', {
         href: root + 'search.html#q=' + encodeURIComponent(q)
       }), { role: 'option' }));
     }
@@ -891,6 +891,7 @@ function initPalette() {
 
   const input = make('input', '', null, {
     id: 'fb:palIn', type: 'search', role: 'combobox', autocomplete: 'off', spellcheck: 'false',
+    placeholder: 'Pages, clauses and terms\u2026',
     'aria-label': 'Search the library', 'aria-autocomplete': 'list',
     'aria-expanded': 'true', 'aria-controls': 'fb:palList'
   });
@@ -937,7 +938,11 @@ function initPalette() {
     { type: 'button', 'aria-pressed': String(singleKeys) });
   const saved = make('p', 'note', failed, { role: 'status' });
   const close = make('button', 'btn ghost sm', 'Close', { type: 'button' });
-  keys.append(make('div', 'dlg-h', [make('h2', '', 'Keyboard shortcuts'), close]), make('dl', 'keys', [
+  const stale = document.getElementById('fb:keysTitle');
+  if (stale) {
+    stale.remove();
+  }
+  keys.append(make('div', 'dlg-h', [make('h2', '', 'Keyboard shortcuts', { id: 'fb:keysTitle' }), close]), make('dl', 'keys', [
     make('dt', '', [kbd('/'), ' or ', kbd('Ctrl K')]), make('dd', '', 'Search'),
     make('dt', '', kbd('?')), make('dd', '', 'This list'),
     make('dt', '', kbd('Esc')), make('dd', '', 'Close a drawer, dialog or search')

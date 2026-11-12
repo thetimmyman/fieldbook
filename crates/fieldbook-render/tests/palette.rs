@@ -22,6 +22,8 @@ mod palette {
 
     const COMMIT: &str = "0123456789abcdef0123456789abcdef01234567";
     const SCRIPT: &str = include_str!("../assets/app.js");
+    const BASE_HTML: &str = include_str!("../templates/base.html");
+    const HARNESS_HTML: &str = include_str!("../../../xtask/harness/shortcuts.html");
     const CSP_META: &str = "http-equiv=\"Content-Security-Policy\"";
 
     fn insert_all(tree: &mut Tree, dir: &Path, rel: &str) {
@@ -102,11 +104,11 @@ mod palette {
     #[test]
     fn every_page_has_both_dialogs_empty_until_script_fills_them() {
         for (path, html) in pages(&built()) {
-            for (id, label) in [
-                ("fb:palette", "Search the library"),
-                ("fb:keys", "Keyboard shortcuts"),
+            for (id, attr) in [
+                ("fb:palette", "aria-label=\"Search the library\""),
+                ("fb:keys", "aria-labelledby=\"fb:keysTitle\""),
             ] {
-                let open = format!("id=\"{id}\" aria-label=\"{label}\"></dialog>");
+                let open = format!("id=\"{id}\" {attr}></dialog>");
                 assert_eq!(html.matches(&open).count(), 1, "{path}: dialog {id}");
                 assert!(
                     tag_with(&html, &format!("id=\"{id}\"")).starts_with("<dialog "),
@@ -182,5 +184,68 @@ mod palette {
             size <= APP_JS,
             "app.js is {size} bytes, budget {APP_JS} (FB0605)"
         );
+    }
+
+    #[test]
+    fn the_script_names_the_shortcuts_dialog_by_its_h2_and_quotes_the_search_row() {
+        assert!(SCRIPT.contains("{ id: 'fb:keysTitle' }"));
+        assert!(SCRIPT.contains("placeholder: 'Pages, clauses and terms\\u2026'"));
+        assert!(SCRIPT.contains("'Search for \\u201c' + q + '\\u201d'"));
+    }
+
+    #[test]
+    fn harness_dialogs_match_base() {
+        for id in ["fb:palette", "fb:keys"] {
+            assert_eq!(
+                tag_with(BASE_HTML, &format!("id=\"{id}\"")),
+                tag_with(HARNESS_HTML, &format!("id=\"{id}\"")),
+                "dialog {id} does not match between base.html and shortcuts.html"
+            );
+            assert!(
+                tag_with(BASE_HTML, &format!("id=\"{id}\"")).starts_with("<dialog "),
+                "dialog {id} does not start with '<dialog '"
+            );
+        }
+    }
+
+    #[test]
+    fn the_search_page_has_static_listbox_roles() {
+        let site = built();
+        let html = String::from_utf8(site.files().get("search.html").unwrap().clone()).unwrap();
+        assert_eq!(
+            html.matches("role=\"listbox\"").count(),
+            2,
+            "search.html must contain exactly two role=\"listbox\" occurrences"
+        );
+        let latest_tag = tag_with(&html, "aria-label=\"Latest pages\"");
+        let results_tag = tag_with(&html, "id=\"fb:search-results\"");
+        assert!(
+            latest_tag.contains("role=\"listbox\""),
+            "tag with aria-label=\"Latest pages\" must contain role=\"listbox\""
+        );
+        assert!(
+            results_tag.contains("role=\"listbox\""),
+            "tag with id=\"fb:search-results\" must contain role=\"listbox\""
+        );
+        assert!(
+            results_tag.contains("aria-label=\"Results\""),
+            "tag with id=\"fb:search-results\" must contain aria-label=\"Results\""
+        );
+        let sr_row_count = html.matches("<li class=\"sr-row\"").count();
+        let sr_option_count = html.matches("<li class=\"sr-row\" role=\"option\"").count();
+        assert!(
+            sr_row_count > 0,
+            "expected at least one sr-row in latest list"
+        );
+        assert_eq!(
+            sr_row_count, sr_option_count,
+            "every <li class=\"sr-row\" row in the latest list must have role=\"option\""
+        );
+        for (path, page_html) in pages(&site) {
+            assert!(
+                !page_html.contains("role=\"combobox\""),
+                "{path} must not contain role=\"combobox\""
+            );
+        }
     }
 }

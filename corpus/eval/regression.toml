@@ -134,3 +134,33 @@ expect_none = true
 id = "rg-027"
 query = "sourdough zeppelin"
 expect_none = true
+
+[[case]]
+id = "rg-028"
+query = "T&M"
+expect = ["ctf-type-time-and-materials"]
+
+[[case]]
+id = "rg-029"
+query = "wrap rate"
+expect = ["rte-wrap-rate-build-up"]
+
+[[case]]
+id = "rg-030"
+query = "fringe pool"
+expect = ["rte-pool-and-base-structure"]
+
+[[case]]
+id = "rg-031"
+query = "subcontract flowdown"
+expect = ["cmp-commercial-clause-records-and-subcontract-flowdown"]
+
+[[case]]
+id = "rg-032"
+query = "FAR 31.205"
+expect = ["cmp-far-31-205-cost-principles"]
+
+[[case]]
+id = "rg-033"
+query = "fixed price incentive"
+expect = ["ctf-type-fixed-price-incentive-firm-target"]
