@@ -471,7 +471,7 @@ Some records were omitted.
 </div>
 <div class="scrim" id="fb:scrim" hidden></div>
 <dialog class="palette" id="fb:palette" aria-label="Search the library"></dialog>
-<dialog class="dlg" id="fb:keys" aria-label="Keyboard shortcuts"></dialog>
+<dialog class="dlg" id="fb:keys" aria-labelledby="fb:keysTitle"></dialog>
 <div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
 <div class="sr-only" id="fb:sr" aria-live="polite"></div>
 </body>

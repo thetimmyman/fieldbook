@@ -3139,6 +3139,11 @@ dialog.dlg[open]::backdrop {
   font-size: var(--text-lg);
 }
 
+.pal-in input::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
 .pal-note {
   margin: 0;
   padding: var(--space-2) var(--space-4) 0;
