@@ -52,6 +52,7 @@ const BUILT_SINKS: &[&str] = &[
     "journal_holds_ids_and_no_canary",
     "edition",
     "page_packs",
+    "backup",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -71,6 +72,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "page_packs",
         run: run_page_packs_surface,
+    },
+    Surface {
+        name: "backup",
+        run: run_backup_surface,
     },
 ];
 
@@ -1081,6 +1086,196 @@ fn run_page_packs_surface() {
     for rec in &fixture.record {
         if rec.label != "public" {
             assert!(!disk.contains(&rec.canary), "{}", rec.canary);
+        }
+    }
+}
+
+fn run_backup_surface() {
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let target_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let target_path = target_tmp.path().to_path_buf();
+
+    // 1. Setup clean state directory with settings and journal
+    let state_mini_path =
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../tests/fixtures/state-mini");
+    let state_dir = tmp.path().join(".fieldbook");
+    std::fs::create_dir_all(&state_dir).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::create_dir_all(state_dir.join("audit")).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::copy(
+        state_mini_path.join("settings.toml"),
+        state_dir.join("settings.toml"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    std::fs::copy(
+        state_mini_path.join("audit/journal.jsonl"),
+        state_dir.join("audit/journal.jsonl"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+
+    // Add target to settings.toml
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_path.to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(state_dir.join("settings.toml"), settings_text)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let eff = EffectivePolicy::floor(false);
+    let options = fieldbook::backup::BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // 2. Destination / payload binding checks:
+    let now = default_now();
+    let shipped = Shipped::Hours(1);
+    let dest = Dest::Backup {
+        path: target_path.to_string_lossy().into_owned(),
+        company_storage: false,
+    };
+    let test_file = target_path.join("binding-test.txt");
+    let delivery = Delivery::new(
+        vec![Transfer::write_path(&test_file, b"approved-bytes")],
+        None,
+    );
+    let Decision::Allowed(allowed) = check(
+        &eff,
+        &dest,
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        now,
+        shipped,
+    ) else {
+        panic!("expected backup delivery Allowed");
+    };
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_backup(&allowed, &target_path, "folder", 1)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Check payload mutation is refused:
+    let mut bad_bytes = b"approved-bytes".to_vec();
+    bad_bytes.extend_from_slice(b"mutated");
+    let res_mut = world.write_outside(&allowed, &audited, &test_file, &bad_bytes);
+    assert!(
+        matches!(res_mut, Err(Error::OutOfScope(_))),
+        "mutated bytes must be refused by write_outside"
+    );
+
+    // Check target path mutation is refused:
+    let rogue_file = target_path.join("rogue.txt");
+    let res_rogue = world.write_outside(&allowed, &audited, &rogue_file, b"approved-bytes");
+    assert!(
+        matches!(res_rogue, Err(Error::OutOfScope(_))),
+        "mutated target path must be refused by write_outside"
+    );
+
+    // Check input item refs and reopening after relabelling:
+    let backup_item = ItemRef::new(StoreId::Corpus, "backup-output");
+    let source_item = ItemRef::new(StoreId::Corpus, "sources/public/S-0002-v2.txt");
+    let mut nodes = BTreeMap::new();
+    nodes.insert(
+        source_item.clone(),
+        LabelNode::new(LabelSet::public(), Vec::new()),
+    );
+    nodes.insert(
+        backup_item.clone(),
+        LabelNode::new(LabelSet::public(), vec![source_item.clone()]),
+    );
+    let graph = TestProvenanceGraph {
+        nodes: nodes.clone(),
+        ledger: Ledger::default(),
+    };
+    assert_eq!(effective_item(&graph, &backup_item), LabelSet::public());
+
+    let np7 = LabelId::parse("np-0007").unwrap_or_else(|e| panic!("{e}"));
+    nodes.insert(
+        source_item,
+        LabelNode::new(LabelSet::from_ids([PUBLIC, np7.clone()]), Vec::new()),
+    );
+    let relabelled_graph = TestProvenanceGraph {
+        nodes,
+        ledger: Ledger::default(),
+    };
+    let relabelled_eff = effective_item(&relabelled_graph, &backup_item);
+    assert!(relabelled_eff.contains(&np7));
+    assert!(
+        matches!(
+            check(
+                &eff,
+                &dest,
+                Some(&relabelled_eff),
+                Some(&delivery),
+                now,
+                shipped
+            ),
+            Decision::Denied(_)
+        ),
+        "Dest::Backup must deny relabelled effective_item set"
+    );
+
+    // End the journal transaction from our binding test so the lock is released
+    journal
+        .end_backup(
+            audited,
+            Word::new_static("ok"),
+            1,
+            14,
+            Sha256::digest(b"manifest"),
+            1,
+            Sha256::digest(b"head"),
+            Sha256::digest(b"fp"),
+            Word::new_static("folder"),
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // 3. Exercise real backup handler on clean tree:
+    let outcome = fieldbook::backup::run_backup(&world, &eff, &options);
+    assert_eq!(
+        outcome.code, 0,
+        "backup on clean tree must succeed: {}",
+        outcome.stderr
+    );
+    let snap_dir = target_path.join("fieldbook-backup-0001");
+    assert!(snap_dir.is_dir(), "snapshot 1 directory must exist");
+    assert!(snap_dir.join("backup.toml").is_file());
+    assert!(snap_dir.join("SHA256SUMS").is_file());
+    assert!(target_path.join("LATEST").is_file());
+
+    // 4. Exercise forbidden canary refusal:
+    // Plant a forbidden canary page in the corpus
+    let forbidden_page = tmp
+        .path()
+        .join("corpus/pages/estimating/pricing/forbidden-canary.md");
+    let canary_content = "+++\nid = \"forbidden-canary\"\ntitle = \"Forbidden canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret canary np-0007.\n";
+    std::fs::write(&forbidden_page, canary_content).unwrap_or_else(|e| panic!("{e}"));
+
+    let outcome_forbidden = fieldbook::backup::run_backup(&world, &eff, &options);
+    assert_eq!(
+        outcome_forbidden.code, 2,
+        "backup with forbidden canary must be refused with code 2 (FB0901)"
+    );
+    assert!(
+        outcome_forbidden.stderr.contains("FB0901"),
+        "stderr must report FB0901: {}",
+        outcome_forbidden.stderr
+    );
+    assert!(
+        !target_path.join("fieldbook-backup-0002").exists(),
+        "refused backup must not create fieldbook-backup-0002"
+    );
+
+    // Verify disk of successful snapshot 1 does not contain any forbidden canary
+    let sums_text =
+        std::fs::read_to_string(snap_dir.join("SHA256SUMS")).unwrap_or_else(|e| panic!("{e}"));
+    assert!(!sums_text.contains("forbidden-canary"));
+    for rec in &fixture.record {
+        if rec.label != "public" && rec.label != "owner-supplied" {
+            assert!(!sums_text.contains(&rec.canary));
         }
     }
 }

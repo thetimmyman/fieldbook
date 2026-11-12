@@ -11,6 +11,7 @@
 
 pub mod add;
 pub mod audit;
+pub mod backup;
 pub mod build;
 pub mod cli;
 pub mod io;
@@ -253,6 +254,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 verify::run(&verify_args, world)
             }
         }
+        Commands::Backup(backup_args) => backup::run(&backup_args, parsed.state.as_deref(), world),
     }
 }
 

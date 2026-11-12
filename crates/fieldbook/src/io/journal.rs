@@ -1366,6 +1366,9 @@ impl<'a> Journal<'a> {
         }
 
         let lock = acquire_journal_lock(&self.state_dir)?;
+        if !is_journal_chain_clean(&self.state_dir) {
+            return Err(JournalError::BrokenChain("hash chain broken".to_owned()));
+        }
         let tail = inspect_tail_strict(&self.state_dir)?;
         let pending_path = self.state_dir.join("pending.toml");
         if pending_path.exists() {
@@ -1614,6 +1617,9 @@ impl<'a> Journal<'a> {
         }
 
         let lock = acquire_journal_lock(&self.state_dir)?;
+        if !is_journal_chain_clean(&self.state_dir) {
+            return Err(JournalError::BrokenChain("hash chain broken".to_owned()));
+        }
         let tail = inspect_tail_strict(&self.state_dir)?;
         let begin_seq = tail.last_seq + 1;
 
@@ -2056,6 +2062,10 @@ impl<'a> Journal<'a> {
             Some(acquire_journal_lock(&self.state_dir)?)
         };
 
+        if !is_journal_chain_clean(&self.state_dir) {
+            return Err(JournalError::BrokenChain("hash chain broken".to_owned()));
+        }
+
         let tail = inspect_tail_strict(&self.state_dir)?;
         let payload = EventPayload::Refuse {
             code,
@@ -2254,6 +2264,12 @@ impl<'a> Journal<'a> {
             }
         }
         None
+    }
+
+    /// Return `true` if the journal hash chain has zero breaks from sequence 1 to head.
+    #[must_use]
+    pub fn is_clean(&self) -> bool {
+        is_journal_chain_clean(&self.state_dir)
     }
 
     /// Acquire a state-only [`Audited`] token (`Journal::state_scope(&self, lease)`) without
@@ -2456,6 +2472,9 @@ impl<'a> Journal<'a> {
         }
 
         let lock = acquire_journal_lock(&self.state_dir)?;
+        if !is_journal_chain_clean(&self.state_dir) {
+            return Err(JournalError::BrokenChain("hash chain broken".to_owned()));
+        }
         let tail = inspect_tail_strict(&self.state_dir)?;
         let events = read_verified_events(&self.state_dir)?;
 
@@ -2859,8 +2878,6 @@ fn inspect_tail_strict(state_dir: &Path) -> Result<TailState, JournalError> {
     let mut last_hash = zero_hash;
 
     for (idx, line) in all_lines.iter().enumerate() {
-        let verified = verify_line(&prev_hex, line)
-            .map_err(|err| JournalError::BrokenChain(err.to_string()))?;
         let (event, _) =
             Event::parse_line(line).map_err(|err| JournalError::BrokenChain(err.to_string()))?;
         let expected_seq = (idx as u64) + 1;
@@ -2870,9 +2887,24 @@ fn inspect_tail_strict(state_dir: &Path) -> Result<TailState, JournalError> {
                 event.seq
             )));
         }
-        prev_hex = verified.hash.as_str().to_owned();
-        last_seq = event.seq;
-        last_hash = verified.hash;
+        let is_last = idx == all_lines.len() - 1;
+        match verify_line(&prev_hex, line) {
+            Ok(verified) => {
+                prev_hex = verified.hash.as_str().to_owned();
+                last_seq = event.seq;
+                last_hash = verified.hash;
+            }
+            Err(err) => {
+                if is_last {
+                    return Err(JournalError::BrokenChain(err.to_string()));
+                }
+                let (_, parsed_hash) = split_hash_suffix(line)
+                    .map_err(|err| JournalError::BrokenChain(err.to_string()))?;
+                prev_hex = parsed_hash.as_str().to_owned();
+                last_seq = event.seq;
+                last_hash = parsed_hash;
+            }
+        }
     }
 
     Ok(TailState {
@@ -2887,7 +2919,7 @@ fn inspect_tail_strict(state_dir: &Path) -> Result<TailState, JournalError> {
 fn last_recorded_settings_baseline(
     state_dir: &Path,
 ) -> Result<Option<fieldbook_core::audit::SettingsBaseline>, JournalError> {
-    let events = read_verified_events(state_dir)?;
+    let events = read_valid_events_prefix(state_dir);
     let mut latest = None;
     for event in events {
         if let EventPayload::SettingsChange { baseline, .. } = event.payload {
@@ -2895,6 +2927,12 @@ fn last_recorded_settings_baseline(
         }
     }
     Ok(latest)
+}
+
+/// Returns `true` if the journal hash chain has zero breaks from sequence 1 to head.
+#[must_use]
+pub fn is_journal_chain_clean(state_dir: &Path) -> bool {
+    read_verified_events(state_dir).is_ok()
 }
 
 fn read_verified_events(state_dir: &Path) -> Result<Vec<Event>, JournalError> {

@@ -5,15 +5,17 @@
     clippy::panic,
     clippy::disallowed_types,
     clippy::disallowed_methods,
+    clippy::print_stdout,
     reason = "integration tests create temporary fixture directories and assert test conditions"
 )]
 
 mod support;
 
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 use fieldbook::World;
+use fieldbook::backup::{BackupOptions, run_backup};
 use fieldbook::io::Disk;
 use fieldbook::io::atomic::{write_in_root, write_outside};
 use fieldbook::io::dirs::{Removable, remove_outside, rename_dir_outside};
@@ -26,13 +28,16 @@ use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{
     BackupVerified, Count, EventPayload, LabelSet, Now, RefuseAbout, Sha256, Via, Word,
 };
+use fieldbook_core::backup::{BACKUP_TARGET_TEMPLATE, BackupToml, corpus_entries, manifest_sha256};
 use fieldbook_core::check::Code;
 use fieldbook_core::egress::{
     Decision, Delivery, Dest, Operation, Shipped, Target, Transfer, check, hash_tree_manifest,
 };
-use fieldbook_core::labels::PlaceFacts;
-use fieldbook_core::policy::{EffectivePolicy, FloorKind, OwnerSettings, PolicyState};
+use fieldbook_core::labels::{OWNER_SUPPLIED, PlaceFacts};
+use fieldbook_core::manifest;
+use fieldbook_core::policy::{EffectivePolicy, FloorKind, OwnerSettings, Policy, PolicyState};
 
+use support::faulty::{Fault, FaultKind, FaultyWorld};
 use support::world::TestWorld;
 
 fn floor_a_effective() -> EffectivePolicy {
@@ -771,4 +776,722 @@ fn journal_backup_verify_prune_and_queries() {
     assert_eq!(drill_info.mode.as_str(), "drill");
     assert_eq!(drill_info.outcome.as_str(), "ok");
     assert_eq!(drill_info.code, None);
+}
+
+struct TestFixture {
+    _tree_dir: tempfile::TempDir,
+    _state_dir: tempfile::TempDir,
+    target_dir: tempfile::TempDir,
+    world: TestWorld,
+}
+
+impl TestFixture {
+    fn new() -> Self {
+        let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+        let state_mini = repo.join("tests/fixtures/state-mini");
+
+        let tree_dir = support::temp_copy(&corpus_mini);
+        let state_dir = support::temp_copy(&state_mini);
+        let target_dir = tempfile::tempdir().expect("target tempdir");
+        let target_path = target_dir.path().to_path_buf();
+
+        let settings_path = state_dir.path().join("settings.toml");
+        let settings_text = format!(
+            "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+            target_path.to_string_lossy().replace('\\', "/")
+        );
+        std::fs::write(&settings_path, settings_text).expect("write settings.toml");
+
+        let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+        Self {
+            _tree_dir: tree_dir,
+            _state_dir: state_dir,
+            target_dir,
+            world,
+        }
+    }
+
+    fn tree_root(&self) -> &Path {
+        self.world.tree_root()
+    }
+
+    fn state_dir(&self) -> &Path {
+        self.world.state_dir()
+    }
+
+    fn target_path(&self) -> &Path {
+        self.target_dir.path()
+    }
+}
+
+#[test]
+fn backup_writes_a_verifiable_snapshot() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+    assert!(outcome.stdout.contains("backup 1 written:"));
+
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    assert!(snap_dir.is_dir(), "snapshot 1 directory must exist");
+    assert!(snap_dir.join("backup.toml").is_file());
+    assert!(snap_dir.join("SHA256SUMS").is_file());
+    assert!(snap_dir.join("data").is_dir());
+    assert!(fix.target_path().join("LATEST").is_file());
+    assert!(
+        !fix.target_path()
+            .join("fieldbook-backup-0001.partial")
+            .exists()
+    );
+
+    // Verify SHA256SUMS
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).expect("read SHA256SUMS");
+    for line in sums_text.lines() {
+        if line.is_empty() {
+            continue;
+        }
+        let (expected_sha, rel) = line.split_once("  ").expect("two spaces in checksum line");
+        let file_bytes = std::fs::read(snap_dir.join(rel)).expect("read copied file");
+        let actual_sha = fieldbook_core::hash::sha256_hex(&file_bytes);
+        assert_eq!(actual_sha, expected_sha, "checksum mismatch for {rel}");
+    }
+
+    // Verify fingerprint
+    let toml_text =
+        std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read backup.toml");
+    let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
+    let corpus_pairs = corpus_entries(&sums_text);
+    let expected_fp = manifest::fingerprint(&corpus_pairs);
+    assert_eq!(info.fingerprint, expected_fp);
+}
+
+#[test]
+fn latest_is_written_last() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    // First backup succeeds
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome1.code, 0);
+
+    let latest_before =
+        std::fs::read_to_string(fix.target_path().join("LATEST")).expect("read LATEST");
+    assert!(latest_before.starts_with("1\n"));
+
+    // Plant a hand-made leftover partial folder
+    let planted_partial = fix.target_path().join("fieldbook-backup-0002.partial");
+    std::fs::create_dir_all(&planted_partial).expect("create planted partial");
+    std::fs::write(planted_partial.join("leftover.txt"), b"junk").expect("write leftover");
+
+    // Second backup fails on LATEST write using FaultyWorld
+    let world2 = TestWorld::with_state(fix.tree_root(), fix.state_dir());
+    let faulty = FaultyWorld::new(
+        world2,
+        Fault::FailOnName {
+            name: "LATEST",
+            kind: FaultKind::Io,
+        },
+    );
+    let outcome2 = run_backup(&faulty, &eff, &options);
+    assert_eq!(outcome2.code, 3);
+
+    // Assert previous snapshot and LATEST untouched
+    let latest_after =
+        std::fs::read_to_string(fix.target_path().join("LATEST")).expect("read LATEST");
+    assert_eq!(latest_after, latest_before);
+    assert!(fix.target_path().join("fieldbook-backup-0001").is_dir());
+
+    // Completed final snapshot 2 exists, its .partial is absent, and the planted partial is gone
+    assert!(fix.target_path().join("fieldbook-backup-0002").is_dir());
+    assert!(
+        !fix.target_path()
+            .join("fieldbook-backup-0002.partial")
+            .exists()
+    );
+}
+
+#[test]
+fn manifest_is_made_from_the_copied_bytes() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).expect("read SHA256SUMS");
+    let toml_text =
+        std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read backup.toml");
+    let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
+
+    let computed_manifest_sha = manifest_sha256(&info, &sums_text).expect("manifest_sha256");
+    assert_eq!(info.manifest_sha256, computed_manifest_sha.as_str());
+}
+
+// control: DR-02
+#[test]
+fn target_inside_the_corpus_is_fb0812() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let bad_target = fix.tree_root().join("corpus/sources");
+    let options = BackupOptions {
+        target: None,
+        to: Some(bad_target),
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 1);
+    assert!(outcome.stderr.contains("FB0812"));
+}
+
+#[test]
+fn synced_path_warns_unless_declared() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    fix.world.set_place(
+        fix.target_path(),
+        PlaceFacts {
+            sync_root: true,
+            reparse: false,
+            network: false,
+        },
+    );
+
+    // 1. With kind = "folder", undeclared sync root warns FB0813 and exits 1
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome1.code, 1);
+    assert!(outcome1.stderr.contains("FB0813"));
+
+    // 2. Declaring kind = "synced" turns the warning into a notice and exits 0
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"synced-main\"\nkind = \"synced\"\npath = \"{}\"\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+    let options2 = BackupOptions {
+        target: Some("synced-main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome2 = run_backup(&fix.world, &eff, &options2);
+    assert_eq!(
+        outcome2.code, 0,
+        "declaring kind=synced must succeed: {}",
+        outcome2.stderr
+    );
+    assert!(!outcome2.stderr.contains("FB0813"));
+}
+
+#[test]
+fn dry_run_writes_nothing_and_logs_nothing() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: true,
+    };
+    let journal_before =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+    assert!(outcome.stdout.contains("would write snapshot 1:"));
+
+    // Verify nothing written to target
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+    assert!(!fix.target_path().join("LATEST").exists());
+
+    // Verify nothing appended to journal
+    let journal_after =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    assert_eq!(journal_after, journal_before);
+}
+
+#[test]
+fn backup_without_a_target_exits_2_with_the_template_on_standard_error() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    // Overwrite settings.toml without any targets
+    std::fs::write(fix.state_dir().join("settings.toml"), "role = \"lead\"\n")
+        .expect("write settings");
+
+    let options = BackupOptions {
+        target: None,
+        to: None,
+        dry_run: false,
+    };
+    let journal_before =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stdout.is_empty(), "stdout must be empty");
+    assert!(
+        outcome
+            .stderr
+            .contains("no backup target; add this to settings.toml in the state folder:\n")
+    );
+    assert!(outcome.stderr.contains(BACKUP_TARGET_TEMPLATE));
+
+    // No event appended to journal
+    let journal_after =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    assert_eq!(journal_after, journal_before);
+}
+
+#[test]
+fn backup_events_are_begin_end_verify_prune() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    // Set keep_last = 1 in settings.toml so third backup prunes first
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[backup]\nkeep_last = 1\nkeep_weekly = 0\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    // Run 1: writes snapshot 1, logs begin and end
+    let outcome1 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome1.code, 0);
+
+    // Run 2: writes snapshot 2 (2 snapshots kept by rule)
+    let outcome2 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome2.code, 0);
+
+    // Run 3: writes snapshot 3, prunes snapshot 1, logs begin, end, and prune
+    let outcome3 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome3.code, 0);
+
+    let journal_text =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    assert!(journal_text.contains("\"kind\":\"backup.begin\""));
+    assert!(journal_text.contains("\"kind\":\"backup.end\""));
+    assert!(journal_text.contains("\"kind\":\"backup.prune\""));
+}
+
+#[test]
+fn no_backup_without_a_journal() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let tree_dir = support::temp_copy(&corpus_mini);
+
+    let state_file = tempfile::NamedTempFile::new().expect("named temp file");
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_file.path());
+    let eff = floor_a_effective();
+
+    let options = BackupOptions {
+        target: None,
+        to: Some(target_dir.path().to_path_buf()),
+        dry_run: false,
+    };
+    let outcome = run_backup(&world, &eff, &options);
+    assert_eq!(outcome.code, 3);
+    assert!(!target_dir.path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn backup_runs_on_a_refused_journal() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Corrupt the hash of the last line of the journal with a valid-format 64-hex hash that does not match
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let content = std::fs::read_to_string(&journal_path).expect("read journal");
+    let mut lines: Vec<&str> = content.lines().collect();
+    let last = lines.pop().expect("last line");
+    let (prefix, _) = last.rsplit_once(',').expect("split comma");
+    let corrupted_last = format!(
+        "{prefix},\"hash\":\"0000000000000000000000000000000000000000000000000000000000000000\"}}"
+    );
+    lines.push(&corrupted_last);
+    std::fs::write(&journal_path, format!("{}\n", lines.join("\n")))
+        .expect("write corrupted journal");
+    let journal_before = std::fs::read_to_string(&journal_path).expect("read journal");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 1, "recovery backup must exit 1 (findings)");
+
+    // Snapshot and SHA256SUMS exist
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    assert!(snap_dir.is_dir());
+    assert!(snap_dir.join("SHA256SUMS").is_file());
+
+    // backup.toml records journal_state = "broken"
+    let toml_text =
+        std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read backup.toml");
+    let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
+    assert_eq!(info.journal_state, "broken");
+
+    // No event appended to journal
+    let journal_after = std::fs::read_to_string(&journal_path).expect("read journal after");
+    assert_eq!(journal_after, journal_before);
+}
+
+#[test]
+fn backup_after_an_earlier_break_records_broken() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let fb0800_state = repo.join("tests/fixtures/state-known-bad/FB0800");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&fb0800_state);
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+    let target_path = target_dir.path().to_path_buf();
+
+    let settings_path = state_dir.path().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_path.to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&world, &eff, &options);
+    assert_eq!(outcome.code, 1, "backup after earlier break must exit 1");
+
+    let snap_dir = target_path.join("fieldbook-backup-0001");
+    let toml_text =
+        std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read backup.toml");
+    let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
+    assert_eq!(info.journal_state, "broken");
+
+    // begin and end are appended
+    let journal_text = std::fs::read_to_string(state_dir.path().join("audit/journal.jsonl"))
+        .expect("read journal");
+    assert!(journal_text.contains("\"kind\":\"backup.begin\""));
+    assert!(journal_text.contains("\"kind\":\"backup.end\""));
+}
+
+#[test]
+fn backup_is_refused_while_the_lock_is_held() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Acquire write lease / store lock
+    let _lease = acquire_write_lease(fix.tree_root(), fix.state_dir()).expect("acquire lease");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 3);
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn unlabelled_item_refuses_the_snapshot() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Plant a page with non-permitted label np-0007
+    let bad_page = fix
+        .tree_root()
+        .join("corpus/pages/estimating/pricing/est-unlabelled.md");
+    let content = "+++\nid = \"est-unlabelled\"\ntitle = \"Unlabelled page\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n";
+    std::fs::write(&bad_page, content).expect("write page");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2, "FB0901 refusal exits 2");
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+
+    // Check refuse event in journal
+    let journal_text =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    assert!(journal_text.contains("\"kind\":\"refuse\""));
+    assert!(journal_text.contains("\"dest\":\"backup\""));
+}
+
+#[test]
+fn a_stray_file_adds_unlabelled() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Plant a stray file in corpus
+    let stray = fix.tree_root().join("corpus/stray.txt");
+    std::fs::write(&stray, b"random unlabelled content").expect("write stray");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2);
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn a_derived_folder_is_not_copied() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Plant files in derived folders
+    let site_file = fix.tree_root().join("out/edition/index.html");
+    std::fs::create_dir_all(site_file.parent().unwrap()).expect("create out");
+    std::fs::write(&site_file, b"derived html").expect("write site");
+
+    let drill_file = fix.state_dir().join("drill/drill.toml");
+    std::fs::create_dir_all(drill_file.parent().unwrap()).expect("create drill");
+    std::fs::write(&drill_file, b"derived drill").expect("write drill");
+
+    let pages_file = fix.state_dir().join("pages/cached.md");
+    std::fs::create_dir_all(pages_file.parent().unwrap()).expect("create state pages");
+    std::fs::write(&pages_file, b"derived state page").expect("write state page");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).expect("read sums");
+    assert!(!sums_text.contains("out/edition"));
+    assert!(!sums_text.contains("state/drill"));
+    assert!(!sums_text.contains("state/pages"));
+    assert!(sums_text.contains("data/corpus/pages/"));
+}
+
+#[test]
+fn backup_begin_carries_dest_labels_policy() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    let events = fieldbook::io::journal::read_valid_events_prefix(fix.state_dir());
+    let begin_event = events
+        .iter()
+        .rev()
+        .find(|e| matches!(e.payload, EventPayload::BackupBegin { .. }))
+        .expect("must contain BackupBegin");
+
+    if let EventPayload::BackupBegin {
+        dest,
+        labels,
+        policy,
+        snapshot,
+    } = &begin_event.payload
+    {
+        assert_eq!(*dest, fieldbook_core::audit::DestKind::Backup);
+        assert!(labels.contains(&OWNER_SUPPLIED));
+        assert_eq!(snapshot.0, 1);
+        assert!(!policy.as_str().is_empty());
+    } else {
+        panic!("expected BackupBegin");
+    }
+}
+
+#[test]
+fn backup_toml_records_labels_not_zone() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    let toml_path = fix.target_path().join("fieldbook-backup-0001/backup.toml");
+    let text = std::fs::read_to_string(&toml_path).expect("read toml");
+    assert!(text.contains("labels = ["));
+    assert!(!text.contains("zone"));
+    let info = BackupToml::parse(&text).expect("must parse");
+    assert!(info.labels.contains(&"owner-supplied".to_string()));
+}
+
+#[test]
+fn backup_and_restore_use_the_same_fingerprint_input() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).expect("read sums");
+    let toml_text = std::fs::read_to_string(snap_dir.join("backup.toml")).expect("read toml");
+    let info = BackupToml::parse(&toml_text).expect("parse toml");
+
+    let entries = corpus_entries(&sums_text);
+    let expected_fp = manifest::fingerprint(&entries);
+    assert_eq!(info.fingerprint, expected_fp);
+
+    let events = fieldbook::io::journal::read_valid_events_prefix(fix.state_dir());
+    let end_event = events
+        .iter()
+        .find(|e| matches!(e.payload, EventPayload::BackupEnd { .. }))
+        .expect("must contain BackupEnd");
+    if let EventPayload::BackupEnd { fingerprint, .. } = &end_event.payload {
+        assert_eq!(fingerprint.as_str(), expected_fp);
+    } else {
+        panic!("expected BackupEnd");
+    }
+}
+
+#[test]
+fn floor_allows_public_and_owner_supplied() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+    assert!(fix.target_path().join("fieldbook-backup-0001").is_dir());
+}
+
+#[test]
+fn target_outside_every_backup_row_is_fb0918() {
+    let fix = TestFixture::new();
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let policy_path = repo.join("tests/fixtures/policy/policy.toml");
+    let policy_toml = std::fs::read_to_string(policy_path).expect("read policy");
+    let policy = Policy::parse(&policy_toml, None).expect("parse policy");
+    let state = PolicyState::Loaded(policy);
+    let eff = EffectivePolicy::new(&state, &OwnerSettings::unset());
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome.code, 2,
+        "target outside policy rows must exit 2 (FB0918)"
+    );
+    assert!(outcome.stderr.contains("FB0918"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+
+    // Refuse event has dest=backup and reason=no-row
+    let journal_text =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("read journal");
+    assert!(journal_text.contains("\"kind\":\"refuse\""));
+    assert!(journal_text.contains("\"reason\":\"no-row\""));
+}
+
+#[test]
+fn journal_only_target_holds_no_content() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Set include = ["audit"]
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"audit-only\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"audit\"]\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("audit-only".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0);
+
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).expect("read sums");
+    assert!(sums_text.contains("data/state/audit/"));
+    assert!(!sums_text.contains("data/corpus/"));
+    assert!(!sums_text.contains("data/state/settings.toml"));
+}
+
+#[test]
+#[ignore = "takes > 20s in unoptimized debug test profile"]
+fn backup_200_mb() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // Create 200 MB of synthetic public files (e.g. 10 files of 20 MB each)
+    let chunk_size = 20 * 1024 * 1024;
+    let chunk = vec![0x42u8; chunk_size];
+    let sources_dir = fix.tree_root().join("corpus/sources/public");
+    for i in 0..10 {
+        std::fs::write(sources_dir.join(format!("large-{i}.bin")), &chunk)
+            .expect("write 20MB file");
+    }
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let start = std::time::Instant::now();
+    let outcome = run_backup(&fix.world, &eff, &options);
+    let elapsed = start.elapsed();
+    println!("backup 200 MB took {elapsed:?}");
+
+    assert_eq!(
+        outcome.code, 0,
+        "200 MB backup must succeed: {}",
+        outcome.stderr
+    );
+    let snap_dir = fix.target_path().join("fieldbook-backup-0001");
+    assert!(snap_dir.is_dir());
 }

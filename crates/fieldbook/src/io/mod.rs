@@ -10,6 +10,8 @@
 )]
 
 pub mod atomic;
+pub mod backup_classify;
+pub mod backup_folder;
 pub mod dirs;
 pub mod journal;
 pub mod out;
