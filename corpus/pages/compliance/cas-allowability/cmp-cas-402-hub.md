@@ -11,7 +11,7 @@ as_of = 2026-07-08
 handling = ["public"]
 terms = ["cost_accounting_standards", "cost_accounting_practice", "direct_cost", "indirect_cost"]
 questions = ["Q-033"]
-links = ["cmp-cas-402-definitions-illustrations-and-interpretation", "cmp-cas-402-same-purpose", "cmp-cas-overview", "cmp-consistency-cost-accounting-practices", "cmp-disclosure-consistency-modified-cas", "est-cas-402-consistency-purpose", "est-cas-gaap-conformance-and-concurrent-coverage", "est-direct-labor-historical-technical", "est-direct-material-estimates", "est-other-direct-costs"]
+links = ["cmp-cas-401-consistency", "cmp-cas-402-definitions-illustrations-and-interpretation", "cmp-cas-402-same-purpose", "cmp-cas-gaap-conformance-2026", "cmp-cas-overview", "cmp-consistency-cost-accounting-practices", "cmp-disclosure-consistency-modified-cas", "est-cas-402-consistency-purpose", "est-cas-gaap-conformance-and-concurrent-coverage", "est-direct-labor-historical-technical", "est-direct-material-estimates", "est-other-direct-costs"]
 +++
 
 ## Purpose

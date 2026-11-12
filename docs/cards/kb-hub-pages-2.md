@@ -35,7 +35,7 @@ A reader can start from one concept hub for each Cost Accounting Standard that `
 
 ## Steps
 
-1. For each standard of this part, list the existing pages that cite it, from `rg` over `corpus/pages/`, in the pull request.
+1. For each standard of this part, list the existing pages that cite it, in the pull request. The list is the pages whose text names the standard (`rg` over `corpus/pages/` for "CAS nnn" or "9904.nnn"), plus the pages that cite a claim whose `citation_codified` falls in 48 CFR 9904.nnn, found by joining the `[@CL-...]` ids in each page to `corpus/registers/claims.csv`. A text search alone misses pages that cite a standard only through a claim: for 404, 405, 408, 409, 410, 413, 417, 418 and 420 it does.
 2. Write `cmp-cas-<nnn>-hub` for each standard: Purpose, The rule (the standard's purpose and fundamental requirement, cited), How it works, a synthetic worked example, Never confuse (a real contrast with a neighbouring standard or FAR rule), Company calibration, and `links` to every page of Step 1. Add each hub to the `links` of `cmp-cas-overview`; this is the one existing CAS page the step edits, and the clause cards a hub links to stay as they are.
 3. Split when the pull request reaches about 600 lines: move the standards not yet written to `docs/cards/kb-hub-pages-3.md`, add its line to PLAN.md after this one, and say so in the pull request.
 4. Run `fieldbook check --strict`; fix every error and every warning on a consequential claim.

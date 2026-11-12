@@ -11,7 +11,7 @@ as_of = 2026-07-08
 handling = ["public"]
 terms = ["cost_accounting_standards", "cost_accounting_practice"]
 questions = ["Q-033"]
-links = ["cmp-cas-401-consistency", "cmp-cas-401-illustrations-and-interpretation", "cmp-cas-overview", "cmp-consistency-cost-accounting-practices", "cmp-disclosure-consistency-modified-cas", "est-cas-401-403-406-purposes", "est-cas-401-definitions", "est-cas-gaap-conformance-and-concurrent-coverage", "est-direct-labor-historical-technical", "est-direct-material-estimates", "est-indirect-cost-estimates"]
+links = ["cmp-cas-401-consistency", "cmp-cas-401-illustrations-and-interpretation", "cmp-cas-gaap-conformance-2026", "cmp-cas-overview", "cmp-consistency-cost-accounting-practices", "cmp-disclosure-consistency-modified-cas", "est-cas-401-403-406-purposes", "est-cas-401-definitions", "est-cas-gaap-conformance-and-concurrent-coverage", "est-direct-labor-historical-technical", "est-direct-material-estimates", "est-indirect-cost-estimates"]
 +++
 
 ## Purpose
