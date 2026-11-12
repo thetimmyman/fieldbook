@@ -1090,6 +1090,101 @@ fn dry_run_writes_nothing_and_logs_nothing() {
     assert_eq!(journal_after, journal_before);
 }
 
+fn snapshot_state_dir(root: &Path, current: &Path) -> Vec<(PathBuf, Vec<u8>)> {
+    let mut entries = Vec::new();
+    if let Ok(read_dir) = std::fs::read_dir(current) {
+        for entry in read_dir.flatten() {
+            let path = entry.path();
+            let rel = path.strip_prefix(root).unwrap_or(&path).to_path_buf();
+            if path.is_dir() {
+                entries.push((rel.clone(), Vec::new()));
+                entries.extend(snapshot_state_dir(root, &path));
+            } else if path.is_file() {
+                let bytes = std::fs::read(&path).unwrap_or_default();
+                entries.push((rel, bytes));
+            }
+        }
+    }
+    entries.sort();
+    entries
+}
+
+#[test]
+fn dry_run_leaves_a_half_initialized_state_unchanged() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: true,
+    };
+
+    let audit_dir = fix.state_dir().join("audit");
+    if audit_dir.exists() {
+        std::fs::remove_dir_all(&audit_dir).expect("remove audit");
+    }
+    let lock_file = fix.state_dir().join("lock");
+    if lock_file.exists() {
+        std::fs::remove_file(&lock_file).expect("remove lock");
+    }
+    std::fs::write(fix.state_dir().join("store.lock"), b"").expect("create store.lock");
+    std::fs::write(fix.state_dir().join(".init"), b"").expect("create .init");
+
+    let before = snapshot_state_dir(fix.state_dir(), fix.state_dir());
+    let _outcome = run_backup(&fix.world, &eff, &options);
+    let after = snapshot_state_dir(fix.state_dir(), fix.state_dir());
+
+    assert_eq!(
+        before, after,
+        "half-initialized State directory must remain completely unchanged after dry run"
+    );
+}
+
+#[test]
+fn dry_run_on_an_initialized_state_waits_for_a_held_store_lock() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: true,
+    };
+
+    // Initialize fixture State locks so it counts as fully initialized
+    let prime = acquire_write_lease(fix.tree_root(), fix.state_dir()).expect("prime lease");
+    drop(prime);
+
+    // Before holding the lease, run once with no lock held to prove fixture State counts as initialized
+    let outcome_unlocked = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome_unlocked.code, 0,
+        "unlocked dry run on initialized state must succeed: {}",
+        outcome_unlocked.stderr
+    );
+    assert!(
+        outcome_unlocked.stdout.contains("would write snapshot"),
+        "stdout must indicate snapshot would be written: {}",
+        outcome_unlocked.stdout
+    );
+
+    // Now hold the store lease and verify that dry run waits and times out
+    set_lock_timeout_for_test(Some(Duration::from_millis(50)));
+    let held = acquire_write_lease(fix.tree_root(), fix.state_dir()).expect("lease");
+    let outcome = run_backup(&fix.world, &eff, &options);
+    set_lock_timeout_for_test(None);
+    drop(held);
+
+    assert_eq!(
+        outcome.code, 3,
+        "dry run on initialized state with held lock must fail with exit 3: {}",
+        outcome.stderr
+    );
+    assert!(
+        !outcome.stdout.contains("would write"),
+        "dry run must not output 'would write' when lock acquisition fails"
+    );
+}
+
 #[test]
 fn backup_without_a_target_exits_2_with_the_template_on_standard_error() {
     let fix = TestFixture::new();

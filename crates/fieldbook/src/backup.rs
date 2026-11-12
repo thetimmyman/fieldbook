@@ -248,6 +248,18 @@ pub fn refusal_text(code: Code, reason: Reason, count: usize) -> String {
     }
 }
 
+/// Returns whether the State directory is fully initialized.
+///
+/// Mirrors the early return check of `init_state_locks` in `crate::io::journal`.
+fn state_is_initialized(state_dir: &Path) -> bool {
+    let audit_dir = state_dir.join("audit");
+    let journal_lock = state_dir.join("lock");
+    let store_lock = state_dir.join("store.lock");
+    let init_marker = state_dir.join(".init");
+
+    audit_dir.is_dir() && journal_lock.is_file() && store_lock.is_file() && !init_marker.exists()
+}
+
 /// Executes snapshot creation under the given effective policy.
 pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOptions) -> Outcome {
     // State path cannot be a file
@@ -344,10 +356,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     }
 
     // 3. Acquire exclusive store lease (skipped for dry runs when State is absent or uninitialized)
-    let lease = if options.dry_run
-        && !(world.state_dir().join("store.lock").exists()
-            && world.state_dir().join(".init").exists())
-    {
+    let lease = if options.dry_run && !state_is_initialized(world.state_dir()) {
         None
     } else {
         match world.write_lease() {
