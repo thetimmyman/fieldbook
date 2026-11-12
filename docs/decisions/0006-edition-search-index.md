@@ -8,7 +8,7 @@ Status: accepted by the owner. It is amended by [glossary term units](#amendment
 
 ## Decision
 
-The edition's site search index, `assets/search-index.js`, holds page and section units only, the kinds `page` and `clause`. Its cap is 15 MB, and the 1 MB target is dropped. Every other data file keeps its 3 MB cap. The trigger fired and the owner chose this over adopting SQLite or tantivy; the `later-sqlite-tantivy` figure for the edition index is now 15 MB.
+The edition's site search index, `assets/search-index.js`, holds page and section units only, the kinds `page` and `clause`. Its cap is 15 MB, and the 1 MB target is dropped. Every other data file keeps its 3 MB cap, except the register copies `data/registers.xlsx` and `data/<register>.csv`, which are downloads no page loads and take the hosted site's 25 MiB per-file limit instead. The trigger fired and the owner chose this over adopting SQLite or tantivy; the `later-sqlite-tantivy` figure for the edition index is now 15 MB.
 
 `fieldbook search` still searches every unit. Claims, sources, questions, conflicts and terms stay reachable on the site through the register pages and `ids.html`, and are not search results there. The overlay site index and its shards are unchanged. The specification is in [search.md](../reference/search.md#the-site-index).
 

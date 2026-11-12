@@ -868,7 +868,8 @@ mod build {
         let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
         let ctx =
             site::render_context(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
-        let mut site = site::render_with_context(&view, &ctx, BuildProfile::Silent);
+        let mut site = site::render_with_context(&view, &ctx, BuildProfile::Silent)
+            .unwrap_or_else(|e| panic!("{e}"));
         site.insert(
             "bad.html",
             format!(

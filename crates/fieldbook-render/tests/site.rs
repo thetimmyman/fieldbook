@@ -260,6 +260,10 @@ mod site {
         let site = render(&view, &info).unwrap();
 
         for (path, bytes) in site.files() {
+            // The workbook is a zip, not text; it holds no markup to check.
+            if path.ends_with(".xlsx") {
+                continue;
+            }
             let text = std::str::from_utf8(bytes).unwrap();
             assert!(
                 !text.contains("style=\""),
