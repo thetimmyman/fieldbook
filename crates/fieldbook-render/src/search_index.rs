@@ -272,13 +272,16 @@ mod tests {
         let snippet = "aaaa ".repeat(30);
         assert_eq!(snippet.chars().count(), 150);
         let res = cut_section_snippet("p-1#a", &snippet);
+        assert_eq!(res, format!("{}\u{2026}", ["aaaa"; 19].join(" ")));
+        assert_eq!(res.chars().count(), 95);
         assert!(!res.ends_with(" \u{2026}"));
-        assert!(res.ends_with('\u{2026}'));
-        assert!(res.chars().count() <= 100);
-        assert_eq!(
-            res.strip_suffix('\u{2026}').and_then(|s| s.chars().last()),
-            Some('a')
-        );
+    }
+
+    #[test]
+    fn cut_threshold_counts_code_points_not_bytes() {
+        let snippet = "\u{e9}".repeat(100);
+        assert_eq!(snippet.len(), 200);
+        assert_eq!(cut_section_snippet("p-1#a", &snippet), snippet);
     }
 
     #[test]
