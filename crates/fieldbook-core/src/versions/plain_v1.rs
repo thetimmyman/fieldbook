@@ -6,7 +6,13 @@
 //!
 //! **Rules.** Pure: no I/O. Input original size is capped at [`MAX_ORIGINAL_BYTES`].
 
-use crate::extraction::{ExtractError, Extraction, MAX_ORIGINAL_BYTES, PageText, methods};
+use crate::extraction::{ExtractError, Extraction, PageText};
+
+/// The v1 size cap, frozen; a change is a new version.
+pub const MAX_ORIGINAL_BYTES: u64 = 33_554_432;
+
+/// Canonical extraction method name (`plain`).
+pub const METHOD: &str = "plain";
 
 /// Extract the single page of text from plain-text original bytes (`plain@1`).
 ///
@@ -21,7 +27,7 @@ pub fn extract(bytes: &[u8]) -> Result<Extraction, ExtractError> {
     }
     let text = std::str::from_utf8(bytes).map_err(|_| ExtractError::NotText)?;
     Ok(Extraction {
-        method: methods::PLAIN,
+        method: METHOD,
         pages: vec![PageText {
             number: 1,
             text: text.to_owned(),

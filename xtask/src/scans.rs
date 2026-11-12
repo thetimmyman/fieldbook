@@ -1,4 +1,5 @@
-//! Source code scans for network-capable types (NS-05) and model usage in deterministic verbs (DT-05).
+//! Source code scans for network-capable types (NS-05), model usage in deterministic verbs (DT-05),
+//! and scan integrity (SCAN-00: fail closed; nothing scanned is a failure).
 
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
@@ -27,7 +28,7 @@ pub struct Finding {
     pub file: String,
     /// 1-based line number.
     pub line: usize,
-    /// Rule identifier (e.g. `NS-05` or `DT-05`).
+    /// Rule identifier (e.g. `NS-05`, `DT-05`, or `SCAN-00` for fail closed: nothing scanned is a failure).
     pub rule: &'static str,
     /// The trimmed text of the line containing the finding.
     pub text: String,
@@ -54,9 +55,6 @@ fn normalize_path(path: &Path) -> String {
 }
 
 fn walk_rs_files(dir: &Path, acc: &mut Vec<PathBuf>) -> std::io::Result<()> {
-    if !dir.is_dir() {
-        return Ok(());
-    }
     let mut entries = Vec::new();
     for entry in std::fs::read_dir(dir)? {
         let entry = entry?;
@@ -97,8 +95,31 @@ pub fn scan(root: &Path) -> Vec<Finding> {
 /// Scan `crates/fieldbook/src/` under `root` with a caller-supplied `ai_verb_files` list.
 pub fn scan_with(root: &Path, ai_verb_files: &[&str]) -> Vec<Finding> {
     let src_dir = root.join("crates/fieldbook/src");
+    if !src_dir.is_dir() {
+        let err = std::fs::read_dir(&src_dir).err().unwrap_or_else(|| {
+            std::io::Error::new(std::io::ErrorKind::NotFound, "not a directory")
+        });
+        return vec![Finding {
+            file: "crates/fieldbook/src".to_owned(),
+            line: 0,
+            rule: "SCAN-00",
+            text: format!(
+                "source folder is missing or cannot be walked: crates/fieldbook/src ({err})"
+            ),
+        }];
+    }
+
     let mut files = Vec::new();
-    let _ = walk_rs_files(&src_dir, &mut files);
+    if let Err(err) = walk_rs_files(&src_dir, &mut files) {
+        return vec![Finding {
+            file: "crates/fieldbook/src".to_owned(),
+            line: 0,
+            rule: "SCAN-00",
+            text: format!(
+                "source folder is missing or cannot be walked: crates/fieldbook/src ({err})"
+            ),
+        }];
+    }
     files.sort();
 
     let mut findings = Vec::new();
@@ -113,8 +134,17 @@ pub fn scan_with(root: &Path, ai_verb_files: &[&str]) -> Vec<Finding> {
         let adapters = is_adapters(subpath);
         let ai_verb = is_ai_verb_file(subpath, ai_verb_files);
 
-        let Ok(content) = std::fs::read_to_string(&file_path) else {
-            continue;
+        let content = match std::fs::read_to_string(&file_path) {
+            Ok(content) => content,
+            Err(err) => {
+                findings.push(Finding {
+                    file: file_rel.clone(),
+                    line: 0,
+                    rule: "SCAN-00",
+                    text: format!("file cannot be read: {file_rel} ({err})"),
+                });
+                continue;
+            }
         };
 
         for (idx, line) in content.lines().enumerate() {
@@ -260,5 +290,48 @@ mod tests {
             "expected real repo to be clean, got: {:?}",
             findings
         );
+    }
+
+    #[test]
+    fn scan_fails_closed_without_the_source_folder() {
+        let temp = tempfile::tempdir().expect("tempdir");
+        let findings = scan(temp.path());
+        assert_eq!(findings.len(), 1);
+        let f = &findings[0];
+        assert_eq!(f.file, "crates/fieldbook/src");
+        assert_eq!(f.line, 0);
+        assert_eq!(f.rule, "SCAN-00");
+        assert!(
+            f.text.contains("crates/fieldbook/src"),
+            "expected text to contain crates/fieldbook/src, got: {}",
+            f.text
+        );
+    }
+
+    #[test]
+    fn scan_fails_closed_on_an_unreadable_source_file() {
+        let temp = tempfile::tempdir().expect("tempdir");
+        let bad_rs = temp.path().join("crates/fieldbook/src/bad.rs");
+        std::fs::create_dir_all(bad_rs.parent().expect("parent")).expect("create_dir_all");
+        std::fs::write(&bad_rs, vec![0xff, 0xfe, 0xfd]).expect("write");
+
+        let findings = scan(temp.path());
+        assert_eq!(findings.len(), 1);
+        let f = &findings[0];
+        assert_eq!(f.file, "crates/fieldbook/src/bad.rs");
+        assert_eq!(f.line, 0);
+        assert_eq!(f.rule, "SCAN-00");
+        assert!(
+            f.text.contains("crates/fieldbook/src/bad.rs"),
+            "expected text to name crates/fieldbook/src/bad.rs, got: {}",
+            f.text
+        );
+    }
+
+    #[test]
+    fn scans_command_fails_for_a_root_without_the_source_folder() {
+        let temp = tempfile::tempdir().expect("tempdir");
+        let code = command(temp.path());
+        assert_eq!(format!("{:?}", code), format!("{:?}", ExitCode::from(1)));
     }
 }

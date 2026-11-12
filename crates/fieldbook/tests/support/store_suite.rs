@@ -180,16 +180,45 @@ pub fn store_suite(make: &dyn Fn(&Path) -> Disk) {
         "register citing row must not exist before its write occurs"
     );
 
-    // Simulate failure in the middle: drop audited without calling journal.end
+    // Induce write failure: plant a directory at the register file path so writing the register fails
+    std::fs::create_dir_all(tmp_failure.path().join(reg_rel)).expect("plant directory fault");
+
+    // Attempt register write and assert it fails
+    assert!(
+        disk_failure
+            .write_file(&audited, &reg_path, reg_bytes)
+            .is_err(),
+        "register write must fail when directory occupies target path"
+    );
+
+    // Original remains on disk with exact bytes
+    assert_eq!(
+        std::fs::read(&orig_path).expect("read original file"),
+        orig_bytes,
+        "original must remain on disk with exact original bytes"
+    );
+
+    // Register holds no row citing it: path is still the planted directory, not a file, and empty
+    assert!(
+        reg_path.is_dir(),
+        "register path must still be the planted directory"
+    );
+    assert!(
+        !reg_path.is_file(),
+        "register path must not be a regular file"
+    );
+    assert_eq!(
+        std::fs::read_dir(&reg_path)
+            .expect("read register directory")
+            .count(),
+        0,
+        "read_dir of register path must be empty and contain no row citing S-0001"
+    );
+
+    // Drop the audited transaction without journal.end as today
     std::mem::drop(audited);
     std::mem::drop(journal_fail);
     std::mem::drop(lease_fail);
-
-    // Observable consequence: no row citing the original exists in registers
-    assert!(
-        !reg_path.exists(),
-        "aborted transaction must leave no row in register"
-    );
 
     // -------------------------------------------------------------------------
     // 3. A listing is in byte order
