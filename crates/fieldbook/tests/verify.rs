@@ -166,7 +166,9 @@ fn yes_writes_exactly_the_three_cells() {
     assert!(out.stdout.contains("CL-CMP-0002"));
     assert!(out.stdout.contains(TODAY));
     assert!(
-        out.stderr.is_empty(),
+        out.stderr
+            .lines()
+            .all(|l| l.starts_with("fieldbook: no verified backup yet")),
         "expected empty stderr, got: {}",
         out.stderr
     );

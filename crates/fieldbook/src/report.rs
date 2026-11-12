@@ -2,7 +2,7 @@
 
 use std::fmt::Write as _;
 
-use fieldbook_core::labels::{self, LabelSet, MarkingRules, StoreId};
+use fieldbook_core::labels::{self, LabelSet, MarkingRules, StoreId, UNLABELLED};
 use fieldbook_core::policy::Policy;
 use fieldbook_core::report::{
     AddCounts, AddFileReport, AddFileResult, AddInputRef, AddReport, REPORT_VERSION,
@@ -41,7 +41,10 @@ pub fn classify_add_report(
         labels = labels.union(&found);
     }
     if policy.revision() > 0 {
-        labels = labels.union(&policy.store_rule(&StoreId::State).default);
+        let def = &policy.store_rule(&StoreId::State).default;
+        if !def.contains(&UNLABELLED) {
+            labels = labels.union(def);
+        }
     }
     for entry in entries {
         if let Some(found) = labels::markings_in(&entry.file.name, rules) {

@@ -432,7 +432,9 @@ fn new_chip_cases_write_one_object_on_a_fresh_home_copy() {
             out.stdout
         );
         assert!(
-            out.stderr.is_empty(),
+            out.stderr
+                .lines()
+                .all(|l| l.starts_with("fieldbook: no verified backup yet")),
             "chip `{}`: {}",
             case.chip,
             out.stderr

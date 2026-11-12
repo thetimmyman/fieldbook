@@ -162,6 +162,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
 
     let argv =
         std::iter::once(fieldbook_core::strings::binary()).chain(args.iter().map(String::as_str));
+    io::journal::reset_thread_wrote_store();
     let parsed = match Cli::try_parse_from(argv) {
         Ok(cli) => cli,
         Err(err) => {
@@ -181,7 +182,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
         };
     }
 
-    match parsed.command {
+    let mut outcome = match parsed.command {
         Commands::Check(check_args) => {
             if let Some(flag) = parsed.state.as_deref() {
                 let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
@@ -256,7 +257,24 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             }
         }
         Commands::Backup(backup_args) => backup::run(&backup_args, parsed.state.as_deref(), world),
+    };
+
+    if io::journal::thread_wrote_store() && (outcome.code == 0 || outcome.code == 1) {
+        let state_dir = if let Some(flag) = parsed.state.as_deref() {
+            io::state::resolve(world.tree_root(), world.cwd(), Some(flag))
+        } else {
+            world.state_dir().to_path_buf()
+        };
+        let settings = io::state::read_backup_settings(&state_dir).unwrap_or_default();
+        if let Some(msg) = backup::reminder(&state_dir, world.today(), settings.warn_after_days) {
+            outcome.stderr.push_str(&msg);
+            if !outcome.stderr.ends_with('\n') {
+                outcome.stderr.push('\n');
+            }
+        }
     }
+
+    outcome
 }
 
 struct StateOverrideWorld<'a> {

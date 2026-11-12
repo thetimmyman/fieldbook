@@ -16,8 +16,9 @@ use std::time::Duration;
 
 use fieldbook::World;
 use fieldbook::backup::{
-    BackupListArgs, BackupOptions, BackupVerifyArgs, run_backup, run_list, run_verify,
+    BackupListArgs, BackupOptions, BackupVerifyArgs, backup_age, run_backup, run_list, run_verify,
 };
+use fieldbook::cli::AddArgs;
 use fieldbook::io::Disk;
 use fieldbook::io::atomic::{write_in_root, write_outside};
 use fieldbook::io::dirs::{Removable, remove_outside, rename_dir_outside};
@@ -38,7 +39,7 @@ use fieldbook_core::egress::{
 use fieldbook_core::labels::{OWNER_SUPPLIED, PlaceFacts};
 use fieldbook_core::manifest;
 use fieldbook_core::policy::{EffectivePolicy, FloorKind, OwnerSettings, Policy, PolicyState};
-use fieldbook_core::report::BackupList;
+use fieldbook_core::report::{BackupList, LastBackupReport};
 
 use support::faulty::{Fault, FaultKind, FaultyWorld};
 use support::world::TestWorld;
@@ -1958,4 +1959,1015 @@ fn latest_verification_keeps_failure_after_success() {
             .map(|v| v.outcome.as_str()),
         Some("failed")
     );
+}
+
+#[test]
+fn wrote_store_ignores_build() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    let out_dir = tempfile::tempdir().expect("out dir");
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+
+    // 1. Build leaves wrote_store false
+    let build_out = fieldbook::run(
+        &[
+            "build".to_string(),
+            "--out".to_string(),
+            out_dir.path().display().to_string(),
+        ],
+        &world,
+    );
+    assert_eq!(build_out.code, 0, "build stderr: {}", build_out.stderr);
+    assert!(
+        !fieldbook::io::journal::wrote_store(),
+        "build must leave wrote_store() false"
+    );
+
+    // 2. Add leaves wrote_store true
+    let input_path = tree_dir.path().join("input.txt");
+    std::fs::write(&input_path, b"Synthetic public text for testing.\n").expect("write input");
+    let add_out = fieldbook::run(
+        &[
+            "add".to_string(),
+            input_path.display().to_string(),
+            "--confirm-public".to_string(),
+        ],
+        &world,
+    );
+    assert_eq!(add_out.code, 0, "add stderr: {}", add_out.stderr);
+    assert!(
+        fieldbook::io::journal::wrote_store(),
+        "add must leave wrote_store() true"
+    );
+}
+
+#[test]
+fn write_verb_prints_backup_reminder() {
+    let fix = TestFixture::new();
+
+    // 1. Fixed clock at Day 1 (2026-03-01)
+    let t_day1 = Now::new(CivilDate::from_ymd(2026, 3, 1).expect("date"), 3600).expect("now");
+    fix.world.set_now(t_day1);
+
+    // Run backup and verify on day 1 so valid cache and journal event exist
+    let b1 = fieldbook::run(&["backup".to_string()], &fix.world);
+    assert_eq!(b1.code, 0, "backup stderr: {}", b1.stderr);
+    let v1 = fieldbook::run(
+        &[
+            "backup".to_string(),
+            "verify".to_string(),
+            "--target".to_string(),
+            "main".to_string(),
+        ],
+        &fix.world,
+    );
+    assert_eq!(v1.code, 0, "verify stderr: {}", v1.stderr);
+
+    // Case A: 9 days old under a fixed clock (2026-03-10)
+    let t_day10 = Now::new(CivilDate::from_ymd(2026, 3, 10).expect("date"), 3600).expect("now");
+    fix.world.set_now(t_day10);
+
+    let input1 = fix.tree_root().join("input1.txt");
+    std::fs::write(&input1, b"Synthetic input 1\n").expect("write input 1");
+    let add1 = fieldbook::run(
+        &[
+            "add".to_string(),
+            input1.display().to_string(),
+            "--confirm-public".to_string(),
+        ],
+        &fix.world,
+    );
+    assert_eq!(add1.code, 0);
+    assert!(
+        add1.stderr.contains(
+            "fieldbook: last verified backup is 9 days old (warn after 7). Run: fieldbook backup\n"
+        ),
+        "expected 9-day reminder, got: {}",
+        add1.stderr
+    );
+
+    // Case B: 2 days old (2026-03-03)
+    let t_day3 = Now::new(CivilDate::from_ymd(2026, 3, 3).expect("date"), 3600).expect("now");
+    fix.world.set_now(t_day3);
+
+    let input2 = fix.tree_root().join("input2.txt");
+    std::fs::write(&input2, b"Synthetic input 2\n").expect("write input 2");
+    let add2 = fieldbook::run(
+        &[
+            "add".to_string(),
+            input2.display().to_string(),
+            "--confirm-public".to_string(),
+        ],
+        &fix.world,
+    );
+    assert_eq!(add2.code, 0);
+    assert!(
+        !add2.stderr.contains("Run: fieldbook backup"),
+        "2-day-old backup should not warn, got: {}",
+        add2.stderr
+    );
+
+    // Case C: No verified backup yet
+    let fix_none = TestFixture::new();
+    let input3 = fix_none.tree_root().join("input3.txt");
+    std::fs::write(&input3, b"Synthetic input 3\n").expect("write input 3");
+    let add3 = fieldbook::run(
+        &[
+            "add".to_string(),
+            input3.display().to_string(),
+            "--confirm-public".to_string(),
+        ],
+        &fix_none.world,
+    );
+    assert_eq!(add3.code, 0);
+    assert!(
+        add3.stderr.contains(
+            "fieldbook: no verified backup yet (warn after 7 days). Run: fieldbook backup\n"
+        ),
+        "expected no verified backup reminder, got: {}",
+        add3.stderr
+    );
+}
+
+#[test]
+fn read_verbs_print_no_reminder() {
+    let fix = TestFixture::new();
+    let out_dir = tempfile::tempdir().expect("out dir");
+
+    // check
+    let check_out = fieldbook::run(&["check".to_string()], &fix.world);
+    assert_eq!(check_out.code, 0);
+    assert!(
+        !check_out.stderr.contains("Run: fieldbook backup"),
+        "check must not print backup reminder"
+    );
+
+    // build
+    let build_out = fieldbook::run(
+        &[
+            "build".to_string(),
+            "--out".to_string(),
+            out_dir.path().display().to_string(),
+        ],
+        &fix.world,
+    );
+    assert_eq!(build_out.code, 0);
+    assert!(
+        !build_out.stderr.contains("Run: fieldbook backup"),
+        "build must not print backup reminder"
+    );
+
+    // search
+    let search_out = fieldbook::run(&["search".to_string(), "corpus".to_string()], &fix.world);
+    assert!(
+        !search_out.stderr.contains("Run: fieldbook backup"),
+        "search must not print backup reminder"
+    );
+
+    // audit show
+    let audit_out = fieldbook::run(&["audit".to_string(), "show".to_string()], &fix.world);
+    assert!(
+        !audit_out.stderr.contains("Run: fieldbook backup"),
+        "audit show must not print backup reminder"
+    );
+}
+
+#[test]
+fn backup_verify_writes_the_age_file() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    // 1. Create snapshot 1
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let b_res = run_backup(&fix.world, &eff, &options);
+    assert_eq!(b_res.code, 0, "backup stderr: {}", b_res.stderr);
+
+    let cache_path = fix.state_dir().join("reports/last-backup.json");
+    assert!(!cache_path.exists(), "cache must not exist before verify");
+
+    // 2. Verify snapshot 1
+    let v_res = run_verify(
+        &fix.world,
+        &BackupVerifyArgs {
+            target: Some("main".to_string()),
+            snapshot: None,
+            in_dir: None,
+            raw: None,
+            support_catalogue: None,
+            expect_support_sha256: None,
+        },
+    );
+    assert_eq!(v_res.code, 0, "verify stderr: {}", v_res.stderr);
+    assert!(cache_path.exists(), "cache must exist after verify");
+
+    let cache_content = std::fs::read_to_string(&cache_path).expect("read cache");
+    let rep: LastBackupReport =
+        serde_json::from_str(&cache_content).expect("parse LastBackupReport");
+    assert_eq!(rep.verification, "snapshot");
+    assert_eq!(rep.snapshot, 1);
+    let canon_target = fix.target_path().canonicalize().expect("canon");
+    assert_eq!(rep.target_path, canon_target.to_string_lossy());
+    let expected_target_sha =
+        fieldbook_core::hash::sha256_hex(canon_target.to_string_lossy().as_bytes());
+    assert_eq!(rep.target_sha256, expected_target_sha);
+    assert!(!rep.manifest_sha256.is_empty());
+    assert!(!rep.verified_utc.is_empty());
+
+    let age = backup_age(fix.state_dir(), fix.world.today());
+    assert_eq!(age, Some(0));
+}
+
+#[test]
+fn one_off_verification_survives_reopen() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+
+    // Remove any backup targets from settings.toml
+    let settings_path = state_dir.path().join("settings.toml");
+    std::fs::write(&settings_path, "role = \"lead\"\n").expect("write settings");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+
+    // One-off backup to DIR
+    let b_out = fieldbook::run(
+        &[
+            "backup".to_string(),
+            "--to".to_string(),
+            target_dir.path().display().to_string(),
+        ],
+        &world,
+    );
+    assert_eq!(b_out.code, 0, "backup stderr: {}", b_out.stderr);
+
+    // Verify with --in DIR
+    let v_out = fieldbook::run(
+        &[
+            "backup".to_string(),
+            "verify".to_string(),
+            "--in".to_string(),
+            target_dir.path().display().to_string(),
+        ],
+        &world,
+    );
+    assert_eq!(v_out.code, 0, "verify stderr: {}", v_out.stderr);
+
+    // Reopen and check age
+    let age = backup_age(state_dir.path(), world.today());
+    assert_eq!(age, Some(0));
+}
+
+#[test]
+fn substituted_cache_path_invalidates_age() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    assert_eq!(run_backup(&fix.world, &eff, &options).code, 0);
+    assert_eq!(
+        run_verify(
+            &fix.world,
+            &BackupVerifyArgs {
+                target: Some("main".to_string()),
+                snapshot: None,
+                in_dir: None,
+                raw: None,
+                support_catalogue: None,
+                expect_support_sha256: None,
+            },
+        )
+        .code,
+        0
+    );
+
+    let cache_path = fix.state_dir().join("reports/last-backup.json");
+    let orig_text = std::fs::read_to_string(&cache_path).expect("read cache");
+    let rep: LastBackupReport = serde_json::from_str(&orig_text).expect("parse");
+
+    // Case A: Substitute target_path but not target_sha256
+    let mut modified = rep.clone();
+    modified.target_path = "/nonexistent/different/path".to_string();
+    std::fs::write(&cache_path, serde_json::to_string(&modified).expect("json")).expect("write");
+    assert_eq!(backup_age(fix.state_dir(), fix.world.today()), None);
+
+    // Case B: Substitute target_path AND target_sha256 to a nonexistent path
+    let other_dir = tempfile::tempdir().expect("tempdir");
+    let other_canon = other_dir.path().canonicalize().expect("canon");
+    let other_str = other_canon.to_string_lossy().into_owned();
+    modified.target_path = other_str.clone();
+    modified.target_sha256 = fieldbook_core::hash::sha256_hex(other_str.as_bytes());
+    std::fs::write(&cache_path, serde_json::to_string(&modified).expect("json")).expect("write");
+    assert_eq!(backup_age(fix.state_dir(), fix.world.today()), None);
+
+    // Case C: Corrupted manifest_sha256
+    let mut modified_manifest = rep.clone();
+    modified_manifest.manifest_sha256 =
+        "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef".to_string();
+    std::fs::write(
+        &cache_path,
+        serde_json::to_string(&modified_manifest).expect("json"),
+    )
+    .expect("write");
+    assert_eq!(backup_age(fix.state_dir(), fix.world.today()), None);
+
+    // Case D: Non-existent snapshot number
+    let mut modified_snapshot = rep;
+    modified_snapshot.snapshot = 999;
+    std::fs::write(
+        &cache_path,
+        serde_json::to_string(&modified_snapshot).expect("json"),
+    )
+    .expect("write");
+    assert_eq!(backup_age(fix.state_dir(), fix.world.today()), None);
+}
+
+#[test]
+fn subsequent_backup_keeps_labelled_cache() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Backup 1 and verify 1
+    assert_eq!(run_backup(&fix.world, &eff, &options).code, 0);
+    assert_eq!(
+        run_verify(
+            &fix.world,
+            &BackupVerifyArgs {
+                target: Some("main".to_string()),
+                snapshot: None,
+                in_dir: None,
+                raw: None,
+                support_catalogue: None,
+                expect_support_sha256: None,
+            },
+        )
+        .code,
+        0
+    );
+
+    let cache_path = fix.state_dir().join("reports/last-backup.json");
+    let cache_text = std::fs::read_to_string(&cache_path).expect("read cache");
+
+    // Backup 2 includes last-backup.json
+    assert_eq!(run_backup(&fix.world, &eff, &options).code, 0);
+
+    let snap2_cache = fix
+        .target_path()
+        .join("fieldbook-backup-0002/data/state/reports/last-backup.json");
+    assert!(
+        snap2_cache.is_file(),
+        "snapshot 2 must contain last-backup.json"
+    );
+    let snap2_text = std::fs::read_to_string(&snap2_cache).expect("read snap2 cache");
+    assert_eq!(
+        snap2_text, cache_text,
+        "snapshot 2 must have identical cache bytes"
+    );
+
+    // Verify snapshot 2
+    assert_eq!(
+        run_verify(
+            &fix.world,
+            &BackupVerifyArgs {
+                target: Some("main".to_string()),
+                snapshot: Some(2),
+                in_dir: None,
+                raw: None,
+                support_catalogue: None,
+                expect_support_sha256: None,
+            },
+        )
+        .code,
+        0
+    );
+}
+
+#[test]
+fn malformed_unknown_field_cache_refusal() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // 1. Initial backup and verify
+    assert_eq!(run_backup(&fix.world, &eff, &options).code, 0);
+    assert_eq!(
+        run_verify(
+            &fix.world,
+            &BackupVerifyArgs {
+                target: Some("main".to_string()),
+                snapshot: None,
+                in_dir: None,
+                raw: None,
+                support_catalogue: None,
+                expect_support_sha256: None,
+            },
+        )
+        .code,
+        0
+    );
+
+    let cache_path = fix.state_dir().join("reports/last-backup.json");
+    let orig = std::fs::read_to_string(&cache_path).expect("read cache");
+
+    // Inject unknown field
+    let mut val: serde_json::Value = serde_json::from_str(&orig).expect("json");
+    val["unknown_extra_field"] = serde_json::json!("disallowed");
+    std::fs::write(&cache_path, serde_json::to_string(&val).expect("to_string")).expect("write");
+
+    // Age returns None
+    assert_eq!(backup_age(fix.state_dir(), fix.world.today()), None);
+
+    // Backup refuses because malformed cache is unlabelled
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 2, "FB0901 refusal on unlabelled item");
+    assert!(outcome.stderr.contains("FB0901"));
+
+    // Syntax error
+    std::fs::write(&cache_path, b"not valid json {{{").expect("write invalid");
+    assert_eq!(backup_age(fix.state_dir(), fix.world.today()), None);
+    let outcome2 = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome2.code, 2);
+    assert!(outcome2.stderr.contains("FB0901"));
+}
+
+#[test]
+fn refused_filename_report_obeys_backup_labels() {
+    let fix = TestFixture::new();
+    let target_str = fix
+        .target_path()
+        .canonicalize()
+        .expect("canon")
+        .to_string_lossy()
+        .replace('\\', "/");
+
+    let policy_toml_allow_np = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "canary-file"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied", "np-0007"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy_allow = Policy::parse(&policy_toml_allow_np, None).expect("parse policy");
+
+    let policy_toml_deny_np = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "canary-file"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy_deny = Policy::parse(&policy_toml_deny_np, None).expect("parse policy");
+
+    // 1. Run real add of a refused file whose filename has a canary
+    let canary_input = fix.tree_root().join("canary-file-secret.txt");
+    std::fs::write(&canary_input, b"synthetic plain data\n").expect("write canary");
+
+    let add_out = fieldbook::add::run_with_policy(
+        &AddArgs {
+            file: canary_input.clone(),
+            source: None,
+            metadata_only: false,
+            confirm_public: true,
+            recursive: false,
+            json: false,
+        },
+        &fix.world,
+        &policy_allow,
+    );
+    assert_eq!(add_out.code, 1, "marked file refused by corpus must exit 1");
+    let last_add_path = fix.state_dir().join("reports/last-add.json");
+    assert!(
+        last_add_path.is_file(),
+        "last-add.json must be saved in state"
+    );
+    let last_add_text = std::fs::read_to_string(&last_add_path).expect("read last-add");
+    assert!(last_add_text.contains("canary-file-secret.txt"));
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // 2. Real backup with target lacking mapped company label receives no canary and no snapshot
+    let eff_deny = EffectivePolicy::new(&PolicyState::Loaded(policy_deny), &OwnerSettings::unset());
+    let b_deny = run_backup(&fix.world, &eff_deny, &options);
+    assert_eq!(b_deny.code, 2, "lacking np-0007 must refuse FB0901");
+    assert!(b_deny.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+
+    // 3. Real backup with target permitting np-0007 and owner-supplied receives the intact report
+    let eff_allow =
+        EffectivePolicy::new(&PolicyState::Loaded(policy_allow), &OwnerSettings::unset());
+    let b_allow = run_backup(&fix.world, &eff_allow, &options);
+    assert_eq!(b_allow.code, 0, "backup stderr: {}", b_allow.stderr);
+    let snap1_report = fix
+        .target_path()
+        .join("fieldbook-backup-0001/data/state/reports/last-add.json");
+    assert!(snap1_report.is_file());
+    let snap1_text = std::fs::read_to_string(&snap1_report).expect("read snap1 last-add");
+    assert_eq!(snap1_text, last_add_text);
+
+    // 4. Missing metadata (empty inputs/labels) contributes unlabelled
+    std::fs::write(
+        &last_add_path,
+        b"{\"report_version\":1,\"dir\":\"inbox\",\"counts\":{\"added\":0,\"present\":0,\"refused\":1},\"files\":[],\"labels\":[],\"inputs\":[]}\n",
+    )
+    .expect("write bad");
+    let b_missing = run_backup(&fix.world, &eff_allow, &options);
+    assert_eq!(b_missing.code, 2);
+    assert!(b_missing.stderr.contains("FB0901"));
+
+    // 5. State admission refusal: Floor A does not admit marked to state
+    let cui_input = fix.tree_root().join("cui-marked.txt");
+    std::fs::write(
+        &cui_input,
+        b"CONTROLLED UNCLASSIFIED INFORMATION\nSynthetic marked text.\n",
+    )
+    .expect("write cui");
+    let floor_policy = Policy::floor(FloorKind::A);
+    let add_floor = fieldbook::add::run_with_policy(
+        &AddArgs {
+            file: cui_input,
+            source: None,
+            metadata_only: false,
+            confirm_public: true,
+            recursive: false,
+            json: false,
+        },
+        &fix.world,
+        &floor_policy,
+    );
+    assert!(
+        add_floor.stderr.contains("report not saved"),
+        "stderr must warn report not saved when state denies: {}",
+        add_floor.stderr
+    );
+}
+
+#[test]
+fn schema_invalid_repair_archive_obeys_backup_labels() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // 1. Synthetic FB0801 journal with invalid free-text canary
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let mut journal_content = std::fs::read_to_string(&journal_path).expect("read journal");
+    journal_content.push_str("{\"seq\":99,\"canary_secret_field\":\"forbidden_free_text\"}\n");
+    std::fs::write(&journal_path, journal_content).expect("write corrupt journal");
+
+    // Repair through real audit handler
+    let repair_out = fieldbook::run(
+        &[
+            "audit".to_string(),
+            "verify".to_string(),
+            "--repair".to_string(),
+        ],
+        &fix.world,
+    );
+    assert_eq!(repair_out.code, 1);
+    assert!(repair_out.stdout.contains("journal.broken"));
+
+    // Real backup: unchanged repair bytes contribute unlabelled and a target lacking that label receives no snapshot
+    let b_corrupt = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        b_corrupt.code, 2,
+        "invalid repair archive must refuse FB0901"
+    );
+    assert!(b_corrupt.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+
+    // 2. Positive case: schema-valid journal with only a chain-hash failure (FB0800 fixture)
+    let fix_valid = TestFixture::new();
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let fb0800_src = repo.join("tests/fixtures/state-known-bad/FB0800");
+    for entry in std::fs::read_dir(fb0800_src.join("audit")).expect("read dir") {
+        let entry = entry.expect("entry");
+        std::fs::copy(
+            entry.path(),
+            fix_valid.state_dir().join("audit").join(entry.file_name()),
+        )
+        .expect("copy audit file");
+    }
+
+    let repair_valid = fieldbook::run(
+        &[
+            "audit".to_string(),
+            "verify".to_string(),
+            "--repair".to_string(),
+        ],
+        &fix_valid.world,
+    );
+    assert_eq!(repair_valid.code, 1);
+    assert!(repair_valid.stdout.contains("journal.broken"));
+
+    let b_valid = run_backup(&fix_valid.world, &eff, &options);
+    assert_eq!(
+        b_valid.code, 0,
+        "schema-valid repair archive must succeed: {}",
+        b_valid.stderr
+    );
+    assert!(
+        fix_valid
+            .target_path()
+            .join("fieldbook-backup-0001")
+            .is_dir()
+    );
+}
+
+#[test]
+fn backup_settings_require_owner_supplied() {
+    let fix = TestFixture::new();
+    let target_str = fix
+        .target_path()
+        .canonicalize()
+        .expect("canon")
+        .to_string_lossy()
+        .replace('\\', "/");
+
+    // Policy whose backup destination allows public, but excludes owner-supplied
+    let policy_toml = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied"]
+
+[[destination]]
+kind = "backup"
+allow = ["public"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy = Policy::parse(&policy_toml, None).expect("parse policy");
+    let eff = EffectivePolicy::new(&PolicyState::Loaded(policy), &OwnerSettings::unset());
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome.code, 2,
+        "target excluding owner-supplied must refuse FB0901"
+    );
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn backup_settings_preserve_authorized_bytes() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let original_bytes =
+        std::fs::read(fix.state_dir().join("settings.toml")).expect("read settings");
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup stderr: {}", outcome.stderr);
+
+    let copied_bytes = std::fs::read(
+        fix.target_path()
+            .join("fieldbook-backup-0001/data/state/settings.toml"),
+    )
+    .expect("read copied settings");
+    assert_eq!(copied_bytes, original_bytes);
+}
+
+#[test]
+fn backup_settings_keep_comment_markings() {
+    let fix = TestFixture::new();
+    let target_str = fix
+        .target_path()
+        .canonicalize()
+        .expect("canon")
+        .to_string_lossy()
+        .replace('\\', "/");
+
+    // Add comment with marking to settings.toml
+    let settings_file = fix.state_dir().join("settings.toml");
+    let mut content = std::fs::read_to_string(&settings_file).expect("read");
+    content.push_str("\n# NP-0007 NDA confidential note in comment\n");
+    std::fs::write(&settings_file, &content).expect("write settings");
+
+    let policy_toml_no_np = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy_no_np = Policy::parse(&policy_toml_no_np, None).expect("parse policy");
+    let eff_no = EffectivePolicy::new(&PolicyState::Loaded(policy_no_np), &OwnerSettings::unset());
+
+    let policy_toml_with_np = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied", "np-0007"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy_with_np = Policy::parse(&policy_toml_with_np, None).expect("parse policy");
+    let eff_with = EffectivePolicy::new(
+        &PolicyState::Loaded(policy_with_np),
+        &OwnerSettings::unset(),
+    );
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Refused when destination lacks np-0007
+    let out_refuse = run_backup(&fix.world, &eff_no, &options);
+    assert_eq!(out_refuse.code, 2);
+    assert!(out_refuse.stderr.contains("FB0901"));
+
+    // Permitted when destination allows np-0007
+    let out_ok = run_backup(&fix.world, &eff_with, &options);
+    assert_eq!(out_ok.code, 0, "backup stderr: {}", out_ok.stderr);
+    let snap_settings = std::fs::read_to_string(
+        fix.target_path()
+            .join("fieldbook-backup-0001/data/state/settings.toml"),
+    )
+    .expect("read snap settings");
+    assert!(snap_settings.contains("# NP-0007 NDA confidential note in comment"));
+}
+
+#[test]
+fn backup_settings_include_loaded_state_default() {
+    let fix = TestFixture::new();
+    let target_str = fix
+        .target_path()
+        .canonicalize()
+        .expect("canon")
+        .to_string_lossy()
+        .replace('\\', "/");
+
+    let policy_toml = format!(
+        r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "bid-0003"
+title = "Bid Cost"
+banner = "BID-0003"
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "bid-0003"]
+default = ["bid-0003"]
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied"]
+paths = ["{target_str}"]
+"#
+    );
+    let policy = Policy::parse(&policy_toml, None).expect("parse policy");
+    let eff = EffectivePolicy::new(&PolicyState::Loaded(policy), &OwnerSettings::unset());
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Target allowing public + owner-supplied but excluding state default bid-0003 refuses
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        outcome.code, 2,
+        "target lacking state default must refuse FB0901"
+    );
+    assert!(outcome.stderr.contains("FB0901"));
+
+    // Floor A has no loaded policy state default: only owner-supplied is required
+    let eff_floor = floor_a_effective();
+    let outcome_floor = run_backup(&fix.world, &eff_floor, &options);
+    assert_eq!(
+        outcome_floor.code, 0,
+        "floor A has no loaded state default: {}",
+        outcome_floor.stderr
+    );
+}
+
+#[test]
+fn unknown_or_text_bearing_control_shape_is_unlabelled() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Case A: Synthetic text in an unknown TOML sidecar
+    let unknown_toml = fix.state_dir().join("handoff/H-0001.toml");
+    std::fs::create_dir_all(unknown_toml.parent().unwrap()).expect("create dir");
+    std::fs::write(
+        &unknown_toml,
+        b"canary = \"free-text canary in unknown toml\"\n",
+    )
+    .expect("write toml");
+
+    let out_a = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        out_a.code, 2,
+        "unknown TOML sidecar must be unlabelled and refuse FB0901"
+    );
+    assert!(out_a.stderr.contains("FB0901"));
+    std::fs::remove_file(&unknown_toml).expect("remove file");
+
+    // Case B: Extra field in known control schema (pending.toml)
+    let pending_toml = fix.state_dir().join("pending.toml");
+    std::fs::write(
+        &pending_toml,
+        b"verb = \"add\"\nextra_unrecognized_field = \"unexpected\"\n",
+    )
+    .expect("write pending");
+
+    let out_b = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        out_b.code, 2,
+        "extra field in known control must be unlabelled and refuse FB0901"
+    );
+    assert!(out_b.stderr.contains("FB0901"));
+}
+
+#[test]
+fn known_reports_and_derived_pages_add_no_unlabelled() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // 1. Initial backup and verify creates valid last-backup.json
+    assert_eq!(run_backup(&fix.world, &eff, &options).code, 0);
+    assert_eq!(
+        run_verify(
+            &fix.world,
+            &BackupVerifyArgs {
+                target: Some("main".to_string()),
+                snapshot: None,
+                in_dir: None,
+                raw: None,
+                support_catalogue: None,
+                expect_support_sha256: None,
+            },
+        )
+        .code,
+        0
+    );
+
+    // 2. Add derived folders
+    let site_file = fix.tree_root().join("out/edition/index.html");
+    std::fs::create_dir_all(site_file.parent().unwrap()).expect("create out");
+    std::fs::write(&site_file, b"derived html content\n").expect("write site");
+
+    // Subsequent backup succeeds under Floor A (which excludes unlabelled)
+    let out = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        out.code, 0,
+        "known reports and derived pages must not add unlabelled: {}",
+        out.stderr
+    );
+}
+
+#[test]
+fn an_unknown_handoff_file_adds_unlabelled() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let handoff_file = fix.state_dir().join("handoff/H-0001.txt");
+    std::fs::create_dir_all(handoff_file.parent().unwrap()).expect("create dir");
+    std::fs::write(&handoff_file, b"Handoff text payload\n").expect("write handoff");
+
+    let out = run_backup(&fix.world, &eff, &options);
+    assert_eq!(
+        out.code, 2,
+        "unknown handoff file must add unlabelled and refuse FB0901"
+    );
+    assert!(out.stderr.contains("FB0901"));
 }

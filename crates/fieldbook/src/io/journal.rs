@@ -44,6 +44,40 @@ pub const STORE_RETRY_INTERVAL: Duration = Duration::from_millis(50);
 /// Verbs whose writes all land outside the content store (`backup-snapshot`).
 pub const OUTSIDE_STORE_VERBS: &[&str] = &["build"];
 
+// Thread-local storage tracking whether the current thread appended an in-store `write.begin`.
+//
+// Because tests execute concurrently in parallel threads within a single process,
+// a thread-local cell provides isolated tracking across verbs without polluting
+// `Outcome` struct definitions across the codebase or sharing state between test workers.
+std::thread_local! {
+    static THREAD_WROTE_STORE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+}
+
+/// Reset the thread-local `wrote_store` flag for the current thread.
+pub fn reset_thread_wrote_store() {
+    THREAD_WROTE_STORE.with(|f| f.set(false));
+}
+
+/// Return `true` if an in-store `write.begin` was appended on the current thread.
+///
+/// Because tests execute concurrently in parallel threads within a single process,
+/// a thread-local cell provides isolated tracking across verbs without polluting
+/// `Outcome` struct definitions across the codebase or sharing state between test workers.
+#[must_use]
+pub fn thread_wrote_store() -> bool {
+    THREAD_WROTE_STORE.with(std::cell::Cell::get)
+}
+
+/// Return `true` if an in-store `write.begin` was appended on the current thread.
+#[must_use]
+pub fn wrote_store() -> bool {
+    THREAD_WROTE_STORE.with(std::cell::Cell::get)
+}
+
+pub(crate) fn set_thread_wrote_store(val: bool) {
+    THREAD_WROTE_STORE.with(|f| f.set(val));
+}
+
 /// Errors raised by [`Journal`] operations (mapped to exit code 3 at the CLI boundary).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum JournalError {
@@ -1274,6 +1308,17 @@ impl<'a> Journal<'a> {
         self.wrote_store
     }
 
+    /// Return `true` if an in-store `write.begin` was appended on the current thread.
+    #[must_use]
+    pub fn thread_wrote_store() -> bool {
+        THREAD_WROTE_STORE.with(std::cell::Cell::get)
+    }
+
+    /// Reset the thread-local `wrote_store` flag for the current thread.
+    pub fn reset_thread_wrote_store() {
+        THREAD_WROTE_STORE.with(|f| f.set(false));
+    }
+
     /// Return the event timestamp (`Now`) of the newest event of `kind` across all segments,
     /// or `None` when no event of `kind` has been recorded.
     #[must_use]
@@ -1465,6 +1510,7 @@ impl<'a> Journal<'a> {
 
         if !OUTSIDE_STORE_VERBS.contains(&intent.key.verb.as_str()) {
             self.wrote_store = true;
+            set_thread_wrote_store(true);
         }
 
         if let Ok(mut guard) = self.active_tx.lock() {
@@ -2099,7 +2145,7 @@ impl<'a> Journal<'a> {
         &mut self,
         outcome: Word,
         verified: BackupVerified,
-    ) -> Result<(), JournalError> {
+    ) -> Result<Now, JournalError> {
         if !matches!(outcome.as_str(), "ok" | "failed") {
             return Err(JournalError::Vocab(format!(
                 "invalid backup.verify outcome `{outcome}`"
@@ -2113,16 +2159,17 @@ impl<'a> Journal<'a> {
         };
         let tail = inspect_tail_strict(&self.state_dir)?;
         let payload = EventPayload::BackupVerify { outcome, verified };
+        let now = self.world.now();
         let _ = append_event_locked(
             &self.state_dir,
             &tail,
             self.segment_limit,
-            self.world.now(),
+            now,
             &self.actor,
             self.store,
             &payload,
         )?;
-        Ok(())
+        Ok(now)
     }
 
     /// Append a `backup.prune` event to the journal.

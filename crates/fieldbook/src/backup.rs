@@ -13,7 +13,9 @@ use std::path::{Path, PathBuf};
 
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::kind::BackupVerified;
-use fieldbook_core::audit::{Count, DestKind, Event, LabelSet, RefuseAbout, Sha256, Via, Word};
+use fieldbook_core::audit::{
+    Count, DestKind, Event, EventPayload, LabelSet, Now, RefuseAbout, Sha256, Via, Word,
+};
 use fieldbook_core::backup::{
     BACKUP_TARGET_TEMPLATE, BackupTarget, BackupToml, Number, SnapshotInfo, corpus_entries,
     manifest_sha256, path_budget, plan_backup, plan_retention, snapshot_labels, target_place,
@@ -24,12 +26,12 @@ use fieldbook_core::egress::{
     hash_tree_manifest,
 };
 use fieldbook_core::hash::sha256_hex;
-use fieldbook_core::labels::{MARKED, UNLABELLED, git_guard};
+use fieldbook_core::labels::{self, MARKED, StoreId, UNLABELLED, git_guard, markings_in};
 use fieldbook_core::manifest;
-use fieldbook_core::policy::{EffectivePolicy, path_matches_prefix};
+use fieldbook_core::policy::{EffectivePolicy, PolicyState, path_matches_prefix};
 use fieldbook_core::report::{
     BackupLatestVerification, BackupList, BackupListDrill, BackupListFinding, BackupListSnapshot,
-    BackupListTarget,
+    BackupListTarget, LastBackupReport,
 };
 
 use crate::cli::{BackupArgs, BackupSubcommand, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE};
@@ -75,6 +77,93 @@ pub fn run(args: &BackupArgs, state_flag: Option<&Path>, world: &dyn World) -> O
 
 fn days_elapsed(from: CivilDate, to: CivilDate) -> u32 {
     u32::try_from(from.days_between(to).max(0)).unwrap_or(u32::MAX)
+}
+
+fn parse_last_backup_cache(json: &str) -> Option<LastBackupReport> {
+    let report: LastBackupReport = serde_json::from_str(json).ok()?;
+    if report.verification != "snapshot" || report.labels.is_empty() {
+        return None;
+    }
+    Some(report)
+}
+
+/// Returns the age in whole days since the newest verified numbered snapshot, or `None`
+/// if no verified snapshot exists or verification evidence fails validation (`backup-snapshot` step 10, 21).
+#[must_use]
+pub fn backup_age(state: &Path, today: CivilDate) -> Option<u32> {
+    let report_path = state.join("reports/last-backup.json");
+    let content = std::fs::read_to_string(&report_path).ok()?;
+    let report = parse_last_backup_cache(&content)?;
+
+    let verified_now = Now::parse(&report.verified_utc).ok()?;
+
+    // 1. Recanonicalize target_path and check target_sha256
+    let canonical = Path::new(&report.target_path).canonicalize().ok()?;
+    let canonical_str = canonical.to_string_lossy();
+    let target_sha256 = Sha256::digest(canonical_str.as_bytes());
+    if target_sha256.as_str() != report.target_sha256 {
+        return None;
+    }
+
+    // 2. Reopen selected snapshot directory and verify manifest_sha256
+    let snap_dir = canonical.join(format!("fieldbook-backup-{:04}", report.snapshot));
+    if !snap_dir.is_dir() {
+        return None;
+    }
+    let toml_text = std::fs::read_to_string(snap_dir.join("backup.toml")).ok()?;
+    let info = BackupToml::parse(&toml_text).ok()?;
+    if info.snapshot != report.snapshot {
+        return None;
+    }
+    let sums_text = std::fs::read_to_string(snap_dir.join("SHA256SUMS")).ok()?;
+    let computed_manifest = manifest_sha256(&info, &sums_text).ok()?;
+    if computed_manifest.as_str() != report.manifest_sha256 {
+        return None;
+    }
+
+    // 3. Match the successful backup.verify event in the journal including verified_utc
+    let events = read_valid_events_prefix(state);
+    let matched_event = events.iter().any(|e| {
+        if e.time.to_string() != report.verified_utc {
+            return false;
+        }
+        matches!(
+            &e.payload,
+            EventPayload::BackupVerify {
+                outcome,
+                verified: BackupVerified::Snapshot {
+                    target_sha256,
+                    snapshot,
+                    manifest_sha256,
+                },
+            } if outcome.as_str() == "ok"
+                && target_sha256.as_str() == report.target_sha256
+                && snapshot.value() == u64::from(report.snapshot)
+                && manifest_sha256.as_str() == report.manifest_sha256
+        )
+    });
+
+    if !matched_event {
+        return None;
+    }
+
+    Some(days_elapsed(verified_now.date, today))
+}
+
+/// Computes the optional reminder message displayed on stderr after write verbs.
+///
+/// Returns `None` only when a verified backup exists and is not older than `warn_after_days`.
+#[must_use]
+pub fn reminder(state: &Path, today: CivilDate, warn_after_days: u32) -> Option<String> {
+    match backup_age(state, today) {
+        None => Some(format!(
+            "fieldbook: no verified backup yet (warn after {warn_after_days} days). Run: fieldbook backup"
+        )),
+        Some(age) if age > warn_after_days => Some(format!(
+            "fieldbook: last verified backup is {age} days old (warn after {warn_after_days}). Run: fieldbook backup"
+        )),
+        Some(_) => None,
+    }
 }
 
 fn run_with_world(args: &BackupArgs, world: &dyn World) -> Outcome {
@@ -813,8 +902,18 @@ fn load_model_if_available(
     (Some(model), Some(report))
 }
 
-/// Executes backup verification for numbered snapshots or raw copies.
+/// Executes backup verification for numbered snapshots or raw copies under floor policy.
 pub fn run_verify(world: &dyn World, args: &BackupVerifyArgs) -> Outcome {
+    let eff = EffectivePolicy::floor(world.has_company_store());
+    run_verify_with_policy(world, &eff, args)
+}
+
+/// Executes backup verification for numbered snapshots or raw copies under `eff`.
+pub fn run_verify_with_policy(
+    world: &dyn World,
+    eff: &EffectivePolicy,
+    args: &BackupVerifyArgs,
+) -> Outcome {
     // 1. Enforce support catalogue flags
     if args.support_catalogue.is_some() || args.expect_support_sha256.is_some() {
         if args.snapshot.is_some() || args.target.is_some() || args.in_dir.is_some() {
@@ -928,7 +1027,7 @@ pub fn run_verify(world: &dyn World, args: &BackupVerifyArgs) -> Outcome {
         };
     };
 
-    run_verify_numbered(world, args, &target_path, warn_stale)
+    run_verify_numbered(world, eff, args, &target_path, warn_stale)
 }
 
 fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
@@ -1025,6 +1124,7 @@ fn run_verify_raw(world: &dyn World, raw_path: &Path) -> Outcome {
 
 fn run_verify_numbered(
     world: &dyn World,
+    eff: &EffectivePolicy,
     args: &BackupVerifyArgs,
     target_path: &Path,
     warn_stale: String,
@@ -1118,7 +1218,7 @@ fn run_verify_numbered(
         Err(_) => Sha256::digest(b""),
     };
     let verified_id = BackupVerified::Snapshot {
-        target_sha256,
+        target_sha256: target_sha256.clone(),
         snapshot: Count::new(u64::from(info.snapshot)),
         manifest_sha256: manifest_sha256_val,
     };
@@ -1217,8 +1317,67 @@ fn run_verify_numbered(
         Word::new_static("ok")
     };
 
-    if let Ok(mut j) = Journal::open(world, world.state_dir(), Via::Cli) {
-        let _ = j.append_backup_verify(outcome_word, verified_id);
+    let verified_now = Journal::open(world, world.state_dir(), Via::Cli)
+        .ok()
+        .and_then(|mut j| {
+            j.append_backup_verify(outcome_word, verified_id)
+                .ok()
+                .map(|now| (j, now))
+        });
+
+    let mut save_warn = None;
+    if let Some((j, now)) = (!has_failure).then_some(()).and(verified_now) {
+        let mut cache_labels = LabelSet::owner_supplied();
+        let rules = eff.marking_rules();
+        let target_str = target_path.to_string_lossy();
+        if let Some(marks) = markings_in(&target_str, &rules) {
+            cache_labels = cache_labels.union(&marks);
+        }
+        if let PolicyState::Loaded(p) = eff.state() {
+            let state_rule = p.store_rule(&StoreId::State);
+            cache_labels = cache_labels.union(&state_rule.default);
+        }
+
+        let state_rule = eff.store_rule(&StoreId::State);
+        let admit_ok = labels::admit(&cache_labels, &state_rule).is_ok();
+        let cache_path = world.state_dir().join("reports/last-backup.json");
+        let git_ok = crate::io::root::git_context(world, &cache_path)
+            .map(|ctx| labels::git_guard(&cache_labels, ctx).is_ok())
+            .unwrap_or(false);
+
+        if admit_ok && git_ok {
+            match world.write_lease() {
+                Ok(lease) => match j.state_scope(&lease) {
+                    Ok(state_audited) => {
+                        let report = LastBackupReport {
+                            verification: "snapshot".to_string(),
+                            target_path: canonical_target.to_string_lossy().into_owned(),
+                            labels: cache_labels.ids().to_vec(),
+                            target_sha256: target_sha256.to_string(),
+                            snapshot: snap_num,
+                            manifest_sha256: info.manifest_sha256.clone(),
+                            verified_utc: now.to_string(),
+                        };
+                        let mut json = serde_json::to_string_pretty(&report).unwrap_or_default();
+                        json.push('\n');
+                        if world
+                            .write_file(&state_audited, &cache_path, json.as_bytes())
+                            .is_err()
+                        {
+                            save_warn = Some("warning: could not write reports/last-backup.json\n");
+                        }
+                    }
+                    Err(_) => {
+                        save_warn =
+                            Some("warning: cannot acquire state scope to save last-backup.json\n");
+                    }
+                },
+                Err(_) => {
+                    save_warn =
+                        Some("warning: cannot acquire store lease to save last-backup.json\n");
+                }
+            }
+        }
     }
 
     if has_failure {
@@ -1232,12 +1391,15 @@ fn run_verify_numbered(
             code: EXIT_FINDINGS,
         }
     } else {
-        let stderr = warn_stale;
+        let mut stderr = warn_stale;
         let exit_code = if !stderr.is_empty() {
             EXIT_FINDINGS
         } else {
             EXIT_OK
         };
+        if let Some(w) = save_warn {
+            stderr.push_str(w);
+        }
         Outcome {
             stdout: format!("snapshot {snap_num} verified\n"),
             stderr,

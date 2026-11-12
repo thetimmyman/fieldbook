@@ -11,13 +11,18 @@
 use std::collections::BTreeSet;
 use std::path::Path;
 
-use fieldbook_core::audit::Event;
+use fieldbook_core::audit::{Event, Now, PendingWrite};
 use fieldbook_core::backup::{BackupFileKind, CopiedFile};
 use fieldbook_core::check::Model;
-use fieldbook_core::labels::{LabelId, LabelSet, OWNER_SUPPLIED, PUBLIC, markings_in};
-use fieldbook_core::policy::EffectivePolicy;
+use fieldbook_core::labels::{
+    ItemRef, LabelGraph, LabelId, LabelNode, LabelSet, Ledger, PUBLIC, StoreId, UNLABELLED,
+    effective_item, markings_in,
+};
+use fieldbook_core::policy::{EffectivePolicy, PolicyState};
+use fieldbook_core::report::{AddReport, LastBackupReport};
 
 use crate::World;
+use crate::io::state::BackupSettings;
 
 /// Check whether a Corpus support file has public provenance.
 ///
@@ -57,11 +62,32 @@ pub fn is_corpus_support(rel_path: &str) -> bool {
     false
 }
 
-fn is_valid_audit_segment_name(name: &str) -> bool {
-    name == "journal.jsonl"
-        || name == "journal.head"
-        || name.starts_with("journal.")
-        || name.starts_with("audit.export")
+struct ModelLabelGraph<'a> {
+    model: &'a Model,
+    empty_ledger: Ledger,
+}
+
+impl LabelGraph for ModelLabelGraph<'_> {
+    fn node(&self, item: &ItemRef) -> Option<LabelNode> {
+        for s in self.model.sources() {
+            let vid = format!("{}-v{}", s.value.source_id, s.value.version);
+            if item.id == vid || item.id == s.value.source_id.as_str() {
+                let own = parse_handling_vec(&s.value.handling);
+                return Some(LabelNode::new(own, Vec::new()));
+            }
+        }
+        for p in self.model.pages() {
+            if item.id == p.path {
+                let own = parse_handling_vec(&p.meta.handling);
+                return Some(LabelNode::new(own, Vec::new()));
+            }
+        }
+        None
+    }
+
+    fn ledger(&self, _store: StoreId) -> &Ledger {
+        &self.empty_ledger
+    }
 }
 
 fn parse_handling_vec(items: &[String]) -> LabelSet {
@@ -172,64 +198,203 @@ pub fn classify_file(
 
     // 6. Settings file
     if path == "state/settings.toml" {
-        let mut ids = vec![OWNER_SUPPLIED.clone()];
-        if let Ok(text) = std::str::from_utf8(bytes) {
-            let rules = eff.marking_rules();
-            if let Some(mark_set) = markings_in(text, &rules) {
-                for id in mark_set.ids() {
-                    ids.push(id.clone());
-                }
+        let Ok(text) = std::str::from_utf8(bytes) else {
+            return CopiedFile::new(path, BackupFileKind::Settings, LabelSet::unlabelled());
+        };
+        if BackupSettings::parse(text).is_err() {
+            return CopiedFile::new(path, BackupFileKind::Settings, LabelSet::unlabelled());
+        }
+        let mut labels = LabelSet::owner_supplied();
+        let rules = eff.marking_rules();
+        if let Some(mark_set) = markings_in(text, &rules) {
+            labels = labels.union(&mark_set);
+        }
+        if let PolicyState::Loaded(p) = eff.state() {
+            let state_rule = p.store_rule(&StoreId::State);
+            if !state_rule.default.contains(&UNLABELLED) {
+                labels = labels.union(&state_rule.default);
             }
         }
-        return CopiedFile::new(path, BackupFileKind::Settings, LabelSet::from_ids(ids));
+        return CopiedFile::new(path, BackupFileKind::Settings, labels);
     }
 
     // 7. Last add report
     if path == "state/reports/last-add.json" {
-        return CopiedFile::new(
-            path,
-            BackupFileKind::LastAddReport,
-            LabelSet::from_ids([OWNER_SUPPLIED.clone()]),
-        );
+        let Ok(text) = std::str::from_utf8(bytes) else {
+            return CopiedFile::new(path, BackupFileKind::LastAddReport, LabelSet::unlabelled());
+        };
+        let Ok(report) = serde_json::from_str::<AddReport>(text) else {
+            return CopiedFile::new(path, BackupFileKind::LastAddReport, LabelSet::unlabelled());
+        };
+        if report.labels.ids().is_empty() || report.labels.contains(&UNLABELLED) {
+            return CopiedFile::new(path, BackupFileKind::LastAddReport, LabelSet::unlabelled());
+        }
+
+        let mut union_labels = report.labels;
+        if let Some(m) = model {
+            let graph = ModelLabelGraph {
+                model: m,
+                empty_ledger: Ledger::default(),
+            };
+            for inp in &report.inputs {
+                let item_ref = ItemRef::new(inp.store, &inp.id);
+                let eff_item = effective_item(&graph, &item_ref);
+                union_labels = union_labels.union(&eff_item);
+            }
+        } else if !report.inputs.is_empty() {
+            union_labels = union_labels.union(&LabelSet::unlabelled());
+        }
+
+        return CopiedFile::new(path, BackupFileKind::LastAddReport, union_labels);
     }
 
     // 8. Last backup cache
     if path == "state/reports/last-backup.json" {
-        return CopiedFile::new(
-            path,
-            BackupFileKind::LastBackupCache,
-            LabelSet::from_ids([OWNER_SUPPLIED.clone()]),
-        );
+        let Ok(text) = std::str::from_utf8(bytes) else {
+            return CopiedFile::new(
+                path,
+                BackupFileKind::LastBackupCache,
+                LabelSet::unlabelled(),
+            );
+        };
+        let Ok(report) = serde_json::from_str::<LastBackupReport>(text) else {
+            return CopiedFile::new(
+                path,
+                BackupFileKind::LastBackupCache,
+                LabelSet::unlabelled(),
+            );
+        };
+        if report.verification != "snapshot" || report.labels.is_empty() {
+            return CopiedFile::new(
+                path,
+                BackupFileKind::LastBackupCache,
+                LabelSet::unlabelled(),
+            );
+        }
+        if Now::parse(&report.verified_utc).is_err() {
+            return CopiedFile::new(
+                path,
+                BackupFileKind::LastBackupCache,
+                LabelSet::unlabelled(),
+            );
+        }
+
+        let mut labels = LabelSet::from_ids(report.labels);
+        let rules = eff.marking_rules();
+        if let Some(mark_set) = markings_in(&report.target_path, &rules) {
+            labels = labels.union(&mark_set);
+        }
+        if let PolicyState::Loaded(p) = eff.state() {
+            let state_rule = p.store_rule(&StoreId::State);
+            if !state_rule.default.contains(&UNLABELLED) {
+                labels = labels.union(&state_rule.default);
+            }
+        }
+        if labels.ids().is_empty() || labels.contains(&UNLABELLED) {
+            return CopiedFile::new(
+                path,
+                BackupFileKind::LastBackupCache,
+                LabelSet::unlabelled(),
+            );
+        }
+        return CopiedFile::new(path, BackupFileKind::LastBackupCache, labels);
     }
 
-    // 9. State locks
-    if path == "state/store.lock" || path == "state/journal.lock" || path == "state/lock" {
+    // 9. Pending write descriptor
+    if path == "state/pending.toml" {
+        let Ok(text) = std::str::from_utf8(bytes) else {
+            return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+        };
+        let Ok(pw) = PendingWrite::parse_toml(text) else {
+            return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+        };
+        let mut labels = pw.labels;
+        if let Some(m) = model {
+            let graph = ModelLabelGraph {
+                model: m,
+                empty_ledger: Ledger::default(),
+            };
+            for rec in &pw.affected {
+                let item_ref = ItemRef::new(rec.store(), rec.id().as_str());
+                let eff_item = effective_item(&graph, &item_ref);
+                labels = labels.union(&eff_item);
+            }
+        }
+        return CopiedFile::new(path, BackupFileKind::PendingWrite, labels);
+    }
+
+    // 10. Generation control file
+    if path == "state/generation" {
+        let is_valid = if let Ok(text) = std::str::from_utf8(bytes) {
+            let trimmed = text.trim();
+            trimmed.len() == 64
+                && trimmed
+                    .chars()
+                    .all(|c| c.is_ascii_hexdigit() && !c.is_ascii_uppercase())
+        } else {
+            false
+        };
+        if is_valid {
+            return CopiedFile::new(path, BackupFileKind::TextFreeControl, LabelSet::public());
+        }
+        return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+    }
+
+    // 11. State locks and init markers
+    if path == "state/.init"
+        || path == "state/store.lock"
+        || path == "state/journal.lock"
+        || path == "state/lock"
+    {
         return CopiedFile::new(path, BackupFileKind::TextFreeControl, LabelSet::public());
     }
 
-    // 10. Audit journal files
-    if let Some(file_name) = path.strip_prefix("state/audit/") {
-        if is_valid_audit_segment_name(file_name) {
-            // Verify lines parse as valid JSONL event lines or are empty
-            let valid_schema = if let Ok(text) = std::str::from_utf8(bytes) {
-                text.lines()
-                    .all(|l| l.is_empty() || Event::parse_line(l).is_ok())
+    // 12. Audit journal files
+    if let Some(subpath) = path.strip_prefix("state/audit/") {
+        if subpath == "journal.head" || subpath.ends_with("/journal.head") {
+            let is_valid = if let Ok(text) = std::str::from_utf8(bytes) {
+                let trimmed = text.trim();
+                trimmed.len() == 64
+                    && trimmed
+                        .chars()
+                        .all(|c| c.is_ascii_hexdigit() && !c.is_ascii_uppercase())
             } else {
                 false
             };
-
-            if valid_schema
-                || file_name == "journal.head"
-                || file_name.starts_with("journal.broken")
-            {
+            if is_valid {
                 return CopiedFile::new(path, BackupFileKind::TextFreeControl, LabelSet::public());
             }
+            return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
         }
+
+        if subpath.ends_with(".jsonl") {
+            let is_valid = if let Ok(text) = std::str::from_utf8(bytes) {
+                text.lines().all(|l| {
+                    let trimmed = l.trim();
+                    trimmed.is_empty() || Event::parse_line(trimmed).is_ok()
+                })
+            } else {
+                false
+            };
+            if is_valid {
+                return CopiedFile::new(path, BackupFileKind::TextFreeControl, LabelSet::public());
+            }
+            return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+        }
+
         // Unknown or invalid audit file contributes unlabelled
         return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
     }
 
-    // 11. Everything else is Stray
+    // 13. Handoff packs
+    if path
+        .strip_prefix("state/handoff/")
+        .is_some_and(|sub| sub.starts_with("H-") && sub.ends_with(".txt"))
+    {
+        return CopiedFile::new(path, BackupFileKind::HandoffPack, LabelSet::unlabelled());
+    }
+
+    // 14. Everything else is Stray
     CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled())
 }
 

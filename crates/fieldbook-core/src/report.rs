@@ -336,6 +336,7 @@ impl AddFileResult {
 
 /// One per-file entry in [`AddReport`].
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct AddFileReport {
     /// Relative `/`-separated file name (or basename in single-file mode).
     pub name: String,
@@ -357,6 +358,7 @@ pub struct AddFileReport {
 
 /// Aggregate file counts in [`AddReport`].
 #[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct AddCounts {
     /// Number of files with `result == added`.
     pub added: usize,
@@ -391,6 +393,7 @@ pub struct AddReport {
 }
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct RawAddReport {
     report_version: u32,
     verb: String,
@@ -558,4 +561,24 @@ pub struct BackupList {
     pub findings: Vec<BackupListFinding>,
     /// Process exit code (`0` or `1`).
     pub exit: u8,
+}
+
+/// The persisted `reports/last-backup.json` verification cache (`backup-snapshot` step 21).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct LastBackupReport {
+    /// Verification mode (always `"snapshot"`).
+    pub verification: String,
+    /// Canonical path of the backup target.
+    pub target_path: String,
+    /// Effective classification labels of this cache record.
+    pub labels: Vec<LabelId>,
+    /// Lowercase SHA-256 digest of `target_path`.
+    pub target_sha256: String,
+    /// Verified snapshot number.
+    pub snapshot: u32,
+    /// Manifest SHA-256 digest of the verified snapshot.
+    pub manifest_sha256: String,
+    /// Verification timestamp in ISO 8601 UTC.
+    pub verified_utc: String,
 }
