@@ -31,7 +31,7 @@
 
 ## Preconditions
 
-- Cards merged: `page-related-links` (it changes `site.rs`), `raw-edition` (it changes `xtask/src/allowlist.rs`).
+- Cards merged: `page-related-links` (it changes `site.rs`), `raw-edition` (it changes `xtask/src/allowlist.rs`), `extract-and-locators` (its fixture fallout changes `crates/fieldbook-render/tests/registers.rs`, the ids snapshot and `xtask/src/allowlist.rs`).
 
 ## Steps
 
