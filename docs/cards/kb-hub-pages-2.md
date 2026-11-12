@@ -19,7 +19,7 @@ A reader can start from one concept hub for each Cost Accounting Standard that `
 
 ## Scope
 
-- Files: `corpus/pages/compliance/cas-allowability/` (new hubs, and the `links` line of `cmp-cas-overview`), `corpus/registers/claims.csv` (appended rows only).
+- Files: `corpus/pages/compliance/cas-allowability/` (new hubs, and the `links` line of `cmp-cas-overview`), `corpus/registers/claims.csv` (appended rows only), and for the split `docs/cards/kb-hub-pages-3.md`, `docs/cards/kb-fpa-core.md` (its precondition) and `docs/plan/PLAN.md`.
 - Docs to update: none.
 
 ## Out of scope
