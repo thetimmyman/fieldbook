@@ -292,6 +292,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - build-watch: `build --watch`
 - assistant-page: `assistant.html`, `assist.js` and `assist-data.js`, the Ask drawer and the entry points: Handoff on a file, and the seam through which `chat-bridge` adds live answers
 - decision-package: the decision package workbook, after S2 or labelled "preview"; its builder is two functions, `decision_workbook(..) -> Result<Workbook, XlsxError>` and `save_workbook(&mut Workbook) -> Result<Vec<u8>, XlsxError>`, and its entry calls both, so that `decide-port` can add a sheet between them
+- decision-package-2: the second part of `decision-package`: the price change bridge sheet (TP-06)
 - views-and-day-n: the CPY, CPT and PGM views, Day-N and the plan's today line
 - app-map: `map.html`
 - day30-strict-lints: the quote match and the number-unit lint become errors; proptest
