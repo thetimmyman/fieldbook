@@ -1,0 +1,11 @@
+[groups]
+"grp-readers" = true
+"grp-changers" = true
+
+[[store]]
+id = "corpus"
+
+[[store]]
+id = "overlay"
+readers = "grp-readers"
+changers = "grp-changers"

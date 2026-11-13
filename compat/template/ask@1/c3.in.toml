@@ -1,0 +1,7 @@
+template = "ask@1"
+purpose = "ask"
+
+[[part]]
+kind = "subject"
+labels = ["owner-supplied"]
+text = "Subject text."

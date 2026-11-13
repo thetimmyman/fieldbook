@@ -1,0 +1,8 @@
+ok
+method html-strip@1
+page 1
+Title
+
+First paragraph.
+
+Second paragraph.

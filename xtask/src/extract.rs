@@ -103,7 +103,7 @@ impl Extractor for PdftotextLayout {
         }
 
         let mut child = Command::new(&self.program)
-            .args(["-layout", "-enc", "UTF-8", "-", "-"])
+            .args(crate::versions::pdftotext_layout_v1::ARGS)
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
             .stderr(Stdio::null())
@@ -134,22 +134,15 @@ impl Extractor for PdftotextLayout {
             None => return Err(ExtractError::ToolFailed { status: -1 }),
         }
 
-        let decoded = String::from_utf8_lossy(&out.stdout);
-        let mut parts: Vec<&str> = decoded.split('\u{c}').collect();
-        if parts.last().is_some_and(|p| p.is_empty()) {
-            parts.pop();
-        }
+        let parts = crate::versions::pdftotext_layout_v1::pages_from_stdout(&out.stdout);
         if parts.is_empty() {
             return Err(ExtractError::ToolFailed { status: 0 });
         }
 
         let mut pages = Vec::with_capacity(parts.len());
-        for (i, part) in parts.iter().enumerate() {
+        for (i, text) in parts.into_iter().enumerate() {
             let number = u32::try_from(i.saturating_add(1)).unwrap_or(u32::MAX);
-            pages.push(PageText {
-                number,
-                text: (*part).to_owned(),
-            });
+            pages.push(PageText { number, text });
         }
 
         Ok(Extraction {
@@ -1332,6 +1325,50 @@ Synthetic section text for the extraction tests, long enough that no page is thi
                 Err(format!("unexpected method {}", e.method))
             }
         });
+    }
+
+    #[test]
+    #[ignore = "needs pdftotext"]
+    fn contract_extractor_pdftotext_layout_1() {
+        let input_bytes =
+            include_bytes!("../../tests/fixtures/ports/extractor/pdftotext-layout@1/input.pdf");
+        let expect_toml =
+            include_str!("../../tests/fixtures/ports/extractor/pdftotext-layout@1/expect.toml");
+
+        #[derive(serde::Deserialize)]
+        struct ExpectFixture {
+            method: String,
+            pages: usize,
+            thin_pages: Vec<u32>,
+        }
+
+        let expect: ExpectFixture = toml::from_str(expect_toml).expect("parse expect.toml");
+        let extractor = PdftotextLayout::new();
+
+        let vectors = [super::extractor_suite::Vector {
+            name: "contract_extractor_pdftotext_layout_1",
+            input: input_bytes.to_vec(),
+            expect: super::extractor_suite::Expect::Pages {
+                pages: expect.pages,
+                thin: expect.thin_pages.clone(),
+            },
+        }];
+
+        super::extractor_suite::extractor_contract(&extractor, &vectors, &|e| {
+            if e.method == expect.method {
+                Ok(())
+            } else {
+                Err(format!("unexpected method {}", e.method))
+            }
+        });
+
+        let extraction = extractor.extract(input_bytes).expect("extract");
+        assert_eq!(extraction.method, expect.method);
+        assert_eq!(extraction.pages.len(), expect.pages);
+        assert_eq!(
+            fieldbook_core::extraction::thin_page_numbers(&extraction.pages),
+            expect.thin_pages
+        );
     }
 
     #[test]

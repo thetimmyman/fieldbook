@@ -68,6 +68,8 @@ check:
     just scan
     # 8. Regenerate the generated docs and diff, then lint the cards, the plan, the links and the documents
     cargo xtask docs --check
+    # NS-05 and DT-05: network code and a model call stay in their places
+    cargo xtask scans
     cargo xtask cards --check
     # 9. Published compatibility
     cargo xtask compat --base release-baseline.toml

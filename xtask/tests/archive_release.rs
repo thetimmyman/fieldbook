@@ -715,6 +715,16 @@ impl Repo {
             }
             fs::copy(&from, &to).unwrap_or_else(|e| panic!("copy {rel}: {e}"));
         }
+
+        for dir in [
+            "compat",
+            "crates/fieldbook-core/src/versions",
+            "crates/fieldbook-core/src/ports/templates",
+            "crates/fieldbook/src/io/versions",
+            "xtask/src/versions",
+        ] {
+            copy_tree(&src.join(dir), &self.dir.join(dir));
+        }
     }
 }
 

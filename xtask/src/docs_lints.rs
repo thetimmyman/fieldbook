@@ -1040,6 +1040,15 @@ pub fn pricing_capability_is_not_prohibited(snap: &Snapshot) -> Vec<Finding> {
     findings
 }
 
+/// Every `### <port> <id>` heading of `docs/reference/ports.md` names a registry row.
+pub fn docs_name_at_n_is_known(snap: &Snapshot) -> Vec<Finding> {
+    snap.text
+        .iter()
+        .filter(|(path, _)| path.as_str() == "docs/reference/ports.md")
+        .flat_map(|(path, text)| crate::ports_doc::check_registry_ids(path, text))
+        .collect()
+}
+
 /// Run all pure snapshot documentation lints, returning findings sorted deterministically.
 pub fn lint_all(snap: &Snapshot) -> Vec<Finding> {
     let mut findings = Vec::new();
@@ -1049,6 +1058,7 @@ pub fn lint_all(snap: &Snapshot) -> Vec<Finding> {
     findings.extend(controls_have_tests(snap));
     findings.extend(retired_terms_absent(snap));
     findings.extend(pricing_capability_is_not_prohibited(snap));
+    findings.extend(docs_name_at_n_is_known(snap));
     findings.sort();
     findings
 }

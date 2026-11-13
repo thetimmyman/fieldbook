@@ -1,0 +1,2 @@
+Synthetic plain text document for extractor port testing.
+This content has more than forty characters.
