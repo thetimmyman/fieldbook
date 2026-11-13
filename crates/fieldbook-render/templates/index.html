@@ -62,10 +62,16 @@
           </li>
         </ul>
       </section>
+      {% if !next_up.is_empty() %}
       <section class="panel" id="next-up">
         <div class="panel-head"><h2 class="panel-title">Next up</h2></div>
-        {{ next_up_html|safe }}
+        <ul class="tu-list">
+          {% for b in &next_up %}
+          <li class="tu-item">{{ b.link_html|safe }}<span class="meta">{{ b.why }}</span></li>
+          {% endfor %}
+        </ul>
       </section>
+      {% endif %}
     </div>
   </div>
 

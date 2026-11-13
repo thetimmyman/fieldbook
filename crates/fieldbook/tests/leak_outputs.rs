@@ -800,7 +800,7 @@ fn run_edition_surface() {
         "permitted IDs across all 7 groups must reach the ids/ pages"
     );
 
-    // The delivered search index holds the permitted page and section units only.
+    // The delivered search index holds the permitted page, section and term units only.
     let index_js = std::fs::read_to_string(plan.edition_dir.join("assets/search-index.js"))
         .unwrap_or_else(|e| panic!("{e}"));
     let index_json: serde_json::Value = serde_json::from_str(
@@ -822,8 +822,8 @@ fn run_edition_surface() {
     assert!(
         index_docs
             .iter()
-            .all(|d| d[1] == "page" || d[1] == "clause"),
-        "assets/search-index.js holds page and section units only"
+            .all(|d| d[1] == "page" || d[1] == "clause" || d[1] == "term"),
+        "assets/search-index.js holds page, section and term units only"
     );
 
     let mixed_out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));

@@ -11,7 +11,7 @@ as_of = 2026-07-08
 handling = ["public"]
 terms = ["cost_accounting_standards", "cas_coverage", "disclosure_statement", "cost_accounting_practice"]
 questions = ["Q-033"]
-links = ["cmp-cas-applicability", "cmp-far-31-205-cost-principles", "cmp-cas-401-hub", "cmp-cas-402-hub", "cmp-cas-403-hub"]
+links = ["cmp-cas-applicability", "cmp-far-31-205-cost-principles", "cmp-cas-401-hub", "cmp-cas-402-hub", "cmp-cas-403-hub", "cmp-cas-404-hub", "cmp-cas-405-hub", "cmp-cas-406-hub", "cmp-cas-407-hub", "cmp-cas-408-hub", "cmp-cas-409-hub", "cmp-cas-410-hub", "cmp-cas-411-hub", "cmp-cas-412-hub", "cmp-cas-413-hub", "cmp-cas-414-hub", "cmp-cas-415-hub"]
 +++
 
 ## Purpose

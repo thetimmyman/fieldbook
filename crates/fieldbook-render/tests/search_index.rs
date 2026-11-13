@@ -304,7 +304,7 @@ mod search_index {
     }
 
     #[test]
-    fn edition_index_holds_page_and_clause_units_only() {
+    fn the_edition_index_holds_no_claim_units() {
         let (_model, view, site) = built();
         let text = delivered(&site);
         let index = parsed(&text);
@@ -313,8 +313,8 @@ mod search_index {
             docs.iter().map(|d| d[1].as_str().unwrap()).collect();
         assert_eq!(
             kinds.into_iter().collect::<Vec<_>>(),
-            ["clause", "page"],
-            "every kind in the delivered docs is `page` or `clause`, and both occur"
+            ["clause", "page", "term"],
+            "every kind in the delivered docs is `page`, `clause` or `term`, and all three occur"
         );
 
         // One record of each other kind: a unit before the filter, absent after it, and still
@@ -331,7 +331,6 @@ mod search_index {
             ("S-0002-v2", "source", "sources.html", "ids/versions.html"),
             ("Q-001", "question", "questions.html", "ids/questions.html"),
             ("XC-01", "conflict", "conflicts.html", "ids/conflicts.html"),
-            ("system_review", "term", "glossary.html", "ids/terms.html"),
         ] {
             assert!(
                 units.iter().any(|u| u.id == id && u.kind == kind),
@@ -359,22 +358,104 @@ mod search_index {
             "Synthetic fixture second version superseding S-0002-v1.",
             "Which synthetic business-system control owner approves the monthly compliance review?",
             "Synthetic review interval versus withholding check timing",
-            "Synthetic retention of a percentage of interim payments pending system correction.",
         ] {
             assert!(!text.contains(needle), "the index holds `{needle}`");
         }
 
-        // N is that of the page and section units alone.
-        let page_units = units
+        // N is that of the page, section and term units alone.
+        let edition_units = units
             .iter()
-            .filter(|u| u.kind == "page" || u.kind == "clause")
+            .filter(|u| u.kind == "page" || u.kind == "clause" || u.kind == "term")
             .count();
-        assert_eq!(docs.len(), page_units);
+        assert_eq!(docs.len(), edition_units);
         for list in index["post"].as_array().unwrap() {
             for pair in list.as_array().unwrap().chunks(2) {
                 assert!(pair[0].as_u64().unwrap() < docs.len() as u64);
             }
         }
+    }
+
+    #[test]
+    fn the_edition_index_holds_term_units_with_aliases() {
+        let (_model, _view, site) = built();
+        let index = parsed(&delivered(&site));
+        let docs = index["docs"].as_array().unwrap();
+
+        let (bw_pos, bw) = docs
+            .iter()
+            .enumerate()
+            .find(|(_i, d)| d[0] == "billing_withhold")
+            .unwrap_or_else(|| panic!("billing_withhold not found in docs"));
+        let bw_unit = u64::try_from(bw_pos).unwrap();
+
+        assert_eq!(bw[1].as_str().unwrap(), "term");
+        assert_eq!(bw[2].as_str().unwrap(), "billing withhold");
+        assert_eq!(bw[3].as_str().unwrap(), "withholding holdback");
+        assert_eq!(
+            bw[4].as_str().unwrap(),
+            "Synthetic retention of a percentage of interim payments pending system correction."
+        );
+        assert_eq!(bw[5].as_str().unwrap(), "public_reference");
+        for i in 6..=9 {
+            assert_eq!(bw[i].as_str().unwrap(), "", "field {i} must be empty");
+        }
+
+        for other in ["cost_baseline", "rate_window", "system_review"] {
+            let doc = docs
+                .iter()
+                .find(|d| d[0] == other)
+                .unwrap_or_else(|| panic!("missing {other}"));
+            assert_eq!(doc[1].as_str().unwrap(), "term");
+            assert_eq!(doc[3].as_str().unwrap(), "");
+        }
+
+        let terms: Vec<&str> = index["terms"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|t| t.as_str().unwrap())
+            .collect();
+        let posts = index["post"].as_array().unwrap();
+        for tok in ["holdback", "billing"] {
+            let term_idx = terms
+                .iter()
+                .position(|t| *t == tok)
+                .unwrap_or_else(|| panic!("token `{tok}` not found in index terms"));
+            let post = posts[term_idx].as_array().unwrap();
+            let contains_bw = post
+                .chunks(2)
+                .any(|pair| pair[0].as_u64().unwrap() == bw_unit);
+            assert!(
+                contains_bw,
+                "posting list for token `{tok}` must contain unit number {bw_unit}"
+            );
+        }
+
+        let ids = doc_ids(&index);
+        assert_eq!(
+            ids.iter().filter(|id| *id == "billing_withhold").count(),
+            1,
+            "billing_withhold appears as a docs id exactly once"
+        );
+        for term_id in ["cost_baseline", "rate_window", "system_review"] {
+            assert_eq!(
+                ids.iter().filter(|id| *id == term_id).count(),
+                1,
+                "{term_id} appears as a docs id exactly once"
+            );
+        }
+    }
+
+    #[test]
+    fn the_edition_index_holds_no_nonpublic_terms() {
+        let np7 = LabelId::parse("np-0007").unwrap();
+        let planted = Unit::new("t_planted", "term", UnitFields::default())
+            .with_labels(LabelSet::from_ids([PUBLIC, np7]));
+        let kept =
+            Unit::new("t_kept", "term", UnitFields::default()).with_labels(LabelSet::public());
+        let filtered = search_index::edition_units(vec![planted, kept]);
+        let kept_ids: Vec<&str> = filtered.iter().map(|u| u.id.as_str()).collect();
+        assert_eq!(kept_ids, ["t_kept"], "the edition keeps public terms only");
     }
 
     #[test]
@@ -511,14 +592,14 @@ mod search_index {
     }
 
     #[test]
-    fn statistics_come_from_the_page_and_section_units_alone() {
+    fn statistics_come_from_the_edition_units_alone() {
         let (_model, view, site) = built();
         let delivered = delivered_impacts(&parsed(&delivered(&site)));
         let (units, glossary) = search_index::view_units(&view);
         let edition = Index::build(search_index::edition_units(units.clone()), &glossary);
         let full = Index::build(units, &glossary);
 
-        // Every delivered term and impact is that of the index over the page and section units.
+        // Every delivered term and impact is that of the index over the page, section and term units.
         assert_eq!(delivered, index_impacts(&edition));
 
         // The full index gives other impacts for the same postings, so the check above tells
