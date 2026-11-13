@@ -169,7 +169,6 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day-one-binder-and-registers-xlsx: `day-one.html` and the print contract
 - registers-xlsx: `data/registers.xlsx` with read-back tests, and the CSV copies
 - ai-it-story: the IT documents and `SECURITY.md` for the AI build, which is not in the first edition (docs only)
-- binder-brief-one-sheet: each of the six briefs prints on one Letter sheet, in the binder and as its own page, with the unreleased banner counted, by print CSS of existing tokens
 - frame-page-id-hook: the print footer of a reader page shows the bare page id, as the binder footer does, not its route
 - binder-calc-case-clause-blocks: binder articles of calc, case and clause-card pages carry the calc table, the Public record and Inference boxes and the clause questions their standalone pages print
 - Five briefs, BJ-001, BJ-002, BJ-003, BJ-004 and BJ-006, each one printed page (lead)
@@ -249,6 +248,8 @@ The edition as a usable reference for the owner without company data: search tha
 - search-section-snippets: the edition's site search index cuts each section unit's snippet to 100 code points, as the amended ADR 0006 decided, to stay within its 15 MB cap
 - kb-hub-pages-2: concept hubs for Cost Accounting Standards 404 to 420, after the three of the first part
 - search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
+- design-brief-print-footnote: a design revision of the print footnote, so the six real briefs fit one Letter sheet with the unreleased banner counted, with the footnote's form, type step and spacing from the existing tokens (owner review)
+- binder-brief-one-sheet: each of the six briefs prints on one Letter sheet, in the binder and as its own page, with the unreleased banner counted, by print CSS of existing tokens
 - design-search-term-rows: a design revision after revision 22 that shows a glossary term row on the edition's search page and in the palette (owner review)
 - search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)
 - kb-fpa-core: budgeting, rolling forecast and variance analysis pages

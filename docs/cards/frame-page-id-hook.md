@@ -32,8 +32,8 @@ The print footer of an ordinary reader page (`p/<id>.html`) shows the bare page 
 
 ## Preconditions
 
-- Cards merged: `binder-brief-one-sheet` (`crates/fieldbook-render/tests/print.rs`; it runs first, since both edit the print tests and the last print block). `build-frame` and `day-one-binder-and-registers-xlsx` are merged on origin/main.
-- Beside: `views-and-day-n` (open, later in the plan; shared paths `crates/fieldbook-render/src/frame.rs` and `crates/fieldbook-render/assets/app.css`). This card runs first; `views-and-day-n` rebases onto it and names `frame-page-id-hook` in its Cards merged when it is next edited. The nine snapshots also appear in the Files of the drafts `assistant-page` and `handoff-new-note`, which are later cards and rebase on this one.
+- Cards merged: `build-frame` and `day-one-binder-and-registers-xlsx` (both merged on origin/main). No open card is needed first: this card runs first of the three print cards.
+- `views-and-day-n` (shared paths `crates/fieldbook-render/src/frame.rs` and `crates/fieldbook-render/tests/frame.rs`) and `views-and-day-n-2` follow this card in the plan and name it in their Cards merged. The nine snapshots also appear in the Files of the drafts `assistant-page` and `handoff-new-note`, which are later cards and rebase on this one.
 
 ## Steps
 
@@ -54,7 +54,7 @@ cargo nextest run --locked -p fieldbook-render --test print footer_has_edition_a
 cargo nextest run --locked -p fieldbook-render --test print ordinary_page_footer_is_the_bare_id
 cargo nextest run --locked -p fieldbook-render --test frame frame_has_page_id_only_on_reader_pages
 cargo nextest run --locked -p fieldbook-render --test page --test page_types --test registers
-just site && grep -c 'data-page-id=' out/edition/p/est-rate-window-brief.html
+just site && grep -c 'data-page-id=' out/edition/p/est-brief-certified-data-threshold.html
 just check
 ```
 
