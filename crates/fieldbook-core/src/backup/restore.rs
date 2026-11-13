@@ -1,7 +1,7 @@
 //! Pure planning of a restore: where a snapshot may be written and the rename lines the owner runs.
 
 use std::fmt;
-use std::path::{Path, PathBuf};
+use std::path::{Component, Path, PathBuf};
 
 use crate::backup::BackupToml;
 use crate::check::Code;
@@ -144,6 +144,45 @@ pub fn plan_restore(
     })
 }
 
+/// Returns the destination-relative path of one `SHA256SUMS` entry of a snapshot.
+///
+/// A restore joins this path to its destination, so the entry must be `data/<root>/<file>` with
+/// `<root>` one of the snapshot's `roots` and every part a plain name. An empty part, `.`, `..`,
+/// a backslash, or a part the host reads as anything but one file name (a drive prefix, or a
+/// colon on Windows) would let a crafted snapshot write outside the destination.
+///
+/// # Errors
+///
+/// Returns the reason when `entry` is not such a path.
+pub fn snapshot_entry_tail<'a>(entry: &'a str, roots: &[String]) -> Result<&'a str, String> {
+    let Some(tail) = entry.strip_prefix("data/") else {
+        return Err(format!("`{entry}` is not under data/"));
+    };
+    let mut parts = tail.split('/');
+    let root = parts.next().unwrap_or("");
+    if !roots.iter().any(|name| name == root) {
+        return Err(format!("`{entry}` is not under a root of the snapshot"));
+    }
+    let mut depth = 0_usize;
+    for part in std::iter::once(root).chain(parts) {
+        let mut components = Path::new(part).components();
+        let plain = matches!(
+            (components.next(), components.next()),
+            (Some(Component::Normal(name)), None) if name == std::ffi::OsStr::new(part)
+        );
+        if !plain || part.contains('\\') || (cfg!(windows) && part.contains(':')) {
+            return Err(format!(
+                "`{entry}` has a part that is not a plain file name"
+            ));
+        }
+        depth += 1;
+    }
+    if depth < 2 {
+        return Err(format!("`{entry}` names a root, not a file"));
+    }
+    Ok(tail)
+}
+
 /// Shell dialect for rename instructions.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RestoreShell {
@@ -163,7 +202,9 @@ fn quote_pwsh(path_str: &str) -> String {
 
 /// Generates shell rename commands for each planned root found in `live`.
 ///
-/// Roots in `plan` that do not appear in `live` produce no commands.
+/// Roots in `plan` that do not appear in `live` produce no commands. A restored folder that lies
+/// inside a live folder an earlier line (or its own first line) moves aside is named where that
+/// move leaves it, under `<live>.old`, so every line can run in the order printed.
 #[must_use]
 pub fn rename_help(
     plan: &RestorePlan,
@@ -171,13 +212,21 @@ pub fn rename_help(
     shell: RestoreShell,
 ) -> Vec<String> {
     let mut lines = Vec::new();
+    let mut moved_aside: Vec<(&Path, PathBuf)> = Vec::new();
     for root in &plan.roots {
         let Some((_, live_path)) = live.iter().find(|(name, _)| name == &root.name) else {
             continue;
         };
         let live_str = live_path.display().to_string();
         let live_old_str = format!("{live_str}.old");
-        let restored_str = root.path.display().to_string();
+        moved_aside.push((live_path.as_path(), PathBuf::from(&live_old_str)));
+        let mut restored = root.path.clone();
+        for (from, to) in &moved_aside {
+            if let Ok(tail) = restored.strip_prefix(from) {
+                restored = to.join(tail);
+            }
+        }
+        let restored_str = restored.display().to_string();
 
         match shell {
             RestoreShell::Sh => {

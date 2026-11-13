@@ -2224,3 +2224,149 @@ fn drill_time_is_measured() {
     assert_eq!(outcome.code, 0, "drill failed: {}", outcome.stderr);
     println!("drill of 200 MB took {elapsed:?}");
 }
+
+/// Adds a `SHA256SUMS` entry named `entry` whose bytes are `bytes`, stored where the entry
+/// resolves inside the snapshot, and rewrites `backup.toml` so the snapshot still verifies.
+fn plant_snapshot_entry(snap_dir: &Path, entry: &str, bytes: &[u8]) {
+    let stored = snap_dir.join(entry);
+    std::fs::write(&stored, bytes).expect("write planted file");
+    let sums_path = snap_dir.join("SHA256SUMS");
+    let sums_text = std::fs::read_to_string(&sums_path).expect("read SHA256SUMS");
+    let planted = format!("{}  {entry}", fieldbook_core::hash::sha256_hex(bytes));
+    let mut lines: Vec<&str> = sums_text.lines().collect();
+    lines.push(&planted);
+    lines.sort_by_key(|line| {
+        line.split_once("  ")
+            .map_or("", |(_, path)| path)
+            .as_bytes()
+    });
+    let mut rewritten = lines.join("\n");
+    rewritten.push('\n');
+    std::fs::write(&sums_path, rewritten).expect("write SHA256SUMS");
+    let added = bytes.len() as u64;
+    rewrite_meta(snap_dir, |info| {
+        info.files += 1;
+        info.bytes += added;
+    });
+}
+
+#[test]
+fn drill_refuses_a_snapshot_path_that_leaves_the_drill_folder() {
+    let fix = TestFixture::new();
+    fix.backup();
+    // `data/state/../../settings.toml` is the file `settings.toml` at the snapshot's top, and
+    // joined to `<state>/drill` it is the live `<state>/settings.toml`.
+    plant_snapshot_entry(
+        &fix.snap_dir(),
+        "data/state/../../settings.toml",
+        b"role = \"planted\"\n",
+    );
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_before = std::fs::read(&settings_path).expect("read settings");
+    let kinds_before = journal_kinds(fix.state_dir());
+
+    let outcome = fix.restore(None, true);
+
+    assert_eq!(
+        std::fs::read(&settings_path).expect("read settings"),
+        settings_before,
+        "the drill wrote over live state"
+    );
+    assert_eq!(outcome.code, 1, "stderr: {}", outcome.stderr);
+    assert!(
+        outcome.stderr.contains("FB0811") && outcome.stderr.contains("settings.toml"),
+        "stderr: {}",
+        outcome.stderr
+    );
+    assert_eq!(journal_kinds(fix.state_dir()), kinds_before);
+    assert!(!drill_folder(fix.state_dir()).exists());
+}
+
+#[test]
+fn restore_to_refuses_a_snapshot_path_that_leaves_the_destination() {
+    let fix = TestFixture::new();
+    fix.backup();
+    plant_snapshot_entry(&fix.snap_dir(), "data/state/../../escape.txt", b"planted\n");
+    let kinds_before = journal_kinds(fix.state_dir());
+
+    let dest = fix.dest("restored");
+    let outcome = fix.restore(Some(dest.clone()), false);
+
+    assert_eq!(outcome.code, 1, "stderr: {}", outcome.stderr);
+    assert!(
+        outcome.stderr.contains("FB0815") && outcome.stderr.contains("FB0811"),
+        "stderr: {}",
+        outcome.stderr
+    );
+    assert!(!dest.exists(), "nothing may be created");
+    assert!(!fix.dest("escape.txt").exists());
+    assert_eq!(journal_kinds(fix.state_dir()), kinds_before);
+}
+
+#[test]
+fn restore_rechecks_an_empty_destination_under_the_lease() {
+    let fix = TestFixture::new();
+    fix.backup();
+    let dest = fix.dest("restored");
+    std::fs::create_dir(&dest).expect("create empty destination");
+    let kinds_before = journal_kinds(fix.state_dir());
+
+    // Another restore fills the folder after this one saw it empty and before it holds the lease.
+    let other = dest.join("corpus/corpus.toml");
+    let planted = other.clone();
+    fix.world.set_before_write_lease(move || {
+        std::fs::create_dir_all(planted.parent().expect("parent")).expect("create corpus dir");
+        std::fs::write(&planted, b"written by the other restore\n").expect("write other file");
+    });
+
+    let outcome = fix.restore(Some(dest.clone()), false);
+
+    assert_eq!(outcome.code, 1, "stderr: {}", outcome.stderr);
+    assert!(
+        outcome.stderr.contains("FB0815") && outcome.stderr.contains("not empty"),
+        "stderr: {}",
+        outcome.stderr
+    );
+    assert_eq!(
+        std::fs::read(&other).expect("read other file"),
+        b"written by the other restore\n",
+        "the other restore's file was replaced"
+    );
+    assert!(!dest.join("state").exists(), "nothing may be written");
+    assert_eq!(journal_kinds(fix.state_dir()), kinds_before);
+}
+
+#[test]
+fn restore_inside_the_drill_folder_prints_rename_lines_that_run() {
+    let fix = TestFixture::new();
+    fix.backup();
+    let state = fix.state_dir().to_path_buf();
+    let dest = state.join("drill/restored");
+
+    let outcome = fix.restore(Some(dest.clone()), false);
+    assert_eq!(outcome.code, 0, "restore failed: {}", outcome.stderr);
+
+    let state_str = state.display().to_string();
+    let moved = Path::new(&format!("{state_str}.old"))
+        .join("drill/restored/state")
+        .display()
+        .to_string();
+    let stale = dest.join("state").display().to_string();
+    let expected_sh = format!("  mv '{moved}' '{state_str}'");
+    let expected_pwsh = format!("  Move-Item -LiteralPath '{moved}' -Destination '{state_str}'");
+    assert!(
+        outcome.stdout.contains(&expected_sh),
+        "stdout missing `{expected_sh}`:\n{}",
+        outcome.stdout
+    );
+    assert!(
+        outcome.stdout.contains(&expected_pwsh),
+        "stdout missing `{expected_pwsh}`:\n{}",
+        outcome.stdout
+    );
+    assert!(
+        !outcome.stdout.contains(&format!("mv '{stale}'")),
+        "a line reads the restored state from where it no longer is:\n{}",
+        outcome.stdout
+    );
+}

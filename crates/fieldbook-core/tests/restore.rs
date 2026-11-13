@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 use fieldbook_core::backup::{
     BackupToml, DRILL_STEPS, DestinationFacts, PlannedRoot, RestorePlan, RestoreRefusalKind,
-    RestoreShell, plan_restore, rename_help,
+    RestoreShell, plan_restore, rename_help, snapshot_entry_tail,
 };
 use fieldbook_core::check::Code;
 
@@ -184,4 +184,81 @@ fn rename_help_is_stable() {
     let empty_live: Vec<(String, PathBuf)> = Vec::new();
     assert!(rename_help(&plan, &empty_live, RestoreShell::Sh).is_empty());
     assert!(rename_help(&plan, &empty_live, RestoreShell::PowerShell).is_empty());
+}
+
+#[test]
+fn rename_help_follows_a_restore_moved_with_its_live_root() {
+    // `--to <state>/drill/restored` is allowed, and moving the live state folder aside takes the
+    // restored copy with it: the second state line must read it from under `<state>.old`.
+    let plan = RestorePlan {
+        destination: PathBuf::from("/home/.fieldbook/drill/restored"),
+        roots: vec![
+            PlannedRoot {
+                name: "corpus".to_string(),
+                path: PathBuf::from("/home/.fieldbook/drill/restored/corpus"),
+            },
+            PlannedRoot {
+                name: "state".to_string(),
+                path: PathBuf::from("/home/.fieldbook/drill/restored/state"),
+            },
+        ],
+    };
+    let live = vec![
+        ("corpus".to_string(), PathBuf::from("/home/corpus")),
+        ("state".to_string(), PathBuf::from("/home/.fieldbook")),
+    ];
+
+    assert_eq!(
+        rename_help(&plan, &live, RestoreShell::Sh),
+        vec![
+            "mv '/home/corpus' '/home/corpus.old'",
+            "mv '/home/.fieldbook/drill/restored/corpus' '/home/corpus'",
+            "mv '/home/.fieldbook' '/home/.fieldbook.old'",
+            "mv '/home/.fieldbook.old/drill/restored/state' '/home/.fieldbook'",
+        ]
+    );
+    assert_eq!(
+        rename_help(&plan, &live, RestoreShell::PowerShell),
+        vec![
+            "Move-Item -LiteralPath '/home/corpus' -Destination '/home/corpus.old'",
+            "Move-Item -LiteralPath '/home/.fieldbook/drill/restored/corpus' -Destination '/home/corpus'",
+            "Move-Item -LiteralPath '/home/.fieldbook' -Destination '/home/.fieldbook.old'",
+            "Move-Item -LiteralPath '/home/.fieldbook.old/drill/restored/state' -Destination '/home/.fieldbook'",
+        ]
+    );
+}
+
+#[test]
+fn snapshot_entry_tail_takes_plain_paths_under_a_root_only() {
+    let roots = vec!["corpus".to_string(), "state".to_string()];
+
+    assert_eq!(
+        snapshot_entry_tail("data/corpus/pages/a.md", &roots),
+        Ok("corpus/pages/a.md")
+    );
+    assert_eq!(
+        snapshot_entry_tail("data/state/settings.toml", &roots),
+        Ok("state/settings.toml")
+    );
+
+    for unsafe_entry in [
+        "data/state/../../settings.toml",
+        "data/corpus/../state/settings.toml",
+        "data/../escape.txt",
+        "data/corpus/./a.md",
+        "data/corpus//a.md",
+        "data//etc/passwd",
+        "data/corpus/a\\..\\..\\b",
+        "data/corpus",
+        "data/corpus/",
+        "data/other/a.md",
+        "backup.toml",
+        "/data/corpus/a.md",
+        "data/corpus/..",
+    ] {
+        assert!(
+            snapshot_entry_tail(unsafe_entry, &roots).is_err(),
+            "`{unsafe_entry}` must be refused"
+        );
+    }
 }

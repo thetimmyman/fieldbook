@@ -11,8 +11,8 @@ use std::sync::{Arc, Mutex, OnceLock};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{DestKind, LabelId, LabelSet, RefuseAbout, StoreId, Via, Word};
 use fieldbook_core::backup::{
-    BACKUP_TARGET_TEMPLATE, DRILL_STEPS, DestinationFacts, PlannedFile, RestoreShell,
-    corpus_entries, plan_restore, rename_help,
+    BACKUP_TARGET_TEMPLATE, DRILL_STEPS, DestinationFacts, PlannedFile, PlannedRoot, RestorePlan,
+    RestoreShell, corpus_entries, plan_restore, rename_help, snapshot_entry_tail,
 };
 use fieldbook_core::check::{Code, Host, Options};
 use fieldbook_core::egress::{
@@ -226,6 +226,26 @@ fn drill_verify(
     Ok(ok_lines)
 }
 
+/// Reads whether `path` exists and whether it is an empty folder; anything unreadable or not a
+/// folder counts as not empty.
+fn destination_facts(path: &Path) -> DestinationFacts {
+    let Ok(meta) = std::fs::symlink_metadata(path) else {
+        return DestinationFacts {
+            exists: false,
+            empty: true,
+        };
+    };
+    let empty = meta.is_dir()
+        && match std::fs::read_dir(path) {
+            Ok(mut entries) => entries.next().is_none(),
+            Err(_) => false,
+        };
+    DestinationFacts {
+        exists: true,
+        empty,
+    }
+}
+
 /// Dispatches `fieldbook restore` from parsed CLI arguments.
 pub fn run(args: &RestoreArgs, state_flag: Option<&Path>, world: &dyn World) -> Outcome {
     if let Some(state_dir) = state_flag {
@@ -350,6 +370,30 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         };
     }
 
+    // A restore joins each entry to its destination, so an entry that is not a plain path under
+    // one of the snapshot's roots is refused here, before the journal, the lease or any write.
+    for line in check.sums_text.lines() {
+        let Some((_, rel)) = line.trim().split_once("  ") else {
+            continue;
+        };
+        if let Err(reason) = snapshot_entry_tail(rel, &check.info.roots) {
+            let finding = format!("error[FB0811]: unsafe path in SHA256SUMS: {reason}\n");
+            let stderr = if options.drill {
+                finding
+            } else {
+                format!(
+                    "error[FB0815]: snapshot {} does not verify (FB0811)\n{finding}",
+                    options.snapshot
+                )
+            };
+            return Outcome {
+                stdout: String::new(),
+                stderr,
+                code: EXIT_FINDINGS,
+            };
+        }
+    }
+
     let mut journal = match state::open(world, world.state_dir(), Via::Cli) {
         Ok(j) => j,
         Err(JournalError::BrokenChain(_)) => {
@@ -451,20 +495,7 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
                 };
             }
         };
-        let (exists, empty) = if let Ok(meta) = std::fs::symlink_metadata(&canon_dest) {
-            if meta.is_dir() {
-                let is_empty = match std::fs::read_dir(&canon_dest) {
-                    Ok(mut rd) => rd.next().is_none(),
-                    Err(_) => false,
-                };
-                (true, is_empty)
-            } else {
-                (true, false)
-            }
-        } else {
-            (false, true)
-        };
-        let facts = DestinationFacts { exists, empty };
+        let facts = destination_facts(&canon_dest);
 
         let drill_dir = canonical_state_dir.join("drill");
         let strictly_inside_drill = canon_dest.starts_with(&drill_dir) && canon_dest != drill_dir;
@@ -537,7 +568,7 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         let Some((sha, rel)) = trimmed.split_once("  ") else {
             continue;
         };
-        let Some(stripped) = rel.strip_prefix("data/") else {
+        let Ok(stripped) = snapshot_entry_tail(rel, &check.info.roots) else {
             continue;
         };
         let snap_file = check.snap_dir.join(rel);
@@ -662,6 +693,24 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
             };
         }
     };
+
+    // Another restore may have filled the folder between the first look and the lease; the plan
+    // and the export token describe the folder as it was, so a changed one is refused unwritten.
+    if !options.drill {
+        let now = destination_facts(&canon_dest);
+        if now != facts {
+            let detail = if now.exists && !now.empty {
+                "the destination is not empty"
+            } else {
+                "the destination changed while the restore waited for the store"
+            };
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("error[FB0815]: {detail}\n"),
+                code: EXIT_FINDINGS,
+            };
+        }
+    }
 
     let audited = if let Some(allowed) = &allowed_token {
         let req = RestoreExportRequest {
@@ -934,8 +983,27 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
             ("corpus".to_string(), world.tree_root().join("corpus")),
             ("state".to_string(), world.state_dir().to_path_buf()),
         ];
-        let sh_lines = rename_help(&plan, &live, RestoreShell::Sh);
-        let pwsh_lines = rename_help(&plan, &live, RestoreShell::PowerShell);
+        // Inside the state folder, name the restored folders by the same spelling as the live
+        // one, so the rename lines can follow them when the state folder is moved aside.
+        let shown_plan = match canon_dest.strip_prefix(&canonical_state_dir) {
+            Ok(tail) => {
+                let shown_dest = world.state_dir().join(tail);
+                RestorePlan {
+                    roots: plan
+                        .roots
+                        .iter()
+                        .map(|root| PlannedRoot {
+                            name: root.name.clone(),
+                            path: shown_dest.join(&root.name),
+                        })
+                        .collect(),
+                    destination: shown_dest,
+                }
+            }
+            Err(_) => plan.clone(),
+        };
+        let sh_lines = rename_help(&shown_plan, &live, RestoreShell::Sh);
+        let pwsh_lines = rename_help(&shown_plan, &live, RestoreShell::PowerShell);
 
         let mut stdout = format!(
             "restored snapshot {} into {} ({} files, {} bytes)\n\nTo use the restored folders, run these commands yourself; fieldbook never writes over live data.\nsh:\n",

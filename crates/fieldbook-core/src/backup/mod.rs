@@ -19,7 +19,7 @@ pub use labels::{BackupFileKind, CopiedFile, snapshot_labels};
 pub use plan::{BackupPlan, PlaceFinding, path_budget, plan_backup, target_place};
 pub use restore::{
     DRILL_STEPS, DestinationFacts, PlannedFile, PlannedRoot, RestorePlan, RestoreRefusal,
-    RestoreRefusalKind, RestoreShell, plan_restore, rename_help,
+    RestoreRefusalKind, RestoreShell, plan_restore, rename_help, snapshot_entry_tail,
 };
 pub use retention::{SnapshotInfo, plan_retention};
 pub use target::{BackupTarget, SnapshotStage};

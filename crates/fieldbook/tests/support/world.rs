@@ -36,6 +36,7 @@ pub struct TestWorld {
     fault: Mutex<Option<crate::support::faulty::Fault>>,
     fault_matches: std::sync::atomic::AtomicUsize,
     written: Mutex<Vec<PathBuf>>,
+    before_write_lease: Mutex<Option<Box<dyn FnOnce() + Send>>>,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -89,6 +90,7 @@ impl TestWorld {
             fault: Mutex::new(None),
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
             written: Mutex::new(Vec::new()),
+            before_write_lease: Mutex::new(None),
         }
     }
 
@@ -115,6 +117,7 @@ impl TestWorld {
             fault: Mutex::new(None),
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
             written: Mutex::new(Vec::new()),
+            before_write_lease: Mutex::new(None),
         }
     }
 
@@ -241,6 +244,14 @@ impl TestWorld {
         self.written.lock().map(|w| w.clone()).unwrap_or_default()
     }
 
+    /// Run `action` once, just before the next `write_lease` is acquired, as another process
+    /// acting between a handler's first look and its lease does.
+    pub fn set_before_write_lease(&self, action: impl FnOnce() + Send + 'static) {
+        if let Ok(mut g) = self.before_write_lease.lock() {
+            *g = Some(Box::new(action));
+        }
+    }
+
     fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
         let Ok(g) = self.fault.lock() else {
             return Ok(());
@@ -290,6 +301,14 @@ impl World for TestWorld {
     }
 
     fn write_lease(&self) -> Result<StoreLease, WorldError> {
+        let action = self
+            .before_write_lease
+            .lock()
+            .ok()
+            .and_then(|mut g| g.take());
+        if let Some(action) = action {
+            action();
+        }
         fieldbook::io::journal::acquire_write_lease(self.tree_root(), &self.state_dir)
     }
 
