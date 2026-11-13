@@ -1,0 +1,1 @@
+Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The older pricing guide gave a 15 day window [@S-0002-v1].

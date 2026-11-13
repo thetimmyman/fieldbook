@@ -1,0 +1,371 @@
+{
+  "kind": "cite-check",
+  "version": 1,
+  "cases": [
+    {
+      "id": "cc-s-01",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1].",
+      "context": ["S-0001-v1"],
+      "expect": {
+        "citations": [{"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false}],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 1,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "A reference that exists and is inside the supplied context is not outside context, and a resolving locator verifies it."
+    },
+    {
+      "id": "cc-s-02",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The synthetic withholding rate is 9 percent [@CL-CMP-9999].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@CL-CMP-9999", "status": "broken", "source_exists": false, "code": "FB0701", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "One good citation and one id that is not in the Corpus: the broken one is FB0701, so 1 of 2 citations do not resolve and the exit is 1."
+    },
+    {
+      "id": "cc-s-03",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The rule has a second page [@S-0001-v1, p. 2].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@S-0001-v1, p. 2", "status": "broken_locator", "source_exists": true, "locator": "mismatch", "quote": "not_applicable", "code": "FB0702", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "A page beyond the one-page extraction is a broken locator, FB0702, even though the version exists."
+    },
+    {
+      "id": "cc-s-04",
+      "answer": "The rule has a second page [@S-0001-v1, p. 2].",
+      "context": ["S-0002-v2"],
+      "expect": {
+        "citations": [{"reference": "@S-0001-v1, p. 2", "status": "broken_locator", "source_exists": true, "locator": "mismatch", "quote": "not_applicable", "code": "FB0702", "non_canonical": false}],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 1,
+        "nothing_verifies": true,
+        "exit": 1,
+        "summary": "1 of 1 citations do not resolve"
+      },
+      "note": "Precedence: a broken locator on a version that is not in the context is broken_locator and not outside_context; nothing verifies, so the refusal applies too."
+    },
+    {
+      "id": "cc-s-05",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. A trade bulletin repeats the claim [@S-0003-v1].",
+      "context": ["S-0001-v1"],
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@S-0003-v1", "status": "outside_context", "source_exists": true, "locator": "not_applicable", "quote": "not_applicable", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "A Tier D version that exists but is outside the context is outside_context, which has no code, is not counted unresolved and does not change the exit."
+    },
+    {
+      "id": "cc-s-06",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. A trade bulletin repeats the claim [@S-0003-v1].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@S-0003-v1", "status": "weak", "source_exists": true, "locator": "not_applicable", "quote": "not_applicable", "code": "FB0704", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "The same answer with no context never gives outside_context: the Tier D version is weak, FB0704."
+    },
+    {
+      "id": "cc-s-07",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The synthetic withholding rate is 9 percent [@CL-CMP-9999].",
+      "context": ["S-0001-v1"],
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@CL-CMP-9999", "status": "broken", "source_exists": false, "code": "FB0701", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "An id outside both the Corpus and the supplied list is broken and not outside_context, because the first status that applies wins."
+    },
+    {
+      "id": "cc-s-08",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The older pricing guide gave a 15 day window [@S-0002-v1].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@S-0002-v1", "status": "superseded", "source_exists": true, "locator": "not_applicable", "quote": "not_applicable", "code": "FB0703", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "A version that a later version names in supersedes is superseded, FB0703, which does not by itself change the exit."
+    },
+    {
+      "id": "cc-s-09",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The older pricing guide gave a 15 day window [@S-0002-v1, p. 1].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@S-0002-v1, p. 1", "status": "superseded", "source_exists": true, "locator": "unchecked", "quote": "not_applicable", "code": "FB0703", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "A locator that cannot be checked still counts unresolved beneath the higher-precedence status superseded, so the exit is 1."
+    },
+    {
+      "id": "cc-s-10",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The pricing guide gives a review window [@S-0002-v2, sec. 3].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@S-0002-v2, sec. 3", "status": "unchecked_locator", "source_exists": true, "locator": "unchecked", "quote": "not_applicable", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "A version with no extraction facts cannot confirm a section, so the status is unchecked_locator, has no code, and counts unresolved."
+    },
+    {
+      "id": "cc-s-11",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The guide says \"Synthetic rate review window is 10 days under current guidance\" [@S-0002-v2].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "@S-0002-v2", "status": "unchecked_quote", "source_exists": true, "locator": "not_applicable", "quote": "unchecked", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "A quotation of six words or more before a citation whose text is unavailable is unchecked_quote and counts unresolved."
+    },
+    {
+      "id": "cc-s-12",
+      "answer": "The rule says \"Synthetic compliance reviews occur every 45 days\" [@S-0001-v1, sec. 1]. The synthetic withholding threshold is 5 percent [@S-0001-v1, sec. 2].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "quote_mismatch", "source_exists": true, "locator": "verified", "quote": "mismatch", "non_canonical": false},
+          {"reference": "@S-0001-v1, sec. 2", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "A quotation of six words or more that is not in the cited text is quote_mismatch, counts unresolved and exits 1 beside a verified citation."
+    },
+    {
+      "id": "cc-s-13",
+      "answer": "The rule says \"Synthetic compliance reviews occur every 30 days\" [@S-0001-v1, sec. 1].",
+      "expect": {
+        "citations": [{"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "verified", "non_canonical": false}],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 1,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "A quotation of six words or more that matches the cited text verifies with the quote fact verified."
+    },
+    {
+      "id": "cc-s-14",
+      "answer": "Reviews run every 30 days [@S-0001-v1, sec. 1], the sign-off owner is an open question [@Q-001] and the timing is in conflict [@XC-01].",
+      "expect": {
+        "citations": [{"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false}],
+        "neutral": ["@Q-001", "@XC-01"],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 1,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "Question and conflict references are neutral: listed apart, never counted in the total or as evidence."
+    },
+    {
+      "id": "cc-s-15",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The withholding rate is high. Payments are paid late.",
+      "expect": {
+        "citations": [{"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false}],
+        "neutral": [],
+        "uncited": ["The withholding rate is high.", "Payments are paid late."],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 1,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "Sentences with no citation and no abstention phrase are listed as uncited (FB0705), and they do not change the exit."
+    },
+    {
+      "id": "cc-s-16",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. not established in the library. NOT ESTABLISHED IN THE LIBRARY",
+      "expect": {
+        "citations": [{"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false}],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 2,
+        "unresolved": 0,
+        "total": 1,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "The abstention phrase is accepted in any case, with or without the final full stop, and is not uncited."
+    },
+    {
+      "id": "cc-s-17",
+      "answer": "Not established in the library.",
+      "expect": {"citations": [], "neutral": [], "uncited": [], "abstentions": 1, "unresolved": 0, "total": 0, "nothing_verifies": false, "exit": 0, "summary": null, "verdict": "ok"},
+      "note": "An answer made only of abstentions is allowed: nothing verifies but there is no refusal and the exit is 0."
+    },
+    {
+      "id": "cc-s-18",
+      "answer": "The review runs every 30 days.",
+      "expect": {
+        "citations": [],
+        "neutral": [],
+        "uncited": ["The review runs every 30 days."],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 0,
+        "nothing_verifies": true,
+        "exit": 1,
+        "summary": null,
+        "verdict": "refused"
+      },
+      "note": "An answer with no verified citation that is not only abstentions is refused (FB0707): Do not use this answer, exit 1."
+    },
+    {
+      "id": "cc-s-19",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, p.1].",
+      "expect": {
+        "citations": [{"reference": "@S-0001-v1, p.1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": true}],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 0,
+        "total": 1,
+        "nothing_verifies": false,
+        "exit": 0,
+        "summary": null,
+        "verdict": "ok"
+      },
+      "note": "A page locator written without a space is read by the tolerant reader, still verifies, and carries non_canonical true (FB0706) with no primary code."
+    },
+    {
+      "id": "cc-s-20",
+      "answer": "Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The withholding rate is 9 percent [CL-CMP-9999].",
+      "expect": {
+        "citations": [
+          {"reference": "@S-0001-v1, sec. 1", "status": "verified", "source_exists": true, "locator": "verified", "quote": "not_applicable", "non_canonical": false},
+          {"reference": "CL-CMP-9999", "status": "broken", "source_exists": false, "code": "FB0701", "non_canonical": true}
+        ],
+        "neutral": [],
+        "uncited": [],
+        "abstentions": 0,
+        "unresolved": 1,
+        "total": 2,
+        "nothing_verifies": false,
+        "exit": 1,
+        "summary": "1 of 2 citations do not resolve",
+        "verdict": "unresolved"
+      },
+      "note": "A broken id written without the at sign keeps its primary code FB0701 and also sets non_canonical true (FB0706)."
+    }
+  ]
+}

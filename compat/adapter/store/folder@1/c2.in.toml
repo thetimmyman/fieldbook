@@ -1,0 +1,7 @@
+ops = [
+    "path a..b",
+    "path ...",
+    "path dir/subdir/file.txt",
+    "sort 10 2 A b",
+    "sha world",
+]

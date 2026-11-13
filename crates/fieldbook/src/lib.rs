@@ -9,15 +9,18 @@
 //! External crates join through their cards, each at its pin in
 //! `docs/reference/dependencies.md`.
 
+pub mod adapters;
 pub mod add;
 pub mod audit;
 pub mod backup;
 pub mod build;
 pub mod cli;
+pub mod ctx;
 pub mod io;
 pub mod new;
 pub mod report;
 pub mod search;
+pub mod verbs;
 pub mod verify;
 
 pub use backup::render_backup_list_json;
@@ -105,6 +108,13 @@ pub trait World {
 
     /// Return facts about public support provenance: retained verified catalogues and completed public writes.
     fn support_facts(&self) -> SupportFacts;
+
+    /// Return the registry id of the Store adapter that this world is.
+    ///
+    /// The default is the folder store that [`io::Disk`] is; test doubles override it.
+    fn store_id(&self) -> &'static str {
+        "folder@1"
+    }
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -360,6 +370,10 @@ impl World for StateOverrideWorld<'_> {
 
     fn place(&self, path: &Path) -> PlaceFacts {
         self.inner.place(path)
+    }
+
+    fn store_id(&self) -> &'static str {
+        self.inner.store_id()
     }
 
     /// Support facts follow the selected state directory specified by `--state`.

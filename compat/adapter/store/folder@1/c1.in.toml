@@ -1,0 +1,6 @@
+ops = [
+    "path corpus/a.txt",
+    "path overlay/SO-0001",
+    "sort b A a _",
+    "sha hello",
+]

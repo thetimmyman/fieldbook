@@ -391,4 +391,11 @@ impl World for TestWorld {
         let disk = Disk::with_state(self.tree_root(), &self.state_dir);
         disk.support_facts()
     }
+
+    /// Return the test double store registry id.
+    ///
+    /// Not a registry id; the drift test skips it.
+    fn store_id(&self) -> &'static str {
+        "memory@0"
+    }
 }
