@@ -451,17 +451,10 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
     let canonical_corpus_dir = canonical_tree_root.join("corpus");
 
     let (destination, canon_dest, plan, facts) = if options.drill {
+        // The reset replaces whatever stands at `<state>/drill`, a symlink included, with a real
+        // folder, so the drill is placed there and not where such a symlink points.
         let destination = world.state_dir().join("drill");
-        let canon_dest = match resolve_canonical_with_tail(world.cwd(), &destination) {
-            Ok(p) => p,
-            Err(err) => {
-                return Outcome {
-                    stdout: String::new(),
-                    stderr: format!("cannot resolve drill destination: {err}\n"),
-                    code: EXIT_IO,
-                };
-            }
-        };
+        let canon_dest = canonical_state_dir.join("drill");
         let facts = DestinationFacts {
             exists: false,
             empty: true,
@@ -518,7 +511,7 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         (to_dir.clone(), canon_dest, plan, facts)
     };
 
-    let ctx = match crate::io::root::git_context(world, &destination) {
+    let ctx = match crate::io::root::git_context_at(world, &canon_dest) {
         Ok(c) => c,
         Err(err) => {
             return Outcome {
@@ -555,7 +548,12 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         };
     }
 
-    let is_state_write = options.drill || canon_dest.starts_with(&canonical_state_dir);
+    // A write inside the state folder goes through the state root, so it is named from that
+    // root as the world spells it; `--to` may be relative or spelled another way.
+    let state_tail = canon_dest.strip_prefix(&canonical_state_dir).ok();
+    let is_state_write = options.drill || state_tail.is_some();
+    let write_base =
+        state_tail.map_or_else(|| destination.clone(), |tail| world.state_dir().join(tail));
 
     // Build planned files list from SHA256SUMS
     let mut planned_files = Vec::new();
@@ -861,7 +859,7 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
                     code: EXIT_FINDINGS,
                 };
             }
-            let write_path = destination.join(stripped);
+            let write_path = write_base.join(stripped);
             match world.write_file(&audited, &write_path, &bytes) {
                 Ok(written_sha) => {
                     if written_sha.as_str() != sha {
@@ -985,22 +983,20 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
         ];
         // Inside the state folder, name the restored folders by the same spelling as the live
         // one, so the rename lines can follow them when the state folder is moved aside.
-        let shown_plan = match canon_dest.strip_prefix(&canonical_state_dir) {
-            Ok(tail) => {
-                let shown_dest = world.state_dir().join(tail);
-                RestorePlan {
-                    roots: plan
-                        .roots
-                        .iter()
-                        .map(|root| PlannedRoot {
-                            name: root.name.clone(),
-                            path: shown_dest.join(&root.name),
-                        })
-                        .collect(),
-                    destination: shown_dest,
-                }
+        let shown_plan = if state_tail.is_some() {
+            RestorePlan {
+                roots: plan
+                    .roots
+                    .iter()
+                    .map(|root| PlannedRoot {
+                        name: root.name.clone(),
+                        path: write_base.join(&root.name),
+                    })
+                    .collect(),
+                destination: write_base.clone(),
             }
-            Err(_) => plan.clone(),
+        } else {
+            plan.clone()
         };
         let sh_lines = rename_help(&shown_plan, &live, RestoreShell::Sh);
         let pwsh_lines = rename_help(&shown_plan, &live, RestoreShell::PowerShell);

@@ -2370,3 +2370,95 @@ fn restore_inside_the_drill_folder_prints_rename_lines_that_run() {
         outcome.stdout
     );
 }
+
+#[cfg(unix)]
+#[test]
+fn drill_checks_git_placement_where_the_reset_puts_the_folder() {
+    let fix = GitFixture::new();
+    let eff = floor_a_effective();
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.labels = vec!["owner-supplied".to_string()];
+    });
+    // State is under Git and not ignored, and `drill` is a symlink to a folder outside Git. The
+    // reset removes the symlink and makes a real folder under Git, so that is the place to judge.
+    std::fs::remove_file(fix.git_repo.join(".gitignore")).expect("remove .gitignore");
+    let outside = fix
+        .target_dir
+        .parent()
+        .expect("parent")
+        .join("outside-drill");
+    std::fs::create_dir(&outside).expect("create outside folder");
+    let drill = fix.state.join("drill");
+    std::os::unix::fs::symlink(&outside, &drill).expect("symlink drill");
+
+    let events_before = all_journal_events(&fix.state);
+    let outcome = run_restore(
+        &fix.world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: None,
+            drill: true,
+            target: None,
+            from: None,
+        },
+    );
+
+    assert_eq!(outcome.code, 1, "stdout: {}", outcome.stdout);
+    assert!(
+        outcome.stderr.contains("FB0415"),
+        "stderr: {}",
+        outcome.stderr
+    );
+    let events_after = all_journal_events(&fix.state);
+    let new_events = &events_after[events_before.len()..];
+    assert!(!new_events.iter().any(|v| v["kind"] == "restore.begin"));
+    let refuses: Vec<_> = new_events
+        .iter()
+        .filter(|v| v["kind"] == "refuse")
+        .collect();
+    assert_eq!(refuses.len(), 1, "exactly one refuse event expected");
+    assert_eq!(refuses[0]["reason"], "git");
+    assert!(
+        std::fs::symlink_metadata(&drill)
+            .expect("drill entry")
+            .file_type()
+            .is_symlink(),
+        "the drill entry must be left as it was"
+    );
+    assert_eq!(
+        std::fs::read_dir(&outside).expect("read outside").count(),
+        0
+    );
+}
+
+/// `path` spelled relative to `base`: up to the filesystem root, then down. Both are absolute.
+#[cfg(unix)]
+fn relative_from(base: &Path, path: &Path) -> PathBuf {
+    let mut rel = PathBuf::new();
+    for _ in base.components().skip(1) {
+        rel.push("..");
+    }
+    rel.join(path.strip_prefix("/").expect("absolute path"))
+}
+
+#[cfg(unix)]
+#[test]
+fn restore_to_a_relative_folder_inside_state_writes_there() {
+    let fix = TestFixture::new();
+    fix.backup();
+    let dest = fix.state_dir().join("drill/restored");
+    let cwd = std::fs::canonicalize(fix.world.cwd()).expect("canonical cwd");
+    let relative = relative_from(
+        &cwd,
+        &std::fs::canonicalize(fix.state_dir()).expect("state"),
+    )
+    .join("drill/restored");
+    assert!(relative.is_relative());
+
+    let outcome = fix.restore(Some(relative), false);
+
+    assert_eq!(outcome.code, 0, "restore failed: {}", outcome.stderr);
+    assert_trees_equal(&dest.join("corpus"), &fix.tree_root().join("corpus"));
+    assert_trees_equal(&dest.join("state"), &fix.snap_dir().join("data/state"));
+}
