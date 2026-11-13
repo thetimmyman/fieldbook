@@ -22,7 +22,7 @@ use crate::links::{
 use crate::meta::RenderContext;
 use crate::nav::{Navigation, format_not_available};
 use crate::site::PlannedPaths;
-use crate::source::{is_held, page_path, render_unavailable};
+use crate::source::{is_held, page_path};
 use crate::svg::{CoverageCounts, coverage_bar, coverage_legend};
 use crate::xlsx;
 
@@ -310,7 +310,7 @@ struct HomeTemplate {
     binder_href: Option<String>,
     registers_href: Option<String>,
     registers_line: String,
-    next_up_html: String,
+    next_up: Vec<BriefRow>,
     legend_html: String,
     tiles: Vec<AreaTile>,
 }
@@ -355,6 +355,12 @@ fn brief_rows(view: &LabelledView, planned: &PlannedPaths) -> Vec<BriefRow> {
         .collect()
 }
 
+/// The "Next up" list is omitted while it has no rows. The order rule can be added here later
+/// without changing the template.
+const fn next_up_rows(_view: &LabelledView, _planned: &PlannedPaths) -> Vec<BriefRow> {
+    Vec::new()
+}
+
 fn area_tiles(view: &LabelledView, planned: &PlannedPaths) -> Vec<AreaTile> {
     let Some(corpus) = view.corpus() else {
         return Vec::new();
@@ -392,8 +398,7 @@ pub fn render_main(view: &LabelledView, planned: &PlannedPaths) -> String {
         binder_href: href_if_planned(OUTPUT_PATH, crate::day_one::OUTPUT_PATH, planned),
         registers_href: href_if_planned(OUTPUT_PATH, xlsx::OUTPUT_PATH, planned),
         registers_line: format_not_available(strings::paths()[0], "a later build"),
-        // HANDOFF section 5: its order rule "what unblocks the most" depends on ADR 0001.
-        next_up_html: render_unavailable("Next up", "ADR 0001 decides its order rule"),
+        next_up: next_up_rows(view, planned),
         legend_html: coverage_legend(None),
         tiles: area_tiles(view, planned),
     }
