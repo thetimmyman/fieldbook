@@ -36,7 +36,7 @@ A calc, a case and a clause-card page in `day-one.html` carry the block their st
 ## Preconditions
 
 - Cards merged: `frame-page-id-hook` (`crates/fieldbook-render/tests/print.rs`; it runs first). `build-page-types` and `day-one-binder-and-registers-xlsx` are merged on origin/main.
-- `views-and-day-n-2` (shared paths `crates/fieldbook-render/src/day_one.rs` and `crates/fieldbook-render/assets/app.css`; it also changes `tests/page_types.rs`, which this card does not edit) follows this card in the plan and names it in its Cards merged. `binder-brief-one-sheet` follows this card.
+- `views-and-day-n-2` (shared paths `crates/fieldbook-render/src/day_one.rs` and `crates/fieldbook-render/assets/app.css`) follows this card in the plan and names it in its Cards merged. `binder-brief-one-sheet` follows this card.
 
 ## Steps
 

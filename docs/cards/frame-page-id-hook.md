@@ -33,7 +33,7 @@ The print footer of an ordinary reader page (`p/<id>.html`) shows the bare page 
 ## Preconditions
 
 - Cards merged: `build-frame` and `day-one-binder-and-registers-xlsx` (both merged on origin/main). No open card is needed first: this card runs first of the three print cards.
-- `views-and-day-n` (shared paths `crates/fieldbook-render/src/frame.rs` and `crates/fieldbook-render/tests/frame.rs`) and `views-and-day-n-2` follow this card in the plan and name it in their Cards merged. The nine snapshots also appear in the Files of the drafts `assistant-page` and `handoff-new-note`, which are later cards and rebase on this one.
+- `views-and-day-n` (shared paths `crates/fieldbook-render/src/frame.rs` and `crates/fieldbook-render/tests/frame.rs`) follows this card in the plan and names it in its Cards merged. `views-and-day-n-2` (shared path `crates/fieldbook-render/tests/frame.rs`) follows it through `views-and-day-n` and `binder-calc-case-clause-blocks`, which it names. The nine snapshots also appear in the Files of the drafts `assistant-page` and `handoff-new-note`, which are later cards and rebase on this one.
 
 ## Steps
 

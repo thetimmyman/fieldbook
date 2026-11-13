@@ -39,8 +39,8 @@ Each of the six real briefs prints on one US Letter sheet, both as its article i
 ## Steps
 
 1. Build with `just site`, print each of the six standalone briefs and the binder with `chromium --headless=new --no-sandbox --no-pdf-header-footer --print-to-pdf=FILE URL`, and write the page counts in the pull request before the change (`cargo xtask print-count FILE`).
-2. In the last `@media print` block of `app.css`, add rules under `.sheet` (the class the six brief articles and the standalone sheet share): the claim statement hidden; each `.source-row` inline with its number, body, chips and meta; footnote chips without border, padding or icon, their status words and locators kept; `.sources-list` in two columns; list items, parts, h3 and paragraphs with the nearest Space token; `.binder-head` hidden. Use `var(--...)` tokens only. `token_use_lint` in `tests/tokens.rs` (no raw number in a token-only property) must stay green; it is run in Acceptance.
-3. Measure after each rule and keep a rule only if it lowers a count. If a brief is still over one sheet with every rule of the revision's footnote in, stop: BLOCKED (below).
+2. In the last `@media print` block of `app.css`, add under `.sheet` (the class the six brief articles and the standalone sheet share) the print footnote of `design-brief-print-footnote`, with its form, type step and spacing; where it differs from a measured lever below, the revision wins. The measured levers: the claim statement hidden; each `.source-row` inline with its number, body, chips and meta; footnote chips without border, padding or icon, their status words and locators kept; `.sources-list` in two columns; list items, parts, h3 and paragraphs with the nearest Space token; `.binder-head` hidden; the sheet text one step down. Use `var(--...)` tokens only. `token_use_lint` in `tests/tokens.rs` (no raw number in a token-only property) must stay green; it is run in Acceptance.
+3. Measure after each rule. Keep every rule the revision gives, and a measured lever it does not give only if it lowers a count. If a brief is still over one sheet with every rule of the revision's footnote in, stop: BLOCKED (below).
 4. In `tests/print.rs`, add `brief_one_sheet_rules_keep_status_words_and_locators`: read `app.css`, take the final print block as `one_page_rule_in_print_block` does, assert that no rule in it sets `display: none` on `.source-chips` or `.chip` (the status words and locators live in the chips, and `status words always print`), that the statement rule (`.source-stmt`) is under `.sheet` only, and that the block contains no raw pixel or rem value outside `var(` (the token rule, restated for the new lines). Add `one_sheet_rules_are_under_sheet`: every new selector begins with `.sheet` or `.binder-head`, so no ordinary page's print changes.
 5. Run `just check`, then the Acceptance loop, and record the final page counts and the binder page count in the pull request.
 
@@ -56,12 +56,12 @@ for id in cmp-brief-audit-discovery cmp-brief-rule-changes cmp-cas-gaap-conforma
 chromium --headless=new --no-sandbox --no-pdf-header-footer --print-to-pdf="$T/binder.pdf" "file://$PWD/out/edition/day-one.html" 2>/dev/null
 ids=(cmp-brief-audit-discovery cmp-brief-rule-changes cmp-cas-gaap-conformance-2026 est-brief-certified-data-threshold fnd-brief-first-meeting fnd-brief-research-reconciliation)
 other=$(grep -o '<article class="binder-page[^>]*data-page-id="[^"]*"' out/edition/day-one.html | sed 's/.*data-page-id="//;s/"$//' | sed -n 7p)
-for i in 1 2 3 4 5 6; do foot=$(pdftotext -f $i -l $i "$T/binder.pdf" - | tail -n 4); for j in 0 1 2 3 4 5; do if [ $j -eq $((i-1)) ]; then grep -q "${ids[$j]}" <<<"$foot" || echo "FAIL page $i lacks ${ids[$j]}"; else ! grep -q "${ids[$j]}" <<<"$foot" || echo "FAIL page $i holds ${ids[$j]}"; fi; done; done
-pdftotext -f 7 -l 7 "$T/binder.pdf" - | tail -n 4 | grep -q "$other" || echo "FAIL page 7 lacks $other"
+for i in 1 2 3 4 5 6; do foot=$(pdftotext -layout -f $i -l $i "$T/binder.pdf" - | tail -n 4); for j in 0 1 2 3 4 5; do if [ $j -eq $((i-1)) ]; then grep -q "${ids[$j]}" <<<"$foot" || echo "FAIL page $i lacks ${ids[$j]}"; else ! grep -q "${ids[$j]}" <<<"$foot" || echo "FAIL page $i holds ${ids[$j]}"; fi; done; done
+pdftotext -layout -f 7 -l 7 "$T/binder.pdf" - | tail -n 4 | grep -q "$other" || echo "FAIL page 7 lacks $other"
 just check
 ```
 
-Expected: the three test commands pass; the first loop prints `pages: 1` six times and no `FAIL`; the binder check prints no `FAIL` (the footer repeats on every sheet of an article, so a spilling brief shifts the later ids: page i holds the i-th brief's id and no other brief's, and page 7 holds the id of the first page that is not a brief); `just check` exits 0. The loops run at home only; CI Linux runs the tests.
+Expected: the three test commands pass; the first loop prints `pages: 1` six times and no `FAIL`; the binder check prints no `FAIL` (`-layout` keeps each sheet's footer in its last lines below a two-column Sources list; the footer repeats on every sheet of an article, so a spilling brief shifts the later ids: page i holds the i-th brief's id and no other brief's, and page 7 holds the id of the first page that is not a brief); `just check` exits 0. The loops run at home only; CI Linux runs the tests.
 
 ## Negative control
 
