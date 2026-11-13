@@ -170,6 +170,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - registers-xlsx: `data/registers.xlsx` with read-back tests, and the CSV copies
 - ai-it-story: the IT documents and `SECURITY.md` for the AI build, which is not in the first edition (docs only)
 - binder-brief-one-sheet: each of the six briefs prints on one Letter sheet, in the binder and as its own page, with the unreleased banner counted, by print CSS of existing tokens
+- frame-page-id-hook: the print footer of a reader page shows the bare page id, as the binder footer does, not its route
 - Five briefs, BJ-001, BJ-002, BJ-003, BJ-004 and BJ-006, each one printed page (lead)
 - The 30/60/90 checklist in relative days only, and curriculum stages 1 and 2 (lead)
 - About 30 clause cards, a stretch (lead)
