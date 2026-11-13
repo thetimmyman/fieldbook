@@ -161,6 +161,18 @@ pub fn render_check_json(report: &Report, strict: bool, today: CivilDate) -> Str
     json
 }
 
+/// Extract the `--state` flag and [`crate::cli::BuildArgs`] if `args` invokes `build --watch`.
+#[must_use]
+pub fn build_watch_args(args: &[String]) -> Option<(Option<PathBuf>, crate::cli::BuildArgs)> {
+    let argv =
+        std::iter::once(fieldbook_core::strings::binary()).chain(args.iter().map(String::as_str));
+    let parsed = Cli::try_parse_from(argv).ok()?;
+    match parsed.command {
+        Commands::Build(build_args) if build_args.watch => Some((parsed.state, build_args)),
+        _ => None,
+    }
+}
+
 /// Run the command named by `args` (the arguments after the program name) against `world`.
 #[must_use]
 pub fn run(args: &[String], world: &dyn World) -> Outcome {
@@ -222,6 +234,14 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             }
         }
         Commands::Build(build_args) => {
+            if build_args.watch {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: "error: --watch needs a terminal; run it from the program\n"
+                        .to_string(),
+                    code: EXIT_USAGE,
+                };
+            }
             if let Some(flag) = parsed.state.as_deref() {
                 let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
                 let overridden = StateOverrideWorld {
@@ -291,9 +311,9 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
     outcome
 }
 
-struct StateOverrideWorld<'a> {
-    inner: &'a dyn World,
-    state_dir: PathBuf,
+pub(crate) struct StateOverrideWorld<'a> {
+    pub(crate) inner: &'a dyn World,
+    pub(crate) state_dir: PathBuf,
 }
 
 impl World for StateOverrideWorld<'_> {

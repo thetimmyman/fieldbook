@@ -220,6 +220,7 @@ mod build {
 
         let args = BuildArgs {
             out: PathBuf::from("out"),
+            watch: false,
         };
         let outcome = run_with_info(&args, &world, &BuildInfo::default());
         set_write_pause_hook(None);
@@ -701,6 +702,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: ok_out.clone(),
+                watch: false,
             },
             &world,
             &BuildInfo::default(),
@@ -752,6 +754,7 @@ mod build {
         let initial = run_with_info(
             &BuildArgs {
                 out: out_dir.clone(),
+                watch: false,
             },
             &world,
             &incomplete_info,
@@ -784,6 +787,7 @@ mod build {
         let failed = run_with_info(
             &BuildArgs {
                 out: out_dir.clone(),
+                watch: false,
             },
             &world,
             &released_info,
@@ -1254,6 +1258,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: handler_out.clone(),
+                watch: false,
             },
             &world,
             &BuildInfo::default(),
@@ -1960,6 +1965,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: out_dir.clone(),
+                watch: false,
             },
             &world,
             &BuildInfo::default(),
@@ -2414,6 +2420,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: out_dir.to_path_buf(),
+                watch: false,
             },
             world,
             &BuildInfo::default(),
