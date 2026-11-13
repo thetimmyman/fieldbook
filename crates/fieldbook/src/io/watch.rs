@@ -177,9 +177,8 @@ mod tests {
         let meta = entry_metadata(&vanished).expect("entry_metadata");
         assert!(meta.is_none());
 
-        let present = dir.path().join("present.txt");
-        std::fs::write(&present, b"present").expect("write");
-        let meta = entry_metadata(&present).expect("entry_metadata");
+        let present = tempfile::NamedTempFile::new_in(dir.path()).expect("temp file");
+        let meta = entry_metadata(present.path()).expect("entry_metadata");
         assert!(meta.is_some());
     }
 
@@ -192,31 +191,25 @@ mod tests {
         assert!(res.is_ok());
         assert!(entries.is_empty());
 
-        let walk_dir_temp = tempfile::tempdir().expect("tempdir");
-        let subfolder = walk_dir_temp.path().join("sub");
-        std::fs::create_dir(&subfolder).expect("create_dir");
-        let file = subfolder.join("file.txt");
-        std::fs::write(&file, b"content").expect("write");
-
+        let subfolder = tempfile::Builder::new()
+            .tempdir_in(dir.path())
+            .expect("subfolder");
+        let _file = tempfile::NamedTempFile::new_in(subfolder.path()).expect("temp file");
         let mut entries = Vec::new();
-        let res = walk_dir(walk_dir_temp.path(), "", &mut entries);
-        assert!(res.is_ok());
+        walk_dir(dir.path(), "", &mut entries).expect("walk with the subfolder present");
         assert_eq!(entries.len(), 2);
 
-        std::fs::remove_dir_all(&subfolder).expect("remove_dir_all");
+        subfolder.close().expect("remove the subfolder");
         let mut entries = Vec::new();
-        let res = walk_dir(walk_dir_temp.path(), "", &mut entries);
-        assert!(res.is_ok());
-        assert_eq!(entries.len(), 0);
+        walk_dir(dir.path(), "", &mut entries).expect("walk after the subfolder vanished");
+        assert!(entries.is_empty());
     }
 
     #[test]
     fn a_non_notfound_error_stays_fatal() {
-        let dir = tempfile::tempdir().expect("tempdir");
-        let file_path = dir.path().join("file.txt");
-        std::fs::write(&file_path, b"content").expect("write");
+        let file = tempfile::NamedTempFile::new().expect("temp file");
         let mut entries = Vec::new();
-        let res = walk_dir(&file_path, "", &mut entries);
+        let res = walk_dir(file.path(), "", &mut entries);
         assert!(res.is_err());
     }
 }
