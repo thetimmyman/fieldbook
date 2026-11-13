@@ -16,7 +16,7 @@ use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
 use crate::{
     about, area, csv_copy, day_one, edition, home, ids, nav, register, search_index, search_page,
-    source, xlsx,
+    source, templates_xlsx, xlsx,
 };
 
 const APP_CSS: &str = include_str!("../assets/app.css");
@@ -192,6 +192,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         paths.push(register::output_path(reg).to_owned());
     }
     paths.push(xlsx::OUTPUT_PATH.to_owned());
+    paths.extend(templates_xlsx::planned_paths(view));
     for reg in Register::ALL {
         paths.push(csv_copy::output_path(reg));
     }
@@ -284,6 +285,9 @@ pub fn render_with_info(
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
     site.insert("assets/app.js", APP_JS.as_bytes().to_vec());
     site.insert(xlsx::OUTPUT_PATH, xlsx::render(view, info.workbook_epoch)?);
+    for (path, bytes) in templates_xlsx::render_all(view, info.workbook_epoch)? {
+        site.insert(&path, bytes);
+    }
     for reg in Register::ALL {
         site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
     }

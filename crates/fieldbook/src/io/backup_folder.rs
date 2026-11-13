@@ -18,6 +18,7 @@ use fieldbook_core::egress::{Allowed, Operation, Target, Transfer, hash_tree_man
 use crate::World;
 use crate::io::dirs::{self, Removable};
 use crate::io::journal::{Audited, read_valid_events_prefix};
+use crate::io::versions::backup_folder_v1;
 
 /// Destination target implementing `folder@1`.
 pub struct FolderTarget<'a> {
@@ -25,6 +26,11 @@ pub struct FolderTarget<'a> {
     audited: &'a Audited,
     allowed: &'a Allowed,
     target: PathBuf,
+}
+
+impl FolderTarget<'_> {
+    /// Adapter identifier for the folder backup target (`folder@1`).
+    pub const ID: &'static str = "folder@1";
 }
 
 impl<'a> FolderTarget<'a> {
@@ -56,8 +62,7 @@ impl<'a> FolderTarget<'a> {
         for entry in read_dir.flatten() {
             let path = entry.path();
             if let Some(file_name) = path.file_name().and_then(|n| n.to_str())
-                && file_name.starts_with("fieldbook-backup-")
-                && file_name.ends_with(".partial")
+                && backup_folder_v1::is_partial_dir_name(file_name)
             {
                 let _ = dirs::remove_outside(
                     self.audited,
@@ -85,9 +90,9 @@ impl BackupTarget for FolderTarget<'_> {
             let Some(name) = path.file_name().and_then(|n| n.to_str()) else {
                 continue;
             };
-            if !name.starts_with("fieldbook-backup-") || name.ends_with(".partial") {
+            let Some(num) = backup_folder_v1::parse_snapshot_dir_name(name) else {
                 continue;
-            }
+            };
             let Ok(meta) = std::fs::symlink_metadata(&path) else {
                 continue;
             };
@@ -97,12 +102,7 @@ impl BackupTarget for FolderTarget<'_> {
             if !path.join("backup.toml").is_file() {
                 continue;
             }
-            let Some(num_str) = name.strip_prefix("fieldbook-backup-") else {
-                continue;
-            };
-            if let Ok(num) = num_str.parse::<Number>() {
-                numbers.push(num);
-            }
+            numbers.push(num);
         }
 
         numbers.sort_unstable();
@@ -111,13 +111,17 @@ impl BackupTarget for FolderTarget<'_> {
     }
 
     fn read(&self, snapshot: Number, rel: &Path) -> Result<Vec<u8>, BackupError> {
-        let snap_dir = self.target.join(format!("fieldbook-backup-{snapshot:04}"));
+        let snap_dir = self
+            .target
+            .join(backup_folder_v1::snapshot_dir_name(snapshot));
         let full_path = snap_dir.join(rel);
         std::fs::read(&full_path).map_err(|err| BackupError::Target(err.to_string()))
     }
 
     fn remove(&self, snapshot: Number) -> Result<(), BackupError> {
-        let snap_dir = self.target.join(format!("fieldbook-backup-{snapshot:04}"));
+        let snap_dir = self
+            .target
+            .join(backup_folder_v1::snapshot_dir_name(snapshot));
         dirs::remove_outside(self.audited, self.allowed, &snap_dir, Removable::Snapshot)
             .map_err(|err| BackupError::Target(err.to_string()))
     }
@@ -127,14 +131,16 @@ impl BackupTarget for FolderTarget<'_> {
         snapshot: Number,
         allowed: &'b Allowed,
     ) -> Result<Box<dyn SnapshotStage + 'b>, BackupError> {
-        let final_dir = self.target.join(format!("fieldbook-backup-{snapshot:04}"));
+        let final_dir = self
+            .target
+            .join(backup_folder_v1::snapshot_dir_name(snapshot));
         if final_dir.exists() {
             return Err(BackupError::OccupiedSnapshot(snapshot));
         }
 
         let partial_dir = self
             .target
-            .join(format!("fieldbook-backup-{snapshot:04}.partial"));
+            .join(backup_folder_v1::partial_dir_name(snapshot));
         if partial_dir.exists() {
             dirs::remove_outside(
                 self.audited,
@@ -217,8 +223,8 @@ impl SnapshotStage for FolderSnapshotStage<'_> {
         .map_err(|err| BackupError::Target(err.to_string()))?;
 
         // 3. Write LATEST pointer atomically
-        let manifest_sha = self.manifest_sha256.unwrap_or_default();
-        let latest_content = format!("{}\n{}\n", self.snapshot, manifest_sha);
+        let manifest_sha = self.manifest_sha256.as_deref().unwrap_or_default();
+        let latest_content = backup_folder_v1::latest_content(self.snapshot, manifest_sha);
         let latest_path = self.target_dir.join("LATEST");
         self.world
             .write_outside(
@@ -243,10 +249,7 @@ pub fn list_existing_snapshots(target: &Path) -> Vec<Number> {
     for entry in read_dir.flatten() {
         let p = entry.path();
         if let Some(name) = p.file_name().and_then(|n| n.to_str())
-            && name.starts_with("fieldbook-backup-")
-            && !name.ends_with(".partial")
-            && let Some(num_str) = name.strip_prefix("fieldbook-backup-")
-            && let Ok(num) = num_str.parse::<Number>()
+            && let Some(num) = backup_folder_v1::parse_snapshot_dir_name(name)
         {
             numbers.push(num);
         }
@@ -303,8 +306,7 @@ pub fn list_partial_removals(target_path: &Path) -> Vec<Transfer> {
         for entry in read_dir.flatten() {
             let p = entry.path();
             if let Some(name) = p.file_name().and_then(|n| n.to_str())
-                && name.starts_with("fieldbook-backup-")
-                && name.ends_with(".partial")
+                && backup_folder_v1::is_partial_dir_name(name)
                 && let Ok(Some(t)) = tree_remove_transfer(&p)
             {
                 transfers.push(t);
@@ -319,7 +321,9 @@ pub fn list_partial_removals(target_path: &Path) -> Vec<Transfer> {
 pub fn read_snapshot_infos(target_path: &Path, existing_snapshots: &[Number]) -> Vec<SnapshotInfo> {
     let mut snapshot_infos = Vec::new();
     for &num in existing_snapshots {
-        let toml_path = target_path.join(format!("fieldbook-backup-{num:04}/backup.toml"));
+        let toml_path = target_path
+            .join(backup_folder_v1::snapshot_dir_name(num))
+            .join("backup.toml");
         if let Ok(text) = std::fs::read_to_string(&toml_path)
             && let Ok(info) = BackupToml::parse(&text)
         {
@@ -346,7 +350,7 @@ pub fn newest_verified_snapshot_for_target(
 
     let events = read_valid_events_prefix(state_dir);
     for &num in existing_snapshots.iter().rev() {
-        let snap_dir = target_path.join(format!("fieldbook-backup-{num:04}"));
+        let snap_dir = target_path.join(backup_folder_v1::snapshot_dir_name(num));
         let toml_path = snap_dir.join("backup.toml");
         let Ok(text) = std::fs::read_to_string(&toml_path) else {
             continue;

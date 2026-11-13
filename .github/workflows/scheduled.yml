@@ -1,0 +1,211 @@
+# Weekly controls: the lint controls, advisory check, full-history secret scan,
+# committed-lock check, edition build for the cross-OS compare, and the advisory scale table.
+# The workflow token is read-only (contents: read); no secret value is stored in the repository.
+#
+# Like ci.yml, every job runs on the owner's self-hosted runner (control CI-01 in
+# docs/controls.md) and only for a schedule, a manual run, or a pull request from this
+# repository (fork pull requests do not run).
+#
+# The only secret named is FIELDBOOK_SECURITY_CONTACT (control IN-01), bound only on the
+# step that packages the edition; the owner provisions the repository secret of that name.
+name: scheduled
+
+on:
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+  pull_request:
+    paths: [".github/workflows/scheduled.yml", "xtask/tests/advisories_fixture/**", "xtask/tests/scheduled_controls.rs", "clippy.toml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  advisories:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, fieldbook]
+    timeout-minutes: 20
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        with:
+          tool: cargo-deny@0.20.2,cargo-nextest@0.9.148
+      - name: Check the advisories of the committed lock
+        run: cargo deny --locked check advisories
+      - name: Prove the advisory control fails on a synthetic lockfile and on a git source
+        run: cargo nextest run --locked -p xtask --test scheduled_controls --run-ignored only advisories_fixture_fails_deny advisories_fixture_git_source_fails_deny
+
+  secrets:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, fieldbook]
+    timeout-minutes: 20
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      # The filtered gitleaks setup does not install just; install it before the first just invocation.
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        with:
+          tool: just@1.58.0,cargo-nextest@0.9.148
+      - name: Install gitleaks
+        run: cargo xtask setup --no-hooks gitleaks
+      - name: Scan every commit for secrets
+        env:
+          FIELDBOOK_BASE: "0000000000000000000000000000000000000000"
+        run: just _gitleaks
+      - name: Prove the scan reports a planted token
+        run: cargo nextest run --locked -p xtask --test scheduled_controls --run-ignored only gitleaks_reports_a_planted_token
+
+  lint-controls:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, fieldbook]
+    timeout-minutes: 45
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        with:
+          tool: cargo-nextest@0.9.148
+      - name: Plant each banned construct and require clippy to fail
+        run: cargo nextest run --locked -p xtask --test scheduled_controls --run-ignored only lint_bans_fail_clippy
+
+  lock:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, fieldbook]
+    timeout-minutes: 60
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      # The filtered gitleaks setup does not install just; install it before the first just invocation.
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        with:
+          tool: just@1.58.0,cargo-nextest@0.9.148,cargo-deny@0.20.2,typos@1.51.1
+      - name: Install gitleaks
+        run: cargo xtask setup --no-hooks gitleaks
+      # It neither updates the lock nor installs a custom verifier; exact snapshot replay stays deferred.
+      - name: Build the workspace on the committed lock
+        run: cargo build --workspace --locked
+      - name: Check
+        run: just check
+
+  edition-linux:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, fieldbook]
+    timeout-minutes: 60
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      # Checkout comes first because the next step reads corpus/changes.md.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Look for an edition heading
+        id: heading
+        run: |
+          set -euo pipefail
+          if grep -q "^## edition-" corpus/changes.md; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            number="$(grep -m 1 "^## edition-" corpus/changes.md | sed 's/^## edition-//' | tr -d '[:space:]')"
+            echo "number=$number" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::no edition to build"
+          fi
+      - name: Install the pinned Rust toolchain
+        if: steps.heading.outputs.run == 'true'
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        if: steps.heading.outputs.run == 'true'
+        with:
+          save-if: "false"
+      # The edition build uses just.
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        if: steps.heading.outputs.run == 'true'
+        with:
+          tool: just@1.58.0
+      - name: Package the edition
+        if: steps.heading.outputs.run == 'true'
+        env:
+          FIELDBOOK_SECURITY_CONTACT: ${{ secrets.FIELDBOOK_SECURITY_CONTACT }}
+        run: cargo xtask edition
+      # The artifact holds both complete packages and their published sums because
+      # the cross-OS comparison must reopen and verify package bytes; hash lists alone
+      # are not enough.
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.heading.outputs.run == 'true'
+        with:
+          name: edition-hashes-linux
+          path: |
+            out/dist/fieldbook-edition-${{ steps.heading.outputs.number }}.zip
+            out/dist/fieldbook-originals-${{ steps.heading.outputs.number }}.zip
+            out/dist/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 14
+
+  scale:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, fieldbook]
+    timeout-minutes: 30
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      # The run is advisory: a figure never fails the job, only an inability to run the command does.
+      # shell: bash ensures a pipe fails when its first command fails.
+      - name: Run the advisory scale table
+        shell: bash
+        run: cargo xtask scale | tee scale-table.txt
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: scale-table
+          path: scale-table.txt
+          if-no-files-found: error
+          retention-days: 14

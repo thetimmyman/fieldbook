@@ -33,5 +33,6 @@ pub mod sources_block;
 pub mod stages;
 pub mod status_chip;
 pub mod svg;
+pub mod templates_xlsx;
 pub mod types;
 pub mod xlsx;

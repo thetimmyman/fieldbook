@@ -1,0 +1,7 @@
+# S-0002-v1 is superseded by S-0002-v2, and the pack leaves out superseded versions, so with the pack ids as context it is outside_context, which comes before superseded (no code, not unresolved): exit 0.
+seed = "cc-s-08"
+exit = 0
+total = 2
+unresolved = 0
+statuses = ["verified", "outside_context"]
+ai_paste = true
