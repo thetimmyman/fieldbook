@@ -19,8 +19,6 @@ use crate::{
     source, xlsx,
 };
 
-const FIELDBOOK_MARK: &[u8] = include_bytes!("../assets/fieldbook.svg");
-
 const APP_CSS: &str = include_str!("../assets/app.css");
 /// `assets/app.js`, which the harness also loads into its shortcut pages.
 pub const APP_JS: &str = include_str!("../assets/app.js");
@@ -174,7 +172,6 @@ pub fn render_context(
 #[must_use]
 pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     let mut paths = vec![
-        "assets/fieldbook.svg".to_owned(),
         "assets/app.css".to_owned(),
         "assets/app.js".to_owned(),
         search_index::OUTPUT_PATH.to_owned(),
@@ -284,7 +281,6 @@ pub fn render_with_info(
         search_page::SCRIPT.as_bytes().to_vec(),
     );
     site.insert("assets/strings.js", strings::js().into_bytes());
-    site.insert("assets/fieldbook.svg", FIELDBOOK_MARK.to_vec());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
     site.insert("assets/app.js", APP_JS.as_bytes().to_vec());
     site.insert(xlsx::OUTPUT_PATH, xlsx::render(view, info.workbook_epoch)?);
