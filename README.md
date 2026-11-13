@@ -1,5 +1,10 @@
 # Fieldbook
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="crates/fieldbook-render/assets/fieldbook-logo-dark.svg">
+  <img src="crates/fieldbook-render/assets/fieldbook-logo.svg" width="225" height="64" alt="Fieldbook">
+</picture>
+
 Fieldbook is a cited finance library plus one small Rust program. The default (silent) build is offline, and so is every edition; the optional AI build can call a model endpoint that the company's policy lists and the owner configures, through one audited gate. The library (the Corpus) holds pages, tables and byte-exact public documents, and every consequential statement traces to a public source. The program checks the Corpus, renders it as static pages and Excel-safe tables, and writes each edition as two zip files.
 
 It is the job tool of one person, an incoming Finance Director at a US defense-munitions contractor, and it is meant to become a company application. The owner reads and prints from it, adds to it at home, and carries it to the company laptop as plain files. Once installed there, the program holds company data in company storage, on the company network, as an extension of company infrastructure. Everything in this repository is public information or synthetic. Company data never enters this repository or an edition: code and public content go to the laptop by the approved channel, and company data sources sync into company storage through ports ([ADR 0004](docs/decisions/0004-company-boundary.md)).
