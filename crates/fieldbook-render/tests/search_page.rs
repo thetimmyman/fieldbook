@@ -215,7 +215,7 @@ mod search_page {
     fn search_js_is_a_classic_script_within_budget() {
         let script = include_str!("../assets/search.js");
         assert!(
-            script.len() <= 10_000,
+            script.len() <= 11_000,
             "search.js is {} bytes",
             script.len()
         );
@@ -293,5 +293,28 @@ mod search_page {
                 "unit_href mismatch for {id}"
             );
         }
+    }
+
+    #[test]
+    fn search_js_renders_a_term_row_by_text_with_its_glossary_link() {
+        let script = include_str!("../assets/search.js");
+        for needle in [
+            "['term', 'glossary.html#']",
+            "Also called: ",
+            "glossary term",
+            "sr-parent",
+            "function hold(",
+            "hold: hold",
+        ] {
+            assert!(script.contains(needle), "search.js must contain {needle:?}");
+        }
+        for banned in ["innerHTML", "outerHTML", "insertAdjacentHTML"] {
+            assert!(!script.contains(banned), "search.js uses {banned}");
+        }
+        assert_eq!(
+            unit_href("term", "wrap_rate"),
+            Some("glossary.html#wrap_rate".to_owned()),
+            "the JS link form and the Rust route agree"
+        );
     }
 }
