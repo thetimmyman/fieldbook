@@ -29,7 +29,7 @@
 
 ## Preconditions
 
-- Cards merged: `build-home-and-areas`, `build-charts` (it extends `area.rs`), `build-frame`, `edge-harness`, `home-area-placeholders` (open; shared paths `crates/fieldbook-render/src/area.rs`, `crates/fieldbook-render/tests/home.rs`), `status-command` (open; shared path `crates/fieldbook-render/src/frame.rs`). The first four are merged on origin/main. Do the placeholder wording changes in `area.rs` after `home-area-placeholders`, and keep this card's edits to the lines it names.
+- Cards merged: `build-home-and-areas`, `build-charts` (it extends `area.rs`), `build-frame`, `edge-harness`, `home-area-placeholders` (open; shared paths `crates/fieldbook-render/src/area.rs`, `crates/fieldbook-render/tests/home.rs`). The first four are merged on origin/main. Do the placeholder wording changes in `area.rs` after `home-area-placeholders`, and keep this card's edits to the lines it names.
 
 ## Steps
 
@@ -53,7 +53,7 @@ grep -c 'View over MKT' out/edition/a/cpy.html out/edition/a/cpt.html out/editio
 just check
 ```
 
-Expected: the tests pass; `just site` exits 0; `wc -l` prints the number of areas plus the number of views (16 with the real Corpus); each `grep -c` prints `1`; the guarded `grep` exits 0; `just check` exits 0. Open `out/edition/a/pgm.html` in a text viewer: the Overview shows the "programs table" panel and the SBA 8(a) clause cards under Library pages.
+Expected: the tests pass; `just site` exits 0; `wc -l` prints the number of areas plus the number of views (16 with the real Corpus); each `grep -c` prints `<file>:1`, one line per file; the guarded `grep` exits 0; `just check` exits 0. Open `out/edition/a/pgm.html` in a text viewer: the Overview shows the "programs table" panel and the SBA 8(a) clause cards under Library pages.
 
 ## Negative control
 
