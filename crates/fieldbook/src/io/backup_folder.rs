@@ -16,6 +16,7 @@ use fieldbook_core::backup::{
 use fieldbook_core::egress::{Allowed, Operation, Target, Transfer, hash_tree_manifest};
 
 use crate::World;
+use crate::io::Error;
 use crate::io::dirs::{self, Removable};
 use crate::io::journal::{Audited, read_valid_events_prefix};
 use crate::io::versions::backup_folder_v1;
@@ -390,4 +391,36 @@ pub fn newest_verified_snapshot_for_target(
         }
     }
     None
+}
+
+/// Writes restored snapshot files to an export destination outside the data root.
+///
+/// Creates `destination` via [`dirs::make_dir_outside`] if `create_destination` is true,
+/// and writes each file via [`World::write_outside`].
+///
+/// # Errors
+///
+/// Returns [`Error`] if directory creation or file writing fails, or if a written file's
+/// digest does not match its expected SHA-256.
+pub fn write_restore_to(
+    world: &dyn World,
+    audited: &Audited,
+    allowed: &Allowed,
+    destination: &Path,
+    create_destination: bool,
+    files: &[(&Path, &[u8], &str)],
+) -> Result<(), Error> {
+    if create_destination {
+        dirs::make_dir_outside(audited, allowed, destination)?;
+    }
+    for &(path, bytes, expected_sha) in files {
+        let written_sha = world.write_outside(allowed, audited, path, bytes)?;
+        if written_sha.as_str() != expected_sha {
+            return Err(Error::new(
+                path,
+                format!("written sha256 mismatch: expected {expected_sha}, got {written_sha}"),
+            ));
+        }
+    }
+    Ok(())
 }

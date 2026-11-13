@@ -1,0 +1,3 @@
+Synthetic fixture original for automated tests. The numbers are made up.
+Section 3: Synthetic rate review window was 15 days.
+Section 4: Synthetic rate review window is 10 days.

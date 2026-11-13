@@ -34,6 +34,11 @@ use zip::ZipArchive;
 use support::temp_copy;
 use support::world::TestWorld;
 
+use fieldbook::io::journal::RestoreExportRequest;
+use fieldbook::restore::{RestoreOptions, run_restore};
+use fieldbook_core::backup::{BackupToml, PlannedFile, RestorePlan, manifest_sha256};
+use fieldbook_core::egress::{Operation, Target, hash_tree_manifest};
+
 const POLICY_TOML: &str = include_str!("../../../tests/fixtures/policy/policy.toml");
 const RECORDS_TOML: &str = include_str!("../../../tests/fixtures/leak/records.toml");
 const MINI_CORPUS_TOML: &str =
@@ -58,6 +63,7 @@ const BUILT_SINKS: &[&str] = &[
     "day_one_binder",
     "registers_workbook",
     "register_csvs",
+    "restore",
     "template_workbooks",
 ];
 
@@ -94,6 +100,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "register_csvs",
         run: run_register_csvs_surface,
+    },
+    Surface {
+        name: "restore",
+        run: run_restore_surface,
     },
     Surface {
         name: "template_workbooks",
@@ -2118,6 +2128,427 @@ fn run_register_csvs_surface() {
             "CSV data rows must equal workbook rows cell for cell for {reg_name}"
         );
     }
+}
+
+fn rewrite_restore_meta<F>(snap_dir: &Path, mutate: F)
+where
+    F: FnOnce(&mut BackupToml),
+{
+    let toml_path = snap_dir.join("backup.toml");
+    let sums_path = snap_dir.join("SHA256SUMS");
+    let toml_text = std::fs::read_to_string(&toml_path).unwrap_or_else(|e| panic!("{e}"));
+    let sums_text = std::fs::read_to_string(&sums_path).unwrap_or_else(|e| panic!("{e}"));
+    let mut info = BackupToml::parse(&toml_text).unwrap_or_else(|e| panic!("{e}"));
+    mutate(&mut info);
+    let new_manifest = manifest_sha256(&info, &sums_text).unwrap_or_else(|e| panic!("{e}"));
+    info.manifest_sha256 = new_manifest.as_str().to_string();
+    let rewritten = toml::to_string_pretty(&info).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(&toml_path, rewritten).unwrap_or_else(|e| panic!("{e}"));
+}
+
+fn read_journal_kinds(state_dir: &Path) -> Vec<String> {
+    let audit_dir = state_dir.join("audit");
+    let mut files = Vec::new();
+    if let Ok(entries) = std::fs::read_dir(&audit_dir) {
+        for entry in entries.flatten() {
+            let p = entry.path();
+            if p.extension().and_then(|s| s.to_str()) == Some("jsonl") {
+                files.push(p);
+            }
+        }
+    }
+    files.sort();
+    let mut kinds = Vec::new();
+    for f in files {
+        let content = std::fs::read_to_string(&f).unwrap_or_else(|e| panic!("{e}"));
+        for line in content.lines() {
+            let trimmed = line.trim();
+            if trimmed.is_empty() {
+                continue;
+            }
+            let (ev, _) =
+                Event::parse_line(trimmed).unwrap_or_else(|e| panic!("parse journal line: {e}"));
+            kinds.push(ev.kind().as_str().to_string());
+        }
+    }
+    kinds
+}
+
+fn dir_contains_bytes(dir: &Path, needle: &[u8]) -> bool {
+    if needle.is_empty() {
+        return true;
+    }
+    let mut stack = vec![dir.to_path_buf()];
+    while let Some(current) = stack.pop() {
+        let Ok(entries) = std::fs::read_dir(&current) else {
+            continue;
+        };
+        for entry in entries.flatten() {
+            let path = entry.path();
+            if path.is_dir() {
+                stack.push(path);
+            } else if path.is_file()
+                && let Ok(bytes) = std::fs::read(&path)
+                && bytes.windows(needle.len()).any(|w| w == needle)
+            {
+                return true;
+            }
+        }
+    }
+    false
+}
+
+fn run_restore_surface() {
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let tree = fieldbook::io::read_tree(tmp.path()).unwrap_or_else(|e| panic!("{e}"));
+    if let Ok(cat) = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    ) {
+        let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+        world.set_support_catalogue(cat, cat_sha);
+    }
+    let target_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let target_path = target_tmp.path().to_path_buf();
+
+    // 1. Setup clean state directory with settings and journal
+    let state_mini_path =
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../tests/fixtures/state-mini");
+    let state_dir = tmp.path().join(".fieldbook");
+    std::fs::create_dir_all(&state_dir).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::create_dir_all(state_dir.join("audit")).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::copy(
+        state_mini_path.join("settings.toml"),
+        state_dir.join("settings.toml"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    std::fs::copy(
+        state_mini_path.join("audit/journal.jsonl"),
+        state_dir.join("audit/journal.jsonl"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+
+    // Add target to settings.toml
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\n",
+        target_path.to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(state_dir.join("settings.toml"), settings_text)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let eff = EffectivePolicy::floor(false);
+
+    // 2. Destination / payload binding checks
+    let binding_scratch = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let binding_dest = binding_scratch
+        .path()
+        .canonicalize()
+        .unwrap_or_else(|e| panic!("{e}"))
+        .join("binding-dest");
+    let test_file = binding_dest.join("binding-test.txt");
+    let approved_bytes = b"approved-restore-bytes";
+    let test_sha = Sha256::digest(approved_bytes).as_str().to_string();
+    let test_len = approved_bytes.len() as u64;
+
+    let planned_files = vec![PlannedFile {
+        path: test_file.clone(),
+        sha256: test_sha.clone(),
+        bytes: test_len,
+    }];
+    let plan = RestorePlan {
+        destination: binding_dest.clone(),
+        roots: Vec::new(),
+    };
+    let labels = LabelSet::public();
+    let request = RestoreExportRequest {
+        snapshot: 1,
+        mode: "real",
+        labels: &labels,
+        plan: &plan,
+        files: &planned_files,
+        create_destination: true,
+    };
+
+    let (dir_sha, dir_bytes) = hash_tree_manifest(&[]);
+    let transfer_dir = Transfer {
+        target: Target::Path(binding_dest.clone()),
+        operation: Operation::CreateDir,
+        sha256: dir_sha,
+        bytes: dir_bytes,
+    };
+    let transfer_file = Transfer {
+        target: Target::Path(test_file.clone()),
+        operation: Operation::Write,
+        sha256: test_sha,
+        bytes: test_len,
+    };
+    let matching_transfers = vec![transfer_dir, transfer_file];
+    let delivery = Delivery::new(matching_transfers, None);
+
+    let dest = Dest::Export {
+        path: binding_dest.to_string_lossy().into_owned(),
+    };
+    let now = default_now();
+    let shipped = Shipped::Never;
+
+    let Decision::Allowed(allowed) =
+        check(&eff, &dest, Some(&labels), Some(&delivery), now, shipped)
+    else {
+        panic!("expected restore export delivery Allowed");
+    };
+
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+
+    // Selection-only token (no Delivery) passed to begin_restore_export is Err and appends no restore.begin
+    let Decision::Allowed(selection_token) = check(&eff, &dest, Some(&labels), None, now, shipped)
+    else {
+        panic!("expected selection Allowed");
+    };
+    let kinds_before_sel = read_journal_kinds(world.state_dir());
+    let res_sel = journal.begin_restore_export(&request, &selection_token);
+    assert!(
+        res_sel.is_err(),
+        "selection-only token must be refused by begin_restore_export"
+    );
+    let kinds_after_sel = read_journal_kinds(world.state_dir());
+    assert_eq!(
+        kinds_before_sel, kinds_after_sel,
+        "selection-only token must append no journal events"
+    );
+
+    let audited = journal
+        .begin_restore_export(&request, &allowed)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Check payload mutation is refused:
+    // (i) the right path with mutated bytes
+    let mut bad_bytes = approved_bytes.to_vec();
+    bad_bytes.extend_from_slice(b"-mutated");
+    let res_mut = world.write_outside(&allowed, &audited, &test_file, &bad_bytes);
+    assert!(
+        matches!(res_mut, Err(Error::OutOfScope(_))),
+        "mutated bytes must be refused by write_outside"
+    );
+
+    // (ii) a different path with the approved bytes
+    let rogue_file = binding_dest.join("rogue.txt");
+    let res_rogue = world.write_outside(&allowed, &audited, &rogue_file, approved_bytes);
+    assert!(
+        matches!(res_rogue, Err(Error::OutOfScope(_))),
+        "mutated target path must be refused by write_outside"
+    );
+
+    // End restore to release the lock
+    journal
+        .end_restore(audited, 1, "real", "ok", None)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Check input item refs and reopening after relabelling:
+    let restore_item = ItemRef::new(StoreId::Corpus, "restore-output");
+    let source_item = ItemRef::new(StoreId::Corpus, "sources/public/S-0002-v2.txt");
+    let mut nodes = BTreeMap::new();
+    nodes.insert(
+        source_item.clone(),
+        LabelNode::new(LabelSet::public(), Vec::new()),
+    );
+    nodes.insert(
+        restore_item.clone(),
+        LabelNode::new(LabelSet::public(), vec![source_item.clone()]),
+    );
+    let graph = TestProvenanceGraph {
+        nodes: nodes.clone(),
+        ledger: Ledger::default(),
+    };
+    assert_eq!(effective_item(&graph, &restore_item), LabelSet::public());
+
+    let np7 = LabelId::parse("np-0007").unwrap_or_else(|e| panic!("{e}"));
+    nodes.insert(
+        source_item,
+        LabelNode::new(LabelSet::from_ids([PUBLIC, np7.clone()]), Vec::new()),
+    );
+    let relabelled_graph = TestProvenanceGraph {
+        nodes,
+        ledger: Ledger::default(),
+    };
+    let relabelled_eff = effective_item(&relabelled_graph, &restore_item);
+    assert!(relabelled_eff.contains(&np7));
+    assert!(
+        matches!(
+            check(
+                &eff,
+                &dest,
+                Some(&relabelled_eff),
+                Some(&delivery),
+                now,
+                shipped
+            ),
+            Decision::Denied(_)
+        ),
+        "Dest::Export must deny relabelled effective_item set"
+    );
+
+    // 3. Permitted canary: plant a public page under the temp corpus before backup
+    let public_canary = fixture
+        .record
+        .iter()
+        .find(|r| r.label == "public")
+        .unwrap_or_else(|| panic!("missing public canary in records.toml"))
+        .canary
+        .clone();
+    let permitted_page = tmp
+        .path()
+        .join("corpus/pages/estimating/pricing/permitted-canary.md");
+    let canary_content = format!(
+        "+++\nid = \"permitted-canary\"\ntitle = \"Permitted canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nPermitted canary {public_canary}.\n"
+    );
+    std::fs::write(&permitted_page, canary_content).unwrap_or_else(|e| panic!("{e}"));
+
+    // Make snapshot 1 with the real run_backup
+    let backup_options = fieldbook::backup::BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome_backup = fieldbook::backup::run_backup(&world, &eff, &backup_options);
+    assert_eq!(
+        outcome_backup.code, 0,
+        "backup failed: {}",
+        outcome_backup.stderr
+    );
+    let snap_dir = target_path.join("fieldbook-backup-0001");
+    assert!(snap_dir.is_dir(), "snapshot 1 directory must exist");
+
+    // Restore to fresh outside folder
+    let restore_scratch = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let dest_ok = restore_scratch.path().join("restored-ok");
+    assert!(!dest_ok.exists());
+
+    let outcome_restore_ok = run_restore(
+        &world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_ok.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        outcome_restore_ok.code, 0,
+        "restore --to must succeed with exit 0: {}",
+        outcome_restore_ok.stderr
+    );
+    assert!(dest_ok.is_dir(), "restored destination must exist");
+
+    // Restored folder bytes contain the permitted canary and NO canary of any record whose label is not public/owner-supplied
+    assert!(
+        dir_contains_bytes(&dest_ok, public_canary.as_bytes()),
+        "restored folder must contain permitted public canary `{public_canary}`"
+    );
+    for rec in &fixture.record {
+        if rec.label != "public" && rec.label != "owner-supplied" {
+            assert!(
+                !dir_contains_bytes(&dest_ok, rec.canary.as_bytes()),
+                "restored folder must NOT contain canary `{}` ({})",
+                rec.canary,
+                rec.label
+            );
+        }
+    }
+
+    // 4. Forbidden canary: rewrite snapshot backup.toml labels to include np-0007
+    rewrite_restore_meta(&snap_dir, |info| {
+        info.labels.push("np-0007".to_string());
+        info.labels.sort();
+        info.labels.dedup();
+    });
+    let dest_forbidden = restore_scratch.path().join("restored-forbidden");
+    assert!(!dest_forbidden.exists());
+
+    let kinds_before_forbidden = read_journal_kinds(world.state_dir());
+    let outcome_forbidden = run_restore(
+        &world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_forbidden.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        outcome_forbidden.code, 2,
+        "restore with forbidden canary np-0007 must exit with code 2: {}",
+        outcome_forbidden.stderr
+    );
+    assert!(
+        outcome_forbidden.stderr.contains("FB0901"),
+        "stderr must contain FB0901: {}",
+        outcome_forbidden.stderr
+    );
+    assert!(
+        !dest_forbidden.exists(),
+        "forbidden destination folder must NOT exist"
+    );
+    let kinds_after_forbidden = read_journal_kinds(world.state_dir());
+    let new_kinds_forbidden = &kinds_after_forbidden[kinds_before_forbidden.len()..];
+    assert!(
+        new_kinds_forbidden.iter().any(|k| k == "refuse"),
+        "journal must gain a refuse event for forbidden canary restore attempt"
+    );
+    assert!(
+        !new_kinds_forbidden.iter().any(|k| k == "restore.begin"),
+        "journal must gain NO restore.begin for forbidden canary restore attempt"
+    );
+
+    // Also an unlabelled snapshot label set refuses the same way (exit 2, FB0901, nothing written)
+    rewrite_restore_meta(&snap_dir, |info| {
+        info.labels = vec!["unlabelled".to_string()];
+    });
+    let dest_unlabelled = restore_scratch.path().join("restored-unlabelled");
+    assert!(!dest_unlabelled.exists());
+
+    let kinds_before_unlabelled = read_journal_kinds(world.state_dir());
+    let outcome_unlabelled = run_restore(
+        &world,
+        &eff,
+        &RestoreOptions {
+            snapshot: 1,
+            to: Some(dest_unlabelled.clone()),
+            drill: false,
+            target: None,
+            from: None,
+        },
+    );
+    assert_eq!(
+        outcome_unlabelled.code, 2,
+        "restore with unlabelled snapshot must exit with code 2: {}",
+        outcome_unlabelled.stderr
+    );
+    assert!(
+        outcome_unlabelled.stderr.contains("FB0901"),
+        "stderr must contain FB0901: {}",
+        outcome_unlabelled.stderr
+    );
+    assert!(
+        !dest_unlabelled.exists(),
+        "unlabelled destination folder must NOT exist"
+    );
+    let kinds_after_unlabelled = read_journal_kinds(world.state_dir());
+    let new_kinds_unlabelled = &kinds_after_unlabelled[kinds_before_unlabelled.len()..];
+    assert!(
+        new_kinds_unlabelled.iter().any(|k| k == "refuse"),
+        "journal must gain a refuse event for unlabelled restore attempt"
+    );
+    assert!(
+        !new_kinds_unlabelled.iter().any(|k| k == "restore.begin"),
+        "journal must gain NO restore.begin for unlabelled restore attempt"
+    );
 }
 
 fn run_template_workbooks_surface() {

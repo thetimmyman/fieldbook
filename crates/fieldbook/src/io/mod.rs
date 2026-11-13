@@ -199,6 +199,24 @@ impl Disk {
         atomic::write_outside(allowed, path, bytes, audited)
     }
 
+    /// Reset the drill directory under the state root under `audited` via [`dirs::reset_drill`].
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error`] if the state root lacks authority or filesystem operations fail.
+    pub fn reset_drill(&self, audited: &Audited) -> Result<(), Error> {
+        dirs::reset_drill(audited, &self.roots().state)
+    }
+
+    /// Remove the drill directory under the state root under `audited` via [`dirs::remove_drill`].
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error`] if the state root lacks authority or filesystem operations fail.
+    pub fn remove_drill(&self, audited: &Audited) -> Result<(), Error> {
+        dirs::remove_drill(audited, &self.roots().state)
+    }
+
     /// Return whether a company store exists on this layout (`false` on the Home layout).
     #[must_use]
     pub const fn has_company_store(&self) -> bool {

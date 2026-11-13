@@ -304,6 +304,21 @@ fn normalize_lexical(path: &Path) -> PathBuf {
 /// fails with an I/O error.
 pub fn git_context(world: &dyn World, destination: &Path) -> Result<GitContext, Error> {
     let resolved_dest = resolve_canonical_with_tail(world.cwd(), destination)?;
+    git_context_at(world, &resolved_dest)
+}
+
+/// Resolve the [`GitContext`] of `resolved_dest`, a path the caller has already resolved, as
+/// [`git_context`] does but without resolving it again.
+///
+/// A caller that is about to replace the last component (the drill folder, which a reset
+/// removes and creates again) passes the place the write will land, not where a symlink
+/// standing there now points.
+///
+/// # Errors
+///
+/// Returns [`Error`] if canonicalizing an existing ancestor of the tree or state root, or
+/// reading an existing `.gitignore`, fails with an I/O error.
+pub fn git_context_at(world: &dyn World, resolved_dest: &Path) -> Result<GitContext, Error> {
     let under_git = resolved_dest
         .ancestors()
         .any(|anc| std::fs::symlink_metadata(anc.join(".git")).is_ok());
@@ -459,6 +474,14 @@ mod tests {
 
         fn support_facts(&self) -> fieldbook_core::manifest::SupportFacts {
             self.disk.support_facts()
+        }
+
+        fn reset_drill(&self, audited: &Audited) -> Result<(), Error> {
+            self.disk.reset_drill(audited)
+        }
+
+        fn remove_drill(&self, audited: &Audited) -> Result<(), Error> {
+            self.disk.remove_drill(audited)
         }
     }
 

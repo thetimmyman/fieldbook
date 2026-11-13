@@ -19,6 +19,7 @@ pub mod ctx;
 pub mod io;
 pub mod new;
 pub mod report;
+pub mod restore;
 pub mod search;
 pub mod verbs;
 pub mod verify;
@@ -108,6 +109,20 @@ pub trait World {
 
     /// Return facts about public support provenance: retained verified catalogues and completed public writes.
     fn support_facts(&self) -> SupportFacts;
+
+    /// Reset the drill workspace under `<state>/drill`.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`WorldError`] if the drill workspace cannot be reset.
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError>;
+
+    /// Remove the drill workspace under `<state>/drill`.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`WorldError`] if the drill workspace cannot be removed.
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError>;
 
     /// Return the registry id of the Store adapter that this world is.
     ///
@@ -291,6 +306,9 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             }
         }
         Commands::Backup(backup_args) => backup::run(&backup_args, parsed.state.as_deref(), world),
+        Commands::Restore(restore_args) => {
+            restore::run(&restore_args, parsed.state.as_deref(), world)
+        }
     };
 
     if io::journal::thread_wrote_store() && (outcome.code == 0 || outcome.code == 1) {
@@ -335,7 +353,8 @@ impl World for StateOverrideWorld<'_> {
         path: &Path,
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
-        self.inner.write_file(audited, path, bytes)
+        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+        disk.write_file(audited, path, bytes)
     }
 
     fn write_outside(
@@ -414,6 +433,16 @@ impl World for StateOverrideWorld<'_> {
         } else {
             inner
         }
+    }
+
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+        disk.reset_drill(audited)
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+        disk.remove_drill(audited)
     }
 }
 
@@ -615,6 +644,14 @@ mod tests {
 
         fn support_facts(&self) -> SupportFacts {
             SupportFacts::default()
+        }
+
+        fn reset_drill(&self, _audited: &super::Audited) -> Result<(), WorldError> {
+            Err(WorldError::OutOfScope(self.state_dir.join("drill")))
+        }
+
+        fn remove_drill(&self, _audited: &super::Audited) -> Result<(), WorldError> {
+            Err(WorldError::OutOfScope(self.state_dir.join("drill")))
         }
     }
 

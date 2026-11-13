@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: restore and restore --drill.
 - Added: site search finds glossary terms by their labels and aliases.
 - Changed: the home and area pages no longer show a placeholder that names an internal document.
 - Added: a weekly `scheduled.yml` workflow runs the advisory check, a full-history secret scan, the lint controls (a planted banned call must fail clippy), the committed-lock check, an edition build for the cross-OS compare when `corpus/changes.md` has an edition heading, and the advisory scale table.

@@ -535,4 +535,12 @@ impl World for Disk {
     fn support_facts(&self) -> fieldbook_core::manifest::SupportFacts {
         Disk::support_facts(self)
     }
+
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        Disk::reset_drill(self, audited)
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        Disk::remove_drill(self, audited)
+    }
 }

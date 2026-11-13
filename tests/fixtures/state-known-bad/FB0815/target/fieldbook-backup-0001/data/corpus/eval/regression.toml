@@ -1,0 +1,18 @@
+# Synthetic regression set for the corpus-mini fixture.
+
+[[case]]
+id = "rg-001"
+query = "withhold"
+expect = ["cmp-withhold-case"]
+# No committed case is critical; the known-bad FB0128 row adds the key in a copy.
+
+[[case]]
+id = "rg-002"
+query = "xylophone marmalade"
+expect_none = true
+
+[[case]]
+id = "rg-003"
+query = "rate review window"
+expect = ["est-rate-window-brief"]
+top = 3

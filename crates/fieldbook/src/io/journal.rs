@@ -16,12 +16,14 @@ use std::sync::{Arc, Mutex, OnceLock};
 use std::thread::ThreadId;
 use std::time::{Duration, Instant};
 
+use fieldbook_core::audit::vocab::{OK_FAILED_OUTCOMES, RESTORE_MODES};
 use fieldbook_core::audit::{
     Actor, BackupVerified, Count, DestKind, Event, EventEnvelope, EventPayload, Kind, LabelSet,
     Now, OperationIntent, OperationKey, PendingFile, PendingKey, PendingOperation, PendingWrite,
     RecordRef, RefuseAbout, SemVer, Sha256, StoreId, Verb, Via, Word, WriteSet, ZERO_HASH,
     completed_after_hash, compute_file_hashes, normalize_affected, split_hash_suffix, verify_line,
 };
+use fieldbook_core::backup::{PlannedFile, RestorePlan};
 use fieldbook_core::check::{Code, Tree};
 use fieldbook_core::egress::{Allowed, Operation, Target, Transfer};
 
@@ -937,6 +939,23 @@ pub struct RestoreEndInfo {
     pub code: Option<Code>,
     /// Timestamp of the event.
     pub time: Now,
+}
+
+/// Everything a restore export is bound to: what is written where.
+#[derive(Debug)]
+pub struct RestoreExportRequest<'a> {
+    /// Identifier number of the snapshot being restored.
+    pub snapshot: u32,
+    /// Restore mode word (`drill` or `real`).
+    pub mode: &'a str,
+    /// Provenance label set carried by the snapshot.
+    pub labels: &'a LabelSet,
+    /// Pure validated restore plan.
+    pub plan: &'a RestorePlan,
+    /// Planned destination files with their expected hashes and sizes.
+    pub files: &'a [PlannedFile],
+    /// True when `plan.destination` does not exist yet and must be created.
+    pub create_destination: bool,
 }
 
 /// Handle to the append-only hash-chained journal under `<state>/audit/`.
@@ -2266,6 +2285,328 @@ impl<'a> Journal<'a> {
         newest_restore_end_events(&events)
     }
 
+    /// Begin a restore transaction: append `restore.begin` without egress destination or policy,
+    /// and return a state-only [`Audited`] token.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError::Vocab`] if `mode` is invalid or `snapshot` is 0,
+    /// [`JournalError::Busy`] if a transaction is already active on this handle,
+    /// or [`JournalError`] if the journal lock cannot be acquired or the event cannot be appended.
+    pub fn begin_restore(
+        &mut self,
+        snapshot: u32,
+        mode: &str,
+        labels: &LabelSet,
+    ) -> Result<Audited, JournalError> {
+        let restore_mode = Word::from_closed(mode, RESTORE_MODES)
+            .map_err(|_| JournalError::Vocab(format!("invalid restore mode: {mode}")))?;
+        if snapshot == 0 {
+            return Err(JournalError::Vocab("snapshot must be >= 1".to_owned()));
+        }
+
+        let already_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        if already_active {
+            let _ = acquire_journal_lock(&self.state_dir)?;
+            return Err(JournalError::Busy);
+        }
+
+        let lock = acquire_journal_lock(&self.state_dir)?;
+        let tail = inspect_tail_strict(&self.state_dir)?;
+
+        let payload = EventPayload::RestoreBegin {
+            snapshot: Count::new(u64::from(snapshot)),
+            mode: restore_mode,
+            labels: labels.clone(),
+            dest: None,
+            policy: None,
+        };
+        let new_tail = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+
+        if let Ok(mut guard) = self.active_tx.lock() {
+            *guard = Some(ActiveTx {
+                _lock: lock,
+                has_write_begin: false,
+                state_scope_count: 1,
+                recovery: false,
+            });
+        }
+
+        let verb = Verb::parse("restore").map_err(|err| JournalError::Vocab(err.to_string()))?;
+
+        Ok(Audited {
+            state_only: true,
+            state_dir: self.state_dir.clone(),
+            begin_seq: Some(new_tail.last_seq),
+            verb: Some(verb),
+            labels: Some(labels.clone()),
+            affected: Vec::new(),
+            export_context: None,
+            active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: None,
+            ended: false,
+        })
+    }
+
+    /// Begin a restore export transaction: validate the request against the delivery-bound
+    /// [`Allowed`] token, append `restore.begin` with export destination and policy hash,
+    /// and return an export [`Audited`] token.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError::Vocab`] if `allowed` lacks a delivery binding, targets a non-export
+    /// destination, mismatches labels, destinations, hashes, or directory operations, or if
+    /// parameters are invalid; returns [`JournalError::Busy`] if a transaction is already active,
+    /// or [`JournalError`] if the lock or append fails.
+    pub fn begin_restore_export(
+        &mut self,
+        request: &RestoreExportRequest<'_>,
+        allowed: &Allowed,
+    ) -> Result<Audited, JournalError> {
+        if !allowed.has_delivery() {
+            return Err(JournalError::Vocab(
+                "begin_restore_export requires a delivery-bound Allowed token".to_owned(),
+            ));
+        }
+        if allowed.kind() != DestKind::Export {
+            return Err(JournalError::Vocab(
+                "begin_restore_export requires export destination".to_owned(),
+            ));
+        }
+        if allowed.labels() != Some(request.labels) {
+            return Err(JournalError::Vocab(
+                "RestoreExportRequest labels do not match Allowed token labels".to_owned(),
+            ));
+        }
+        if request.snapshot == 0 {
+            return Err(JournalError::Vocab("snapshot must be >= 1".to_owned()));
+        }
+        let restore_mode = Word::from_closed(request.mode, RESTORE_MODES)
+            .map_err(|_| JournalError::Vocab(format!("invalid restore mode: {}", request.mode)))?;
+        let policy = Sha256::parse(allowed.policy_hash())
+            .map_err(|err| JournalError::Vocab(err.to_string()))?;
+
+        let canon_dest = crate::io::root::resolve_outside_path(&request.plan.destination)
+            .map_err(|err| JournalError::Vocab(err.to_string()))?;
+
+        let mut expected_transfers =
+            Vec::with_capacity(request.files.len() + usize::from(request.create_destination));
+        if request.create_destination {
+            let (dir_sha, dir_bytes) = fieldbook_core::egress::hash_tree_manifest(&[]);
+            expected_transfers.push(Transfer {
+                target: Target::Path(canon_dest.clone()),
+                operation: Operation::CreateDir,
+                sha256: dir_sha,
+                bytes: dir_bytes,
+            });
+        }
+        for file in request.files {
+            let _ = Sha256::parse(&file.sha256).map_err(|_| {
+                JournalError::Vocab(format!("invalid planned file hash: {}", file.sha256))
+            })?;
+            let canon_file = crate::io::root::resolve_outside_path(&file.path)
+                .map_err(|err| JournalError::Vocab(err.to_string()))?;
+            if !canon_file.starts_with(&canon_dest) || canon_file == canon_dest {
+                return Err(JournalError::Vocab(format!(
+                    "planned file path `{}` lies outside destination `{}`",
+                    canon_file.display(),
+                    canon_dest.display()
+                )));
+            }
+            expected_transfers.push(Transfer {
+                target: Target::Path(canon_file),
+                operation: Operation::Write,
+                sha256: file.sha256.clone(),
+                bytes: file.bytes,
+            });
+        }
+        expected_transfers.sort();
+        for w in expected_transfers.windows(2) {
+            if w[0] == w[1] {
+                return Err(JournalError::Vocab(
+                    "planned files contain duplicate entries".to_owned(),
+                ));
+            }
+        }
+
+        let Some(raw_transfers) = allowed.transfers() else {
+            return Err(JournalError::Vocab(
+                "begin_restore_export requires a delivery-bound Allowed token".to_owned(),
+            ));
+        };
+        let mut actual_transfers = raw_transfers.to_vec();
+        actual_transfers.sort();
+        for w in actual_transfers.windows(2) {
+            if w[0] == w[1] {
+                return Err(JournalError::Vocab(
+                    "delivery transfers contain duplicates".to_owned(),
+                ));
+            }
+        }
+
+        if actual_transfers.len() > expected_transfers.len() {
+            return Err(JournalError::Vocab(
+                "delivery transfers contain extra entries".to_owned(),
+            ));
+        }
+        if actual_transfers.len() < expected_transfers.len() {
+            return Err(JournalError::Vocab(
+                "delivery transfers missing expected entries".to_owned(),
+            ));
+        }
+        for (actual, expected) in actual_transfers.iter().zip(expected_transfers.iter()) {
+            if actual != expected {
+                if actual.target != expected.target {
+                    return Err(JournalError::Vocab(format!(
+                        "delivery transfer target mismatch: expected {:?}, got {:?}",
+                        expected.target, actual.target
+                    )));
+                }
+                if actual.operation != expected.operation {
+                    return Err(JournalError::Vocab(format!(
+                        "delivery transfer operation mismatch: expected {:?}, got {:?}",
+                        expected.operation, actual.operation
+                    )));
+                }
+                if actual.sha256 != expected.sha256 {
+                    return Err(JournalError::Vocab(format!(
+                        "delivery transfer hash mismatch: expected {}, got {}",
+                        expected.sha256, actual.sha256
+                    )));
+                }
+                if actual.bytes != expected.bytes {
+                    return Err(JournalError::Vocab(format!(
+                        "delivery transfer byte length mismatch: expected {}, got {}",
+                        expected.bytes, actual.bytes
+                    )));
+                }
+                return Err(JournalError::Vocab(
+                    "delivery transfers do not match expected restore transfers".to_owned(),
+                ));
+            }
+        }
+
+        let already_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        if already_active {
+            let _ = acquire_journal_lock(&self.state_dir)?;
+            return Err(JournalError::Busy);
+        }
+
+        let lock = acquire_journal_lock(&self.state_dir)?;
+        let tail = inspect_tail_strict(&self.state_dir)?;
+
+        let payload = EventPayload::RestoreBegin {
+            snapshot: Count::new(u64::from(request.snapshot)),
+            mode: restore_mode,
+            labels: request.labels.clone(),
+            dest: Some(DestKind::Export),
+            policy: Some(policy.clone()),
+        };
+        let new_tail = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+
+        if let Ok(mut guard) = self.active_tx.lock() {
+            *guard = Some(ActiveTx {
+                _lock: lock,
+                has_write_begin: true,
+                state_scope_count: 0,
+                recovery: false,
+            });
+        }
+
+        let path_sha256 = Sha256::digest(canon_dest.to_string_lossy().as_bytes());
+        let verb = Verb::parse("restore").map_err(|err| JournalError::Vocab(err.to_string()))?;
+
+        Ok(Audited {
+            state_only: false,
+            state_dir: self.state_dir.clone(),
+            begin_seq: Some(new_tail.last_seq),
+            verb: Some(verb),
+            labels: Some(request.labels.clone()),
+            affected: Vec::new(),
+            export_context: Some((DestKind::Export, path_sha256, policy)),
+            active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: None,
+            ended: false,
+        })
+    }
+
+    /// Complete a restore transaction: append `restore.end` and release the active transaction lock.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `token` is recovery-only or ended, `mode` is not in
+    /// [`RESTORE_MODES`], `outcome` is not `ok` or `failed`, or the event cannot be appended.
+    pub fn end_restore(
+        &mut self,
+        mut token: Audited,
+        snapshot: u32,
+        mode: &str,
+        outcome: &str,
+        code: Option<Code>,
+    ) -> Result<(), JournalError> {
+        if token.is_recovery_only() || token.ended {
+            return Err(JournalError::InvalidLease(
+                "invalid token passed to end_restore".to_owned(),
+            ));
+        }
+        if snapshot == 0 {
+            return Err(JournalError::Vocab("snapshot must be >= 1".to_owned()));
+        }
+        let restore_mode = Word::from_closed(mode, RESTORE_MODES)
+            .map_err(|_| JournalError::Vocab(format!("invalid restore mode: {mode}")))?;
+        let restore_outcome = Word::from_closed(outcome, OK_FAILED_OUTCOMES)
+            .map_err(|_| JournalError::Vocab(format!("invalid restore outcome: {outcome}")))?;
+
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let payload = EventPayload::RestoreEnd {
+            snapshot: Count::new(u64::from(snapshot)),
+            mode: restore_mode,
+            outcome: restore_outcome,
+            code,
+        };
+        let _ = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+
+        token.ended = true;
+        if let Ok(mut guard) = self.active_tx.lock()
+            && let Some(tx) = guard.as_mut()
+        {
+            if token.state_only {
+                tx.state_scope_count = tx.state_scope_count.saturating_sub(1);
+            } else {
+                tx.has_write_begin = false;
+            }
+            if !tx.has_write_begin && tx.state_scope_count == 0 {
+                *guard = None;
+            }
+        }
+
+        Ok(())
+    }
+
     /// Return `true` if the journal hash chain has zero breaks from sequence 1 to head.
     #[must_use]
     pub fn is_clean(&self) -> bool {
@@ -3160,4 +3501,161 @@ fn append_event_locked(
         active_segment_num: target_num,
         active_segment_len: base_len + (line.len() as u64),
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use fieldbook_core::CivilDate;
+    use fieldbook_core::audit::{EventPayload, Kind, LabelSet, Now, Via};
+    use fieldbook_core::backup::RestorePlan;
+    use fieldbook_core::egress::{Decision, Dest, Shipped, check};
+    use fieldbook_core::policy::{EffectivePolicy, FloorKind, OwnerSettings, PolicyState};
+
+    use super::*;
+
+    fn test_now() -> Now {
+        let d = CivilDate::from_ymd(2026, 3, 1).unwrap();
+        Now::new(d, 43_200).unwrap()
+    }
+
+    #[test]
+    fn begin_restore_then_end_restore_leaves_ordered_events_and_allows_subsequent_begin() {
+        let tmp = tempfile::tempdir().unwrap();
+        let state_dir = tmp.path().join(".fieldbook");
+        let corpus_dir = tmp.path().join("corpus");
+        std::fs::create_dir_all(&state_dir).unwrap();
+        std::fs::create_dir_all(&corpus_dir).unwrap();
+
+        let disk = crate::io::Disk::with_state(&corpus_dir, &state_dir);
+        let mut journal = Journal::open(&disk, &state_dir, Via::Cli).unwrap();
+
+        let labels = LabelSet::public();
+        let token = journal.begin_restore(1, "drill", &labels).unwrap();
+        assert!(token.is_state_only());
+        assert!(token.has_active_lease());
+
+        journal.end_restore(token, 1, "drill", "ok", None).unwrap();
+
+        let events = read_valid_events_prefix(&state_dir);
+        let restore_events: Vec<&Event> = events
+            .iter()
+            .filter(|e| matches!(e.kind(), Kind::RestoreBegin | Kind::RestoreEnd))
+            .collect();
+        assert_eq!(restore_events.len(), 2);
+        assert_eq!(restore_events[0].kind(), Kind::RestoreBegin);
+        assert_eq!(restore_events[1].kind(), Kind::RestoreEnd);
+
+        if let EventPayload::RestoreBegin {
+            snapshot,
+            mode,
+            labels: ev_labels,
+            dest,
+            policy,
+        } = &restore_events[0].payload
+        {
+            assert_eq!(snapshot.value(), 1);
+            assert_eq!(mode.as_str(), "drill");
+            assert_eq!(ev_labels, &labels);
+            assert!(dest.is_none());
+            assert!(policy.is_none());
+        } else {
+            panic!("expected RestoreBegin payload");
+        }
+
+        if let EventPayload::RestoreEnd {
+            snapshot,
+            mode,
+            outcome,
+            code,
+        } = &restore_events[1].payload
+        {
+            assert_eq!(snapshot.value(), 1);
+            assert_eq!(mode.as_str(), "drill");
+            assert_eq!(outcome.as_str(), "ok");
+            assert!(code.is_none());
+        } else {
+            panic!("expected RestoreEnd payload");
+        }
+
+        // A second begin_restore after end works.
+        let token2 = journal.begin_restore(2, "real", &labels).unwrap();
+        assert!(token2.is_state_only());
+        journal.end_restore(token2, 2, "real", "ok", None).unwrap();
+    }
+
+    #[test]
+    fn dropping_unended_begin_restore_releases_lock() {
+        let tmp = tempfile::tempdir().unwrap();
+        let state_dir = tmp.path().join(".fieldbook");
+        let corpus_dir = tmp.path().join("corpus");
+        std::fs::create_dir_all(&state_dir).unwrap();
+        std::fs::create_dir_all(&corpus_dir).unwrap();
+
+        let disk = crate::io::Disk::with_state(&corpus_dir, &state_dir);
+        let mut journal = Journal::open(&disk, &state_dir, Via::Cli).unwrap();
+
+        let labels = LabelSet::public();
+        {
+            let token = journal.begin_restore(1, "drill", &labels).unwrap();
+            assert!(token.has_active_lease());
+        }
+
+        let token2 = journal.begin_restore(1, "drill", &labels).unwrap();
+        assert!(token2.has_active_lease());
+        journal.end_restore(token2, 1, "drill", "ok", None).unwrap();
+    }
+
+    #[test]
+    fn begin_restore_export_rejects_token_with_no_delivery() {
+        let tmp = tempfile::tempdir().unwrap();
+        let state_dir = tmp.path().join(".fieldbook");
+        let corpus_dir = tmp.path().join("corpus");
+        let export_dest = tmp.path().join("restored");
+        std::fs::create_dir_all(&state_dir).unwrap();
+        std::fs::create_dir_all(&corpus_dir).unwrap();
+
+        let disk = crate::io::Disk::with_state(&corpus_dir, &state_dir);
+        let mut journal = Journal::open(&disk, &state_dir, Via::Cli).unwrap();
+
+        let eff = EffectivePolicy::new(&PolicyState::Floor(FloorKind::A), &OwnerSettings::unset());
+        let Decision::Allowed(selection_token) = check(
+            &eff,
+            &Dest::Export {
+                path: export_dest.to_string_lossy().into_owned(),
+            },
+            Some(&LabelSet::public()),
+            None,
+            test_now(),
+            Shipped::Never,
+        ) else {
+            panic!("expected selection Allowed token");
+        };
+
+        let plan = RestorePlan {
+            destination: export_dest.clone(),
+            roots: Vec::new(),
+        };
+        let request = RestoreExportRequest {
+            snapshot: 1,
+            mode: "drill",
+            labels: &LabelSet::public(),
+            plan: &plan,
+            files: &[],
+            create_destination: false,
+        };
+
+        let res = journal.begin_restore_export(&request, &selection_token);
+        assert!(
+            matches!(res, Err(JournalError::Vocab(_))),
+            "expected Vocab error for token with no delivery, got {res:?}"
+        );
+
+        let events = read_valid_events_prefix(&state_dir);
+        assert!(
+            !events
+                .iter()
+                .any(|e| matches!(e.kind(), Kind::RestoreBegin | Kind::RestoreEnd)),
+            "no restore events should have been appended"
+        );
+    }
 }

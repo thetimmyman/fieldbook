@@ -216,6 +216,14 @@ impl World for FaultyWorld {
         self.inner.support_facts()
     }
 
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.reset_drill(audited)
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.remove_drill(audited)
+    }
+
     fn store_id(&self) -> &'static str {
         self.inner.store_id()
     }

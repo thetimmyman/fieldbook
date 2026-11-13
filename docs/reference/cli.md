@@ -89,6 +89,18 @@ Create, verify, or list backup snapshots
 | `--to` | `DIR` | - | Destination directory for a one-off backup |
 | `--dry-run` | - | - | Perform checks and report what would be written without writing anything |
 
+### `fieldbook restore`
+
+Restore a backup snapshot into a new folder or run the restore drill
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `--snapshot` | `N` | - | Snapshot number to restore |
+| `--to` | `DIR` | - | Restore into this new or empty folder |
+| `--drill` | - | - | Restore into the drill folder under the state folder, check the copy, then delete it |
+| `--target` | `ID` | - | Backup target identifier in settings.toml |
+| `--from` | `DIR` | - | Read the snapshot from this folder instead of a settings target |
+
 ## Exit codes
 
 | Code | Meaning |

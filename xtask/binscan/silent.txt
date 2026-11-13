@@ -130,6 +130,7 @@ _set_new_mode
 abort
 bcmp
 calloc
+chmod
 clock_gettime
 clock_nanosleep
 close

@@ -139,6 +139,7 @@ accept4
 bcmp
 bind
 calloc
+chmod
 clock_gettime
 clock_nanosleep
 close

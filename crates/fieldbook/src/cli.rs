@@ -71,6 +71,8 @@ pub enum Commands {
     Verify(VerifyArgs),
     /// Create, verify, or list backup snapshots.
     Backup(BackupArgs),
+    /// Restore a backup snapshot into a new folder or run the restore drill.
+    Restore(RestoreArgs),
 }
 
 /// Arguments for `fieldbook verify`.
@@ -421,4 +423,24 @@ pub struct BackupListArgs {
     /// Print the report as a JSON object.
     #[arg(long)]
     pub json: bool,
+}
+
+/// Arguments for `fieldbook restore`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct RestoreArgs {
+    /// Snapshot number to restore.
+    #[arg(long, value_name = "N")]
+    pub snapshot: u32,
+    /// Restore into this new or empty folder.
+    #[arg(long, value_name = "DIR", conflicts_with = "drill")]
+    pub to: Option<PathBuf>,
+    /// Restore into the drill folder under the state folder, check the copy, then delete it.
+    #[arg(long)]
+    pub drill: bool,
+    /// Backup target identifier in settings.toml.
+    #[arg(long, value_name = "ID", conflicts_with = "from")]
+    pub target: Option<String>,
+    /// Read the snapshot from this folder instead of a settings target.
+    #[arg(long, value_name = "DIR")]
+    pub from: Option<PathBuf>,
 }

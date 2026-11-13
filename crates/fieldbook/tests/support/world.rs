@@ -35,6 +35,9 @@ pub struct TestWorld {
     support_facts: Mutex<Option<fieldbook::SupportFacts>>,
     fault: Mutex<Option<crate::support::faulty::Fault>>,
     fault_matches: std::sync::atomic::AtomicUsize,
+    written: Mutex<Vec<PathBuf>>,
+    before_write_lease: Mutex<Option<Box<dyn FnOnce() + Send>>>,
+    fail_remove_drill: AtomicBool,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -87,6 +90,9 @@ impl TestWorld {
             support_facts: Mutex::new(None),
             fault: Mutex::new(None),
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
+            written: Mutex::new(Vec::new()),
+            before_write_lease: Mutex::new(None),
+            fail_remove_drill: AtomicBool::new(false),
         }
     }
 
@@ -112,6 +118,9 @@ impl TestWorld {
             support_facts: Mutex::new(None),
             fault: Mutex::new(None),
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
+            written: Mutex::new(Vec::new()),
+            before_write_lease: Mutex::new(None),
+            fail_remove_drill: AtomicBool::new(false),
         }
     }
 
@@ -232,6 +241,25 @@ impl TestWorld {
         let _ = std::fs::remove_dir_all(&final_dir);
     }
 
+    /// Return in order every path written by a successful `write_file` or `write_outside`.
+    #[must_use]
+    pub fn written(&self) -> Vec<PathBuf> {
+        self.written.lock().map(|w| w.clone()).unwrap_or_default()
+    }
+
+    /// Run `action` once, just before the next `write_lease` is acquired, as another process
+    /// acting between a handler's first look and its lease does.
+    pub fn set_before_write_lease(&self, action: impl FnOnce() + Send + 'static) {
+        if let Ok(mut g) = self.before_write_lease.lock() {
+            *g = Some(Box::new(action));
+        }
+    }
+
+    /// Make every `remove_drill` fail without touching the folder, as a file held open does.
+    pub fn set_fail_remove_drill(&self, fail: bool) {
+        self.fail_remove_drill.store(fail, Ordering::Relaxed);
+    }
+
     fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
         let Ok(g) = self.fault.lock() else {
             return Ok(());
@@ -281,6 +309,14 @@ impl World for TestWorld {
     }
 
     fn write_lease(&self) -> Result<StoreLease, WorldError> {
+        let action = self
+            .before_write_lease
+            .lock()
+            .ok()
+            .and_then(|mut g| g.take());
+        if let Some(action) = action {
+            action();
+        }
         fieldbook::io::journal::acquire_write_lease(self.tree_root(), &self.state_dir)
     }
 
@@ -295,7 +331,11 @@ impl World for TestWorld {
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
         self.check_fault(path)?;
-        self.inner.write_file(audited, path, bytes)
+        let sha = self.inner.write_file(audited, path, bytes)?;
+        if let Ok(mut w) = self.written.lock() {
+            w.push(path.to_path_buf());
+        }
+        Ok(sha)
     }
 
     fn write_outside(
@@ -306,7 +346,11 @@ impl World for TestWorld {
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
         self.check_fault(path)?;
-        self.inner.write_outside(allowed, audited, path, bytes)
+        let sha = self.inner.write_outside(allowed, audited, path, bytes)?;
+        if let Ok(mut w) = self.written.lock() {
+            w.push(path.to_path_buf());
+        }
+        Ok(sha)
     }
 
     fn has_company_store(&self) -> bool {
@@ -390,6 +434,20 @@ impl World for TestWorld {
         }
         let disk = Disk::with_state(self.tree_root(), &self.state_dir);
         disk.support_facts()
+    }
+
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.reset_drill(audited)
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        if self.fail_remove_drill.load(Ordering::Relaxed) {
+            return Err(fieldbook::Error::new(
+                self.state_dir.join("drill"),
+                "injected drill removal fault",
+            ));
+        }
+        self.inner.remove_drill(audited)
     }
 
     /// Return the test double store registry id.
