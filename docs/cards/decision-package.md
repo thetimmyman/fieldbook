@@ -37,7 +37,7 @@
 
 ## Preconditions
 
-- Cards merged: `registers-xlsx` (the writer pattern, `DEFAULT_WORKBOOK_EPOCH` and the `data/` surface rows of `leak_outputs.rs`), `edition-zips` (`REQUIRED_FILES`), `calc-ops` (`percent_of`, `round_money_at_stage`), `home-area-placeholders` (an open card: both cards change `home.rs` and `templates/index.html`, so this one follows it), `e1-workbook-templates` (an open card for the three data-only templates; shared path `xtask/src/edition.rs`, its `REQUIRED_FILES`).
+- Cards merged: `registers-xlsx` (the writer pattern, `DEFAULT_WORKBOOK_EPOCH` and the `data/` surface rows of `leak_outputs.rs`), `edition-zips` (`REQUIRED_FILES`), `calc-ops` (`percent_of`, `round_money_at_stage`), `home-area-placeholders` (an open card: both cards change `home.rs` and `templates/index.html`, so this one follows it), `e1-workbook-templates` (an open card for the three data-only templates; shared path `xtask/src/edition.rs`, its `REQUIRED_FILES`), `claims-csv-parts` (an open card; shared path `xtask/src/edition.rs`).
 
 ## Steps
 
