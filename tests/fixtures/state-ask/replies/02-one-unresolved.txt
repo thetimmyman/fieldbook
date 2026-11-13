@@ -1,0 +1,1 @@
+Synthetic compliance reviews occur every 30 days [@S-0001-v1, sec. 1]. The rule has a second page [@S-0001-v1, p. 2].
