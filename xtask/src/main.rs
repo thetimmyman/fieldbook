@@ -5,6 +5,7 @@
 //!
 //! - `doctor [--ci]`: check the installed tools against `.config/tools.toml`.
 //! - `setup [--no-hooks] [TOOL...]`: install the pinned tools and enable the git hooks.
+//! - `mark [--check]`: encode the supplied mark for the edition image CSP.
 //! - `docs [--check]`: regenerate generated documentation blocks or check for drift.
 //! - `cards --check [--closing SLUG]`: lint the card files, PLAN.md, links, AGENTS.md and the documents (writes nothing).
 //! - `new-card SLUG`: start `docs/cards/SLUG.md` from the template in `docs/cards/README.md`.
@@ -104,6 +105,7 @@ mod hosted;
 mod links;
 #[cfg(test)]
 mod literals;
+mod mark;
 mod ports_doc;
 mod print_count;
 mod proc;
@@ -129,6 +131,7 @@ use std::process::ExitCode;
 const USAGE: &str = "usage: cargo xtask <command>
   doctor [--ci]                     check the installed tools against .config/tools.toml
   setup [--no-hooks] [TOOL...]      install the pinned tools and enable the git hooks
+  mark [--check]                    encode the supplied mark for the edition image CSP
   docs [--check]                    regenerate generated documentation blocks or check for drift
   cards --check [--closing SLUG]    lint the cards, PLAN.md, links, AGENTS.md and the documents (writes nothing)
   new-card SLUG                     start docs/cards/SLUG.md from the template in docs/cards/README.md
@@ -179,6 +182,8 @@ fn main() -> ExitCode {
     {
         ["doctor"] => tools::doctor(&root, ci_from_env()),
         ["doctor", "--ci"] => tools::doctor(&root, true),
+        ["mark"] => mark::command(&root, false),
+        ["mark", "--check"] => mark::command(&root, true),
         ["docs"] => return docs::command(&root, false),
         ["docs", "--check"] => return docs::command(&root, true),
         ["cards", rest @ ..] => cards::command(&root, rest),
