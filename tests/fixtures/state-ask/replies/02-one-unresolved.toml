@@ -1,0 +1,7 @@
+# The extraction of S-0001-v1 has one page, so p. 2 is a broken locator: 1 of 2 do not resolve, exit 1.
+seed = "cc-s-03"
+exit = 1
+total = 2
+unresolved = 1
+statuses = ["verified", "broken_locator"]
+ai_paste = true

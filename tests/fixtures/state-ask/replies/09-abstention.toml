@@ -1,0 +1,7 @@
+# The abstention phrase verbatim is the whole answer: allowed, nothing to verify and no refusal: exit 0.
+seed = "cc-s-17"
+exit = 0
+total = 0
+unresolved = 0
+statuses = []
+ai_paste = true
