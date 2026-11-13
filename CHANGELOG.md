@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: build --watch.
 - Added: data/registers.xlsx and CSV copies of the registers.
 - Changed: section snippets in the site search index are cut to 100 characters to keep the index within its size cap.
 - Added: backup, backup verify and backup list, and a reminder after a write verb when the last verified backup is older than the warning age.
