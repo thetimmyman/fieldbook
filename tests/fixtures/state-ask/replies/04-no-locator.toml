@@ -1,4 +1,4 @@
-# A citation of a version with no locator reads its locator as not applicable and verifies; see the ambiguity list of the pull request. Exit 0.
+# A citation of a version with no locator has locator not applicable (as in seeds cc-s-05, cc-s-06 and cc-s-08); in context, with no quotation, it verifies. Exit 0.
 seed = "cc-s-06"
 exit = 0
 total = 2
