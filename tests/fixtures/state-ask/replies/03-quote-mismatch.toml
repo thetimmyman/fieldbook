@@ -1,0 +1,7 @@
+# A quotation of seven words that is not in section 1 is a quote mismatch and counts unresolved: exit 1.
+seed = "cc-s-12"
+exit = 1
+total = 2
+unresolved = 1
+statuses = ["quote_mismatch", "verified"]
+ai_paste = true

@@ -15,6 +15,7 @@ pub mod add;
 pub mod assist;
 pub mod audit;
 pub mod authz;
+pub mod backup;
 pub mod cases;
 pub mod check;
 pub mod cite;
@@ -30,14 +31,18 @@ pub mod labels;
 pub mod manifest;
 pub mod new;
 pub mod policy;
+pub mod ports;
+pub mod quote;
 pub mod report;
 pub mod review;
 pub mod scan;
 pub mod schema;
+pub mod schema_json;
 pub mod search;
 pub mod strings;
 pub mod verify;
 pub mod version;
+pub mod versions;
 
 pub use date::{
     CivilDate, Duration, EffectivePeriod, PartialDate, Volatility, interval_days, review_by,

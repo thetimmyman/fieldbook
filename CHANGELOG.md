@@ -5,6 +5,15 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: a weekly `scheduled.yml` workflow runs the advisory check, a full-history secret scan, the lint controls (a planted banned call must fail clippy), the committed-lock check, an edition build for the cross-OS compare when `corpus/changes.md` has an edition heading, and the advisory scale table.
+- Changed: the Markdown reader moves to pulldown-cmark 0.13.6, which fixes a published advisory about nested wikilinks; the program does not enable that option.
+- Added: the three E1 workbook templates in the edition.
+- Added: build --watch.
+- Added: data/registers.xlsx and CSV copies of the registers.
+- Changed: section snippets in the site search index are cut to 100 characters to keep the index within its size cap.
+- Added: backup, backup verify and backup list, and a reminder after a write verb when the last verified backup is older than the warning age.
+- Added: the day-one binder and print styles.
+- Changed: the search palette has a placeholder, quoted search text and a named shortcuts dialog.
+- Added: check matches claim quotes in the extracted text; source pages show the text with section anchors.
 - Added: `cargo xtask scale` times `check`, `build` and `search` over a synthetic Corpus at 1, 5 and 20 times the Day 1 counts and prints one table with the index size and peak memory; it is advisory and fails nothing.
 - Added: `cargo xtask extract` writes the text of a stored original, page by page, with its hashes, thin pages and locators, and `fieldbook check` reports an extraction that no longer matches its original (FB0212) and a consequential claim that rests on a metadata-only, thin or supplied version (FB0223).
 - Added: `just release` and the release workflow.

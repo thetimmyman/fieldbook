@@ -16,6 +16,9 @@ use fieldbook_core::audit::{
 };
 use fieldbook_core::check::{Code, Diagnostic, Report};
 use fieldbook_core::date::CivilDate;
+use fieldbook_core::report::{
+    BackupLatestVerification, BackupList, BackupListDrill, BackupListSnapshot, BackupListTarget,
+};
 use serde_json::Value;
 
 use support::world::TestWorld;
@@ -26,6 +29,7 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("check", generate_check_report),
     ("audit-show", generate_audit_show_report),
     ("audit-verify", generate_audit_verify_report),
+    ("backup-list", generate_backup_list_report),
     ("add", generate_add_report),
     ("search", generate_search_report),
     ("search-pages", generate_search_pages_report),
@@ -84,6 +88,55 @@ fn generate_audit_verify_report() -> String {
         outcome.stderr
     );
     outcome.stdout
+}
+
+fn generate_backup_list_report() -> String {
+    let report = BackupList {
+        report_version: 1,
+        verb: "backup list".to_string(),
+        target: Some(BackupListTarget {
+            id: "it".to_string(),
+            kind: "it-location".to_string(),
+            path: "backups".to_string(),
+            company_storage: false,
+        }),
+        warn_after_days: 7,
+        keep_last: 7,
+        keep_weekly: 4,
+        snapshots: vec![BackupListSnapshot {
+            snapshot: 3,
+            backup_version: 1,
+            tool_version: "0.1.0".to_string(),
+            created_utc: "2026-01-01T09:00:00Z".to_string(),
+            labels: vec!["public".to_string()],
+            roots: vec!["corpus".to_string(), "state".to_string()],
+            files: 412,
+            bytes: 9120344,
+            fingerprint: "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+                .to_string(),
+            journal_seq: 118,
+            journal_head: "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3"
+                .to_string(),
+            journal_state: "ok".to_string(),
+            manifest_sha256: "c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+                .to_string(),
+            verified: true,
+            verified_utc: Some("2026-01-01T09:05:00Z".to_string()),
+            latest_verification: Some(BackupLatestVerification {
+                outcome: "failed".to_string(),
+                utc: "2026-01-01T10:00:00Z".to_string(),
+            }),
+        }],
+        verified_utc: Some("2026-01-01T09:05:00Z".to_string()),
+        drill: Some(BackupListDrill {
+            mode: "drill".to_string(),
+            outcome: "ok".to_string(),
+            utc: "2026-01-02T10:00:00Z".to_string(),
+        }),
+        findings: vec![],
+        exit: 0,
+    };
+    fieldbook::render_backup_list_json(&report)
 }
 
 fn generate_add_report() -> String {

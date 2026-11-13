@@ -1,0 +1,7 @@
+# A citation of a version with no locator has locator not applicable (as in seeds cc-s-05, cc-s-06 and cc-s-08); in context, with no quotation, it verifies. Exit 0.
+seed = "cc-s-06"
+exit = 0
+total = 2
+unresolved = 0
+statuses = ["verified", "verified"]
+ai_paste = true

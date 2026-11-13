@@ -10,6 +10,8 @@
 )]
 
 pub mod atomic;
+pub mod backup_classify;
+pub mod backup_folder;
 pub mod dirs;
 pub mod journal;
 pub mod out;
@@ -17,9 +19,14 @@ pub mod root;
 pub mod state;
 pub mod store_lease;
 pub mod tree;
+pub mod versions;
+pub mod watch;
 pub mod win;
 
-pub use journal::{Audited, Journal, JournalError, Recovery};
+pub use journal::{
+    Audited, BackupRecovery, Journal, JournalError, PreparedBackupBegin, Recovery, RestoreEndInfo,
+};
+pub use state::{BackupSettings, BackupSettingsError, BackupTargetConfig, read_backup_settings};
 pub use store_lease::{GenerationStatus, LeaseMode, StoreLease};
 pub use tree::{Disk, Error, WorldError, find_root, read_file, read_tree};
 
@@ -32,6 +39,7 @@ use fieldbook_core::audit::Sha256;
 use fieldbook_core::egress::Allowed;
 use fieldbook_render::meta::{BuildInfo, BuildProfile};
 
+use crate::World;
 use crate::cli::EXIT_IO;
 
 /// A candidate file discovered during `fieldbook add <folder>` traversal (`add-folder-mode`).
@@ -217,6 +225,13 @@ impl Disk {
         let _ = self;
         prompt(flag)
     }
+
+    /// Return folder placement facts for `path` via [`win::place`].
+    #[must_use]
+    pub fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
+        let _ = self;
+        win::place(path)
+    }
 }
 
 /// Return whether standard input is connected to an interactive terminal.
@@ -262,6 +277,38 @@ pub fn run_process() -> ExitCode {
         .skip(1)
         .map(|arg| arg.to_string_lossy().into_owned())
         .collect();
+    if let Some((flag, build_args)) = crate::build_watch_args(&args) {
+        match Disk::current() {
+            Ok(disk) => {
+                let info = build_info_from_env();
+                let mut poll = watch::DiskPoll::new(disk.tree_root());
+                let mut out = std::io::stdout().lock();
+                let code = if let Some(flag) = flag.as_deref() {
+                    let state_dir = state::resolve(disk.tree_root(), disk.cwd(), Some(flag));
+                    let overridden = crate::StateOverrideWorld {
+                        inner: &disk,
+                        state_dir,
+                    };
+                    crate::build::watch_with_info(
+                        &build_args,
+                        &overridden,
+                        &info,
+                        &mut poll,
+                        &mut out,
+                    )
+                } else {
+                    crate::build::watch_with_info(&build_args, &disk, &info, &mut poll, &mut out)
+                };
+                return ExitCode::from(code);
+            }
+            Err(err) => {
+                let mut err_stream = std::io::stderr().lock();
+                let _ = writeln!(err_stream, "{err}");
+                let _ = err_stream.flush();
+                return ExitCode::from(EXIT_IO);
+            }
+        }
+    }
     let outcome = match Disk::current() {
         Ok(disk) => crate::run(&args, &disk),
         Err(err) => crate::Outcome {

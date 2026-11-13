@@ -220,6 +220,7 @@ mod build {
 
         let args = BuildArgs {
             out: PathBuf::from("out"),
+            watch: false,
         };
         let outcome = run_with_info(&args, &world, &BuildInfo::default());
         set_write_pause_hook(None);
@@ -701,6 +702,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: ok_out.clone(),
+                watch: false,
             },
             &world,
             &BuildInfo::default(),
@@ -752,6 +754,7 @@ mod build {
         let initial = run_with_info(
             &BuildArgs {
                 out: out_dir.clone(),
+                watch: false,
             },
             &world,
             &incomplete_info,
@@ -784,6 +787,7 @@ mod build {
         let failed = run_with_info(
             &BuildArgs {
                 out: out_dir.clone(),
+                watch: false,
             },
             &world,
             &released_info,
@@ -868,7 +872,8 @@ mod build {
         let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
         let ctx =
             site::render_context(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
-        let mut site = site::render_with_context(&view, &ctx, BuildProfile::Silent);
+        let mut site = site::render_with_context(&view, &ctx, BuildProfile::Silent)
+            .unwrap_or_else(|e| panic!("{e}"));
         site.insert(
             "bad.html",
             format!(
@@ -1105,7 +1110,7 @@ mod build {
 
         // The left-out source version's extracted text: the view must leave its folder out.
         let canary_text: &[u8] =
-            b"Forbidden extracted text canary. Synthetic padding so that the page is not thin.\n";
+            b"Forbidden extracted text canary. Synthetic padding so that the page is not thin. Forbidden quote.\n";
         tree_mixed.insert_bytes(
             "corpus/sources/text/S-0099-v1/p0001.txt",
             canary_text.to_vec(),
@@ -1113,7 +1118,7 @@ mod build {
         tree_mixed.insert_bytes(
             "corpus/sources/text/S-0099-v1/extraction.toml",
             format!(
-                "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{}\"\n\n[pages]\np0001 = \"{}\"\n",
+                "tool = \"plain\"\ntool_version = \"1\"\nmethod = \"plain\"\npage_count = 1\nthin_pages = []\noriginal_sha256 = \"{}\"\n\n[pages]\np0001 = \"{}\"\n[locators]\n\"9\" = 1\n",
                 "9".repeat(64),
                 fieldbook_core::hash::sha256_hex(canary_text)
             )
@@ -1253,6 +1258,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: handler_out.clone(),
+                watch: false,
             },
             &world,
             &BuildInfo::default(),
@@ -1892,6 +1898,14 @@ mod build {
         fn prompt(&self, flag: &str) -> Result<(), fieldbook::WorldError> {
             self.inner.prompt(flag)
         }
+
+        fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
+            self.inner.place(path)
+        }
+
+        fn support_facts(&self) -> fieldbook::SupportFacts {
+            self.inner.support_facts()
+        }
     }
 
     /// The real `build` path: a valid preflight (the row of `S-0098-v1` is public and active, and
@@ -1951,6 +1965,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: out_dir.clone(),
+                watch: false,
             },
             &world,
             &BuildInfo::default(),
@@ -2405,6 +2420,7 @@ mod build {
         let outcome = run_with_info(
             &BuildArgs {
                 out: out_dir.to_path_buf(),
+                watch: false,
             },
             world,
             &BuildInfo::default(),

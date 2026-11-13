@@ -41,6 +41,27 @@
         </ul>
         {% endif %}
       </section>
+      <section class="panel" id="templates">
+        <div class="panel-head"><h2 class="panel-title">Templates</h2></div>
+        <ul class="tu-list">
+          <li class="tu-item">
+            {% if let Some(href) = &binder_href %}
+            <a href="{{ href }}">Day-one binder</a>
+            {% else %}
+            <span>Day-one binder</span>
+            {% endif %}
+            <span class="meta">The briefs and the pages of stages 1 and 2, ready to print.</span>
+          </li>
+          <li class="tu-item">
+            {% if let Some(href) = &registers_href %}
+            <a href="{{ href }}">Registers workbook</a>
+            <span class="meta">One workbook with a sheet for each register, as text only.</span>
+            {% else %}
+            <span class="meta">{{ registers_line }}</span>
+            {% endif %}
+          </li>
+        </ul>
+      </section>
       <section class="panel" id="next-up">
         <div class="panel-head"><h2 class="panel-title">Next up</h2></div>
         {{ next_up_html|safe }}

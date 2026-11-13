@@ -1,0 +1,27 @@
+[corpus]
+read = "allow"
+propose = "allow"
+accept = "allow"
+export = "allow"
+admin = "allow"
+
+[working]
+read = "deny:authz"
+propose = "allow"
+accept = "allow"
+export = "allow"
+admin = "deny:authz"
+
+[overlay]
+read = "allow"
+propose = "allow"
+accept = "allow"
+export = "allow"
+admin = "deny:authz"
+
+[state]
+read = "deny:authz"
+propose = "allow"
+accept = "allow"
+export = "allow"
+admin = "allow"

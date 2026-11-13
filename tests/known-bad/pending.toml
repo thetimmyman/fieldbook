@@ -1,14 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# quote-match-and-anchors
-[[pending]]
-code = "FB0304"
-card = "quote-match-and-anchors"
-
-[[pending]]
-code = "FB0308"
-card = "quote-match-and-anchors"
-
 # Ranges 08 and 09 pending codes
 [[pending]]
 code = "FB0806"
@@ -17,26 +8,6 @@ card = "audit-export"
 [[pending]]
 code = "FB0808"
 card = "r2-state-and-journal"
-
-[[pending]]
-code = "FB0810"
-card = "backup-snapshot"
-
-[[pending]]
-code = "FB0811"
-card = "backup-snapshot"
-
-[[pending]]
-code = "FB0812"
-card = "backup-snapshot"
-
-[[pending]]
-code = "FB0813"
-card = "backup-snapshot"
-
-[[pending]]
-code = "FB0814"
-card = "backup-snapshot"
 
 [[pending]]
 code = "FB0815"
@@ -153,10 +124,6 @@ card = "model-handoff-ask"
 [[pending]]
 code = "FB0917"
 card = "review-queue"
-
-[[pending]]
-code = "FB0918"
-card = "backup-snapshot"
 
 [[pending]]
 code = "FB0919"

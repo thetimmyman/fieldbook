@@ -1,0 +1,3 @@
+kind = "adapter"
+port = "authz"
+id = "policy-readers@1"

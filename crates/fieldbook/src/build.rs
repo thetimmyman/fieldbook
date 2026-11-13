@@ -1,6 +1,7 @@
 //! `fieldbook build [--out DIR]`: static site and edition builder (`build-v0`).
 
 use std::collections::{BTreeMap, BTreeSet};
+use std::io::Write;
 use std::path::{Path, PathBuf};
 
 use fieldbook_core::audit::{
@@ -259,8 +260,8 @@ fn build_plan_from_site(
 /// # Errors
 ///
 /// Returns [`BuildPlanError::Metadata`] if `RenderContext` validation fails,
-/// [`BuildPlanError::Lint`] if `fieldbook_render::lint::lint` reports findings, or
-/// [`BuildPlanError::Io`] if `dirs::check_build_roots` or path resolution fails.
+/// [`BuildPlanError::Lint`] if `fieldbook_render::lint::lint` reports findings or workbook
+/// rendering fails, or [`BuildPlanError::Io`] if `dirs::check_build_roots` or path resolution fails.
 pub fn plan_edition(
     view: &LabelledView,
     info: &BuildInfo,
@@ -271,7 +272,16 @@ pub fn plan_edition(
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(view, &context, info.profile);
+    let site = site::render_with_info(view, &context, info).map_err(|e| {
+        BuildPlanError::Lint(vec![Diagnostic::new(
+            Code::Fb0605,
+            false,
+            fieldbook_render::xlsx::OUTPUT_PATH.to_owned(),
+            1,
+            1,
+            e.to_string(),
+        )])
+    })?;
     build_plan_from_site(
         view,
         context,
@@ -308,7 +318,16 @@ pub fn plan_edition_with_originals(
     originals: BTreeMap<String, Vec<u8>>,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(view, &context, info.profile);
+    let site = site::render_with_info(view, &context, info).map_err(|e| {
+        BuildPlanError::Lint(vec![Diagnostic::new(
+            Code::Fb0605,
+            false,
+            fieldbook_render::xlsx::OUTPUT_PATH.to_owned(),
+            1,
+            1,
+            e.to_string(),
+        )])
+    })?;
     let names = OriginalNames(originals.keys().cloned().collect());
     build_plan_from_site(
         view, context, site, originals, &names, out_dir, eff, labels, now, shipped,
@@ -677,6 +696,95 @@ fn read_shipped_originals(
 pub fn run(args: &BuildArgs, world: &dyn World) -> Outcome {
     let info = crate::io::build_info_from_env();
     run_with_info(args, world, &info)
+}
+
+fn print_fingerprint_error(err: &crate::io::WorldError) {
+    let mut err_stream = std::io::stderr().lock();
+    let _ = writeln!(err_stream, "{err}");
+    let _ = err_stream.flush();
+}
+
+fn build_once(args: &BuildArgs, world: &dyn World, info: &BuildInfo, out: &mut dyn Write) -> bool {
+    let outcome = run_with_info(args, world, info);
+    if out.write_all(outcome.stdout.as_bytes()).is_err() || out.flush().is_err() {
+        return false;
+    }
+    let mut err_stream = std::io::stderr().lock();
+    let _ = err_stream.write_all(outcome.stderr.as_bytes());
+    let _ = err_stream.flush();
+
+    let summary = if outcome.code == 0 {
+        "built\n".to_string()
+    } else {
+        format!("build failed (exit {})\n", outcome.code)
+    };
+    if out.write_all(summary.as_bytes()).is_err() || out.flush().is_err() {
+        return false;
+    }
+    true
+}
+
+/// Rebuild the edition when the Corpus changes, polling through `poll`.
+#[must_use]
+pub fn watch_with_info(
+    args: &BuildArgs,
+    world: &dyn World,
+    info: &BuildInfo,
+    poll: &mut dyn crate::io::watch::Poll,
+    out: &mut dyn Write,
+) -> u8 {
+    let mut last = match poll.fingerprint() {
+        Ok(fp) => fp,
+        Err(err) => {
+            print_fingerprint_error(&err);
+            return EXIT_IO;
+        }
+    };
+
+    if !build_once(args, world, info, out) {
+        return EXIT_IO;
+    }
+
+    loop {
+        if !poll.pause() {
+            return EXIT_OK;
+        }
+
+        let mut cur = match poll.fingerprint() {
+            Ok(fp) => fp,
+            Err(err) => {
+                print_fingerprint_error(&err);
+                return EXIT_IO;
+            }
+        };
+
+        if cur == last {
+            continue;
+        }
+
+        // Settle: wait until two consecutive polls agree.
+        loop {
+            if !poll.pause() {
+                return EXIT_OK;
+            }
+            let again = match poll.fingerprint() {
+                Ok(fp) => fp,
+                Err(err) => {
+                    print_fingerprint_error(&err);
+                    return EXIT_IO;
+                }
+            };
+            if again == cur {
+                break;
+            }
+            cur = again;
+        }
+
+        last = cur;
+        if !build_once(args, world, info, out) {
+            return EXIT_IO;
+        }
+    }
 }
 
 #[cfg(test)]

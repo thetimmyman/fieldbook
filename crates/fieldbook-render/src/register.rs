@@ -17,6 +17,7 @@ use fieldbook_core::schema::{
 };
 use fieldbook_core::strings;
 
+use crate::csv_copy;
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
 use crate::inline::{find_conflict, find_question, find_source};
 use crate::links::{
@@ -30,6 +31,7 @@ use crate::status_chip::{
     ICON_ALERT, ICON_CHECK, render_adoption_chip, render_applicability_chip, render_handling_chips,
     render_verification_chip,
 };
+use crate::xlsx;
 
 /// Number of non-overlay columns rendered on `questions.html` (excludes `answer`, `answered_on`, `adoption`).
 pub const QUESTIONS_CORPUS_COLS: usize = 10;
@@ -197,6 +199,10 @@ pub struct RegisterView {
     pub part_nav: Option<ClaimsPartNavView>,
     /// Structured index sections for `claims.html`.
     pub claims_index: Option<ClaimsIndexView>,
+    /// Link to this register's CSV copy (`data/<register>.csv`), when that path is planned.
+    pub csv_href: Option<String>,
+    /// Link to the workbook copy of the registers (`data/registers.xlsx`), when that path is planned.
+    pub workbook_href: Option<String>,
 }
 
 #[derive(Template)]
@@ -1265,6 +1271,8 @@ pub fn build_register_view(
         rows,
         part_nav: None,
         claims_index,
+        csv_href: href_if_planned(from_path, &csv_copy::output_path(reg), planned),
+        workbook_href: href_if_planned(from_path, xlsx::OUTPUT_PATH, planned),
     }
 }
 
@@ -1458,6 +1466,8 @@ pub fn build_claims_part_view(
         rows,
         part_nav,
         claims_index: None,
+        csv_href: href_if_planned(from_path, &csv_copy::output_path(Register::Claims), planned),
+        workbook_href: href_if_planned(from_path, xlsx::OUTPUT_PATH, planned),
     }
 }
 

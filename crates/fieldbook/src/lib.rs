@@ -9,17 +9,24 @@
 //! External crates join through their cards, each at its pin in
 //! `docs/reference/dependencies.md`.
 
+pub mod adapters;
 pub mod add;
 pub mod audit;
+pub mod backup;
 pub mod build;
 pub mod cli;
+pub mod ctx;
 pub mod io;
 pub mod new;
 pub mod report;
 pub mod search;
+pub mod verbs;
 pub mod verify;
 
+pub use backup::render_backup_list_json;
 pub use cli::Cli;
+pub use fieldbook_core::labels::PlaceFacts;
+pub use fieldbook_core::manifest::SupportFacts;
 pub use io::{Audited, Error, StoreLease, WorldError};
 
 use std::ffi::OsString;
@@ -95,6 +102,19 @@ pub trait World {
     ///
     /// Returns [`WorldError`] when the prompt cannot be written or flushed.
     fn prompt(&self, flag: &str) -> Result<(), WorldError>;
+
+    /// Return folder placement facts for `path`.
+    fn place(&self, path: &Path) -> PlaceFacts;
+
+    /// Return facts about public support provenance: retained verified catalogues and completed public writes.
+    fn support_facts(&self) -> SupportFacts;
+
+    /// Return the registry id of the Store adapter that this world is.
+    ///
+    /// The default is the folder store that [`io::Disk`] is; test doubles override it.
+    fn store_id(&self) -> &'static str {
+        "folder@1"
+    }
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -141,6 +161,18 @@ pub fn render_check_json(report: &Report, strict: bool, today: CivilDate) -> Str
     json
 }
 
+/// Extract the `--state` flag and [`crate::cli::BuildArgs`] if `args` invokes `build --watch`.
+#[must_use]
+pub fn build_watch_args(args: &[String]) -> Option<(Option<PathBuf>, crate::cli::BuildArgs)> {
+    let argv =
+        std::iter::once(fieldbook_core::strings::binary()).chain(args.iter().map(String::as_str));
+    let parsed = Cli::try_parse_from(argv).ok()?;
+    match parsed.command {
+        Commands::Build(build_args) if build_args.watch => Some((parsed.state, build_args)),
+        _ => None,
+    }
+}
+
 /// Run the command named by `args` (the arguments after the program name) against `world`.
 #[must_use]
 pub fn run(args: &[String], world: &dyn World) -> Outcome {
@@ -156,6 +188,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
 
     let argv =
         std::iter::once(fieldbook_core::strings::binary()).chain(args.iter().map(String::as_str));
+    io::journal::reset_thread_wrote_store();
     let parsed = match Cli::try_parse_from(argv) {
         Ok(cli) => cli,
         Err(err) => {
@@ -175,7 +208,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
         };
     }
 
-    match parsed.command {
+    let mut outcome = match parsed.command {
         Commands::Check(check_args) => {
             if let Some(flag) = parsed.state.as_deref() {
                 let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
@@ -201,6 +234,14 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             }
         }
         Commands::Build(build_args) => {
+            if build_args.watch {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: "error: --watch needs a terminal; run it from the program\n"
+                        .to_string(),
+                    code: EXIT_USAGE,
+                };
+            }
             if let Some(flag) = parsed.state.as_deref() {
                 let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
                 let overridden = StateOverrideWorld {
@@ -249,12 +290,30 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 verify::run(&verify_args, world)
             }
         }
+        Commands::Backup(backup_args) => backup::run(&backup_args, parsed.state.as_deref(), world),
+    };
+
+    if io::journal::thread_wrote_store() && (outcome.code == 0 || outcome.code == 1) {
+        let state_dir = if let Some(flag) = parsed.state.as_deref() {
+            io::state::resolve(world.tree_root(), world.cwd(), Some(flag))
+        } else {
+            world.state_dir().to_path_buf()
+        };
+        let settings = io::state::read_backup_settings(&state_dir).unwrap_or_default();
+        if let Some(msg) = backup::reminder(&state_dir, world.today(), settings.warn_after_days) {
+            outcome.stderr.push_str(&msg);
+            if !outcome.stderr.ends_with('\n') {
+                outcome.stderr.push('\n');
+            }
+        }
     }
+
+    outcome
 }
 
-struct StateOverrideWorld<'a> {
-    inner: &'a dyn World,
-    state_dir: PathBuf,
+pub(crate) struct StateOverrideWorld<'a> {
+    pub(crate) inner: &'a dyn World,
+    pub(crate) state_dir: PathBuf,
 }
 
 impl World for StateOverrideWorld<'_> {
@@ -327,6 +386,34 @@ impl World for StateOverrideWorld<'_> {
 
     fn prompt(&self, flag: &str) -> Result<(), WorldError> {
         self.inner.prompt(flag)
+    }
+
+    fn place(&self, path: &Path) -> PlaceFacts {
+        self.inner.place(path)
+    }
+
+    fn store_id(&self) -> &'static str {
+        self.inner.store_id()
+    }
+
+    /// Support facts follow the selected state directory specified by `--state`.
+    ///
+    /// Facts that equal what the default State yields are derived from the default State:
+    /// ignore them; anything else was injected by a test world: keep it. Otherwise,
+    /// support facts are read from the selected State directory only.
+    fn support_facts(&self) -> SupportFacts {
+        let selected =
+            io::Disk::with_state(self.inner.tree_root(), &self.state_dir).support_facts();
+        let inner_default =
+            io::Disk::with_state(self.inner.tree_root(), self.inner.state_dir()).support_facts();
+        let inner = self.inner.support_facts();
+        // facts that equal what the default State yields are derived from the default State: ignore them;
+        // anything else was injected by a test world: keep it.
+        if inner == inner_default {
+            selected
+        } else {
+            inner
+        }
     }
 }
 
@@ -430,7 +517,9 @@ mod tests {
     use fieldbook_core::audit::{Now, Principal};
     use fieldbook_core::check::Tree;
 
-    use super::{StoreLease, World, WorldError, identity, run, version_line};
+    use super::{
+        PlaceFacts, StoreLease, SupportFacts, World, WorldError, identity, run, version_line,
+    };
 
     struct FakeWorld {
         cwd: PathBuf,
@@ -518,6 +607,14 @@ mod tests {
 
         fn state_dir(&self) -> &Path {
             &self.state_dir
+        }
+
+        fn place(&self, _path: &Path) -> PlaceFacts {
+            PlaceFacts::local()
+        }
+
+        fn support_facts(&self) -> SupportFacts {
+            SupportFacts::default()
         }
     }
 

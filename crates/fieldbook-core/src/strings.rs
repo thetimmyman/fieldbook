@@ -326,7 +326,7 @@ pub const CHIPS: [ChipRow; 35] = [
 ];
 
 /// The third table (`Other fixed wording`) of the Strings section, in document order.
-pub const OTHER_TABLE: [OtherRow; 14] = [
+pub const OTHER_TABLE: [OtherRow; 18] = [
     OtherRow {
         key: "cite_statuses",
         wording: "broken · broken locator · outside context · superseded · weak · unchecked locator · unchecked quote · quote mismatch · verified, in precedence order",
@@ -375,6 +375,26 @@ pub const OTHER_TABLE: [OtherRow; 14] = [
     OtherRow {
         key: "not_remembered",
         wording: "\"Not remembered in this browser\"",
+        decision: "AD-15",
+    },
+    OtherRow {
+        key: "set_start_date",
+        wording: "\"Set your start date\"",
+        decision: "AD-15",
+    },
+    OtherRow {
+        key: "set_start_date_plan",
+        wording: "\"Set a start date to mark today\"",
+        decision: "AD-15",
+    },
+    OtherRow {
+        key: "day_n_of_90",
+        wording: "\"Day N of 90\", with N the day count the page script computes",
+        decision: "AD-15",
+    },
+    OtherRow {
+        key: "day_n_today",
+        wording: "\"Day N of 90 · the line marks today\", with N the day count the page script computes",
         decision: "AD-15",
     },
     OtherRow {
@@ -483,6 +503,9 @@ pub const ASSISTANT_LABEL_TEXTS: [&str; 8] = [
 
 /// The two labels for an AI-drafted note (`ai_note_label`): unreviewed first, reviewed second.
 pub const AI_NOTE_LABELS: [&str; 2] = ["AI-drafted · unreviewed", "AI-drafted · reviewed"];
+
+/// The note on a source page whose text was supplied by hand (corpus-format.md, Extraction, `supplied`).
+pub const EXTRACTION_SUPPLIED: &str = "text supplied by hand; not checked against the original";
 
 /// The abstention phrase (`abstention`).
 #[must_use]
@@ -604,6 +627,31 @@ pub const fn not_remembered() -> &'static str {
     "Not remembered in this browser"
 }
 
+/// The label of the start-date control and of the button that opens it (`set_start_date`).
+#[must_use]
+pub const fn set_start_date() -> &'static str {
+    "Set your start date"
+}
+
+/// The plan timeline header while no start date is set (`set_start_date_plan`).
+#[must_use]
+pub const fn set_start_date_plan() -> &'static str {
+    "Set a start date to mark today"
+}
+
+/// The day chip, with `N` for the page script to fill (`day_n_of_90`).
+#[must_use]
+pub const fn day_n_of_90() -> &'static str {
+    "Day N of 90"
+}
+
+/// The plan timeline header while a start date is set, with `N` for the page script to fill
+/// (`day_n_today`).
+#[must_use]
+pub const fn day_n_today() -> &'static str {
+    "Day N of 90 \u{b7} the line marks today"
+}
+
 /// The command chip tag for commands that run on the home machine (`tag_at_home`).
 #[must_use]
 pub const fn tag_at_home() -> &'static str {
@@ -698,7 +746,7 @@ fn push_list_prop(out: &mut String, key: &str, items: &[&str], comma: bool) {
     out.push('\n');
 }
 
-/// The text of `assets/strings.js`: one assignment to `window.FB_STRINGS` with all 24 keys
+/// The text of `assets/strings.js`: one assignment to `window.FB_STRINGS` with all 28 keys
 /// in the order of `docs/reference/corpus-format.md`.
 #[must_use]
 pub fn js() -> String {
@@ -739,6 +787,10 @@ pub fn js() -> String {
     push_str_prop(&mut out, "unreleased_build", unreleased_build(), true);
     push_str_prop(&mut out, "print_check", print_check(), true);
     push_str_prop(&mut out, "not_remembered", not_remembered(), true);
+    push_str_prop(&mut out, "set_start_date", set_start_date(), true);
+    push_str_prop(&mut out, "set_start_date_plan", set_start_date_plan(), true);
+    push_str_prop(&mut out, "day_n_of_90", day_n_of_90(), true);
+    push_str_prop(&mut out, "day_n_today", day_n_today(), true);
     push_str_prop(&mut out, "tag_at_home", tag_at_home(), true);
     push_str_prop(&mut out, "tag_r2_laptop", tag_r2_laptop(), true);
 
@@ -818,10 +870,10 @@ pub fn render_other_table() -> String {
 mod tests {
     use super::{
         AI_NOTE_LABELS, ASSISTANT_LABELS, ReleaseFrom, abstention, ai_note_label, assistant_labels,
-        binary, brief_parts, chips, cite_statuses, empty_part, escape_js, js, left_out_budget,
-        left_out_policy, non_canonical, not_available, not_remembered, origin_labels, pack_labels,
-        parts, paths, print_check, refusal, rounding, tag_at_home, tag_r2_laptop, unreleased_build,
-        verified_text,
+        binary, brief_parts, chips, cite_statuses, day_n_of_90, day_n_today, empty_part, escape_js,
+        js, left_out_budget, left_out_policy, non_canonical, not_available, not_remembered,
+        origin_labels, pack_labels, parts, paths, print_check, refusal, rounding, set_start_date,
+        set_start_date_plan, tag_at_home, tag_r2_laptop, unreleased_build, verified_text,
     };
 
     const CORPUS_FORMAT: &str = include_str!("../../../docs/reference/corpus-format.md");
@@ -911,6 +963,10 @@ mod tests {
         assert_eq!(unreleased_build(), "unreleased build");
         assert_eq!(print_check(), "Check the current edition");
         assert_eq!(not_remembered(), "Not remembered in this browser");
+        assert_eq!(set_start_date(), "Set your start date");
+        assert_eq!(set_start_date_plan(), "Set a start date to mark today");
+        assert_eq!(day_n_of_90(), "Day N of 90");
+        assert_eq!(day_n_today(), "Day N of 90 \u{b7} the line marks today");
         assert_eq!(tag_at_home(), "At home");
         assert_eq!(tag_r2_laptop(), "R2 · laptop");
         assert_eq!(assistant_labels().len(), 8);
@@ -935,7 +991,7 @@ mod tests {
     #[test]
     fn strings_js_has_every_key_of_the_document() {
         let doc_keys = doc_strings_keys(CORPUS_FORMAT);
-        assert_eq!(doc_keys.len(), 24);
+        assert_eq!(doc_keys.len(), 28);
 
         let rendered = js();
         let json_body = rendered

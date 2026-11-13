@@ -239,9 +239,9 @@ fn fixture() -> Fixture {
     // Other reference docs copied on disk but excluded from snapshot via .gitignore
     fix.write_file(
         ".gitignore",
-        "docs/reference/errors.md\ndocs/reference/cli.md\ndocs/reference/audit.md\n",
+        "docs/reference/errors.md\ndocs/reference/cli.md\ndocs/reference/audit.md\ndocs/reference/ports.md\n",
     );
-    for name in &["errors.md", "cli.md", "audit.md"] {
+    for name in &["errors.md", "cli.md", "audit.md", "ports.md"] {
         let src = repo_root().join("docs/reference").join(name);
         let content =
             std::fs::read_to_string(&src).unwrap_or_else(|e| panic!("read {}: {e}", src.display()));

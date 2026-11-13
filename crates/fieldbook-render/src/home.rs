@@ -12,6 +12,7 @@ use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::VersionId;
 use fieldbook_core::schema::vocab::{PageType, QuestionStatus};
 use fieldbook_core::schema::{ConflictStatus, SourceRow, Verification};
+use fieldbook_core::strings;
 
 use crate::frame::{FrameInput, PRODUCT_TITLE, StoreContext, render_page as render_frame_page};
 use crate::inline::first_sentence_of_purpose;
@@ -23,6 +24,7 @@ use crate::nav::{Navigation, format_not_available};
 use crate::site::PlannedPaths;
 use crate::source::{is_held, page_path, render_unavailable};
 use crate::svg::{CoverageCounts, coverage_bar, coverage_legend};
+use crate::xlsx;
 
 /// Site-relative output path of the home page.
 pub const OUTPUT_PATH: &str = "index.html";
@@ -305,6 +307,9 @@ struct HomeTemplate {
     three_up_html: String,
     day_one: Vec<DayOneRow>,
     briefs: Vec<BriefRow>,
+    binder_href: Option<String>,
+    registers_href: Option<String>,
+    registers_line: String,
     next_up_html: String,
     legend_html: String,
     tiles: Vec<AreaTile>,
@@ -384,6 +389,9 @@ pub fn render_main(view: &LabelledView, planned: &PlannedPaths) -> String {
         three_up_html: render_three_up(OUTPUT_PATH, view, planned, None, "h2"),
         day_one: day_one_rows(view, planned),
         briefs: brief_rows(view, planned),
+        binder_href: href_if_planned(OUTPUT_PATH, crate::day_one::OUTPUT_PATH, planned),
+        registers_href: href_if_planned(OUTPUT_PATH, xlsx::OUTPUT_PATH, planned),
+        registers_line: format_not_available(strings::paths()[0], "a later build"),
         // HANDOFF section 5: its order rule "what unblocks the most" depends on ADR 0001.
         next_up_html: render_unavailable("Next up", "ADR 0001 decides its order rule"),
         legend_html: coverage_legend(None),

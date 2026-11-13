@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="{{ csp|safe }}">
 <title>{{ title }}</title>
+<link rel="icon" type="image/svg+xml" href="{% include "frame/mark-uri.txt" %}">
 <link rel="stylesheet" href="{{ root_prefix }}assets/app.css">
 <script src="{{ root_prefix }}assets/strings.js" defer></script>
 <script src="{{ root_prefix }}assets/search.js" defer></script>
@@ -35,7 +36,7 @@
 </div>
 <div class="scrim" id="fb:scrim" hidden></div>
 <dialog class="palette" id="fb:palette" aria-label="Search the library"></dialog>
-<dialog class="dlg" id="fb:keys" aria-label="Keyboard shortcuts"></dialog>
+<dialog class="dlg" id="fb:keys" aria-labelledby="fb:keysTitle"></dialog>
 <div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
 <div class="sr-only" id="fb:sr" aria-live="polite"></div>
 </body>
