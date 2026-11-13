@@ -12,8 +12,8 @@
 
 - The App map is the Day 30 row of the output table in [AD-12](../decisions/0001-foundation.md#ad-12-site-generation-and-page-types) ("The App map: layers, releases, stores and labels; the AI layer as text"). Its path `map.html` is already frozen as `strings::paths()[5]`, so no path or schema decision is made here. The page is derived from the corpus view and compiled-in data, so no count or list is copied by hand.
 - Design: [MAP.md](../design/MAP.md) row `#map` (component `AppMap`, route `map.html`), the Today-section nav entry "Today, App map", and the Workspaces and Modules bands that the row names; [HANDOFF.md](../design/HANDOFF.md) section 2 Routes (`#map`), section 5 Components (`AppMap`, with `Unavailable`, `Fold`, `Panel`, `Chip` and `Button` that it reuses), and the section 12 and 13 checks (single column at 900px, links grouped under band headings); tokens: the space, shape and line, size and colour groups, with `.appmap` as the component root in `assets/app.css` ([Using the tokens](../design/HANDOFF.md)). The mockup's `V.map` and its `.appmap`, `.layers`, `.layer`, `.pill` and `.asst-col` rules are the visual source.
-- Three things in the mockup are not yet settled in the design documents, so the first Precondition is a design revision and not a choice made here: its Releases rows use release names that differ from the [AD-12](../decisions/0001-foundation.md#ad-12-site-generation-and-page-types) release table, its Stores and effective labels panel does not use the four built-in labels and the stores of [ADR 0004](../decisions/0004-company-boundary.md), and HANDOFF gives `AppMap` only a Static state, so a pill to an unbuilt page has no stated look. Revision 22's `frame-unbuilt-entries` convention (a closed "Not built yet" disclosure with one landing line per item) is the rule this card reuses for the third.
-- The AI layer is text because the registry that would name the adapters (`ai-kernel`) is a separate card and `fieldbook-render` is pure: it cannot read a table that lives in the `fieldbook` crate. HANDOFF says builds show Handoff and Off only, and that Connected is text on About and the App map until D-1. The AI column is therefore a small compiled-in table; `ai-kernel` and `assistant-page` may replace it with generated rows.
+- Two things in the mockup are not yet settled in the design documents, so the first Precondition is a design revision and not a choice made here: its Releases rows use release names that differ from the [AD-12](../decisions/0001-foundation.md#ad-12-site-generation-and-page-types) release table, and its Stores and effective labels panel does not use the four built-in labels and the stores of [ADR 0004](../decisions/0004-company-boundary.md). A third gap, that HANDOFF gives `AppMap` only a Static state so a pill to an unbuilt page has no stated look, is a lead decision of this card and not a revision string: revision 22's `frame-unbuilt-entries` convention (a closed "Not built yet" disclosure with one landing line per item) is reused, and the revision does not need to give it.
+- The AI layer is text because `fieldbook-render` is pure: it cannot read the adapter table, which lives in `crates/fieldbook/src/adapters/registry.rs` in the `fieldbook` crate (the `ai-kernel` card has merged, as #404, and built it there). HANDOFF says builds show Handoff and Off only, and that Connected is text on About and the App map until D-1. The Assistant column is therefore a small compiled-in table that this card keeps; a later card may replace it with generated rows if the registry's data is handed to the renderer.
 - Delivery follows the existing edition sink and the real-handler surface rule of [ADR 0004](../decisions/0004-company-boundary.md): the map carries only public text, and a planted canary in its planned bytes must make `write_edition_outputs` return `Error::OutOfScope`. The page carries no company data, so it adds no new sink.
 
 ## Scope
@@ -26,7 +26,7 @@
 
 - A change to `nav.rs`. Its "App map" entry is already `NavTarget::from_candidate(Some(map_html), "The app map", "Day 30", planned)` and turns into a link when the path is planned.
 - A change to `xtask/src/allowlist.rs` (it already admits `fieldbook_core::strings::paths()[3..=5]`), `xtask/src/edition.rs` `REQUIRED_FILES`, the harness (it opens every built html page itself), `app.js`, any snapshot file (the eleven snapshots use a fixed planned set) or `docs/intake/` and `SECURITY.md`.
-- The Releases rows and the Stores and effective labels panel, until the design revision names their strings: this card builds them from that revision only.
+- The Releases rows and the Stores and effective labels panel, until the design revision names their strings: this card builds them from that revision only. (The unbuilt-pill state is not one of them: step 3 decides it.)
 - Pages that the pills point at (`views-and-day-n` builds the three view pages; `assistant-page` builds `assistant.html`; modules are Release 3). A pill to a page that is not planned shows in the fold.
 - Reading an adapter registry, a model call, a key or a socket. The AI column is text.
 - Any edit of `home.rs`, `area.rs` or `index.html`.
@@ -34,14 +34,14 @@
 ## Preconditions
 
 - Cards merged: `build-about`, `build-frame`, `frame-unbuilt-entries`, `build-tokens`, `build-home-and-areas`, `build-v0`, `build-site-lints`, `edge-harness`, `narrow-width-check` (all merged on origin/main).
-- `design-app-map-page` merged: the design revision after 23 that gives the App map's Releases rows in the [AD-12](../decisions/0001-foundation.md#ad-12-site-generation-and-page-types) release names, its Stores and effective labels panel in the four labels and the stores of [ADR 0004](../decisions/0004-company-boundary.md), and the unbuilt-pill state. Its strings and the mockup's `V.map` are the text source. This is the only unmerged precondition; if it lacks a string this card needs, the card is BLOCKED.
+- `design-app-map-page` merged: the design revision that gives the App map's Releases rows in the [AD-12](../decisions/0001-foundation.md#ad-12-site-generation-and-page-types) release names, and its Stores and effective labels panel in the four labels and the stores of [ADR 0004](../decisions/0004-company-boundary.md). Its strings and the mockup's `V.map` are the text source. This is the only unmerged precondition; if it lacks a string this card needs, the card is BLOCKED.
 - No open card or draft lists this card's `Files:` paths. The cards that touch `lib.rs`, `site.rs`, `app.css` and `leak_outputs.rs` do so by registration line only, as above.
 
 ## Steps
 
-1. Read `docs/design/` (revision after 23) and `V.map` in `docs/design/mockup/index.html`. Note the band titles, the pill codes and the Assistant column text. Do not copy a string that the revision changed.
+1. Read `docs/design/` (the revision for the App map) and `V.map` in `docs/design/mockup/index.html`. Note the band titles, the pill codes and the Assistant column text. Do not copy a string that the revision changed.
 2. `crates/fieldbook-render/src/map.rs`: `pub const OUTPUT_PATH: &str = strings::paths()[5];`, `PAGE_TITLE`, `render_main(view, ctx, profile, planned)` and `render_page(view, ctx, profile, nav, planned)`, modelled on `about.rs` (a `Crumb::linked("Today", ...)` and a `Crumb::current`, and `render_frame_page` with the `CSP_STATIC` policy). Add `pub mod map;` to `lib.rs`.
-3. Bands. Outputs: the planned output pages. Work core: the registers (`register::output_path`) and the day-one pages. Workspaces: `area::page_path(code)` for each `[[area]]` of `view.corpus()`, then the three views CPY, CPT and PGM only if their page paths are planned. Modules: an `Unavailable` line ("Release 3") from `source::render_unavailable`, because `modules.csv` is later. Library: the reference pages that exist. Each pill is built through `links::href_if_planned(OUTPUT_PATH, target, planned)`; a pill that returns `None` goes into that band's closed `details.fold.nav-more` "Not built yet" fold with its one landing line from `nav::format_not_available(thing, until)`. Lead decision: this is the unbuilt-pill state until the design revision says otherwise.
+3. Bands. Outputs: the planned output pages. Work core: the registers (`register::output_path`) and the day-one pages. Workspaces: `area::page_path(code)` for each `[[area]]` of `view.corpus()`, then the three views CPY, CPT and PGM only if their page paths are planned. Modules: an `Unavailable` line ("Release 3") from `source::render_unavailable`, because `modules.csv` is later. Library: the reference pages that exist. Each pill is built through `links::href_if_planned(OUTPUT_PATH, target, planned)`; a pill that returns `None` goes into that band's closed `details.fold.nav-more` "Not built yet" fold with its one landing line from `nav::format_not_available(thing, until)`. Lead decision (the design is silent): this is the unbuilt-pill state. It is not a revision string and not a BLOCKED case.
 4. Assistant column: a compiled-in `const ADAPTER_ROWS` of (label, state) pairs: Handoff (built), Off (built), Connected (text only, "where a model adapter exists"), with the "No model connected here" wording of HANDOFF section 9. It names no endpoint and no key. If the build profile is Silent the page also quotes the Short network posture sentence of `docs/cards/README.md` verbatim through `about::NETWORK_POSTURE_SHORT`; it never rewords it.
 5. Releases and Stores panels from the revision's strings, with the labels as `Chip` components. No hand-typed count.
 6. `templates/map.html`: the markup of `AppMap`: five `section.layer` elements under band headings (`h2`), link pills in `ul.links`, the `.asst-col` aside, and one column below 900px. No `style=""`, no `<script>` and no `href="http`.
@@ -59,14 +59,14 @@ cargo nextest run --locked -p fieldbook-render --test map
 cargo nextest run --locked -p fieldbook-render --test frame
 cargo nextest run --locked -p fieldbook --test leak_outputs
 just site && test -f out/edition/map.html && echo present
-grep -c 'style="' out/edition/map.html
+grep -c 'style="' out/edition/map.html || true
 grep -c 'http-equiv="Content-Security-Policy"' out/edition/map.html
-grep -c 'href="http' out/edition/map.html
+grep -c 'href="http' out/edition/map.html || true
 cargo xtask cards --check
 just check
 ```
 
-Expected: the three test runs pass, with the `map` run selecting the ten tests of step 9 and `delivered_map_is_public_and_bound` selected in `leak_outputs`; `present` prints; the `style="` count is 0; the CSP count is 1; the `href="http` count is 0; `cards --check` prints no finding; `just check` exits 0. `planned_paths_equal_the_site_keys` is among the passing `frame` tests, and the nav line "The app map is not available until Day 30." no longer appears on a built site.
+Expected: the three test runs pass, with the `map` run selecting the ten tests of step 9 and `delivered_map_is_public_and_bound` selected in `leak_outputs`; `present` prints; the `style="` count prints 0 (`grep -c` exits 1 on no match, so the `|| true` keeps the sequence going); the CSP count is 1; the `href="http` count is 0; `cards --check` prints no finding; `just check` exits 0. `planned_paths_equal_the_site_keys` is among the passing `frame` tests, and the nav line "The app map is not available until Day 30." no longer appears on a built site.
 
 ## Negative control
 
@@ -74,8 +74,8 @@ Three breaks, each restored after it is seen failing. (1) Delete the `site.inser
 
 ## Rollback
 
-Revert the merge commit. `map.html` leaves the edition, the nav entry returns to "The app map is not available until Day 30.", and the CSS block goes with it. Nothing in the Corpus, a store or any other page changes, and no later card depends on this one except a card that replaces the AI column text (`ai-kernel`, `assistant-page`), which would revert first.
+Revert the merge commit. `map.html` leaves the edition, the nav entry returns to "The app map is not available until Day 30.", and the CSS block goes with it. Nothing in the Corpus, a store or any other page changes, and no later card depends on this one except a card that replaces the AI column text (such as `assistant-page`), which would revert first.
 
 ## BLOCKED
 
-`design-app-map-page` is not merged, or the revision lacks a string this card needs (the Releases rows, the Stores and effective labels text or the unbuilt-pill state). Set the item to Blocked with `BLOCKED: the App map design strings are missing`, and stop. Do not invent release names or labels here. A second block: `map.html` is not admitted by the allowlist; set `BLOCKED: allowlist does not admit map.html` and stop, and do not edit `allowlist.rs` in this card.
+`design-app-map-page` is not merged, or the revision lacks a string this card needs (the Releases rows or the Stores and effective labels text). Set the item to Blocked with `BLOCKED: the App map design strings are missing`, and stop. Do not invent release names or labels here. A second block: `map.html` is not admitted by the allowlist; set `BLOCKED: allowlist does not admit map.html` and stop, and do not edit `allowlist.rs` in this card.
