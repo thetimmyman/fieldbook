@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: restore and restore --drill.
+- Added: site search finds glossary terms by their labels and aliases.
 - Added: a weekly `scheduled.yml` workflow runs the advisory check, a full-history secret scan, the lint controls (a planted banned call must fail clippy), the committed-lock check, an edition build for the cross-OS compare when `corpus/changes.md` has an edition heading, and the advisory scale table.
 - Changed: the Markdown reader moves to pulldown-cmark 0.13.6, which fixes a published advisory about nested wikilinks; the program does not enable that option.
 - Added: the three E1 workbook templates in the edition.
