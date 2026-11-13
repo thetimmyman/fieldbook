@@ -169,6 +169,8 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day-one-binder-and-registers-xlsx: `day-one.html` and the print contract
 - registers-xlsx: `data/registers.xlsx` with read-back tests, and the CSV copies
 - ai-it-story: the IT documents and `SECURITY.md` for the AI build, which is not in the first edition (docs only)
+- frame-page-id-hook: the print footer of a reader page shows the bare page id, as the binder footer does, not its route
+- binder-calc-case-clause-blocks: binder articles of calc, case and clause-card pages carry the calc table, the Public record and Inference boxes and the clause questions their standalone pages print
 - Five briefs, BJ-001, BJ-002, BJ-003, BJ-004 and BJ-006, each one printed page (lead)
 - The 30/60/90 checklist in relative days only, and curriculum stages 1 and 2 (lead)
 - About 30 clause cards, a stretch (lead)
@@ -226,7 +228,7 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 
 ## Reader
 
-The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, pages that list their related pages, Sources without repeats, a frame without placeholder lines, trust signals that say what is true, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards.
+The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, pages that list their related pages, Sources without repeats, a frame without placeholder lines, trust signals that say what is true, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards. `design-brief-print-footnote` and `binder-brief-one-sheet` are here, not in P2, because a strict phase needs a card file for each item and the revision has none yet; item 4 of the home gate (each brief prints on one page) needs both, so they merge before the home gate is rehearsed at the P3 exit.
 
 - corpus-job-speed: the `corpus` job in half its time, with a release binary and parallel harness pages, every check kept
 - design-r22-reader-pages: design revision 22: related and linked-from lists, one Sources row per claim, unbuilt navigation, the folded Company calibration part, the overdue notice on unreleased builds and the build link's target (owner review)
@@ -246,11 +248,14 @@ The edition as a usable reference for the owner without company data: search tha
 - search-section-snippets: the edition's site search index cuts each section unit's snippet to 100 code points, as the amended ADR 0006 decided, to stay within its 15 MB cap
 - kb-hub-pages-2: concept hubs for Cost Accounting Standards 404 to 420, after the three of the first part
 - search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
+- design-brief-print-footnote: a design revision of the print footnote, so the six real briefs fit one Letter sheet with the unreleased banner counted, with the footnote's form, type step and spacing from the existing tokens (owner review)
+- binder-brief-one-sheet: each of the six briefs prints on one Letter sheet, in the binder and as its own page, with the unreleased banner counted, by print CSS of existing tokens
 - design-search-term-rows: a design revision after revision 22 that shows a glossary term row on the edition's search page and in the palette (owner review)
 - search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)
 - kb-fpa-core: budgeting, rolling forecast and variance analysis pages
 - kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
 - kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
+- scope-through-squash: `cargo xtask scope` names the way through for a path changed after the card's deleting commit, and the cards README says where the declaration is read and that the check runs on pull requests only
 
 ## P4
 
