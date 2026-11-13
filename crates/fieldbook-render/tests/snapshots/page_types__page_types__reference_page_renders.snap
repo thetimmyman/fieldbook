@@ -9,6 +9,7 @@ expression: html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
 <title>Synthetic reference table of pricing rate windows and placeholders</title>
+<link rel="icon" type="image/svg+xml" href="../assets/fieldbook.svg">
 <link rel="stylesheet" href="../assets/app.css">
 <script src="../assets/strings.js" defer></script>
 <script src="../assets/search.js" defer></script>
@@ -19,7 +20,7 @@ expression: html
 <div class="app" data-route="p/est-rate-reference.html" data-section="areas" data-item="area-est">
 <aside class="sidebar" id="fb:sidebar" aria-label="Navigation">
   <div class="brand">
-    <div class="brand-mark" aria-hidden="true">F</div>
+    <img class="brand-mark" src="../assets/fieldbook.svg" width="28" height="28" alt="" aria-hidden="true">
     <div class="brand-text">
       <div class="brand-title">Fieldbook</div>
       <div class="brand-sub">Finance role workbench</div>
