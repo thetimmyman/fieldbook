@@ -394,6 +394,7 @@ textarea.input:focus,input.input:focus{outline:var(--focus-w) solid var(--color-
 
 /* ---------- responsive ---------- */
 @media (max-width:1279px){ .day-chip{display:none} }
+@media (min-width:1280px){ [data-start-prompt][data-day-set]{display:none} }
 /* The rail folds under the text when main is too narrow for measure + rail, including when the Ask drawer is docked. */
 main{container-type:inline-size}
 @container (max-width:1040px){
@@ -2424,7 +2425,7 @@ V.today=()=>{
  <div class="grid split">
   <div class="grid" style="align-content:start">
   <section class="panel" aria-labelledby="hNext"><div class="panel-h"><h2 id="hNext">Next up</h2><span class="meta">Ordered by what unblocks the most</span></div><div class="panel-b rows">
-   ${dayNo()?'':`<div class="row" data-start-prompt><span class="n accent">${icon('clock')}</span><div class="chips"><button class="btn sm" data-day-open>Set your start date</button></div></div>`}
+   <div class="row" data-start-prompt${dayNo()?' data-day-set':''}><span class="n accent">${icon('clock')}</span><div class="chips"><button class="btn sm" data-day-open>Set your start date</button></div></div>
    <div class="row"><span class="n accent">1</span><div><h3><a href="#decision-dp-002">Confirm the overhead rate behind DP-002</a></h3><p>124% is low confidence (evidence D). It moves the unit price by 15.38.</p><div class="sub">Ask the cost-accounting lead · ${qLink('Q-008')}</div></div><div class="chips"><span class="chip info">${icon('q')}Blocks a decision</span></div></div>
    <div class="row"><span class="n accent">2</span><div><h3><a href="#brief-prg-lead">Brief: first meeting with the program-finance lead</a></h3><p>Ranked questions are ready, including who signs off the EAC (XC-43).</p><div class="sub">Briefs · 6 of 9 fields filled</div></div><div class="chips"><span class="chip warn">${icon('clock')}Day 14</span></div></div>
    <div class="row"><span class="n">3</span><div><h3><a href="#plan">Map 8 more duties for the Day 30 proof test</a></h3><p>Owner, system of record, calendar and first deliverable for each.</p><div class="sub">90-day plan · ON-01, ON-03, ON-05</div></div><div class="chips"><span class="chip">4 of 12</span></div></div>
@@ -3308,7 +3309,7 @@ function readerJump(link){
 /* Small dialogs: keyboard shortcuts (?) and the start date behind the Day chip. */
 let dlgReturn=null;
 function openDlg(title,html){dlgReturn=document.activeElement;$('#miniDlgT').textContent=title;$('#miniDlgB').innerHTML=html;$('#miniDlg').classList.add('on');setTimeout(()=>{const f=$('#miniDlgB input,#miniDlgB textarea,#miniDlgB button');f&&f.focus()},30)}
-function closeDlg(){$('#miniDlg').classList.remove('on','no-h');$('#miniDlg').setAttribute('aria-labelledby','miniDlgT');if(dlgReturn&&dlgReturn.focus)dlgReturn.focus()}
+function closeDlg(){$('#miniDlg').classList.remove('on','no-h');$('#miniDlg').setAttribute('aria-labelledby','miniDlgT');const r=[dlgReturn,$('#dayBtn'),$('#main')].find(x=>x&&x.getClientRects().length);if(r)r.focus()}
 function keysHtml(){const k=[['/ or Ctrl K','Search'],['.','Ask'],['?','This list'],['p','Precise wording, on a reader page'],['Esc','Close a drawer, dialog or search'],['Ctrl Enter','Send, in a chat']];
  return `<dl class="keys">${k.map(([a,b])=>`<dt>${a.split(' or ').map(x=>`<kbd>${x}</kbd>`).join(' or ')}</dt><dd>${b}</dd>`).join('')}</dl>
  <button class="switch" data-keys-toggle aria-pressed="${state.singleKeys}"><i></i>Single-key shortcuts</button>
@@ -3330,11 +3331,13 @@ function printCopy(el){const c=el.cloneNode(true);c.removeAttribute('id');c.quer
 function buildPrintFrame(){const body=$('#printRows'),main=$('#main');if(!body||!main)return;body.textContent='';const units=printUnits(main,[]);if(!units.length)return;const frag=document.createDocumentFragment();units.forEach(u=>{const tr=document.createElement('tr'),td=document.createElement('td');td.appendChild(printCopy(u));tr.appendChild(td);frag.appendChild(tr)});body.appendChild(frag);document.documentElement.setAttribute('data-print-frame','1')}
 function clearPrintFrame(){document.documentElement.removeAttribute('data-print-frame');const b=$('#printRows');if(b)b.textContent=''}
 function setDayChip(){const dc=$('#dayBtn'),l=dayLabel();dc.textContent=l||'Day';dc.hidden=!l}
-function openDay(){const o=document.activeElement;openDlg('',`<label class="field" for="dayIn" id="dayInL">Set your start date<input class="input" type="date" id="dayIn" value="${startDate()||''}"></label>`);
+function openDay(){const o=document.activeElement;dayKeyed=false;openDlg('',`<label class="field" for="dayIn" id="dayInL">Set your start date<input class="input" type="date" id="dayIn" value="${startDate()||''}"></label>`);
  const d=$('#miniDlg');d.setAttribute('aria-labelledby','dayInL');d.classList.add('no-h');dlgReturn=o}
 function saveDay(){const i=$('#dayIn');if(!i||i.validity.badInput)return;const v=i.value||'';START=v||null;const ok=store.set('fieldbook.start',v);setDayChip();if(/^#?(plan|today)?$/.test(location.hash))rerenderMain();if(!ok)toast('Not remembered in this browser');closeDlg()}
-document.addEventListener('change',e=>{if(e.target.id==='dayIn')saveDay()});
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='dayIn'){e.preventDefault();saveDay()}});
+/* Chromium and Edge fire change at the first digit typed in a year or a day (0002-11-13), so a typed date saves on Enter and a change saves only when no key was pressed in the field since the dialog opened (the date picker set it). */
+let dayKeyed=false;
+document.addEventListener('change',e=>{if(e.target.id==='dayIn'&&!dayKeyed)saveDay()});
+document.addEventListener('keydown',e=>{if(e.target.id!=='dayIn')return;if(e.key==='Enter'){e.preventDefault();saveDay()}else if(e.key!=='Escape'&&e.key!=='Tab')dayKeyed=true});
 $('#miniDlg').addEventListener('click',e=>{if(e.target.id==='miniDlg')closeDlg()});
 
 /* ======================= boot ======================= */
