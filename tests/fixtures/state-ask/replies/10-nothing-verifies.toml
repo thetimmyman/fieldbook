@@ -1,0 +1,7 @@
+# Both citations fail (broken, broken locator): nothing verifies and 2 of 2 do not resolve: exit 1.
+seed = "cc-s-04"
+exit = 1
+total = 2
+unresolved = 2
+statuses = ["broken", "broken_locator"]
+ai_paste = true

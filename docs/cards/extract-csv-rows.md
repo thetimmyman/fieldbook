@@ -10,15 +10,15 @@ A table saved as CSV can be extracted, cited and checked. `cargo xtask extract <
 
 ## Why
 
-- The method, the windows, the `rec` arithmetic, the keys of `extraction.toml` and FB0311 are in [Extraction](../../reference/corpus-format.md#extraction) and the [Check catalogue](../../reference/corpus-format.md#check-catalogue). The place of the method in the company design is [ADR 0004, section 9](../../decisions/0004-company-boundary.md#9-provenance-extraction-and-records).
+- The method, the windows, the `rec` arithmetic, the keys of `extraction.toml` and FB0311 are in [Extraction](../reference/corpus-format.md#extraction) and the [Check catalogue](../reference/corpus-format.md#check-catalogue). The place of the method in the company design is [ADR 0004, section 9](../decisions/0004-company-boundary.md#9-provenance-extraction-and-records).
 - Today a `rec` or `sheet` locator is accepted and never read. A claim that says "unit price 41.20 at rec 213" is then checked by nobody, and a price list or a transaction export is exactly the kind of source a bid rests on. This card makes the quote meet the row it names.
 - A spreadsheet's CSV is not a register. `schema::table::read` is strict on purpose (it refuses a ragged row and a line break in a cell), so this card has its own lenient reader and does not touch the register reader.
 - The windows are arithmetic and not an index: the window of row N is `ceil(N / window_rows)` and its line is `((N - 1) mod window_rows) + 2`, so nothing is stored per row, and each window file is hashed with the rest of the extraction.
 - A table is cut or refused, never quietly truncated: over 100,000 data rows, over 32 MiB, or over 9,999 windows is `TooLarge`. The original is still kept and cited by hash, and the Later row `later-dataset-tier` names the trigger.
 - Only values reach the text. CSV holds no formula and no macro, so this method reads nothing that can run. A workbook that a system exports as a workbook is read by `xlsx-sheets` (`extract-xlsx-sheets`); this method serves the systems that export CSV only.
 - Values on display are not values stored. A workbook saved as CSV carries what the screen showed: with manual calculation on, or a stale cached cell, a figure can disagree with its formula and nothing in the file says so (R-13). The extractor reads bytes and cannot know, so a caller that does know sets `values_only`, and the key travels with the extraction to every place that shows the text. The failure it prevents: a quoted price is trusted as if a formula stood behind it.
-- Extraction output carries the labels of its original (the union rule of [ADR 0004](../../decisions/0004-company-boundary.md#2-labels)). The extractor reads bytes and returns text, sends nothing and takes no token.
-- Design: the [MAP.md](../../design/MAP.md#routes-and-components) row "Source drawer", for the label of a window in LocatorView. The label text is a request to the interface lane (`docs/design` is theirs); this card sets the string in `source.rs` and changes no template or token.
+- Extraction output carries the labels of its original (the union rule of [ADR 0004](../decisions/0004-company-boundary.md#2-labels)). The extractor reads bytes and returns text, sends nothing and takes no token.
+- Design: the [MAP.md](../design/MAP.md#routes-and-components) row "Source drawer", for the label of a window in LocatorView. The label text is a request to the interface lane (`docs/design` is theirs); this card sets the string in `source.rs` and changes no template or token.
 
 ## Scope
 
@@ -100,6 +100,6 @@ Revert the merge commit. `METHODS`, `methods.txt` and the `ADAPTERS` row go toge
 
 - `pipeline-ports` has not given `Extractor` the fallible shape (`accepts`, and `extract` returning `ExtractError`): stop, and do not add a second trait here.
 - `check::quotes::match_claim` does not exist, or `new claim` does not call it: set the item to Blocked with `BLOCKED: new claim has its own match`, and stop. Do not edit `new.rs` here.
-- A rule here contradicts [Extraction](../../reference/corpus-format.md#extraction): write the two sentences, name the section, and stop. Do not edit the reference.
+- A rule here contradicts [Extraction](../reference/corpus-format.md#extraction): write the two sentences, name the section, and stop. Do not edit the reference.
 - The 100,000-row, 32 MiB or 9,999-window limit cannot be tested without a fixture over 1 MB in git: build the input inside the test, and do not commit it.
 - This card passes 600 changed lines. Split only at an integration seam. Keep the extractor, allocation limits, integrity checks, method and adapter registrations, fixtures and contract tests in the first part. Move separable consumer integration to a later part and redirect prerequisites to the part that actually provides each symbol or source-page label. Each part ends with `just check`.
