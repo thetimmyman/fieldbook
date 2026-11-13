@@ -21,7 +21,7 @@
 ## Scope
 
 - Files: `crates/fieldbook/src/{build.rs,io/watch.rs}`, `crates/fieldbook/tests/build_watch.rs`, `CHANGELOG.md`.
-- Registration lines: `crates/fieldbook/src/cli.rs` (`BuildArgs` gains `pub watch: bool`, the `--watch` flag); `crates/fieldbook/src/io/mod.rs` (the `pub mod watch;` line and the dispatch of `build --watch` in `run_process`); `crates/fieldbook/src/lib.rs` (`build_watch_args`, and a `build --watch` reached through `run` is refused with exit 2, step 3).
+- Registration lines: `crates/fieldbook/src/cli.rs` (`BuildArgs` gains `pub watch: bool`, the `--watch` flag); `crates/fieldbook/src/io/mod.rs` (the `pub mod watch;` line and the dispatch of `build --watch` in `run_process`); `crates/fieldbook/src/lib.rs` (`build_watch_args`, and a `build --watch` reached through `run` is refused with exit 2, step 3); `crates/fieldbook/tests/build.rs` (`watch: false` in each existing `BuildArgs` literal, which the new field requires).
 - Docs to update: `CHANGELOG.md` (`- Added: build --watch.` under `## Unreleased`), `docs/reference/cli.md` (generated: run `cargo xtask docs`, never hand-edit).
 
 ## Out of scope
