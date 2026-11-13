@@ -252,7 +252,7 @@ None of these is shipped. They are not counted in the budget of 15.
 |---|---|---|---|---|---|---|---|
 | `insta` | 1.49.0 (2026-10-03) | `default-features = false` | dev-dependency | Apache-2.0 | 1.66 | Snapshot tests of pages and diagnostics, without `cargo-insta` | Two owners; active |
 | `tempfile` | 3.27.0 (2026-03-11) | default | dev-dependency | MIT OR Apache-2.0 | 1.63 | Temporary trees for CLI tests and negative controls | One owner; very widely used, stable |
-| `proptest` (Day 30) | 1.12.x: the newest release at least 14 days old (1.12.0 was released 2026-10-10) | `default-features = false`, `std` | dev-dependency | MIT OR Apache-2.0 | 1.88 | Properties for `fieldbook-calc` and the tokenizer; the Bridge `read_request` property test (P5) | An organisation team plus two owners; steady |
+| `proptest` | 1.12.0 (2026-10-10) | `default-features = false`, `std` | dev-dependency | MIT OR Apache-2.0 | 1.88 | Properties for `fieldbook-calc` and the tokenizer; the Bridge `read_request` property test (P5) | An organisation team plus two owners; steady |
 
 `zip` is not in this table: `fieldbook-core` uses it for `xlsx-sheets`, so it has a row under Pins. `xtask` (the deterministic edition zips) and the render tests (the xlsx read-back) use the same version. The default `zip` features pull in many compressors and an encryption stack; `default-features = false` with `deflate` keeps the graph to pure Rust.
 
@@ -271,7 +271,7 @@ Pins and checksums live in `.config/tools.toml`. `cargo xtask setup` installs th
 | `gitleaks` | 8.30.1 (2026-03-21) | Now | Release binary, SHA-256 checked; `install-action` has no manifest for it |
 | poppler (`pdftotext`, `pdfinfo`) | 26.10.0 (2026-10-04) | Card `extract-and-locators` | Home only, from the operating system's package manager, never in CI. `pdftotext` makes the page text and `pdfinfo` reads page counts in the home drill. Pinned in `.config/tools.toml` under `[poppler]`; `extract` records the version it ran in `extraction.toml`. On a different version it warns, naming both on standard error, extracts anyway and records the version it used; `check` still fails when a quote no longer matches its page text |
 | Headless Microsoft Edge | The version on the GitHub-hosted runner image; where Edge is not installed, Chromium from the operating system's package manager | Card `edge-harness` | Runs the page harness. Not installed by us and not pinned. Edge is the target and the harness looks for it first; the Linux home machine and the self-hosted runner of the `corpus` job carry only Chromium, so there the harness falls back to Chromium (`chromium`, `chromium-browser`) and names the browser that ran |
-| `proptest` | See above | Day 30 | |
+| `proptest` | See above | Now | Dev-dependency of `fieldbook-calc` and `fieldbook-core` since card `day30-proptest` |
 | `cargo-cyclonedx` | 0.5.9 (2026-03-19) | Day 60 to 75 | Emits CycloneDX 1.3 to 1.5, so pass `--spec-version 1.5` |
 | `cargo-about` | 0.9.2 (2026-08-18) | Day 60 to 75 | Licence notices |
 | `cargo-mutants` | 27.1.0 (2026-06-02) | P5 for the gate, Day 90 for the report | A gate on the label, policy, egress and authorisation modules of `fieldbook-core`, with an owner-reviewed skip file for mutants that change no behaviour, and a report only on `fieldbook-calc` (`mutation-report`) |
@@ -390,6 +390,7 @@ Card `day1-dependencies-3` records actual pre-adoption baseline row 0 without ch
 | 2 | silent | default | 12 | 82 | Card `windows-facts`; adds `fieldbook-win` and `windows-sys` `0.61.2` (`windows-link` `0.2.1` on Windows); all-target count 92 (uncapped), `cargo tree --workspace -e normal` union 64 (62 Linux, 64 Windows, 65 `--target all`). AI is inapplicable while `net` is absent. |
 | 3 | silent | default | 12 | 83 | Card `core-policy`; adds `object` `0.40.0` in `xtask` (`memchr` `2.8.3` already in graph); all-target count 93 (uncapped), `cargo tree --workspace -e normal` union 66 (64 Linux, 66 Windows, 67 `--target all`). AI is inapplicable while `net` is absent. |
 | 4 | silent | default | 12 | 84 | Card `zip-advisories`; `rust_xlsxwriter` `0.99.1` to `0.101.0`, `zip` `8.6.0` to `9.1.3` (one `zip`), `typed-path` `0.12.3` to `0.13.0`; the one new pair in the closure is `getrandom` `0.4.3`, which `zip` 9.1.3 takes on every non-wasm target (it was in the lock already). Metadata closure 82 Linux, 83 Windows, union 84, within the silent cap of 100, raised from 80 in the Policy before this row was added. All-target count 97 (uncapped; 93 on the same basis in row 3). `cargo tree --workspace -e normal --target all` 76 (67 on main, the figure of row 3). AI is inapplicable while `net` is absent. |
+| 5 | silent | default | 12 | 85 | Card `day30-proptest`; adds `proptest` `1.12.0` as a dev-dependency of `fieldbook-calc` and `fieldbook-core` (8 new registry packages, see [Day 30 proptest evidence](#day-30-proptest-evidence)). The metadata closure is 83 Linux, 84 Windows, union 85: the one crate above row 4 is `rand_core` `0.10.1`, an optional dependency of `getrandom` `0.4.3` that `cargo metadata` shows once `proptest` enables a `getrandom` feature, and no normal build compiles it (`cargo tree --workspace -e normal --target all` is 76, the figure of row 4, and `cargo tree -e normal -i rand_core@0.10.1` finds nothing). Within the silent cap of 100. AI is inapplicable while `net` is absent. |
 
 ### Initial resolution evidence
 
@@ -503,6 +504,23 @@ Stable `1.99.1` locked and frozen workspace builds, both locked cargo-deny varia
 | `zlib-rs` | `0.6.8` | 2026-09-15T13:10:00Z | [record](https://index.crates.io/zl/ib/zlib-rs) |
 | `zmij` | `1.0.23` | 2026-07-13T12:58:53Z | [record](https://index.crates.io/zm/ij/zmij) |
 | `zopfli` | `0.8.4` | 2026-10-11T19:45:43Z | [record](https://index.crates.io/zo/pf/zopfli) |
+
+### Day 30 proptest evidence
+
+Resolved with `just lock` (`cargo +nightly-2026-10-08 generate-lockfile -Zunstable-options --publish-time`, cutoff 2026-10-30T03:30:13Z UTC, stable Cargo 1.99.1 for the builds). The lock diff adds eight packages and removes none. Release dates are the `pubtime` of each record in the crates.io index; every one is older than the cutoff, so the Young lockfile table stays empty.
+
+| Crate | Version | Released | Source |
+|---|---|---|---|
+| `chacha20` | `0.10.2` | 2026-08-27T17:51:13Z | [record](https://index.crates.io/ch/ac/chacha20) |
+| `core_detect` | `1.0.0` | 2021-05-09T16:36:07Z | [record](https://index.crates.io/co/re/core_detect) |
+| `proptest` | `1.12.0` | 2026-10-10T18:18:05Z | [record](https://index.crates.io/pr/op/proptest) |
+| `rand` | `0.10.3` | 2026-09-20T06:37:47Z | [record](https://index.crates.io/ra/nd/rand) |
+| `rand_core` | `0.10.1` | 2026-04-13T15:26:43Z | [record](https://index.crates.io/ra/nd/rand_core) |
+| `rand_xorshift` | `0.5.0` | 2026-02-02T08:15:36Z | [record](https://index.crates.io/ra/nd/rand_xorshift) |
+| `regex-syntax` | `0.8.11` | 2026-06-09T15:00:25Z | [record](https://index.crates.io/re/ge/regex-syntax) |
+| `unarray` | `0.1.4` | 2022-11-30T17:09:42Z | [record](https://index.crates.io/un/ar/unarray) |
+
+`cargo build --workspace --locked`, `cargo build --workspace --frozen`, `cargo deny --locked check bans licenses sources` and the same with `--all-features` all exit 0. The `proptest` requirement `1.12.0` with `default-features = false` and `std` equals its row, and only the `tests/` directories of `fieldbook-calc` and `fieldbook-core` use it.
 
 ## Young lockfile entries
 
