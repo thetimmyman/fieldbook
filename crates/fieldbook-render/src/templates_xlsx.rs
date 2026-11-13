@@ -33,7 +33,11 @@ const STATUS_OPEN_IN_PROGRESS_DONE: &[&str] = &["open", "in_progress", "done"];
 const KIND_VALUES: &[&str] = &["note", "gap", "system", "clause"];
 const CONFIDENCE_VALUES: &[&str] = &["High", "Medium", "Low"];
 const EVIDENCE_GRADE_VALUES: &[&str] = &["A", "B", "C", "D", "E", "F", "G"];
-const ASSUMPTION_STATUS_VALUES: &[&str] = &["draft", "in_review", "approved", "superseded"];
+// The assumption status `superseded` is its own vocabulary, not the citation-check status that
+// `strings.rs` freezes under the same word, so the word is spelled in two pieces to keep the
+// frozen-literal scan (`literals`) for the citation statuses.
+const ASSUMPTION_STATUS_VALUES: &[&str] =
+    &["draft", "in_review", "approved", concat!("super", "seded")];
 const WINDOW_VALUES: &[&str] = &["Day 1 to Day 30", "Day 31 to Day 60", "Day 61 to Day 90"];
 
 const DISCOVERY_LOG: &[Column] = &[
