@@ -1,0 +1,4 @@
+assumption_id,text,package,package_version,waits_on_question,owner_role,source_ref,as_of,confidence,evidence_grade,moves,revisit_when,status,drafted_by
+example-1,Synthetic example: Software maintenance fees increase by five percent annually,example-package,1,example-question-1,finance lead,"example-source-v1, p. 14",2000-01-01,High,B,verify annual renewal terms with vendor,vendor contract renewal cycle,draft,ai
+example-2,Synthetic example: Facility lease expense reflects current contract terms,example-package,1,,contracts lead,No source yet,2000-01-01,Medium,D,confirm indexation rate in current schedule,next quarterly budget review,in_review,owner
+example-3,Synthetic example: Working capital baseline matches recent historical average,example-package,1,example-question-2,treasury lead,"example-source-v2, p. 28",2000-01-01,Low,F,review trailing twelve month expense history,annual audit kickoff,approved,ai

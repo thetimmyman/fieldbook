@@ -219,6 +219,13 @@ pub struct BuildArgs {
     /// Parent output directory (`DIR/edition` holds the built site).
     #[arg(long = "out", value_name = "DIR", default_value = "out")]
     pub out: PathBuf,
+
+    /// Rebuild when the Corpus changes (checks every 500 ms; Ctrl-C stops).
+    #[arg(
+        long,
+        help = "Rebuild when the Corpus changes (checks every 500 ms; Ctrl-C stops)"
+    )]
+    pub watch: bool,
 }
 
 /// Arguments for `fieldbook add`.

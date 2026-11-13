@@ -46,6 +46,13 @@ fn banned_literals() -> Vec<(&'static str, &'static str)> {
     ));
     out.push(("print_check", fieldbook_core::strings::print_check()));
     out.push(("not_remembered", fieldbook_core::strings::not_remembered()));
+    out.push(("set_start_date", fieldbook_core::strings::set_start_date()));
+    out.push((
+        "set_start_date_plan",
+        fieldbook_core::strings::set_start_date_plan(),
+    ));
+    out.push(("day_n_of_90", fieldbook_core::strings::day_n_of_90()));
+    out.push(("day_n_today", fieldbook_core::strings::day_n_today()));
     out.push(("tag_at_home", fieldbook_core::strings::tag_at_home()));
     out.push(("tag_r2_laptop", fieldbook_core::strings::tag_r2_laptop()));
     // For assistant_labels the test checks the five labels of more than one word;

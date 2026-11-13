@@ -48,6 +48,7 @@ new-card slug:
 check:
     # 1. Formatting
     cargo fmt --all --check
+    cargo xtask mark --check
     # 2. Lints, including the crate-layering and I/O bans in clippy.toml, for every build shape
     cargo clippy --workspace --all-targets --locked -- -D warnings
     cargo clippy --workspace --all-targets --locked --all-features -- -D warnings
