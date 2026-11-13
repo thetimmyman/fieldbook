@@ -1,0 +1,7 @@
+# Question and conflict references are neutral: no citation is counted, nothing verifies and the answer is not only abstentions, so it is refused: exit 1.
+seed = "cc-s-14"
+exit = 1
+total = 0
+unresolved = 0
+statuses = []
+ai_paste = true
