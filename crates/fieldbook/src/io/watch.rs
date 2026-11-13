@@ -88,12 +88,37 @@ pub fn corpus_fingerprint(root: &Path) -> Result<u64, WorldError> {
     Ok(hasher.finish())
 }
 
+/// Query symlink metadata for `path`, returning `None` if the entry vanished.
+///
+/// # Errors
+///
+/// Returns [`WorldError`] if metadata retrieval fails with any error other than `NotFound`.
+fn entry_metadata(path: &Path) -> Result<Option<std::fs::Metadata>, WorldError> {
+    match std::fs::symlink_metadata(path) {
+        Ok(m) => Ok(Some(m)),
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ok(None),
+        Err(err) => Err(WorldError::new(path, err.to_string())),
+    }
+}
+
+/// Walk `dir` recursively, collecting metadata records for every entry.
+///
+/// Below `corpus/`, a `NotFound` entry is skipped and every other error is fatal.
+///
+/// # Errors
+///
+/// Returns [`WorldError`] if a directory entry or subfolder cannot be read for
+/// reasons other than `NotFound`.
 fn walk_dir(
     dir: &Path,
     rel_prefix: &str,
     entries: &mut Vec<EntryRecord>,
 ) -> Result<(), WorldError> {
-    let read_dir = std::fs::read_dir(dir).map_err(|err| WorldError::new(dir, err.to_string()))?;
+    let read_dir = match std::fs::read_dir(dir) {
+        Ok(read_dir) => read_dir,
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => return Ok(()),
+        Err(err) => return Err(WorldError::new(dir, err.to_string())),
+    };
     for entry_res in read_dir {
         let entry = entry_res.map_err(|err| WorldError::new(dir, err.to_string()))?;
         let file_name = entry.file_name();
@@ -102,8 +127,9 @@ fn walk_dir(
             continue;
         }
         let path = entry.path();
-        let meta = std::fs::symlink_metadata(&path)
-            .map_err(|err| WorldError::new(&path, err.to_string()))?;
+        let Some(meta) = entry_metadata(&path)? else {
+            continue;
+        };
         let rel_path = if rel_prefix.is_empty() {
             name.into_owned()
         } else {
@@ -138,4 +164,59 @@ fn walk_dir(
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn a_vanished_listed_entry_is_skipped() {
+        let dir = tempfile::tempdir().expect("tempdir");
+        let vanished = dir.path().join("vanished.txt");
+        let meta = entry_metadata(&vanished).expect("entry_metadata");
+        assert!(meta.is_none());
+
+        let present = dir.path().join("present.txt");
+        std::fs::write(&present, b"present").expect("write");
+        let meta = entry_metadata(&present).expect("entry_metadata");
+        assert!(meta.is_some());
+    }
+
+    #[test]
+    fn a_vanished_subfolder_is_skipped_by_the_walk() {
+        let dir = tempfile::tempdir().expect("tempdir");
+        let path_that_does_not_exist = dir.path().join("does_not_exist");
+        let mut entries: Vec<EntryRecord> = Vec::new();
+        let res = walk_dir(&path_that_does_not_exist, "", &mut entries);
+        assert!(res.is_ok());
+        assert!(entries.is_empty());
+
+        let walk_dir_temp = tempfile::tempdir().expect("tempdir");
+        let subfolder = walk_dir_temp.path().join("sub");
+        std::fs::create_dir(&subfolder).expect("create_dir");
+        let file = subfolder.join("file.txt");
+        std::fs::write(&file, b"content").expect("write");
+
+        let mut entries = Vec::new();
+        let res = walk_dir(walk_dir_temp.path(), "", &mut entries);
+        assert!(res.is_ok());
+        assert_eq!(entries.len(), 2);
+
+        std::fs::remove_dir_all(&subfolder).expect("remove_dir_all");
+        let mut entries = Vec::new();
+        let res = walk_dir(walk_dir_temp.path(), "", &mut entries);
+        assert!(res.is_ok());
+        assert_eq!(entries.len(), 0);
+    }
+
+    #[test]
+    fn a_non_notfound_error_stays_fatal() {
+        let dir = tempfile::tempdir().expect("tempdir");
+        let file_path = dir.path().join("file.txt");
+        std::fs::write(&file_path, b"content").expect("write");
+        let mut entries = Vec::new();
+        let res = walk_dir(&file_path, "", &mut entries);
+        assert!(res.is_err());
+    }
 }
