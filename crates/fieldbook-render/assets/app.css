@@ -323,14 +323,7 @@ a:hover {
 .brand-mark {
   width: var(--control-h-sm);
   height: var(--control-h-sm);
-  border-radius: var(--radius-md);
-  background-color: var(--color-accent);
-  color: var(--color-accent-fg);
-  display: grid;
-  place-items: center;
-  font-weight: var(--weight-bold);
-  font-size: var(--text-dense);
-  letter-spacing: var(--tracking-tight);
+  display: block;
   flex-shrink: 0;
 }
 
