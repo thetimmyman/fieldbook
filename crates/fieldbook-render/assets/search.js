@@ -161,31 +161,58 @@ function el(tag, cls, text) {
   return e;
 }
 
+// Holds up to cap term rows within limit in original order.
+function hold(rows, limit, cap) {
+  var t = [], r = [];
+  rows.forEach(x => { (x.kind === 'term' && t.length < cap && t.length < limit ? t : r).push(x); });
+  var k = new Set(t.concat(r.slice(0, limit - t.length)));
+  return rows.filter(x => k.has(x));
+}
+
+function has(w, words) { return words.some(q => norm(w).startsWith(q)); }
+
+// Appends str to node with query words in mark elements.
+function marks(node, str, words) {
+  var from = 0, s = str || '';
+  s.replace(WORDS, (w, at) => {
+    if (has(w, words)) {
+      node.appendChild(el('span', '', s.slice(from, at)));
+      node.appendChild(el('mark', '', w));
+      from = at + w.length;
+    }
+  });
+  node.appendChild(el('span', '', s.slice(from)));
+}
+
 // Renders hits by textContent only.
 function render(hits, text, list) {
   var words = tokens(text).join(' ').match(WORDS) || [];
   list.textContent = '';
   hits.forEach(function (h) {
     var li = el('li', 'sr-row', ''), href = link(h.kind, h.to || h.id);
-    var head = el(href ? 'a' : 'span', 'sr-title', ''), str = h.title || h.id, from = 0;
+    var head = el(href ? 'a' : 'span', 'sr-title', ''), str = h.title || h.id;
     li.setAttribute('role', 'option');
     li.dataset.id = h.id;
     li.dataset.kind = h.kind;
     if (href) head.href = href;
-    str.replace(WORDS, function (w, at) {
-      if (words.some(function (q) { return norm(w).startsWith(q); })) {
-        head.appendChild(el('span', '', str.slice(from, at)));
-        head.appendChild(el('mark', '', w));
-        from = at + w.length;
-      }
-    });
-    head.appendChild(el('span', '', str.slice(from)));
+    marks(head, str, words);
     li.appendChild(head);
-    if (h.parent) li.appendChild(el('div', 'sr-parent', h.parent));
+    if (h.kind === 'term') {
+      if (h.parent) {
+        var kept = h.parent.split('|').filter(a => (a.match(WORDS) || []).some(w => has(w, words)));
+        if (kept.length) {
+          marks(li.appendChild(el('div', 'sr-parent', 'Also called: ')), kept.join('; '), words);
+        }
+      }
+    } else if (h.parent) {
+      li.appendChild(el('div', 'sr-parent', h.parent));
+    }
     if (h.snippet) li.appendChild(el('p', 'sr-snip', h.snippet));
-    li.appendChild(el('div', 'sr-meta', [h.kind, h.status, h.as_of && 'as of ' + h.as_of,
-      h.effective_from && 'effective ' + h.effective_from,
-      h.verified_on && 'verified ' + h.verified_on].filter(Boolean).join(' \u00b7 ')));
+    li.appendChild(el('div', 'sr-meta', h.kind === 'term'
+      ? 'glossary term' + (h.status ? ' \u00b7 ' + h.status.replace(/_/g, ' ') : '')
+      : [h.kind, h.status, h.as_of && 'as of ' + h.as_of,
+        h.effective_from && 'effective ' + h.effective_from,
+        h.verified_on && 'verified ' + h.verified_on].filter(Boolean).join(' \u00b7 ')));
     list.appendChild(li);
   });
 }
@@ -194,7 +221,7 @@ function render(hits, text, list) {
 function run(text, limit, list) {
   var ix = window.FB_INDEX, v = view(ix, rank(ix, text).hits);
   var all = v.exact.concat(v.pages, v.other);
-  render(all.slice(0, limit), text, list);
+  render(hold(all, limit, 5), text, list);
   return all.length;
 }
 
@@ -227,8 +254,8 @@ function load() {
   return pending;
 }
 
-window.FB_SEARCH = { load: load, rank: rank, render: render, run: run, tokens: tokens,
-  view: view };
+window.FB_SEARCH = { hold: hold, load: load, rank: rank, render: render, run: run,
+  tokens: tokens, view: view };
 
 // The search page, search.html#q=.
 var input = $('q');
