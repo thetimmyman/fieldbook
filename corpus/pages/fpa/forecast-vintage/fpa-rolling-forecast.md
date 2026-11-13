@@ -30,9 +30,9 @@ Single source: none for the company forecast cycle. The cycle below is contracto
 2. Roll the backlog forward in a backlog waterfall: opening booked backlog plus bookings plus modifications minus cancellations minus revenue equals ending backlog; revenue forecast from existing programs stays within the backlog available unless new orders are forecast [@CL-FPA-1313].
 3. Re-estimate each program's estimate to complete and update its estimate at completion, using current direct and indirect rates [@CL-PRG-0316; @CL-PRG-0315; @CL-PRG-0712; @CL-PRG-0709; @CL-FPA-1314].
 4. Refresh indirect rates by taking year-to-date actuals plus the forecast remainder [@CL-FPA-1316].
-5. Spread each program's remaining cost and revenue over the forecast periods by its time-phased estimate to complete [@CL-PRG-0207; @CL-PRG-0208; @CL-FPA-1314].
+5. Take each program's remaining cost as its estimate at completion less actual cost to date, which is its estimate to complete [@CL-PRG-0316; @CL-FPA-1314]. Take its remaining revenue separately, as the program's estimated revenue at completion less the revenue recognized to date; never subtract recognized revenue from a cost estimate [@CL-FPA-1314]. Spread the remaining cost by the time-phased estimate to complete [@CL-PRG-0207; @CL-PRG-0208] and the remaining revenue by the program's revenue plan, and bring only the periods inside the forecast horizon into the company forecast [@CL-FPA-1314].
 6. Add new business by its probability and keep funded backlog and unfunded backlog apart [@CL-FPA-1312; @CL-FPA-0372; @CL-FPA-0083].
-7. List the bridge between the company forecast and the sum of program estimates at completion: management reserve, unrealized risks and opportunities, and unapproved changes [@CL-FPA-1315; @CL-PRG-0360; @CL-PRG-0362].
+7. Reconcile each program over its life: actual cost to date plus the cost forecast for all remaining periods equals the estimate at completion, and revenue recognized to date plus the revenue forecast for all remaining periods equals the estimated revenue at completion [@CL-FPA-1314]. A forecast for the horizon alone is a remaining-period amount and is never compared directly with a lifetime estimate at completion. Then list the bridge between that lifetime view of the company forecast and the sum of program estimates at completion: management reserve, unrealized risks and opportunities, and unapproved changes [@CL-FPA-1315; @CL-PRG-0360; @CL-PRG-0362].
 8. Store the cycle as a forecast vintage: dated, unchanged, with cut-off date and assumptions; a correction is a new version [@CL-FPA-1317]; measure accuracy of each vintage by horizon [@CL-FPA-1318].
 
 The cycle repeats on the fixed cadence and the horizon moves forward [@CL-FPA-1311].
@@ -57,7 +57,12 @@ Program re-estimate:
 - Estimate to complete: 2,700,000
 - Estimate at completion: 4,200,000 (1,500,000 + 2,700,000)
 - Variance at completion: 4,000,000 - 4,200,000 = -200,000 (unfavorable, the estimate exceeds the budget)
-- Remaining 2,700,000 spread over the next three quarters: 1,000,000, 1,000,000 and 700,000 (sum 2,700,000)
+- Remaining cost: 4,200,000 - 1,500,000 = 2,700,000, the estimate to complete, spread over the next three quarters: 1,000,000, 1,000,000 and 700,000 (sum 2,700,000)
+- Estimated revenue at completion: 4,600,000
+- Revenue recognized to date: 1,650,000
+- Remaining revenue: 4,600,000 - 1,650,000 = 2,950,000, spread by the revenue plan over the next three quarters: 1,100,000, 1,100,000 and 750,000 (sum 2,950,000)
+- Reconciliation to the lifetime estimates: cost 1,500,000 + 2,700,000 = 4,200,000; revenue 1,650,000 + 2,950,000 = 4,600,000
+- All three remaining quarters fall inside the four-quarter horizon, so the whole remainder enters the company forecast.
 
 Forecast vintages:
 - The vintage made at the end of the previous year forecast the second-quarter revenue at 2,400,000 (two quarters ahead).
@@ -72,7 +77,7 @@ Known answer: the nearer vintage was more accurate; both vintages are kept uncha
 
 In contractor practice, a forecast is not the budget: the budget is the fixed comparison point, and the forecast moves around it [@CL-FPA-1306]. Baseline operating plans are built in the [Annual budget build](../planning-chain/fpa-annual-budget-build.md), while differences between actuals, budgets, and forecasts are evaluated through [Variance analysis](../kpi/fpa-variance-analysis.md). In earned value management, the estimate at completion is not the budget at completion and the estimate to complete is not the budget left; an estimate at completion is actual cost to date plus the estimate to complete [@CL-PRG-0316], whereas the variance at completion is the difference between budget at completion and estimate at completion [@CL-PRG-0318].
 
-In contractor practice, a forecast vintage is not the current live forecast: it is a stored historical version that remains unchanged at each cycle to track performance and measure accuracy across forward horizons [@CL-FPA-1317]. The company forecast is not the sum of program estimates at completion until the bridge is listed: management reserve, unrealized risks and opportunities, and unapproved changes must be listed explicitly rather than absorbed silently [@CL-FPA-1315; @CL-PRG-0362]. Significant shifts in program estimates and underlying assumptions also link to disclosure evaluations in [Critical accounting estimates in MD&A](fpa-critical-accounting-estimates.md).
+In contractor practice, a forecast vintage is not the current live forecast: it is a stored historical version that remains unchanged at each cycle to track performance and measure accuracy across forward horizons [@CL-FPA-1317]. A remaining-period forecast is not a lifetime estimate at completion: remaining cost is the estimate at completion less actual cost to date, remaining revenue comes separately from the program's estimated revenue at completion less the revenue recognized to date, and only actuals to date plus the forecast for all remaining periods reconcile to the lifetime estimates [@CL-PRG-0316; @CL-FPA-1314]. Even on that lifetime view, the company forecast is not the sum of program estimates at completion until the bridge is listed: management reserve, unrealized risks and opportunities, and unapproved changes must be listed explicitly rather than absorbed silently [@CL-FPA-1315; @CL-PRG-0362]. Significant shifts in program estimates and underlying assumptions also link to disclosure evaluations in [Critical accounting estimates in MD&A](fpa-critical-accounting-estimates.md).
 
 Funded backlog is not total backlog: fixed-price contracts shall be fully funded except as permitted by DFARS 232.703-1 [@CL-FPA-0372], and on incrementally funded items the Government will not be obligated in any event to reimburse the contractor in excess of the amount allotted to the contract regardless of anything to the contrary in the termination for convenience clause [@CL-FPA-0083]. Contractors must keep funded backlog and unfunded backlog distinct in demand planning and roll-forwards rather than treating total contract value or unfunded amounts as authorized funding [@CL-FPA-0372; @CL-FPA-0083].
 
@@ -84,4 +89,5 @@ Company calibration depends on who owns program estimates at completion, when th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-13: Separates remaining cost (estimate at completion less actual cost to date) from remaining revenue (estimated revenue at completion less revenue recognized to date) and reconciles actuals plus the remaining-period forecast to the lifetime estimates.
 - NEW_KNOWLEDGE, 2026-11-12: Documents the rolling forecast procedure, backlog roll-forward, rate refresh, and forecast vintage tracking.
