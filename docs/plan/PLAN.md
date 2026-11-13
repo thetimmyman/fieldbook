@@ -254,6 +254,7 @@ The edition as a usable reference for the owner without company data: search tha
 - kb-fpa-core: budgeting, rolling forecast and variance analysis pages
 - kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
 - kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
+- scope-through-squash: `cargo xtask scope` names the way through for a path changed after the card's deleting commit, and the cards README says where the declaration is read and that the check runs on pull requests only
 
 ## P4
 
