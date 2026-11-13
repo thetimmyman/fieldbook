@@ -14,7 +14,7 @@ publish = false
 serde = { version = "1.0.229", features = ["derive"] }
 toml = "1.1.8+spec-1.1.0"
 csv = "1.4.0"
-pulldown-cmark = { version = "0.13.4", default-features = false, features = ["html"] }
+pulldown-cmark = { version = "0.13.6", default-features = false, features = ["html"] }
 unicode-normalization = "0.1.25"
 sha2 = { version = "0.11.0", default-features = false }
 rust_decimal = { version = "1.43.0", default-features = false, features = ["std"] }
