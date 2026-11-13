@@ -195,6 +195,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - restore-and-drill: `restore`, `restore --drill` and Drill 4 in CI on the disposable build-checkout Corpus
 - backup-bounded-memory: `backup` holds one file in memory at a time, with a child-process peak-memory test on a 200 MB Corpus
 - backup-journal-recording-gaps: `backup` records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest
+- backup-verify-and-label-edges: every snapshot holds the journal so it verifies, and an original takes a source's labels only by its version id
 - verify-status-fmt: `fieldbook verify` (Could)
 - status-command: `fieldbook status` and `fieldbook status --page`, the desk pages (Could)
 - fmt-command: `fieldbook fmt [--check]` (Could)
