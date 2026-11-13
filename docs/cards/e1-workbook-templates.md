@@ -33,7 +33,7 @@
 
 ## Preconditions
 
-- Cards merged: `registers-xlsx` (`xlsx.rs` writer conventions, the fixed creation time through `BuildInfo.workbook_epoch`, `REQUIRED_FILES` rows for `data/` and the workbook read-back helpers of `tests/xlsx.rs`), `build-v0`, `edition-zips`, `core-csv` (the reader of the template CSV text).
+- Cards merged: `registers-xlsx` (`xlsx.rs` writer conventions, the fixed creation time through `BuildInfo.workbook_epoch`, `REQUIRED_FILES` rows for `data/` and the workbook read-back helpers of `tests/xlsx.rs`), `build-v0`, `edition-zips`, `core-csv` (the reader of the template CSV text), `claims-csv-parts` (an open card; shared path `xtask/src/edition.rs`, its `REQUIRED_FILES`).
 
 ## Steps
 
