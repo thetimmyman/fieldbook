@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 23) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 24) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 23
+## Current revision 24
+
+Revision 24 freezes four start-date strings (`day-n-strings`), redesigns the start-date control as a dialog holding one labelled date field and Close with no Save, Clear or chip title, adds a Today start prompt that stays below 1280px, and makes the plan's today line follow the day count with no line after Day 90 (`views-and-day-n-2`). It specifies the App map page in full, with Releases in the foundation decision's names and a Labels and stores panel (`app-map`), and the Changes page with its edition notes and its ids-added-and-removed comparison, where a removed id is printed only in its public form and the rest are counted (`changes-page`). Two layout families changed (the App map's lower panels and the Changes page), supported by two studies in section 13 of HANDOFF.md. The mockup bytes changed, no token is added, and MANIFEST.txt lists the new hashes. The implementation cards are `day-n-strings`, `views-and-day-n-2`, `app-map` and `changes-page`. The start-date control of the mockup was checked by keyboard in headless Chromium 157 only; no built page, Edge or screen reader was checked.
+
+## Revision 23 (historical)
 
 Revision 23 gives a glossary term a row on the edition's search page and in the command palette: the label links to the term's row in the glossary, an Also-called line names the alias that matched, a definition line and a meta line follow, term rows follow the page rows, and as many places as there are term rows (at most 5 of the search page's 50 and 2 of the palette's 8) are held for them so a term is not cut behind page rows and the page still shows 50 rows and the palette 8 when that many qualify. The Also-called line needs the term's aliases in the site index entry's `parent` position (an owner decision), the edition's nothing-found line becomes "Claims, sources, questions and conflicts are in the ID list.", and the `search.js` budget rises from 10 KB to 11 KB (AD-15; owner decision; the 64 KB total is unchanged). One layout family changed, the result list, supported by one study in section 13 of HANDOFF.md. The mockup bytes changed (a states-gallery specimen, a `wrap_rate` term with an alias, an Also-called line and one narrow-width rule), design tokens are unchanged with no new token, and MANIFEST.txt lists the new hashes. It also settles the palette's open design items: the edition's palette placeholder reads "Pages, clauses and terms…", the Search for row has curly quotes around the text, and six values no token covers (the palette's input height, width, top offset and maximum height, the shortcuts dialog's top and width, and the switch track's width) are stated as component geometry in section 4 with no new token. The implementation cards are `search-site-terms` and `search-palette-design-items`.
 
