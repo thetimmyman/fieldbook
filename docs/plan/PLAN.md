@@ -255,6 +255,7 @@ The edition as a usable reference for the owner without company data: search tha
 - kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
 - kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
 - claims-csv-parts: the claims copy for Excel as one CSV per claims part, `data/claims-<AREA>-<part>.csv`, so no edition file grows with the claim count (owner review)
+- design-claims-copy-paths: a design revision after `claims-csv-parts` for the HANDOFF Paths row, the mockup sentence "Every build writes data/claims.csv", the `data/<register>.csv` wording of `PATHS`, and any per-part CSV links in the claims index (owner review)
 
 ## P4
 
