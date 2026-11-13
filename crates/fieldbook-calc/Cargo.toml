@@ -13,6 +13,7 @@ rust_decimal = { workspace = true }
 
 [dev-dependencies]
 toml = { workspace = true }
+proptest = { workspace = true }
 
 [lints]
 workspace = true

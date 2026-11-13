@@ -29,7 +29,7 @@
 
 ## Preconditions
 
-- Cards merged: `build-home-and-areas`, `build-charts` (it extends `area.rs`), `build-frame`, `edge-harness`, `home-area-placeholders` (open; shared paths `crates/fieldbook-render/src/area.rs`, `crates/fieldbook-render/tests/home.rs`). The first four are merged on origin/main. Do the placeholder wording changes in `area.rs` after `home-area-placeholders`, and keep this card's edits to the lines it names.
+- Cards merged: `build-home-and-areas`, `build-charts` (it extends `area.rs`), `build-frame`, `edge-harness`, `home-area-placeholders` (open; shared paths `crates/fieldbook-render/src/area.rs`, `crates/fieldbook-render/tests/home.rs`), `frame-page-id-hook` (open; shared paths `crates/fieldbook-render/src/frame.rs`, `crates/fieldbook-render/tests/frame.rs`; it runs first). The first four are merged on origin/main. Do the placeholder wording changes in `area.rs` after `home-area-placeholders`, and keep this card's edits to the lines it names.
 
 ## Steps
 

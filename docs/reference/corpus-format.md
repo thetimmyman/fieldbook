@@ -237,6 +237,10 @@ These verbs have no chip, and `NO_CHIP` in `crates/fieldbook/tests/chips.rs` lis
 | `unreleased_build` | "unreleased build" | AD-12 |
 | `print_check` | "Check the current edition" | AD-12 |
 | `not_remembered` | "Not remembered in this browser" | AD-15 |
+| `set_start_date` | "Set your start date" | AD-15 |
+| `set_start_date_plan` | "Set a start date to mark today" | AD-15 |
+| `day_n_of_90` | "Day N of 90", with N the day count the page script computes | AD-15 |
+| `day_n_today` | "Day N of 90 · the line marks today", with N the day count the page script computes | AD-15 |
 | `tag_at_home` | "At home" | AD-17 |
 | `tag_r2_laptop` | "R2 · laptop" | AD-17 |
 | `assistant_labels` | "Ask" · "Send" · "Stop" · "Copy context pack" · "Check citations" · "Save as note" · "Copy as draft note" · "This session only" | AD-15 |
