@@ -1,0 +1,10 @@
+corpus read allow
+corpus propose allow
+corpus accept allow
+corpus export allow
+corpus admin allow
+overlay read allow
+overlay propose allow
+overlay accept allow
+overlay export allow
+overlay admin allow

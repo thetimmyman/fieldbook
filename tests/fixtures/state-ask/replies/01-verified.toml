@@ -1,0 +1,7 @@
+# Every citation resolves to a section of S-0001-v1: both verified, exit 0.
+seed = "cc-s-01"
+exit = 0
+total = 2
+unresolved = 0
+statuses = ["verified", "verified"]
+ai_paste = true

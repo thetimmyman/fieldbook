@@ -48,6 +48,13 @@ pub const GENERATORS: &[Generator] = &[
         end: "<!-- /generated:audit -->",
         render: crate::audit_doc::render_audit_section,
     },
+    Generator {
+        file: "docs/reference/ports.md",
+        name: "ports",
+        begin: "<!-- generated:ports -->",
+        end: "<!-- /generated:ports -->",
+        render: crate::ports_doc::render_ports_section,
+    },
 ];
 
 /// Replace the text between the marker lines `begin` and `end` with `body`, leaving all

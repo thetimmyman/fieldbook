@@ -416,4 +416,11 @@ impl World for TestWorld {
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
         self.inner.remove_drill(audited)
     }
+
+    /// Return the test double store registry id.
+    ///
+    /// Not a registry id; the drift test skips it.
+    fn store_id(&self) -> &'static str {
+        "memory@0"
+    }
 }

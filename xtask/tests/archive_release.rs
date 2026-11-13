@@ -439,6 +439,9 @@ fn build_synthetic_edition_set(
                 "data/glossary.csv",
                 "data/questions.csv",
                 "data/sources.csv",
+                "templates/discovery-log.xlsx",
+                "templates/assumption-register.xlsx",
+                "templates/90-day-plan.xlsx",
             ] {
                 ed_files.insert(data.to_owned(), b"synthetic\n".to_vec());
             }
@@ -714,6 +717,16 @@ impl Repo {
                 fs::create_dir_all(parent).unwrap_or_else(|e| panic!("create parent dirs: {e}"));
             }
             fs::copy(&from, &to).unwrap_or_else(|e| panic!("copy {rel}: {e}"));
+        }
+
+        for dir in [
+            "compat",
+            "crates/fieldbook-core/src/versions",
+            "crates/fieldbook-core/src/ports/templates",
+            "crates/fieldbook/src/io/versions",
+            "xtask/src/versions",
+        ] {
+            copy_tree(&src.join(dir), &self.dir.join(dir));
         }
     }
 }

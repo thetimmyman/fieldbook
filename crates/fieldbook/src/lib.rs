@@ -9,16 +9,19 @@
 //! External crates join through their cards, each at its pin in
 //! `docs/reference/dependencies.md`.
 
+pub mod adapters;
 pub mod add;
 pub mod audit;
 pub mod backup;
 pub mod build;
 pub mod cli;
+pub mod ctx;
 pub mod io;
 pub mod new;
 pub mod report;
 pub mod restore;
 pub mod search;
+pub mod verbs;
 pub mod verify;
 
 pub use backup::render_backup_list_json;
@@ -120,6 +123,13 @@ pub trait World {
     ///
     /// Returns [`WorldError`] if the drill workspace cannot be removed.
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError>;
+
+    /// Return the registry id of the Store adapter that this world is.
+    ///
+    /// The default is the folder store that [`io::Disk`] is; test doubles override it.
+    fn store_id(&self) -> &'static str {
+        "folder@1"
+    }
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -164,6 +174,18 @@ pub fn render_check_json(report: &Report, strict: bool, today: CivilDate) -> Str
     let mut json = serde_json::to_string_pretty(&payload).unwrap_or_default();
     json.push('\n');
     json
+}
+
+/// Extract the `--state` flag and [`crate::cli::BuildArgs`] if `args` invokes `build --watch`.
+#[must_use]
+pub fn build_watch_args(args: &[String]) -> Option<(Option<PathBuf>, crate::cli::BuildArgs)> {
+    let argv =
+        std::iter::once(fieldbook_core::strings::binary()).chain(args.iter().map(String::as_str));
+    let parsed = Cli::try_parse_from(argv).ok()?;
+    match parsed.command {
+        Commands::Build(build_args) if build_args.watch => Some((parsed.state, build_args)),
+        _ => None,
+    }
 }
 
 /// Run the command named by `args` (the arguments after the program name) against `world`.
@@ -227,6 +249,14 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             }
         }
         Commands::Build(build_args) => {
+            if build_args.watch {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: "error: --watch needs a terminal; run it from the program\n"
+                        .to_string(),
+                    code: EXIT_USAGE,
+                };
+            }
             if let Some(flag) = parsed.state.as_deref() {
                 let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
                 let overridden = StateOverrideWorld {
@@ -299,9 +329,9 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
     outcome
 }
 
-struct StateOverrideWorld<'a> {
-    inner: &'a dyn World,
-    state_dir: PathBuf,
+pub(crate) struct StateOverrideWorld<'a> {
+    pub(crate) inner: &'a dyn World,
+    pub(crate) state_dir: PathBuf,
 }
 
 impl World for StateOverrideWorld<'_> {
@@ -379,6 +409,10 @@ impl World for StateOverrideWorld<'_> {
 
     fn place(&self, path: &Path) -> PlaceFacts {
         self.inner.place(path)
+    }
+
+    fn store_id(&self) -> &'static str {
+        self.inner.store_id()
     }
 
     /// Support facts follow the selected state directory specified by `--state`.

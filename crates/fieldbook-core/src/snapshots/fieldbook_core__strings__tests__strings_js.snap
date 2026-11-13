@@ -97,6 +97,10 @@ window.FB_STRINGS = {
   "unreleased_build": "unreleased build",
   "print_check": "Check the current edition",
   "not_remembered": "Not remembered in this browser",
+  "set_start_date": "Set your start date",
+  "set_start_date_plan": "Set a start date to mark today",
+  "day_n_of_90": "Day N of 90",
+  "day_n_today": "Day N of 90 · the line marks today",
   "tag_at_home": "At home",
   "tag_r2_laptop": "R2 · laptop",
   "assistant_labels": {

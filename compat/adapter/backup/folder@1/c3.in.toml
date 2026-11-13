@@ -1,0 +1,6 @@
+ops = [
+    "parse fieldbook-backup-0007.partial",
+    "parse not-a-snapshot",
+    "parse fieldbook-backup-",
+    "parse fieldbook-backup-abcd",
+]

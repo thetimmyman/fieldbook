@@ -128,26 +128,17 @@ impl<'a> PolicyReaders<'a> {
             PolicyState::Closed(_) => Policy::floor(FloorKind::A).store_rule(&store),
         }
     }
-
-    fn check_group(&self, required: Option<&str>) -> AuthzDecision {
-        let Some(group) = required else {
-            return AuthzDecision::Allow;
-        };
-        match self.groups.in_group(group) {
-            Some(true) => AuthzDecision::Allow,
-            Some(false) | None => AuthzDecision::Deny(Word::new_static("authz")),
-        }
-    }
 }
 
 impl Authz for PolicyReaders<'_> {
     fn allow(&self, _who: &Actor, act: Act, on: &Scope) -> AuthzDecision {
         let rule = self.store_rule(on.store);
-        match act {
-            Act::Read => self.check_group(rule.readers.as_deref()),
-            Act::Admin => self.check_group(rule.changers.as_deref()),
-            Act::Propose | Act::Accept | Act::Export => AuthzDecision::Allow,
-        }
+        crate::versions::policy_readers_v1::allow(
+            act,
+            rule.readers.as_deref(),
+            rule.changers.as_deref(),
+            self.groups,
+        )
     }
 }
 

@@ -1,0 +1,1 @@
+The rule says "Synthetic compliance reviews occur every 45 days" [@S-0001-v1, sec. 1]. The synthetic withholding threshold is 5 percent [@S-0001-v1, sec. 2].

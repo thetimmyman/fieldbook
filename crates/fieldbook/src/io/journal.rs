@@ -1449,6 +1449,14 @@ impl<'a> Journal<'a> {
         for wf in &writes.files {
             let canon_path = fieldbook_core::audit::CorpusPath::parse(&wf.path)
                 .map_err(|err| JournalError::Vocab(err.to_string()))?;
+            // Ties the retained folder@1 binding to the live store path.
+            crate::io::versions::store_folder_v1::check_rel_path(&wf.path).map_err(|refusal| {
+                JournalError::Vocab(format!(
+                    "store path rule folder@1 refuses `{}`: {}",
+                    wf.path,
+                    refusal.word()
+                ))
+            })?;
             let after_sha256 =
                 Sha256::parse(&wf.sha256).map_err(|err| JournalError::Vocab(err.to_string()))?;
             let disk_path = self.world.tree_root().join(canon_path.as_str());

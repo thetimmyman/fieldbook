@@ -1,0 +1,14 @@
+# SYNTHETIC FIXTURE for the weekly advisory control (DP-05). It is never built and never part of
+# the workspace: the empty [workspace] table below keeps Cargo from treating it as a member.
+# It pins one pure-Rust crate at a version that has a published RustSec advisory, so
+# `cargo deny check advisories` must fail on it. Nothing here is a real dependency of Fieldbook.
+[package]
+name = "advisories-fixture"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+smallvec = "=1.6.0"
+
+[workspace]

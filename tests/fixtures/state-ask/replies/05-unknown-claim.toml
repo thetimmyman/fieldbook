@@ -1,0 +1,7 @@
+# CL-CMP-9999 has the shape of a claim id and no row: broken (FB0701), 1 of 2 do not resolve, exit 1.
+seed = "cc-s-02"
+exit = 1
+total = 2
+unresolved = 1
+statuses = ["verified", "broken"]
+ai_paste = true

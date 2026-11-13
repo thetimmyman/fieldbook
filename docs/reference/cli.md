@@ -31,6 +31,7 @@ Build the static site and workbooks into an edition directory
 | Argument / flag | Value | Default | Help |
 |---|---|---|---|
 | `--out` | `DIR` | `out` | Parent output directory (`DIR/edition` holds the built site) |
+| `--watch` | - | - | Rebuild when the Corpus changes (checks every 500 ms; Ctrl-C stops) |
 
 ### `fieldbook add`
 

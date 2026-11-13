@@ -169,6 +169,8 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day-one-binder-and-registers-xlsx: `day-one.html` and the print contract
 - registers-xlsx: `data/registers.xlsx` with read-back tests, and the CSV copies
 - ai-it-story: the IT documents and `SECURITY.md` for the AI build, which is not in the first edition (docs only)
+- frame-page-id-hook: the print footer of a reader page shows the bare page id, as the binder footer does, not its route
+- binder-calc-case-clause-blocks: binder articles of calc, case and clause-card pages carry the calc table, the Public record and Inference boxes and the clause questions their standalone pages print
 - Five briefs, BJ-001, BJ-002, BJ-003, BJ-004 and BJ-006, each one printed page (lead)
 - The 30/60/90 checklist in relative days only, and curriculum stages 1 and 2 (lead)
 - About 30 clause cards, a stretch (lead)
@@ -193,6 +195,9 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - hosted-edition-adr: ADR 0007, the hosted read-only site behind sign-on; accepted by the owner-delegated judge and JEV review
 - backup-snapshot: `backup`, `backup list` (with `--json`) and `backup verify`, the `[backup]` settings, retention, and the `backup_age` reminder
 - restore-and-drill: `restore`, `restore --drill` and Drill 4 in CI on the disposable build-checkout Corpus
+- backup-bounded-memory: `backup` holds one file in memory at a time, with a child-process peak-memory test on a 200 MB Corpus
+- backup-journal-recording-gaps: `backup` records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest
+- backup-verify-and-label-edges: every snapshot holds the journal so it verifies, and an original takes a source's labels only by its version id
 - verify-status-fmt: `fieldbook verify` (Could)
 - status-command: `fieldbook status` and `fieldbook status --page`, the desk pages (Could)
 - fmt-command: `fieldbook fmt [--check]` (Could)
@@ -226,7 +231,7 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 
 ## Reader
 
-The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, pages that list their related pages, Sources without repeats, a frame without placeholder lines, trust signals that say what is true, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards.
+The edition as a usable reference for the owner without company data: search that finds the words a reader types, practitioner pages beside the clause cards, pages that list their related pages, Sources without repeats, a frame without placeholder lines, trust signals that say what is true, and a CI that keeps up with the content. It needs no phase exit and runs beside the phases; it holds public and synthetic material only. One of its cards, `source-location-links`, is listed in P4 after `extract-xlsx-sheets`, since it changes the source page after both extraction cards. `design-brief-print-footnote` and `binder-brief-one-sheet` are here, not in P2, because a strict phase needs a card file for each item and the revision has none yet; item 4 of the home gate (each brief prints on one page) needs both, so they merge before the home gate is rehearsed at the P3 exit.
 
 - corpus-job-speed: the `corpus` job in half its time, with a release binary and parallel harness pages, every check kept
 - design-r22-reader-pages: design revision 22: related and linked-from lists, one Sources row per claim, unbuilt navigation, the folded Company calibration part, the overdue notice on unreleased builds and the build link's target (owner review)
@@ -246,11 +251,16 @@ The edition as a usable reference for the owner without company data: search tha
 - search-section-snippets: the edition's site search index cuts each section unit's snippet to 100 code points, as the amended ADR 0006 decided, to stay within its 15 MB cap
 - kb-hub-pages-2: concept hubs for Cost Accounting Standards 404 to 420, after the three of the first part
 - search-glossary-aliases: glossary terms and aliases for six everyday queries, with six appended regression cases
+- design-brief-print-footnote: a design revision of the print footnote, so the six real briefs fit one Letter sheet with the unreleased banner counted, with the footnote's form, type step and spacing from the existing tokens (owner review)
+- binder-brief-one-sheet: each of the six briefs prints on one Letter sheet, in the binder and as its own page, with the unreleased banner counted, by print CSS of existing tokens
 - design-search-term-rows: a design revision after revision 22 that shows a glossary term row on the edition's search page and in the palette (owner review)
 - search-site-terms: site search finds glossary terms by label and alias, within the amended index cap (owner review)
 - kb-fpa-core: budgeting, rolling forecast and variance analysis pages
 - kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
 - kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
+- claims-csv-parts: the claims copy for Excel as one CSV per claims part, `data/claims-<AREA>-<part>.csv`, so no edition file grows with the claim count (owner review)
+- design-claims-copy-paths: a design revision after `claims-csv-parts` for the HANDOFF Paths row, the mockup sentence "Every build writes data/claims.csv", the `data/<register>.csv` wording of `PATHS`, and any per-part CSV links in the claims index (owner review)
+- scope-through-squash: `cargo xtask scope` names the way through for a path changed after the card's deleting commit, and the cards README says where the declaration is read and that the check runs on pull requests only
 
 ## P4
 
@@ -292,10 +302,17 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - build-watch: `build --watch`
 - assistant-page: `assistant.html`, `assist.js` and `assist-data.js`, the Ask drawer and the entry points: Handoff on a file, and the seam through which `chat-bridge` adds live answers
 - decision-package: the decision package workbook, after S2 or labelled "preview"; its builder is two functions, `decision_workbook(..) -> Result<Workbook, XlsxError>` and `save_workbook(&mut Workbook) -> Result<Vec<u8>, XlsxError>`, and its entry calls both, so that `decide-port` can add a sheet between them
+- decision-package-2: the second part of `decision-package`: the price change bridge sheet (TP-06)
 - views-and-day-n: the CPY, CPT and PGM views, Day-N and the plan's today line
+- day-n-strings: add `set_start_date`, `set_start_date_plan`, `day_n_of_90` and `day_n_today` to `fieldbook-core::strings`, the corpus-format Strings section and the `strings.js` snapshot (owner review)
+- views-and-day-n-2: the second part of `views-and-day-n`: the Day-N chip, "Set your start date", the `fieldbook.start` key and the plan's today line
+- design-app-map-page: a design revision for the App map's Releases rows in the ADR 0001 release names and its Stores and effective labels panel in the four ADR 0004 labels and its stores (owner review)
 - app-map: `map.html`
-- day30-strict-lints: the quote match and the number-unit lint become errors; proptest
+- day30-strict-lints: the quote match and the number-unit lint become errors
+- day30-proptest: `proptest` as a dev-dependency, with properties for `fieldbook-calc` and the tokenizer
+- search-normalise-idempotent: `normalise` and its spec (`search.md`) give the same text on a second pass: today lowercasing after NFKC (NFKC is not run again) and the U+00AD deletion leave sequences that a second pass composes or reorders, for example `J` U+030C, U+0130 U+0316 and `e` U+00AD U+0301; pinned by plain tests
 - release-0-2-0: the `v0.2.0` release pull request, with the Day-30 drill for the parts that merged
+- design-changes-page: a design revision that gives `changes.html` its layout, strings and empty states: the edition sections of `changes.md`, the ids added since the earlier edition, the removed ids shown in public form and the count of removed ids not shown (owner review)
 - changes-page: `changes.html` with `edition-002`
 
 ## P5
