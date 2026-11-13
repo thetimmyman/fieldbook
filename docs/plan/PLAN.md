@@ -195,6 +195,9 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - hosted-edition-adr: ADR 0007, the hosted read-only site behind sign-on; accepted by the owner-delegated judge and JEV review
 - backup-snapshot: `backup`, `backup list` (with `--json`) and `backup verify`, the `[backup]` settings, retention, and the `backup_age` reminder
 - restore-and-drill: `restore`, `restore --drill` and Drill 4 in CI on the disposable build-checkout Corpus
+- backup-bounded-memory: `backup` holds one file in memory at a time, with a child-process peak-memory test on a 200 MB Corpus
+- backup-journal-recording-gaps: `backup` records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest
+- backup-verify-and-label-edges: every snapshot holds the journal so it verifies, and an original takes a source's labels only by its version id
 - verify-status-fmt: `fieldbook verify` (Could)
 - status-command: `fieldbook status` and `fieldbook status --page`, the desk pages (Could)
 - fmt-command: `fieldbook fmt [--check]` (Could)
@@ -255,6 +258,8 @@ The edition as a usable reference for the owner without company data: search tha
 - kb-fpa-core: budgeting, rolling forecast and variance analysis pages
 - kb-never-confuse-pass: every Never confuse part states a contrast, in parts by area
 - kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
+- claims-csv-parts: the claims copy for Excel as one CSV per claims part, `data/claims-<AREA>-<part>.csv`, so no edition file grows with the claim count (owner review)
+- design-claims-copy-paths: a design revision after `claims-csv-parts` for the HANDOFF Paths row, the mockup sentence "Every build writes data/claims.csv", the `data/<register>.csv` wording of `PATHS`, and any per-part CSV links in the claims index (owner review)
 - scope-through-squash: `cargo xtask scope` names the way through for a path changed after the card's deleting commit, and the cards README says where the declaration is read and that the check runs on pull requests only
 
 ## P4
