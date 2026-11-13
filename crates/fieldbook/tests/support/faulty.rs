@@ -215,4 +215,8 @@ impl World for FaultyWorld {
     fn support_facts(&self) -> fieldbook::SupportFacts {
         self.inner.support_facts()
     }
+
+    fn store_id(&self) -> &'static str {
+        self.inner.store_id()
+    }
 }

@@ -1,0 +1,4 @@
+ok
+method html-strip@1
+page 1
+Hello & World

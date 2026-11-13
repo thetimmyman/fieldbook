@@ -1,0 +1,20 @@
+template = "ask@1"
+
+[[part]]
+kind = "rules"
+labels = ["public"]
+text = "Answer in two sentences."
+
+[[part]]
+kind = "context"
+labels = ["public"]
+text = "cite as: [@CL-AAA-0001] A standard widget crate holds twelve widgets.\ncite as: [@CL-AAA-0002] Widget crates must not be stacked more than three high."
+ids = [
+  { store = "corpus", id = "CL-AAA-0001" },
+  { store = "corpus", id = "CL-AAA-0002" },
+]
+
+[[part]]
+kind = "question"
+labels = ["owner-supplied"]
+text = "How many widgets fit in a crate?"

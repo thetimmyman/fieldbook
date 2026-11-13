@@ -14,7 +14,7 @@ publish = false
 serde = { version = "1.0.229", features = ["derive"] }
 toml = "1.1.8+spec-1.1.0"
 csv = "1.4.0"
-pulldown-cmark = { version = "0.13.4", default-features = false, features = ["html"] }
+pulldown-cmark = { version = "0.13.6", default-features = false, features = ["html"] }
 unicode-normalization = "0.1.25"
 sha2 = { version = "0.11.0", default-features = false }
 rust_decimal = { version = "1.43.0", default-features = false, features = ["std"] }
@@ -25,6 +25,7 @@ rust_xlsxwriter = "0.101.0"
 zip = { version = "9.0.5", default-features = false, features = ["deflate"] }
 insta = { version = "1.49.0", default-features = false }
 tempfile = "3.27.0"
+proptest = { version = "1.12.0", default-features = false, features = ["std"] }
 windows-sys = { version = "0.61.2", default-features = false, features = ["Win32_Foundation", "Win32_Security", "Win32_Security_Authorization", "Win32_Storage_FileSystem", "Win32_Storage_CloudFilters", "Win32_System_Com", "Win32_System_RemoteDesktop", "Win32_System_Threading", "Win32_UI_Shell"] }
 object = { version = "0.40.0", default-features = false, features = ["read_core", "elf", "pe"] }
 flate2 = { version = "1.1.10", default-features = false, features = ["zlib-rs"] }

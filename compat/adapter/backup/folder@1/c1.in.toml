@@ -1,0 +1,8 @@
+ops = [
+    "dir 7",
+    "partial 7",
+    "parse fieldbook-backup-0007",
+    "is-partial fieldbook-backup-0007.partial",
+    "is-partial fieldbook-backup-0007",
+    "latest 7 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+]

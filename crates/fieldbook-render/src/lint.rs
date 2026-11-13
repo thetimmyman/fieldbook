@@ -17,6 +17,10 @@ pub const ASSIST_JS: u64 = 20_000;
 pub const SCRIPTS_TOTAL: u64 = 64_000;
 /// Budget for each data file other than the search index (`assets/assist-data.js`, `data/*`) in decimal bytes (`FB0605`).
 pub const DATA_FILE: u64 = 3_000_000;
+/// Budget for each register copy (`data/registers.xlsx` and `data/<register>.csv`) in bytes
+/// (`FB0605`). The copies are downloads that no page loads, so they take the hosted site's
+/// per-file limit (25 MiB) rather than the script-loaded data budget.
+pub const REGISTER_COPY: u64 = 26_214_400;
 /// Budget for `assets/search-index.js` alone in decimal bytes (`FB0605`). The edition index holds
 /// page, section and glossary term units (`docs/reference/search.md#the-site-index`).
 pub const SEARCH_INDEX: u64 = 15_000_000;
@@ -788,6 +792,17 @@ fn check_relative_link(
     }
 }
 
+/// The budget of a `data/` file that is not a script: a register copy, or any other data file.
+fn data_budget(path: &str) -> u64 {
+    let is_copy = path == fieldbook_core::strings::PATHS[0]
+        || (path.starts_with("data/")
+            && path.matches('/').count() == 1
+            && std::path::Path::new(path)
+                .extension()
+                .is_some_and(|ext| ext.eq_ignore_ascii_case("csv")));
+    if is_copy { REGISTER_COPY } else { DATA_FILE }
+}
+
 fn check_budgets(site: &Site, diags: &mut Vec<Diagnostic>) {
     let mut scripts_total = 0u64;
     let mut has_any_script = false;
@@ -857,17 +872,20 @@ fn check_budgets(site: &Site, diags: &mut Vec<Diagnostic>) {
             continue;
         }
 
-        if path.starts_with("data/") && size > DATA_FILE {
-            diags.push(Diagnostic::new(
-                Code::Fb0605,
-                false,
-                path.clone(),
-                1,
-                1,
-                format!(
-                    "data file `{path}` is {size} bytes, exceeding budget of {DATA_FILE} bytes"
-                ),
-            ));
+        if path.starts_with("data/") {
+            let limit = data_budget(path);
+            if size > limit {
+                diags.push(Diagnostic::new(
+                    Code::Fb0605,
+                    false,
+                    path.clone(),
+                    1,
+                    1,
+                    format!(
+                        "data file `{path}` is {size} bytes, exceeding budget of {limit} bytes"
+                    ),
+                ));
+            }
         }
     }
 

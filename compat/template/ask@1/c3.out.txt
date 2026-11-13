@@ -1,0 +1,1 @@
+refuse part-not-in-template

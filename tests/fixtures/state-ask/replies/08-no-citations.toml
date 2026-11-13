@@ -1,0 +1,7 @@
+# No citation and no abstention: nothing verifies, so the answer is refused (FB0707): exit 1.
+seed = "cc-s-18"
+exit = 1
+total = 0
+unresolved = 0
+statuses = []
+ai_paste = true

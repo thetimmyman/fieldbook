@@ -1,0 +1,4 @@
+refuse not-a-snapshot
+refuse not-a-snapshot
+refuse not-a-snapshot
+refuse not-a-snapshot

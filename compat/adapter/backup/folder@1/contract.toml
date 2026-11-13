@@ -1,0 +1,3 @@
+kind = "adapter"
+port = "backup"
+id = "folder@1"

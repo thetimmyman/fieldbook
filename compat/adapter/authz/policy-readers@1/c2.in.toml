@@ -1,0 +1,8 @@
+[groups]
+"grp-readers" = false
+"grp-changers" = "unreadable"
+
+[[store]]
+id = "working"
+readers = "grp-readers"
+changers = "grp-changers"

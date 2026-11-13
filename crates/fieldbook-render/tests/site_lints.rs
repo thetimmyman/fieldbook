@@ -310,6 +310,41 @@ mod site_lints {
     }
 
     #[test]
+    fn register_copies_take_the_hosted_file_limit() {
+        use fieldbook_render::lint::REGISTER_COPY;
+        assert_eq!(REGISTER_COPY, 25 * 1024 * 1024);
+        let cap = usize::try_from(REGISTER_COPY).unwrap_or(26_214_400);
+
+        for path in ["data/claims.csv", fieldbook_core::strings::PATHS[0]] {
+            let mut above_data_budget = clean_site();
+            above_data_budget.insert(path, vec![b'x'; 20_000_000]);
+            let diags = lint(&above_data_budget, &OriginalNames::default());
+            assert!(diags.is_empty(), "{path} at 20 MB must pass: {diags:?}");
+
+            let mut over = clean_site();
+            over.insert(path, vec![b'x'; cap + 1]);
+            let diags = lint(&over, &OriginalNames::default());
+            assert!(
+                diags.iter().any(|d| d.code == Code::Fb0605
+                    && d.path == path
+                    && d.message.contains("26214400")),
+                "{path} one byte over the limit must raise FB0605: {diags:?}"
+            );
+        }
+
+        // Any other file under data/ keeps the 3 MB budget.
+        let mut other = clean_site();
+        other.insert("data/other.csv.txt", vec![b'x'; 3_000_001]);
+        let diags = lint(&other, &OriginalNames::default());
+        assert!(
+            diags
+                .iter()
+                .any(|d| d.code == Code::Fb0605 && d.message.contains("3000000")),
+            "{diags:?}"
+        );
+    }
+
+    #[test]
     fn other_data_files_keep_the_3_mb_cap() {
         let cap = usize::try_from(DATA_FILE).unwrap_or(3_000_000);
         assert_eq!(cap, 3_000_000);

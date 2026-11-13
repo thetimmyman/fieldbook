@@ -1,0 +1,6 @@
+ok
+argv -layout -enc UTF-8 - -
+page 1
+Alpha page
+page 2
+Beta page

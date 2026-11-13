@@ -21,7 +21,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | CalcTable (worked example) | A part of `p/<page-id>.html` | §5 | `calc-cases` computes the values; `build-charts` renders them |
 | Page context pack (`<details><pre>`) | A part of `p/<page-id>.html` (a Could) | §9 Context pack | `page-context-packs` |
 | `#brief-<id>`: BriefSheet | `p/<page-id>.html`, page type `brief` | §5 | `build-page-types`; the print contract is `day-one-binder-and-registers-xlsx` |
-| `#plan`: the 90-day plan, PlanTimeline | The 30/60/90 checklist, `p/<page-id>.html`, page type `checklist`; `templates/90-day-plan.xlsx` | §2 Routes, §5 | `build-page-types` for the page and timeline; `views-and-day-n` for the today line; `e1-workbook-templates` for the workbook |
+| `#plan`: the 90-day plan, PlanTimeline | The 30/60/90 checklist, `p/<page-id>.html`, page type `checklist`; `templates/90-day-plan.xlsx` | §2 Routes, §5 | `build-page-types` for the page and timeline; `views-and-day-n-2` for the today line (revision 24 change 4); `e1-workbook-templates` for the workbook |
 | `#learn`: StageTrack | Curriculum stage pages, `p/<page-id>.html` | §2 Routes | `build-page-types` (no reading progress) |
 | Source drawer: SourceDrawer, LocatorView, Excerpt, AnswerMeta | `s/<version-id>.html`, an anchor per locator | §5 | `build-source-pages`; `extract-and-locators` for the locators; `quote-match-and-anchors` for the quotes; `source-location-links` |
 | `#claims`, `#questions`, `#glossary`, `#sources`: RegisterTable, StatusChip | `claims.html`, `questions.html`, `glossary.html` (the glossary's row anchor, the term id as written, is the target of a search term row), `sources.html` | §2 Routes, §5, §7 | `build-registers`; `registers-xlsx` for the workbook and CSV copies |
@@ -31,7 +31,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | Id list (no mockup route) | `ids.html` | §2 Routes | `build-registers` |
 | `#frame/public`, `#frame/company`, `#frame/company-marked` | Shared frame preview only | §3 Frame; BuildChip, Sidebar and effective-label banner | `build-frame`; company context: `r2-overlay` |
 | About (no mockup route) | `about.html` | §2 Routes | `build-about` (compiled profile/posture, no live adapter probe); edition metadata from `edition-manifest` |
-| Changes (no mockup route) | `changes.html` | §2 Routes | `changes-page` (`edition-002`) |
+| Changes (states-gallery specimens, no route) | `changes.html` | §2 Routes, §2 Changes page | `changes-page` (`edition-002`); revision 24 changes 8 and 9 |
 | `#desk/import`: ImportReport | state/pages/import.html | Desk pages: ImportReport, ActivityLog and BackupStatus | `status-command`; AddReport from `add-folder-mode` |
 | `#desk/activity`: ActivityLog | state/pages/activity.html | Desk pages: ImportReport, ActivityLog and BackupStatus | `status-command`; show and verify reports from `audit-journal` |
 | `#desk/backup`: BackupStatus | state/pages/backup.html | Desk pages: ImportReport, ActivityLog and BackupStatus | `status-command`; BackupList from `backup-snapshot` |
@@ -40,7 +40,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | `#assistant`, `#assistant/<id>`: ThreadList / ThreadPick, Message, ThreadNote, AdapterStatus, Composer, CheckedAnswer, VerdictChips, Fold, ReadFold, AnswerActions, ContextPanel, ContextItem, ContextMeter, ContextBar, RelatedPanel | `assistant.html` | §9 Assistant page, Context panel | `assistant-page` (with `assist.js`); `handoff-context` for the items, their reasons and the saved context packs |
 | Model adapter: the AdapterStatus states and the capabilities that switch controls | `assist.js`, through the adapter the architecture contract names | §9 Adapters | `model-gate`, `model-adapter-openai` and `chat-bridge`; static Handoff is `assistant-page`; Assistant/drawer cancel() reaches chat-bridge’s existing authenticated cancellation route |
 | Ask drawer: AskDrawer, AdapterStatus, Composer, ContextBar and the context sheet, Fold, CheckedAnswer, VerdictChips, CiteCheckChip, AnswerActions, SelectionToolbar | Every page, through `assist.js` | §9 Entry points, Context pack, Cite-check; §6 | `handoff-context`, `handoff-cite-check` (with the outside-context status); `handoff-new-note` for Copy as draft note |
-| `#map`: AppMap | `map.html` | §2 Routes, §5 | `app-map` |
+| `#map`: AppMap | `map.html` | §2 Routes, §2 App map, §5 | `app-map` (revision 24 changes 5 to 7) |
 | `#decisions`, `#decision-<id>`: DpSummary, KeyFigures (StatStrip), ReadinessGates, Sensitivity, OptionsCompare, Bridge, Trace, OriginTag | `templates/decision-package.xlsx` first; pages with the R2 overlay | §2 Routes, §5 | `decision-package` for the workbook; later (R2) for the pages |
 | `#assumptions` | `templates/assumption-register.xlsx`; R2 overlay | §2 Routes | `e1-workbook-templates` for the workbook; later (R2) for the pages |
 | `#discovery` | `templates/discovery-log.xlsx`; R2 overlay | §2 Routes | `e1-workbook-templates` for the workbook; later (R2) for the pages |
@@ -57,7 +57,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | AppShell, TopBar, SectionTabs, BuildChip, CrumbsRow, Sidebar, ContextNav, SectionSwitch, NavItem, Banner, Toast, Switch, theme toggle | Every page: the askama base template, `assets/app.css`, `app.js`. The page's section, store context and effective labels come from build metadata, so navigation and public/company handling text render with scripts blocked | §2 Global frame, §3, §5, §6, §8 | `build-frame`; `frame-unbuilt-entries`; `build-date-target`; company frame and effective labels: `r2-overlay` |
 | Build status banner (no mockup route; the mockup stands for a sample edition) | Every page `fieldbook build` writes when it is unreleased: the first item of the base template's banner slot, its counts computed at build time from the claims register; the print footer's edition slot reads `unreleased_build`. Never on a released edition | §3 Unreleased build status, §5 Banner, §8 Print, §11 | `unreleased-status-strip`, `overdue-banner-fold` |
 | ShortcutsDialog | `app.js` on every page | §5, §6 | `search-palette` (`/`, Ctrl K); `assistant-page` adds the Ask shortcut |
-| DayChip and "Set your start date" | Header on every page and `index.html`, `app.js` | §5, §6, §11 | `views-and-day-n` |
+| DayChip and "Set your start date" | Header on every page and `index.html`, `app.js` | §5, §6, §11 | `views-and-day-n-2` (revision 24 changes 2 and 3); `day-n-strings` (change 1) |
 | CommandChip | Every write, as a command to copy | §5, §6 | `build-about` for the chip and its quoting; the verbs come from `add-new-and-edition`, `new-verbs`, `verify-status-fmt`, `status-command`, `fmt-command` and `search-cli-and-regression`; the Day 30 verbs (`context`, `cite-check`, `new note`) from `handoff-context`, `handoff-cite-check` and `handoff-new-note` |
 | CitationChip | Registers, drawers | §5 | `build-page`, `check-citations`, `build-registers` |
 | Design tokens | `:root`, dark, print, forced-colors and reduced-motion blocks in `assets/app.css` | §4 | `build-tokens` |

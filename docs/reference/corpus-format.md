@@ -237,6 +237,10 @@ These verbs have no chip, and `NO_CHIP` in `crates/fieldbook/tests/chips.rs` lis
 | `unreleased_build` | "unreleased build" | AD-12 |
 | `print_check` | "Check the current edition" | AD-12 |
 | `not_remembered` | "Not remembered in this browser" | AD-15 |
+| `set_start_date` | "Set your start date" | AD-15 |
+| `set_start_date_plan` | "Set a start date to mark today" | AD-15 |
+| `day_n_of_90` | "Day N of 90", with N the day count the page script computes | AD-15 |
+| `day_n_today` | "Day N of 90 · the line marks today", with N the day count the page script computes | AD-15 |
 | `tag_at_home` | "At home" | AD-17 |
 | `tag_r2_laptop` | "R2 · laptop" | AD-17 |
 | `assistant_labels` | "Ask" · "Send" · "Stop" · "Copy context pack" · "Check citations" · "Save as note" · "Copy as draft note" · "This session only" | AD-15 |
@@ -277,7 +281,7 @@ corpus/
 | `sources/public/<version-id>.<ext>` | Byte-exact originals, binary in git | `fieldbook add` | No; the originals zip |
 | `sources/text/<version-id>/` | `extraction.toml` and one text file per page, `p0001.txt` and on | `cargo xtask extract`, committed | Yes; not for a `quarantined` version |
 | `templates/<type>.md` | One page template per v1 page type | Hand | No |
-| `templates/workbooks/*.csv` | Synthetic sources of the data-only workbooks | Hand | No (E1) |
+| `templates/workbooks/*.csv` | Synthetic sources of the data-only workbooks | Hand | No; `fieldbook build` writes `templates/<name>.xlsx` from them (E1) |
 | `eval/regression.toml` | The search regression questions, run by `check` | Hand | No |
 | `pipeline/rules.toml` | Optional. The intake classification rules, each with an `example` that `check` replays (FB0826) | Hand; the lead writes it | No |
 
@@ -744,9 +748,12 @@ The Corpus sources of truth are the CSV files in `corpus/registers/`. `build` wr
 
 **The CSV copies.** Same columns, same rows, same order as the source. A byte-order mark, CRLF line endings, and a leading apostrophe on any text cell that starts with `=`, `+`, `-`, `@`, TAB or CR. A decimal is not a text cell and gets no apostrophe. Because `check` refuses such text cells in the source, the apostrophe is a second guard for hand-edited copies. If Excel mangles a copy, use Data > From Text/CSV.
 
+In the edition, both copies hold only the rows the edition keeps. A kept row's cell that names a record the edition leaves out (a claim in `supersedes`, a source version in `evidence`, a question in `question_id`, and so on) is written without that reference, and the copies carry no count or note of what was left out.
+
 **`registers.xlsx`.** Sheets are named `sources`, `claims`, `questions`, `conflicts` and `glossary`.
 - Every cell is a string, including dates, numbers and booleans. There are no formulas, no macros and no links.
 - The header row is frozen and has an autofilter.
+- A workbook cell holds at most 32,767 characters. A register cell longer than that, such as a long joined list, stops the build with FB0605; the message names the register, the row id and the column. `check` limits each text cell (FB0204) and each item of a text list, but not the joined length of a list cell, so a strict-clean Corpus can reach this.
 - The file carries a fixed creation time taken from `SOURCE_DATE_EPOCH`, so two builds of the same commit give the same bytes. A test reads `docProps/core.xml` back.
 - The workbook is read-only by design: to change a register, edit the CSV and run `fieldbook check`.
 
@@ -1412,7 +1419,7 @@ Raised by `build`, `cargo xtask edition` and the tests of the build and edition 
 | FB0602 | error | An edition path breaks the path rules: over 150 characters from the edition root | A 151-character path |
 | FB0603 | error | A link in the built site does not resolve to a built file or anchor | A link to a page that has no output |
 | FB0604 | error | A built page breaks a site rule: an `href="http`, a `style="` attribute, an inline event handler, a script that is not a file in `assets/`, no content security policy, or a policy that is not equal to `CSP_STATIC` | An `href="http` in a page |
-| FB0605 | error | A script or data file is over budget: `app.js` 32 KB, `search.js` 11 KB, `assist.js` 20 KB, 64 KB of scripts in all, 15 MB for `search-index.js`, or 3 MB for any other data file of the edition. The edition's `search-index.js` holds page, section and glossary term units only. The company browser loads shards of at most 8 MB with at most 24 MB of live search data, as search.md specifies. Scripts are app.js, search.js, strings.js and assist.js; strings.js counts only in the 64 KB total. search-index.js and assist-data.js are data, not scripts. Other .js files count as scripts. A KB is 1,000 bytes | A 70 KB `app.js` |
+| FB0605 | error | A script or data file is over budget: `app.js` 32 KB, `search.js` 11 KB, `assist.js` 20 KB, 64 KB of scripts in all, 15 MB for `search-index.js`, or 3 MB for any other data file of the edition, except that `data/registers.xlsx` and each `data/<register>.csv` are downloads no page loads and have the hosted site's 25 MiB per-file limit. The edition's `search-index.js` holds page, section and glossary term units only. The company browser loads shards of at most 8 MB with at most 24 MB of live search data, as search.md specifies. Scripts are app.js, search.js, strings.js and assist.js; strings.js counts only in the 64 KB total. search-index.js and assist-data.js are data, not scripts. Other .js files count as scripts. A KB is 1,000 bytes. A register cell too long for a workbook cell (over 32,767 characters) also stops the build with FB0605, naming the register, the row id and the column | A 70 KB `app.js`; a joined list in one `claims` cell over 32,767 characters |
 | FB0606 | error | Two builds of one commit differ | A timestamp in an output file |
 | FB0607 | warning on Linux, error in the `windows` job | A `brief` prints on more than one page | A brief that runs onto a second page |
 | FB0608 | error | Edition integrity: a file is missing from `SHA256SUMS` or differs from it, the fingerprint differs from `edition.toml`, or an extraction hash differs | A zip with one file changed |
@@ -1589,6 +1596,28 @@ The Day-1 copies, `data/<register>.csv` and `data/registers.xlsx`, are in [Excel
 | `templates/decision-package.xlsx` | Day 30, after spike S2 | The only workbook with formulas. Its columns include the trace columns claim id, source version and locator |
 | A rate register | On request | Public rates only. The company's own rate book and indirect-rate build-ups are record types of the company store, built after the knowledge base (the build order in ADR 0004) |
 
+#### Template columns
+
+The three E1 templates freeze these columns. They are not a Corpus object, so `schema_version` does not change. The header row of `corpus/templates/workbooks/<name>.csv` and the header cells of the Excel table are exactly this list, and `fieldbook build` refuses a CSV whose header differs. Every cell is a string. `owner_role` holds a role, never a person. `source_ref` is a key and a locator such as `S-0042-v2, p. 14`, or the words `No source yet`. A closed column has a drop-down list over its rows and 200 empty rows below them.
+
+| Template | Columns, in order |
+|---|---|
+| `assumption-register` | `assumption_id`, `text`, `package`, `package_version`, `waits_on_question`, `owner_role`, `source_ref`, `as_of`, `confidence`, `evidence_grade`, `moves`, `revisit_when`, `status`, `drafted_by` |
+| `discovery-log` | `row_id`, `kind`, `title`, `detail`, `source_ref`, `area`, `owner_role`, `waits_on_question`, `status`, `as_of`, `drafted_by` |
+| `90-day-plan` | `row_id`, `window`, `item`, `duty`, `proof_test`, `owner_role`, `status`, `drafted_by` |
+
+| Closed column | Values | Used by |
+|---|---|---|
+| `confidence` | `High`, `Medium`, `Low` | Assumption register |
+| `evidence_grade` | `A` to `G`, the whole [`evidence_grade` vocabulary](#claim-vocabularies). An assumption may rest on a company value (`A` to `D`), and the Corpus list is the one a later record type can read | Assumption register |
+| `kind` | `note`, `gap`, `system`, `clause` | Discovery log |
+| `window` | `Day 1 to Day 30`, `Day 31 to Day 60`, `Day 61 to Day 90` | 90-day plan |
+| `status` | `draft`, `in_review`, `approved`, `superseded` | Assumption register |
+| `status` | `open`, `in_progress`, `done` | Discovery log, 90-day plan |
+| `drafted_by` | `ai`, `owner` | All three |
+
+The plan has no date column: the start date is entered in the browser and is never stored in the Corpus or committed. Each template has three example rows, marked `Synthetic example:` in `text`, `title` or `item`, with lower-case keys (`example-1`) and the synthetic date `2000-01-01` as their only date.
+
 - **Writer.** The `rust_xlsxwriter` crate writes every workbook with a fixed creation time. A test reads `docProps/core.xml` back.
 - **Decision package.** INDEX/MATCH lookups only. Every formula cell carries the value cached by `fieldbook-calc`, including the self-check cell, whose cached value is "OK". The file asks Excel to recalculate on load, and its Read-me explains the save prompt that follows. A header block holds the edition number, the tool version and the as-of date, so that a filled workbook says which edition it was built from. A unit test reads it back, as it reads `docProps/core.xml`. A zero denominator shows "n/a: zero denominator", never a masked blank. A unit test checks the XML parts: no macros, external links, web hyperlinks, DDE, volatile functions or dynamic arrays.
 - **Preview label.** Until spike S2 passes, the decision package is labelled "preview". S2 opens a test workbook on the corporate laptop, as a downloaded file with the Mark-of-the-Web, Protected View included, and requires that it recalculate with no repair prompt.
@@ -1611,7 +1640,7 @@ Version 1 freezes the page types, the five registers and `edition.toml`. Every l
 | Object | Lands | Trigger, or where it lives meanwhile |
 |---|---|---|
 | `note` page type: `origin = "ai_drafted"`, `reviewed`, `question` and `context_fingerprint`. `new note` writes `reviewed = false` | Day 30 (schema 2) | Never a source for a claim |
-| Overlay columns for assumptions, decisions and discovery notes (`drafted_by` is `ai` or `owner`) | E1 | Frozen with the E1 templates |
+| Overlay columns for assumptions, decisions and discovery notes (`drafted_by` is `ai` or `owner`) | E1 | [Frozen with the E1 templates](#template-columns) |
 | Decision package, assumption and discovery records | R2, company store | Read from CSV saved from the templates, through the `file-drop@1` adapter of the `Pull` port |
 | Audit request | R2, company store | Q-014 |
 | Company process and procedure records | R3 | The first observed process |
