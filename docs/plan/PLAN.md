@@ -300,7 +300,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - app-map: `map.html`
 - day30-strict-lints: the quote match and the number-unit lint become errors; proptest
 - release-0-2-0: the `v0.2.0` release pull request, with the Day-30 drill for the parts that merged
-- design-r24-changes-page: a design revision after revision 23 that gives `changes.html` its layout, strings and empty states: the edition sections of `changes.md` and the ids added since the earlier edition (owner review)
+- design-changes-page: a design revision that gives `changes.html` its layout, strings and empty states: the edition sections of `changes.md` and the ids added since the earlier edition (owner review)
 - changes-page: `changes.html` with `edition-002`
 
 ## P5
