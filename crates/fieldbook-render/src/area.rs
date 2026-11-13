@@ -37,6 +37,9 @@ pub fn page_paths(view: &LabelledView) -> Vec<String> {
     })
 }
 
+const HISTORY_EMPTY: &str =
+    "<p class=\"muted\">Nothing recorded yet. History fills as pages and registers change.</p>";
+
 struct JumpLink {
     id: &'static str,
     label: &'static str,
@@ -223,7 +226,7 @@ fn render_main(area: &AreaDef, view: &LabelledView, planned: &PlannedPaths) -> S
         pages,
         sources_href: href_if_planned(&from_path, "sources.html", planned),
         learn_href: learn_href(view, &from_path, planned),
-        history_html: render_unavailable("History", "a later release"),
+        history_html: HISTORY_EMPTY.to_owned(),
         questions,
     }
     .render()
