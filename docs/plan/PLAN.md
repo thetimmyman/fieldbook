@@ -297,10 +297,17 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - build-watch: `build --watch`
 - assistant-page: `assistant.html`, `assist.js` and `assist-data.js`, the Ask drawer and the entry points: Handoff on a file, and the seam through which `chat-bridge` adds live answers
 - decision-package: the decision package workbook, after S2 or labelled "preview"; its builder is two functions, `decision_workbook(..) -> Result<Workbook, XlsxError>` and `save_workbook(&mut Workbook) -> Result<Vec<u8>, XlsxError>`, and its entry calls both, so that `decide-port` can add a sheet between them
+- decision-package-2: the second part of `decision-package`: the price change bridge sheet (TP-06)
 - views-and-day-n: the CPY, CPT and PGM views, Day-N and the plan's today line
+- day-n-strings: add `set_start_date`, `set_start_date_plan`, `day_n_of_90` and `day_n_today` to `fieldbook-core::strings`, the corpus-format Strings section and the `strings.js` snapshot (owner review)
+- views-and-day-n-2: the second part of `views-and-day-n`: the Day-N chip, "Set your start date", the `fieldbook.start` key and the plan's today line
+- design-app-map-page: a design revision for the App map's Releases rows in the ADR 0001 release names and its Stores and effective labels panel in the four ADR 0004 labels and its stores (owner review)
 - app-map: `map.html`
-- day30-strict-lints: the quote match and the number-unit lint become errors; proptest
+- day30-strict-lints: the quote match and the number-unit lint become errors
+- day30-proptest: `proptest` as a dev-dependency, with properties for `fieldbook-calc` and the tokenizer
+- search-normalise-idempotent: `normalise` and its spec (`search.md`) give the same text on a second pass: today lowercasing after NFKC (NFKC is not run again) and the U+00AD deletion leave sequences that a second pass composes or reorders, for example `J` U+030C, U+0130 U+0316 and `e` U+00AD U+0301; pinned by plain tests
 - release-0-2-0: the `v0.2.0` release pull request, with the Day-30 drill for the parts that merged
+- design-changes-page: a design revision that gives `changes.html` its layout, strings and empty states: the edition sections of `changes.md`, the ids added since the earlier edition, the removed ids shown in public form and the count of removed ids not shown (owner review)
 - changes-page: `changes.html` with `edition-002`
 
 ## P5
