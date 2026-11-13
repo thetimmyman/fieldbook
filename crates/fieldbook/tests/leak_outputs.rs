@@ -58,6 +58,7 @@ const BUILT_SINKS: &[&str] = &[
     "day_one_binder",
     "registers_workbook",
     "register_csvs",
+    "template_workbooks",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -93,6 +94,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "register_csvs",
         run: run_register_csvs_surface,
+    },
+    Surface {
+        name: "template_workbooks",
+        run: run_template_workbooks_surface,
     },
 ];
 
@@ -2115,6 +2120,138 @@ fn run_register_csvs_surface() {
     }
 }
 
+fn run_template_workbooks_surface() {
+    let delivery = deliver_mixed_edition(&BuildInfo::default());
+    let fixture = load_fixture();
+    let non_public_canaries: Vec<&str> = fixture
+        .record
+        .iter()
+        .filter(|r| r.label != "public")
+        .map(|r| r.canary.as_str())
+        .collect();
+
+    for spec in fieldbook_render::templates_xlsx::TEMPLATES {
+        let wb_path = delivery
+            .edition_dir
+            .join(format!("templates/{}.xlsx", spec.name));
+        let wb_bytes =
+            std::fs::read(&wb_path).unwrap_or_else(|e| panic!("read {}: {e}", wb_path.display()));
+        let sheets = workbook_sheets(&wb_bytes);
+
+        // (a) each workbook has exactly two sheets, named `Read me` and the data sheet
+        let mut expected_sheet_names = ["Read me", spec.sheet].to_vec();
+        expected_sheet_names.sort();
+        let actual_names: Vec<&str> = sheets.keys().map(String::as_str).collect();
+        assert_eq!(
+            actual_names, expected_sheet_names,
+            "sheet names mismatch for template `{}`",
+            spec.name
+        );
+
+        // (b) the `Read me` sheet cells include the text `Synthetic example rows: replace them.`
+        // and a cell containing `Save as CSV UTF-8`
+        let readme_rows = sheets
+            .get("Read me")
+            .unwrap_or_else(|| panic!("missing `Read me` sheet in template `{}`", spec.name));
+        let has_synthetic_rows_text = readme_rows.iter().any(|r| {
+            r.iter()
+                .any(|c| c.contains("Synthetic example rows: replace them."))
+        });
+        assert!(
+            has_synthetic_rows_text,
+            "`Read me` sheet in template `{}` must include `Synthetic example rows: replace them.`",
+            spec.name
+        );
+        let has_save_as_csv = readme_rows
+            .iter()
+            .any(|r| r.iter().any(|c| c.contains("Save as CSV UTF-8")));
+        assert!(
+            has_save_as_csv,
+            "`Read me` sheet in template `{}` must contain a cell with `Save as CSV UTF-8`",
+            spec.name
+        );
+
+        // (c) the data sheet's header row equals the header row of the matching
+        // `fieldbook_render::templates_xlsx::TEMPLATES` spec, and it has exactly 3 data rows,
+        // each of which has a cell starting with `Synthetic example:` and a first cell starting
+        // with `example-`
+        let data_rows = sheets.get(spec.sheet).unwrap_or_else(|| {
+            panic!(
+                "missing data sheet `{}` in template `{}`",
+                spec.sheet, spec.name
+            )
+        });
+        assert!(
+            !data_rows.is_empty(),
+            "data sheet `{}` in template `{}` has no header row",
+            spec.sheet,
+            spec.name
+        );
+        let expected_header: Vec<&str> = spec.columns.iter().map(|col| col.header).collect();
+        let actual_header: Vec<&str> = data_rows[0].iter().map(String::as_str).collect();
+        assert_eq!(
+            actual_header, expected_header,
+            "header mismatch for data sheet `{}` in template `{}`",
+            spec.sheet, spec.name
+        );
+
+        let data_rows_slice = &data_rows[1..];
+        assert_eq!(
+            data_rows_slice.len(),
+            3,
+            "data sheet `{}` in template `{}` must have exactly 3 data rows",
+            spec.sheet,
+            spec.name
+        );
+
+        for (row_idx, row) in data_rows_slice.iter().enumerate() {
+            let first_cell = row.first().unwrap_or_else(|| {
+                panic!(
+                    "empty data row {row_idx} in `{}` in template `{}`",
+                    spec.sheet, spec.name
+                )
+            });
+            assert!(
+                first_cell.starts_with("example-"),
+                "first cell of data row {row_idx} in `{}` in template `{}` must start with `example-`, got `{first_cell}`",
+                spec.sheet,
+                spec.name
+            );
+            let has_synthetic_example = row
+                .iter()
+                .any(|cell| cell.starts_with("Synthetic example:"));
+            assert!(
+                has_synthetic_example,
+                "data row {row_idx} in `{}` in template `{}` must have a cell starting with `Synthetic example:`",
+                spec.sheet, spec.name
+            );
+        }
+
+        // (d) no cell of any of the three workbooks contains any restricted (non-`public` label)
+        // canary from the fixture or any string of FORBIDDEN_REGISTER_STRINGS
+        for (sheet_name, rows) in &sheets {
+            for (r_idx, row) in rows.iter().enumerate() {
+                for (c_idx, cell) in row.iter().enumerate() {
+                    for forbidden in FORBIDDEN_REGISTER_STRINGS {
+                        assert!(
+                            !cell.contains(forbidden),
+                            "template `{}` sheet `{sheet_name}` row {r_idx} col {c_idx} contains forbidden `{forbidden}`: `{cell}`",
+                            spec.name
+                        );
+                    }
+                    for canary in &non_public_canaries {
+                        assert!(
+                            !cell.contains(canary),
+                            "template `{}` sheet `{sheet_name}` row {r_idx} col {c_idx} contains non-public canary `{canary}`: `{cell}`",
+                            spec.name
+                        );
+                    }
+                }
+            }
+        }
+    }
+}
+
 #[test]
 fn output_surfaces_cover_built_sinks() {
     let mut surface_names = Vec::new();
@@ -2154,6 +2291,11 @@ fn delivered_binder_filters_articles() {
 fn delivered_workbook_and_csvs_filter_rows() {
     run_registers_workbook_surface();
     run_register_csvs_surface();
+}
+
+#[test]
+fn delivered_templates_are_public_and_complete() {
+    run_template_workbooks_surface();
 }
 
 #[test]
