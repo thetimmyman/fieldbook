@@ -296,6 +296,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - app-map: `map.html`
 - day30-strict-lints: the quote match and the number-unit lint become errors
 - day30-proptest: `proptest` as a dev-dependency, with properties for `fieldbook-calc` and the tokenizer
+- search-normalise-idempotent: `normalise` and its spec (`search.md`) give the same text on a second pass: today `e` U+00AD U+0301 and `A` U+00AD U+0308 compose on the second pass; pinned by plain tests
 - release-0-2-0: the `v0.2.0` release pull request, with the Day-30 drill for the parts that merged
 - changes-page: `changes.html` with `edition-002`
 

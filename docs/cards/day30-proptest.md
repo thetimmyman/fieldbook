@@ -18,8 +18,8 @@
 
 ## Scope
 
-- Files: `crates/fieldbook-calc/Cargo.toml`, `crates/fieldbook-core/Cargo.toml`, `crates/fieldbook-calc/tests/props_decimal.rs`, `crates/fieldbook-calc/tests/props_ops.rs`, `crates/fieldbook-core/tests/props_tokenize.rs`, `docs/reference/dependencies.md`, `docs/reference/testing.md`.
-- Registration lines: `Cargo.toml` (the one `proptest` line under `[workspace.dependencies]`, this card's line only); `Cargo.lock` (the lock diff of `just lock`). `CHANGELOG.md` does not change: nothing the owner sees.
+- Files: `crates/fieldbook-calc/Cargo.toml`, `crates/fieldbook-core/Cargo.toml`, `crates/fieldbook-calc/tests/props_decimal.rs`, `crates/fieldbook-calc/tests/props_ops.rs`, `crates/fieldbook-core/tests/props_tokenize.rs`, `docs/reference/testing.md`.
+- Registration lines: `Cargo.toml` (the one `proptest` line under `[workspace.dependencies]`, this card's line only); `Cargo.lock` (the lock diff of `just lock`); `docs/reference/dependencies.md` (the Measurements row, the `proptest` row's "Day 30" marker and the Young lockfile table, this card's rows only). `CHANGELOG.md` does not change: nothing the owner sees.
 - Docs to update: `docs/reference/dependencies.md` (a Measurements row, the `proptest` row's "Day 30" marker, and the Young lockfile table if the lock holds a young entry), `docs/reference/testing.md` (the Day 30 row and the Test data sentence).
 
 ## Out of scope
@@ -27,6 +27,7 @@
 - The Bridge `read_request` property and the `crates/fieldbook/Cargo.toml` line (`chat-bridge`).
 - Replacing or deleting any seeded `*_no_panic.rs` test or `tests/support/rng.rs`.
 - Any other crate's properties, any change of source code under `src/`, and any `proptest` feature beyond `std`.
+- Fixing `normalise` so that it is idempotent. Today's `normalise` (NFKC, lowercase, dash fold, then delete U+00AD) is not: `e` U+00AD U+0301 becomes `e` U+0301, which a second pass composes to U+00E9 (also `A` U+00AD U+0308). The card `search-normalise-idempotent` (PLAN.md, after this card) decides the fix and pins both inputs as plain tests; until it merges, the idempotence property keeps U+00AD out of its strategy, with a comment that names the counterexample.
 - A regression file policy: a failing case found by a property is fixed in its own card and pinned as a plain test.
 
 ## Preconditions
@@ -37,9 +38,9 @@
 
 1. Dependency. In `Cargo.toml` `[workspace.dependencies]`: `proptest = { version = "1.12.0", default-features = false, features = ["std"] }`, the version being the newest release that clears the 14-day cooldown on the day the card runs, never below the row's floor. Add `proptest = { workspace = true }` under `[dev-dependencies]` of `fieldbook-calc` and `fieldbook-core`. Run `just lock` and review the lock diff.
 2. Evidence, as the "Review evidence" list orders: `cargo build --workspace --locked`, `cargo build --workspace --frozen`, `cargo deny --locked check bans licenses sources` and the same with `--all-features`, the metadata counts for both profiles (the shipped counts must not change: a dev-dependency is outside them), the release dates of every new registry package, and exact-source MAX/JEV review bound to those bytes. Append the Measurements row.
-3. `fieldbook-calc/tests/props_decimal.rs`: strategies for decimal text (`sign? digits (. digits)?` with up to 40 digits, and arbitrary short strings). Properties named `parse_never_panics_on_any_text`, `parse_then_display_then_parse_is_the_same_value` and `parse_rejects_what_the_grammar_rejects` (text with a second point, an exponent, a space or a group separator gives a typed `CalcError`, not a value).
+3. `fieldbook-calc/tests/props_decimal.rs`: strategies for decimal text, two kinds. Grammar text matches `^-?(0|[1-9][0-9]*)(\.[0-9]+)?$` with up to 40 digits and is never `-0`: `Dec::parse` gives `Ok` or `CalcError::Overflow` (beyond the 28-digit scale or the range), never `Grammar`. Other text (a `+` sign, a leading zero, `-0`, a second point, an exponent, a space, a group separator, arbitrary short strings) gives `CalcError::Grammar`. Properties named `parse_never_panics_on_any_text`, `parse_then_display_then_parse_is_the_same_value` (over grammar text, on the `Ok` cases only, so a 40-digit `Overflow` is not a disagreement) and `parse_rejects_what_the_grammar_rejects` (the other text gives `CalcError::Grammar`).
 4. `fieldbook-calc/tests/props_ops.rs`: `add_is_commutative_and_associative_without_overflow`, `sub_undoes_add`, `mul_by_one_is_identity`, `div_then_mul_is_within_one_unit_at_the_rounding_scale`, `percent_of_100_is_identity`, and `no_operation_panics_on_extreme_scales` (values at the largest and smallest scale give `Ok` or the typed overflow error). Money operations use one currency code per case.
-5. `fieldbook-core/tests/props_tokenize.rs`: `lex_never_panics`, `index_tokens_are_normalised_and_nonempty`, `query_tokens_is_a_subset_of_index_tokens_for_the_same_text`, `lexing_the_joined_tokens_gives_the_same_tokens` and `normalise_is_idempotent` over arbitrary Unicode strings, with the case count set to 256 in each test and a fixed `PROPTEST_RNG_SEED`-free configuration (`ProptestConfig { cases: 256, failure_persistence: None, .. }`) so a run writes no file.
+5. `fieldbook-core/tests/props_tokenize.rs`: `lex_never_panics` (arbitrary Unicode, U+00AD included), `index_tokens_are_normalised_and_nonempty`, `query_tokens_is_a_subset_of_index_tokens_for_the_same_text`, `lexing_the_joined_tokens_gives_the_same_tokens` and `normalise_is_idempotent`. The last two and the first-named "normalised" test treat "normalised" as a fixed point of `normalise`, so they use a strategy that mixes ASCII letters, the dash family U+2010 to U+2015 and U+2212, combining marks, compatibility characters (ligatures, full-width forms, superscripts) and arbitrary Unicode, and leave out U+00AD, with a comment naming the counterexample of Out of scope. Every test uses `ProptestConfig { cases: 256, failure_persistence: None, rng_algorithm: RngAlgorithm::default(), rng_seed: RngSeed::Fixed(seed), .. }`, where `seed` is `Rng::new(1).next_u64()` from `tests/support/rng.rs` (included as the `*_no_panic.rs` tests include it), so a CI run cannot fail at random and a run writes no file.
 6. `testing.md`: the Day 30 row names the three files; the Test data sentence ends "`proptest` adds properties beside them at Day 30; the seeded tests stay."
 7. Run `cargo nextest run --locked -p fieldbook-calc --test props_decimal --test props_ops` and `-p fieldbook-core --test props_tokenize`, then the whole `just check`.
 
@@ -58,7 +59,7 @@ Expected: the property tests pass; both deny runs exit 0; the `grep` count is `0
 
 ## Negative control
 
-Change `Dec::parse` in a scratch copy to accept a second point: `parse_rejects_what_the_grammar_rejects` must fail and shrink to a short input. Change `add_dec` to drop the carry: `add_is_commutative_and_associative_without_overflow` or `sub_undoes_add` must fail. Make `normalise` lower-case only the first character: `normalise_is_idempotent` must fail. Restore each. Last, set the `proptest` entry to a version younger than 14 days: the cooldown check of the lock must fail.
+Change `Dec::parse` in a scratch copy to accept a second point: `parse_rejects_what_the_grammar_rejects` must fail and shrink to a short input. Change `add_dec` to drop the carry: `add_is_commutative_and_associative_without_overflow` or `sub_undoes_add` must fail. Make `normalise` fold `-` to `--` (after the dash fold, push two hyphens): `normalise_is_idempotent` must fail, because a second pass doubles them again. Restore each. The release-date evidence of step 2 is the check on the cooldown; no automated negative is claimed for it.
 
 ## Rollback
 
