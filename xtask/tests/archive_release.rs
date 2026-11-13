@@ -439,6 +439,9 @@ fn build_synthetic_edition_set(
                 "data/glossary.csv",
                 "data/questions.csv",
                 "data/sources.csv",
+                "templates/discovery-log.xlsx",
+                "templates/assumption-register.xlsx",
+                "templates/90-day-plan.xlsx",
             ] {
                 ed_files.insert(data.to_owned(), b"synthetic\n".to_vec());
             }

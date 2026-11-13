@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the three E1 workbook templates in the edition.
 - Added: build --watch.
 - Added: data/registers.xlsx and CSV copies of the registers.
 - Changed: section snippets in the site search index are cut to 100 characters to keep the index within its size cap.

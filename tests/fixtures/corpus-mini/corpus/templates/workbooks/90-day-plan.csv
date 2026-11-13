@@ -1,0 +1,4 @@
+row_id,window,item,duty,proof_test,owner_role,status,drafted_by
+example-1,Day 1 to Day 30,Synthetic example: Reconcile operating cash balances with bank records,finance lead must reconcile bank accounts weekly,bank statement reconciliations match general ledger balances,finance lead,open,ai
+example-2,Day 31 to Day 60,Synthetic example: Establish variance reporting cadence for department expenses,treasury lead must review cash flow projections monthly,treasury cash report signed off by department head,contracts lead,in_progress,owner
+example-3,Day 61 to Day 90,Synthetic example: Standardize approval thresholds for procurement contracts,contracts lead must archive executed vendor agreements,contract repository contains verified counterparty signatures,treasury lead,done,ai
