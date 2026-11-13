@@ -31,7 +31,7 @@ Every built edition holds `changes.html`: the `## edition-NNN` sections of `corp
 
 ## Preconditions
 
-- Cards merged: `build-v0`, `build-frame`, `build-about` (page modules, `edition.toml`, `[ids]`), `registers-xlsx` (the latest change to the built outputs and `leak_outputs.rs`), `build-watch` (it also changes `crates/fieldbook/src/build.rs`; open), `e1-workbook-templates` (it shares a path with this card's Files; open), `design-changes-page` (a design revision that gives `changes.html` its layout, strings and empty states; owner review).
+- Cards merged: `build-v0`, `build-frame`, `build-about` (page modules, `edition.toml`, `[ids]`), `registers-xlsx` (the latest change to the built outputs and `leak_outputs.rs`), `build-watch` (it also changes `crates/fieldbook/src/build.rs`; open), `design-changes-page` (a design revision that gives `changes.html` its layout, strings and empty states; owner review).
 
 ## Steps
 

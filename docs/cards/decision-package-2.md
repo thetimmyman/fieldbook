@@ -57,7 +57,7 @@ Expected: the tests pass; the second build prints `same`; `just check` exits 0.
 
 ## Negative control
 
-In `decision.rs`, leave one step (for example G&A) out of the bridge: `bridge_steps_add_to_the_total_change` must fail. Restore it. Take one step from the unrounded line values instead of the rounded ones: `bridge_cached_values_equal_an_independent_recomputation` must fail and name that cell, because the example input of `decision-package` step 1 has a sub-cent overhead. Restore it. Change one bridge formula to use `OFFSET`: the XL-02 test `no_macro_external_link_hyperlink_dde_volatile_or_dynamic_array` must fail and name `Price change bridge` and the cell. Restore it. Drop one `set_result` on the sheet: `every_formula_cell_has_a_cached_value` must fail. Restore it.
+In `decision.rs`, leave one step (for example G&A) out of the bridge: `bridge_steps_add_to_the_total_change` must fail. Restore it. Take the overhead step from the unrounded line values instead of the rounded ones: `bridge_cached_values_equal_an_independent_recomputation` must fail and name the overhead step's cell. This fails only because the example input has overhead lines whose v1 and v2 differ in their sub-cent parts, so this card sets the v1 and v2 overhead inputs of `synthetic_example` in `decision.rs` to differ in their sub-cent parts if the first card's do not (for example 4.16625 in v1 and 4.28375 in v2 before rounding). Restore it. Change one bridge formula to use `OFFSET`: the XL-02 test `no_macro_external_link_hyperlink_dde_volatile_or_dynamic_array` must fail and name `Price change bridge` and the cell. Restore it. Drop one `set_result` on the sheet: `every_formula_cell_has_a_cached_value` must fail. Restore it.
 
 ## Rollback
 
