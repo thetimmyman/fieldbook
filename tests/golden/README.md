@@ -221,8 +221,8 @@ What a citation vector pins, and what it leaves to other checks:
 | `answer` | string | The text read by the tolerant reader and the sentence splitter |
 | `context` | array of strings, optional | Unit ids. Present: the check runs with this context and may give `outside_context`. Absent: no context |
 | `expect.citations` | array | One entry per citation that is not neutral, in reading order |
-| `expect.neutral` | array of strings | The references to a question or a conflict, in reading order |
-| `expect.uncited` | array of strings | The uncited sentences in reading order. A sentence is its text trimmed of white space, final punctuation kept |
+| `expect.neutral` | array of strings | The references to a question or a conflict, in reading order, written as they appear in the answer without brackets |
+| `expect.uncited` | array of strings | The uncited sentences (FB0705) in reading order. A sentence is its text trimmed of white space, final punctuation kept |
 | `expect.abstentions` | integer | The sentences that contain the abstention phrase |
 | `expect.unresolved` | integer | The citations counted unresolved, each once, under any display status |
 | `expect.total` | integer | The citations that are not neutral |
@@ -243,9 +243,9 @@ Fields of each entry of `expect.citations`:
 | `non_canonical` | boolean | A recognisable non-canonical form (FB0706). Independent of `status` and `code`: one citation can hold both |
 
 What a seed pins, and what it leaves out:
-- It pins the status of each citation, its primary code, the two fact verdicts where settled, the unresolved and total counts, the neutral, uncited and abstention findings, the refusal and the exit code. The text printer and the JSON report are built from the same facts.
+- It pins the status of each citation, its primary code, the two fact verdicts where settled, the unresolved and total counts, the neutral, uncited and abstention findings, the refusal, the exit code, the `summary` line and, where settled, the `verdict`. The text printer and the JSON report are built from the same facts.
 - It does not pin the excerpt of a verified citation, the order of the lines of the text printer, or the text of a `note`. Loaders ignore the text of a `note`.
-- A seed never makes one citation unresolved for two facts at once, a claim reference whose evidence locator is unavailable, or a sentence whose only citation is a question or conflict reference, because the specification does not yet settle those counts.
+- No seed cites a claim whose evidence locator is unavailable, or has a sentence whose only citation is a question or conflict reference, because the specification does not yet settle those cases. A citation with two unresolved facts counts once ([Citation checks](../../docs/reference/citation-check.md#status-and-exit)); no seed has one.
 - A quotation is written in ASCII double quotes, then one space, then the citation, as in `"six or more words" [@S-0001-v1, sec. 1]`.
 - "Resolves" means the applicable reference, locator and direct quotation checks passed, not that the answer is correct. `outside_context` has no code, is never counted as verified and does not by itself change the exit code. A reference outside both the Corpus and the `context` is `broken`, because the first status that applies wins. Ordinary fact and evidence vectors are in [Citation checks](../../docs/reference/citation-check.md#shared-cases) and are not seeds.
 
