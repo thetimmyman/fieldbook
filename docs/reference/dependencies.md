@@ -179,7 +179,7 @@ All come from crates.io. The two tables below are one table split for width: the
 | `serde` | 1.0.229 (2026-07-18) | `derive` | calc, core, render, fieldbook | MIT OR Apache-2.0 | 1.56 |
 | `toml` | 1.1.8+spec-1.1.0 (2026-10-09) | default | core, fieldbook, xtask | MIT OR Apache-2.0 | 1.85 |
 | `csv` | 1.4.0 (2025-10-17) | default | core, render | Unlicense OR MIT | 1.73 |
-| `pulldown-cmark` | 0.13.4 (2026-05-20) | `default-features = false`, `html` | core, render, xtask | MIT | 1.71.1 |
+| `pulldown-cmark` | 0.13.6 (2026-10-30) | `default-features = false`, `html` | core, render, xtask | MIT | 1.71.1 |
 | `unicode-normalization` | 0.1.25 (2025-10-30) | default | core | MIT OR Apache-2.0 | 1.36 |
 | `sha2` | 0.11.0 (2026-03-25) | `default-features = false` | core, xtask | MIT OR Apache-2.0 | 1.85 |
 | `rust_decimal` | 1.43.0 (2026-09-02) | `default-features = false`, `std` | calc | MIT | 1.67.1 |
@@ -391,6 +391,7 @@ Card `day1-dependencies-3` records actual pre-adoption baseline row 0 without ch
 | 3 | silent | default | 12 | 83 | Card `core-policy`; adds `object` `0.40.0` in `xtask` (`memchr` `2.8.3` already in graph); all-target count 93 (uncapped), `cargo tree --workspace -e normal` union 66 (64 Linux, 66 Windows, 67 `--target all`). AI is inapplicable while `net` is absent. |
 | 4 | silent | default | 12 | 84 | Card `zip-advisories`; `rust_xlsxwriter` `0.99.1` to `0.101.0`, `zip` `8.6.0` to `9.1.3` (one `zip`), `typed-path` `0.12.3` to `0.13.0`; the one new pair in the closure is `getrandom` `0.4.3`, which `zip` 9.1.3 takes on every non-wasm target (it was in the lock already). Metadata closure 82 Linux, 83 Windows, union 84, within the silent cap of 100, raised from 80 in the Policy before this row was added. All-target count 97 (uncapped; 93 on the same basis in row 3). `cargo tree --workspace -e normal --target all` 76 (67 on main, the figure of row 3). AI is inapplicable while `net` is absent. |
 | 5 | silent | default | 12 | 85 | Card `day30-proptest`; adds `proptest` `1.12.0` as a dev-dependency of `fieldbook-calc` and `fieldbook-core` (8 new registry packages, see [Day 30 proptest evidence](#day-30-proptest-evidence)). The metadata closure is 83 Linux, 84 Windows, union 85: the one crate above row 4 is `rand_core` `0.10.1`, an optional dependency of `getrandom` `0.4.3` that `cargo metadata` shows once `proptest` enables a `getrandom` feature, and no normal build compiles it (`cargo tree --workspace -e normal --target all` is 76, the figure of row 4, and `cargo tree -e normal -i rand_core@0.10.1` finds nothing). Within the silent cap of 100. All-target count 98 (uncapped; 97 in row 4), the one new pair again `rand_core` `0.10.1`. AI is inapplicable while `net` is absent. |
+| 6 | silent | default | 12 | 85 | Card-less maintenance pull request `pulldown-cmark-advisory`; `pulldown-cmark` `0.13.5` to `0.13.6`, with `js-sys` `0.3.106` to `0.3.107` and `wasm-bindgen`, `wasm-bindgen-macro`, `wasm-bindgen-macro-support`, `wasm-bindgen-shared` `0.2.129` to `0.2.130` (see [pulldown-cmark 0.13.6 evidence](#pulldown-cmark-0136-evidence)). No crate is added to or removed from the lock; only these six change version. The metadata closure counts are unchanged from row 5 (inside it only `pulldown-cmark` changes version): 83 Linux, 84 Windows, union 85, within the silent cap of 100. All-target count 98 (uncapped), unchanged. `cargo tree --workspace -e normal --target all` is 75, one fewer than row 5's 76: `once_cell` `1.21.4` leaves that tree because `wasm-bindgen` 0.2.130 no longer depends on it (a wasm32 edge, outside both graph targets; `once_cell` stays in the lock for other crates). AI is inapplicable while `net` is absent. |
 
 ### Initial resolution evidence
 
@@ -521,6 +522,23 @@ Resolved with `just lock` (`cargo +nightly-2026-10-08 generate-lockfile -Zunstab
 | `unarray` | `0.1.4` | 2022-11-30T17:09:42Z | [record](https://index.crates.io/un/ar/unarray) |
 
 `cargo build --workspace --locked`, `cargo build --workspace --frozen`, `cargo deny --locked check bans licenses sources` and the same with `--all-features` all exit 0. The `proptest` requirement `1.12.0` with `default-features = false` and `std` equals its row, and only the `tests/` directories of `fieldbook-calc` and `fieldbook-core` use it.
+
+### pulldown-cmark 0.13.6 evidence
+
+Resolved with `just lock` (`cargo +nightly-2026-10-08 generate-lockfile -Zunstable-options --publish-time`, Cargo `1.101.0-nightly (f3865b2a4 2026-09-29)`, run 2026-11-13T08:57:48Z, so the cutoff is 2026-10-30T08:57:48Z UTC; stable Cargo 1.99.1 for the builds). The lock diff changes six packages and adds or removes none. Release dates are `created_at` from the crates.io API; `pulldown-cmark` `0.13.6` (2026-10-30T08:50:18Z) is the newest of all 115 registry packages in the lock and was published 7 minutes before the cutoff (14 days and 7 minutes before the resolution), so the Young lockfile table stays empty. The floor in `Cargo.toml` moves from `0.13.4` to `0.13.6` and equals the row.
+
+| Crate | Old | New | New released (UTC) |
+|---|---|---|---|
+| `pulldown-cmark` | `0.13.5` | `0.13.6` | 2026-10-30T08:50:18Z |
+| `js-sys` | `0.3.106` | `0.3.107` | 2026-10-30T06:15:06Z |
+| `wasm-bindgen` | `0.2.129` | `0.2.130` | 2026-10-30T06:15:04Z |
+| `wasm-bindgen-macro` | `0.2.129` | `0.2.130` | 2026-10-30T06:15:02Z |
+| `wasm-bindgen-macro-support` | `0.2.129` | `0.2.130` | 2026-10-30T06:15:00Z |
+| `wasm-bindgen-shared` | `0.2.129` | `0.2.130` | 2026-10-30T06:14:57Z |
+
+`pulldown-cmark` 0.13.6 fixes RUSTSEC-2026-0433 (quadratic parsing of nested image wikilinks). Its source differs from 0.13.5 by one statement in `src/parse.rs` (`self.wikilink_stack.clear()` after a wikilink is built) and one wikilink test; the code runs only when `ENABLE_WIKILINKS` is set, which no crate in the workspace sets, so no render output can change. The `js-sys` and `wasm-bindgen` family are reached only through wasm-target edges (`getrandom` `0.4.3`; the lock and `cargo metadata` also list an optional `rust_decimal` `1.43.0` edge to `wasm-bindgen`), so neither graph-target closure contains them.
+
+`cargo build --workspace --locked`, `cargo build --workspace --frozen`, `cargo deny --locked check bans licenses sources` and the same with `--all-features` exit 0, and `cargo deny --locked check advisories` no longer reports RUSTSEC-2026-0433.
 
 ## Young lockfile entries
 
