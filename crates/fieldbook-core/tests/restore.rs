@@ -255,6 +255,11 @@ fn snapshot_entry_tail_takes_plain_paths_under_a_root_only() {
         "backup.toml",
         "/data/corpus/a.md",
         "data/corpus/..",
+        "data/corpus/.. /.. /settings.toml",
+        "data/corpus/.../a.md",
+        "data/corpus/a.md.",
+        "data/corpus/a.md ",
+        "data/corpus/a\u{7}.md",
     ] {
         assert!(
             snapshot_entry_tail(unsafe_entry, &roots).is_err(),

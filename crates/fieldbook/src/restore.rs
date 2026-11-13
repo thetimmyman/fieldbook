@@ -211,7 +211,7 @@ fn drill_verify(
         return Err(DrillFailure {
             step: DRILL_STEPS[4],
             detail: format!(
-                "fingerprint mismatch: snapshot says {snap_short} but the restored files give {recomputed_short}"
+                "fingerprint mismatch: backup.toml says {snap_short} but the corpus lines of SHA256SUMS give {recomputed_short}"
             ),
             ok_lines,
         });
@@ -448,7 +448,18 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
             };
         }
     };
-    let canonical_corpus_dir = canonical_tree_root.join("corpus");
+    // The live Corpus is where `corpus` leads, which is elsewhere when it is a link or junction.
+    let canonical_corpus_dir =
+        match resolve_canonical_with_tail(world.cwd(), &canonical_tree_root.join("corpus")) {
+            Ok(p) => p,
+            Err(err) => {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("cannot resolve corpus folder: {err}\n"),
+                    code: EXIT_IO,
+                };
+            }
+        };
 
     let (destination, canon_dest, plan, facts) = if options.drill {
         // The reset replaces whatever stands at `<state>/drill`, a symlink included, with a real
@@ -942,6 +953,7 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
                 }
             }
             Err(failure) => {
+                let leftover = remove_res.err();
                 let _ = journal.end_restore(
                     audited,
                     options.snapshot,
@@ -959,13 +971,21 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
                         stdout.push('\n');
                     }
                 }
+                let mut stderr = format!(
+                    "error[FB0816]: drill step {} failed: {}\n",
+                    failure.step, failure.detail
+                );
+                // A drill folder that could not be removed still holds the restored copy.
+                let code = if let Some(err) = leftover {
+                    stderr.push_str(&format!("cannot remove drill folder: {err}\n"));
+                    EXIT_IO
+                } else {
+                    EXIT_FINDINGS
+                };
                 Outcome {
                     stdout,
-                    stderr: format!(
-                        "error[FB0816]: drill step {} failed: {}\n",
-                        failure.step, failure.detail
-                    ),
-                    code: EXIT_FINDINGS,
+                    stderr,
+                    code,
                 }
             }
         }
@@ -1018,6 +1038,19 @@ pub fn run_restore(world: &dyn World, eff: &EffectivePolicy, options: &RestoreOp
             stdout.push_str("  ");
             stdout.push_str(line);
             stdout.push('\n');
+        }
+        // `mv` and `Move-Item` put a folder inside an existing one of the target name, which would
+        // leave the live path empty and the second line without its source.
+        for (name, live_path) in &live {
+            let aside = PathBuf::from(format!("{}.old", live_path.display()));
+            if plan.roots.iter().any(|root| &root.name == name)
+                && std::fs::symlink_metadata(&aside).is_ok()
+            {
+                stdout.push_str(&format!(
+                    "note: {} already exists; move or delete it before running these lines\n",
+                    aside.display()
+                ));
+            }
         }
         Outcome {
             stdout,

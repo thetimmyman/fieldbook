@@ -37,6 +37,7 @@ pub struct TestWorld {
     fault_matches: std::sync::atomic::AtomicUsize,
     written: Mutex<Vec<PathBuf>>,
     before_write_lease: Mutex<Option<Box<dyn FnOnce() + Send>>>,
+    fail_remove_drill: AtomicBool,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -91,6 +92,7 @@ impl TestWorld {
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
             written: Mutex::new(Vec::new()),
             before_write_lease: Mutex::new(None),
+            fail_remove_drill: AtomicBool::new(false),
         }
     }
 
@@ -118,6 +120,7 @@ impl TestWorld {
             fault_matches: std::sync::atomic::AtomicUsize::new(0),
             written: Mutex::new(Vec::new()),
             before_write_lease: Mutex::new(None),
+            fail_remove_drill: AtomicBool::new(false),
         }
     }
 
@@ -250,6 +253,11 @@ impl TestWorld {
         if let Ok(mut g) = self.before_write_lease.lock() {
             *g = Some(Box::new(action));
         }
+    }
+
+    /// Make every `remove_drill` fail without touching the folder, as a file held open does.
+    pub fn set_fail_remove_drill(&self, fail: bool) {
+        self.fail_remove_drill.store(fail, Ordering::Relaxed);
     }
 
     fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
@@ -433,6 +441,12 @@ impl World for TestWorld {
     }
 
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        if self.fail_remove_drill.load(Ordering::Relaxed) {
+            return Err(fieldbook::Error::new(
+                self.state_dir.join("drill"),
+                "injected drill removal fault",
+            ));
+        }
         self.inner.remove_drill(audited)
     }
 

@@ -2462,3 +2462,67 @@ fn restore_to_a_relative_folder_inside_state_writes_there() {
     assert_trees_equal(&dest.join("corpus"), &fix.tree_root().join("corpus"));
     assert_trees_equal(&dest.join("state"), &fix.snap_dir().join("data/state"));
 }
+
+#[cfg(unix)]
+#[test]
+fn restore_inside_a_linked_corpus_is_fb0815() {
+    let fix = TestFixture::new();
+    fix.backup();
+    // `<tree>/corpus` is a link to the real folder; a destination inside the real folder is
+    // inside the live Corpus all the same.
+    let real = fix.dest("real-corpus");
+    let link = fix.tree_root().join("corpus");
+    std::fs::rename(&link, &real).expect("move corpus");
+    std::os::unix::fs::symlink(&real, &link).expect("link corpus");
+    let dest = real.join("scratch");
+
+    let outcome = fix.restore(Some(dest.clone()), false);
+
+    assert_eq!(outcome.code, 1, "stdout: {}", outcome.stdout);
+    assert!(
+        outcome.stderr.contains("FB0815") && outcome.stderr.contains("inside a live root"),
+        "stderr: {}",
+        outcome.stderr
+    );
+    assert!(!dest.exists(), "nothing may be created");
+}
+
+#[test]
+fn a_failed_drill_reports_a_drill_folder_it_could_not_remove() {
+    let fix = TestFixture::new();
+    fix.backup();
+    rewrite_meta(&fix.snap_dir(), |info| {
+        info.fingerprint = "0".repeat(64);
+    });
+    fix.world.set_fail_remove_drill(true);
+
+    let outcome = fix.restore(None, true);
+    fix.world.set_fail_remove_drill(false);
+
+    assert!(
+        outcome.stderr.contains("FB0816")
+            && outcome.stderr.contains("SHA256SUMS")
+            && outcome.stderr.contains("cannot remove drill folder"),
+        "stderr: {}",
+        outcome.stderr
+    );
+    assert_eq!(outcome.code, 3, "a folder left behind is an I/O failure");
+}
+
+#[test]
+fn restore_notes_an_existing_old_folder_beside_the_rename_lines() {
+    let fix = TestFixture::new();
+    fix.backup();
+    let aside = PathBuf::from(format!("{}.old", fix.tree_root().join("corpus").display()));
+    std::fs::create_dir(&aside).expect("create corpus.old");
+
+    let outcome = fix.restore(Some(fix.dest("restored")), false);
+
+    assert_eq!(outcome.code, 0, "restore failed: {}", outcome.stderr);
+    let note = format!(
+        "note: {} already exists; move or delete it before running these lines",
+        aside.display()
+    );
+    assert!(outcome.stdout.contains(&note), "stdout: {}", outcome.stdout);
+    assert_eq!(outcome.stdout.matches("note: ").count(), 1);
+}

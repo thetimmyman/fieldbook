@@ -148,8 +148,9 @@ pub fn plan_restore(
 ///
 /// A restore joins this path to its destination, so the entry must be `data/<root>/<file>` with
 /// `<root>` one of the snapshot's `roots` and every part a plain name. An empty part, `.`, `..`,
-/// a backslash, or a part the host reads as anything but one file name (a drive prefix, or a
-/// colon on Windows) would let a crafted snapshot write outside the destination.
+/// a backslash, a control character, a trailing dot or space (which Windows drops), or a part
+/// the host reads as anything but one file name (a drive prefix, or a colon on Windows) would
+/// let a crafted snapshot write outside the destination.
 ///
 /// # Errors
 ///
@@ -170,7 +171,11 @@ pub fn snapshot_entry_tail<'a>(entry: &'a str, roots: &[String]) -> Result<&'a s
             (components.next(), components.next()),
             (Some(Component::Normal(name)), None) if name == std::ffi::OsStr::new(part)
         );
-        if !plain || part.contains('\\') || (cfg!(windows) && part.contains(':')) {
+        // Windows drops a trailing dot or space from a name, which turns `.. ` into `..`; the
+        // rule is the same on every host because a snapshot made on one is restored on another.
+        let rewritten =
+            part.ends_with('.') || part.ends_with(' ') || part.contains(char::is_control);
+        if !plain || rewritten || part.contains('\\') || (cfg!(windows) && part.contains(':')) {
             return Err(format!(
                 "`{entry}` has a part that is not a plain file name"
             ));
