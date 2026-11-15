@@ -209,3 +209,77 @@ jobs:
           path: scale-table.txt
           if-no-files-found: error
           retention-days: 14
+
+  # Prints the stale items of the Corpus in the job summary, dated by the last commit so the
+  # figure is reproducible. The step is advisory: it never fails the workflow and changes no
+  # permission. The runner labels are the repository's CI-01 labels, which this workflow requires.
+  freshness:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, fieldbook]
+    timeout-minutes: 10
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          save-if: "false"
+      - name: Report the stale items
+        shell: bash
+        continue-on-error: true
+        run: |
+          status_rc=0
+          cargo run --locked -p fieldbook -- status --today "$(git log -1 --format=%cs)" > freshness-report.txt || status_rc=$?
+          if [ -s freshness-report.txt ]; then
+            max_bytes=524288
+            head_bytes=393216
+            tail_bytes=65536
+            total_bytes="$(wc -c < freshness-report.txt | tr -d '[:space:]')"
+            if [ "$total_bytes" -le "$max_bytes" ]; then
+              cat freshness-report.txt >> "$GITHUB_STEP_SUMMARY"
+            else
+              head_file="$(mktemp)"
+              tail_file="$(mktemp)"
+              head -c "$head_bytes" freshness-report.txt > "$head_file"
+              if [ "$(tail -c 1 "$head_file" | wc -l | tr -d '[:space:]')" -eq 0 ]; then
+                if [ "$(wc -l < "$head_file" | tr -d '[:space:]')" -ge 1 ]; then
+                  head -n -1 "$head_file" > "${head_file}.lines"
+                  mv "${head_file}.lines" "$head_file"
+                else
+                  iconv -f UTF-8 -t UTF-8 -c "$head_file" > "${head_file}.utf8" 2>/dev/null || true
+                  mv "${head_file}.utf8" "$head_file"
+                fi
+              fi
+              tail -c "$tail_bytes" freshness-report.txt > "$tail_file"
+              if [ "$(tail -c "$(( tail_bytes + 1 ))" freshness-report.txt | head -c 1 | wc -l | tr -d '[:space:]')" -eq 0 ]; then
+                if [ "$(head -c -1 "$tail_file" | wc -l | tr -d '[:space:]')" -ge 1 ]; then
+                  tail -n +2 "$tail_file" > "${tail_file}.lines"
+                  mv "${tail_file}.lines" "$tail_file"
+                else
+                  iconv -f UTF-8 -t UTF-8 -c "$tail_file" > "${tail_file}.utf8" 2>/dev/null || true
+                  mv "${tail_file}.utf8" "$tail_file"
+                fi
+              fi
+              kept_head="$(wc -c < "$head_file" | tr -d '[:space:]')"
+              kept_tail="$(wc -c < "$tail_file" | tr -d '[:space:]')"
+              omitted=$(( total_bytes - kept_head - kept_tail ))
+              {
+                cat "$head_file"
+                printf '\n... [truncated %d of %d bytes to stay under GitHub step summary limit; see freshness-report artifact for full output] ...\n\n' "$omitted" "$total_bytes"
+                cat "$tail_file"
+              } >> "$GITHUB_STEP_SUMMARY"
+              rm -f "$head_file" "$tail_file"
+            fi
+          fi
+          exit "$status_rc"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: freshness-report
+          path: freshness-report.txt
+          if-no-files-found: ignore
+          retention-days: 14

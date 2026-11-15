@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Import report · fieldbook</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#fb:main">Skip to content</a>
+<div class="app"><div class="shell">
+<header class="topbar"><nav class="sections" aria-label="Desk"><a href="import.html" aria-current="page">Import report</a> · <a href="activity.html">Activity log</a> · <a href="backup.html">Backup status</a></nav></header>
+<main id="fb:main" class="page">
+<div class="page-head"><h1>Import report</h1><p class="meta-row"><span>Written 2026-03-01T12:00:00Z</span><span class="sep">·</span><span>Refresh copies the command; it does not run it.</span></p><div class="cmd-row"><span class="cmd" role="group" aria-label="Write the desk pages · At home"><span class="cmd-tag">At home</span><code>fieldbook status --page</code><button type="button" class="btn ghost sm" data-copy-chip="command" aria-label="Copy command: fieldbook status --page"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>Copy</button></span></div></div>
+<p class="meta-row"><span class="mono">Source: reports/last-add.json</span></p>
+<div class="cmd-row"><span class="cmd" role="group" aria-label="Add a source file · At home"><span class="cmd-tag">At home</span><code>fieldbook add &#60;file&#62;</code><button type="button" class="btn ghost sm" data-copy-chip="command" aria-label="Copy command: fieldbook add &#60;file&#62;"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>Copy</button></span></div>
+<section class="panel"><div class="panel-head"><h2 class="panel-title">Summary</h2></div><div class="panel-b">
+<p>1 added · 0 present · 1 refused · 0 need extraction</p>
+<p class="meta-row"><span class="mono">Folder: incoming</span></p>
+</div></section>
+<div class="table-wrap"><table>
+<caption>Files in this report</caption>
+<thead><tr><th scope="col">Path</th><th scope="col">Result</th><th scope="col">ID</th><th scope="col">Bytes</th><th scope="col">Diagnostic</th></tr></thead>
+<tbody>
+<tr><td class="mono">Synthetic &lt;script&gt;alert(1)&lt;/script&gt; long incoming file name for the desk page canary.txt</td><td>added</td><td class="mono">S-0009-v1</td><td>42</td><td></td></tr>
+<tr><td class="mono">refused.txt</td><td>refused</td><td class="mono"></td><td>7</td><td>FB0410</td></tr>
+</tbody></table></div>
+
+</main>
+</div></div>
+<div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
+<div class="sr-only" id="fb:sr" aria-live="polite"></div>
+</body>
+</html>

@@ -12,6 +12,7 @@ pub mod cite;
 pub mod csp;
 pub mod csv_copy;
 pub mod day_one;
+pub mod desk;
 pub mod edition;
 pub mod frame;
 pub mod home;

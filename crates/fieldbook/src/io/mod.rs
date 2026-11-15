@@ -250,6 +250,121 @@ impl Disk {
         let _ = self;
         win::place(path)
     }
+
+    /// Read `docs/maintenance.csv` from the repository root; the empty string when it is absent.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error`] when the file exists but cannot be read.
+    pub fn read_maintenance(&self) -> Result<String, Error> {
+        let path = self.tree_root().join("docs/maintenance.csv");
+        match std::fs::read_to_string(&path) {
+            Ok(text) => Ok(text),
+            Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ok(String::new()),
+            Err(err) => Err(Error::new(&path, err.to_string())),
+        }
+    }
+
+    /// Read the state lines `status` prints after its sections.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error`] only when the state path itself cannot be inspected; an absent or
+    /// unreadable part adds no line.
+    pub fn read_state_summary(
+        &self,
+        today: fieldbook_core::CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, Error> {
+        Ok(state_summary(self.state_dir(), today))
+    }
+}
+
+/// Builds the state lines of `status` from `state_dir`: the backup line first, then the role
+/// lines when `settings.toml` names no role.
+pub fn state_summary(
+    state_dir: &Path,
+    today: fieldbook_core::CivilDate,
+) -> fieldbook_core::status::StateSummary {
+    let mut summary = fieldbook_core::status::StateSummary::default();
+    backup_lines(state_dir, today, &mut summary);
+    if !state::has_role(state_dir) {
+        summary.push(fieldbook_core::verify::ROLE_LINE);
+        summary.push(fieldbook_core::backup::BACKUP_TARGET_TEMPLATE);
+        summary.push(crate::status::VERIFY_OFF);
+    }
+    summary
+}
+
+fn backup_lines(
+    state_dir: &Path,
+    today: fieldbook_core::CivilDate,
+    summary: &mut fieldbook_core::status::StateSummary,
+) {
+    let settings = crate::backup::read_backup_settings(state_dir).unwrap_or_default();
+    let target = settings
+        .default
+        .as_ref()
+        .and_then(|id| settings.targets.iter().find(|t| &t.id == id))
+        .or_else(|| settings.targets.first());
+    let age = crate::backup::backup_age(state_dir, today);
+
+    match target {
+        Some(target) => {
+            if let Some(age) = age
+                && cached_backup_matches_target(state_dir, target)
+            {
+                summary.push(format!(
+                    "Last verified backup: {age} days ago, target {} ({})",
+                    target.id, target.kind
+                ));
+                if age > settings.warn_after_days
+                    && let Some(text) =
+                        crate::backup::reminder(state_dir, today, settings.warn_after_days)
+                {
+                    summary.push(text);
+                }
+            } else {
+                summary.push(crate::status::NO_BACKUP_LINE);
+                summary.push(format!(
+                    "fieldbook: no verified backup yet (warn after {} days). Run: fieldbook backup",
+                    settings.warn_after_days
+                ));
+            }
+        }
+        None => {
+            let Some(age) = age else {
+                return;
+            };
+            summary.push(format!(
+                "Last verified backup: {age} days ago, target one-off (folder)"
+            ));
+            if age > settings.warn_after_days
+                && let Some(text) =
+                    crate::backup::reminder(state_dir, today, settings.warn_after_days)
+            {
+                summary.push(text);
+            }
+        }
+    }
+}
+
+fn cached_backup_matches_target(state_dir: &Path, target: &state::BackupTargetConfig) -> bool {
+    let Some(last) = std::fs::read_to_string(state_dir.join("reports/last-backup.json"))
+        .ok()
+        .and_then(|text| {
+            serde_json::from_str::<fieldbook_core::report::LastBackupReport>(&text).ok()
+        })
+        .filter(|report| report.verification == "snapshot" && !report.labels.is_empty())
+    else {
+        return false;
+    };
+    let Ok(canonical) = Path::new(&last.target_path).canonicalize() else {
+        return false;
+    };
+    let Ok(own) = target.path.canonicalize() else {
+        return false;
+    };
+    canonical == own
 }
 
 /// Return whether standard input is connected to an interactive terminal.
