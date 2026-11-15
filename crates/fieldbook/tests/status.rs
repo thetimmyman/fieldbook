@@ -20,7 +20,9 @@ use fieldbook::World;
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::Now;
 use fieldbook_core::backup::BACKUP_TARGET_TEMPLATE;
-use fieldbook_core::status::{StateLine, StateSummary, iso_week_label, parse_maintenance};
+use fieldbook_core::status::{
+    StateLine, StateSummary, UNREVIEWED_HEADING, iso_week_label, parse_maintenance,
+};
 use fieldbook_core::verify::ROLE_LINE;
 
 use support::temp_copy;
@@ -188,6 +190,110 @@ fn status_lists_held_withdrawn_and_superseded_first() {
         "held items come before stale ones"
     );
     assert!(held_superseded < stale, "held items come before stale ones");
+}
+
+/// Rewrites the `lifecycle` cell of every `sources.csv` row that starts with `find`.
+fn set_source_lifecycle(root: &Path, find: &str, lifecycle: &str) {
+    let path = root.join("corpus/registers/sources.csv");
+    let sources = std::fs::read_to_string(&path).expect("read sources.csv");
+    let mut found = false;
+    let rewritten: String = sources
+        .lines()
+        .map(|line| {
+            if line.starts_with(find) {
+                found = true;
+                line.replace(
+                    ",2026-02-01,active,,V2,public,",
+                    &format!(",2026-02-01,{lifecycle},,V2,public,"),
+                )
+            } else {
+                line.to_owned()
+            }
+        })
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert!(found, "sources.csv holds a row starting `{find}`");
+    assert!(
+        rewritten.contains(&format!(",{lifecycle},,")),
+        "the row's lifecycle becomes `{lifecycle}`:\n{rewritten}"
+    );
+    std::fs::write(&path, format!("{rewritten}\n")).expect("write sources.csv");
+}
+
+/// Returns the text of the report before the unreviewed-claims heading, where held items print.
+fn held_section(stdout: &str) -> &str {
+    stdout
+        .split_once(UNREVIEWED_HEADING)
+        .map_or(stdout, |(held, _)| held)
+}
+
+#[test]
+fn status_lists_a_page_citing_a_claim_on_a_quarantined_source() {
+    let tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    set_source_lifecycle(tmp.path(), "S-0001,1,", "quarantined");
+    let world = TestWorld::new(tmp.path());
+
+    let outcome = fieldbook::run(&status_args(snapshot_today()), &world);
+    assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+    // `cmp-withhold-case` cites `CL-CMP-0001` and `CL-CMP-0002`, which both rest on `S-0001-v1`.
+    assert!(
+        held_section(&outcome.stdout)
+            .contains("cmp-withhold-case  rests on S-0001-v1 (quarantined)"),
+        "a page citing a claim on a quarantined version is held: {}",
+        outcome.stdout
+    );
+}
+
+#[test]
+fn status_lists_a_page_citing_a_claim_on_a_withdrawn_source() {
+    let tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    set_source_lifecycle(tmp.path(), "S-0001,1,", "withdrawn");
+    let world = TestWorld::new(tmp.path());
+
+    let outcome = fieldbook::run(&status_args(snapshot_today()), &world);
+    assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+    assert!(
+        held_section(&outcome.stdout).contains("cmp-withhold-case  rests on S-0001-v1 (withdrawn)"),
+        "a page citing a claim on a withdrawn version is held: {}",
+        outcome.stdout
+    );
+}
+
+#[test]
+fn status_lists_a_page_citing_a_claim_on_a_superseded_source() {
+    let tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    // Point `CL-EST-0003` at `S-0002` version 1, which version 2 supersedes.
+    let claims_path = tmp.path().join("corpus/registers/claims.csv");
+    let claims = std::fs::read_to_string(&claims_path).expect("read claims.csv");
+    let mut found = false;
+    let rewritten: String = claims
+        .lines()
+        .map(|line| {
+            if line.starts_with("CL-EST-0003,") {
+                found = true;
+                line.replace(",S-0002,2,", ",S-0002,1,")
+            } else {
+                line.to_owned()
+            }
+        })
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert!(found, "claims.csv holds CL-EST-0003");
+    assert!(
+        rewritten.contains(",S-0002,1,"),
+        "the claim cites version 1"
+    );
+    std::fs::write(&claims_path, format!("{rewritten}\n")).expect("write claims.csv");
+
+    let world = TestWorld::new(tmp.path());
+    let outcome = fieldbook::run(&status_args(snapshot_today()), &world);
+    assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+    assert!(
+        held_section(&outcome.stdout)
+            .contains("est-rate-window-brief  rests on S-0002-v1 (replaced by a newer version)"),
+        "a page citing a claim on a superseded version is held: {}",
+        outcome.stdout
+    );
 }
 
 #[test]

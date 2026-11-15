@@ -362,6 +362,16 @@ fn claim_version(claim: &crate::schema::ClaimRow) -> Option<VersionId> {
     VersionId::parse(&format!("{source}-v{version}")).ok()
 }
 
+/// The source version the claim whose identifier is `claim_id` rests on, when the register
+/// names one (an assumption names none).
+fn cited_claim_version(model: &Model, claim_id: &str) -> Option<VersionId> {
+    model
+        .claims()
+        .iter()
+        .find(|row| row.value.claim_id.as_str() == claim_id)
+        .and_then(|row| claim_version(&row.value))
+}
+
 fn held_state(model: &Model, version: &VersionId) -> Option<&'static str> {
     let entry = model.index().source_versions.get(version)?;
     if entry.superseded {
@@ -416,10 +426,13 @@ fn held_versions_of_page(
 ) -> Vec<(String, &'static str)> {
     let mut out: Vec<(String, &'static str)> = Vec::new();
     for citation in model.citations(&page.id) {
-        if citation.key_kind != KeyKind::Version {
-            continue;
-        }
-        let Ok(version) = VersionId::parse(&citation.key) else {
+        let version = match citation.key_kind {
+            KeyKind::Version => VersionId::parse(&citation.key).ok(),
+            // A claim citation rests on the source version the claim row names.
+            KeyKind::Claim => cited_claim_version(model, &citation.key),
+            KeyKind::Question | KeyKind::Conflict | KeyKind::Note => None,
+        };
+        let Some(version) = version else {
             continue;
         };
         if let Some(state) = held_state(model, &version) {
@@ -434,6 +447,8 @@ fn held_versions_of_page(
             out.push((named, state));
         }
     }
+    out.sort();
+    out.dedup();
     out
 }
 
