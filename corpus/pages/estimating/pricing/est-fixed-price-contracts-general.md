@@ -51,7 +51,7 @@ A fixed-price contract for non-commercial supplies provides for an adjustable pr
 
 ## Never confuse
 
-Unless the contract specifies otherwise, the ceiling or target price is subject to adjustment only by operation of contract clauses providing for equitable adjustment or other revision of the contract price under stated circumstances [@CL-EST-0958]. The contracting officer duty to use firm-fixed-price or fixed-price with economic price adjustment applies to commercial products and commercial services and carries the exception in 12.207(b) [@CL-EST-0959]. The section places time-and-materials and labor-hour contracts outside fixed-price contracts [@CL-EST-0960].
+A firm-fixed-price contract holds an unchanging price, whereas an adjustable fixed-price contract may set a ceiling price or target price that changes only through specific contract adjustment clauses [@CL-EST-0956; @CL-EST-0957; @CL-EST-0958], rather than reimbursing open-ended incurred costs without a ceiling.
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Which awards the company holds as firm-fixed-price, fixed-price with economic pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section does not say and an added not-simply-because-costs-rise clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'only' from the commercial-acquisitions sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price contracts in general.

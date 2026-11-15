@@ -53,9 +53,7 @@ Separately, a contracting activity from one DoD Component provides acquisition a
 
 ## Never confuse
 
-The housing authority covers supplies and services required for management, maintenance and operation of military family housing, for periods up to 4 years [@CL-EST-3046]. The cost comparison before awarding a multiyear contract is stated in the general multiyear section, DFARS 217.170(a) [@CL-EST-3057].
-
-The head of the agency may pay the costs of such contracts for each year from annual appropriations for that year [@CL-EST-3047]. The assisted-acquisition rule applies when a contracting activity from a DoD Component provides acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048].
+DoD's military family housing authority caps multiyear management, maintenance and operation contracts at 4 years paid from annual appropriations [@CL-EST-3046; @CL-EST-3047], unlike the general 5-program-year ceiling on [Multiyear contracting: definition, term limit and approval conditions](../../industrialization/ramp/ind-multiyear-contracting.md) [@CL-IND-0100], while PGI 217.502-1(a)(1) governs interagency assisted-acquisition management agreements rather than multiyear term limits [@CL-EST-3048].
 
 ## Company calibration
 
@@ -64,6 +62,7 @@ Whether any housing maintenance order the company holds sits under a multiyear c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statutory citation so each sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded housing, assisted-acquisition and cost-comparison sentences to state the provisions directly and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed negative statements about thresholds, deadlines, contractor duties and non-DoD agencies that no quote states.

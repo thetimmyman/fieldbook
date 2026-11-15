@@ -45,7 +45,7 @@ A requiring activity designates a batch of 500 protective masks at 240 each (120
 
 ## Never confuse
 
-DFARS 217.7801 bars reverse auctions when the requiring activity designates an item as personal protective equipment or an aviation critical safety item and advises that the level of quality or failure could result in combat casualties [@CL-MKT-2116; @CL-MKT-2117], while FAR 17.803(d) bars reverse auction processes for the acquisition of personal protective equipment in accordance with the three listed defense authorization statutes [@CL-MKT-1604; @CL-MKT-1605; @CL-MKT-1812]. The general limits on when a reverse auction is suitable and how it is awarded are on [Reverse auctions: suitability and award](mkt-reverse-auctions-suitability-and-award.md).
+Even when a competitive marketplace would otherwise permit a reverse auction on [Reverse auctions: suitability and award](mkt-reverse-auctions-suitability-and-award.md) [@CL-MKT-1360], DFARS bars reverse auctions rather than leaving them discretionary when the requiring activity designates the item as personal protective equipment or an aviation critical safety item whose quality or failure could result in combat casualties [@CL-MKT-2116; @CL-MKT-2117].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which catalogue items the requiring activity designates as personal protective e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 17.803(d)(3) statutory citation and removed unquoted meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: general bar on personal protective equipment cited to lead-in and item.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on reverse auctions for protective equipment and aviation critical safety items.

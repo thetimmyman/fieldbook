@@ -50,7 +50,7 @@ An offeror's main operating office in the set-aside area generated 60 percent of
 
 ## Never confuse
 
-An offeror is considered to be residing or primarily doing business in the set-aside area if, during the last twelve months, it had its main operating office in the area and that office generated at least half of the offeror's gross revenues and employed at least half of the offeror's permanent employees, and the further factors apply if the offeror does not meet those criteria [@CL-MKT-1025; @CL-MKT-1026; @CL-MKT-1094]. Under the subcontracting restriction clause, the bases are cost of contract performance incurred for personnel for services (except construction), cost of manufacturing the supplies not including the cost of materials for supplies (other than procurement from a nonmanufacturer of such supplies), and cost of the contract not including the cost of materials for general construction and construction by special trade contractors [@CL-MKT-1155; @CL-MKT-1027; @CL-MKT-1028; @CL-MKT-1029; @CL-MKT-1030; @CL-MKT-1031].
+These institutional and disaster-area clauses require representing HBCU/minority-institution status or local disaster-area residence and spending at least 50 percent of non-construction service personnel costs on contractors inside the disaster or emergency area [@CL-MKT-1024; @CL-MKT-1027; @CL-MKT-1093], rather than measuring small-business status alone as general [Limitations on subcontracting and the nonmanufacturer rule](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) do [@CL-MKT-0226].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which institutional and disaster area representations in the finance remit are d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named defined terms in FAR 52.226-5(a) and separated codified and RFO clause citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: residence test conditions joined, services wording follows codified text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

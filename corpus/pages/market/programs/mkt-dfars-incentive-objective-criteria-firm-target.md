@@ -45,7 +45,7 @@ A program is moving from development to production. The contracting officer give
 
 ## Never confuse
 
-A multiple-incentive contract contains both objective incentives and subjective award-fee criteria [@CL-MKT-1851]. For fixed-price incentive (firm target) contracts, a 120 percent ceiling and a 50/50 share ratio are the point of departure for establishing the incentive arrangement [@CL-MKT-1854]. The general rules for the contract type are on [Fixed-price incentive (firm target) contracts](../../estimating/pricing/est-fpi-firm-target.md), and the award-fee rules are on [Award-fee contracts: cost-plus-award-fee and fixed-price with award fee](../../estimating/pricing/est-award-fee-contracts.md).
+Fixed-price incentive (firm target) contracts use negotiated target cost, target profit, ceiling price and share lines with objective performance criteria [@CL-MKT-1848; @CL-MKT-1853; @CL-EST-1076], unlike judgmental award-fee evaluations on [Award-fee contracts: cost-plus-award-fee and fixed-price with award fee](../../estimating/pricing/est-award-fee-contracts.md) [@CL-EST-1064].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which of the company's incentive contracts are cost-plus-incentive-fee, fixed-pr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Multiple-incentive contract pairing stated as the source words it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for objective criteria and fixed-price incentive (firm target) contracts under DFARS 216.401-71 and 216.403-1.

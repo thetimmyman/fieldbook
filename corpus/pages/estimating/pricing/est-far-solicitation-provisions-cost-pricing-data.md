@@ -57,7 +57,7 @@ A negotiated solicitation expects a contract worth 12 million, with certified da
 
 ## Never confuse
 
-The threshold and exceptions for certified cost or pricing data are on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md). The facilities capital cost of money item at 52.215-16 is a provision for solicitations [@CL-EST-1509], while the unit prices item at 52.215-14 is a clause for solicitations and contracts [@CL-EST-1506]. Paragraph letters differ: the price reduction clause is codified FAR 15.408(b) [@CL-EST-1501] and RFO FAR 15.110(j) [@CL-EST-3279]. The threshold cited for the DoD pass-through trigger is 15.403-4 in the codified text [@CL-EST-1613] but 15.403-3(a) in the RFO text [@CL-EST-3298], and the required format for the alternate of 52.215-20 is Table 15-2 in the codified text [@CL-EST-1606] but Table 15-1 at 15.408-2 in the RFO text [@CL-EST-3293]. The codified list of contract types excepted from the DoD pass-through trigger includes a fixed-price incentive contract for a commercial product or commercial service [@CL-EST-3584], while the RFO list ends with a fixed-price incentive contract awarded on the basis of adequate price competition [@CL-EST-3583]. For the pass-through rules, see [Limitations on pass-through charges](est-pass-through-charge-limitations.md). For the subcontractor side of certified data, see [Subcontractor certified cost or pricing data](est-subcontractor-certified-cost-or-pricing-data.md). The DoD additions to these provisions are on [DFARS solicitation provisions and contract clauses for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md).
+This card maps when contracting officers insert negotiated pricing clauses—such as FAR 52.215-10 for defective pricing or FAR 52.215-9 (and Alternate I) for make-or-buy programs [@CL-EST-1501; @CL-EST-3277; @CL-EST-3278]—rather than fixing the dollar threshold for certified data on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md) [@CL-EST-0002].
 
 ## Company calibration
 
@@ -67,6 +67,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored omitted conditions, alternates and excepted types with new companion claims; cut meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR solicitation provisions and contract clauses for cost or pricing data and price reduction.

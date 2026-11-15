@@ -49,7 +49,7 @@ A nondefense agency entered into a task order contract that three other departme
 
 ## Never confuse
 
-Assisted acquisition puts the award in the hands of the non-DoD agency's acquisition officials [@CL-MKT-1918], while direct acquisition leaves the ordering with DoD against the other agency's governmentwide acquisition contract [@CL-MKT-1919]. A governmentwide acquisition contract is identified by what it is, who entered into it and who may use it [@CL-MKT-1920].
+In an assisted acquisition a non-DoD servicing agency's officials award the contract or order on DoD's behalf [@CL-MKT-1918], whereas in a direct acquisition DoD places the order itself directly against the servicing agency's indefinite-delivery contract rather than delegating award [@CL-MKT-9213].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which orders the company receives are assisted awards by another agency and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the governmentwide acquisition contract definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of direct acquisition and Economy Act sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of direct acquisition and the Economy Act sentence for Governmentwide acquisition contracts.

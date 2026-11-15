@@ -51,7 +51,7 @@ Answer: the report is due within 30 days after the period closes, and the Defens
 
 ## Never confuse
 
-The individual plan clause sends the Individual Subcontract Report to the contracting officer at the procuring contracting office and the consolidated Summary Subcontract Report to the Department of Defense [@CL-MKT-0898; @CL-MKT-0899], and the SSR Coordinator accepts or rejects Summary Subcontract Reports [@CL-MKT-0901]. Under this clause the Summary Subcontract Report covers all DoD subcontracting under the comprehensive plan [@CL-MKT-0913], limited to subcontracts involving performance in the U.S. or its outlying areas [@CL-MKT-0981], and the Defense Contract Management Agency accepts or rejects it [@CL-MKT-0915]. The individual plan clause also directs the contractor to include the Test Program clause in subcontracts with subcontractors that participate in the Test Program described in DFARS 219.702-70, if the subcontract is expected to exceed the applicable threshold specified in FAR 19.702(a) and to have further subcontracting opportunities [@CL-MKT-0902; @CL-MKT-0903]. The individual plan clause is on the [DFARS small business subcontracting plan clause for DoD contracts](mkt-dfars-dod-small-business-subcontracting-plan.md) card. The FAR plan clause rules are on the [scope and required elements](mkt-subcontracting-plan-clause-scope-and-required-elements.md) card and the [master and commercial plans, reporting and flowdown](mkt-subcontracting-plan-master-commercial-reporting-flowdown.md) card, and good faith effort in the FAR is on the [Subcontracting plan content, good faith effort and liquidated damages](mkt-subcontracting-plan-content-and-compliance.md) card.
+DFARS 252.219-7004 incorporates a contractor-wide comprehensive subcontracting plan approved under the DoD Test Program for firms meeting the prior-fiscal-year three-DoD-contract eligibility threshold [@CL-MKT-0908; @CL-MKT-0910; @CL-MKT-0947], rather than the contract-by-contract supplement in DFARS 252.219-7003 on [DFARS small business subcontracting plan clause for DoD contracts](mkt-dfars-dod-small-business-subcontracting-plan.md) [@CL-MKT-0896].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Whether the company has a comprehensive plan, and which entities and contracts i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed statutory citations and Test Program subcontract flowdown conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Material breach actor and final decision actor restated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the small business subcontracting plan Test Program clause.

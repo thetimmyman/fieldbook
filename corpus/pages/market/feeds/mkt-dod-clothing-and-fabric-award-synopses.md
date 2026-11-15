@@ -43,7 +43,7 @@ A contracting officer awards a contract above the simplified acquisition thresho
 
 ## Never confuse
 
-Under DFARS 205.301(a)(S-70), contracting officers also must synopsize through the Governmentwide point of entry (https://www.sam.gov) awards exceeding the simplified acquisition threshold for the clothing, fiber, yarn, or fabric items described in DFARS 225.7002-1(a)(1)(ii) through (x) when either the domestic nonavailability determination under DFARS 225.7002-2(b) or the chemical warfare protective clothing qualifying-country exception under DFARS 225.7002-2(n) applies, in sufficient time to permit publication not later than 7 days after contract award [@CL-MKT-1875; @CL-MKT-0745; @CL-MKT-0746; @CL-MKT-0747; @CL-MKT-0748]. General synopses of contract awards are on the [Synopses of contract awards](mkt-contract-award-synopses.md) card, and preaward publicizing requirements and exceptions are on the [When contract actions must be publicized and the exceptions](mkt-publicizing-requirements-and-exceptions.md) card.
+This DoD award-synopsis duty applies to covered clothing, fiber, yarn, or fabric domestic-nonavailability awards exceeding the simplified acquisition threshold [@CL-MKT-0745; @CL-MKT-0746], rather than the general FAR 5.301 award-synopsis rule on [Synopses of contract awards](mkt-contract-award-synopses.md) that starts at covered awards exceeding $25,000 [@CL-MKT-0036].
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ Confirm which public award synopses for these items are relevant market observat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory lead-in, exact item cross-reference, and both prescribed synopsis statements, and removed meta-wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD publicizing of contract actions.

@@ -43,7 +43,7 @@ An offeror will perform one labor category itself, use a subcontractor for a sec
 
 ## Never confuse
 
-As prescribed in DFARS 216.601(e), this alternate is substituted for paragraph (c) of the FAR provision [@CL-EST-1780], which is covered on [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md). The contract type itself is on [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md), and DoD limits on using the type are on [DoD time-and-materials limitations](est-dod-time-and-materials-limitations.md).
+On DoD non-commercial time-and-materials or labor-hour solicitations with adequate price competition, Alternate A (DFARS 252.216-7002) replaces FAR 52.216-29(c) to require separate fixed hourly rates for each labor category by the prime and by each subcontractor [@CL-EST-1744; @CL-EST-1745; @CL-EST-1780], rather than permitting blended hourly rates as unamended [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md) might allow [@CL-EST-1683].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Who owns the rate build-up by labor category and by source, including affiliate 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated of the offeror on divisions, subsidiaries, or affiliates under a common control in How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited characterization and stated the substitution under the DFARS prescription directly.

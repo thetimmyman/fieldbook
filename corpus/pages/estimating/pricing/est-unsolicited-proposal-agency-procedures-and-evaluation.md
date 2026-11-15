@@ -50,11 +50,7 @@ The evaluators consider the six listed factors, including the realism of the pro
 
 ## Never confuse
 
-The agency contact point attaches or imprints on each unsolicited proposal circulated for evaluation the legend required by 15.609(d) [@CL-EST-2759], and an offeror that wishes to restrict its data marks the title page with the legend that FAR 15.609(a) gives [@CL-EST-1440]. See [Unsolicited proposals: data legend](est-unsolicited-proposal-data-legend.md).
-
-Before initiating a comprehensive evaluation, the agency contact point shall determine if the proposal is a valid unsolicited proposal, among other determinations [@CL-MKT-1347]; these are covered on [Unsolicited proposals: review and prohibitions](../../market/programs/mkt-unsolicited-proposals-review-and-prohibitions.md).
-
-Codified FAR 15.606-2(a) says evaluators shall consider the listed factors, in addition to any others appropriate for the particular proposal [@CL-EST-2760], while RFO FAR 15.505(c) says evaluators should consider the listed factors at a minimum [@CL-EST-3491].
+The agency contact point's evaluation legend under FAR 15.609(d) is attached by the Government when circulating an unsolicited proposal [@CL-EST-2756; @CL-EST-2759], unlike the offeror's own title-page restrictive legend on [Unsolicited proposals: data legend](est-unsolicited-proposal-data-legend.md) [@CL-EST-1440], and comprehensive evaluation begins only after initial validity screening on [Unsolicited proposals: review and prohibitions](../../market/programs/mkt-unsolicited-proposals-review-and-prohibitions.md) [@CL-MKT-1347].
 
 ## Company calibration
 
@@ -64,6 +60,7 @@ Which internal owner keeps the technical and cost content consistent before a su
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the duties in the quoted modals, cut inferences, unquoted contrasts and an absence statement, and separated differing RFO and codified wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the factor-list gloss for the codified text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

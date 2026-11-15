@@ -50,7 +50,7 @@ Three small business bidders submit the same low price. Bidder A expects manufac
 
 ## Never confuse
 
-The provision at FAR 52.219-2 applies to small business concerns only, and a bidder's status as a labor surplus area concern may affect entitlement to award in case of tie bids [@CL-MKT-1105; @CL-MKT-1106]. If the bidder wishes to be considered for priority, it must identify the labor surplus area in which the costs to be incurred on account of manufacturing or production by the bidder or first-tier subcontractors amount to more than 50 percent of the contract price [@CL-MKT-1107]. The small business set-aside rules are on the [Small business set-asides and the socioeconomic programs](mkt-small-business-set-asides.md) card.
+The Equal Low Bids provision at FAR 52.219-2 breaks tie bids among small business concerns by labor surplus area performance [@CL-MKT-1105; @CL-MKT-9244], rather than restricting initial competition to small businesses as [Small business set-asides and the socioeconomic programs](mkt-small-business-set-asides.md) do [@CL-MKT-0219], and does not apply to other-than-small bidders [@CL-MKT-1105].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Whether each bidding entity and contract is inside the finance remit, so the lab
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed unquoted absence and contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: identification sentence limited to its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the labor surplus area concern definition.

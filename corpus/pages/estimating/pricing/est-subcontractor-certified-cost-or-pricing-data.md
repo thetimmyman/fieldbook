@@ -51,9 +51,7 @@ That follows the codified Alternate I [@CL-EST-0406]; the RFO Alternate I names 
 
 ## Never confuse
 
-In each subcontract that, when entered into, exceeds the threshold, the Contractor inserts either the substance of this clause, including paragraph (c), if paragraph (a) requires submission of certified cost or pricing data for the subcontract, or the substance of the clause at FAR 52.215-13 [@CL-EST-0403; @CL-EST-0602; @CL-EST-0603].
-
-The codified Alternate I has two alternative items: modifying a subcontract awarded before July 1, 2018 when the pricing adjustment is expected to exceed $950,000 [@CL-EST-0405] [@CL-EST-9708]; or awarding a subcontract expected to exceed $2.5 million on or after that date or modifying a subcontract awarded on or after that date when the pricing adjustment is expected to exceed $2.5 million [@CL-EST-0406]. The RFO Alternate I covers awarding a subcontract expected to exceed $2.5 million under a prime contract awarded on or after July 1, 2018 [@CL-EST-0628].
+Basic FAR 52.215-12 requires subcontractor certified cost or pricing data before awarding any subcontract expected to exceed the current FAR threshold [@CL-EST-0401; @CL-EST-0620], whereas RFO Alternate I applies a $2.5 million subcontract threshold on covered prime contracts awarded on or after July 1, 2018 rather than the general threshold [@CL-EST-0628].
 
 ## Company calibration
 
@@ -63,6 +61,7 @@ Which bids and estimates need immediate support, and the review evidence and app
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-11-05: Added the DoD subcontract rules in DFARS 215.403-3(a)(2) and (a)(3) under Class Deviation 2026-O0048 Rev 1: the $10 million and $2.5 million alternatives for awards and the $2.5 million figure for subcontract modifications.

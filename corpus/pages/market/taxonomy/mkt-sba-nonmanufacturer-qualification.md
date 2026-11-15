@@ -48,7 +48,7 @@ A reseller with 300 employees offers on a small business set-aside under a suppl
 
 ## Never confuse
 
-The nonmanufacturer rule decides who counts as a small business on a supply contract. The limits on how much work may go to other firms are a separate test. See [Limitations on subcontracting and the nonmanufacturer rule](../programs/mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) for that test.
+Qualifying as a small business nonmanufacturer on a set-aside or sole-source supply contract under 13 CFR 121.406(a) [@CL-MKT-0193; @CL-MKT-0194; @CL-MKT-0389] differs from obtaining an SBA class or individual waiver when no small business manufacturer exists on [Waivers of the Nonmanufacturer Rule](../taxonomy/mkt-sba-nonmanufacturer-rule-waivers.md) [@CL-MKT-0397], and is distinct from the subcontracting percentage caps in [Limitations on subcontracting and the nonmanufacturer rule](../programs/mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) [@CL-MKT-0226].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Whether the company makes its end items itself or resells other firms' products.
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contract and order scope in 13 CFR 121.406(a) and the service and construction NAICS exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the Nonmanufacturer Rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for how a nonmanufacturer qualifies as a small business.

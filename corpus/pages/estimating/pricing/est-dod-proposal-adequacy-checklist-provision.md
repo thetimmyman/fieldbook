@@ -43,7 +43,7 @@ An offeror prepares a proposal for a solicitation that includes the checklist. F
 
 ## Never confuse
 
-The contracting officer's decision to include the checklist in the solicitation [@CL-EST-1521] is covered on [DFARS solicitation provisions and contract clauses for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md). The offeror completes the checklist [@CL-EST-1543]; the auditor's use of it, and what follows from an inadequate proposal, are on [Proposal adequacy, the audit opinion and denial of access](est-proposal-adequacy-audit-opinion.md). The certified data threshold is on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md).
+DFARS 252.215-7009 requires the offeror to map where requested certified-data items appear in its proposal or explain why they are omitted (and optionally flow a checklist to subcontractors) [@CL-EST-1521; @CL-EST-1543; @CL-EST-1623], rather than substituting for the auditor's independent adequacy assessment and audit opinion on [Proposal adequacy, the audit opinion and denial of access](est-proposal-adequacy-audit-opinion.md).
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which bids and estimates need the checklist completed now, and what review evide
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts and a meta sentence and cited the contracting officer inclusion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the proposal adequacy checklist provision.

@@ -51,7 +51,7 @@ A DoD solicitation for production of a major weapon system expects a contract wo
 
 ## Never confuse
 
-The contracting officer should include the proposal adequacy checklist in a solicitation that requires the submission of certified cost or pricing data [@CL-EST-1521]. What the checklist asks of the offeror is on [Proposal adequacy checklist provision](est-dod-proposal-adequacy-checklist-provision.md), and the auditor's use of the checklist is on [Proposal adequacy, the audit opinion and denial of access](est-proposal-adequacy-audit-opinion.md). The program should-cost clause at 252.215-7015 is prescribed for all solicitations and contracts for the development or production of a major weapon system, as defined in 234.7001 [@CL-EST-1528]; how a review runs is on [Should-cost review](est-should-cost-review.md) and, for the DoD section, on [DoD should-cost review](est-dod-program-should-cost-review.md). The indirect offset clause is on [Foreign military sales offset exception and postaward debriefing notice](est-dod-fms-offset-exception-and-postaward-debrief-notice.md). The only one offer provision is detailed on [Only one offer](est-only-one-offer.md). The FAR provisions that these DoD provisions replace or add to are on [FAR solicitation provisions and contract clauses for cost or pricing data and price reduction](est-far-solicitation-provisions-cost-pricing-data.md).
+This prescription table distinguishes clauses tied to certified cost or pricing data—such as Cost Estimating System Requirements at DFARS 252.215-7002 [@CL-EST-1517]—from competitive provisions like Only One Offer at DFARS 252.215-7008 above the simplified acquisition threshold or Canadian Commercial Corporation non-certified data rules at DFARS 252.215-7003 [@CL-EST-1518; @CL-EST-1520], rather than stating the offeror's item-by-item duties inside [Proposal adequacy checklist provision](est-dod-proposal-adequacy-checklist-provision.md) [@CL-EST-1543].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced a pointer sentence that carried a clause number with no claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded references to the paragraph, named the cited approval section, and restated the indirect offset and major weapon system conditions in full.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the competitive-acquisition prohibition and the second CCC clause case in place of scope notes; stated the indirect offset conditions in the rule's words; cut a weaker-than-must contrast.

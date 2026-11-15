@@ -47,7 +47,7 @@ A group runs two divisions that report directly to a policy office, and the poli
 
 ## Never confuse
 
-A home office is an office responsible for directing or managing two or more, but not necessarily all, segments [@CL-EST-2864]. A segment includes Government-owned contractor-operated facilities and majority-owned joint ventures and subsidiaries [@CL-EST-2868], and also those joint ventures and subsidiaries with less than a majority of ownership over which the organization exercises control [@CL-EST-2869]. Allocate includes direct assignments of cost as well as the reassignment of a share from an indirect cost pool [@CL-EST-2863].
+Under CAS 403, a home office directs or manages two or more segments of an organization [@CL-EST-2864], unlike a segment, which is a division, plant, or other subdivision reporting directly to a home office rather than managing multiple segments [@CL-EST-2867], and allocating covers both direct assignment and indirect pool reassignment [@CL-EST-2863].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Confirm which business units are segments, which offices are home offices, and h
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Segment and home office wording aligned with the definitions; uncited contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the home office expense allocation Standard definitions.

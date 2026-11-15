@@ -51,9 +51,7 @@ A contracting officer awards a multiyear contract that includes two option years
 
 ## Never confuse
 
-The exclusion described reaches contracts for the purchase of supplies to which the cited title 40 provision applies, for DoD, NASA and the Coast Guard [@CL-EST-3039].
-
-When options are included in a multiyear contract, contracting officers must follow the requirements of subpart 17.2 [@CL-EST-3040]. Options should not include charges for plant and equipment already amortized, or other nonrecurring charges that were included in the basic contract [@CL-EST-3041].
+Multiyear contracting under FAR subpart 17.1 commits to more than 1 and up to 5 program years with cancellation protection [@CL-EST-3038; @CL-IND-0100; @CL-IND-0107] (excluding covered Title 40 supply contracts for DoD, NASA and the Coast Guard [@CL-EST-3039]), unlike options included on a multiyear contract, which remain unilateral rights governed separately by FAR subpart 17.2 [@CL-EST-3040].
 
 ## Company calibration
 
@@ -63,6 +61,7 @@ Whether a planned multiyear buy is expected to call for certified cost or pricin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the sentences do not name; stated the options charge rule directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'only' the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting authority, applicability and options.

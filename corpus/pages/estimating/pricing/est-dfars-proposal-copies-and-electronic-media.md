@@ -45,7 +45,7 @@ A solicitation includes both provisions and fills in the media format as a sprea
 
 ## Never confuse
 
-Under the copy provision, when the proposal is submitted the Offeror shall also submit one copy each to the Administrative Contracting Officer and to the Contract Auditor [@CL-EST-1731]. Under the electronic media provision, the Offeror shall submit the cost portion of the proposal via the electronic media format the solicitation inserts [@CL-EST-1732]. The general format rules for cost data are on [Data submission format and instructions](est-data-submission-format-and-instructions.md), and late submission is on [Proposal submission and late proposals](est-proposal-submission-and-late-proposals.md).
+DFARS 252.215-7011 routes parallel proposal copies to the Administrative Contracting Officer and Contract Auditor and specifies the cost volume's electronic media format [@CL-EST-1731; @CL-EST-1732; @CL-EST-1775], rather than deciding whether certified data are required on [Data submission format and instructions](est-data-submission-format-and-instructions.md) [@CL-EST-1265] or replacing timely receipt at the designated contracting office on [Proposal submission and late proposals](est-proposal-submission-and-late-proposals.md) [@CL-EST-1369].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who owns sending the proposal copies and building the cost portion in the format
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Copy-provision sentence in how-it-works states the submission requirement directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the provisions leave unsaid; reworded the never-confuse lines to the provisions' own words.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for proposal copies to the administrative contracting officer and auditor, and electronic media.

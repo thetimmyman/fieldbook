@@ -45,7 +45,7 @@ A contracting officer plans to buy 10,000 identical gloves in a single lot. The 
 
 ## Never confuse
 
-The set-aside tests are on the [Small business set-asides](mkt-small-business-set-asides.md) card. The representation a prospective contractor makes is on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card, and a representation made again after award is on the [Rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card. Subcontracting plans are a separate requirement, on the [When a subcontracting plan is required](mkt-subcontracting-plan-when-required.md) card.
+Affording equitable opportunity to compete and collecting size and socioeconomic representations to measure agency participation [@CL-MKT-0303; @CL-MKT-0310; @CL-MKT-0374] applies across acquisitions generally, rather than substituting for contract-action reporting validation in [Federal Procurement Data System reporting](../feeds/mkt-fpds-reporting-responsibilities-and-deadlines.md) [@CL-MKT-0008] or PCR acquisition reviews on [SBA procurement center representatives and small business solicitation provisions](mkt-sba-pcr-and-small-business-solicitation-provisions.md) [@CL-MKT-0331].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which customer groups and contract vehicles are subject to these packaging steps
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the list of categories in FAR 19.202-5(a) and removed meta-commentary.

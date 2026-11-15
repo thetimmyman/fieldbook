@@ -51,7 +51,7 @@ A competitive solicitation will be open for 10 days, which is fewer than 30 days
 
 ## Never confuse
 
-The waiver covers the requirement at 215.371-2 to resolicit for an additional period of at least 30 days [@CL-EST-2803]. The policy to ensure that the price is fair and reasonable and to comply with the statutory requirement for certified cost or pricing data is at 215.371-1(b) [@CL-EST-2801; @CL-EST-2802]. The notice provision is used in competitive solicitations that will be solicited for fewer than 30 days, unless an exception at 215.371-4 applies or the requirement is waived in accordance with 215.371-5 [@CL-EST-2805]. The head of the contracting activity holds the waiver authority, and it cannot be delegated below one level above the contracting officer [@CL-EST-2803; @CL-EST-2804].
+A head-of-contracting-activity waiver under DFARS 215.371 excuses only the 30-day resolicitation requirement (and notice provision DFARS 252.215-7007) [@CL-EST-2800; @CL-EST-2803; @CL-EST-2805], rather than waiving the contracting officer's duty to determine a fair and reasonable price on [the DoD one-offer price determination card](est-dod-one-offer-price-determination.md) [@CL-EST-1281].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Whether a planned competitive solicitation may draw only one offer, which price 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the policy and waiver in the purpose, cut uncited negatives and contrasts, and added the rest of the exception item.
 - COMPATIBLE_EXTENSION, 2026-10-31: Section heading and waiver scope worded as the text states them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

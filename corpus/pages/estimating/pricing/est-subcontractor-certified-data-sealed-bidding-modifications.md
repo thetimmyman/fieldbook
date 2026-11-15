@@ -69,15 +69,7 @@ Alternate I. For a prime modification that makes paragraphs (b) and (c) operativ
 
 ## Never confuse
 
-This clause has the Contractor require certified cost or pricing data from the subcontractor and insert the substance of the clause in subcontracts that exceed the threshold [@CL-EST-2210; @CL-EST-2180]. For the price reduction clause, see [Price reduction for defective certified data on modifications under sealed bidding](est-price-reduction-defective-data-sealed-bidding-modifications.md).
-
-The certificate, given to the best of the subcontractor's knowledge and belief, speaks as of the date of agreement on the negotiated price of the subcontract or subcontract modification [@CL-EST-2213].
-
-Alternate I is substituted in place of paragraph (b) of the basic clause [@CL-EST-2214].
-
-The negotiated-contract versions are on [Price reduction for defective certified data and subcontractor certified data clauses for modifications](est-price-reduction-and-subcontractor-data-modification-clauses.md), and the subcontractor data requirement is also covered on [Subcontractor Certified Cost or Pricing Data clause](est-subcontractor-certified-cost-or-pricing-data.md).
-
-The codified paragraph (b) cites FAR 1.109(a) and FAR 1.109(d) for the inflation adjustment [@CL-EST-2212], while the RFO paragraph (b) cites FAR 1.108 [@CL-EST-0808].
+This clause requires subcontractor certified cost or pricing data only on sealed-bid contract modifications whose aggregate cost-and-profit increases and decreases exceed the FAR 15.403-4(a)(1) threshold [@CL-EST-0800; @CL-EST-0801; @CL-EST-2175]—not on the original sealed bid—and governs data submission rather than defective-pricing recovery under [Price reduction for defective certified data on modifications under sealed bidding](est-price-reduction-defective-data-sealed-bidding-modifications.md) [@CL-EST-2163].
 
 ## Company calibration
 
@@ -87,6 +79,7 @@ Confirm which subcontracts under modified sealed bidding contracts crossed the t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut absence statements, inferences and unquoted contrasts and removed next-sentence pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Alternate I prescription sentence with its quote and removed an unsupported contract-specific gloss.

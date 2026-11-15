@@ -49,7 +49,7 @@ A buyer plans a fixed-price contract for a new housing part and wants the suppli
 
 ## Never confuse
 
-The clause at 52.209-3, First Article Approval—Contractor Testing, or a clause substantially the same as it, is inserted when a fixed-price or cost-reimbursement contract is contemplated and it is intended that the contract require first article approval and that the contractor be required to conduct the first article testing [@CL-MKT-0763; @CL-MKT-0765; @CL-MKT-0803; @CL-MKT-1878], whereas the clause at 52.209-4, First Article Approval—Government Testing, or a clause substantially the same as it, is inserted when a fixed-price or cost-reimbursement contract is contemplated and it is intended that the contract require first article approval and that the Government will be responsible for conducting the first article test [@CL-MKT-0764; @CL-MKT-0766; @CL-MKT-0804; @CL-MKT-1879]. Alternate I applies when it is intended that the contractor be required to produce the first article and the production quantity at the same facility [@CL-MKT-0767; @CL-MKT-0768], and Alternate II applies when it is necessary to authorize the contractor to purchase material or to commence production before first article approval [@CL-MKT-0769; @CL-MKT-0770]. When first article testing and approval is appropriate, and the waiver and exceptions, are on the [First article testing and approval: use, exceptions and waiver](../../industrialization/ramp/ind-first-article-testing-and-approval.md) card. The notice steps, the effect of approval or disapproval and the cost rules inside the clauses are on the [First article approval clauses: contractor testing and government testing](../../supply-chain/supplier-identity/sup-first-article-approval-clauses.md) card.
+FAR 52.209-3 covers first article testing performed by the contractor [@CL-MKT-0763], versus FAR 52.209-4, which applies when the Government rather than the contractor performs the first article testing [@CL-MKT-0764], and first article approval means the contracting officer's written acceptance of test results rather than general acceptance of production deliveries [@CL-MKT-9166].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm which of the company products would need first article approval and whic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added full cost-reimbursement lead-ins and removed meta-wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the cost-reimbursement clause conditions with companion claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of approval in section 9.301.

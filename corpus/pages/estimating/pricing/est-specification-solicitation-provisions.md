@@ -55,9 +55,7 @@ A solicitation cites one coating specification listed in the GSA Index and not f
 
 ## Never confuse
 
-The four provisions are chosen by where the cited document is listed and how it can be reached [@CL-EST-1030; @CL-EST-1032; @CL-EST-1034; @CL-EST-1036].
-
-The prescriptions for the provisions at 52.211-3 and 52.211-4 call for a provision substantially the same as the named provision [@CL-EST-1033; @CL-EST-1035], while those for the provisions at 52.211-1 and 52.211-2 call for the named provision [@CL-EST-1029; @CL-EST-1031].
+FAR 52.211-1 applies when unattached specifications are listed in the GSA Index [@CL-EST-1029; @CL-EST-1030], unlike FAR 52.211-2, which applies when they are available in ASSIST [@CL-EST-1032], and each provision differs from specifications unavailable for distribution that must be inspected in person under [Examining specifications and proposing alternatives to Government-unique standards](est-specification-examination-and-alternative-standards.md) [@CL-EST-2187].
 
 ## Company calibration
 
@@ -67,5 +65,6 @@ The company must confirm which availability provision each solicitation carries 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted inferences and contrasts and reworded a meta description of the prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for solicitation provisions on specifications and standards.

@@ -57,13 +57,7 @@ The Schedule, excluding the specifications, states delivery in 30 days, while an
 
 ## Never confuse
 
-The $500 administrative cost is assumed for each contract awarded under the solicitation [@CL-EST-2014].
-
-Bids are evaluated on the basis of advantages and disadvantages to the Government that might result from making more than one award [@CL-EST-2131].
-
-The order of precedence resolves an inconsistency in the solicitation or contract [@CL-EST-2137].
-
-Each technical proposal submitted is separately evaluated [@CL-EST-2133].
+Assuming a $500 administrative cost per contract tests whether splitting sealed-bid awards saves money [@CL-EST-2014]—unlike indefinite-delivery award elections on [Single or multiple awards for order contracts and advisory services](est-single-or-multiple-awards.md) [@CL-EST-1929]—while step-one multiple technical proposals invite distinct approaches and the order-of-precedence clause ranks the Schedule above clauses and specifications rather than treating contract parts equally [@CL-EST-2016; @CL-EST-2017].
 
 ## Company calibration
 
@@ -73,6 +67,7 @@ Confirm which of the company's contracts carry these provisions and who confirms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrasts with the stated rules; cut an uncited description of the cost comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiple awards, multiple technical proposals and order of precedence.

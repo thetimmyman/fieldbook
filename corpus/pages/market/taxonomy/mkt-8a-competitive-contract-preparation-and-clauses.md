@@ -59,7 +59,7 @@ The acquisition is accomplished using the procedures of 19.805. The contracting 
 
 ## Never confuse
 
-The tripartite continuation sheet sets the form of the contract document, while the clauses tell the contracting officer what to insert [@CL-MKT-1665; @CL-MKT-1669]. The special conditions clauses depend on the procedures of 19.811-1(a) and (b), and the award and notification clauses depend on 19.805 [@CL-MKT-1669; @CL-MKT-1671; @CL-MKT-1672]. Special 8(a) Contract Conditions sits in the contract between SBA and the agency, and Special 8(a) Subcontract Conditions sits in the contract between SBA and its 8(a) contractor [@CL-MKT-1669; @CL-MKT-1670]. The award clause is named for competitive solicitations and contracts under 19.805 and for sole source awards under the alternative procedure in 19.811-1(c) [@CL-MKT-1671]. The notification clause is named for competitive solicitations and contracts under 19.805 [@CL-MKT-1672]. Alternate I of the notification clause is used when competition is to be limited to 8(a) participants within one or more specific SBA districts pursuant to 19.804-2 [@CL-MKT-1673]. The clause texts and prescriptions are on the [Special 8(a) contract and subcontract conditions](../programs/mkt-special-8a-contract-and-subcontract-conditions.md) card [@CL-MKT-1669]. The single contract document option is on the [Sole-source 8(a) awards, agreement orders and the agency contract](../programs/mkt-sole-source-8a-awards-and-agreements.md) card [@CL-MKT-1685].
+Preparing a competitive 8(a) contract appends a tripartite continuation sheet to SF 26 or SF 1442 and splits clauses between FAR 52.219-11 (agency-SBA contract) and FAR 52.219-12 (SBA-participant contract) [@CL-MKT-1665; @CL-MKT-1669; @CL-MKT-1670], unlike sole-source 8(a) justification and BOA/BPA order acceptance rules on [Sole-source 8(a) awards, agreement orders and the agency contract](../programs/mkt-sole-source-8a-awards-and-agreements.md) [@CL-MKT-1272].
 
 ## Company calibration
 
@@ -68,5 +68,6 @@ Whether the company's authorized acquisition mandate, decision criteria and dili
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prime-and-8(a)-contractor scope of the single contract document and removed absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preparing competitive 8(a) contracts and inserting the 8(a) contract clauses.

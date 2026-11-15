@@ -49,7 +49,7 @@ A task order solicitation is not set aside. An offeror informs the contracting o
 
 ## Never confuse
 
-The limit on pass-through charges and the offeror's proposal identification duty are on the linked cards. Once an offeror informs the contracting officer of an intent to award subcontracts for more than 70 percent of the total cost of work, the contracting officer must consider alternative contract vehicles, make a written determination and document its basis [@CL-EST-2551; @CL-EST-2552; @CL-EST-2554; @CL-EST-2558].
+Crossing the 70 percent subcontracted-cost threshold triggers the contracting officer's duty to evaluate alternative vehicles and direct contracting [@CL-EST-2551; @CL-EST-2552]—rather than automatically barring award—and small-business, 8(a), HUBZone, SDVOSB and WOSB set-asides are exempt from this subsection unlike unrestricted actions [@CL-EST-2555].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Confirm how the company measures the share of total work cost that would pass to
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the trigger as the cited condition; cut statements about what the section does not say and an uncited contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for review and justification of pass-through contracts.

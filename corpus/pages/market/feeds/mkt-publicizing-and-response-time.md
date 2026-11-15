@@ -45,7 +45,7 @@ A notice for a non-commercial supply buy expected to exceed the simplified acqui
 
 ## Never confuse
 
-Under FAR 5.203(a), the notice must be published at least 15 days before issuance of a solicitation, or a proposed contract action the Government intends to solicit and negotiate with only one source under the authority of FAR 6.302, except for acquisitions of commercial products or commercial services [@CL-MKT-0062], whereas under FAR 5.203(c), except for the acquisition of commercial products or commercial services, agencies shall allow at least a 30-day response time for receipt of bids or proposals from the date of issuance of a solicitation if the proposed contract action is expected to exceed the simplified acquisition threshold [@CL-MKT-0066; @CL-MKT-0067]. Under FAR 5.203(e), agencies must allow at least a 45-day response time for receipt of bids or proposals from the date of publication of the notice required in FAR 5.201 for proposed contract actions categorized as research and development if the proposed contract action is expected to exceed the simplified acquisition threshold [@CL-MKT-0070; @CL-MKT-0071]. For a sole-source notice, see also the [Only One Offer provision](../../estimating/pricing/est-only-one-offer.md) card. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+The general FAR 5.203(a) presolicitation notice period of at least 15 days precedes issuance of the solicitation [@CL-MKT-0062], unlike the proposal response time after solicitation, where DoD contracting officers allow at least 45 days when requested by a qualifying or designated country source consistent with the Government's requirement [@CL-MKT-0073].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm which bids and estimates need immediate support, since these periods set
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added GPE location sentences, separated RFO and codified citations, added DFARS cross-references, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the in-addition lead-in of the 40-day rule and named the period the forecast exception reduces.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $25,000 words in the codified definition.

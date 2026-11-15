@@ -49,7 +49,7 @@ A steel item has a base steel index of 400 and a current steel index of 440, so 
 
 ## Never confuse
 
-The two clauses solve different problems. The steel clause follows the contractor's own steel price and labor earnings through named indexes, with a ten percent limit on increases [@CL-EST-1191; @CL-EST-1192; @CL-EST-1193]. The foreign-government clause adjusts for the contractor's actual cost effect of changes made by a foreign government and has its own request window [@CL-EST-1204; @CL-EST-1196]. Neither is the mill products clause, which is on [Economic price adjustment for basic steel, aluminum, brass, bronze and copper mill products](est-epa-mill-products-clause.md), and the prescriptions for all three DoD special clauses are on [DoD rules on economic price adjustment clauses](est-dod-epa-clause-rules.md). The auditor's view of the method is on [Economic price adjustments in proposals and proposal audits](est-economic-price-adjustments.md).
+The nonstandard steel clause (DFARS 252.216-7001) adjusts unit prices by steel and labor indexes up to a ten percent aggregate increase cap [@CL-EST-1179; @CL-EST-1193], unlike the foreign-government clause, which tracks host-government-controlled wage or material changes effective on the foreign increase date when timely requested [@CL-EST-1196], and unlike mill-product adjustments on [Economic price adjustment for basic steel, aluminum, brass, bronze and copper mill products](est-epa-mill-products-clause.md) [@CL-EST-1185].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which contracts use either clause and who tracks the index inputs, the statement
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the foreign-government adjustment rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched labor index wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic price adjustment for nonstandard steel items and foreign-government controlled wages or prices.

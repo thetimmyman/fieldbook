@@ -43,7 +43,7 @@ A follow-on proposal estimates 10,000 direct labor hours from last year's actual
 
 ## Never confuse
 
-Historical cost data is appropriate for follow-on contracts and adjusted for anticipated changes [@CL-EST-0700]. Technical data consists of non-accounting engineering, manufacturing, and operational documentation used to support and quantify the number of direct labor hours required to perform a task, especially when historical cost accounting data is unavailable or insufficient [@CL-EST-0705]. For rates, see [Direct labor rates in proposals](est-direct-labor-rates.md).
+Direct labor hour estimates come either from historical accounting records on follow-on work or from engineering and operational technical data on research and development [@CL-EST-0700; @CL-EST-0701], rather than setting the dollar wage rates applied to those hours on [Direct labor rates in proposals](est-direct-labor-rates.md) [@CL-EST-0708], and must not duplicate labor already carried in indirect pools [@CL-EST-0702].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ That the sources, methods, and rationale behind each direct labor estimate are r
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the consistency requirement as in the audit manual and replaced an uncited contrast with the two cited descriptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'for evaluating' and the standards' names in the technical-data requirements sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for direct labor estimates from historical and technical data.

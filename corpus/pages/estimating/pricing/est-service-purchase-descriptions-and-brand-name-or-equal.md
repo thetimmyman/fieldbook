@@ -55,11 +55,7 @@ An agency buys grounds maintenance for 12 sites. The description reserves accept
 
 ## Never confuse
 
-The provision at 52.211-6 is inserted when brand name or equal purchase descriptions are included in a solicitation [@CL-EST-1010]. The provision at 52.211-7 is inserted in solicitations that use Government-unique standards when the agency uses the transaction-based reporting method to report its use of voluntary consensus standards to the National Institute of Standards and Technology [@CL-EST-1011].
-
-Agencies that manage their specifications on a contract-by-contract basis use the transaction-based method of reporting [@CL-EST-1013], and agencies that manage their specifications centrally use the categorical method of reporting [@CL-EST-1014].
-
-The purchase descriptions shall require proper identification of contractor personnel unless, in the judgment of the agency, no harm can come from failing to identify themselves [@CL-EST-1008].
+Performance specifications are preferred over brand-name-or-equal descriptions, and when brand name or equal is used it must state the salient physical, functional, or performance characteristics an `equal` product must meet rather than restricting award to the named brand alone [@CL-EST-2139; @CL-EST-2140], while service descriptions may never assign inherently governmental functions to a contractor [@CL-EST-1006].
 
 ## Company calibration
 
@@ -68,6 +64,7 @@ The company must confirm, for every service solicitation it bids, which of the l
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated provision triggers and identification condition from the source wording; removed absence and contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: The pointer to section 11.104 now cites its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the policy on brand name or equal purchase descriptions.

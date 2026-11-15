@@ -49,7 +49,7 @@ Answer: the prime notifies the administrative contracting officer of the substit
 
 ## Never confuse
 
-This clause supplements the FAR small business subcontracting plan clause of the contract [@CL-MKT-0896]. The contractor includes the Test Program clause in subcontracts with Test Program participants if the subcontract is expected to exceed the applicable FAR threshold and to have further subcontracting opportunities [@CL-MKT-0902; @CL-MKT-0903]. Its own rules are on the [DFARS small business subcontracting plan clause for the Test Program](mkt-dfars-small-business-subcontracting-plan-test-program.md) card. The clause on Indian organizations and Native Hawaiian small business concerns is on the [DFARS utilization of Indian organizations and Native Hawaiian small business concerns](mkt-dfars-indian-and-native-hawaiian-subcontracting-incentive.md) card. The FAR clause's scope, master and commercial plans, reporting and flowdown are on the [master and commercial plans, reporting and flowdown](mkt-subcontracting-plan-master-commercial-reporting-flowdown.md) card and the [scope and required elements](mkt-subcontracting-plan-clause-scope-and-required-elements.md) card. The list of subcontracting clauses is on the [Subcontracting contract clauses](mkt-subcontracting-contract-clauses.md) card, and the administrative contracting officer's duties under a plan are on the [Responsibilities of the administrative contracting officer for subcontracting plans](mkt-subcontracting-plan-aco-responsibilities.md) card.
+DFARS 252.219-7003 supplements the contract's FAR small business subcontracting plan clause for individual, master, or commercial plans [@CL-MKT-0896; @CL-MKT-0946], unlike DFARS 252.219-7004 on [DFARS small business subcontracting plan clause for the Test Program](mkt-dfars-small-business-subcontracting-plan-test-program.md), which applies instead to participants with an approved comprehensive subcontracting plan under the Test Program [@CL-MKT-0908].
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Which contracts carry the basic clause or an alternate, and who files and accept
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast wording and stated the Test Program condition in full.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD small business subcontracting plan clause.

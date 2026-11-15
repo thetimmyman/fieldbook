@@ -47,7 +47,7 @@ Answer: by submitting the offer it acknowledges that winning may push it over 20
 
 ## Never confuse
 
-The size representation an offeror makes at initial offer is on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card and the rerepresentation after award is on the [rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card. By acceptance of the contract the offeror may exceed the applicable size standard and would no longer qualify as a small business concern for that NAICS code [@CL-MKT-0920]. Size standards and the assignment of NAICS codes are on the [Size standards and NAICS codes](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
+DFARS 252.219-7000 is an acknowledgment that accepting the resulting contract may push the offeror past the assigned NAICS size standard for future procurements [@CL-MKT-0919; @CL-MKT-0920], rather than the initial size representation on [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) [@CL-MKT-0209] or a mandatory postaward rerepresentation on [rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) [@CL-MKT-0214].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which of the company's offers are made as a small business, and how close it is 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements not stated in the provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advancing small business growth.

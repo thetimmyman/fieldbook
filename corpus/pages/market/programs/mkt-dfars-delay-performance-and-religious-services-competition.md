@@ -47,7 +47,7 @@ Answer: the contractor waits two working days and may begin on Thursday, the thi
 
 ## Never confuse
 
-Under the delay clause, if a determination of ineligibility is issued within the 2-day period, the purchase order shall be considered canceled [@CL-MKT-0934]. Under the religious-services provision, a nonprofit organization is not precluded from competing for a contract for religious-related services to be performed on a United States military installation [@CL-MKT-0935]. The direct award and competition notice clauses for the same program are on the [direct award and limited competition notice](mkt-dfars-8a-direct-award-and-limited-competition-notice.md) card. How the SBA accepts a requirement is on the [offering and acceptance](mkt-8a-offering-and-acceptance.md) card, and registration in SAM is on the [SAM registration and awards](../feeds/mkt-sam-registration-and-awards.md) card.
+DFARS 252.219-7011 delays purchase-order performance for 2 working days after receipt while eligibility can still be challenged [@CL-MKT-0932; @CL-MKT-0951], whereas the religious-related services provision prevents excluding nonprofit organizations even though they are not small business concerns rather than creating a set-aside restricted to small businesses [@CL-MKT-0935].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which purchase orders under the program or religious-related services contracts 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta absence statements and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Religious-services provision restated as notwithstanding.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for delay of performance and religious-related services competition.

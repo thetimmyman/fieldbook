@@ -62,7 +62,7 @@ The contract cannot give the contractor direction, supervision or control of Gov
 
 ## Never confuse
 
-A management and operating contract is characterized both by its purpose and by the special relationship it creates between Government and contractor [@CL-MKT-1744], and it requires a written authorization by the agency head that shall not be delegated and must be shown on the face of the contract [@CL-MKT-1735; @CL-MKT-1736]. Functions that can more properly be accomplished under the Government property use and rental subpart shall not be authorized for a management and operating contract [@CL-MKT-1742].
+A management and operating contract creates a special long-term relationship requiring non-delegable written authorization by an agency head with statutory authority [@CL-MKT-1735; @CL-MKT-1744], unlike ordinary facility-support or service contracts, and still may not authorize directing, supervising, or controlling Government personnel beyond supervision incidental to training [@CL-MKT-1740].
 
 ## Company calibration
 
@@ -71,6 +71,7 @@ Which contracts in the finance remit are authorized management and operating con
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS statement that FAR subpart 17.6 does not apply to DoD.

@@ -49,7 +49,7 @@ A service solicitation tells offerors that tradeoffs will not be considered and 
 
 ## Never confuse
 
-In this approach the RFP says that tradeoffs will not be considered [@CL-EST-2537], and the price of the highest technically rated proposal is evaluated to determine if it is fair and reasonable [@CL-EST-2533]. Other source selection approaches are on the linked cards.
+Under the highest-technically-rated approach, the Government selects the top-rated non-price proposal and checks only whether its price is fair and reasonable without making price-technical tradeoffs [@CL-EST-2530; @CL-EST-2531; @CL-EST-2532], unlike a tradeoff source selection that weighs whether higher technical merit justifies a price premium.
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Confirm which solicitations the company bids under this approach and what eviden
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section does not name and an uncited contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the highest technically rated with a fair and reasonable price approach.

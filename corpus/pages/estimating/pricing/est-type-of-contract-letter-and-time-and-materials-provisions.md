@@ -46,9 +46,7 @@ An offeror answers a time-and-materials solicitation with an engineer rate of 15
 
 ## Never confuse
 
-For the contract type itself, see [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md); for the companion proposal provisions, see [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md); for the general rules on proposals, see [Instructions to offerors in competitive acquisitions](est-instructions-to-offerors-competitive-acquisition.md); and for other contract types a solicitation may name, see [Retroactive price redetermination and no-fee cost clauses](est-retroactive-price-redetermination-and-no-fee-cost-clauses.md).
-
-The basic type of contract provision names the contemplated type [@CL-EST-1842], and the RFO Alternate I is included as paragraph (a) of the basic provision: offerors may propose an alternative contract type [@CL-EST-0845].
+Commercial time-and-materials proposals require fixed hourly rates loaded with wages, overhead, G&A and profit [@CL-EST-1845]—unlike non-commercial adequate-competition rate provisions on [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md) [@CL-EST-1683]—while the type-of-contract notice is preaward information rather than a binding letter-contract acceptance signed in three copies [@CL-EST-1842; @CL-EST-1843].
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Who owns proposal pricing and the hourly rate build for time-and-materials and l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted characterizations and an absence statement, removed an unquoted 'commercial' label, and restored the and/or wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the type of contract, letter contract and time-and-materials proposal provisions.

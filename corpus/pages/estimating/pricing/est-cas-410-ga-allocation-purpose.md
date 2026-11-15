@@ -45,7 +45,7 @@ A business unit holds 400,000 of general and administrative expense for managing
 
 ## Never confuse
 
-The Standard provides criteria for allocating business unit general and administrative expenses to business unit final cost objectives [@CL-EST-2910] and also provides criteria for allocating home office expenses received by a segment to the cost objectives of that segment [@CL-EST-2912]. The mechanics are in [the Standard's main card](../../compliance/cas-allowability/cmp-cas-410-ga-allocation.md) and the worked illustrations in [the illustrations card](../../compliance/cas-allowability/cmp-cas-410-illustrations.md).
+CAS 410 governs allocating business unit general and administrative expenses—and home office expenses received by a segment—only to final cost objectives [@CL-EST-2910; @CL-EST-2911; @CL-EST-2912; @CL-CMP-0213], rather than distributing them across intermediate pools or treating non-G&A support functions as G&A except under narrow illustrations on [the illustrations card](../../compliance/cas-allowability/cmp-cas-410-illustrations.md) [@CL-CMP-2810].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which pool carries business unit general and administrative expense and which ba
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose section omits removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose of the Standard on allocating business unit general and administrative expense to final cost objectives.

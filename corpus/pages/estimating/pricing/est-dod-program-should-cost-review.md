@@ -43,7 +43,7 @@ A contracting officer has a development contract for a major weapon system worth
 
 ## Never confuse
 
-The FAR description of what a should-cost review is appears on [Should-cost review: program and overhead reviews](est-should-cost-review.md). The reference to the guidance names both a program and an overhead should-cost review [@CL-EST-1535]; the paragraph on program should-cost review covers major weapon system should-cost program reviews [@CL-EST-1622] and the review team [@CL-EST-1537]. Where the program should-cost clause goes is on [DFARS solicitation provisions and contract clauses for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md).
+This DFARS rule prescribes inserting Program Should-Cost Review clause 252.215-7015 in all major weapon system development or production solicitations and contracts and points to PGI 215.407-4 on considering program versus overhead reviews [@CL-EST-1528; @CL-EST-1535; @CL-EST-1622], rather than defining how should-cost differs from historical cost evaluation on [Should-cost review: program and overhead reviews](est-should-cost-review.md) [@CL-EST-0223].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which bids and estimates may face a Government program or overhead review, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Worded the guidance pointer as the provision states it and cut uncited negatives and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Clause use stated as the prescription (all solicitations and contracts, major weapon system as defined in 234.7001).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD should-cost review section.

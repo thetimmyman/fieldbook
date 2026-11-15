@@ -45,7 +45,7 @@ A unit needs repairs to a critical vehicle within weeks. A definitive contract c
 
 ## Never confuse
 
-DFARS 217.7403 requires both conditions for using an undefinitized contract action and requires that the action be as complete and definite as practicable under the particular circumstances [@CL-MKT-2112; @CL-MKT-2113; @CL-MKT-2114; @CL-MKT-2115]. The approval rule, the limit on obligations before definitization, and the exclusions, profit and reporting rules are on [Approval and obligation limits](mkt-uca-approval-and-obligation-limits.md), [Exceptions, profit and reporting](mkt-uca-exceptions-profit-and-reporting.md), and [Undefinitized contract actions](../../estimating/pricing/est-dod-undefinitized-contract-actions.md).
+An undefinitized contract action gives a binding commitment to start work immediately only when timely negotiation of a definitive contract is impossible [@CL-MKT-2112; @CL-MKT-2113; @CL-MKT-2114], unlike an ordinary definitized award, and still requires head-of-contracting-activity approval on [Approval and obligation limits](mkt-uca-approval-and-obligation-limits.md) [@CL-MKT-1545] unless an exclusion on [Exceptions, profit and reporting](mkt-uca-exceptions-profit-and-reporting.md) applies [@CL-MKT-1553].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which open undefinitized actions exist, what each file records about the two con
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated DFARS 217.7403(a)-(b) policy directly without uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy on undefinitized contract actions.

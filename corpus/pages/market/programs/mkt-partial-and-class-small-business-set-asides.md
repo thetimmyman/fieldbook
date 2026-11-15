@@ -47,7 +47,7 @@ A requirement is not subject to simplified acquisition procedures and can be div
 
 ## Never confuse
 
-The criteria for total set-asides, above and below the simplified acquisition threshold, are on the [Small business set-asides](mkt-small-business-set-asides.md) card. A partial set-aside sets aside a portion or portions of an acquisition [@CL-MKT-0339; @CL-MKT-0342], whereas a class set-aside sets aside a class of acquisitions of selected products or services, or a portion of the acquisitions [@CL-MKT-0343].
+A partial set-aside reserves only a severable portion of a non-construction acquisition above simplified acquisition procedures that will not result in a multiple-award contract [@CL-MKT-0339; @CL-MKT-0340; @CL-MKT-0341], unlike a total set-aside on [Small business set-asides](mkt-small-business-set-asides.md) that restricts the entire acquisition [@CL-MKT-0219].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which product families and customer groups are bought through partial or class s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and restated partial versus class set-asides directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: size sentence keeps only for the set-aside portion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the size procedure for partial set-asides.

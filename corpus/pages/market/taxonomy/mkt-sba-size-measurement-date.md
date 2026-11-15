@@ -50,7 +50,7 @@ A concern has 400 employees when it submits its initial offer with price, and it
 
 ## Never confuse
 
-The date on which size is measured is a different question from how an acquisition changes the receipts or employees counted. See [SBA size after an acquisition](../../mna/screening/mna-sba-size-after-acquisition.md) for the receipts and employees rules. The size standard itself comes from the NAICS code named in the solicitation, which [Which size standard applies to a federal procurement](../taxonomy/mkt-sba-size-standard-designation.md) covers. How subcontract size is certified, and the penalties for misrepresenting it, are on [Size misrepresentation penalties and subcontract size](../taxonomy/mkt-sba-size-misrepresentation-penalties-and-subcontract-size.md).
+Size is generally measured as of the initial priced offer's self-certification date and kept for the life of that contract—though a follow-on or renewal contract is a new action measured afresh [@CL-MKT-0383; @CL-MKT-0388; @CL-MKT-0525]—unlike a merger or acquisition, which triggers the affiliate aggregation rules on [SBA size after an acquisition](../../mna/screening/mna-sba-size-after-acquisition.md) [@CL-MNA-0516].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which kinds of contracts, orders and subcontracts the company offers on as a sma
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included the formal-response alternative and section cross-references and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the price element for each order and the reach of the recertification exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the self-certification duty and the contracting officer's acceptance of it.
