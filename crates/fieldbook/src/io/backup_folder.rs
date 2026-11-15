@@ -4,9 +4,11 @@
 
 #![expect(
     clippy::disallowed_methods,
-    reason = "io::backup_folder performs controlled directory enumeration and target removal"
+    clippy::disallowed_types,
+    reason = "io::backup_folder performs controlled directory enumeration, streaming readback, and target removal"
 )]
 
+use std::io::Read as _;
 use std::path::{Path, PathBuf};
 
 use fieldbook_core::audit::{BackupVerified, Count, EventPayload, Sha256};
@@ -14,6 +16,7 @@ use fieldbook_core::backup::{
     BackupError, BackupTarget, BackupToml, Number, SnapshotInfo, SnapshotStage, manifest_sha256,
 };
 use fieldbook_core::egress::{Allowed, Operation, Target, Transfer, hash_tree_manifest};
+use fieldbook_core::hash::{Sha256Stream, sha256_hex};
 
 use crate::World;
 use crate::io::Error;
@@ -180,7 +183,7 @@ struct FolderSnapshotStage<'b> {
     partial_dir: PathBuf,
     final_dir: PathBuf,
     manifest_sha256: Option<String>,
-    written_files: Vec<(PathBuf, Vec<u8>)>,
+    written_files: Vec<(PathBuf, String, u64)>,
 }
 
 impl SnapshotStage for FolderSnapshotStage<'_> {
@@ -196,17 +199,31 @@ impl SnapshotStage for FolderSnapshotStage<'_> {
             self.manifest_sha256 = Some(info.manifest_sha256);
         }
 
-        self.written_files.push((rel.to_path_buf(), bytes.to_vec()));
+        self.written_files
+            .push((rel.to_path_buf(), sha256_hex(bytes), bytes.len() as u64));
         Ok(())
     }
 
     fn finish(self: Box<Self>) -> Result<(), BackupError> {
-        // 1. Re-read and compare written files
-        for (rel, expected_bytes) in &self.written_files {
+        // 1. Re-read written files in 64 KiB blocks and compare length and SHA-256
+        let mut buf = [0u8; 64 * 1024];
+        for (rel, expected_sha, expected_len) in &self.written_files {
             let full_path = self.partial_dir.join(rel);
-            let read_bytes =
-                std::fs::read(&full_path).map_err(|err| BackupError::Target(err.to_string()))?;
-            if read_bytes != *expected_bytes {
+            let mut file = std::fs::File::open(&full_path)
+                .map_err(|err| BackupError::Target(err.to_string()))?;
+            let mut stream = Sha256Stream::new();
+            let mut total = 0u64;
+            loop {
+                let n = file
+                    .read(&mut buf)
+                    .map_err(|err| BackupError::Target(err.to_string()))?;
+                if n == 0 {
+                    break;
+                }
+                stream.update(&buf[..n]);
+                total = total.saturating_add(n as u64);
+            }
+            if total != *expected_len || stream.finish() != *expected_sha {
                 return Err(BackupError::Target(format!(
                     "readback mismatch for {}",
                     rel.display()

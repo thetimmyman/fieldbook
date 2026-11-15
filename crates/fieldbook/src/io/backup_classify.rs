@@ -18,6 +18,7 @@ use fieldbook_core::labels::{
     ItemRef, LabelGraph, LabelId, LabelNode, LabelSet, Ledger, PUBLIC, StoreId, UNLABELLED,
     effective_item, markings_in,
 };
+use fieldbook_core::manifest::SupportFacts;
 use fieldbook_core::policy::{EffectivePolicy, PolicyState};
 use fieldbook_core::report::{AddReport, LastBackupReport};
 use fieldbook_core::schema::Register;
@@ -25,9 +26,24 @@ use fieldbook_core::schema::Register;
 use crate::World;
 use crate::io::state::BackupSettings;
 
+/// Per-thread callback invoked after [`read_file_content`] reads a file.
+pub type AfterReadHook = Box<dyn FnMut(&str) + Send>;
+
+thread_local! {
+    static AFTER_READ_HOOK: std::cell::RefCell<Option<AfterReadHook>> =
+        const { std::cell::RefCell::new(None) };
+}
+
+/// Installs or clears a per-thread hook invoked after [`read_file_content`] reads a file.
+pub fn set_after_read_hook(hook: Option<AfterReadHook>) {
+    AFTER_READ_HOOK.with(|cell| {
+        *cell.borrow_mut() = hook;
+    });
+}
+
 /// Check whether a Corpus support file has public provenance.
 #[must_use]
-pub fn support_has_public_provenance(world: &dyn World, rel_path: &str, bytes: &[u8]) -> bool {
+pub fn support_has_public_provenance(facts: &SupportFacts, rel_path: &str, bytes: &[u8]) -> bool {
     let norm = rel_path.replace('\\', "/");
     let clean = norm.trim_start_matches('/');
     let corpus_rel = clean.strip_prefix("corpus/").unwrap_or(clean);
@@ -35,7 +51,6 @@ pub fn support_has_public_provenance(world: &dyn World, rel_path: &str, bytes: &
         return false;
     }
     let current_sha256 = fieldbook_core::hash::sha256_hex(bytes);
-    let facts = world.support_facts();
     facts.has_provenance(corpus_rel, &current_sha256)
 }
 
@@ -119,7 +134,7 @@ fn register_fully_loaded(model: &Model, register: Register) -> bool {
 /// Classifies a single file and resolves its effective labels.
 #[must_use]
 pub fn classify_file(
-    world: &dyn World,
+    facts: &SupportFacts,
     model: Option<&Model>,
     eff: &EffectivePolicy,
     rel_path: &str,
@@ -225,7 +240,7 @@ pub fn classify_file(
 
     // 5. Corpus support files
     if is_corpus_support(path) {
-        let prov = support_has_public_provenance(world, path, bytes);
+        let prov = support_has_public_provenance(facts, path, bytes);
         let mut labels = if prov {
             LabelSet::public()
         } else {
@@ -458,7 +473,6 @@ pub fn classify_file(
             && fieldbook_core::manifest::is_lower_hex(stem, 64)
         {
             let actual_sha = fieldbook_core::hash::sha256_hex(bytes);
-            let facts = world.support_facts();
             let has_event = facts
                 .catalogues
                 .iter()
@@ -642,8 +656,19 @@ pub fn read_file_content(world: &dyn World, rel_path: &str) -> Result<Vec<u8>, B
             reason: "not a regular file or folder (symbolic link or special file)".to_string(),
         });
     }
-    std::fs::read(&p).map_err(|err| BackupReadError {
+    let bytes = std::fs::read(&p).map_err(|err| BackupReadError {
         path: p.display().to_string(),
         reason: err.to_string(),
-    })
+    })?;
+    let hook = AFTER_READ_HOOK.with(|cell| cell.borrow_mut().take());
+    if let Some(mut f) = hook {
+        f(path);
+        AFTER_READ_HOOK.with(|cell| {
+            let mut slot = cell.borrow_mut();
+            if slot.is_none() {
+                *slot = Some(f);
+            }
+        });
+    }
+    Ok(bytes)
 }

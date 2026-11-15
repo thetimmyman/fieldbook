@@ -504,12 +504,13 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         };
     }
 
-    // 7. Load model for label resolution
+    // 7. Load model and support provenance once for label resolution
     let (model, _) = load_model_if_available(world);
+    let support_facts = world.support_facts();
 
-    // Classify files and resolve labels
-    let mut copied_files = Vec::new();
-    let mut file_bytes_cache = Vec::new();
+    // Pass 1: classify each file and record only its digest and byte length
+    let mut copied_files = Vec::with_capacity(plan.files.len());
+    let mut recorded_files: Vec<(String, String, u64)> = Vec::with_capacity(plan.files.len());
 
     for file_rel in &plan.files {
         let bytes = match read_file_content(world, file_rel) {
@@ -522,9 +523,9 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 };
             }
         };
-        let cf = classify_file(world, model.as_ref(), eff, file_rel, &bytes);
+        let cf = classify_file(&support_facts, model.as_ref(), eff, file_rel, &bytes);
         copied_files.push(cf);
-        file_bytes_cache.push((file_rel.clone(), bytes));
+        recorded_files.push((file_rel.clone(), sha256_hex(&bytes), bytes.len() as u64));
     }
 
     // Calculate aggregated snapshot labels
@@ -621,7 +622,14 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 Ok(i) | Err(i) => i,
             };
             plan.files.insert(idx, segment_rel.clone());
-            file_bytes_cache.insert(idx, (segment_rel.clone(), Vec::new()));
+            recorded_files.insert(
+                idx,
+                (
+                    segment_rel.clone(),
+                    sha256_hex(&prep.bytes),
+                    prep.bytes.len() as u64,
+                ),
+            );
             copied_files.insert(
                 idx,
                 CopiedFile::new(
@@ -630,6 +638,30 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                     LabelSet::public(),
                 ),
             );
+        } else if let Some((_, expected_sha, expected_len)) = recorded_files
+            .iter_mut()
+            .find(|(rel, _, _)| rel == &segment_rel)
+        {
+            let mut seg_bytes = match read_file_content(world, &segment_rel) {
+                Ok(b) => b,
+                Err(err) => {
+                    return Outcome {
+                        stdout: notices,
+                        stderr: format!("error: {err}\n"),
+                        code: EXIT_IO,
+                    };
+                }
+            };
+            if seg_bytes.len() as u64 != *expected_len || sha256_hex(&seg_bytes) != *expected_sha {
+                return Outcome {
+                    stdout: notices,
+                    stderr: format!("source changed during backup: {segment_rel}\n"),
+                    code: EXIT_IO,
+                };
+            }
+            seg_bytes.extend_from_slice(&prep.bytes);
+            *expected_sha = sha256_hex(&seg_bytes);
+            *expected_len = seg_bytes.len() as u64;
         }
     }
 
@@ -638,34 +670,26 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     let partial_path = target_path.join(&partial_dir_name);
     let final_path = target_path.join(&final_dir_name);
 
-    // Build files delivery and SHA256SUMS
-    let mut delivery_transfers = Vec::new();
-    let mut sums_entries = Vec::new();
-    let mut tree_entries = Vec::new();
+    // Build files delivery and SHA256SUMS from pass-1 digests without retaining file bytes
+    let mut delivery_transfers = Vec::with_capacity(recorded_files.len());
+    let mut sums_entries = Vec::with_capacity(recorded_files.len());
+    let mut tree_entries = Vec::with_capacity(recorded_files.len());
     let mut total_bytes = 0u64;
 
-    let prep_segment_rel = prepared_begin
-        .as_ref()
-        .map(|p| format!("state/audit/{}", p.segment));
-
-    for (file_rel, mut bytes) in file_bytes_cache {
-        // If this is the active journal file and we prepared begin, append prepared bytes
-        if let (Some(prep), Some(prep_rel)) = (&prepared_begin, &prep_segment_rel)
-            && file_rel == *prep_rel
-        {
-            bytes.extend_from_slice(&prep.bytes);
-        }
-
-        let sha = sha256_hex(&bytes);
-        let len = bytes.len() as u64;
-        total_bytes = total_bytes.saturating_add(len);
+    for (file_rel, sha, len) in &recorded_files {
+        total_bytes = total_bytes.saturating_add(*len);
 
         let snap_rel = format!("data/{file_rel}");
         let full_out_path = partial_path.join(&snap_rel);
 
-        delivery_transfers.push(Transfer::write_path(full_out_path, &bytes));
+        delivery_transfers.push(Transfer {
+            target: Target::Path(full_out_path),
+            operation: Operation::Write,
+            sha256: sha.clone(),
+            bytes: *len,
+        });
         sums_entries.push((snap_rel.clone(), sha.clone()));
-        tree_entries.push((snap_rel, sha, len));
+        tree_entries.push((snap_rel, sha.clone(), *len));
     }
 
     // SHA256SUMS
@@ -917,8 +941,8 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         }
     };
 
-    // Copy files one at a time
-    for file_rel in &plan.files {
+    // Pass 2: re-read files one at a time, verify against pass-1 digest, and stage
+    for (file_rel, expected_sha, expected_len) in &recorded_files {
         let bytes = match read_file_content(world, file_rel) {
             Ok(b) => b,
             Err(err) => {
@@ -929,6 +953,13 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 };
             }
         };
+        if bytes.len() as u64 != *expected_len || sha256_hex(&bytes) != *expected_sha {
+            return Outcome {
+                stdout: notices,
+                stderr: format!("source changed during backup: {file_rel}\n"),
+                code: EXIT_IO,
+            };
+        }
 
         let snap_rel = PathBuf::from(format!("data/{file_rel}"));
         if let Err(err) = stage.write(&snap_rel, &bytes) {
