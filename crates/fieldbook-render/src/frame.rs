@@ -140,6 +140,17 @@ pub fn root_prefix_for_path(output_path: &str) -> String {
     "../".repeat(depth)
 }
 
+/// The bare page id of a reader route (`p/<id>.html`), or `None` for every other route.
+///
+/// A reader page's print footer shows its page id, as the binder footer does; a route that names
+/// no page id (the home page, an area, a register, the ids index, a source, about or search)
+/// prints the route instead.
+#[must_use]
+fn page_id_of(output_path: &str) -> Option<&str> {
+    let id = output_path.strip_prefix("p/")?.strip_suffix(".html")?;
+    (!id.is_empty() && !id.contains('/')).then_some(id)
+}
+
 /// Inputs required to render one HTML page inside the global frame.
 #[derive(Debug, Clone)]
 pub struct FrameInput<'a> {
@@ -208,6 +219,7 @@ struct BaseTemplate<'a> {
     product: &'a str,
     title: &'a str,
     output_path: &'a str,
+    page_id: Option<&'a str>,
     root_prefix: &'a str,
     current_section_key: &'a str,
     current_item_id: &'a str,
@@ -336,6 +348,7 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         product: PRODUCT_TITLE,
         title: input.title,
         output_path: input.output_path,
+        page_id: page_id_of(input.output_path),
         root_prefix: &root_prefix,
         current_section_key: current_section.key(),
         current_item_id: &current_item,
@@ -361,4 +374,31 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
 
     tpl.render()
         .unwrap_or_else(|err| unreachable!("infallible base.html template rendering: {err}"))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn page_id_of_reads_reader_routes() {
+        assert_eq!(
+            page_id_of("p/est-rate-window-brief.html"),
+            Some("est-rate-window-brief")
+        );
+    }
+
+    #[test]
+    fn page_id_of_refuses_other_routes() {
+        for other in [
+            "index.html",
+            fieldbook_core::strings::paths()[3],
+            "ids/claims-CMP-1.html",
+            "p/a/b.html",
+            "p/.html",
+            "s/x.html",
+        ] {
+            assert_eq!(page_id_of(other), None, "`{other}` is not a reader route");
+        }
+    }
 }

@@ -318,7 +318,7 @@ Expected: `snapshot 1 verified`, then `snapshot hashes ok`. A named file is an `
 fieldbook restore --snapshot 1 --from "$D/target" --drill
 ```
 
-Expected: the last line is `drill passed: check clean, journal ok, fingerprint <12 hex> matches`; exit code 0. The drill restores into `drill/` under the state folder (`.fieldbook/drill/`), replaces what an earlier run left there and removes the folder when it ends. A failure names the step and the code (`FB0810`, `FB0811`, `FB0802`, `FB0816`). Fix the cause, never the snapshot, and rerun from step 1.
+Expected: five `ok:` lines (`snapshot 1 verified`, `restored <files> files, <bytes> bytes into drill folder`, `check --strict clean`, `journal ok (seq <N>, head <12 hex>)` and `fingerprint <12 hex> matches`), and the last line is `drill passed: check clean, journal ok, fingerprint <12 hex> matches`; exit code 0. The drill restores into `drill/` under the state folder (`.fieldbook/drill/`), replaces what an earlier run left there and removes the folder when it ends. A failure names the step and the code (`FB0810`, `FB0811`, `FB0802`, `FB0816`). Fix the cause, never the snapshot, and rerun from step 1.
 
 ### Step 5. Plant a fault; the check must catch it
 
