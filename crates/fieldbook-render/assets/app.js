@@ -742,7 +742,7 @@ function make(tag, cls, kids, attrs) {
 
 function fold(text) {
   return text.normalize('NFKC').toLowerCase().replace(/[\u2010-\u2015\u2212]/g, '-')
-    .replace(/\u00ad/g, '').trim();
+    .replace(/\u00ad/g, '').normalize('NFKC').trim();
 }
 
 function asHit(d, u) {

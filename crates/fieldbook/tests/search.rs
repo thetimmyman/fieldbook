@@ -211,9 +211,7 @@ fn json_is_one_object_with_the_keys_of_the_reference_in_order() {
 
 #[test]
 fn json_tokens_are_the_query_tokens_of_the_raw_text() {
-    // A soft hyphen between a letter and a combining accent: normalising twice composes the
-    // accent, normalising once does not, and the report must name the tokens the index was asked
-    // for, which `query_tokens` produces from the raw text.
+    // The report names the tokens the index was asked for, including a composed accent.
     let raw = "cafe\u{ad}\u{301} CL-";
     let out = fixture_search(&["--json", raw]);
     let value: Value = serde_json::from_str(&out.stdout).expect("valid JSON");

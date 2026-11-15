@@ -92,14 +92,14 @@
     {
       "id": "rk-28",
       "query": "cafe\u00ad\u0301",
-      "expect": ["norm-a", "norm-c"],
-      "note": "The query is normalised once: the soft hyphen is deleted and the loose acute accent is not a word character, as in the index text of norm-c, so the token is cafe and not the composed cafe-acute"
+      "expect": ["norm-b", "norm-c"],
+      "note": "Deleting the soft hyphen and applying NFKC composes the accent, so both accented units match"
     },
     {
       "id": "rk-29",
       "query": "caf\u00e9",
-      "expect": ["norm-b"],
-      "note": "A precomposed query keeps its accent and matches only the unit that holds it"
+      "expect": ["norm-b", "norm-c"],
+      "note": "A precomposed query matches both units after normalisation composes the accent"
     }
   ]
 }

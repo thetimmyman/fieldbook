@@ -78,9 +78,7 @@ pub fn is_exact_class(doc: &DocEntry, s: &str) -> bool {
 /// match count.
 #[must_use]
 pub fn query(index: &Index, raw_query: &str, limit: usize) -> Results {
-    // Normalisation runs once. `normalise` is not idempotent (deleting U+00AD can leave a base
-    // letter and a combining mark adjacent, which a second NFKC would compose), and the index
-    // side normalises once, so the tokens come from the raw query and only `s` is derived here.
+    // Derive the exact-match text and tokens from the same raw query.
     let norm_q = normalise(raw_query);
     let s = norm_q.trim();
     let tokens = query_tokens(raw_query);
@@ -206,11 +204,9 @@ mod tests {
     }
 
     #[test]
-    fn the_query_is_normalised_once_because_normalise_is_not_idempotent() {
-        // Deleting the soft hyphen leaves `e` beside a combining acute. A second NFKC would
-        // compose them, so a query that normalised twice would look for the composed word.
+    fn query_matches_composed_text_after_soft_hyphen_removal() {
         let raw = "cafe\u{ad}\u{301}";
-        assert_ne!(normalise(&normalise(raw)), normalise(raw));
+        assert_eq!(normalise(&normalise(raw)), normalise(raw));
 
         let index = Index::build(
             vec![
@@ -219,7 +215,7 @@ mod tests {
             ],
             &Glossary::default(),
         );
-        assert_eq!(ids(&query(&index, raw, 10)), ["plain"]);
+        assert_eq!(ids(&query(&index, raw, 10)), ["composed"]);
         assert_eq!(ids(&query(&index, "caf\u{e9}", 10)), ["composed"]);
     }
 

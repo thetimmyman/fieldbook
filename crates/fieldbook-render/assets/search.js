@@ -22,7 +22,7 @@ var pending = null;
 
 function norm(t) {
   return t.normalize('NFKC').toLowerCase().replace(/[\u2010-\u2015\u2212]/g, '-')
-    .replace(/\u00ad/g, '');
+    .replace(/\u00ad/g, '').normalize('NFKC');
 }
 function trim(t) { return t.replace(TRIM, ''); }
 function wordAt(s, i) { WORD.lastIndex = i; return i < s.length && WORD.test(s); }

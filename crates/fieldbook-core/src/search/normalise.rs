@@ -2,9 +2,10 @@
 //!
 //! Applied in order on both the index side and the query side:
 //! 1. Unicode NFKC.
-//! 2. Full Unicode lowercase (`str::to_lowercase`), without re-running NFKC.
+//! 2. Full Unicode lowercase (`str::to_lowercase`).
 //! 3. Fold `U+2010..=U+2015` and `U+2212` to ASCII `-` (`U+002D`).
 //! 4. Delete `U+00AD` (soft hyphen).
+//! 5. Unicode NFKC again, composing or reordering newly adjacent characters.
 
 use unicode_normalization::UnicodeNormalization;
 
@@ -21,7 +22,7 @@ pub fn normalise(input: &str) -> String {
             other => out.push(other),
         }
     }
-    out
+    out.nfkc().collect()
 }
 
 #[cfg(test)]
