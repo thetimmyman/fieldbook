@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
 - Changed: a printed page's footer shows the page id, not its route.
 - Changed: backup holds one file in memory at a time.

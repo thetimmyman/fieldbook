@@ -1751,7 +1751,8 @@ kbd {
   margin-bottom: var(--space-2);
 }
 
-.case-head h3 {
+.case-head h3,
+.case-head h4 {
   margin: 0;
 }
 
