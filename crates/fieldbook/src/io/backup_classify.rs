@@ -92,6 +92,15 @@ fn parse_handling_vec(items: &[String]) -> LabelSet {
     LabelSet::from_ids(ids)
 }
 
+/// True when `file_name` is exactly `<version-id>.<ext>`, where `<ext>` is one or more ASCII
+/// letters or digits and holds no further dot.
+fn is_version_file_name(file_name: &str, version_id: &str) -> bool {
+    let Some((stem, ext)) = file_name.split_once('.') else {
+        return false;
+    };
+    stem == version_id && !ext.is_empty() && ext.bytes().all(|b| b.is_ascii_alphanumeric())
+}
+
 /// True when the model parsed `register` and typed every one of its data rows.
 fn register_fully_loaded(model: &Model, register: Register) -> bool {
     if model.register(register).is_none() {
@@ -136,14 +145,28 @@ pub fn classify_file(
     // 2. Originals under corpus/sources/public/
     if let Some(file_name) = path.strip_prefix("corpus/sources/public/") {
         let labels = if let Some(m) = model {
-            let stem = file_name.split('.').next().unwrap_or(file_name);
-            if let Some(src) = m.sources().iter().find(|s| {
+            let strict = m.sources().iter().find(|s| {
                 let vid = format!("{}-v{}", s.value.source_id, s.value.version);
-                vid == stem || s.value.source_id.as_str() == stem
-            }) {
+                is_version_file_name(file_name, &vid)
+            });
+            if let Some(src) = strict {
                 parse_handling_vec(&src.value.handling)
             } else {
-                LabelSet::unlabelled()
+                // A name that is not exactly `<version-id>.<ext>` keeps the labels the old
+                // source-id match gave it, beside `unlabelled`, so the result is never wider
+                // than either the old set or plain `unlabelled`.
+                let stem = file_name.split('.').next().unwrap_or(file_name);
+                let prior = m
+                    .sources()
+                    .iter()
+                    .find(|s| {
+                        let vid = format!("{}-v{}", s.value.source_id, s.value.version);
+                        vid == stem || s.value.source_id.as_str() == stem
+                    })
+                    .map_or_else(LabelSet::unlabelled, |s| {
+                        parse_handling_vec(&s.value.handling)
+                    });
+                LabelSet::unlabelled().union(&prior)
             }
         } else {
             LabelSet::unlabelled()

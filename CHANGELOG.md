@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Fixed: a backup always holds the journal, so every snapshot verifies; an original takes a source's labels only by its version id.
 - Added: restore and restore --drill.
 - Added: site search finds glossary terms by their labels and aliases.
 - Changed: the home and area pages no longer show a placeholder that names an internal document.
