@@ -149,6 +149,23 @@ pub fn page_file_name(number: u32) -> String {
     format!("p{number:04}.txt")
 }
 
+/// The refusal for an extraction with more pages than [`MAX_PAGES`], or `None` when it fits.
+///
+/// Every writer of an extraction asks this one helper, so the page files `pNNNN.txt`
+/// keep four digits whether the text came from a tool or was supplied by hand. The
+/// message is the whole refusal, and `subject` is the version id or the original's
+/// file name that the caller names the run by.
+#[must_use]
+pub fn page_limit_refusal(subject: &str, pages: usize) -> Option<String> {
+    if pages > MAX_PAGES {
+        Some(format!(
+            "{subject}: {pages} pages, over the {MAX_PAGES}-page limit; nothing written"
+        ))
+    } else {
+        None
+    }
+}
+
 /// Returns the numbers of thin pages in ascending order.
 pub fn thin_page_numbers(pages: &[PageText]) -> Vec<u32> {
     let mut thin = Vec::new();
@@ -192,6 +209,11 @@ pub struct LocatorPages {
 }
 
 /// Section labels that the page text announces.
+///
+/// A line that opens with `§`, `section `, `sec. ` or `sec ` names the label that
+/// follows. Only a label that looks like a section number is proposed: a sentence
+/// that happens to begin with one of those words proposes nothing. The lead adds
+/// any other label by hand.
 pub fn recognise_locators(pages: &[PageText]) -> BTreeMap<String, LocatorPages> {
     let mut locators = BTreeMap::new();
     for page in pages {
@@ -218,6 +240,9 @@ pub fn recognise_locators(pages: &[PageText]) -> BTreeMap<String, LocatorPages> 
             {
                 continue;
             }
+            if !looks_like_section_label(label) {
+                continue;
+            }
             let norm_label: String = label.nfc().collect();
             locators.entry(norm_label).or_insert(LocatorPages {
                 first: page.number,
@@ -226,6 +251,83 @@ pub fn recognise_locators(pages: &[PageText]) -> BTreeMap<String, LocatorPages> 
         }
     }
     locators
+}
+
+/// Whether `label` looks like a section identifier rather than a word of prose.
+///
+/// A digit anywhere is enough (`3`, `4.2`, `15.404-1`). Without one the label must be
+/// a parenthesised sub-item (`(a)`, `(e)(1)`), an upper-case Roman numeral (`IV`) or a
+/// single upper-case letter (`A`). Every other word is prose: `Section is …` proposes
+/// nothing, and a heading word such as `Agencies` or `Affected` is not a locator.
+fn looks_like_section_label(label: &str) -> bool {
+    if label.chars().any(|c| c.is_ascii_digit()) {
+        return true;
+    }
+    if is_parenthesised_sub_item(label) {
+        return true;
+    }
+    if is_roman_numeral(label) {
+        return true;
+    }
+    let mut chars = label.chars();
+    chars.next().is_some_and(|c| c.is_ascii_uppercase()) && chars.next().is_none()
+}
+
+/// Whether `label` is one or more parenthesised sub-items, each one or two characters
+/// long: `(a)`, `(ii)`, `(A)`, `(e)(1)`. A parenthesised word such as `(Agencies)` is not.
+fn is_parenthesised_sub_item(label: &str) -> bool {
+    let bytes = label.as_bytes();
+    let mut index = 0;
+    let mut groups: usize = 0;
+    while index < bytes.len() {
+        if bytes.get(index) != Some(&b'(') {
+            return false;
+        }
+        index = index.saturating_add(1);
+        let start = index;
+        while bytes.get(index).is_some_and(|b| b.is_ascii_alphanumeric())
+            && index.saturating_sub(start) < 2
+        {
+            index = index.saturating_add(1);
+        }
+        if index == start || bytes.get(index) != Some(&b')') {
+            return false;
+        }
+        index = index.saturating_add(1);
+        groups = groups.saturating_add(1);
+    }
+    groups > 0
+}
+
+/// Roman numeral symbols, in descending value, for [`is_roman_numeral`].
+const ROMAN_SYMBOLS: [(&str, u32); 13] = [
+    ("M", 1000),
+    ("CM", 900),
+    ("D", 500),
+    ("CD", 400),
+    ("C", 100),
+    ("XC", 90),
+    ("L", 50),
+    ("XL", 40),
+    ("X", 10),
+    ("IX", 9),
+    ("V", 5),
+    ("IV", 4),
+    ("I", 1),
+];
+
+/// Whether `label` is an upper-case Roman numeral: `I`, `IV`, `XII`. A lower-case or
+/// mixed label is not one, so the prose word `mix` proposes nothing.
+fn is_roman_numeral(label: &str) -> bool {
+    let mut rest = label;
+    let mut total = 0_u32;
+    for (symbol, value) in ROMAN_SYMBOLS {
+        while let Some(after) = rest.strip_prefix(symbol) {
+            total = total.saturating_add(value);
+            rest = after;
+        }
+    }
+    rest.is_empty() && total > 0
 }
 
 fn match_section_prefix(line: &str) -> Option<&str> {
@@ -1012,6 +1114,94 @@ mod tests {
         assert_eq!(locators.get("5"), Some(&LocatorPages { first: 2, last: 2 }));
         assert!(!locators.contains_key("The"));
         assert_eq!(locators.len(), 3);
+    }
+
+    #[test]
+    fn recognise_locators_ignores_prose_after_a_section_word() {
+        for prefix in ["section ", "§ ", "Sec. ", "sec "] {
+            for word in [
+                "is", "using", "would", "do", "applies", "a", "Agencies", "Affected",
+            ] {
+                let pages = vec![PageText {
+                    number: 1,
+                    text: format!("{prefix}{word} the rest of the sentence\n"),
+                }];
+                assert!(
+                    recognise_locators(&pages).is_empty(),
+                    "{prefix}{word} must propose no locator"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn recognise_locators_keeps_real_labels() {
+        let pages = vec![
+            PageText {
+                number: 2,
+                text: "§ 4.2 Review\nsection IV\nSec. A\n".to_owned(),
+            },
+            PageText {
+                number: 3,
+                text: "section (a)(i)\nsection 15.404-1\n".to_owned(),
+            },
+        ];
+        let locators = recognise_locators(&pages);
+        for (label, page) in [
+            ("4.2", 2),
+            ("IV", 2),
+            ("A", 2),
+            ("(a)(i)", 3),
+            ("15.404-1", 3),
+        ] {
+            assert_eq!(
+                locators.get(label),
+                Some(&LocatorPages {
+                    first: page,
+                    last: page
+                }),
+                "{label}"
+            );
+        }
+        assert_eq!(locators.len(), 5);
+    }
+
+    #[test]
+    fn a_label_must_look_like_a_section_number() {
+        for good in [
+            "3", "4.2", "15.404-1", "(a)", "(ii)", "(A)", "(e)(1)", "IV", "XII", "A", "B2",
+        ] {
+            assert!(looks_like_section_label(good), "{good} is a section label");
+        }
+        for bad in [
+            "is",
+            "using",
+            "would",
+            "do",
+            "applies",
+            "a",
+            "Agencies",
+            "Affected",
+            "IVX",
+            "(Agencies)",
+            "( )",
+            "Section",
+        ] {
+            assert!(!looks_like_section_label(bad), "{bad} is prose");
+        }
+    }
+
+    #[test]
+    fn page_limit_refusal_holds_the_four_digit_cap() {
+        assert_eq!(MAX_PAGES, 9_999);
+        assert_eq!(page_limit_refusal("S-0001-v1", 0), None);
+        assert_eq!(page_limit_refusal("S-0001-v1", 1), None);
+        assert_eq!(page_limit_refusal("S-0001-v1", MAX_PAGES), None);
+        let refusal = page_limit_refusal("S-0001-v1", MAX_PAGES + 1).expect("refused");
+        assert_eq!(
+            refusal,
+            "S-0001-v1: 10000 pages, over the 9999-page limit; nothing written"
+        );
     }
 
     #[test]

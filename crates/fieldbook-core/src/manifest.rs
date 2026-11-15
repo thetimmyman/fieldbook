@@ -16,7 +16,7 @@ use crate::egress::LabelledView;
 use crate::hash::sha256_hex;
 use crate::ids::VersionId;
 use crate::labels::{LabelAllow, PUBLIC};
-use crate::scan::marking;
+use crate::scan::{handling, marking};
 use crate::schema::page::{parse_meta, split};
 use crate::schema::table;
 use crate::schema::vocab::{Lifecycle, PageType};
@@ -161,22 +161,6 @@ fn validate_tree_is_public_corpus_only(tree: &Tree) -> Result<(), ManifestError>
         }
     }
     Ok(())
-}
-
-fn has_non_public_inline_handling(text: &str) -> bool {
-    for line in text.lines() {
-        let trimmed = line.trim();
-        if let Some(rest) = trimmed.strip_prefix("handling") {
-            let rest = rest.trim_start();
-            if let Some(val) = rest.strip_prefix('=') {
-                let val = val.trim();
-                if val != "[\"public\"]" && val != "\"public\"" {
-                    return true;
-                }
-            }
-        }
-    }
-    false
 }
 
 fn is_known_non_shipped_corpus_path(rel_under_corpus: &str) -> bool {
@@ -389,7 +373,7 @@ pub fn shipped_corpus<S: CorpusSource + ?Sized>(
                     ),
                 });
             }
-        } else if !is_register && has_non_public_inline_handling(text) {
+        } else if !is_register && handling::has_non_public_inline(text) {
             return Err(ManifestError::NonPublicFile {
                 path: path.to_owned(),
                 reason: "file contains non-public inline handling".to_owned(),
@@ -879,7 +863,7 @@ impl SupportCatalogue {
                     "support file `{full_path}` is not valid UTF-8"
                 ))
             })?;
-            if !marking::scan(text).is_empty() || has_non_public_inline_handling(text) {
+            if !marking::scan(text).is_empty() || handling::has_non_public_inline(text) {
                 return Err(SupportCatalogueError::InvalidSourceGeneration(format!(
                     "support file `{full_path}` contains non-public marking or handling"
                 )));

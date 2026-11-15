@@ -13,8 +13,8 @@ use std::process::{Command, Stdio};
 use fieldbook_core::extraction::methods::{PDFTOTEXT_LAYOUT, PDFTOTEXT_LAYOUT_ID};
 use fieldbook_core::extraction::{
     ExtractError, Extraction, ExtractionToml, Extractor, LocatorPages, MAX_ORIGINAL_BYTES,
-    MAX_PAGES, PageText, SUPPLIED_TOOL, SUPPLIED_TOOL_VERSION, build_record, page_file_name,
-    select,
+    PageText, SUPPLIED_TOOL, SUPPLIED_TOOL_VERSION, build_record, page_file_name,
+    page_limit_refusal, select,
 };
 use fieldbook_core::ids::VersionId;
 
@@ -349,11 +349,8 @@ fn extract_one(
         }
     };
 
-    if extraction.pages.len() > MAX_PAGES {
-        let n = extraction.pages.len();
-        err.push(format!(
-            "{id}: {n} pages, over the {MAX_PAGES}-page limit; nothing written"
-        ));
+    if let Some(refusal) = page_limit_refusal(id, extraction.pages.len()) {
+        err.push(refusal);
         return OneOutcome::Failure;
     }
 
@@ -504,11 +501,8 @@ pub fn run_supplied(root: &Path, version: &str, text_file: &Path) -> Outcome {
         }
     };
 
-    if extraction.pages.len() > MAX_PAGES {
-        let n = extraction.pages.len();
-        err.push(format!(
-            "{version}: {n} pages, over the {MAX_PAGES}-page limit; nothing written"
-        ));
+    if let Some(refusal) = page_limit_refusal(version, extraction.pages.len()) {
+        err.push(refusal);
         return Outcome { exit: 1, out, err };
     }
 
@@ -518,6 +512,12 @@ pub fn run_supplied(root: &Path, version: &str, text_file: &Path) -> Outcome {
             err.push(format!(
                 "{version}: the supplied text holds a marking banner (`{}`); nothing written",
                 first.matched
+            ));
+            return Outcome { exit: 1, out, err };
+        }
+        if fieldbook_core::scan::handling::has_non_public_inline(&page.text) {
+            err.push(format!(
+                "{version}: the supplied text holds a non-public handling line; nothing written"
             ));
             return Outcome { exit: 1, out, err };
         }
@@ -639,6 +639,19 @@ mod tests {
         let path = text_dir(root, vid).join("extraction.toml");
         let text = std::fs::read_to_string(&path).expect("read extraction.toml");
         ExtractionToml::parse(&text).expect("parse extraction.toml")
+    }
+
+    #[cfg(unix)]
+    fn stand_in_program(dir: &Path, script: &str) -> PathBuf {
+        use std::os::unix::fs::PermissionsExt;
+        let path = dir.join("stand-in-pdftotext");
+        std::fs::write(&path, script).expect("write stand-in");
+        let mut perms = std::fs::metadata(&path)
+            .expect("stat stand-in")
+            .permissions();
+        perms.set_mode(0o755);
+        std::fs::set_permissions(&path, perms).expect("make stand-in executable");
+        path
     }
 
     fn long_text() -> Vec<u8> {
@@ -1029,6 +1042,32 @@ Synthetic section text for the extraction tests, long enough that no page is thi
     }
 
     #[test]
+    fn supplied_text_with_a_non_public_handling_line_is_refused() {
+        let tmp = corpus_with("S-0001-v1", "txt", &long_text());
+        let text_path = tmp.path().join("supplied.txt");
+
+        std::fs::write(
+            &text_path,
+            b"handling = [\"np-0007\"]\nSynthetic body text\n",
+        )
+        .expect("write text");
+        let refused = run_supplied(tmp.path(), "S-0001-v1", &text_path);
+        assert_eq!(refused.exit, 1);
+        assert_eq!(refused.err.len(), 1);
+        assert!(refused.err[0].contains("non-public handling"));
+        assert!(!text_dir(tmp.path(), "S-0001-v1").exists());
+
+        std::fs::write(
+            &text_path,
+            b"handling = [\"public\"]\nSynthetic body text, long enough that the page is not thin.\n",
+        )
+        .expect("write public text");
+        let accepted = run_supplied(tmp.path(), "S-0001-v1", &text_path);
+        assert_eq!(accepted.exit, 0);
+        assert!(text_dir(tmp.path(), "S-0001-v1").join("p0001.txt").exists());
+    }
+
+    #[test]
     fn supplied_text_that_is_not_utf8_is_refused() {
         let tmp = corpus_with("S-0001-v1", "txt", &long_text());
         let text_path = tmp.path().join("supplied.txt");
@@ -1136,6 +1175,77 @@ Synthetic section text for the extraction tests, long enough that no page is thi
         );
         assert!(!tdir.join("p10000.txt").exists());
         assert!(!tdir.join("extraction.toml").exists());
+    }
+
+    #[test]
+    #[cfg(unix)]
+    fn a_stand_in_pdftotext_reports_a_differing_version() {
+        let tmp = corpus_with("S-0001-v1", "pdf", b"%PDF-1.4 synthetic\n");
+        let script = "#!/bin/sh\n\
+            if [ \"$1\" = \"-v\" ]; then\n\
+              printf 'pdftotext version 9.9.9\\n' >&2\n\
+              exit 0\n\
+            fi\n\
+            printf 'Synthetic page one text, long enough that no page is thin.\\f'\n\
+            printf 'Synthetic page two text, long enough that no page is thin.\\f'\n";
+        let program = stand_in_program(tmp.path(), script);
+
+        let config_dir = tmp.path().join(".config");
+        std::fs::create_dir_all(&config_dir).expect("create .config");
+        std::fs::write(
+            config_dir.join("tools.toml"),
+            b"[poppler]\nversion = \"0.0.1\"\n",
+        )
+        .expect("write tools.toml");
+
+        let s = Settings {
+            pdf: PdftotextLayout::with_program(program.to_str().expect("utf-8 path")),
+            pin: crate::tools::poppler_pin(tmp.path()).ok(),
+        };
+        let outcome = run(tmp.path(), &["S-0001-v1"], &s);
+
+        assert_eq!(outcome.exit, 0);
+        let record = read_record(tmp.path(), "S-0001-v1");
+        assert_eq!(record.tool, "pdftotext");
+        assert_eq!(record.tool_version, "9.9.9");
+        assert_eq!(record.page_count, 2);
+        let warning = outcome
+            .err
+            .iter()
+            .find(|line| line.starts_with("warning:"))
+            .expect("warning line in err");
+        assert!(warning.contains("9.9.9"));
+        assert!(warning.contains("0.0.1"));
+    }
+
+    #[test]
+    #[cfg(unix)]
+    fn a_stand_in_pdftotext_over_the_page_cap_is_refused() {
+        let tmp = corpus_with("S-0001-v1", "pdf", b"%PDF-1.4 synthetic\n");
+        let script = "#!/bin/sh\n\
+            if [ \"$1\" = \"-v\" ]; then\n\
+              printf 'pdftotext version 9.9.9\\n' >&2\n\
+              exit 0\n\
+            fi\n\
+            i=0\n\
+            while [ \"$i\" -lt 10000 ]; do\n\
+              printf 'x\\f'\n\
+              i=$((i + 1))\n\
+            done\n";
+        let program = stand_in_program(tmp.path(), script);
+
+        let s = Settings {
+            pdf: PdftotextLayout::with_program(program.to_str().expect("utf-8 path")),
+            pin: None,
+        };
+        let outcome = run(tmp.path(), &["S-0001-v1"], &s);
+
+        assert_eq!(outcome.exit, 1);
+        assert!(!text_dir(tmp.path(), "S-0001-v1").exists());
+        assert!(outcome.err.iter().any(|line| line.contains("S-0001-v1")
+            && line.contains("10000")
+            && line.contains("9999-page limit")));
+        assert!(!outcome.err.iter().any(|line| line.starts_with("warning:")));
     }
 
     #[test]

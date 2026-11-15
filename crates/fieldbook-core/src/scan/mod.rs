@@ -13,6 +13,7 @@ use std::ops::Range;
 pub mod allow;
 pub mod claim_language;
 pub mod formula;
+pub mod handling;
 pub mod identity;
 pub mod marking;
 

@@ -4,6 +4,8 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: `cargo xtask extract` proposes a locator only for a label that looks like a section number, so a line that opens with `Section` or `§` and continues in prose proposes nothing.
+- Changed: an extraction of more than 9,999 pages is refused with one message for every extractor, and supplied text that holds a non-public `handling` line is refused before any page is written.
 - Fixed: a backup always holds the journal, so every snapshot verifies; an original takes a source's labels only by its version id.
 - Added: restore and restore --drill.
 - Added: site search finds glossary terms by their labels and aliases.
