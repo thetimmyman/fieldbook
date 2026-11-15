@@ -4968,6 +4968,58 @@ fn backup_refuses_registers_when_corpus_toml_does_not_load() {
 }
 
 #[test]
+fn backup_with_a_registers_only_target_verifies() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"corpus/registers\"]\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let v_outcome = run_verify(&fix.world, &verify_args);
+    assert_eq!(
+        v_outcome.code, 0,
+        "a snapshot this command wrote must verify: {}",
+        v_outcome.stderr
+    );
+    assert!(v_outcome.stdout.contains("snapshot 1 verified"));
+
+    // The snapshot holds the audit files whatever `include` says, so it can be verified.
+    let snap_audit = fix
+        .target_path()
+        .join("fieldbook-backup-0001/data/state/audit");
+    assert!(
+        snap_audit.join("journal.jsonl").is_file(),
+        "a registers-only snapshot must hold the audit journal"
+    );
+    assert!(
+        fix.target_path()
+            .join("fieldbook-backup-0001/data/corpus/registers/sources.csv")
+            .is_file(),
+        "the snapshot must hold the registers it includes"
+    );
+}
+
+#[test]
 fn backup_refuses_a_claims_only_target_when_sources_row_is_np() {
     let fix = TestFixture::new();
     let eff = floor_a_effective();
@@ -5610,6 +5662,123 @@ fn a_symbolic_link_is_never_read_through() {
         }
     }
     walk_check_no_canary(fix.target_path(), canary_str);
+}
+
+/// Writes `file_name` under `corpus/sources/public/` and returns the labels `classify_file`
+/// gives it.
+fn classify_an_original(fix: &TestFixture, file_name: &str) -> LabelSet {
+    let original = fix
+        .tree_root()
+        .join("corpus/sources/public")
+        .join(file_name);
+    std::fs::write(&original, b"synthetic original content\n").expect("write original");
+
+    let (model, _) = fieldbook_core::check::load(
+        &fieldbook_core::check::Host::new(
+            fieldbook::io::read_tree(fix.tree_root()).expect("read tree"),
+            fix.world.today(),
+        ),
+        &fieldbook_core::check::Options::new(false),
+    );
+    let rel = format!("corpus/sources/public/{file_name}");
+    let bytes =
+        fieldbook::io::backup_classify::read_file_content(&fix.world, &rel).expect("read original");
+    fieldbook::io::backup_classify::classify_file(
+        &fix.world,
+        Some(&model),
+        &floor_a_effective(),
+        &rel,
+        &bytes,
+    )
+    .labels
+}
+
+/// Adds the synthetic `np-0007` source row (`S-0004`, version 1), then classifies `file_name`.
+fn labels_of_an_original_with_np(fix: &TestFixture, file_name: &str) -> LabelSet {
+    append_np_source_row(fix.tree_root(), "V2");
+    classify_an_original(fix, file_name)
+}
+
+/// Backs up the originals alone to a floor B target that is company storage: a file that still
+/// carries the source's not-in-table label must stay refused there.
+fn assert_a_floor_b_company_storage_backup_refuses_the_original(fix: &TestFixture) {
+    let settings_path = fix.state_dir().join("settings.toml");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"corpus/sources/public\"]\ncompany_storage = true\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(&settings_path, settings_text).expect("write settings");
+
+    let eff_floor_b =
+        EffectivePolicy::new(&PolicyState::Floor(FloorKind::B), &OwnerSettings::unset());
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff_floor_b, &options);
+    assert_eq!(
+        outcome.code, 2,
+        "a floor B company-storage backup must still refuse the source's label: {}",
+        outcome.stderr
+    );
+    assert!(outcome.stderr.contains("FB0901"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn original_by_version_id_takes_the_sources_labels() {
+    let fix = TestFixture::new();
+    let labels = classify_an_original(&fix, "S-0001-v1.pdf");
+    assert_eq!(labels, LabelSet::public());
+}
+
+#[test]
+fn original_by_bare_source_id_is_unlabelled() {
+    let fix = TestFixture::new();
+    let labels = labels_of_an_original_with_np(&fix, "S-0004.pdf");
+    let np = fieldbook_core::audit::LabelId::parse("np-0007").expect("parse np-0007");
+    assert!(
+        labels.contains(&fieldbook_core::labels::UNLABELLED),
+        "a bare source id must carry unlabelled: {labels:?}"
+    );
+    assert!(
+        labels.contains(&np),
+        "a bare source id keeps the source's labels: {labels:?}"
+    );
+    assert_a_floor_b_company_storage_backup_refuses_the_original(&fix);
+}
+
+#[test]
+fn original_with_a_longer_name_is_unlabelled() {
+    let fix = TestFixture::new();
+    let labels = labels_of_an_original_with_np(&fix, "S-0004-v1.draft.txt");
+    let np = fieldbook_core::audit::LabelId::parse("np-0007").expect("parse np-0007");
+    assert!(
+        labels.contains(&fieldbook_core::labels::UNLABELLED),
+        "a longer name must carry unlabelled: {labels:?}"
+    );
+    assert!(
+        labels.contains(&np),
+        "a longer name keeps the source's labels: {labels:?}"
+    );
+    assert_a_floor_b_company_storage_backup_refuses_the_original(&fix);
+}
+
+#[test]
+fn original_without_an_extension_is_unlabelled() {
+    let fix = TestFixture::new();
+    let labels = labels_of_an_original_with_np(&fix, "S-0004-v1");
+    let np = fieldbook_core::audit::LabelId::parse("np-0007").expect("parse np-0007");
+    assert!(
+        labels.contains(&fieldbook_core::labels::UNLABELLED),
+        "a name without an extension must carry unlabelled: {labels:?}"
+    );
+    assert!(
+        labels.contains(&np),
+        "a name without an extension keeps the source's labels: {labels:?}"
+    );
+    assert_a_floor_b_company_storage_backup_refuses_the_original(&fix);
 }
 
 #[test]

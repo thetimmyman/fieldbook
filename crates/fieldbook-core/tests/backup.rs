@@ -537,6 +537,47 @@ fn plan_backup_excludes_derived_and_applies_include() {
 }
 
 #[test]
+fn plan_always_holds_the_audit_files() {
+    let listing = [
+        "corpus/pages/index.md",
+        "corpus/registers/claims.csv",
+        "corpus/registers/questions.csv",
+        "corpus/registers/sources.csv",
+        "corpus/sources/public/S-0001/doc.pdf",
+        "state/audit/journal.jsonl",
+        "state/pages/derived.md", // derived folder: excluded
+    ];
+
+    // A target that includes only the registers still holds the audit journal.
+    let registers = plan_backup(&listing, &["corpus/registers"], 3);
+    assert_eq!(registers.snapshot, 3);
+    assert_eq!(registers.roots, vec!["corpus", "state"]);
+    assert_eq!(
+        registers.files,
+        vec![
+            "corpus/registers/claims.csv",
+            "corpus/registers/questions.csv",
+            "corpus/registers/sources.csv",
+            "state/audit/journal.jsonl",
+        ]
+    );
+
+    // `include = ["audit"]` still gives the plan of
+    // `plan_backup_excludes_derived_and_applies_include`.
+    let audit = plan_backup(&listing, &["audit"], 4);
+    assert_eq!(audit.snapshot, 4);
+    assert_eq!(audit.roots, vec!["state"]);
+    assert_eq!(audit.files, vec!["state/audit/journal.jsonl"]);
+
+    let unique: std::collections::BTreeSet<&String> = registers.files.iter().collect();
+    assert_eq!(
+        unique.len(),
+        registers.files.len(),
+        "no file may appear twice"
+    );
+}
+
+#[test]
 fn corpus_entries_extracts_pairs() {
     let sums = "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad  data/corpus/README.md\ncb8379ac2098aa165029e3938a51da0bcecfc008fd6795f401178647f96c5b34  data/state/settings.toml\n";
     let entries = corpus_entries(sums);

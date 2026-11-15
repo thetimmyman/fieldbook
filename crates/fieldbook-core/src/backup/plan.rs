@@ -79,6 +79,11 @@ fn matches_include<I: AsRef<str>>(path: &str, include: &[I]) -> bool {
     false
 }
 
+/// True for the audit journal folder, which a snapshot always holds whatever `include` says.
+fn is_audit_journal_path(path: &str) -> bool {
+    path.starts_with("state/audit/")
+}
+
 /// Plans the files to copy for a snapshot in byte order of path, excluding derived folders.
 #[must_use]
 pub fn plan_backup<S: AsRef<str>, I: AsRef<str>>(
@@ -97,7 +102,7 @@ pub fn plan_backup<S: AsRef<str>, I: AsRef<str>>(
         if is_derived(path) {
             continue;
         }
-        if !matches_include(path, include) {
+        if !matches_include(path, include) && !is_audit_journal_path(path) {
             continue;
         }
 
