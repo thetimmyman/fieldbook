@@ -256,8 +256,8 @@ pub fn recognise_locators(pages: &[PageText]) -> BTreeMap<String, LocatorPages> 
 /// Whether `label` looks like a section identifier rather than a word of prose.
 ///
 /// A digit anywhere is enough (`3`, `4.2`, `15.404-1`). Without one the label must be
-/// a parenthesised sub-item (`(a)`, `(e)(1)`), an upper-case Roman numeral (`IV`) or a
-/// single upper-case letter (`A`). Every other word is prose: `Section is …` proposes
+/// a parenthesised sub-item (`(a)`, `(iii)`, `(e)(1)`), an upper-case Roman numeral (`IV`)
+/// or a single upper-case letter (`A`). Every other word is prose: `Section is …` proposes
 /// nothing, and a heading word such as `Agencies` or `Affected` is not a locator.
 fn looks_like_section_label(label: &str) -> bool {
     if label.chars().any(|c| c.is_ascii_digit()) {
@@ -273,8 +273,10 @@ fn looks_like_section_label(label: &str) -> bool {
     chars.next().is_some_and(|c| c.is_ascii_uppercase()) && chars.next().is_none()
 }
 
-/// Whether `label` is one or more parenthesised sub-items, each one or two characters
-/// long: `(a)`, `(ii)`, `(A)`, `(e)(1)`. A parenthesised word such as `(Agencies)` is not.
+/// Whether `label` is one or more parenthesised sub-items: one or two letters or digits
+/// (`(a)`, `(ii)`, `(A)`, `(e)(1)`) or a single-case Roman numeral built from `I`, `V`, `X`
+/// and `L` (`(iii)`, `(viii)`, `(a)(viii)`). A parenthesised word such as `(Agencies)` or
+/// `(mix)` is not.
 fn is_parenthesised_sub_item(label: &str) -> bool {
     let bytes = label.as_bytes();
     let mut index = 0;
@@ -285,18 +287,59 @@ fn is_parenthesised_sub_item(label: &str) -> bool {
         }
         index = index.saturating_add(1);
         let start = index;
-        while bytes.get(index).is_some_and(|b| b.is_ascii_alphanumeric())
-            && index.saturating_sub(start) < 2
-        {
+        while bytes.get(index).is_some_and(|b| b.is_ascii_alphanumeric()) {
             index = index.saturating_add(1);
         }
-        if index == start || bytes.get(index) != Some(&b')') {
+        let Some(inner) = label.get(start..index) else {
+            return false;
+        };
+        if inner.is_empty()
+            || bytes.get(index) != Some(&b')')
+            || (inner.len() > 2 && !is_sub_item_roman(inner))
+        {
             return false;
         }
         index = index.saturating_add(1);
         groups = groups.saturating_add(1);
     }
     groups > 0
+}
+
+/// Tens and ones prefixes for [`is_sub_item_roman`], using `I`, `V`, `X` and `L` only.
+const SUB_ITEM_TENS: [&str; 8] = ["LXXX", "LXX", "LX", "L", "XL", "XXX", "XX", "X"];
+const SUB_ITEM_ONES: [&str; 9] = ["IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I"];
+
+/// Whether `item` is a single-case Roman numeral built from `I`, `V`, `X` and `L`:
+/// `(iii)`, `(viii)`, `(xxiv)`, `(VIII)`. Sub-items never use `C`, `D` or `M`, so words
+/// made of those letters (`civil`, `vivid`, `did`, `mix`) are refused.
+fn is_sub_item_roman(item: &str) -> bool {
+    let single_case = item.bytes().all(|b| b.is_ascii_lowercase())
+        || item.bytes().all(|b| b.is_ascii_uppercase());
+    if !single_case || item.is_empty() {
+        return false;
+    }
+    let mut rest = item;
+    for tens in SUB_ITEM_TENS {
+        if let Some(after) = rest
+            .get(..tens.len())
+            .filter(|p| p.eq_ignore_ascii_case(tens))
+            .and_then(|_| rest.get(tens.len()..))
+        {
+            rest = after;
+            break;
+        }
+    }
+    for ones in SUB_ITEM_ONES {
+        if let Some(after) = rest
+            .get(..ones.len())
+            .filter(|p| p.eq_ignore_ascii_case(ones))
+            .and_then(|_| rest.get(ones.len()..))
+        {
+            rest = after;
+            break;
+        }
+    }
+    rest.is_empty()
 }
 
 /// Roman numeral symbols, in descending value, for [`is_roman_numeral`].
@@ -1169,7 +1212,24 @@ mod tests {
     #[test]
     fn a_label_must_look_like_a_section_number() {
         for good in [
-            "3", "4.2", "15.404-1", "(a)", "(ii)", "(A)", "(e)(1)", "IV", "XII", "A", "B2",
+            "3",
+            "4.2",
+            "15.404-1",
+            "(a)",
+            "(ii)",
+            "(iii)",
+            "(viii)",
+            "(xii)",
+            "(xxiv)",
+            "(A)",
+            "(III)",
+            "(VIII)",
+            "(e)(1)",
+            "(a)(viii)",
+            "IV",
+            "XII",
+            "A",
+            "B2",
         ] {
             assert!(looks_like_section_label(good), "{good} is a section label");
         }
@@ -1184,11 +1244,59 @@ mod tests {
             "Affected",
             "IVX",
             "(Agencies)",
+            "(civil)",
+            "(vivid)",
+            "(did)",
+            "(mix)",
+            "(Mix)",
+            "(iiii)",
             "( )",
             "Section",
         ] {
             assert!(!looks_like_section_label(bad), "{bad} is prose");
         }
+    }
+
+    #[test]
+    fn recognise_locators_keeps_longer_roman_sub_items_and_rejects_parenthesised_words() {
+        let pages = vec![PageText {
+            number: 4,
+            text: concat!(
+                "section (iii) Synthetic sub-item\n",
+                "section (a)(viii) Nested sub-item\n",
+                "section (xxiv): Twenty-fourth item\n",
+                "section (VIII) Upper-case Roman sub-item\n",
+                "section (Agencies) Affected\n",
+                "section (civil) penalty\n",
+                "section (vivid) example\n",
+                "section (did) apply\n",
+                "section (mix) of rates\n",
+                "section (Mix) of rates\n",
+            )
+            .to_owned(),
+        }];
+        let locators = recognise_locators(&pages);
+        for label in ["(iii)", "(a)(viii)", "(xxiv)", "(VIII)"] {
+            assert_eq!(
+                locators.get(label),
+                Some(&LocatorPages { first: 4, last: 4 }),
+                "{label} must be recognised"
+            );
+        }
+        for rejected in [
+            "(Agencies)",
+            "(civil)",
+            "(vivid)",
+            "(did)",
+            "(mix)",
+            "(Mix)",
+        ] {
+            assert!(
+                !locators.contains_key(rejected),
+                "{rejected} must be rejected"
+            );
+        }
+        assert_eq!(locators.len(), 4);
     }
 
     #[test]
