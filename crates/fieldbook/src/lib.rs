@@ -16,6 +16,7 @@ pub mod backup;
 pub mod build;
 pub mod cli;
 pub mod ctx;
+mod fmt;
 pub mod io;
 pub mod new;
 pub mod pages;
@@ -57,6 +58,40 @@ pub trait World {
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError>;
 
     /// Atomically write `bytes` to `path` under an active [`Audited`] token.
+    ///
+    /// # Examples
+    ///
+    /// Supplying an [`Audited`] token compiles:
+    ///
+    /// ```no_run
+    /// use std::path::Path;
+    /// use fieldbook::{Audited, World, WorldError};
+    /// use fieldbook_core::audit::Sha256;
+    ///
+    /// fn write_with_token(
+    ///     world: &dyn World,
+    ///     audited: &Audited,
+    ///     path: &Path,
+    /// ) -> Result<Sha256, WorldError> {
+    ///     world.write_file(audited, path, b"normalized\n")
+    /// }
+    /// ```
+    ///
+    /// `fmt_refuses_without_a_token`: calling `write_file` without `&Audited` is rejected by the
+    /// type checker:
+    ///
+    /// ```compile_fail
+    /// use std::path::Path;
+    /// use fieldbook::{World, WorldError};
+    /// use fieldbook_core::audit::Sha256;
+    ///
+    /// fn fmt_refuses_without_a_token(
+    ///     world: &dyn World,
+    ///     path: &Path,
+    /// ) -> Result<Sha256, WorldError> {
+    ///     world.write_file(path, b"normalized\n")
+    /// }
+    /// ```
     fn write_file(
         &self,
         audited: &Audited,
@@ -255,6 +290,18 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 run_check(&check_args, &overridden)
             } else {
                 run_check(&check_args, world)
+            }
+        }
+        Commands::Fmt(fmt_args) => {
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                fmt::run(&fmt_args, &overridden)
+            } else {
+                fmt::run(&fmt_args, world)
             }
         }
         Commands::Add(add_args) => {

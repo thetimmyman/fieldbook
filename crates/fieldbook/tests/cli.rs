@@ -20,7 +20,6 @@ const FIXTURE_TODAY: &str = include_str!("../../../tests/fixtures/corpus-mini/TO
 const ADR_0001: &str = include_str!("../../../docs/decisions/0001-foundation.md");
 
 const NOT_BUILT: &[&str] = &[
-    "fmt",
     "new note",
     "audit export",
     "context",

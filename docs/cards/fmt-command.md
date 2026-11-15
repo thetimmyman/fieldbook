@@ -17,7 +17,7 @@
 
 ## Scope
 
-- Files: `crates/fieldbook/src/{cli.rs,fmt.rs}`, `crates/fieldbook/tests/fmt.rs`, `crates/fieldbook/tests/chips.rs`.
+- Files: `crates/fieldbook/src/{cli.rs,fmt.rs}`, `crates/fieldbook/tests/fmt.rs`, `crates/fieldbook/tests/chips.rs`, `crates/fieldbook-core/src/schema/{mod.rs,page.rs}`.
 - Registration lines: `tests/support/chip_cases.rs` (the `fieldbook fmt` case, this card's entry only); the quick start line of `README.md` (the `fmt` chip); `crates/fieldbook/tests/cli.rs` (remove `fmt` from `NOT_BUILT`, this card's verb only); `crates/fieldbook/src/lib.rs` (the `mod fmt;` line and the dispatch arm, this card's entries only).; `crates/fieldbook/src/lib.rs` (public World::write_file paired token doctests only)
 - Docs to update: `README.md` (one quick start line), `CHANGELOG.md` (`- Added: the fmt command.`), `docs/reference/cli.md` (generated: run `cargo xtask docs`, never hand-edit).
 
