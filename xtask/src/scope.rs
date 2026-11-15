@@ -268,9 +268,18 @@ pub fn run(root: &Path, base: &str, head: &str) -> Result<ScopeOutcome, String> 
     changed.dedup();
 
     let undeclared = check_paths(&declared, &changed, card_file);
-    for path in undeclared {
+    if !undeclared.is_empty() {
+        for path in &undeclared {
+            messages.push(format!(
+                "scope: {path} is not in the Files or Registration lines of {card_file}"
+            ));
+        }
+        let short = deleting_commit.get(..7).unwrap_or(deleting_commit);
         messages.push(format!(
-            "scope: {path} is not in the Files or Registration lines of {card_file}"
+            "scope: the card is read at the parent of the newest commit that deletes it \
+             (commit {short}, card {slug}); to declare a path a later commit touches, restore the card \
+             (`git show {short}^:{card_file} > {card_file}`), list the path under Files: or \
+             Registration lines:, commit it, then delete the card again in a later commit"
         ));
     }
 
@@ -514,6 +523,113 @@ mod tests {
         match outcome2 {
             ScopeOutcome::Fail(messages) => {
                 assert!(messages.iter().any(|m| m.contains("src/b.rs")));
+            }
+            other => panic!("expected Fail, got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn later_fix_needs_the_card_restored() {
+        let repo = TestRepo::new();
+        repo.write(
+            "docs/cards/demo.md",
+            "# demo\n\n## Scope\n\n- Files: `src/a.rs`.\n",
+        );
+        repo.write("src/a.rs", "fn a() {}\n");
+        repo.write("src/b.rs", "fn b() {}\n");
+        let base = repo.commit("base");
+
+        repo.remove("docs/cards/demo.md");
+        let deleting = repo.commit("delete card");
+
+        // A later review round touches a path the card never listed.
+        repo.write("src/b.rs", "fn b_fixed() {}\n");
+        let head = repo.commit("fix b after the card was deleted");
+
+        let outcome = run(repo.path(), &base, &head).expect("run");
+        match outcome {
+            ScopeOutcome::Fail(messages) => {
+                assert!(
+                    messages.iter().any(|m| m.contains("src/b.rs")
+                        && m.contains("is not in the Files or Registration lines")),
+                    "expected the undeclared path in: {messages:?}"
+                );
+                let short = &deleting[..7];
+                assert!(
+                    messages
+                        .iter()
+                        .any(|m| m.contains(short) && m.contains("restore")),
+                    "expected the deleting commit {short} and the way through in: {messages:?}"
+                );
+            }
+            other => panic!("expected Fail, got {other:?}"),
+        }
+        assert!(!command(repo.path(), &base, &head).expect("command"));
+    }
+
+    #[test]
+    fn restore_declare_delete_passes() {
+        let repo = TestRepo::new();
+        repo.write(
+            "docs/cards/demo.md",
+            "# demo\n\n## Scope\n\n- Files: `src/a.rs`.\n",
+        );
+        repo.write("src/a.rs", "fn a() {}\n");
+        repo.write("src/b.rs", "fn b() {}\n");
+        let base = repo.commit("base");
+
+        repo.remove("docs/cards/demo.md");
+        let _deleting = repo.commit("delete card");
+
+        repo.write("src/b.rs", "fn b_fixed() {}\n");
+        let _fix = repo.commit("fix b after the card was deleted");
+
+        // The way through: restore the card with the path listed, then delete it again.
+        repo.write(
+            "docs/cards/demo.md",
+            "# demo\n\n## Scope\n\n- Files: `src/a.rs`, `src/b.rs`.\n",
+        );
+        let _restore = repo.commit("restore the card with the path listed");
+
+        repo.remove("docs/cards/demo.md");
+        let head = repo.commit("delete the card again");
+
+        let outcome = run(repo.path(), &base, &head).expect("run");
+        assert_eq!(
+            outcome,
+            ScopeOutcome::Ok {
+                slug: "demo".to_owned(),
+                paths: 2,
+            }
+        );
+        assert!(command(repo.path(), &base, &head).expect("command"));
+    }
+
+    #[test]
+    fn squashed_range_reads_the_original_card() {
+        // A squashed pull request lands as one commit, so the path change and the card
+        // deletion share a commit whose parent holds the original card, without the path.
+        // CI therefore runs `scope` on pull requests, whose intermediate commits it can read.
+        let repo = TestRepo::new();
+        repo.write(
+            "docs/cards/demo.md",
+            "# demo\n\n## Scope\n\n- Files: `src/a.rs`.\n",
+        );
+        repo.write("src/a.rs", "fn a() {}\n");
+        repo.write("src/b.rs", "fn b() {}\n");
+        let base = repo.commit("base");
+
+        repo.write("src/b.rs", "fn b_fixed() {}\n");
+        repo.remove("docs/cards/demo.md");
+        let head = repo.commit("squashed: fix b and delete the card");
+
+        let outcome = run(repo.path(), &base, &head).expect("run");
+        match outcome {
+            ScopeOutcome::Fail(messages) => {
+                assert!(
+                    messages.iter().any(|m| m.contains("src/b.rs")),
+                    "expected the undeclared path in: {messages:?}"
+                );
             }
             other => panic!("expected Fail, got {other:?}"),
         }
