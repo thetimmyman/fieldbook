@@ -306,13 +306,19 @@ fn fmt_is_idempotent_and_journaled() {
         normalized_expected
     );
 
-    // Second run changes nothing and appends zero events.
+    // Second run changes nothing and appends zero bytes to the journal, `journal.open` included.
+    let journal_before = raw_journal_bytes(tmp.path());
     let second = run(&world, &["fmt"]);
     assert_eq!(second.code, 0, "second stderr: {}", second.stderr);
     assert!(
         second.stdout.starts_with("fmt: ") && second.stdout.ends_with(" files in normal form\n"),
         "unexpected second stdout: {}",
         second.stdout
+    );
+    assert_eq!(
+        raw_journal_bytes(tmp.path()),
+        journal_before,
+        "a no-op `fmt` must append zero journal bytes"
     );
     assert_eq!(events_of(&world, "write.begin").len(), 1);
     assert_eq!(events_of(&world, "write.end").len(), 1);
@@ -755,8 +761,16 @@ fn fmt_recovers_after_last_write_before_journal_end() {
     std::fs::write(&glossary_path, orig_glossary.as_bytes()).expect("place after bytes");
 
     // Keep FailOnName armed on glossary.csv: recovery must NOT rewrite it!
+    // The tree is already in normal form, so this run writes no target; the pending intent alone
+    // must open the journal and close the interrupted write.
+    let journal_before_resume = raw_journal_bytes(root);
     let resumed = run(&faulty, &["fmt"]);
     assert_eq!(resumed.code, 0, "resume stderr: {}", resumed.stderr);
+    assert_ne!(
+        raw_journal_bytes(root),
+        journal_before_resume,
+        "recovering a pending intent must still write the closing journal events"
+    );
     assert_eq!(resumed.stdout, format!("formatted {REG_GLOSSARY}\n"));
     assert!(!root.join(".fieldbook/pending.toml").exists());
     assert_eq!(events_of(&faulty, "write.begin").len(), 1);

@@ -218,6 +218,24 @@ fn try_recover_pending(
     }
 }
 
+/// Outcome of a run that rewrites no target: normal form, or the accumulated faults when a target
+/// cannot be normalized. Neither case writes or appends.
+fn no_change_outcome(eval: &EvaluatedTree) -> Outcome {
+    if eval.errors.is_empty() {
+        Outcome {
+            stdout: format!("fmt: {} files in normal form\n", eval.total),
+            stderr: String::new(),
+            code: EXIT_OK,
+        }
+    } else {
+        Outcome {
+            stdout: String::new(),
+            stderr: eval.errors.clone(),
+            code: EXIT_FINDINGS,
+        }
+    }
+}
+
 fn formatted_lines<'a>(paths: impl Iterator<Item = &'a str>) -> String {
     let mut out = String::new();
     for path in paths {
@@ -265,13 +283,22 @@ pub(crate) fn run(args: &FmtArgs, world: &dyn World) -> Outcome {
         Ok(lease) => lease,
         Err(err) => return io_err(err),
     };
-    let mut journal = match crate::io::state::open(world, world.state_dir(), Via::Cli) {
-        Ok(journal) => journal,
-        Err(err) => return journal_err(&err),
-    };
     let tree = match world.read_tree_under(&lease) {
         Ok(tree) => tree,
         Err(err) => return io_err(err),
+    };
+    let eval = evaluate_tree(&tree);
+
+    // A run that writes nothing must also append nothing, and opening the journal appends
+    // `journal.open`. The lease already carries the generation state, so open the journal only
+    // when this run can write: a pending write to finish, or ordinary changes to record.
+    if !lease.is_pending() && eval.changed.is_empty() {
+        return no_change_outcome(&eval);
+    }
+
+    let mut journal = match crate::io::state::open(world, world.state_dir(), Via::Cli) {
+        Ok(journal) => journal,
+        Err(err) => return journal_err(&err),
     };
 
     // Recover matching pending `fmt` intent before collecting ordinary changes or returning no-change.
@@ -287,20 +314,8 @@ pub(crate) fn run(args: &FmtArgs, world: &dyn World) -> Outcome {
         Err(err) => return journal_err(&err),
     }
 
-    let eval = evaluate_tree(&tree);
     if eval.changed.is_empty() {
-        if eval.errors.is_empty() {
-            return Outcome {
-                stdout: format!("fmt: {} files in normal form\n", eval.total),
-                stderr: String::new(),
-                code: EXIT_OK,
-            };
-        }
-        return Outcome {
-            stdout: String::new(),
-            stderr: eval.errors,
-            code: EXIT_FINDINGS,
-        };
+        return no_change_outcome(&eval);
     }
 
     let files: Vec<WriteFile> = eval
