@@ -202,10 +202,8 @@ fn read_add_report(state_dir: &Path) -> ReportSource<AddReport> {
     match std::fs::read_to_string(&path) {
         Ok(text) => match crate::report::parse_saved_add_report(&text) {
             Ok(report) => ReportSource::Ready(report),
-            Err(message) => ReportSource::Unavailable {
-                diagnostic: format!(
-                    "reports/last-add.json is not a readable Import report: {message}"
-                ),
+            Err(_) => ReportSource::Unavailable {
+                diagnostic: "Import report is not readable".to_owned(),
             },
         },
         Err(err) if err.kind() == std::io::ErrorKind::NotFound => ReportSource::Missing,

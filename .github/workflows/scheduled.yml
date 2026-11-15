@@ -211,9 +211,10 @@ jobs:
           retention-days: 14
 
   # Prints the stale items of the Corpus in the job summary, dated by the last commit so the
-  # figure is reproducible. The step is advisory: it never fails the workflow and changes no
+  # figure is reproducible. The job is advisory: it never fails the workflow and changes no
   # permission. The runner labels are the repository's CI-01 labels, which this workflow requires.
   freshness:
+    continue-on-error: true
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: [self-hosted, Linux, X64, fieldbook]
     timeout-minutes: 10
@@ -231,7 +232,6 @@ jobs:
           save-if: "false"
       - name: Report the stale items
         shell: bash
-        continue-on-error: true
         run: |
           status_rc=0
           cargo run --locked -p fieldbook -- status --today "$(git log -1 --format=%cs)" > freshness-report.txt || status_rc=$?

@@ -334,7 +334,7 @@ fn desk_sources_keep_missing_unavailable_and_failed_distinct() {
     let page = std::fs::read_to_string(state.join("pages/import.html")).expect("import page");
     assert!(page.contains("Import report unavailable"));
     assert!(
-        page.contains("empty `labels`"),
+        page.contains("Import report is not readable"),
         "the diagnostic is shown: {page}"
     );
 
@@ -511,6 +511,26 @@ fn the_desk_pages_match_their_goldens() {
 }
 
 #[test]
+fn malformed_import_report_does_not_disclose_filename() {
+    let desk = desk_fixture(false);
+    let path = desk.state.join("reports/last-add.json");
+    let report = add_report("[\"public\"]")
+        .replace(
+            "long incoming file name for the desk page canary.txt",
+            "restricted-canary.txt",
+        )
+        .replace(
+            "\"inputs\":[{\"store\":\"corpus\",\"id\":\"S-0009-v1\"}]",
+            "\"inputs\":[]",
+        );
+    std::fs::write(path, report).expect("write malformed report");
+    assert_eq!(write_pages(&desk.world).code, 3);
+    let page = desk.page("import.html");
+    assert!(page.contains("Import report unavailable"));
+    assert!(!page.contains("restricted-canary.txt"));
+}
+
+#[test]
 fn missing_import_provenance_never_renders_content() {
     let desk = desk_fixture(false);
     let path = desk.state.join("reports/last-add.json");
@@ -578,6 +598,59 @@ fn reclassified_import_source_refuses_before_replacing_page() {
 }
 
 #[test]
+fn ledger_entry_does_not_prove_missing_input_provenance() {
+    let desk = desk_fixture(false);
+    let fixture = include_str!("../../../tests/fixtures/policy/policy.toml");
+    let policy = fieldbook_core::policy::Policy::parse(fixture, None).expect("policy");
+    desk.world.set_effective_policy(EffectivePolicy::new(
+        &fieldbook_core::policy::PolicyState::Loaded(policy),
+        &fieldbook_core::policy::OwnerSettings::unset(),
+    ));
+    let overlay = desk.root.path().join("overlay");
+    std::fs::create_dir_all(&overlay).expect("create overlay");
+    std::fs::write(
+        overlay.join("labels.csv"),
+        "seq,item_id,kind,labels,origin\n1,S-0100-v1,add,bid-0003,intake\n",
+    )
+    .expect("write ledger");
+    let report = add_report("[\"bid-0003\"]")
+        .replace("\"store\":\"corpus\"", "\"store\":\"overlay\"")
+        .replace("S-0009-v1", "S-0100-v1");
+    std::fs::write(desk.state.join("reports/last-add.json"), report).expect("write report");
+    assert_eq!(write_pages(&desk.world).code, 3);
+    assert!(!desk.page("import.html").contains("long incoming file name"));
+}
+
+#[test]
+fn ledger_entry_cannot_override_unresolved_restrictive_item() {
+    let desk = desk_fixture(false);
+    let fixture = include_str!("../../../tests/fixtures/policy/policy.toml");
+    let policy = fieldbook_core::policy::Policy::parse(fixture, None).expect("policy");
+    desk.world.set_effective_policy(EffectivePolicy::new(
+        &fieldbook_core::policy::PolicyState::Loaded(policy),
+        &fieldbook_core::policy::OwnerSettings::unset(),
+    ));
+    let overlay = desk.root.path().join("overlay");
+    std::fs::create_dir_all(&overlay).expect("create overlay");
+    std::fs::write(
+        overlay.join("labels.csv"),
+        "seq,item_id,kind,labels,origin\n1,S-0100-v1,add,bid-0003,intake\n",
+    )
+    .expect("write ledger");
+    std::fs::write(
+        overlay.join("item.toml"),
+        "id = 'S-0100-v1'\nhandling = ['np-0007']\n",
+    )
+    .expect("write item");
+    let report = add_report("[\"bid-0003\"]")
+        .replace("\"store\":\"corpus\"", "\"store\":\"overlay\"")
+        .replace("S-0009-v1", "S-0100-v1");
+    std::fs::write(desk.state.join("reports/last-add.json"), report).expect("write report");
+    assert_eq!(write_pages(&desk.world).code, 3);
+    assert!(!desk.page("import.html").contains("long incoming file name"));
+}
+
+#[test]
 fn import_ledger_reclassification_and_broken_ledger_are_enforced() {
     use fieldbook_core::policy::{OwnerSettings, Policy, PolicyState};
 
@@ -594,38 +667,35 @@ fn import_ledger_reclassification_and_broken_ledger_are_enforced() {
         &OwnerSettings::unset(),
     ));
 
-    let overlay_dir = desk.root.path().join("overlay");
-    std::fs::create_dir_all(&overlay_dir).expect("create overlay dir");
+    let ledger_dir = desk.root.path().join("corpus");
+    std::fs::create_dir_all(&ledger_dir).expect("create corpus dir");
     std::fs::write(
-        overlay_dir.join("labels.csv"),
-        "seq,item_id,kind,labels,origin\n1,S-0100-v1,add,bid-0003,intake\n",
+        ledger_dir.join("labels.csv"),
+        "seq,item_id,kind,labels,origin\n1,S-0009-v1,add,bid-0003,intake\n",
     )
-    .expect("write initial overlay ledger");
+    .expect("write initial corpus ledger");
 
     let report_path = desk.state.join("reports/last-add.json");
-    let overlay_report = add_report("[\"bid-0003\"]")
-        .replace("\"store\":\"corpus\"", "\"store\":\"overlay\"")
-        .replace("S-0009-v1", "S-0100-v1")
-        .replace(
-            "long incoming file name for the desk page canary.txt",
-            "permitted-ledger-canary.txt",
-        );
-    std::fs::write(&report_path, &overlay_report).expect("write overlay import report");
+    let corpus_report = add_report("[\"bid-0003\"]").replace(
+        "long incoming file name for the desk page canary.txt",
+        "permitted-ledger-canary.txt",
+    );
+    std::fs::write(&report_path, &corpus_report).expect("write corpus import report");
 
     let initial = write_pages(&desk.world);
     assert_eq!(initial.code, 0, "stderr: {}", initial.stderr);
     let before = desk.page("import.html");
     assert!(before.contains("permitted-ledger-canary.txt"));
 
-    // Append `np-0007` to `overlay/labels.csv` without modifying `last-add.json` labels.
+    // Append `np-0007` to `corpus/labels.csv` without modifying `last-add.json` labels.
     std::fs::write(
-        overlay_dir.join("labels.csv"),
-        "seq,item_id,kind,labels,origin\n1,S-0100-v1,add,bid-0003,intake\n2,S-0100-v1,add,np-0007,person\n",
+        ledger_dir.join("labels.csv"),
+        "seq,item_id,kind,labels,origin\n1,S-0009-v1,add,bid-0003,intake\n2,S-0009-v1,add,np-0007,person\n",
     )
     .expect("append np-0007 ledger entry");
     std::fs::write(
         &report_path,
-        overlay_report.replace("permitted-ledger-canary.txt", "forbidden-ledger-canary.txt"),
+        corpus_report.replace("permitted-ledger-canary.txt", "forbidden-ledger-canary.txt"),
     )
     .expect("update report file name");
 
@@ -638,12 +708,12 @@ fn import_ledger_reclassification_and_broken_ledger_are_enforced() {
     );
     assert_eq!(desk.page("import.html"), before);
 
-    // Restore a clean `overlay/labels.csv`, then corrupt `state/labels.csv`: must fail closed too.
+    // Restore a clean `corpus/labels.csv`, then corrupt `state/labels.csv`: must fail closed too.
     std::fs::write(
-        overlay_dir.join("labels.csv"),
-        "seq,item_id,kind,labels,origin\n1,S-0100-v1,add,bid-0003,intake\n",
+        ledger_dir.join("labels.csv"),
+        "seq,item_id,kind,labels,origin\n1,S-0009-v1,add,bid-0003,intake\n",
     )
-    .expect("restore clean overlay ledger");
+    .expect("restore clean corpus ledger");
     std::fs::write(desk.state.join("labels.csv"), "bad header\n").expect("write corrupt ledger");
 
     let broken = write_pages(&desk.world);

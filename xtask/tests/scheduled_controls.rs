@@ -1287,8 +1287,8 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
         }
     }
 
-    // 7. no line contains continue-on-error outside the advisory freshness step, set -x or
-    // pull_request_target; the freshness step is advisory by design and carries exactly one.
+    // 7. no line contains continue-on-error outside the advisory freshness job, set -x or
+    // pull_request_target; the freshness job is advisory by design and carries exactly one.
     let freshness = job_text(&real_yml, "freshness").expect("freshness job text");
     let mut continue_on_error_outside_freshness = 0usize;
     for line in real_yml.lines() {
@@ -1311,7 +1311,7 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
             .filter(|line| line.trim() == "continue-on-error: true")
             .count(),
         1,
-        "the freshness step must be advisory"
+        "the freshness job must be advisory"
     );
 
     // 8. every tool: pin name@version equals .config/tools.toml [cargo] version
@@ -1398,6 +1398,13 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
 }
 
 fn check_freshness_job(yaml: &str) -> Result<String, String> {
+    let job = job_text(yaml, "freshness")?;
+    if !job
+        .lines()
+        .any(|line| line == "    continue-on-error: true")
+    {
+        return Err("freshness job must be advisory".to_string());
+    }
     let steps = job_steps(yaml, "freshness")?;
     let report_step = steps
         .iter()
@@ -1409,12 +1416,6 @@ fn check_freshness_job(yaml: &str) -> Result<String, String> {
 
     if !report_step.lines().any(|l| l.trim() == "shell: bash") {
         return Err("`Report the stale items` missing `shell: bash`".to_string());
-    }
-    if !report_step
-        .lines()
-        .any(|l| l.trim() == "continue-on-error: true")
-    {
-        return Err("`Report the stale items` missing `continue-on-error: true`".to_string());
     }
 
     let run_text = step_run(report_step)
@@ -1486,6 +1487,9 @@ fn freshness_job_bounds_step_summary_and_uploads_full_report() {
     );
     assert_ne!(plant_unbounded, real_yml);
     assert!(check_freshness_job(&plant_unbounded).is_err());
+
+    let plant_required = real_yml.replace("    continue-on-error: true\n", "");
+    assert!(check_freshness_job(&plant_required).is_err());
 
     let plant_no_artifact = real_yml.replace("name: freshness-report", "name: wrong-artifact");
     assert_ne!(plant_no_artifact, real_yml);

@@ -168,17 +168,7 @@ impl LabelGraph for ModelLabelGraph<'_> {
             }
             return None;
         }
-        let ledger = self.ledger(item.store);
-        if ledger.is_broken() {
-            return Some(LabelNode::new(LabelSet::unlabelled(), Vec::new()));
-        }
-        if ledger
-            .entries()
-            .iter()
-            .any(|entry| entry.item_id == item.id)
-        {
-            return Some(LabelNode::new(LabelSet::unlabelled(), Vec::new()));
-        }
+        // A ledger records labels, not proof that an item or its dependencies exist.
         None
     }
 
