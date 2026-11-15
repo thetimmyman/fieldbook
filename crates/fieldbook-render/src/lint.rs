@@ -551,6 +551,9 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
                             || raw_lower.starts_with("http"))
                         && has_scheme(raw_val)
                     {
+                        if is_allowed_source_publisher_link(page_path, tag, raw_val) {
+                            continue;
+                        }
                         diags.push(Diagnostic::new(
                             Code::Fb0604,
                             false,
@@ -623,6 +626,24 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
             .then_with(|| a.message.cmp(&b.message))
     });
     diags
+}
+
+fn is_allowed_source_publisher_link(page_path: &str, tag: &HtmlTag, href: &str) -> bool {
+    tag.name == "a"
+        && page_path
+            .strip_prefix("s/")
+            .is_some_and(|rest| !rest.contains('/') && rest.ends_with(".html"))
+        && crate::source::is_listed_publisher_url(href)
+        && has_exact_attr(&tag.attrs, "class", "ext-link")
+        && has_exact_attr(&tag.attrs, "target", "_blank")
+        && has_exact_attr(&tag.attrs, "rel", "noopener noreferrer")
+}
+
+fn has_exact_attr(attrs: &[HtmlAttr], name: &str, expected: &str) -> bool {
+    let mut matches = attrs.iter().filter(|a| a.name == name);
+    matches
+        .next()
+        .is_some_and(|first| first.value == expected && matches.next().is_none())
 }
 
 fn check_script_src(

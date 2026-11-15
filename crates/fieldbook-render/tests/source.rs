@@ -759,4 +759,132 @@ mod source {
             "must not contain raw script tag"
         );
     }
+
+    #[test]
+    fn ecfr_location_is_a_link() {
+        let loc_url = "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-10-27/title-48?chapter=1&part=31";
+        let rows = row("0004", 1, loc_url, &sha(HTML_BYTES), "active", "", "");
+        let (_model, view) = load_view(tree_with(&rows, &[("S-0004-v1.html", HTML_BYTES)]));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0004-v1");
+        let escaped_url = "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-10-27/title-48?chapter=1&amp;part=31";
+        assert!(
+            html.contains(&format!(
+                "<dt>location</dt>\n        <dd class=\"mono\"><a class=\"ext-link\" href=\"{escaped_url}\" target=\"_blank\" rel=\"noopener noreferrer\">{escaped_url}<span class=\"sr-only\">, official publisher, opens in a new tab</span><svg class=\"ic\""
+            )),
+            "eCFR location must render as an ext-link in the register row:\n{html}"
+        );
+        let diags = lint(&site, &original_names(&view));
+        assert!(
+            diags.is_empty(),
+            "listed publisher link on s/ must pass lint: {diags:?}"
+        );
+    }
+
+    #[test]
+    fn ecfr_section_locator_links_to_its_section() {
+        let loc_url = "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-10-27/title-48?chapter=1&part=31";
+        let rows = row("0004", 1, loc_url, &sha(PDF_BYTES), "active", "", "");
+        let page = CMP_SYSTEM_REVIEW_MD.replace(
+            "[@CL-CMP-0001]",
+            "[@CL-CMP-0001] [@S-0004-v1, § 31.205-1] [@S-0004-v1, sec. 31.205-6] [@S-0004-v1, p. 14]",
+        );
+        let (_model, view) = load_view(tree_full(
+            &rows,
+            &[("S-0004-v1.pdf", PDF_BYTES)],
+            CLAIMS_CSV,
+            &page,
+        ));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0004-v1");
+        let panel_start = html.find("src-original-line").unwrap();
+        let panel_end = html[panel_start..].find("</p>").unwrap() + panel_start;
+        let panel = &html[panel_start..panel_end];
+        assert!(
+            panel.contains(
+                "<span class=\"loc\">§ 31.205-1</span> <a class=\"ext-link\" href=\"https://www.ecfr.gov/on/2026-10-27/title-48/section-31.205-1\" target=\"_blank\" rel=\"noopener noreferrer\">ecfr.gov<span class=\"sr-only\">, § 31.205-1 at the official publisher, opens in a new tab</span><svg class=\"ic\""
+            ),
+            "§ locator must keep its span and have an ecfr.gov section link beside it:\n{panel}"
+        );
+        assert!(
+            panel.contains(
+                "<span class=\"loc\">sec. 31.205-6</span> <a class=\"ext-link\" href=\"https://www.ecfr.gov/on/2026-10-27/title-48/section-31.205-6\" target=\"_blank\" rel=\"noopener noreferrer\">ecfr.gov<span class=\"sr-only\">, sec. 31.205-6 at the official publisher, opens in a new tab</span><svg class=\"ic\""
+            ),
+            "sec. locator must keep its span and have an ecfr.gov section link beside it:\n{panel}"
+        );
+        assert!(
+            panel.contains(
+                "<a class=\"loc\" href=\"../../originals/S-0004-v1.pdf#page=14\">p. 14</a>"
+            ),
+            "page locator must link to the shipped PDF page only:\n{panel}"
+        );
+        assert!(
+            !panel.contains("p. 14 at the official publisher"),
+            "page locator must not get a publisher link:\n{panel}"
+        );
+        let diags = lint(&site, &original_names(&view));
+        assert!(
+            diags.is_empty(),
+            "section links on s/ must pass lint: {diags:?}"
+        );
+    }
+
+    #[test]
+    fn unlisted_host_stays_text() {
+        let loc_url = "https://unlisted.example.org/rules/part-31";
+        let rows = row("0004", 1, loc_url, &sha(HTML_BYTES), "active", "", "");
+        let page = CMP_SYSTEM_REVIEW_MD
+            .replace("[@CL-CMP-0001]", "[@CL-CMP-0001] [@S-0004-v1, § 31.205-1]");
+        let (_model, view) = load_view(tree_full(
+            &rows,
+            &[("S-0004-v1.html", HTML_BYTES)],
+            CLAIMS_CSV,
+            &page,
+        ));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0004-v1");
+        assert!(
+            html.contains(&format!(
+                "<dt>location</dt>\n        <dd class=\"mono\">{loc_url}</dd>"
+            )),
+            "unlisted host location must stay plain text:\n{html}"
+        );
+        assert!(
+            !html.contains("class=\"ext-link\""),
+            "unlisted host must render no ext-link:\n{html}"
+        );
+        assert!(
+            html.contains("<span class=\"loc\">§ 31.205-1</span>"),
+            "locator text must still appear:\n{html}"
+        );
+        let diags = lint(&site, &original_names(&view));
+        assert!(
+            diags.is_empty(),
+            "unlisted host page must pass lint: {diags:?}"
+        );
+    }
+
+    #[test]
+    fn metadata_only_location_stays_text() {
+        let loc_val = "metadata-only: https://www.ecfr.gov/current/title-48/part-31";
+        let rows = row("0004", 1, loc_val, &sha(b"meta"), "active", "", "");
+        let (_model, view) = load_view(tree_with(&rows, &[]));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0004-v1");
+        assert!(
+            html.contains(&format!(
+                "<dt>location</dt>\n        <dd class=\"mono\">{loc_val}</dd>"
+            )),
+            "metadata-only location must stay plain text even if it mentions a listed host:\n{html}"
+        );
+        assert!(
+            !html.contains("class=\"ext-link\""),
+            "metadata-only page must render no ext-link:\n{html}"
+        );
+        let s3 = page_text(&site, "S-0003-v1");
+        assert!(
+            !s3.contains("class=\"ext-link\""),
+            "S-0003-v1 metadata-only page must render no ext-link:\n{s3}"
+        );
+    }
 }
