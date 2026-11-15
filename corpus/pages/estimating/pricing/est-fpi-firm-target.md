@@ -45,7 +45,7 @@ A contract has a target cost of 1,000,000, a target profit of 100,000 and a pric
 
 ## Never confuse
 
-A fixed-price incentive (firm target) contract negotiates firm target cost, target profit, profit-adjustment formula and a hard price ceiling at the outset—with no separate profit ceiling or floor [@CL-EST-1076; @CL-EST-1077; @CL-EST-1079]—unlike a cost-plus-incentive-fee contract, which reimburses allowable costs and bounds fee with minimum and maximum fees instead of a price ceiling.
+A fixed-price incentive (firm target) contract negotiates firm target cost, target profit, profit-adjustment formula and a hard price ceiling at the outset—with no separate profit ceiling or floor [@CL-EST-1076; @CL-EST-1077; @CL-EST-1079]—unlike a cost-plus-incentive-fee contract, which is a cost-reimbursement contract that specifies a target fee with minimum and maximum fees and a fee adjustment formula [@CL-EST-1090; @CL-EST-1091].
 
 ## Company calibration
 
@@ -55,7 +55,7 @@ Which proposals expected soon rest on cost or pricing information strong enough 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced an uncited contrast with the production point wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that both listed conditions apply.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price incentive (firm target) contracts.

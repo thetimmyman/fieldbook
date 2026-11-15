@@ -46,7 +46,7 @@ An offeror answers a time-and-materials solicitation with an engineer rate of 15
 
 ## Never confuse
 
-Commercial time-and-materials proposals require fixed hourly rates loaded with wages, overhead, G&A and profit [@CL-EST-1845]—unlike non-commercial adequate-competition rate provisions on [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md) [@CL-EST-1683]—while the type-of-contract notice is preaward information rather than a binding letter-contract acceptance signed in three copies [@CL-EST-1842; @CL-EST-1843].
+FAR 52.216-31 requires fixed hourly rates loaded with wages, overhead, G&A and profit [@CL-EST-1845], and FAR 52.216-30 also requires separate loaded rates for the offeror and each subcontractor and, unless exempt, bars profit for the transferring organization on services transferred between affiliates under common control [@CL-EST-1686; @CL-EST-1687]—unlike FAR 52.216-29, which has the offeror specify whether each fixed hourly rate applies to its own, subcontractor or affiliate labor [@CL-EST-1685]; see [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md)—while the type-of-contract notice is preaward information rather than a binding letter-contract acceptance signed in three copies [@CL-EST-1842; @CL-EST-1843].
 
 ## Company calibration
 
@@ -56,7 +56,7 @@ Who owns proposal pricing and the hourly rate build for time-and-materials and l
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted characterizations and an absence statement, removed an unquoted 'commercial' label, and restored the and/or wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the type of contract, letter contract and time-and-materials proposal provisions.

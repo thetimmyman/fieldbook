@@ -47,7 +47,7 @@ A group runs two divisions that report directly to a policy office, and the poli
 
 ## Never confuse
 
-Under CAS 403, a home office directs or manages two or more segments of an organization [@CL-EST-2864], unlike a segment, which is a division, plant, or other subdivision reporting directly to a home office rather than managing multiple segments [@CL-EST-2867], and allocating covers both direct assignment and indirect pool reassignment [@CL-EST-2863].
+Under CAS 403, a home office directs or manages two or more segments of an organization [@CL-EST-2864], unlike a segment, which is a division, plant, or other subdivision reporting directly to a home office [@CL-EST-2867]—although one intermediate organization may be both a segment and a home office [@CL-EST-2866]—and allocating covers both direct assignment and indirect pool reassignment [@CL-EST-2863].
 
 ## Company calibration
 
@@ -57,6 +57,6 @@ Confirm which business units are segments, which offices are home offices, and h
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Segment and home office wording aligned with the definitions; uncited contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the home office expense allocation Standard definitions.

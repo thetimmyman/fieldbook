@@ -46,7 +46,7 @@ A contract has a target cost of 1,000,000, a target fee of 80,000, a minimum fee
 
 ## Never confuse
 
-A cost-plus-incentive-fee contract reimburses allowable incurred costs and adjusts target fee by formula between negotiated minimum and maximum fee limits [@CL-EST-1090; @CL-EST-1091; @CL-CLS-0567], unlike a fixed-price incentive (firm target) contract, which caps total payment at a price ceiling rather than setting a profit ceiling or floor.
+A cost-plus-incentive-fee contract reimburses allowable incurred costs and adjusts target fee by formula between negotiated minimum and maximum fee limits [@CL-EST-1090; @CL-EST-1091; @CL-CLS-0567], unlike a fixed-price incentive (firm target) contract, which specifies a price ceiling but not a profit ceiling or floor, the ceiling being the maximum that may be paid [@CL-EST-1076; @CL-EST-1077].
 
 ## Company calibration
 
@@ -55,7 +55,7 @@ How the target cost and the fee limits in a proposal are frozen and later compar
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse contrast restated from the quotes; added award-amount companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on cost-plus-incentive-fee contracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer in section 16.405 to the general cost-reimbursement requirements.
