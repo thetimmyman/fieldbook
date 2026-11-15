@@ -19,7 +19,7 @@
 ## Scope
 
 - Files: `crates/fieldbook-render/src/map.rs`, `crates/fieldbook-render/templates/map.html`, `crates/fieldbook-render/tests/map.rs`, `CHANGELOG.md`.
-- Registration lines: `crates/fieldbook-render/src/lib.rs` (the `pub mod map;` line); `crates/fieldbook-render/src/site.rs` (one `planned_paths` entry and one `site.insert` call for `map::OUTPUT_PATH`, this card's entries only); `crates/fieldbook-render/assets/app.css` (the `.appmap`, `.layers`, `.layer`, `.pill`, `.asst-col` and 900px stacking rules, written with tokens, this card's block only); `crates/fieldbook/tests/leak_outputs.rs` (the test `delivered_map_is_public_and_bound` and its call in the edition surface; no new `BUILT_SINKS` entry, because `map.html` goes through the `edition` sink).
+- Registration lines: `crates/fieldbook-render/src/lib.rs` (the `pub mod map;` line); `crates/fieldbook-render/src/site.rs` (one `planned_paths` entry and one `site.insert` call for `map::OUTPUT_PATH`, this card's entries only); `crates/fieldbook-render/assets/app.css` (the `.appmap`, `.layers`, `.layer`, `.pill`, `.asst-col` and 900px stacking rules, written with tokens, this card's block only); `crates/fieldbook-render/tests/frame.rs` (updating the `map.html` unbuilt assertion now that `map.html` is planned); `crates/fieldbook/tests/leak_outputs.rs` (the test `delivered_map_is_public_and_bound` and its call in the edition surface; no new `BUILT_SINKS` entry, because `map.html` goes through the `edition` sink).
 - Docs to update: `CHANGELOG.md`, one line under `## Unreleased` that starts `- Added: map.html, the App map (layers, workspaces, the AI layer as text).`
 
 ## Out of scope

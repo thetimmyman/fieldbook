@@ -26,6 +26,7 @@ use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, eff
 use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
 use fieldbook_core::schema::Register;
 use fieldbook_render::day_one;
+use fieldbook_render::map;
 use fieldbook_render::meta::{BuildInfo, BuildProfile};
 use fieldbook_render::site::Site;
 use serde::Deserialize;
@@ -977,6 +978,7 @@ fn run_edition_surface() {
             }
         }
     }
+    check_delivered_map_is_public_and_bound();
 }
 
 /// The text of the `<pre>` of the context pack of an edition page, unescaped for the characters
@@ -2776,4 +2778,117 @@ fn delivered_workbook_keeps_full_epoch() {
         default_core.contains("2000-01-01T00:00:00Z"),
         "default docProps/core.xml must contain 2000-01-01T00:00:00Z, got:\n{default_core}"
     );
+}
+
+fn check_delivered_map_is_public_and_bound() {
+    const SYNTHETIC_CANARY: &str = "<!-- synthetic-app-map-canary: made up for tests -->";
+    const FORBIDDEN_BRIEF_TITLE: &str = "Synthetic forbidden map brief canary";
+
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+
+    let mut tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+    let forbidden_brief = format!(
+        "+++\nid = \"est-forbidden-map-brief\"\ntitle = \"{FORBIDDEN_BRIEF_TITLE}\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"brief\"\nstage = 3\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nvolatility = \"V2\"\n+++\n\n## Question\n\nSynthetic brief question?\n\n## Recommendation\n\nSynthetic recommendation.\n\n## Evidence\n\n- Synthetic brief evidence.\n\n## Options\n\n- Synthetic option.\n\n## Unknowns\n\n- Synthetic unknown.\n\n## Next action\n\nSynthetic next action.\n"
+    );
+    tree.insert_bytes(
+        "corpus/pages/estimating/pricing/est-forbidden-map-brief.md",
+        forbidden_brief.into_bytes(),
+    );
+
+    let (model, _report) = load(&Host::new(tree, world.today()), &Options::new(false));
+    let eff = EffectivePolicy::floor(false);
+    let now = default_now();
+    let shipped = Shipped::Hours(1);
+    let Decision::Allowed(sel_token) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+        panic!("expected edition selection Allowed");
+    };
+    let view = LabelledView::new(&model, &sel_token, &ReadableStores::corpus());
+
+    let mut plan = plan_edition(
+        &view,
+        &BuildInfo::default(),
+        out_tmp.path(),
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    )
+    .unwrap_or_else(|e| panic!("plan_edition failed: {e:?}"))
+    .unwrap_or_else(|d| panic!("plan_edition denied: {d:?}"));
+
+    let map_path = map::OUTPUT_PATH;
+    assert!(
+        plan.site.files().contains_key(map_path),
+        "plan_edition must include {map_path}"
+    );
+
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("build", &plan.write_set, &plan.allowed, &plan.out_dir)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let orig_site = plan.site.clone();
+    let mut canaries = vec![("synthetic", SYNTHETIC_CANARY)];
+    for rec in &fixture.record {
+        if rec.label != "public" {
+            canaries.push((rec.label.as_str(), rec.canary.as_str()));
+        }
+    }
+    for (label, canary) in canaries {
+        let mut mutated = Site::new();
+        for (rel, bytes) in orig_site.files() {
+            if rel == map_path {
+                let mut planted = bytes.clone();
+                planted.extend_from_slice(canary.as_bytes());
+                mutated.insert(rel, planted);
+            } else {
+                mutated.insert(rel, bytes.clone());
+            }
+        }
+        plan.site = mutated;
+        let res = write_edition_outputs(&plan, &audited);
+        assert!(
+            matches!(res, Err(Error::OutOfScope(_))),
+            "a canary for `{label}` planted in {map_path} must be refused at write_edition_outputs"
+        );
+    }
+    plan.site = orig_site;
+    assert!(
+        !plan.edition_dir.join(map_path).exists(),
+        "a refused write must not leave {map_path} on disk"
+    );
+
+    write_edition_outputs(&plan, &audited).unwrap_or_else(|e| panic!("{e}"));
+    journal
+        .end(audited, Word::new_static("ok"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let delivered_bytes =
+        std::fs::read(plan.edition_dir.join(map_path)).unwrap_or_else(|e| panic!("{e}"));
+    let planned_bytes = plan
+        .site
+        .files()
+        .get(map_path)
+        .unwrap_or_else(|| panic!("missing planned {map_path}"));
+    assert_eq!(
+        &delivered_bytes, planned_bytes,
+        "delivered {map_path} must equal the planned bytes"
+    );
+
+    let delivered = String::from_utf8(delivered_bytes).unwrap_or_else(|e| panic!("{e}"));
+    assert!(delivered.contains("<h1>How Fieldbook fits together</h1>"));
+    assert!(
+        !delivered.contains(FORBIDDEN_BRIEF_TITLE)
+            && !delivered.contains("est-forbidden-map-brief"),
+        "forbidden page must be absent from delivered {map_path}"
+    );
+}
+
+#[test]
+fn delivered_map_is_public_and_bound() {
+    check_delivered_map_is_public_and_bound();
 }
