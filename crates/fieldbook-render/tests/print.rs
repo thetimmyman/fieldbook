@@ -317,6 +317,10 @@ mod print {
             final_block.contains("attr(data-route)"),
             "final print block must hold attr(data-route) expression"
         );
+        assert!(
+            final_block.contains("attr(data-page-id)"),
+            "final print block must hold attr(data-page-id) expression"
+        );
 
         let brief_page_bytes = site
             .files()
@@ -327,6 +331,88 @@ mod print {
             brief_page.contains("data-route=\"p/est-rate-window-brief.html\""),
             "brief page must contain data-route attribute"
         );
+        assert!(
+            brief_page.contains("data-page-id=\"est-rate-window-brief\""),
+            "brief page must contain data-page-id attribute"
+        );
+    }
+
+    /// The opening `<div class="app" ...>` tag of a rendered page.
+    fn frame_tag(html: &str) -> &str {
+        let start = html
+            .find("<div class=\"app\"")
+            .unwrap_or_else(|| panic!("frame div.app in page"));
+        let end = html[start..]
+            .find('>')
+            .unwrap_or_else(|| panic!("closing > of div.app in page"))
+            + start;
+        &html[start..=end]
+    }
+
+    /// The value of `name` in one start tag, if the tag carries it.
+    fn attr_value<'a>(tag: &'a str, name: &str) -> Option<&'a str> {
+        let marker = format!("{name}=\"");
+        let start = tag.find(&marker)? + marker.len();
+        let end = tag[start..].find('"')? + start;
+        Some(&tag[start..end])
+    }
+
+    #[test]
+    fn ordinary_page_footer_is_the_bare_id() {
+        let (_model, view) = fixture_view();
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+
+        let css = include_str!("../assets/app.css");
+        let last_media_print = css
+            .rfind("@media print {")
+            .expect("last @media print block");
+        let final_block = &css[last_media_print..];
+        let route_rule = final_block
+            .find(".app::after")
+            .expect("route footer rule in the final print block");
+        let page_id_rule = final_block
+            .find(".app[data-page-id]::after")
+            .unwrap_or_else(|| {
+                panic!("a reader page must print its page id, not its route: no page id rule")
+            });
+        assert!(
+            page_id_rule > route_rule,
+            "the page id rule must follow the route rule so it wins"
+        );
+
+        for (path, expected_id) in [
+            ("p/est-rate-window-brief.html", "est-rate-window-brief"),
+            ("p/cmp-system-review.html", "cmp-system-review"),
+        ] {
+            let bytes = site
+                .files()
+                .get(path)
+                .unwrap_or_else(|| panic!("{path} in site files"));
+            let tag = frame_tag(std::str::from_utf8(bytes).unwrap());
+            let page_id = attr_value(tag, "data-page-id")
+                .unwrap_or_else(|| panic!("{path} frame must carry data-page-id: {tag}"));
+            assert_eq!(page_id, expected_id, "{path} must print its own page id");
+
+            let printed = format!("{page_id}\u{a0}\u{b7}\u{a0}{}", strings::print_check());
+            for forbidden in ["/", ".html", "file:"] {
+                assert!(
+                    !printed.contains(forbidden),
+                    "{path} footer text must not hold `{forbidden}`: {printed}"
+                );
+            }
+        }
+
+        for path in ["index.html", "ids.html"] {
+            let bytes = site
+                .files()
+                .get(path)
+                .unwrap_or_else(|| panic!("{path} in site files"));
+            let tag = frame_tag(std::str::from_utf8(bytes).unwrap());
+            assert!(
+                !tag.contains("data-page-id"),
+                "{path} is not a reader page and must print its route: {tag}"
+            );
+        }
     }
 
     #[test]

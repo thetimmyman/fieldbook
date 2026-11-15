@@ -3526,7 +3526,8 @@ dialog.dlg .note:empty {
   }
 
   /* The footer of every printed page: product, edition, page id and the check line. The edition
-     chip of the top bar and the route of the frame (it carries the page id) stand in the band. */
+     chip of the top bar and the route of the frame (a reader page carries its page id) stand in
+     the band. */
   .topbar {
     position: static;
     height: 0;
@@ -3580,6 +3581,12 @@ dialog.dlg .note:empty {
     color: var(--color-muted);
     font-size: var(--text-2xs);
     line-height: var(--leading-snug);
+  }
+
+  /* A reader page prints its bare page id, as the binder footer does; the rule above prints the
+     route for the pages that name no page id. */
+  .app[data-page-id]::after {
+    content: attr(data-page-id) "\0000a0\0000b7\0000a0Check the current edition";
   }
 
   /* The binder carries a footer in each article, so the frame's own band is not drawn. */
