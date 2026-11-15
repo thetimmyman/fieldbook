@@ -188,6 +188,11 @@ fn restore_drill4_runs_against_binary() {
         "backup 1 written",
         "snapshot 1 verified",
         "snapshot hashes ok",
+        "ok: snapshot 1 verified",
+        "ok: restored ",
+        "ok: check --strict clean",
+        "ok: journal ok (seq ",
+        "ok: fingerprint ",
         "drill passed: check clean, journal ok, fingerprint",
         "FB0810",
         "exit 1",
@@ -279,5 +284,95 @@ fn restore_drill4_runs_against_binary() {
         "Expected step 7 to clean up temp drill dir, but found leftovers in TMPDIR: {:?}\nFull output:\n{}",
         remaining_drill_dirs,
         combined_output
+    );
+}
+
+#[test]
+fn restore_drill_cli_fails_on_appended_csv_byte_and_leaves_no_drill_folder() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo_root.join("tests/fixtures/corpus-mini");
+    let state_mini = repo_root.join("tests/fixtures/state-mini");
+
+    let tmp_tree = tempfile::tempdir().expect("create tmp_tree");
+    copy_dir_all(&corpus_mini, tmp_tree.path()).expect("copy corpus-mini");
+    let tmp_state = tmp_tree.path().join(".fieldbook");
+    copy_dir_all(&state_mini, &tmp_state).expect("copy state-mini");
+    let tmp_home = tempfile::tempdir().expect("create tmp_home");
+    let target_dir = tmp_tree.path().join("target");
+    std::fs::create_dir_all(&target_dir).expect("create target_dir");
+
+    let tree = fieldbook::io::read_tree(tmp_tree.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("support catalogue from public source");
+    let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
+    let cat_path = tmp_tree.path().join("corpus-support.toml");
+    std::fs::write(&cat_path, &cat_bytes).expect("write corpus-support.toml");
+
+    let fieldbook_bin = env!("CARGO_BIN_EXE_fieldbook");
+    let run_cli = |args: &[&str]| {
+        Command::new(fieldbook_bin)
+            .args(args)
+            .current_dir(tmp_tree.path())
+            .env("FIELDBOOK_STATE", &tmp_state)
+            .env("HOME", tmp_home.path())
+            .output()
+            .expect("run fieldbook cli")
+    };
+
+    let raw_verify = run_cli(&[
+        "backup",
+        "verify",
+        "--raw",
+        ".",
+        "--support-catalogue",
+        cat_path.to_str().expect("utf8 path"),
+        "--expect-support-sha256",
+        &cat_sha,
+    ]);
+    assert!(
+        raw_verify.status.success(),
+        "backup verify --raw failed: {}",
+        String::from_utf8_lossy(&raw_verify.stderr)
+    );
+
+    let backup_out = run_cli(&["backup", "--to", target_dir.to_str().expect("utf8 path")]);
+    assert!(
+        backup_out.status.success(),
+        "backup --to failed: {}",
+        String::from_utf8_lossy(&backup_out.stderr)
+    );
+
+    let csv_rel = "data/corpus/registers/claims.csv";
+    let csv_path = target_dir.join("fieldbook-backup-0001").join(csv_rel);
+    let mut csv_bytes = std::fs::read(&csv_path).expect("read claims.csv");
+    csv_bytes.push(b'x');
+    std::fs::write(&csv_path, &csv_bytes).expect("append byte to claims.csv");
+
+    let drill_out = run_cli(&[
+        "restore",
+        "--snapshot",
+        "1",
+        "--from",
+        target_dir.to_str().expect("utf8 path"),
+        "--drill",
+    ]);
+    assert_eq!(
+        drill_out.status.code(),
+        Some(1),
+        "expected exit 1 on appended csv byte, stdout: {}, stderr: {}",
+        String::from_utf8_lossy(&drill_out.stdout),
+        String::from_utf8_lossy(&drill_out.stderr)
+    );
+    let stderr = String::from_utf8_lossy(&drill_out.stderr);
+    assert!(
+        stderr.contains("FB0810") && stderr.contains(csv_rel),
+        "expected FB0810 naming {csv_rel}, got stderr:\n{stderr}"
+    );
+    assert!(
+        !tmp_state.join("drill").exists(),
+        "drill folder must not exist after failed drill"
     );
 }
