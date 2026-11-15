@@ -264,6 +264,18 @@ mod frame {
         split_disclosure(html).1
     }
 
+    /// The opening `<div class="app" ...>` tag of a rendered page.
+    fn frame_tag(html: &str) -> &str {
+        let start = html
+            .find("<div class=\"app\"")
+            .unwrap_or_else(|| panic!("frame div.app in page"));
+        let end = html[start..]
+            .find('>')
+            .unwrap_or_else(|| panic!("closing > of div.app in page"))
+            + start;
+        &html[start..=end]
+    }
+
     #[test]
     fn section_map_matches_nav_rs() {
         let js_map = parse_js_route_sections(APP_JS);
@@ -875,6 +887,55 @@ mod frame {
                 "missing relative index.html link at `{path}`"
             );
         }
+    }
+
+    #[test]
+    fn frame_has_page_id_only_on_reader_pages() {
+        let (_model, view) = build_public_view();
+        let planned = PlannedPaths::of(&["index.html", "p/x.html"]);
+        let navigation = nav::build(&view, &planned);
+
+        let reader_html = render_page(&FrameInput {
+            output_path: "p/x.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+        let index_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+
+        let reader_tag = frame_tag(&reader_html);
+        assert!(
+            reader_tag.contains("data-page-id=\"x\""),
+            "reader page frame must carry its page id: {reader_tag}"
+        );
+        assert!(
+            reader_tag.contains("data-route=\"p/x.html\""),
+            "reader page frame must keep its route: {reader_tag}"
+        );
+
+        let index_tag = frame_tag(&index_html);
+        assert!(
+            !index_tag.contains("data-page-id"),
+            "home page frame must carry no page id: {index_tag}"
+        );
+        assert!(
+            index_tag.contains("data-route=\"index.html\""),
+            "home page frame must keep its route: {index_tag}"
+        );
+        assert_ne!(reader_tag, index_tag);
     }
 
     #[test]
