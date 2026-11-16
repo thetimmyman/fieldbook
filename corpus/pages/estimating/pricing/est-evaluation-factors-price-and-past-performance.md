@@ -49,7 +49,7 @@ A DoD solicitation states that all non-price factors combined are approximately 
 
 ## Never confuse
 
-The techniques the contracting officer uses to analyze price are on [Proposal analysis techniques](est-proposal-analysis.md) and [Should-cost review](est-should-cost-review.md). The data the contracting officer asks for to establish a fair and reasonable price is on [Pricing policy and the order of preference for data](est-pricing-policy-data-preference.md). In the codified text, FAR 15.304 contains the rule that price or cost to the Government shall be evaluated in every source selection [@CL-EST-1294]. In the RFO text, 15.304 is headed Defective certified cost or pricing data after award [@CL-EST-3231], and the price or cost evaluation rule is at 15.104(b)(1)(i) [@CL-EST-3245].
+Evaluating price or cost, past performance on active and physically completed contracts, and DoD Supplier Performance Risk System risk scores sets the source-selection factors for award [@CL-EST-1294; @CL-EST-1299; @CL-EST-9311], rather than prescribing the analytical methods used to test price reasonableness on [Proposal analysis techniques](est-proposal-analysis.md) or [Should-cost review](est-should-cost-review.md) [@CL-EST-0110; @CL-EST-0223].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which bids and estimates in the pipeline need immediate pricing support, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the exception paragraph, stated the exception conditions as all applying, cited the deviation's DFARS part 215 requirement, and reworded the definition, discretion and citation sentences without meta wording or an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that the price or cost exception is for use by DoD, NASA, and the Coast Guard, and that broad discretion is subject to the listed requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of past performance.

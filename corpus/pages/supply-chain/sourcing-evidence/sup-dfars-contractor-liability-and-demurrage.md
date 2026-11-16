@@ -45,7 +45,7 @@ A shipment is picked up under Schedule I and the owner reports, within one year 
 
 ## Never confuse
 
-Liability for loss or damage to the owner's property is in one clause [@CL-SUP-1616], and liability for demurrage, detention, or other charges from a failure to load or unload within the free time is in another [@CL-SUP-1621]. Liability after the Government accepts supplies is a separate subject; see [Limitation of liability clauses: basic, high-value items and services](sup-limitation-of-liability-clauses.md). The stevedoring liability clause covers loss or damage to Government property and injury on the contract work; see [Liability and insurance in stevedoring contracts (DFARS)](sup-dfars-stevedoring-liability-and-insurance.md). Laundry articles have their own count and weight loss clauses; see [Laundry delivery tickets and loss or damage by count or by weight (DFARS)](sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md). Responsibility for property furnished under the Government property clause is separate; see [Responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md).
+Liability for loss or damage to the owner's property is in one clause [@CL-SUP-1616], unlike liability for demurrage, detention, or other charges from a failure to load or unload within the free time, which is in another [@CL-SUP-1621]. Liability after the Government accepts supplies is a separate subject; see [Limitation of liability clauses: basic, high-value items and services](sup-limitation-of-liability-clauses.md). The stevedoring liability clause covers loss or damage to Government property and injury on the contract work; see [Liability and insurance in stevedoring contracts (DFARS)](sup-dfars-stevedoring-liability-and-insurance.md). Laundry articles have their own count and weight loss clauses; see [Laundry delivery tickets and loss or damage by count or by weight (DFARS)](sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md). Responsibility for property furnished under the Government property clause is separate; see [Responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which executed contracts carry these clauses and which schedule each shipment fa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and restated the notice periods and liability rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the per-pound rate sentence to say what its quotes support.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor liability for loss or damage, and demurrage.

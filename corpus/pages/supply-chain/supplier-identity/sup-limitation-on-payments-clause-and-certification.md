@@ -46,7 +46,7 @@ A company submits an offer and learns that a registered lobbyist contacted an ag
 
 ## Never confuse
 
-The clause bars the Contractor from using appropriated funds to pay any person for influencing or attempting to influence the listed personnel in connection with the award, extension, continuation, renewal, amendment, or modification of the contract [@CL-SUP-1004; @CL-SUP-1051] (see also [Lobbying and political activity costs](../../compliance/cas-allowability/cmp-lobbying-and-political-activity-costs.md) and [Limitation on payments to influence Federal transactions](../../compliance/cas-allowability/cmp-limitation-on-payments-to-influence-federal-transactions.md)).
+The clause bars the Contractor from using appropriated funds to pay any person for influencing or attempting to influence the listed personnel in connection with the award, extension, continuation, renewal, amendment, or modification of the contract [@CL-SUP-1004; @CL-SUP-1051], unlike reasonable compensation paid to regularly employed officers or employees for agency and legislative liaison activities not directly related to the contract [@CL-SUP-1003; @CL-SUP-9303], and subcontractor disclosure forms—but not certifications—are forwarded from tier to tier to the prime Contractor [@CL-SUP-9307] (see also [Lobbying and political activity costs](../../compliance/cas-allowability/cmp-lobbying-and-political-activity-costs.md) and [Limitation on payments to influence Federal transactions](../../compliance/cas-allowability/cmp-limitation-on-payments-to-influence-federal-transactions.md)).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How lobbying contacts and subcontractor declarations are tracked and retained. [
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for the regularly employed definition and subcontract declaration lead-in, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: regularly employed definition carries its 130-day catch-up sentence.

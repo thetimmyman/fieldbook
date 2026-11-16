@@ -53,7 +53,7 @@ The solicitation requires a past performance evaluation and includes the clause 
 
 ## Never confuse
 
-The market research is to determine whether the criteria in FAR part 19 are met for setting aside the acquisition for small business or, for a task or delivery order, whether there are a sufficient number of qualified small business concerns available to justify limiting competition under the terms of the contract [@CL-EST-2436; @CL-EST-2437]. The tiered or cascading order of precedence used for tiered evaluation of offers shall be consistent with FAR part 19 [@CL-EST-2434].
+A contracting officer may not issue a cascading tiered-evaluation solicitation without first conducting FAR Part 10 and DFARS Part 210 market research consistent with FAR part 19 [@CL-EST-2434; @CL-EST-2436], unlike an optional presolicitation viability screen on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md) [@CL-EST-1392], and must evaluate small-business subcontracting past performance whenever FAR 15.304 and FAR 52.219-8 apply [@CL-EST-2439].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ That the company can produce the tier order and its own and affiliate past perfo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the and-link to the written-explanation condition; wording of market research alternatives tied to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the tiered evaluation conditions and past performance rules in the clauses' own terms, cut an uncited comparison and an uncited because clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-3 limit on tiered evaluation for multiple award contracts.

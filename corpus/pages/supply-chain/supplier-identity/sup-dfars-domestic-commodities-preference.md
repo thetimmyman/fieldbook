@@ -43,7 +43,7 @@ A contractor delivers an end product that contains a small amount of cotton wort
 
 ## Never confuse
 
-The delivery rule of this clause concerns where the listed items were grown, reprocessed, reused, or produced [@CL-SUP-1335]. The 10 percent limit is part of one exception for incidental amounts of fiber and is measured against the total price of the end product [@CL-SUP-1339]. The [DoD Buy American clause](sup-dfars-buy-american-definitions-and-delivery-rule.md) has its own condition on the cost of components for a domestic end product manufactured in the United States [@CL-SUP-1302]. For where specialty metal was melted or produced, see the [DoD specialty metals restriction](sup-dfars-specialty-metals-restriction.md).
+The delivery rule of this clause concerns where the listed items were grown, reprocessed, reused, or produced [@CL-SUP-1335] (with a 10 percent limit measured against the total price of the end product as part of one exception for incidental amounts of fiber [@CL-SUP-1339]), unlike the [DoD Buy American clause](sup-dfars-buy-american-definitions-and-delivery-rule.md), which sets its own condition on the cost of components for a domestic end product manufactured in the United States [@CL-SUP-1302]. For where specialty metal was melted or produced, see the [DoD specialty metals restriction](sup-dfars-specialty-metals-restriction.md).
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Which executed contracts carry this clause, and which delivered items fall in th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.

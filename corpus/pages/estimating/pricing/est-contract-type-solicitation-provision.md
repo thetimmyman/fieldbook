@@ -54,7 +54,7 @@ Solicitation C buys office supplies at a firm fixed price under simplified acqui
 
 ## Never confuse
 
-The provision at 52.216-1 goes in a solicitation unless it is for a fixed-price acquisition made under simplified acquisition procedures or for information or planning purposes [@CL-EST-2975]. The clause at 52.216-5 goes in solicitations and contracts when contracting by negotiation, when a fixed-price contract is contemplated and the specified conditions apply [@CL-EST-2976].
+FAR 52.216-1 is a preaward solicitation provision naming the contemplated contract type (omitted in fixed-price simplified acquisitions and planning solicitations) [@CL-EST-2975; @CL-EST-9314], unlike FAR 52.216-5, which is a binding contract clause governing prospective price redetermination during performance [@CL-EST-2976; @CL-CLS-0550].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Whether each solicitation in the pipeline carries the contract type provision an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited negatives and added only-wording removed; limitations and conditions restated with their qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of solicitation provision.

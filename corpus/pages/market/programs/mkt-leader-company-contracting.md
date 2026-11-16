@@ -56,7 +56,7 @@ The contracting officer could instead have awarded the developer a prime contrac
 
 ## Never confuse
 
-Under leader company contracting, the Government designates the leader company to furnish assistance and know-how under an approved contract to one or more designated follower companies so they can become a source of supply [@CL-MKT-1771], limits the assistance to what is essential to enable the follower or followers to produce the items, and reserves the right to approve subcontracts between the leader company and the follower or followers [@CL-MKT-1722; @CL-MKT-1723]. Leader company contracting is an extraordinary acquisition technique that is limited to special circumstances and used only when its use is in accordance with agency procedures [@CL-MKT-1720].
+Leader company contracting is an extraordinary technique used only when no other source can meet Government requirements without the leader's production know-how and assistance to a designated follower [@CL-MKT-1720; @CL-MKT-1721; @CL-MKT-1724], rather than ordinary prime-subcontractor teaming or socioeconomic business development such as [Competitive 8(a) awards](mkt-8a-competitive-awards.md) [@CL-MKT-0507].
 
 ## Company calibration
 
@@ -65,6 +65,7 @@ Whether any program depends on a leader-follower arrangement, which agency proce
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternative awards cite the lead-in claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for leader company contracting.

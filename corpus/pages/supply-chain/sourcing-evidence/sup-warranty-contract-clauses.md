@@ -47,7 +47,7 @@ A fixed-price supply contract covers noncomplex catalog items, and agency proced
 
 ## Never confuse
 
-The clauses and alternates prescribed in FAR 46.710 may be used in solicitations and contracts in which inclusion of a warranty is appropriate (see FAR 46.709 for warranties for commercial products and commercial services), and in each prescription the contracting officer may insert a clause substantially the same as the prescribed clause when the stated conditions are met [@CL-SUP-0961; @CL-SUP-0880; @CL-SUP-0971; @CL-SUP-0881; @CL-SUP-0882; @CL-SUP-0883; @CL-SUP-0884; @CL-SUP-0885; @CL-SUP-0886; @CL-SUP-0887]. See [Warranties: criteria, terms and remedies](sup-warranties.md), [Contractor liability for Government property loss after acceptance](sup-contractor-liability-after-acceptance.md) and [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md).
+The clauses and alternates prescribed in FAR 46.710 may be used in noncommercial solicitations and contracts in which inclusion of a warranty is appropriate and in each prescription the contracting officer may insert a clause substantially the same as the prescribed clause when the stated conditions are met [@CL-SUP-0961; @CL-SUP-0880; @CL-SUP-0971; @CL-SUP-0881; @CL-SUP-0882; @CL-SUP-0883; @CL-SUP-0884; @CL-SUP-0885; @CL-SUP-0886; @CL-SUP-0887], unlike warranties for commercial products and commercial services governed by FAR 46.709 [@CL-SUP-0961]. See [Warranties: criteria, terms and remedies](sup-warranties.md), [Contractor liability for Government property loss after acceptance](sup-contractor-liability-after-acceptance.md) and [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which warranty clause, if any, each fixed-price contract carries and whether the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned clause prescription wording and cross-references with quotes and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate-conditions qualification and permissive wording.

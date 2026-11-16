@@ -50,7 +50,7 @@ An offeror's main operating office in the set-aside area generated 60 percent of
 
 ## Never confuse
 
-An offeror is considered to be residing or primarily doing business in the set-aside area if, during the last twelve months, it had its main operating office in the area and that office generated at least half of the offeror's gross revenues and employed at least half of the offeror's permanent employees, and the further factors apply if the offeror does not meet those criteria [@CL-MKT-1025; @CL-MKT-1026; @CL-MKT-1094]. Under the subcontracting restriction clause, the bases are cost of contract performance incurred for personnel for services (except construction), cost of manufacturing the supplies not including the cost of materials for supplies (other than procurement from a nonmanufacturer of such supplies), and cost of the contract not including the cost of materials for general construction and construction by special trade contractors [@CL-MKT-1155; @CL-MKT-1027; @CL-MKT-1028; @CL-MKT-1029; @CL-MKT-1030; @CL-MKT-1031].
+These clauses cover representing HBCU or minority-institution status and disaster-area residence or primary business presence [@CL-MKT-1024; @CL-MKT-1093], and the disaster-area subcontracting restriction measures compliance by geographic area and contract cost—requiring specified minimum shares of personnel, manufacturing, or contract cost (excluding materials where stated) to be expended for or performed by employees of the contractor or of other businesses residing or primarily doing business in the set-aside area, such as at least 50 percent of non-construction service personnel costs [@CL-MKT-1155; @CL-MKT-1027; @CL-MKT-1028; @CL-MKT-1030; @CL-MKT-1031]—unlike the general [Limitations on subcontracting and the nonmanufacturer rule](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md), which cap how much of the amount paid by the Government (excluding the cost of materials for supplies and construction) a small business concern may pay, by contract category, to subcontractors that are not similarly situated entities [@CL-MKT-0226; @CL-MKT-0227; @CL-MKT-0229; @CL-MKT-0230; @CL-MKT-0231; @CL-MKT-0285; @CL-MKT-0286].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which institutional and disaster area representations in the finance remit are d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named defined terms in FAR 52.226-5(a) and separated codified and RFO clause citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: residence test conditions joined, services wording follows codified text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

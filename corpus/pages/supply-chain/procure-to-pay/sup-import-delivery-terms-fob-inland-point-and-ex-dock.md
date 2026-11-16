@@ -51,7 +51,7 @@ Under the ex dock term, the point of delivery is the designated dock at the port
 
 ## Never confuse
 
-Ex dock, pier or warehouse ends at the port of importation, while f.o.b. inland point runs inland to the consignee's facility [@CL-SUP-2346; @CL-SUP-2343]. The domestic f.o.b. destination terms and the export delivery terms are covered on their own cards; see [F.o.b. destination terms](sup-fob-destination-terms.md) and [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). In RFO part 52, 52.247-39 defines the inland point term [@CL-SUP-0401], while 52.247-40 is [Reserved] [@CL-SUP-0407] and the codified 52.247-40 defines the ex dock term [@CL-SUP-2346].
+Ex dock, pier or warehouse ends at the port of importation, unlike f.o.b. inland point, which runs inland to the consignee's facility [@CL-SUP-2346; @CL-SUP-2343]. The domestic f.o.b. destination terms and the export delivery terms are covered on their own cards; see [F.o.b. destination terms](sup-fob-destination-terms.md) and [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). In RFO part 52, 52.247-39 defines the inland point term [@CL-SUP-0401], while 52.247-40 is [Reserved] [@CL-SUP-0407] and the codified 52.247-40 defines the ex dock term [@CL-SUP-2346].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which import delivery term each order carries, the delivery point specif
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the prescription sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor duty lead-ins, loss responsibility and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

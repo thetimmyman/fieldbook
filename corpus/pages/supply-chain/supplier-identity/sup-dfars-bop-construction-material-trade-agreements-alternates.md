@@ -55,7 +55,7 @@ A contract uses Alternate I and the contractor buys cement made in Mexico. The c
 
 ## Never confuse
 
-Under Alternate II the restrictions are waived for SC/CASA state and designated country construction materials [@CL-SUP-1893], while under Alternate III they are waived for SC/CASA state and designated country construction material other than Bahraini or Mexican construction material [@CL-SUP-1895]. For the basic clause and the domestic-only clause, see [the basic clause card](sup-dfars-bop-construction-material-trade-agreements-clause.md) and [the construction material clause card](sup-dfars-bop-construction-material-clause.md). For the FAR clause for construction materials, see [Buy American for construction materials](sup-buy-american-construction-materials.md).
+Under Alternate II the restrictions are waived for SC/CASA state and designated country construction materials [@CL-SUP-1893], unlike under Alternate III, where they are waived for SC/CASA state and designated country construction material other than Bahraini or Mexican construction material [@CL-SUP-1895]. For the basic clause and the domestic-only clause, see [the basic clause card](sup-dfars-bop-construction-material-trade-agreements-clause.md) and [the construction material clause card](sup-dfars-bop-construction-material-clause.md). For the FAR clause for construction materials, see [Buy American for construction materials](sup-buy-american-construction-materials.md).
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Which alternate, if any, each construction contract carries, and who confirms wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Contracting Officer determination to the waiver statements; removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Alternate II sentence so the description keeps the added paragraph (d).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the alternates of the Balance of Payments Program construction material under trade agreements clause.

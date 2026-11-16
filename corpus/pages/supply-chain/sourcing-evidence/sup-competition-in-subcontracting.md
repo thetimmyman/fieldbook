@@ -49,7 +49,7 @@ Answer: the castings award follows the competition duty. The direct award to the
 
 ## Never confuse
 
-The mentor exception lets an approved mentor under the DoD Mentor-Protégé Program award subcontracts under the contract noncompetitively to its protégés [@CL-SUP-0557]. The duty to select subcontractors and suppliers competitively to the maximum practical extent is in paragraph (a) of the clause [@CL-SUP-0556]. Consent questions are on the [Subcontract consent evaluation](../procure-to-pay/sup-subcontract-consent-evaluation.md) card and review topics on the [Contractor purchasing system review](../procure-to-pay/sup-contractor-purchasing-system-review.md) card.
+The mentor exception lets an approved mentor under the DoD Mentor-Protégé Program award subcontracts under the contract noncompetitively to its protégés [@CL-SUP-0557], unlike paragraph (a) of the clause, which sets the duty to select subcontractors and suppliers competitively to the maximum practical extent [@CL-SUP-0556]. Consent questions are on the [Subcontract consent evaluation](../procure-to-pay/sup-subcontract-consent-evaluation.md) card and review topics on the [Contractor purchasing system review](../procure-to-pay/sup-contractor-purchasing-system-review.md) card.
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm whether purchasing procedures require competitive solicitation and a rec
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the review and mentor exception wording to match the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Competition in Subcontracting clause.

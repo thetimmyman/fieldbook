@@ -47,7 +47,7 @@ The SBA accepts a requirement for the program. The contracting officer then reje
 
 ## Never confuse
 
-The contracting agency's notice of intent to appeal the issuance of a Certificate of Competency goes to SBA Headquarters [@CL-MKT-0489] and is on the [Issuing or denying a Certificate of Competency and resolving differences with SBA](mkt-coc-issuance-denial-and-resolution.md) card. The 8(a) performance requirements concern what the participant is required to perform [@CL-MKT-0514]; the SBA Administrator may submit listed matters to the agency head [@CL-MKT-0515], with notice due within 5 working days [@CL-MKT-0517] and the written appeal within 15 working days [@CL-MKT-0518].
+This card covers 8(a) self-performance minimums—such as performing at least 50 percent of personnel cost on non-construction service contracts—and SBA Administrator appeals to the agency head on 8(a) disputes [@CL-MKT-0514; @CL-MKT-0515], rather than nonmanufacturer supply qualification on [How a nonmanufacturer qualifies as a small business on a supply contract](../taxonomy/mkt-sba-nonmanufacturer-qualification.md) [@CL-MKT-0389].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How subcontract spend is tracked against the participant's own performance, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced contrast wording in the confusion section with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certificate of Competency appeal pointer limited to the notice of intent its claim quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the preaward survey and Certificate of Competency referral.

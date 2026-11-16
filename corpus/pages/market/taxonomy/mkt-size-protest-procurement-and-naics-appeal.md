@@ -46,7 +46,7 @@ A solicitation is issued on day 0 and an amendment on day 10 changes its NAICS c
 
 ## Never confuse
 
-A size protest challenges the size of a concern and must pertain to a particular procurement or sale [@CL-MKT-0701], whereas a NAICS code appeal challenges a contracting officer's NAICS code or size standard designation before OHA [@CL-MKT-0702; @CL-MKT-0704]. Both a formal size determination appeal and a NAICS code appeal to OHA are administrative remedies that must be exhausted before judicial review may be sought in a court [@CL-MKT-2395; @CL-MKT-2147]. See [Size standards, NAICS codes and appeals of the contracting officer's code](mkt-size-standards-and-naics-codes.md), [Protesting a small business representation or rerepresentation](mkt-small-business-size-protests.md), and [Small business status advisory opinions](mkt-small-business-status-advisory-opinions.md).
+A size protest challenges whether a specific offeror is small on a particular procurement or sale [@CL-MKT-0701], whereas a NAICS code appeal challenges the contracting officer's industry code and size-standard choice for the solicitation itself before OHA within 10 calendar days rather than any bidder's size [@CL-MKT-0702; @CL-MKT-0704].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which of the company's offers carry a NAICS code that could put it over the size
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the interested-party definition, finality of the contracting officer's NAICS determination, all five contracting officer duties upon receipt of a NAICS appeal, and the part 134 exhaustion rule, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added appeals of size determinations and NAICS code designations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size protests tied to a procurement and NAICS code appeals.

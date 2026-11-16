@@ -45,7 +45,7 @@ A company runs 4 separate systems for planning, scheduling, budgeting and cost c
 
 ## Never confuse
 
-The contractor's planning, scheduling, budgeting, work authorization, and cost accumulation processes are integrated through coding structures that use unique identifiers and common data elements or a simple mapping method [@CL-PRG-0176]. The planning, scheduling, budgeting, work authorization, and cost accumulation subsystems are integrated via a common and unique coding structure for all levels of the Contract Work Breakdown Structure and the organizational structure [@CL-PRG-0178], and the system must integrate subcontractor data [@CL-PRG-0177].
+The contractor's planning, scheduling, budgeting, work authorization, and cost accumulation processes are integrated through coding structures using unique identifiers and common data elements or a simple mapping method across all levels of the Contract Work Breakdown Structure and organizational structure, including subcontractor data [@CL-PRG-0176; @CL-PRG-0177; @CL-PRG-0178], so data from one subsystem relates to and remains consistent with the others rather than operating as disconnected standalone tracking systems [@CL-PRG-0562].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Whether the coding structure that links planning, scheduling, budgeting, work au
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for structure measurement and management analysis; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored level qualifier and subsystem list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the subsidiary management process guideline.

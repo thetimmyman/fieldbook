@@ -44,9 +44,7 @@ A contractor lists a risk that its main Government program may be terminated ear
 
 ## Never confuse
 
-Item 105(a) covers the material factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041], whereas Item 303(b)(3) covers critical accounting estimates made in accordance with generally accepted accounting principles that involve a significant level of estimation uncertainty and have had or are reasonably likely to have a material impact on financial condition or results of operations, requiring qualitative and quantitative information necessary to understand the estimation uncertainty and impact [@CL-FPA-0035; @CL-FPA-0036]; see [Critical accounting estimates in MD&A](fpa-critical-accounting-estimates.md).
-
-The description of cybersecurity risk management, strategy and governance is covered in [Cybersecurity disclosure in Regulation S-K](fpa-cybersecurity-disclosure.md).
+Item 105(a) covers the material factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041], unlike Item 303(b)(3), which covers critical accounting estimates made in accordance with generally accepted accounting principles that involve a significant level of estimation uncertainty and have had or are reasonably likely to have a material impact on financial condition or results of operations, requiring qualitative and quantitative information necessary to understand the estimation uncertainty and impact [@CL-FPA-0035; @CL-FPA-0036]; see [Critical accounting estimates in MD&A](fpa-critical-accounting-estimates.md). The description of cybersecurity risk management, strategy and governance is covered in [Cybersecurity disclosure in Regulation S-K](fpa-cybersecurity-disclosure.md).
 
 ## Company calibration
 
@@ -55,6 +53,7 @@ Which open accounting judgments and close deadlines feed the risk discussion, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for Item 10(a)(2) filings and Item 105(b) speculative-or-risky summary scope, and removed unquoted absence and commentary statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Generic risk factors that are presented must be disclosed at the end under the stated caption.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on cybersecurity disclosure.

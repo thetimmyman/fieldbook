@@ -43,7 +43,7 @@ A software build activity spans 6 months with an authorized budget of 120,000. R
 
 ## Never confuse
 
-Guideline 5 requires identifying, in the schedule, the physical products, milestones, technical performance goals, or other objective indicators that will be used to measure progress [@CL-PRG-0201]. Guideline 6 requires scheduling the authorized work in a manner that describes the sequence of work and identifies task interdependencies required to meet the requirements of the program [@CL-PRG-0206]. See [Earned value management system requirement](prg-evms-requirement.md).
+Guideline 5 requires identifying, in the schedule, the physical products, milestones, technical performance goals, or other objective indicators that will be used to measure progress [@CL-PRG-0201], unlike Guideline 6, which requires scheduling the authorized work in a manner that describes the sequence of work and identifies task interdependencies required to meet the requirements of the program [@CL-PRG-0206]. See [Earned value management system requirement](prg-evms-requirement.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which contracts carry an earned value requirement, and whether the milestones us
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned milestone alignment wording and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: purpose wording and interdependencies verb.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 5 progress indicators.

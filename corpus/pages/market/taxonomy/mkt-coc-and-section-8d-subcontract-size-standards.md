@@ -50,7 +50,7 @@ Separately, a prime contractor believes that one NAICS code best describes a sub
 
 ## Never confuse
 
-An initial review of SBA Form 355 indicating that the applicant, including its affiliates, is small leads SBA to process the Certificate of Competency application, while a review indicating that the applicant is other than small leads SBA to initiate a formal size determination and withhold further processing until a formal size determination is made [@CL-MKT-2046; @CL-MKT-2047; @CL-MKT-2048]. For a section 8(d) subcontract, the size standard is the one for the NAICS code that the prime contractor believes best describes the product or service being acquired by the subcontract, except that subcontracts for engineering services awarded under the National Energy Policy Act of 1992 have the same size standard as Military and Aerospace Equipment and Military Weapons under NAICS code 541330 [@CL-MKT-2071; @CL-MKT-2050; @CL-MKT-2051]. Background on the certificate process is in [Certificate of Competency general rules](../programs/mkt-coc-general-and-referral.md).
+Filing SBA Form 355 in a Certificate of Competency application screens whether SBA processes the responsibility application directly [@CL-MKT-2045; @CL-MKT-2046], unlike an adversarial size protest filed by an interested party on [SBA size determination procedure](mkt-sba-size-determination-procedure.md) [@CL-MKT-0412], and section 8(d) subcontract size rules govern subcontracting rather than prime-contract eligibility [@CL-MKT-2071].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which NAICS code the company, as a prime contractor, believes best describes eac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example and removed meta commentary on unstated elements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the size standard for a Certificate of Competency in an unrestricted procurement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Certificate of Competency size procedures and section 8(d) subcontract size standards.

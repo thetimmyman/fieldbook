@@ -483,6 +483,17 @@ mod tests {
         fn remove_drill(&self, audited: &Audited) -> Result<(), Error> {
             self.disk.remove_drill(audited)
         }
+
+        fn read_maintenance(&self) -> Result<String, Error> {
+            self.disk.read_maintenance()
+        }
+
+        fn read_state_summary(
+            &self,
+            today: fieldbook_core::CivilDate,
+        ) -> Result<fieldbook_core::status::StateSummary, Error> {
+            self.disk.read_state_summary(today)
+        }
     }
 
     #[test]

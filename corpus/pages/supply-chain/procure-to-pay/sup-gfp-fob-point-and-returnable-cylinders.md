@@ -50,7 +50,7 @@ A contractor loans cylinders to the Government on a 30-day loan period at a rent
 
 ## Never confuse
 
-A returnable cylinder remains the contractor's property and is loaned without charge to the Government for the loan period [@CL-SUP-2056], and these cylinders shall become Government property when the Government pays for them as lost or damaged beyond repair [@CL-SUP-2060; @CL-SUP-2179]. Government-furnished property is returned to the point at which it was originally furnished to the contractor under the contract, unless otherwise directed by the contracting officer or provided in the contract [@CL-SUP-2054; @CL-SUP-2055]. The RFO part 52 text lists 52.247-55 and 52.247-66 as [Reserved] [@CL-SUP-0388; @CL-SUP-0389]; the codified clauses set the delivery point and the cylinder loan terms [@CL-SUP-2051; @CL-SUP-2056].
+A returnable cylinder remains the contractor's property and is loaned without charge to the Government for the loan period [@CL-SUP-2056], and these cylinders shall become Government property when the Government pays for them as lost or damaged beyond repair [@CL-SUP-2060; @CL-SUP-2179], unlike Government-furnished property, which is returned to the point at which it was originally furnished to the contractor under the contract, unless otherwise directed by the contracting officer or provided in the contract [@CL-SUP-2054; @CL-SUP-2055]. The RFO part 52 text lists 52.247-55 and 52.247-66 as [Reserved] [@CL-SUP-0388; @CL-SUP-0389]; the codified clauses set the delivery point and the cylinder loan terms [@CL-SUP-2051; @CL-SUP-2056].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which clause versions and delivery points the contracts state for Government-fur
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the shall wording, packing scope, replacement value and RFO paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the notwithstanding lead-in for the rail car direction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

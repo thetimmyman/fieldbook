@@ -49,7 +49,7 @@ A contractor plans to import a foreign component for 30,000 for delivery under t
 
 ## Never confuse
 
-One clause restricts acquisitions that OFAC measures prohibit, and the other sets out notice and price procedures for duty-free entry [@CL-SUP-1262; @CL-SUP-1265]. The codified clause has the contractor insert the clause, including its paragraph (c), in all subcontracts [@CL-SUP-1264], while RFO FAR 52.240-91(j) has the contractor insert the substance of the clause, including paragraph (j) but excluding subparagraphs (d)(1) and (i)(1), in all subcontracts and other contractual instruments, including subcontracts for acquiring commercial products or commercial services [@CL-SUP-3720] (see also [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md)).
+One clause restricts acquisitions that OFAC measures prohibit, and the other sets out notice and price procedures for duty-free entry [@CL-SUP-1262; @CL-SUP-1265]. The codified clause has the contractor insert the clause, including its paragraph (c), in all subcontracts [@CL-SUP-1264], unlike RFO FAR 52.240-91(j), which has the contractor insert the substance of the clause, including paragraph (j) but excluding subparagraphs (d)(1) and (i)(1), in all subcontracts and other contractual instruments, including subcontracts for acquiring commercial products or commercial services [@CL-SUP-3720] (see also [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md)).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Whether the purchasing system passes the restrictions clause to every subcontrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added without-limitation parenthetical on foreign supplies and removed uncited commentary and RFO meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: OFAC clause: stated the authorization as an exception, not the only route.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the duty-free entry sentence so the claim rule keeps the duty owed on supplies diverted to nongovernmental use.

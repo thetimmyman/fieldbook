@@ -49,7 +49,7 @@ Answer: the contractor may enter the subcontract because it has a compelling rea
 
 ## Never confuse
 
-The prohibition and the notice duty cover different groups. The prohibition names parties that are debarred, suspended, or proposed for debarment [@CL-SUP-0558], while the disclosure and notice steps also reach voluntarily excluded parties [@CL-SUP-0691; @CL-SUP-0560]. A compelling reason is an exception to the prohibition, alongside the exception for a subcontract for a commercially available off-the-shelf item [@CL-SUP-0558; @CL-SUP-0690], but the written notice must still be given before entering into a subcontract with a listed party, other than a subcontractor providing a commercially available off-the-shelf item [@CL-SUP-0560]. The written disclosure asks whether the subcontractor or its principals are excluded [@CL-SUP-0691], but the prohibition applies when the subcontractor itself is debarred, suspended, or proposed for debarment [@CL-SUP-0558], and the notice also when it is voluntarily excluded [@CL-SUP-0560]. Consent and purchasing system topics are on the [Subcontracts: consent and advance notification](../procure-to-pay/sup-subcontracts-consent-advance-notification.md) and [Contractor purchasing system](../procure-to-pay/sup-contractor-purchasing-system.md) cards.
+The prohibition and the notice duty cover different groups: the prohibition names parties that are debarred, suspended, or proposed for debarment [@CL-SUP-0558], unlike the disclosure and notice steps, which also reach voluntarily excluded parties [@CL-SUP-0691; @CL-SUP-0560]. A compelling reason is an exception to the prohibition, alongside the exception for a subcontract for a commercially available off-the-shelf item [@CL-SUP-0558; @CL-SUP-0690], but the written notice must still be given before entering into a subcontract with a listed party, other than a subcontractor providing a commercially available off-the-shelf item [@CL-SUP-0560]. The written disclosure asks whether the subcontractor or its principals are excluded [@CL-SUP-0691], but the prohibition applies when the subcontractor itself is debarred, suspended, or proposed for debarment [@CL-SUP-0558], and the notice also when it is voluntarily excluded [@CL-SUP-0560]. Consent and purchasing system topics are on the [Subcontracts: consent and advance notification](../procure-to-pay/sup-subcontracts-consent-advance-notification.md) and [Contractor purchasing system](../procure-to-pay/sup-contractor-purchasing-system.md) cards.
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm how exclusion screening and written disclosures are checked before a sub
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the systems-and-procedures wording and the example with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the off-the-shelf exception in the RFO notice sentence and fixed the compelling-reason versus notice wording.

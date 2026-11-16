@@ -50,7 +50,7 @@ A company signs a credit agreement in the fourth quarter that is a material cont
 
 ## Never confuse
 
-Under Item 601(a), the exhibit table indicates those documents that must be filed as exhibits to the respective forms listed, and the number in the far left column refers to the subsection in paragraph (b) where a description of the exhibit can be found [@CL-FPA-1176; @CL-FPA-1177; @CL-FPA-1178]; for the exhibit categories in paragraph (b), see [Exhibits: the categories a finance reader uses](fpa-exhibits-categories.md). For the code of ethics and insider trading policy disclosures and exhibit provisions, see [Code of ethics and insider trading arrangements and policies](fpa-code-of-ethics-and-insider-trading-policies.md).
+Under Item 601(a), the exhibit table indicates which documents must be filed as exhibits to the listed forms and refers by its far-left number to the subsection in paragraph (b) describing each exhibit, whereas schedules or similar attachments not containing information material to an investment or voting decision and not otherwise disclosed need not be filed if an identifying list is provided [@CL-FPA-1176; @CL-FPA-1177; @CL-FPA-1178; @CL-FPA-1172; @CL-FPA-1173]; for the exhibit categories in paragraph (b), see [Exhibits: the categories a finance reader uses](fpa-exhibits-categories.md). For the code of ethics and insider trading policy disclosures and exhibit provisions, see [Code of ethics and insider trading arrangements and policies](fpa-code-of-ethics-and-insider-trading-policies.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ How the company would keep an exhibit register that matches each filing, with th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-wording and uncited contrasts and aligned How it works and Never confuse with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Omitted-schedule list as a duty, copy on request added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the omitted schedules list.

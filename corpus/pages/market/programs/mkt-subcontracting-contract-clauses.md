@@ -45,7 +45,7 @@ A negotiated supply contract is expected to be worth 1,500,000, is not set aside
 
 ## Never confuse
 
-The utilization clause 52.219-8 and the plan clause 52.219-9 are different clauses, and the plan clause goes into contracts that are required to include the utilization clause [@CL-MKT-0466]. The liquidated damages clause follows the plan clause [@CL-MKT-0472], while the incentive clause is a separate and optional monetary incentive [@CL-MKT-0473].
+FAR 52.219-8 (Utilization of Small Business Concerns) applies above the simplified acquisition threshold [@CL-MKT-0464], whereas FAR 52.219-9 (Small Business Subcontracting Plan) applies only when a contract also exceeds $900,000 ($2 million for construction) and offers subcontracting possibilities [@CL-MKT-0466], and FAR 52.219-16 (Liquidated Damages) follows FAR 52.219-9 rather than FAR 52.219-8 alone [@CL-MKT-0472].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which of the company's contracts carry each clause and alternate, and which are 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the categories and conditions in FAR 19.708(c)(1) and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternate cross-references and exceptions wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontracting contract clauses.

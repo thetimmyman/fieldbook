@@ -45,7 +45,7 @@ A contractor proposes forward rates for three years. Negotiations stall, so the 
 
 ## Never confuse
 
-The proposal is the contractor's formal submission detailing its forecast [@CL-RTE-0402], the recommendation is unilateral and issued when no agreement is signed or while negotiations continue [@CL-RTE-0343], and the agreement is negotiated between the contractor and the government [@CL-RTE-0403]. For the FAR rules on the agreement and on recommendations, see [Forward pricing rate agreements](rte-forward-pricing-rate-agreements.md).
+The proposal is the contractor's formal submission detailing its forecast [@CL-RTE-0402], unlike the recommendation, which is unilateral and issued when no agreement is signed or while negotiations continue [@CL-RTE-0343], or the agreement, which is negotiated between the contractor and the government [@CL-RTE-0403]. For the FAR rules on the agreement and on recommendations, see [Forward pricing rate agreements](rte-forward-pricing-rate-agreements.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Confirm which agreement, recommendation or open proposal applies to each pricing
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the once-an-agreement-is-in-place condition on monitoring, the purpose of the later truthful-data audit, and the department wording, and removed an uncited summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the forward pricing rate proposal, recommendation and agreement process.

@@ -55,7 +55,7 @@ The schedule lists a custodial supply item to be bought from a central nonprofit
 
 ## Never confuse
 
-The contractor obtains mandatory supplies or services from the specific sources indicated in the contract schedule [@CL-SUP-2946] and does not purchase from other sources until the Contracting Officer has notified it that the Committee or an AbilityOne central nonprofit agency has authorized purchase from other sources [@CL-SUP-2948]. Certain of these supplies are also available from the Defense Logistics Agency, the General Services Administration or the Department of Veterans Affairs [@CL-SUP-2945], and for those obtained through their distribution facilities price and delivery information is available from the Contracting Officer [@CL-SUP-2987]. Buying practice beyond this clause sits with [Contractor purchasing system](sup-contractor-purchasing-system.md).
+The clause's sourcing rule and its price and delivery channels are separate points. The contractor obtains mandatory supplies or services from the specific sources indicated in the contract schedule [@CL-SUP-2946] and does not purchase from other sources until the Contracting Officer has notified it that the Committee or an AbilityOne central nonprofit agency has authorized purchase from other sources [@CL-SUP-2948]. Certain of these supplies are also available from the Defense Logistics Agency, the General Services Administration or the Department of Veterans Affairs [@CL-SUP-2945], and the clause still calls the supplies obtained through their distribution facilities mandatory supplies [@CL-SUP-2987]. What differs is who gives price and delivery information: the Contracting Officer for mandatory supplies obtained through those distribution facilities [@CL-SUP-2987], rather than the appropriate central nonprofit agency, which gives it for mandatory supplies or services not available from those three agencies [@CL-SUP-2988]. Buying practice beyond this clause sits with [Contractor purchasing system](sup-contractor-purchasing-system.md).
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Whether each Government-use purchase is checked against the mandatory sources in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Cited both AbilityOne central nonprofit agency contact claims under FAR 52.208-9(c).
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contract-specific and contrast wording the quotes do not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

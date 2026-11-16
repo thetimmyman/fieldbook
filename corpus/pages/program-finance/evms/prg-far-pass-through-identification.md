@@ -48,7 +48,7 @@ An offeror proposes total work of 1,000,000 and plans to subcontract 800,000 of 
 
 ## Never confuse
 
-See [Limitations on Pass-Through Charges clause](../../estimating/pricing/est-pass-through-charge-limitations.md). Under codified FAR 52.215-22(a), added value, excessive pass-through charge, subcontract, and subcontractor are defined in the clause of the solicitation entitled "Limitations on Pass-Through Charges" (FAR 52.215-23) [@CL-PRG-9150], whereas under RFO FAR 52.215-22(a) they are defined in the clause of the request for proposals entitled "Limitations on Pass-Through Charges" (FAR 52.215-23) [@CL-PRG-0027].
+See [Limitations on Pass-Through Charges clause](../../estimating/pricing/est-pass-through-charge-limitations.md). Under codified FAR 52.215-22(a), added value, excessive pass-through charge, subcontract, and subcontractor are defined in the clause of the solicitation entitled "Limitations on Pass-Through Charges" (FAR 52.215-23) [@CL-PRG-9150], unlike under RFO FAR 52.215-22(a), where they are defined in the clause of the request for proposals entitled "Limitations on Pass-Through Charges" (FAR 52.215-23) [@CL-PRG-0027].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Who prepares the subcontract-effort identification in each proposal, and how it 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated required list items with and, separated RFO and codified citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored lower-tier test; cited definitions pointer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

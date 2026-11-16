@@ -49,7 +49,7 @@ A requirement in a non-manufacturing NAICS code has an anticipated award price, 
 
 ## Never confuse
 
-A set-aside restricts competition among SDVOSB concerns and depends on a reasonable expectation, based on market research, that two or more such concerns will submit offers and that award will be made at a fair market price [@CL-MKT-0619]. A sole-source award has its own conditions and price ceiling [@CL-MKT-0620; @CL-MKT-0621]. Size is a separate question; see the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card. Protests of SDVOSB status are on the [Protesting a firm's service-disabled veteran-owned small business status](mkt-sdvosb-status-protests.md) card.
+An SDVOSB set-aside restricts competition when at least two eligible SDVOSB concerns are expected to offer at a fair market price [@CL-MKT-0619], unlike an SDVOSB sole-source award, which applies without that two-offer expectation and must be considered before a general small business set-aside [@CL-MKT-0620].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the joint venture conditions in FAR 19.1403(d)(1)-(3) and sole-source conditions in FAR 19.1406(a)(1)-(5), and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: second alternative cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of an SDVOSB concern eligible under the SDVOSB Program and both definitions of the SDVOSB Program.

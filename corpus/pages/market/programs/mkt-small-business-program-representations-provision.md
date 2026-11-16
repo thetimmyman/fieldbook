@@ -47,7 +47,7 @@ A solicitation names a size standard of 600 employees. An offeror has 450 employ
 
 ## Never confuse
 
-Under FAR 52.219-1(c)(1), the offeror represents as part of its offer whether it is, or is not, a small business concern [@CL-MKT-0808]. The rule on when and how the offeror makes the representation is on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card, and the SBA penalty rules for misrepresenting size are on the [Size misrepresentation penalties](../taxonomy/mkt-sba-size-misrepresentation-penalties-and-subcontract-size.md) card. The representation after award is on the [Postaward rerepresentation and subcontracting liquidated damages](mkt-postaward-rerepresentation-and-subcontracting-damages.md) card, and the notice clauses that reject offers from concerns that are not small on set-aside solicitations are on the [Small business set-aside notice clauses](mkt-small-business-set-aside-notice-clauses.md) card.
+FAR 52.219-1 is the solicitation provision displaying the acquisition's NAICS code and size standard and taking the offeror's size representation [@CL-MKT-0806; @CL-MKT-0809], rather than the timing rule on [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) [@CL-MKT-0209] or the willful-misrepresentation loss presumption on [Size misrepresentation penalties](../taxonomy/mkt-sba-size-misrepresentation-penalties-and-subcontract-size.md) [@CL-MKT-0418].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which legal entities make offers under this provision, and who confirms size and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: size-standard and representation alternatives; consequences all apply.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

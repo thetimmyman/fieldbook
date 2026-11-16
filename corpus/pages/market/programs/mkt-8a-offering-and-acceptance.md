@@ -47,7 +47,7 @@ An agency offers a requirement worth 900,000 and expects it to exceed its simpli
 
 ## Never confuse
 
-After completing its evaluation, the contracting office notifies the SBA of its plans to place 8(a) contracts through the offering letter [@CL-MKT-0499; @CL-MKT-1448; @CL-MKT-0500]; selecting acquisitions for the program is on the [Selecting acquisitions for the program](mkt-8a-selecting-acquisitions.md) card. SBA's written decision period is 10 working days of receipt of the offer if the contract is likely to exceed the simplified acquisition threshold and two working days if the contract is at or below the simplified acquisition threshold [@CL-MKT-0503; @CL-MKT-0504], while the reply period from the Associate Administrator for Business Development is five calendar days of receipt of the contracting office's request [@CL-MKT-0506]. The two decision periods turn on the simplified acquisition threshold [@CL-MKT-0503; @CL-MKT-0504], which is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card, and the NAICS code is on the [Size standards, NAICS codes and appeals of the contracting officer's code](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
+An offering letter notifies SBA of specific quantities or work to place in the 8(a) program and triggers SBA's written acceptance decision within 10 working days above the simplified acquisition threshold [@CL-MKT-0499; @CL-MKT-0503], rather than the earlier matching of candidate requirements on [Selecting acquisitions for the program](mkt-8a-selecting-acquisitions.md) [@CL-MKT-0493].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which bids and estimates for requirements offered to the program need immediate 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed offering-letter reservation scope and acceptance assumption rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Offering letter purpose and NAICS scope restored.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the separate offers and acceptances rule for repetitive acquisitions.

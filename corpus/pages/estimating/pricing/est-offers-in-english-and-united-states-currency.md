@@ -50,7 +50,7 @@ Offeror C submits an offer written in another language with prices in United Sta
 
 ## Never confuse
 
-The language provision provides for rejection of offers received in other than English [@CL-EST-2181], and the currency provision for rejection of offers received in other than United States dollars [@CL-EST-2182]. Signature and preparation of a bid are covered on [Preparing and signing a sealed bid](est-bid-preparation-and-signature.md).
+FAR 52.214-34 and 52.214-35 mandate rejecting offers submitted in a language other than English or a currency other than United States dollars [@CL-EST-0368; @CL-EST-2181; @CL-EST-2182], rather than treating non-English text or foreign currency as a waivable preparation detail alongside bidder examination duties on [Preparing and signing a sealed bid](est-bid-preparation-and-signature.md) [@CL-EST-1987].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm who checks language and currency on each offer before it is released, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited inferences and contrasts with cited requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for submission of offers in the English language and in United States currency.

@@ -45,7 +45,7 @@ A solicitation covers a part with a qualification requirement, and only two supp
 
 ## Never confuse
 
-Agencies may not enforce any QPL, QML, or QBL without first complying with the requirements of FAR 9.202(a), except that qualification requirements in the two categories in FAR 9.206-1(a)(1) and (2) (established before October 30, 1984, and before October 19, 1984, respectively) may be enforced without regard to FAR 9.202(a) [@CL-MKT-0757; @CL-MKT-1886; @CL-MKT-0800]. Under FAR 9.207, the contracting officer shall promptly report to the agency activity which established the qualification requirement any conditions which may merit removal or omission from a QPL, QML, or QBL or affect whether a source should continue to be otherwise identified as meeting the requirement [@CL-MKT-0759], and the agency shall promptly notify the affected parties if a product or source is removed from a QPL, QML, or QBL or will no longer be identified as meeting the standards specified for qualification [@CL-MKT-0762]. Establishment of qualification requirements is covered on the [Qualification requirements and the opportunity to qualify before award](../../supply-chain/sourcing-evidence/sup-qualification-requirements.md) card, and the clause is covered on the [Qualification requirements clause: what the offeror shows before award](../../supply-chain/supplier-identity/sup-qualification-requirements-clause.md) card.
+Enforcing a QPL, QML, or QBL requires prior compliance with FAR 9.202(a), unlike grandfathered qualification requirements in the two categories of FAR 9.206-1(a)(1) and (2), which may be enforced without regard to FAR 9.202(a) [@CL-MKT-0757; @CL-MKT-1886], whereas qualification requirements established after those dates are not exempt [@CL-MKT-1893].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm which of the company products fall under a qualification requirement and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added post-date enforceability sentence and notice-content requirement and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept 'any of the above or other conditions' in the status-change sentence.

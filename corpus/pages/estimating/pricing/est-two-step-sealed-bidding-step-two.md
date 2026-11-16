@@ -54,11 +54,7 @@ Bidder D submitted an acceptable technical proposal under a different request fo
 
 ## Never confuse
 
-The invitation for bids that contains the provision is issued to initiate step two of two-step sealed bidding [@CL-EST-2197], and a bidder that has submitted multiple technical proposals in step one may submit a separate bid on each technical proposal that was determined to be acceptable to the Government [@CL-EST-2162].
-
-The only bids the Contracting Officer may consider for award are those received from bidders that have submitted acceptable technical proposals in step one of this acquisition under the identified request [@CL-EST-2161]. Ordinary sealed bid award is covered on [Contract award under sealed bidding](est-sealed-bidding-contract-award.md).
-
-The codified provision names subpart 14.5 [@CL-EST-2197], while the RFO provision names section 14.211 [@CL-EST-0825].
+In step two of two-step sealed bidding, only bidders whose technical proposals were found acceptable in step one may have their priced bids considered [@CL-EST-0825; @CL-EST-0826; @CL-EST-2161], unlike ordinary single-step [Contract award under sealed bidding](est-sealed-bidding-contract-award.md), where any responsible bidder may submit a responsive priced bid without prior technical prequalification [@CL-EST-1978].
 
 ## Company calibration
 
@@ -68,6 +64,7 @@ Confirm which step-one technical proposals the company has submitted, which were
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut an unquoted contrast and restated the eligibility sentence in the provision's words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported contract-specific gloss and restated the eligibility sentence in the provision's words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

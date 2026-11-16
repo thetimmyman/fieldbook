@@ -67,6 +67,8 @@ pub enum Commands {
     Audit(AuditArgs),
     /// Find an id or a word in the Corpus; list the versions of a source.
     Search(SearchArgs),
+    /// Show what needs work, and optionally write the desk pages.
+    Status(StatusArgs),
     /// Record that the owner (or lead) verified a claim, at a terminal.
     Verify(VerifyArgs),
     /// Create, verify, or list backup snapshots.
@@ -228,6 +230,10 @@ pub struct BuildArgs {
         help = "Rebuild when the Corpus changes (checks every 500 ms; Ctrl-C stops)"
     )]
     pub watch: bool,
+
+    /// Path of an earlier edition's folder or `edition.toml`, for `changes.html`.
+    #[arg(long, value_name = "EDITION")]
+    pub since: Option<String>,
 }
 
 /// Arguments for `fieldbook add`.
@@ -276,6 +282,18 @@ pub struct CheckArgs {
     /// Optional paths (relative to the working directory) to filter diagnostics.
     #[arg(value_name = "PATHS")]
     pub paths: Vec<PathBuf>,
+}
+
+/// Arguments for `fieldbook status`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct StatusArgs {
+    /// Calendar date (YYYY-MM-DD) for freshness, instead of the clock.
+    #[arg(long, value_name = "YYYY-MM-DD")]
+    pub today: Option<CivilDate>,
+
+    /// Write the desk pages into `pages/` of the state folder.
+    #[arg(long)]
+    pub page: bool,
 }
 
 /// Arguments for `fieldbook audit`.

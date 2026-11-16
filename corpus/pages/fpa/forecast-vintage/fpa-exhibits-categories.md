@@ -52,7 +52,7 @@ A company with total assets of 800 million dollars registers notes. It also has 
 
 ## Never confuse
 
-Item 601(b)(4)(i) and (vi) cover the instruments defining the rights of holders of registered equity or debt securities and the exhibit providing Item 202(a) through (d) and (f) information for each class of securities registered under Section 12 of the Exchange Act [@CL-FPA-1183; @CL-FPA-1187], and the security description rules are covered on [Description of registrant's securities](fpa-description-of-registrants-securities.md). Item 601(b)(1) covers each underwriting contract or agreement with a principal underwriter [@CL-FPA-1179]; for the prospectus disclosure of underwriting and distribution terms, see [Use of proceeds and plan of distribution](fpa-use-of-proceeds-and-plan-of-distribution.md). The exhibit table and general instructions are covered on [Exhibits: the exhibit table, the index and the general instructions](fpa-exhibits-general-instructions.md).
+Item 601(b)(4)(i) and (vi) require filing the instruments defining the rights of holders of registered equity or debt securities and the exhibit providing Item 202(a) through (d) and (f) information for each class of securities registered under Section 12 of the Exchange Act [@CL-FPA-1183; @CL-FPA-1187], unlike the narrative security description under Item 202 on [Description of registrant's securities](fpa-description-of-registrants-securities.md), while Item 601(b)(1) covers each underwriting contract or agreement with a principal underwriter [@CL-FPA-1179] rather than the prospectus disclosure of underwriting and distribution terms on [Use of proceeds and plan of distribution](fpa-use-of-proceeds-and-plan-of-distribution.md). The exhibit table and general instructions are covered on [Exhibits: the exhibit table, the index and the general instructions](fpa-exhibits-general-instructions.md).
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ How the company would keep a register of its charter documents, debt instruments
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-wording and uncited commentary and aligned prose in Applies to, How it works, and Never confuse with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the articles and bylaws exhibits.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for the exhibit categories a finance reader uses.

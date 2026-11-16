@@ -45,7 +45,7 @@ A solicitation gives offerors 20 days and carries the notice provision. Only one
 
 ## Never confuse
 
-The Contracting Officer may cancel the solicitation and resolicit for an additional period of at least 30 days if only one offer is received [@CL-EST-1740]. The pricing steps after a single offer are on [Price determination after one offer](est-dod-one-offer-price-determination.md). The additional data an offeror agrees to provide after a single offer is on [Only one offer received](est-only-one-offer.md). The Selected Reserve duty and default right apply if the Contractor stated in its offer that it intends to use members of the Selected Reserve in the performance of the contract [@CL-EST-1772].
+DFARS 252.215-7007 warns offerors before receipt of proposals when a solicitation allows fewer than 30 days [@CL-EST-1739; @CL-EST-1778], unlike the contracting officer's post-receipt pricing analysis on [Price determination after one offer](est-dod-one-offer-price-determination.md) [@CL-EST-1281], while the Selected Reserve clause enforces staffing commitments made in the offer rather than solicitation timing [@CL-EST-1772].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which expected solicitations may give fewer than the usual response time, and wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statutory citation so each sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Rewrote how-it-works and Selected Reserve sentences to state the provisions directly instead of characterizing them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named DFARS 215.371-2 in the resolicit sentence; cut a not-must contrast, an unsaid-evaluation sentence and an inference about silent offers.

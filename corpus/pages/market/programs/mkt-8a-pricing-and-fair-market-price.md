@@ -51,7 +51,7 @@ An agency proposes a sole-source 8(a) award at 1,200,000, and the contracting of
 
 ## Never confuse
 
-The fair market price limit applies to every 8(a) award, sole source or competitive [@CL-MKT-1266]. For 8(a) contracts the contracting officer follows the 19.807 procedures [@CL-MKT-1371], while the reasonable price guidelines in 15.404-1(b) set the fair market price for the other set-asides listed in 19.202-6 [@CL-MKT-1369; @CL-MKT-1370]. The offering and acceptance steps are on [the offering and acceptance card](mkt-8a-offering-and-acceptance.md).
+Pricing an 8(a) contract requires the contracting officer to estimate the fair market price and obtain SBA concurrence on both the negotiated contract price and the estimated fair market price [@CL-MKT-1265; @CL-MKT-1268; @CL-MKT-1366], unlike ordinary [Small business set-asides](mkt-small-business-set-asides.md) where the contracting officer awards directly without SBA price concurrence [@CL-MKT-0219].
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Whether the pricing file holds the cost or price analysis, the commercial and in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast and reason clauses and stated the SBA concurrence directly.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pricing an 8(a) contract and estimating the fair market price.

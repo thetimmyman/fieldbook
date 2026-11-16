@@ -363,6 +363,16 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         match world.write_lease() {
             Ok(l) => Some(l),
             Err(err) => {
+                if matches!(
+                    std::fs::symlink_metadata(&corpus_root),
+                    Ok(ref m) if m.file_type().is_file()
+                ) {
+                    return Outcome {
+                        stdout: String::new(),
+                        stderr: format!("error: no corpus folder at {}\n", corpus_root.display()),
+                        code: EXIT_IO,
+                    };
+                }
                 return Outcome {
                     stdout: String::new(),
                     stderr: format!("cannot acquire store lease: {err}\n"),
@@ -454,12 +464,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                         dest: Some(DestKind::Backup),
                         ..RefuseAbout::default()
                     };
-                    let _ = j.refuse(
-                        Some("backup"),
-                        refusal.code,
-                        Word::new_static("place"),
-                        &about,
-                    );
+                    let _ = j.refuse_backup(refusal.code, Word::new_static("place"), &about);
                 }
                 return Outcome {
                     stdout: notices,
@@ -550,12 +555,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 dest: Some(DestKind::Backup),
                 ..RefuseAbout::default()
             };
-            let _ = j.refuse(
-                Some("backup"),
-                refusal.code,
-                Word::new_static("git"),
-                &about,
-            );
+            let _ = j.refuse_backup(refusal.code, Word::new_static("git"), &about);
         }
         return Outcome {
             stdout: notices,
@@ -728,9 +728,9 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         journal_seq,
         journal_head: journal_head.clone(),
         journal_state: if is_broken_chain {
-            fieldbook_core::strings::cite_statuses()[0].to_string()
+            fieldbook_core::backup::toml::JOURNAL_STATE_BROKEN.to_string()
         } else {
-            "ok".to_string()
+            fieldbook_core::backup::toml::JOURNAL_STATE_OK.to_string()
         },
         manifest_sha256: String::new(),
     };
@@ -802,12 +802,15 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     );
     // Only an entry whose backup.toml was read and parsed is a snapshot: retention
     // neither keeps nor removes a foreign folder or an unparsable one.
-    let pruned_snapshots: Vec<Number> = snapshot_infos
+    let mut pruned_snapshots: Vec<Number> = snapshot_infos
         .iter()
         .filter(|info| info.has_backup_toml && info.number != next_number)
         .map(|info| info.number)
         .filter(|n| !retained_snapshots.contains(n))
         .collect();
+    if recovery_opt.is_some() {
+        pruned_snapshots.clear();
+    }
 
     for num in &pruned_snapshots {
         let prune_dir = target_path.join(format!("fieldbook-backup-{num:04}"));
@@ -836,7 +839,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                     dest: Some(DestKind::Backup),
                     ..RefuseAbout::default()
                 };
-                let _ = j.refuse(Some("backup"), denial.code, denial.reason.to_word(), &about);
+                let _ = j.refuse_backup(denial.code, denial.reason.to_word(), &about);
             }
 
             let probe_count = copied_files
@@ -1034,9 +1037,22 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
             fp_sha,
             target_word,
         ) {
+            let mut err_text = format!("end_backup error: {err}\n");
+            if !removed.is_empty() {
+                let list = removed
+                    .iter()
+                    .map(|n| format!("{n:04}"))
+                    .collect::<Vec<_>>()
+                    .join(", ");
+                err_text.push_str(&format!("removed without a journal record: {list}\n"));
+            }
+            for problem in &prune_problems {
+                err_text.push_str(problem);
+                err_text.push('\n');
+            }
             return Outcome {
                 stdout: notices,
-                stderr: format!("end_backup error: {err}\n"),
+                stderr: err_text,
                 code: EXIT_IO,
             };
         }
@@ -1049,6 +1065,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     } else {
         // Recovery mode: refusal stderr notification
         stderr.push_str("refusing to append to journal: hash chain broken\n");
+        stderr.push_str("no snapshot removed: the journal is refused\n");
     }
 
     if !warn_stale.is_empty() {
@@ -1350,12 +1367,17 @@ fn run_verify_raw(
             path_sha256: raw_sha256,
             public_support_sha256: None,
         };
-        if let Ok(mut j) = Journal::open(world, world.state_dir(), Via::Cli) {
-            let _ = j.append_backup_verify(Word::new_static("ok"), verified);
+        let mut stderr = String::new();
+        if let Err(err) = Journal::open(world, world.state_dir(), Via::Cli)
+            .and_then(|mut j| j.append_backup_verify(Word::new_static("ok"), verified))
+        {
+            stderr.push_str(&format!(
+                "note: verify was not recorded in the journal: {err}\n"
+            ));
         }
         return Outcome {
             stdout: "raw copy consistent\n".to_string(),
-            stderr: String::new(),
+            stderr,
             code: EXIT_OK,
         };
     }

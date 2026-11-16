@@ -47,7 +47,7 @@ An agency issues a solicitation for a development effort and requires an earned 
 
 ## Never confuse
 
-See [Earned value management system requirement](prg-evms-requirement.md), [EVMS approval and disapproval](prg-evms-approval-disapproval.md), [EVMS monthly reports and subcontractors under the FAR](../eac/prg-far-evms-reports-subcontractors.md), [Integrated Baseline Reviews under the FAR](../risk-opportunity/prg-far-integrated-baseline-review.md), and [Integrated Baseline Review timing, cost, provisions and clause](../risk-opportunity/prg-far-ibr-timing-clauses.md). If the offeror proposes to use a system that has not been determined to be in compliance with EIA-748, the offeror shall submit a comprehensive plan for compliance with these EVMS standards [@CL-PRG-0852], and offerors shall not be eliminated from consideration for contract award because they do not have an EVMS that complies with these standards [@CL-PRG-0853].
+See [Earned value management system requirement](prg-evms-requirement.md), [EVMS approval and disapproval](prg-evms-approval-disapproval.md), [EVMS monthly reports and subcontractors under the FAR](../eac/prg-far-evms-reports-subcontractors.md), [Integrated Baseline Reviews under the FAR](../risk-opportunity/prg-far-integrated-baseline-review.md), and [Integrated Baseline Review timing, cost, provisions and clause](../risk-opportunity/prg-far-ibr-timing-clauses.md). If the offeror proposes to use a system that has not been determined to be in compliance with EIA-748, the offeror shall submit a comprehensive plan for compliance with these EVMS standards [@CL-PRG-0852] rather than being eliminated from consideration for contract award because it does not have an EVMS that complies with these standards [@CL-PRG-0853].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which contracts carry an earned value requirement, and whether the system offere
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO FAR 2.101 citations and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the earned value management system definition.

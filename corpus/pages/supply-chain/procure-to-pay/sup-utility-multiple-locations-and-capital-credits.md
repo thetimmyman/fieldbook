@@ -52,9 +52,7 @@ A contract covers one site. In the third month the Contracting Officer orders se
 
 ## Never confuse
 
-Under the multiple service locations clause, the Contracting Officer may at any time by written order designate any location within the contractor's service area at which utility service is to commence or be discontinued, any changes to the service specifications are made part of the contract by a contract modification that includes the name and location of the service, any different rate, the point of delivery, different service specifications and any other terms and conditions, and the applicable monthly charge is equitably prorated from the period in which commencement or discontinuance of service at a designated service location becomes effective [@CL-SUP-2706; @CL-SUP-2707; @CL-SUP-2708]. Under the capital credits clause, the Government is a member of the named cooperative and, as any other member, is entitled to capital credits consistent with the cooperative's bylaws, which state the contractor's obligation to pay capital credits and specify the method and time of payment, and capital credits are paid by check payable to the named agency and forwarded to the Contracting Officer at the inserted address unless the Contracting Officer directs otherwise in writing [@CL-SUP-2709; @CL-SUP-2710].
-
-The clauses on termination liability and the nonrefundable service charge are covered in [Utility termination liability and nonrefundable service charge](sup-utility-termination-liability-and-service-charge.md).
+Under the multiple service locations clause, the Contracting Officer may at any time by written order designate any location within the contractor's service area at which utility service is to commence or be discontinued, any changes to the service specifications are made part of the contract by a contract modification that includes the name and location of the service, any different rate, the point of delivery, different service specifications and any other terms and conditions, and the applicable monthly charge is equitably prorated from the period in which commencement or discontinuance of service at a designated service location becomes effective [@CL-SUP-2706; @CL-SUP-2707; @CL-SUP-2708], unlike the capital credits clause, under which the Government is a member of the named cooperative and, as any other member, is entitled to capital credits consistent with the cooperative's bylaws, which state the contractor's obligation to pay capital credits and specify the method and time of payment, and capital credits are paid by check payable to the named agency and forwarded to the Contracting Officer at the inserted address unless the Contracting Officer directs otherwise in writing [@CL-SUP-2709; @CL-SUP-2710]. The clauses on termination liability and the nonrefundable service charge are covered in [Utility termination liability and nonrefundable service charge](sup-utility-termination-liability-and-service-charge.md).
 
 ## Company calibration
 
@@ -64,6 +62,7 @@ Confirm which sites sit on the contract, which modifications added them, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned summary sentences with the cited quotes and removed meta blank wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a rate-schedule statement that the clauses do not make.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility termination liability.

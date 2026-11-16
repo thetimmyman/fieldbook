@@ -45,7 +45,7 @@ A contract requires the contractor to keep test results showing that each shipme
 
 ## Never confuse
 
-The contractor is responsible for controlling the quality of supplies or services [@CL-SUP-0850] and for performing all inspections and tests required by the contract except those specifically reserved for performance by the Government [@CL-SUP-0854]. Although contracts generally make contractors responsible for performing inspection before tendering supplies, some contracts provide for specialized inspections to be performed solely by the Government [@CL-SUP-0974]. The Government side is on [Government contract quality assurance](sup-government-contract-quality-assurance.md), the level of requirements the contract sets is on [Contract quality requirements](sup-contract-quality-requirements.md), and assurance at a subcontractor is on [Quality assurance on subcontracts](sup-subcontract-quality-assurance.md). The effect of Government inspection on the contractor's responsibility for defects is on [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md), and the handling of nonconforming supplies is on [Rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
+The contractor is responsible for controlling the quality of supplies or services [@CL-SUP-0850] and for performing all inspections and tests required by the contract except those specifically reserved for performance by the Government [@CL-SUP-0854], unlike specialized inspections that some contracts provide to be performed solely by the Government rather than by the contractor before tendering supplies [@CL-SUP-0974]. The Government side is on [Government contract quality assurance](sup-government-contract-quality-assurance.md), the level of requirements the contract sets is on [Contract quality requirements](sup-contract-quality-requirements.md), and assurance at a subcontractor is on [Quality assurance on subcontracts](sup-subcontract-quality-assurance.md). The effect of Government inspection on the contractor's responsibility for defects is on [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md), and the handling of nonconforming supplies is on [Rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ What conformance evidence each contract requires, and where supplier quality con
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the contractor duties as an all-apply list and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor responsibilities for quality.

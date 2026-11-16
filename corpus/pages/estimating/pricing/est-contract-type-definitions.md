@@ -62,7 +62,7 @@ An award-fee plan names a board of five people. The plan sets evaluation periods
 
 ## Never confuse
 
-An established price is an established catalog or market price for a commercial product sold in substantial quantities to the general public that is also the net price after applying any standard trade discounts offered by the contractor [@CL-EST-0941]. The FAR definitions section defines a catalog price for purposes of the services described in paragraph (2) of its definition of commercial service, as a price included in a catalog, price list, schedule, or other form that is regularly maintained by the manufacturer or vendor [@CL-EST-9331]. Under that definition the price is also either published or otherwise available for inspection by customers, and it states prices at which sales are currently, or were last, made to a significant number of buyers constituting the general public [@CL-EST-9332]. The board assists in making award-fee determinations, and the Fee-Determining Official reviews the board's recommendations in determining the award fee to be earned [@CL-EST-0940; @CL-EST-0942].
+In FAR part 16, a catalog price for covered commercial services is a regularly maintained, published or customer-inspectable schedule stating current or recent sales prices [@CL-EST-0973; @CL-EST-9331; @CL-EST-9332], unlike cost-based or judgmental fee arrangements such as [award-fee contracts](est-award-fee-contracts.md) [@CL-EST-1064].
 
 ## Company calibration
 
@@ -72,6 +72,7 @@ Which contract types the company holds by revenue, so these definitions are appl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited negative remarks removed; only-wording on rollover and board identification matched to the definitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of catalog price.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract-type definitions.

@@ -169,6 +169,10 @@ impl World for FaultyWorld {
         self.inner.has_company_store()
     }
 
+    fn effective_policy(&self) -> fieldbook_core::policy::EffectivePolicy {
+        self.inner.effective_policy()
+    }
+
     fn stdin_is_terminal(&self) -> bool {
         self.inner.stdin_is_terminal()
     }
@@ -226,5 +230,16 @@ impl World for FaultyWorld {
 
     fn store_id(&self) -> &'static str {
         self.inner.store_id()
+    }
+
+    fn read_maintenance(&self) -> Result<String, WorldError> {
+        self.inner.read_maintenance()
+    }
+
+    fn read_state_summary(
+        &self,
+        today: fieldbook_core::CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
+        self.inner.read_state_summary(today)
     }
 }

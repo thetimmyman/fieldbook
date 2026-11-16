@@ -62,13 +62,7 @@ A second move is wholly inside one State that requires no authority to operate. 
 
 ## Never confuse
 
-Under paragraph (a) of the permits clause, the offeror states whether it holds authorization from the Federal Highway Administration or another cognizant regulatory body and, if authorization is held, states the name of the regulatory body and the authorization number, and under paragraph (b) the offeror shall, at its expense, obtain and maintain any permits, franchises, licenses, and other authorities issued by State and local governments [@CL-SUP-2242; @CL-SUP-2192].
-
-The permits clause asks the offeror to state its authorization from the Federal Highway Administration or another cognizant regulatory body [@CL-SUP-2242]. The relocation capability clause requires, if the move specified in the contract is to be performed by the contractor as a carrier within the borders of more than one State, including the District of Columbia, that the contractor have obtained and hold appropriate and current operating authority from the Federal Motor Carrier Safety Administration, and it is inserted when a Federal office is relocated [@CL-SUP-0042; @CL-SUP-2193; @CL-SUP-2202].
-
-Under the inspection provision, offerors are urged to inspect the shipping and receiving facilities where services are to be performed and to satisfy themselves regarding all general and local conditions that may affect the cost of contract performance [@CL-SUP-2201]. The permits clause has an RFO counterpart in FAR 52.247-2 [@CL-SUP-0643; @CL-SUP-2241], while the codified relocation capability clause and inspection provision at FAR 52.247-3 and FAR 52.247-4 [@CL-SUP-2202; @CL-SUP-2247] are marked [Reserved] in RFO FAR 52.247-3 and RFO FAR 52.247-4 [@CL-SUP-0648; @CL-SUP-0649].
-
-The familiarization with conditions clause and the financial statement provision are covered in [Familiarization with conditions and the financial statement](sup-familiarization-with-conditions-and-financial-statement.md).
+Under paragraph (a) of the permits clause, the offeror states whether it holds authorization from the Federal Highway Administration or another cognizant regulatory body and, if authorization is held, states the name of the regulatory body and the authorization number, and under paragraph (b) the offeror shall, at its expense, obtain and maintain any permits, franchises, licenses, and other authorities issued by State and local governments [@CL-SUP-2242; @CL-SUP-2192]. The permits clause asks the offeror to state its authorization from the Federal Highway Administration or another cognizant regulatory body [@CL-SUP-2242], unlike the relocation capability clause, which requires—if the move specified in the contract is to be performed by the contractor as a carrier within the borders of more than one State, including the District of Columbia—that the contractor have obtained and hold appropriate and current operating authority from the Federal Motor Carrier Safety Administration, and is inserted when a Federal office is relocated [@CL-SUP-0042; @CL-SUP-2193; @CL-SUP-2202]. Under the inspection provision, offerors are urged to inspect the shipping and receiving facilities where services are to be performed and to satisfy themselves regarding all general and local conditions that may affect the cost of contract performance [@CL-SUP-2201]. The permits clause has an RFO counterpart in FAR 52.247-2 [@CL-SUP-0643; @CL-SUP-2241], unlike the codified relocation capability clause and inspection provision at FAR 52.247-3 and FAR 52.247-4 [@CL-SUP-2202; @CL-SUP-2247], which are marked [Reserved] in RFO FAR 52.247-3 and RFO FAR 52.247-4 [@CL-SUP-0648; @CL-SUP-0649]. The familiarization with conditions clause and the financial statement provision are covered in [Familiarization with conditions and the financial statement](sup-familiarization-with-conditions-and-financial-statement.md).
 
 ## Company calibration
 
@@ -78,6 +72,7 @@ Confirm which authority and permit documents the company holds for each transpor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for the interstate move lead-in and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the Commercial Zone provision to the facilities rule it qualifies and cited its However lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on familiarization with conditions.

@@ -43,7 +43,7 @@ A solicitation for a 2,000,000 supply contract has no registration exception. Th
 
 ## Never confuse
 
-Unless the acquisition is exempt under FAR 4.1102(a), the contracting officer shall verify that the offeror or quoter is registered in SAM at the time an offer or quotation is submitted [@CL-MKT-0031]. Under FAR 4.605(b), the contracting officer shall identify and report a unique entity identifier for the successful offeror on a contract action [@CL-MKT-0024]. Under FAR 4.1103(d), the contracting officer shall, on contractual documents transmitted to the payment office, provide the unique entity identifier, or, if applicable, the Electronic Funds Transfer indicator, in accordance with agency procedures [@CL-MKT-0033]. For how payment requests are routed, see the [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](../../contract-finance/billing-payment/ctf-wide-area-workflow-payment-instructions.md) card.
+SAM registration is the entity-level prospective awardee repository required at offer or quotation submission unless an exception applies [@CL-MKT-0029; @CL-MKT-9276], rather than an invoice routing mechanism such as the contract-specific payment submission clause on [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](../../contract-finance/billing-payment/ctf-wide-area-workflow-payment-instructions.md) [@CL-CTF-0451].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Confirm which of the company's legal entities hold SAM registrations and which c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified FAR 2.101 citations, added exact section cross-references, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the System for Award Management definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of System for Award Management.

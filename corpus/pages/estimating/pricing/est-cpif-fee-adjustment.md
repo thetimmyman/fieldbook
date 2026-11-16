@@ -46,7 +46,7 @@ A contract has a target cost of 1,000,000, a target fee of 80,000, a minimum fee
 
 ## Never confuse
 
-A cost-plus-incentive-fee contract provides for an initially negotiated fee to be adjusted later by a formula based on the relationship of total allowable costs to total target costs [@CL-EST-1090], and it specifies minimum and maximum fees [@CL-EST-1091]. A cost-plus-award-fee contract provides for a fee consisting of a base amount (which may be zero) fixed at inception of the contract and an award amount, based upon a judgmental evaluation by the Government [@CL-EST-1064], sufficient to provide motivation for excellence in contract performance [@CL-EST-9744]. See [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md) and [Incentive Fee clause](../../contract-finance/billing-payment/ctf-incentive-fee.md).
+A cost-plus-incentive-fee contract reimburses allowable incurred costs and adjusts target fee by formula between negotiated minimum and maximum fee limits [@CL-EST-1090; @CL-EST-1091; @CL-CLS-0567], unlike a fixed-price incentive (firm target) contract, which specifies a price ceiling but not a profit ceiling or floor, the ceiling being the maximum that may be paid [@CL-EST-1076; @CL-EST-1077].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ How the target cost and the fee limits in a proposal are frozen and later compar
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse contrast restated from the quotes; added award-amount companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on cost-plus-incentive-fee contracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer in section 16.405 to the general cost-reimbursement requirements.

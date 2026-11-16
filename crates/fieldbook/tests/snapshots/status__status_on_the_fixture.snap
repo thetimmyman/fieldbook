@@ -1,0 +1,37 @@
+---
+source: crates/fieldbook/tests/status.rs
+expression: outcome.stdout
+---
+Held, withdrawn or superseded versions, and open conflicts
+  XC-01  open conflict: Synthetic review interval versus withholding check timing
+
+Unreviewed or stale consequential claims
+  CL-CMP-0002  consequential claim; unreviewed
+  CL-EST-0002  consequential claim; unreviewed; review_by 2026-07-14 has passed
+  CL-EST-0003  consequential claim; unreviewed
+
+Other stale items
+  none
+
+Counts
+  sources 4, claims 5, questions 2, conflicts 1, glossary 4, pages 9
+  pages: draft 9, reviewed 0, stable 0
+
+Open day-one questions
+  Q-001  Which synthetic business-system control owner approves the monthly compliance review?
+
+Minutes this week
+  Upkeep this week: 45 min (budget 30 to 60)
+  Review this week: 90 min (budget 60 to 120)
+
+Next actions
+  fieldbook search <query>
+  fieldbook verify <claim-id> --on YYYY-MM-DD
+
+role = "owner"
+[[backup.target]]
+id = "main"
+kind = "folder"
+path = "<a folder outside the Corpus and the state folder>"
+
+verify is off until a role is set

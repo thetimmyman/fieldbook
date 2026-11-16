@@ -46,7 +46,7 @@ A contractor plans to spend 1,000,000 under subcontracts and its plan sets a sma
 
 ## Never confuse
 
-The clause provides an incentive percent on the dollars in excess of each goal in the subcontracting plan [@CL-MKT-1175; @CL-MKT-1111]. Plan content and the remedies for failing to meet a plan are on the [Subcontracting plan content, good faith effort and liquidated damages](mkt-subcontracting-plan-content-and-compliance.md) card.
+The FAR 52.219-10 incentive subcontracting clause rewards exceeding subcontracting-plan goals [@CL-MKT-0166; @CL-MKT-1110], unlike the compliance and liquidated-damages remedies on [Subcontracting plan content, good faith effort and liquidated damages](mkt-subcontracting-plan-content-and-compliance.md) that address failing to make a good-faith effort toward required plan elements [@CL-MKT-0242].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Whether the purchasing system has been reviewed, and how plan goals and the doll
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: incentive percent sentence carries goal condition and exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

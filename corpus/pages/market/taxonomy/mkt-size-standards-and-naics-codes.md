@@ -45,7 +45,7 @@ A solicitation is issued on day 0 with one NAICS code. An amendment issued on da
 
 ## Never confuse
 
-A size standard is set by SBA for an industry [@CL-MKT-0200], and the size of a concern is measured as of its initial offer [@CL-MKT-0202]. The dollar thresholds that decide which acquisition procedures apply are separate and are on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card. What an offeror represents at that offer is on the [Offeror size and status representation](mkt-offeror-size-and-status-representation.md) card, and a later merger, acquisition or novation can call for a new representation, which is on the [Rerepresentation after award](mkt-size-rerepresentation-after-award.md) card. Who counts as an affiliate is on the [SBA affiliation](../../mna/screening/mna-sba-affiliation-and-stock-ownership.md) card, and how an acquisition changes the receipts and employees counted is on the [SBA size after an acquisition](../../mna/screening/mna-sba-size-after-acquisition.md) card.
+An SBA NAICS size standard decides whether a business concern qualifies as small in its industry (subject to a 10-calendar-day NAICS appeal) [@CL-MKT-0200; @CL-MKT-0203; @CL-MKT-0204], rather than deciding which acquisition procedures apply to the contract's dollar value as the [$350,000 simplified acquisition threshold](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) does [@CL-FND-0001].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which product and service families map to which NAICS code, and which size stand
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named 13 CFR 121.201 and the Economic Classification Policy Committee, matched mandatory shall wording, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the price wording, the multiple-award code choice and the appeal alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size standards, NAICS codes and appeals of the contracting officer's code.

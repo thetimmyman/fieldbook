@@ -47,7 +47,7 @@ A large company bids on a contract that includes the plan clause, and the contra
 
 ## Never confuse
 
-An individual subcontracting plan covers the entire contract period (including option periods), applies to a specific contract, and has goals based on the offeror's planned subcontracting in support of the specific contract [@CL-MKT-1991; @CL-MKT-0823]. Commercial and master plans are on the [master and commercial plan](mkt-subcontracting-plan-master-commercial-reporting-flowdown.md) card for this clause. The policy clause on small business utilization is on the [Utilization of small business concerns](mkt-utilization-of-small-business-concerns-clause.md) card.
+The FAR 52.219-9 subcontracting plan clause applies to other-than-small offerors and never to small business concerns [@CL-MKT-0821; @CL-MKT-1232], and an individual plan sets contract-specific goals unlike a goal-free master plan incorporated from [master and commercial plans, reporting and flowdown](mkt-subcontracting-plan-master-commercial-reporting-flowdown.md) [@CL-MKT-0824; @CL-MKT-0826].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who administers the subcontracting program, who is named in the plan, and which 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed individual subcontracting plan definition and separated RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the plan submission sentence so the submission duty keeps the six categories the plan separately addresses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

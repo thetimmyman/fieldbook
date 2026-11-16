@@ -49,7 +49,7 @@ Answer: the first matches a cause that rests on a conviction. The second can be 
 
 ## Never confuse
 
-A debarment on a listed offense rests on a conviction or civil judgment [@CL-SUP-0766], while suspension rests on adequate evidence of a suspected cause [@CL-SUP-0776] and is covered on the [Causes for suspension](sup-causes-for-suspension.md) card. The effect of a listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card, and the length of a debarment is on the [Period and scope of debarment](sup-debarment-period-and-scope.md) card.
+A debarment on a listed offense rests on a conviction or civil judgment [@CL-SUP-0766], unlike suspension, which rests on adequate evidence of a suspected cause [@CL-SUP-0776] and is covered on the [Causes for suspension](sup-causes-for-suspension.md) card. The effect of a listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card, and the length of a debarment is on the [Period and scope of debarment](sup-debarment-period-and-scope.md) card.
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm how supplier screening picks up convictions, civil judgments and tax del
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the agency-procedures wording for the tax notification and aligned the example and never-confuse wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated who must notify, and when, under the $15,000 threshold.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of preponderance of the evidence.

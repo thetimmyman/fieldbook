@@ -47,7 +47,7 @@ Answer: each plant that performs its own purchasing can be the contractor for th
 
 ## Never confuse
 
-A contractor purchasing system review (CPSR) means the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502], while the contracting officer responsible for consent shall review the contractor's notification and supporting data to ensure that the proposed subcontract is appropriate for the risks involved and consistent with current policy and sound business judgment [@CL-SUP-0506]. Consent is covered on the [Subcontracts: consent and advance notification](sup-subcontracts-consent-advance-notification.md) card.
+A contractor purchasing system review (CPSR) means the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502], unlike consent review, in which the contracting officer responsible for consent reviews the contractor's notification and supporting data to ensure that the proposed subcontract is appropriate for the risks involved and consistent with current policy and sound business judgment [@CL-SUP-0506]. Consent is covered on the [Subcontracts: consent and advance notification](sup-subcontracts-consent-advance-notification.md) card.
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm whether the company's purchasing system has been reviewed and when a sub
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned DFARS definitions and consent to subcontract definition with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the not-limited-to wording in the subcontract definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for purchasing system and subcontract consent scope and definitions.

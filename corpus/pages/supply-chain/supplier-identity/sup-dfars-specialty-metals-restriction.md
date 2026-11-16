@@ -47,7 +47,7 @@ An end item holds 200 kilograms of specialty metals in total. Three kilograms of
 
 ## Never confuse
 
-The restriction on melting and producing samarium-cobalt magnets is in addition to any applicable restrictions on melting of specialty metals if this clause is included in the contract [@CL-SUP-1370], as covered on [Restriction on acquisition of certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md) (see also [DoD Buy American clause](sup-dfars-buy-american-definitions-and-delivery-rule.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md)). If a contract includes this clause, all bearings that contain specialty metals must meet its requirements [@CL-SUP-1373], as covered on [Ball and roller bearings and items from Communist Chinese military companies](sup-dfars-bearings-and-communist-chinese-military-companies.md) (see also [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md) and [Contractor purchasing system](../procure-to-pay/sup-contractor-purchasing-system.md)).
+The restriction on melting and producing samarium-cobalt magnets is in addition to any applicable restrictions on melting of specialty metals if this clause is included in the contract [@CL-SUP-1370], as covered on [Restriction on acquisition of certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md) (see also [DoD Buy American clause](sup-dfars-buy-american-definitions-and-delivery-rule.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md)), whereas if a contract includes this clause, all bearings that contain specialty metals must meet its requirements rather than only the bearings origin rules [@CL-SUP-1373], as covered on [Ball and roller bearings and items from Communist Chinese military companies](sup-dfars-bearings-and-communist-chinese-military-companies.md) (see also [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md) and [Contractor purchasing system](../procure-to-pay/sup-contractor-purchasing-system.md)).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which executed contracts carry this clause, and whether subcontracts for items c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (d)(2) COTS-inclusion rule for the commercial derivative alternative and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: commercial derivative alternative states its purpose, both conditions and the certified agreements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the flowdown insertion rule.

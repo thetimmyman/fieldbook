@@ -69,7 +69,7 @@ Payment by the Government: a demolition contract where the Contracting Officer h
 
 ## Never confuse
 
-The continuity clause concerns the transition of the services under the contract to a successor [@CL-SUP-2918; @CL-SUP-2991], and the payment clause is inserted in solicitations and contracts solely for dismantling, demolition or removal of improvements [@CL-SUP-2923]. Under the payment clause, the Contracting Officer retains 10 percent of the estimated payment until final completion and acceptance, except as paragraph (c) provides [@CL-SUP-2925], and may authorize full payment without retaining a percentage for satisfactory progress or for a separately priced unit or division [@CL-SUP-2996; @CL-SUP-2997]. The title rules are in paragraph (d) of the basic clause, and Alternate I deletes paragraph (d) if the contracting officer determines that the Government shall retain all material resulting from the dismantling or demolition work [@CL-SUP-2927; @CL-SUP-3003]. General progress payment mechanics sit on [Progress payments](../../contract-finance/financing/ctf-progress-payments.md).
+The continuity clause concerns the transition of the services under the contract to a successor [@CL-SUP-2918; @CL-SUP-2991], unlike the payment clause, which is inserted in solicitations and contracts solely for dismantling, demolition or removal of improvements [@CL-SUP-2923]. Under the payment clause, the Contracting Officer retains 10 percent of the estimated payment until final completion and acceptance, except as paragraph (c) provides [@CL-SUP-2925], and may authorize full payment without retaining a percentage for satisfactory progress or for a separately priced unit or division [@CL-SUP-2996; @CL-SUP-2997]. The title rules are in paragraph (d) of the basic clause, and Alternate I deletes paragraph (d) if the contracting officer determines that the Government shall retain all material resulting from the dismantling or demolition work [@CL-SUP-2927; @CL-SUP-3003]. General progress payment mechanics sit on [Progress payments](../../contract-finance/financing/ctf-progress-payments.md).
 
 ## Company calibration
 
@@ -78,6 +78,7 @@ Whether any services contract carries the continuity clause and who prices the p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned payment-amount, retention and property-permission wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the risk-of-condition sentence in the clause's words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

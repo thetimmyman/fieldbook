@@ -47,7 +47,7 @@ The fabric supplied for the shirts is a textile component and must be produced i
 
 ## Never confuse
 
-Under the restricted acquisition clause the contractor shall provide only products from Afghanistan or services from Afghanistan [@CL-SUP-1803], while under the requirement clause the contractor shall provide only those, unless its offer specified other products or services [@CL-SUP-1802]; see [Preference for, and requirement for, products or services from Afghanistan](sup-dfars-afghanistan-preference-and-requirement.md). The uniform components clause requires the contractor to deliver only textile components that have been produced in the United States [@CL-SUP-1805]. A separate clause sets a United States manufacturing rule for American flags; see [American flag and supercomputer manufacturing requirements](sup-dfars-american-flag-and-supercomputers.md) [@CL-SUP-1780].
+Under the restricted acquisition clause the contractor shall provide only products from Afghanistan or services from Afghanistan [@CL-SUP-1803], unlike under the requirement clause, where the contractor shall provide only those, unless its offer specified other products or services [@CL-SUP-1802]; see [Preference for, and requirement for, products or services from Afghanistan](sup-dfars-afghanistan-preference-and-requirement.md). The uniform components clause requires the contractor to deliver only textile components that have been produced in the United States [@CL-SUP-1805]. A separate clause sets a United States manufacturing rule for American flags; see [American flag and supercomputer manufacturing requirements](sup-dfars-american-flag-and-supercomputers.md) [@CL-SUP-1780].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Whether any executed contract includes these clauses, and who confirms the claus
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording; cited the prescribing sections; aligned the never-confuse wording with its quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restricted acquisition from Afghanistan and uniform components.

@@ -45,7 +45,7 @@ A technical weight of 60 percent at a value of 5.0 and a management/cost control
 
 ## Never confuse
 
-Performance risk is the first of the four profit factors [@CL-EST-0773], and it consists of two parts: the technical uncertainties of performance and the degree of management effort necessary [@CL-EST-0776]. The contract type risk factor focuses on the degree of cost risk accepted by the contractor under varying contract types [@CL-EST-0867]. The cost efficiency special factor has no normal value [@CL-EST-0795], while each other profit factor has a normal value and a designated range of values [@CL-EST-0774]. See [Profit analysis](est-profit-analysis.md) for the wider profit analysis.
+Under DoD weighted guidelines, assigning the normal factor value needs no special narrative whereas departing from normal requires documented justification across the four profit factors [@CL-EST-0773; @CL-EST-0774; @CL-EST-0775], unlike the general FAR profit framework on [Profit analysis](est-profit-analysis.md) that sets high-level profit policy without factor weights [@CL-EST-0162].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which factors the company's profit model moves away from normal on, and where th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the assigned-weight wording, cited the no-normal-value claim and cut unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the contract type risk claim for the degree of cost risk accepted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the technology incentive range.

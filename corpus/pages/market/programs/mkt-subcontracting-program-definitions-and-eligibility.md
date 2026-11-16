@@ -45,7 +45,7 @@ A prime contractor awards a subcontract worth 100,000 to an Alaska Native Corpor
 
 ## Never confuse
 
-A reduced payment is a payment for less than the amount agreed upon in a subcontract in accordance with its terms and conditions [@CL-MKT-0432], while an untimely payment is a payment to a subcontractor that is more than 90 days past due under the terms and conditions of a subcontract [@CL-MKT-0435]. A master plan contains all the required elements of an individual plan except goals, while an individual plan has goals based on the offeror's planned subcontracting in support of the specific contract [@CL-MKT-0431; @CL-MKT-0430]. Total contract dollars include the dollar value of all options [@CL-MKT-0434], and a subcontract excludes an agreement involving an employer-employee relationship [@CL-MKT-0433].
+Subcontracting-program eligibility governs which subcontractors may represent small or socioeconomic status to a prime [@CL-MKT-0436; @CL-MKT-2000]—and treats qualifying Alaska Native Corporations as minority and economically disadvantaged [@CL-MKT-0425]—rather than setting the $900,000 ($2 million construction) prime-contract threshold on [When a small business subcontracting plan is required](mkt-subcontracting-plan-when-required.md) [@CL-MKT-0235].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ How the company records each subcontractor's size and status representation, inc
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed FAR 19.701 definitions of ANC, Indian tribe, and commercial plan and FAR 19.703(a) and (c)(1)(i) eligibility wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business subcontracting program definitions and eligibility.

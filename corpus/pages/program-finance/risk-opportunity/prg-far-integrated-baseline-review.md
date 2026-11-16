@@ -45,7 +45,7 @@ A program with an EVMS requirement has 30 control accounts. Before the review, t
 
 ## Never confuse
 
-In the joint assessment by the offeror or contractor, and the Government, the IBR assesses the ability of the Performance Measurement Baseline (PMB) to successfully execute the project and attain cost objectives, recognizing the relationship between budget resources, funding, schedule, and scope of work [@CL-PRG-0860; @CL-PRG-0863], together with the ability of the project's technical plan to achieve the objectives of the scope of work [@CL-PRG-0861], the adequacy of the time allocated for performing the defined tasks to successfully achieve the project schedule objectives [@CL-PRG-0862], the availability of personnel, facilities, and equipment when required, to perform the defined tasks needed to execute the program successfully [@CL-PRG-0864; @CL-PRG-0133], and the degree to which the management process provides effective and integrated technical/schedule/cost planning and baseline control [@CL-PRG-0133; @CL-PRG-0865]. See [the performance measurement baseline guideline page](../baseline/prg-evms-guideline-7-performance-measurement-baseline.md) and [Contract type selection and program risk for major defense acquisition programs](prg-contract-type-program-risk.md).
+In the joint assessment by the offeror or contractor and the Government, the IBR verifies the technical content and realism of the Performance Measurement Baseline's budgets, resources, and schedules—assessing scope, schedule adequacy, resource availability, and baseline control [@CL-PRG-0858; @CL-PRG-0860; @CL-PRG-0861; @CL-PRG-0862; @CL-PRG-0863; @CL-PRG-0864; @CL-PRG-0133; @CL-PRG-0865]—unlike the solicitation provisions and contract clause that set preaward versus postaward IBR timing on [Integrated Baseline Review timing, cost, provisions and clause](prg-far-ibr-timing-clauses.md). See [the performance measurement baseline guideline page](../baseline/prg-evms-guideline-7-performance-measurement-baseline.md) and [Contract type selection and program risk for major defense acquisition programs](prg-contract-type-program-risk.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which baseline, contingency and risk decisions the review changes in the current
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0133 for the conjunctive list ending, aligned all sentences with quotes, and removed unsupported only, meta wording, and uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored successfully, offerors and tasks qualifiers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the FAR Integrated Baseline Review, its purpose and the five joint assessment items.

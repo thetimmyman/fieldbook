@@ -50,11 +50,7 @@ A contractor submits a computer generated version of a Standard Form that reorde
 
 ## Never confuse
 
-The copy of any protest shall be received in the designated office within one day of filing a protest with the Government Accountability Office [@CL-EST-2308], and service is made by obtaining written and dated acknowledgment of receipt [@CL-EST-2307; @CL-EST-2396].
-
-If the Contractor submits a computer generated version of a form that is different than the required form, the rights and obligations of the parties will be determined based on the content of the required form [@CL-EST-2310].
-
-The codified provision has the Contracting Officer designate in a blank the official or location where a protest may be served on the Contracting Officer [@CL-EST-2396], while RFO FAR 52.233-2(a) says the Contracting Officer is identified in the solicitation [@CL-EST-0500].
+FAR 52.233-2 requires serving the contracting officer with any agency protest or copy of a GAO protest by written, dated acknowledgment of receipt [@CL-EST-0500; @CL-EST-2307]—filing at GAO alone is not service on the contracting officer—while FAR 52.253-1 permits computer-generated versions of prescribed forms rather than requiring preprinted paper stock [@CL-EST-2397].
 
 ## Company calibration
 
@@ -63,6 +59,7 @@ Who keeps the dated acknowledgment of service and the form edition evidence for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced unquoted contrasts and an absence statement with the provisions' own wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Used shall, official or location and the provided conditions as the clause words them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service of protest and computer generated forms.

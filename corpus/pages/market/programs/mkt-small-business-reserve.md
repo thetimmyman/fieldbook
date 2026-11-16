@@ -46,7 +46,7 @@ A solicitation contains a reserve for two types of small business concern, type 
 
 ## Never confuse
 
-Under FAR 52.219-31, the solicitation states that it contains a reserve and that an eligible concern must submit one offer addressing each portion of the solicitation for which it wants to compete [@CL-MKT-1120; @CL-MKT-1121]. The [Notice of set-aside of orders](mkt-set-aside-of-orders.md) card covers notices of set-aside of specific orders. Under codified FAR 52.219-32, the contracting officer may issue an order or orders directly to the concern when there is only one contract award to any one type of small business concern as a result of the reserve [@CL-MKT-1123], whereas RFO FAR 52.219-32 is marked as reserved [@CL-MKT-1183].
+A small business reserve under FAR 52.219-31 reserves award slots on a multiple-award solicitation for FAR 19.000(a)(3) small business concerns [@CL-MKT-1120; @CL-MKT-1122], unlike [Notice of set-aside of orders](mkt-set-aside-of-orders.md), where FAR 52.219-13 sets aside competition on individual postaward orders under an unreserved or reserved multiple-award contract [@CL-MKT-1116].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ How a reserve and any direct orders are recorded against the purchasing system a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the small business reserve and direct orders under it.

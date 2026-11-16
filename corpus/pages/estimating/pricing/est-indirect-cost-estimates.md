@@ -43,7 +43,7 @@ An overhead pool of 2,000,000 is spread over 100,000 direct labor hours, giving 
 
 ## Never confuse
 
-Indirect costs are classified into homogeneous cost pools [@CL-EST-0724], and to distribute pool expenses to specific contracts, contractors must select an equitable allocation base [@CL-EST-0855]. Contractors are required to distinguish between variable, semivariable, and fixed (nonvariable) costs [@CL-EST-0725], and mapping that behavior is critical because, as the volume of direct work changes, the contractor must be able to accurately project how indirect cost rates will fluctuate [@CL-EST-0856].
+An indirect cost is incurred for two or more cost objectives or the enterprise as a whole and is grouped into homogeneous pools applied by rate to direct cost bases [@CL-EST-0721; @CL-EST-0722; @CL-EST-0724], rather than being identified specifically with a single final cost objective like a direct cost.
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ That indirect cost pools and allocation bases mirror the accounting system and a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored advance-agreement scope and consistency duty; replaced uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR, CAS and CAS 401 as the source of the stated duties.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost estimates in proposals.

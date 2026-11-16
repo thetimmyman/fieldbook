@@ -49,7 +49,7 @@ A contract designates an item as subject to the Alternate I paragraph. The contr
 
 ## Never confuse
 
-See [Make-or-buy programs: when they are required and what they contain](../../supply-chain/sourcing-evidence/sup-make-or-buy-programs.md). Under codified FAR 52.215-9(c) [@CL-PRG-0971] and RFO FAR 52.215-9(c) [@CL-PRG-0020], modification of the make-or-buy program to incorporate proposed changes or additions shall be effective upon the Contractor's receipt of the Contracting Officer's written approval. Under both Alternate I and Alternate II of codified FAR 52.215-9 [@CL-PRG-0938; @CL-PRG-0939; @CL-PRG-0973; @CL-PRG-0974] and RFO FAR 52.215-9 [@CL-PRG-0021; @CL-PRG-0023; @CL-PRG-0024; @CL-PRG-0026], the duty to promptly negotiate an equitable reduction after approval is granted applies if the Contractor desires to reverse the categorization of "make" or "buy" for any item or items designated in the contract as subject to paragraph (d). Under Alternate II, the equitable reduction in the contract's total estimated cost and fee is in paragraph (d)(2) in the codified text [@CL-PRG-0974] and in paragraph (d)(3) in the RFO text [@CL-PRG-0026].
+See [Make-or-buy programs: when they are required and what they contain](../../supply-chain/sourcing-evidence/sup-make-or-buy-programs.md). Under codified FAR 52.215-9(c) [@CL-PRG-0971] and RFO FAR 52.215-9(c) [@CL-PRG-0020], modification of the make-or-buy program to incorporate proposed changes or additions shall be effective upon the Contractor's receipt of the Contracting Officer's written approval, whereas under both Alternate I and Alternate II of codified FAR 52.215-9 [@CL-PRG-0938; @CL-PRG-0939; @CL-PRG-0973; @CL-PRG-0974] and RFO FAR 52.215-9 [@CL-PRG-0021; @CL-PRG-0023; @CL-PRG-0024; @CL-PRG-0026], the duty to promptly negotiate an equitable reduction after approval is granted applies if the Contractor desires to reverse the categorization of "make" or "buy" for any item or items designated in the contract as subject to paragraph (d). Under Alternate II, the equitable reduction in the contract's total estimated cost and fee is in paragraph (d)(2) in the codified text [@CL-PRG-0974], unlike the RFO text, where it is in paragraph (d)(3) [@CL-PRG-0026].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Who decides and approves a change to the make-or-buy program, and whether any co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for codified Alternate II support-data items, separated RFO and codified citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored Table 15-2 reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

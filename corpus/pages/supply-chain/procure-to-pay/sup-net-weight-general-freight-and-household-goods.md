@@ -48,9 +48,7 @@ A household goods vehicle weighs 30,000 pounds empty with its blankets, pads, ch
 
 ## Never confuse
 
-Under the agreed weight clause, the shipping activity marks the weight of the shipment on the shipping document and the contractor accepts that weight for determining the appropriate rate or charge [@CL-SUP-2212], while under these net weight clauses the net weight is obtained by deducting the tare weight of the vehicle from its gross weight [@CL-SUP-2216; @CL-SUP-2218; @CL-SUP-2255].
-
-For general freight, the tare weight is determined by having the empty vehicle with a full tank of fuel weighed by a certified weighmaster on a certified scale, and for household goods and office furniture, the tare weight is determined by having a certified weighmaster weigh on a certified scale the empty vehicle with all blankets, pads, chains, dollies, hand trucks and all other necessary equipment inside it [@CL-SUP-2216; @CL-SUP-2218]. The general freight clause requires the contractor to attach the original copies of the empty and loaded weight certificates to the invoice for services, and the household goods and office furniture clause requires the contractor to attach the original copy of each weight certificate to the invoice for services [@CL-SUP-2217; @CL-SUP-2220].
+Under the agreed weight clause, the shipping activity marks the weight of the shipment on the shipping document and the contractor accepts that weight for determining the appropriate rate or charge [@CL-SUP-2212], unlike under these net weight clauses, where the net weight is obtained by deducting the tare weight of the vehicle from its gross weight [@CL-SUP-2216; @CL-SUP-2218; @CL-SUP-2255]. For general freight, the tare weight is determined by having the empty vehicle with a full tank of fuel weighed by a certified weighmaster on a certified scale, and for household goods and office furniture, the tare weight is determined by having a certified weighmaster weigh on a certified scale the empty vehicle with all blankets, pads, chains, dollies, hand trucks and all other necessary equipment inside it [@CL-SUP-2216; @CL-SUP-2218]. The general freight clause requires the contractor to attach the original copies of the empty and loaded weight certificates to the invoice for services, and the household goods and office furniture clause requires the contractor to attach the original copy of each weight certificate to the invoice for services [@CL-SUP-2217; @CL-SUP-2220].
 
 ## Company calibration
 
@@ -60,6 +58,7 @@ Confirm how the company reconciles the weight shown on the shipping document wit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned net, tare, and gross weight wording and citations with the clause quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the part-load sentences to say they come from the household goods and office furniture clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

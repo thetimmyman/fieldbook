@@ -47,7 +47,7 @@ A competitive solicitation for a 14,000,000 DoD supply contract awarded after th
 
 ## Never confuse
 
-This card covers the contracting officer's pricing steps after one offer. The offeror's own agreement to submit data is the provision on [Only One Offer provision](est-only-one-offer.md), and the general certification rules are on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md). The exceptions at DFARS 215.371-4(a) relieve the requirements at DFARS 215.371-2 [@CL-EST-1286], and the steps on this card are at DFARS 215.371-3 [@CL-EST-1281]. The exceptions to certified data are on [DoD exceptions, waivers and limits](est-dod-certified-data-exceptions-and-waivers.md), and DFARS 215.403-1(c)(1)(B) says that if only one offer is received in response to a competitive solicitation, see 215.371-3 [@CL-EST-1321]. The data the contracting officer asks for is on [Pricing policy and the order of preference for data](est-pricing-policy-data-preference.md), and the negotiation file is on [Price negotiation and the price negotiation memorandum](est-price-negotiation-documentation.md).
+When a competitive DoD solicitation above the simplified acquisition threshold yields only one offer, DFARS 215.371 requires either resoliciting (when fewer than 30 days were allowed) or establishing fair and reasonable price through data analysis [@CL-EST-1281; @CL-EST-1319]—rather than treating competition alone as adequate—unlike acquisitions at or below the simplified acquisition threshold, which are exempt [@CL-EST-1286].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which proposals expected in the next two quarters may draw a single offer and so
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the full exception item and the existing-contract threshold and dropped uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Split the codified FAR threshold from the DoD class deviation threshold and cited the exception lead-ins.
 - COMPATIBLE_EXTENSION, 2026-10-30: Raised the worked example amount above the current DoD threshold for certified cost or pricing data.
