@@ -45,7 +45,7 @@ A contracting officer names the apparently successful offeror for a negotiated, 
 
 ## Never confuse
 
-An SDVOSB status protest asks whether the firm is an SDVOSB, and a size protest asks whether it is small. A party that wants both shall file two separate protests [@CL-MKT-0582]. Here OHA decides the merits [@CL-MKT-0587], while for women-owned status protests SBA determines the merits within 15 business days after receipt of a protest, or within any extension of that time granted by the contracting officer [@CL-MKT-0594], and its determination is final unless overturned on appeal by OHA [@CL-MKT-0595]. The women-owned route is on the [Protesting a firm's economically disadvantaged or women-owned small business status](mkt-edwosb-wosb-status-protests.md) card. HUBZone status protests have their own card: [Protesting a firm's HUBZone status](../taxonomy/mkt-hubzone-status-protests.md). The conditions for an SDVOSB set-aside or sole-source award are on the [Service-disabled veteran-owned small business status, set-asides and sole-source awards](mkt-sdvosb-status-set-asides-and-sole-source.md) card.
+An SDVOSB status protest challenges veteran-owned status rather than NAICS size, so a challenger contesting both must file two separate protests [@CL-MKT-0582], and on sole-source SDVOSB acquisitions the Department of Veterans Affairs may also protest alongside the contracting officer or SBA [@CL-MKT-0580], unlike sole-source protests on [Protesting a firm's economically disadvantaged or women-owned small business status](mkt-edwosb-wosb-status-protests.md) [@CL-MKT-0589].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which bids need immediate support when a status protest could be filed or answer
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal OHA filing email address with a reference to the filing email address given in FAR 19.307(f)(1).

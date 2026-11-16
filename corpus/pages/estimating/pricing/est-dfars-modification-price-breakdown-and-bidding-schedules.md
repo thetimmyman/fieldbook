@@ -45,7 +45,7 @@ A modification deletes a 10,000 item, adds a 30,000 item and changes a third for
 
 ## Never confuse
 
-The Contractor shall furnish a price breakdown, itemized as required and within the time specified by the Contracting Officer, with any proposal for a contract modification [@CL-EST-1747], and shall include in the prices for the items listed in the Bidding Schedule all costs for work in the specifications, whether or not specifically listed in the Bidding Schedule [@CL-EST-1753]. Related pages are [Changes clause for construction](../../close-revrec/revenue/cls-changes-construction.md) and [Cost principles for construction and architect-engineer contracts](../../compliance/cas-allowability/cmp-cost-principles-construction-architect-engineer.md). For how the Government analyses the breakdown, see [Proposal analysis](est-proposal-analysis.md). For the clause on data from the Canadian Commercial Corporation, see [Data other than certified data for Canadian Commercial Corporation modifications](est-dfars-ccc-modification-data-clause.md), and for the mobilization payment clauses, see [Mobilization payment clauses and the cost limitation provision](est-dfars-mobilization-payment-and-cost-limitation.md).
+DFARS 252.236-7000 requires an itemized price breakdown when the contractor proposes a contract modification [@CL-EST-1747; @CL-EST-1781], unlike the bidding-schedule provision where the initial bid prices already constitute full compensation for listed work [@CL-EST-1752], and does not itself confer unilateral change-order authority like [Changes clause for construction](../../close-revrec/revenue/cls-changes-construction.md) [@CL-CLS-1088].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who prepares modification price breakdowns, how fast they can be itemized when t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now carries the itemization and time conditions of the price breakdown requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: How it works and Never confuse reworded to follow the clause text; uncited negatives and contrasts replaced with pointers.

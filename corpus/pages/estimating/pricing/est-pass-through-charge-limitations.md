@@ -47,9 +47,7 @@ On a cost-reimbursement contract with 1,000,000 of total cost of work, the prime
 
 ## Never confuse
 
-Whether a contractor or subcontractor adds no or negligible value is part of the definition of an excessive pass-through charge [@CL-EST-0302; @CL-EST-0304], while the 70 percent figure appears in the reporting duty [@CL-EST-0306; @CL-EST-0308]. Charges for the costs of managing subcontracts, and the indirect costs and profit based on those costs, are outside the definition of an excessive pass-through charge [@CL-EST-0303].
-
-For a DoD contract, the RFO text of paragraph (f) names the threshold for obtaining cost or pricing data at FAR 15.403-3(a) [@CL-EST-0425], where the codified paragraph names it at FAR 15.403-4(a)(1) [@CL-EST-0313].
+Under FAR 52.215-23, the Government refuses to pay excessive pass-through charges where the contractor adds no or negligible subcontract-management value [@CL-EST-0305; @CL-EST-0413; @CL-EST-0604], rather than disallowing legitimate indirect costs on subcontracts where the prime performs beneficial management functions [@CL-EST-0413].
 
 ## Company calibration
 
@@ -59,6 +57,7 @@ Whether the purchasing system has been reviewed, and when a subcontract needs cu
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the applicable and associated qualifiers and the scope of no or negligible value; cut an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 31.2 and price-reduction scope, must insert, and replaced an inference.

@@ -65,7 +65,7 @@ A company spends 60,000 preparing a proposal that no grant sponsors and no contr
 
 ## Never confuse
 
-Bid and proposal cost is the cost incurred in preparing, submitting or supporting any bid or proposal whose effort is neither sponsored by a grant nor required in the performance of a contract [@CL-EST-2926]. Independent research and development is the cost of effort that is neither sponsored by a grant nor required in the performance of a contract and that falls within basic and applied research, development, or systems and other concept formulation studies [@CL-EST-2933; @CL-EST-2934]. The Standard is effective as of April 17, 1992 [@CL-EST-2940], and a contractor with no previous contracts subject to it applies it beginning with its second full fiscal year beginning after it receives a contract to which it is applicable [@CL-EST-2942]. The allocation requirements are in [the Standard's main card](../../compliance/cas-allowability/cmp-cas-420-ird-bp-allocation.md) and worked illustrations in [the illustrations card](../../compliance/cas-allowability/cmp-cas-418-and-420-illustrations.md).
+CAS 420 defines independent research and development and bid and proposal terms and sets the April 17, 1992 effective date and continuation rule for previously covered contractors [@CL-EST-2924; @CL-EST-2940; @CL-EST-2941], whereas project-level accumulation and allocation rules sit on [the Standard's main card](../../compliance/cas-allowability/cmp-cas-420-ird-bp-allocation.md) rather than in the definitions section [@CL-CMP-0575].
 
 ## Company calibration
 
@@ -74,6 +74,7 @@ Which pool carries independent research and development and bid and proposal cos
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse definitions restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Effective-date and exclusion wording aligned with the cited text; uncited statements and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions and effective date of the Standard on independent research and development and bid and proposal costs.

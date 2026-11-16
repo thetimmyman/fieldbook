@@ -53,13 +53,7 @@ A contractor's parts division transfers a commercial product to its assembly div
 
 ## Never confuse
 
-Price means cost plus any fee or profit applicable to the contract type [@CL-EST-2746].
-
-The option exception addresses the exercise of an option at the price established at contract award or initial negotiation [@CL-EST-2748].
-
-The overrun and billing exception covers proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2749].
-
-The codified exceptions address the exercise of an option at the established price and proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2748; @CL-EST-2749], while the RFO exceptions address modifications [@CL-EST-3365; @CL-EST-3366]. The codified subcontract definition excludes use in 15.407-2 [@CL-EST-2747], and the RFO definition excludes use in 15.405-2 [@CL-EST-3364].
+Exercising an option at the price already established at contract award or initial negotiation does not require new certified cost or pricing data [@CL-EST-2748], unlike pricing a new prime contract or unpriced action above the threshold on [Certified cost or pricing data](est-certified-cost-or-pricing-data.md) [@CL-EST-0002], and `price` includes cost plus applicable fee or profit rather than cost alone [@CL-EST-2746].
 
 ## Company calibration
 
@@ -69,6 +63,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and an unquoted statement about who decides; RFO exception sentence cites RFO claims only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted 'only' from two never-confuse sentences.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

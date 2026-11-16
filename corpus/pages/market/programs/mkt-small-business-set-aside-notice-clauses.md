@@ -45,7 +45,7 @@ A solicitation sets aside the first of two portions for small business. A large 
 
 ## Never confuse
 
-The total clause covers a whole requirement set aside; the partial clause covers one portion of it. The codified total clause applies only to contracts that have been "totally set aside" for small business concerns and to orders set aside for small business concerns under multiple-award contracts as described in 8.405-5 and 16.505(b)(2)(i)(F) [@CL-MKT-0842]. RFO FAR 52.219-6(b) states that it applies only to contracts that have been set aside for small business concerns and to orders set aside for small business concerns under multiple-award contracts as described in 8.4 and 16.5 [@CL-MKT-1188]. The tests for when a portion may be set aside are on the [Partial and class small business set-asides](mkt-partial-and-class-small-business-set-asides.md) card. The tests for total set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card, and which clause goes where is on the [Set-aside orders and clauses](mkt-set-aside-orders-and-clauses.md) card. The subcontract percentage limits that apply to set-aside contracts are on the [Limitations on subcontracting and nonmanufacturer rule clause text](mkt-limitations-and-nonmanufacturer-clause-text.md) card, and the provision where an offeror states its size status is on the [Small business program representations provision](mkt-small-business-program-representations-provision.md) card.
+The total set-aside clause (FAR 52.219-6) restricts the entire solicitation to small business concerns and rejects offers from non-small firms as nonresponsive [@CL-MKT-0841], whereas the partial set-aside clause applies only to contracts that have been partially set aside rather than closing the unreserved portion to other-than-small offerors [@CL-MKT-0843].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which product families and customer groups the company bids on as set-aside work
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' phrasing and meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: partial clause cites identified concerns.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the total clause applicability sentence to keep the orders under multiple-award contracts.

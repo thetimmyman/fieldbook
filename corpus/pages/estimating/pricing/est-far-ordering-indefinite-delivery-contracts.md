@@ -46,7 +46,7 @@ A multiple-award task order contract has three awardees. The agency wants a serv
 
 ## Never confuse
 
-The fair opportunity rule starts above the micro-purchase threshold, while the competitive placement rule starts above the simplified acquisition threshold [@CL-EST-1553; @CL-EST-1555]. Contract types, minimums and the multiple-award preference are on [Indefinite-delivery and indefinite-quantity contracts](../../contract-finance/funding/ctf-indefinite-delivery-and-indefinite-quantity-contracts.md).
+FAR 16.505 requires giving every multiple-award contract holder a fair opportunity to be considered on orders exceeding the micro-purchase threshold [@CL-EST-1553], rather than conducting a brand-new contract solicitation or applying DoD's supplemental LPTA and $15 million order-debriefing rules on [DoD ordering under multiple-award contracts: DFARS additions](est-dod-ordering-multiple-award-contracts.md) [@CL-EST-1565].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which orders under multiple-award contracts the company competes for, and which 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored omitted qualifiers, the posting duty and paragraph references; cut meta and uncited wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored two dropped conditions in the fair opportunity text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the small business set-aside exception.

@@ -57,7 +57,7 @@ A second auction draws a single offeror. The contracting officer may cancel it a
 
 ## Never confuse
 
-Reverse auction processes shall not be used for design-build construction contracts, architect-engineer services subject to chapter 11 of title 40 of the United States Code, sealed bidding procurements, or personal protective equipment under the listed statutes [@CL-MKT-1604; @CL-MKT-1605; @CL-MKT-1812]. The reverse auction process is used to obtain pricing for an acquisition, and contracting officers must still follow the applicable acquisition policies and procedures [@CL-MKT-1514; @CL-MKT-1362]. Under an indirect payment method, the Government pays the successful offeror the total price of the offer, which includes the provider's fee, and the provider collects its fee from the successful offeror [@CL-MKT-1517; @CL-MKT-1518]. If only one offeror participates, the contracting officer may cancel the reverse auction and document the contract file or accept the offer only if the price is determined to be fair and reasonable [@CL-MKT-1364].
+A reverse auction lets competing offerors see anonymous competing prices and revise prices downward in a competitive marketplace [@CL-MKT-1360; @CL-EST-1931], unlike sealed bidding, design-build construction, covered architect-engineer procurements, or covered personal protective equipment acquisitions, where reverse auctions are prohibited [@CL-MKT-1604; @CL-MKT-1605].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Which product families and customer segments the company would offer through a r
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 17.803(d)(3) statutory citation, restored 'shall only use', and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: reverse auction wording follows quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated that the provider offers the proprietary data protection agreement as part of registration, as FAR 17.802(d)(3) says.

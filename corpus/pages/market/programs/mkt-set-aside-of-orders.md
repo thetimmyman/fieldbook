@@ -46,7 +46,7 @@ A contract with the basic clause has ten orders. The contracting officer sets as
 
 ## Never confuse
 
-Under FAR 52.219-13(b), the notice and its restrictions apply only to the specific orders that have been set aside [@CL-MKT-1118]. The basic clause states that the contracting officer "may" set aside orders, whereas codified Alternate I states that the contracting officer "will" set aside orders when the stated conditions are met [@CL-MKT-1116; @CL-MKT-1119]; in RFO FAR 52.219-13, Alternate I is marked as reserved [@CL-MKT-1164] and paragraph (a) of the basic clause states "may" [@CL-MKT-1161]. The notice clauses for total and partial set-asides are on the [Notice of total and partial small business set-aside clauses](mkt-small-business-set-aside-notice-clauses.md) card.
+FAR 52.219-13 restricts only the specific multiple-award contract orders that are set aside—discretionarily under the basic clause (`may`) versus mandatorily under Alternate I (`will`) when FAR 19.502-2 and program conditions are met [@CL-MKT-1116; @CL-MKT-1119]—unlike [Notice of total and partial small business set-aside clauses](mkt-small-business-set-aside-notice-clauses.md), where FAR 52.219-6 sets aside an entire contract [@CL-MKT-0841].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which orders and contracts sit inside the finance remit, so a set-aside notice i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: clause concerns wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

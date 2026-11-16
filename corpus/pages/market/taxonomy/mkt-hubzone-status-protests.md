@@ -47,7 +47,7 @@ A sealed bid is opened on day 0. Another bidder protests the apparent successful
 
 ## Never confuse
 
-A HUBZone status protest asks whether a certified concern met the HUBZone requirements. A size protest asks whether an offeror is small, and an SBA Area Office decides it [@CL-MKT-0318], while the Director of SBA's Office of the HUBZone Program decides a HUBZone status protest [@CL-MKT-0321]. Size protests are on the [Protesting a small business representation or rerepresentation](mkt-small-business-size-protests.md) card, and the representation itself is on the [Offeror size and status representation](mkt-offeror-size-and-status-representation.md) card.
+A HUBZone status protest is decided by the Director of SBA's Office of the HUBZone Program and can remove certified HUBZone status [@CL-MKT-0320; @CL-MKT-0321], unlike a NAICS size protest on [Protesting a small business representation or rerepresentation](mkt-small-business-size-protests.md), which challenges whether an offeror is small rather than whether it meets HUBZone certification requirements [@CL-MKT-0312].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which of the company's legal entities and contracts rely on HUBZone certificatio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the mandatory force of the protest submission duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protesting a firm's HUBZone status.

@@ -47,7 +47,7 @@ A negotiated contract that needs a plan is ready for award. The contracting offi
 
 ## Never confuse
 
-Notice to the SBA before award goes to the procurement center representative (or see FAR 19.402(a) if none is assigned) for review of the proposed contract and plan [@CL-MKT-0450], while the postaward notice of award goes to the Area Director, Office of Government Contracting, in the SBA area office where the contract will be performed [@CL-MKT-0454]. In making an award that requires a plan, the contracting officer considers compliance with plans submitted on previous contracts as a factor in determining contractor responsibility [@CL-MKT-0449]; reviewing the acceptability of a proposed plan is covered on the [Reviewing the subcontracting plan](mkt-subcontracting-plan-review.md) card.
+At award, the contracting officer evaluates prior subcontracting compliance as part of responsibility and notifies the SBA procurement center representative [@CL-MKT-0449; @CL-MKT-0450], unlike the postaward duties on [Postaward responsibilities of the contracting officer for subcontracting plans](mkt-subcontracting-plan-postaward-co-duties.md) that take effect after the contract or modification is awarded [@CL-MKT-0453].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which earlier subcontracting plans and compliance records the company can show f
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 19.402(a), FAR 19.702(a)(1)(i)-(ii), and FAR 19.704 cross-references and full notice wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: postaward notice duty lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for awards involving subcontracting plans.

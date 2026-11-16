@@ -47,9 +47,7 @@ A solicitation names a receiving number and sets bid opening at 14:00. Bidder A 
 
 ## Never confuse
 
-Under codified FAR 52.214-31, facsimile bids must contain the required signatures, and facsimile bids that fail to furnish required representations or information or that reject any of the terms, conditions, and provisions of the solicitation may be excluded from consideration [@CL-MKT-1131; @CL-MKT-1132]. The definition of a facsimile bid covers a bid, a modification of a bid, or a withdrawal of a bid transmitted to and received by the Government via electronic equipment that communicates and reproduces both printed and handwritten material [@CL-MKT-1129]. If the bidder chooses to transmit a facsimile bid, the Government will not be responsible for any failure attributable to the transmission or receipt of the facsimile bid [@CL-MKT-1134]. RFO FAR part 52 lists FAR 52.214-31 as "[Reserved]" [@CL-MKT-0125].
-
-The facsimile proposal provision for negotiated procurements is covered in [Request for information, facsimile proposals and order of precedence](../../estimating/pricing/est-planning-solicitations-facsimile-and-precedence.md), and late bids, modifications and withdrawals are covered in [Late submissions, modifications and withdrawals of bids](../../estimating/pricing/est-late-bid-submissions-and-withdrawals.md).
+Codified FAR 52.214-31 authorizes sealed facsimile bids only when included in the solicitation and is marked `[Reserved]` in RFO FAR part 52 [@CL-MKT-0125; @CL-MKT-1129; @CL-MKT-1130], unlike negotiated facsimile proposals on [Request for information, facsimile proposals and order of precedence](../../estimating/pricing/est-planning-solicitations-facsimile-and-precedence.md), and does not relax the bid receipt deadlines on [Late submissions, modifications and withdrawals of bids](../../estimating/pricing/est-late-bid-submissions-and-withdrawals.md) [@CL-EST-1968].
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Which solicitations the company answers by facsimile, and which legal entities s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added compatibility-characteristic examples and removed unquoted contrast and blank-entry commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: facsimile data entries and original bid request limited to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on facsimile proposals and late bids.

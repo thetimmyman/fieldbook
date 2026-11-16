@@ -47,7 +47,7 @@ An award-fee contract includes the clause at 252.216-7004 and is evaluated in si
 
 ## Never confuse
 
-The review in the plan's criteria concerns gross negligence or reckless disregard determined through a proceeding or a DoD investigation [@CL-MKT-1856; @CL-MKT-1857; @CL-MKT-1858]. The consideration of reducing or denying award fees concerns a period in which actions cause serious bodily injury or death during such period [@CL-MKT-1860]. Covered incident and serious bodily injury are defined in the clause at 252.216-7004 [@CL-MKT-1855]. The clause's own text on reduction and recovery is on [DoD cost-plus-award-fee contracts: final-period fee, base fee and health or safety](../../estimating/pricing/est-dod-cost-plus-award-fee-requirements.md).
+This DFARS rule addresses award-fee evaluation criteria and fee reduction or denial when gross negligence or reckless disregard jeopardizes Government personnel health or safety under DFARS 252.216-7004 [@CL-MKT-1855; @CL-MKT-1856; @CL-MKT-1859], rather than the structural fee-pool rule on [DoD cost-plus-award-fee contracts: final-period fee, base fee and health or safety](../../estimating/pricing/est-dod-cost-plus-award-fee-requirements.md) that reserves at least 40 percent of award fee for final evaluation [@CL-EST-1577].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How the company's award-fee plans record the health-and-safety review, and what 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the alternatives and the period condition and removed absence and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Determination routes stated as alternatives, cited to a companion.
 - COMPATIBLE_EXTENSION, 2026-10-30: Restored the jurisdiction condition on the final DoD determination route in the summary.

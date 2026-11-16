@@ -47,7 +47,7 @@ An offer for an indefinite-delivery contract has three separately priced line it
 
 ## Never confuse
 
-Unbalanced pricing exists when, despite an acceptable total evaluated price, the price of one or more line items is significantly over or understated as indicated by the application of cost or price analysis techniques [@CL-EST-2544].
+Unbalanced pricing occurs when individual line items—such as startup, mobilization, first articles, or base versus option quantities—are significantly overstated or understated even though the total evaluated price looks acceptable [@CL-EST-2543; @CL-EST-2544; @CL-EST-2545], so an acceptable total price does not rule out unbalanced line-item pricing.
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm which bids carry separately priced startup, mobilization, first article,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the 'or' companion for the risk circumstances and cut absence statements and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that an offer may be rejected if the lack of balance poses an unacceptable risk to the Government.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unbalanced pricing.

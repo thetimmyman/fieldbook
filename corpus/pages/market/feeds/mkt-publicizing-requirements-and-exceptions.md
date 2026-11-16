@@ -49,7 +49,7 @@ A contracting officer adds 60,000 of supplies to an existing contract by modific
 
 ## Never confuse
 
-Under FAR 5.201(b)(1), for acquisitions of supplies and services other than those covered by the exceptions in FAR 5.202 and the special situations in FAR 5.205, the contracting officer must transmit a notice to the GPE for each proposed contract action meeting the threshold in FAR 5.101(a)(1), each modification to an existing contract for additional supplies or services that meets the threshold in FAR 5.101(a)(1), or each contract action in any amount when advantageous to the Government [@CL-MKT-0057; @CL-MKT-0058; @CL-MKT-0059]. Synopses of contract awards are covered on the [Synopses of contract awards](mkt-contract-award-synopses.md) card. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+Publicizing a proposed contract action under FAR 5.201 happens before solicitation unless an exception or special situation applies [@CL-MKT-0057], rather than synopsizing a completed contract award exceeding $25,000 on [Synopses of contract awards](mkt-contract-award-synopses.md) [@CL-MKT-0036], and covers new contracts or out-of-scope additions rather than in-scope administration [@CL-MKT-2214].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm which proposed-action notices are relevant public market observations fo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory lead-in in FAR 5.201(a), exact section numbers in FAR 5.201(b)(1), and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the head of agency determination exception and kept the listed cases as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 5, the contract action definition, the publicizing policy and the GPE transmission rule.

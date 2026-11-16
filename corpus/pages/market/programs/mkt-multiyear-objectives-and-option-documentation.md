@@ -55,7 +55,7 @@ Suppose instead that funds for the option are reasonably certain to be unavailab
 
 ## Never confuse
 
-Option evaluation under FAR 17.206(a) occurs in awarding the basic contract [@CL-MKT-1769]. Exercising an option is covered on the [Exercise of options](../../contract-finance/funding/ctf-exercise-of-options.md) card, and the solicitation provisions for evaluating option prices are on the [Option evaluation provisions](../../contract-finance/funding/ctf-option-evaluation-provisions.md) card.
+Multiyear contracting commits to multi-year planned requirements up front to capture standardization and lower costs [@CL-MKT-1715], whereas options give the Government a unilateral right justified and evaluated at solicitation [@CL-MKT-1716; @CL-MKT-1718] rather than binding the Government until exercised under [Exercise of options](../../contract-finance/funding/ctf-exercise-of-options.md) [@CL-CTF-1311].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Which solicitation files hold the written option justification and the evaluatio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

@@ -45,7 +45,7 @@ A contracting officer awards an 80,000 contract that is likely to result in subc
 
 ## Never confuse
 
-Under FAR 5.301(a), contracting officers must synopsize through the GPE the covered contract awards exceeding $25,000 [@CL-MKT-0036; @CL-MKT-0037] and the covered FSS orders, Blanket Purchase Agreements, and task or delivery orders greater than the simplified acquisition threshold [@CL-MKT-0038; @CL-MKT-0039], whereas under FAR 5.303(a) contracting officers shall make information available on awards over $5.5 million (unless another dollar amount is specified in agency acquisition regulations) in sufficient time for the agency concerned to announce it by 5 in the afternoon Washington, DC, time on the day of award [@CL-MKT-0043]. For the simplified acquisition threshold amount, see [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
+An award synopsis under FAR 5.301 publicizes covered contract awards exceeding $25,000 after award [@CL-MKT-0036], unlike a presolicitation synopsis on [Preparing and transmitting synopses](mkt-preparing-and-transmitting-synopses.md), which must be published before issuing a resulting solicitation [@CL-MKT-1882], and the $25,000 award-synopsis threshold is not the [$350,000 simplified acquisition threshold](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) [@CL-FND-0001].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm which public award notices are relevant market observations for the comp
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 8.405-6 and FAR 16.505(b)(2) cross-references and contracting-officer actor in timing and transmittal rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 5.003 as the provision the opening exception points to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the two award categories.

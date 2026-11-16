@@ -47,7 +47,7 @@ A contractor estimates a new part three ways. A bottom-up build from drawings is
 
 ## Never confuse
 
-The system that keeps actual costs and the method that builds an estimate are different things, but they must line up: actual costs need to be accumulated in ways consistent with estimating practices [@CL-EST-0683]. Parametric and ratio techniques are covered in [Parametric estimating](../wbs-analogy/est-parametric-estimating.md), and the audit of the whole estimating system in [Estimating systems](est-estimating-system-review.md).
+A cost accounting system records and segregates actual direct and indirect costs, whereas an estimating system on [Estimating systems](est-estimating-system-review.md) generates forecasted proposal estimates rather than historical ledgers—yet actual cost accumulation and lot cutoffs must stay consistent with estimating practices so proposal baselines are not distorted [@CL-EST-0682; @CL-EST-0683; @CL-EST-0768; @CL-EST-0919].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who owns proposal pricing and the estimating system description, and when the de
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched must-use wording of the class deviation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched technical evaluation wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.003 pointer to the Defense Contract Audit Agency accounting guide.

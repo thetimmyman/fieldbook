@@ -55,7 +55,7 @@ Later, before an option is exercised, the contractor's System for Award Manageme
 
 ## Never confuse
 
-The clause prescriptions at DFARS 217.208-70 govern when the foreign military sales option clause and the surge option clause are used in solicitations and contracts [@CL-MKT-1761; @CL-MKT-1764], while DFARS 217.207(c) states determinations and verifications required before an option is exercised in addition to the requirements at FAR 17.207(c) [@CL-MKT-1803]. The foreign military sales option clause is used when an option may be used for foreign military sales requirements [@CL-MKT-1761], and the surge option clause is used when a surge option is needed in support of industrial capability production planning [@CL-MKT-1764].
+Prescribing the foreign military sales or surge option clauses in a solicitation [@CL-MKT-1758; @CL-MKT-1761] puts the option into the contract at award, whereas exercising an option later requires the separate postaward determinations and verifications of DFARS 217.207(c) in addition to FAR 17.207(c) rather than flowing automatically from the clause [@CL-MKT-1803].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Which foreign military sales and surge options sit in the order book, which clau
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed combined-procurement scope and conjunctive SPRS verification rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Broad agency announcement options pointer joined by or.

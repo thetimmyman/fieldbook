@@ -51,7 +51,7 @@ The agency may consider award to the higher priced offeror if that may be in the
 
 ## Never confuse
 
-The tradeoff process permits tradeoffs among cost or price and non-cost factors and allows the Government to accept other than the lowest priced proposal, and the perceived benefits of the higher priced proposal must merit the additional cost [@CL-MKT-1478; @CL-MKT-1328]. Prenegotiation objectives establish the Government's initial negotiation position, assist in the contracting officer's determination of a fair and reasonable price, and should be based on the results of the contracting officer's analysis of the offeror's proposal [@CL-MKT-1479; @CL-MKT-1329]. Codified FAR 15.101-1(c) says the perceived benefits of the higher priced proposal shall merit the additional cost and the rationale for tradeoffs must be documented in the file in accordance with FAR 15.406 [@CL-MKT-1328], while RFO FAR 15.103-1 and RFO FAR 15.205 say the anticipated benefits of a higher priced proposal must merit the additional cost and the source selection decision must be documented and include the rationale for any business judgments and tradeoffs made or relied on by the SSA [@CL-MKT-2263; @CL-MKT-2267].
+The tradeoff process lets the Government accept a higher-priced proposal when non-cost benefits merit the additional cost [@CL-MKT-1325; @CL-MKT-2263], unlike [Lowest price technically acceptable source selection](../../estimating/pricing/est-lpta-source-selection.md), where award goes to the lowest evaluated price among technically acceptable proposals without paying a premium for technical superiority [@CL-EST-1350].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which estimates need a documented tradeoff rationale and prenegotiation objectiv
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 15.104(d) opening clause and separated RFO citations from codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: tradeoff process lead-in cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.103-4 phased acquisition.

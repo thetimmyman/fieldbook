@@ -50,7 +50,7 @@ Before a solicitation is released, the contracting officer holds a one-on-one me
 
 ## Never confuse
 
-The clarifications, communications and discussions that follow receipt of proposals are on [Exchanges with offerors after receipt of proposals](est-exchanges-after-proposals-and-competitive-range.md). This section's exchanges run through receipt of proposals [@CL-EST-1358]. The codified text says information necessary for the preparation of proposals must be made public [@CL-EST-1363], while RFO FAR 15.101(d) says it should be [@CL-EST-3276]. In the RFO text, early exchanges are in RFO FAR 15.101 [@CL-EST-3271], and the contracting officer's focal-point duty is in RFO FAR 15.201(c) [@CL-EST-3265]. What a request for proposals must describe is on [Requests for proposals and amending the solicitation](est-rfp-and-solicitation-amendments.md).
+Exchanges under FAR 15.201 run from requirement identification only up to receipt of proposals [@CL-EST-1358; @CL-EST-3271; @CL-EST-9189], unlike clarifications, communications and competitive-range discussions, which take place after proposals arrive on [Exchanges with offerors after receipt of proposals](est-exchanges-after-proposals-and-competitive-range.md) [@CL-EST-1383].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Who in the company may speak with the Government about a planned acquisition and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the provisions that protect a potential offeror's information, restated the deviation as it reads, and cut uncited contrasts and meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO comparison no longer says the texts match; worked example states the condition for public release.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.200 subpart scope.

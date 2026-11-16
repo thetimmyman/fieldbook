@@ -47,7 +47,7 @@ Answer: the firm tells the contracting officer when it tells the SBA. A transfer
 
 ## Never confuse
 
-The direct award clause states that the contract is issued as a direct award [@CL-MKT-0922], and the competition notice states that offers are solicited only from small business concerns expressly certified by the SBA for the 8(a) Program [@CL-MKT-0927]. In the direct award the SBA is the prime contractor [@CL-MKT-0923], and the contracting office is responsible for administering the contract and for taking any action on behalf of the Government under the terms and conditions of the contract, provided that it gives the SBA advance notice before it issues a final notice terminating performance, either in whole or in part, under the contract [@CL-MKT-0924; @CL-MKT-1446]. The notification to delay performance and religious-related services competition is on the [DFARS notification to delay performance and religious-related services competition](mkt-dfars-delay-performance-and-religious-services-competition.md) card. Offering a requirement to the SBA and acceptance are on the [offering and acceptance](mkt-8a-offering-and-acceptance.md) card, competition thresholds are on the [competitive awards](mkt-8a-competitive-awards.md) card, and administration and release are on the [administration and release](mkt-8a-administration-and-release.md) card. The general limits on subcontracting and the nonmanufacturer rule are on the [limitations on subcontracting](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) card.
+Under the DoD-SBA Partnership Agreement, DFARS 252.219-7009 issues the contract as a direct award between the DoD contracting office and the 8(a) contractor [@CL-MKT-0922; @CL-MKT-0949], rather than routing a separate prime contract through SBA, while the limited-competition notice restricts offers to SBA-certified 8(a) concerns rather than all small businesses [@CL-MKT-0927].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts are direct awards or are competed among eligible participants, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added whole-or-part scope of the termination notice and removed contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: End-item requirement scope limited to paragraph (d)(1)(i) through (iii).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the direct award and limited competition notice.

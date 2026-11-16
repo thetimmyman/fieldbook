@@ -53,7 +53,7 @@ An agency plans a competitive acquisition with an estimated value of 250 million
 
 ## Never confuse
 
-Discussions and the provision use "should" [@CL-EST-2793; @CL-EST-2795], and the plan approval uses "shall" [@CL-EST-2791]. The plan approval is assigned to the source selection authority [@CL-EST-2791]. The discussions test is the estimated value of the acquisition, and the provision test is the value of the procurement [@CL-EST-2793; @CL-EST-2795]. The plan approval applies to high-dollar value and other acquisitions, as prescribed by agency procedures [@CL-EST-2791].
+In DoD source selections, approving the source selection plan before solicitation is mandatory (`shall`) for the source selection authority [@CL-EST-2791], whereas conducting discussions and using FAR 52.215-1 Alternate I on acquisitions of $100 million or more are policy expectations (`should`) [@CL-EST-2793; @CL-EST-2795], unlike limited clarifications without discussions on [exchanges after proposals and the competitive range](est-exchanges-after-proposals-and-competitive-range.md) [@CL-EST-1383].
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Which of the company's bids are expected to fall at or above the value line, so 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Worded the plan approval and procedure directions as the provisions state them, cited the scope heading, and cut uncited negatives and meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Peer Reviews section and the source selection scope section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD source selection responsibilities, discussions after receipt of proposals, and the competitive-acquisition provision.

@@ -46,7 +46,7 @@ A competitive negotiated solicitation contemplates a multiple-award contract, an
 
 ## Never confuse
 
-The provisions at 252.215-7007 and 252.215-7008 are used as prescribed at 215.371-6 and 215.408(3), respectively [@CL-MKT-1866]. The clause at 252.216-7010 is used in competitive negotiated solicitations and contracts [@CL-MKT-1867] when a multiple-award contract is contemplated and task orders or delivery orders placed under the contract may be valued at $15 million or more [@CL-MKT-1868]. The debriefing duty for orders of this size is described on [DoD ordering under multiple-award contracts: DFARS additions](../../estimating/pricing/est-dod-ordering-multiple-award-contracts.md).
+DFARS 252.216-7010 provides postaward debriefing rights on multiple-award contracts where task or delivery orders may be valued at $15 million or more [@CL-MKT-1867; @CL-MKT-1868], unlike the preaward solicitation provisions DFARS 252.215-7007 and 252.215-7008 that govern resolicitation notice and single-offer submissions [@CL-MKT-1866].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which multiple-award solicitations and contracts the company holds or bids, whet
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for additional DoD solicitation provisions and the contract clause for indefinite-delivery contracts under DFARS 216.506-70.

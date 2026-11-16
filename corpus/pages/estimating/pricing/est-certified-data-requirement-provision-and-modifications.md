@@ -47,9 +47,7 @@ An offeror proposes a catalog item at 80,000 and asks for the commercial excepti
 
 ## Never confuse
 
-Certified cost or pricing data and data other than certified cost or pricing data are named separately in the submission requirement [@CL-EST-1822]. The provision speaks to offerors [@CL-EST-1819], while the modifications clause speaks to the Contractor for modifications under the contract [@CL-EST-1824]. The price reduction clause is covered in [Price reduction for defective certified data](est-price-reduction-and-subcontractor-data-modification-clauses.md). The general exceptions are covered in [Exceptions to the requirement for certified cost or pricing data](est-certified-data-exceptions.md), format rules are in [Instructions for submitting cost or pricing data](est-data-submission-format-and-instructions.md), and the general proposal instructions are in [Instructions to offerors in competitive acquisitions](est-instructions-to-offerors-competitive-acquisition.md).
-
-The table and the threshold cross-reference differ between the two texts. The codified provision incorporates Table 15-2 [@CL-EST-1821] and the RFO provision incorporates Table 15-1 of FAR 15.408-2 [@CL-EST-0081] [@CL-EST-9067]. The codified modifications clause refers to the threshold in FAR 15.403-4(a)(1) [@CL-EST-1889], while the RFO modifications clause refers to the threshold in FAR 15.403-3(a) [@CL-EST-0086].
+Solicitation provision FAR 52.215-20 governs preaward offeror submissions and exception requests [@CL-EST-0075; @CL-EST-1819], whereas FAR 52.215-21 governs postaward contract modifications expected to exceed the certified data threshold [@CL-EST-1824], and both govern data submission rather than defective-pricing recovery under [Price reduction for defective certified data](est-price-reduction-and-subcontractor-data-modification-clauses.md) [@CL-EST-1806].
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied provision and modifications-clause wording to quotes: lead-ins, threshold, exception condition on certificate; added two companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certificate timing, decision wording and shall/must restored; uncited price-reduction contrast removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

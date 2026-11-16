@@ -47,7 +47,7 @@ A requiring activity wants a 7-year contract to buy electricity from a solar pla
 
 ## Never confuse
 
-Advance procurement is an exception to the full funding policy that permits early acquisition of long lead items or economic order quantities [@CL-MKT-1895]. The head of the contracting activity may enter into a contract for a period not to exceed 10 years for the purchase of electricity from sources of renewable energy [@CL-MKT-1897]. A period in excess of 5 years is allowed only if the head of the contracting activity determines, on the basis of a business case analysis prepared by the requiring activity, that the paragraph (b) conditions are met [@CL-MKT-1898; @CL-MKT-1899].
+Renewable-electricity contracts under this DFARS authority may run up to 10 years—using a business case analysis to exceed 5 years [@CL-MKT-1897; @CL-MKT-1898]—unlike standard multiyear supply or service contracting on [Multiyear contracting method and clauses](mkt-multiyear-contracting-method-and-clauses.md), which is capped at 5 years unless otherwise authorized by statute [@CL-MKT-1354].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How renewable electricity contracts and their business case analyses are tracked
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD multiyear contracting definitions and renewable electricity contracts.

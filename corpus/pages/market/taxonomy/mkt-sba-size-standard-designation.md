@@ -50,7 +50,7 @@ A solicitation names one NAICS code, and its size standard is 600 employees. A c
 
 ## Never confuse
 
-Choosing the NAICS code and its size standard is a different step from deciding on what date a concern's size is measured, which [When a concern's size status is measured](../taxonomy/mkt-sba-size-measurement-date.md) covers. It is also different from an appeal of the code to SBA's Office of Hearings and Appeals, because the assigned code is final unless timely appealed or unless SBA assigns a code or size standard as a later paragraph of the section provides [@CL-MKT-0547]. The linked card, [Size standards, NAICS codes and appeals](../taxonomy/mkt-size-standards-and-naics-codes.md), covers the wider picture. Whether a firm that resells supplies counts as small is a separate test, set out in [How a nonmanufacturer qualifies as a small business on a supply contract](../taxonomy/mkt-sba-nonmanufacturer-qualification.md).
+Designating the single NAICS code and size standard that best describes the solicitation's principal purpose (including optional adoption of a pre-offer SBA amendment) [@CL-MKT-0375; @CL-MKT-0376; @CL-MKT-9331] differs from fixing the date on which an offeror's size is measured on [When a concern's size status is measured](../taxonomy/mkt-sba-size-measurement-date.md) [@CL-MKT-0383].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which NAICS codes and size standards the company's products and customers usuall
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the principal purpose of the acquisition in the single-code route.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the size standard in effect on the issue date.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the SBA-assignment exception to the code finality statement.

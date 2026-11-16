@@ -58,13 +58,7 @@ Under a solicitation with Alternate I, Bidder C states that its product is the s
 
 ## Never confuse
 
-Products delivered under any resulting contract must conform to the approved sample for the characteristics listed for test or evaluation and to the specifications for all other characteristics [@CL-EST-2111].
-
-The Contracting Officer will consider a late sample sent by mail under the late submissions provision [@CL-EST-2007], and the Government will reject the bid when a sample fails to conform to the required characteristics [@CL-EST-2008].
-
-A waiver under either alternate is at the Contracting Officer's discretion [@CL-EST-2113; @CL-EST-2117].
-
-Descriptive literature is information furnished by a bidder, such as cuts, illustrations, drawings and brochures, that shows a product's characteristics or construction or explains its operation [@CL-EST-2010]; see [Descriptive literature under sealed bidding](est-descriptive-literature.md).
+A bid sample is a physical product sample furnished by the bid receipt deadline to show characteristics that specifications cannot adequately describe [@CL-EST-2005; @CL-EST-2006], unlike [Descriptive literature under sealed bidding](est-descriptive-literature.md), which uses drawings, cuts, or brochures to show product construction or operation rather than a physical item [@CL-EST-2010].
 
 ## Company calibration
 
@@ -73,6 +67,7 @@ Confirm who produces and ships samples, and who can prove the delivery date for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse wording tied to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Class deviation wording changed to must use; unsupported contrast on waiver removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of bid sample.

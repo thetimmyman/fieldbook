@@ -72,11 +72,7 @@ A written withdrawal notice from one bidder arrives at 1:30, before the exact ti
 
 ## Never confuse
 
-The three further conditions are joined by or [@CL-EST-2156; @CL-EST-2157; @CL-EST-2158], and the Contracting Officer's determination that accepting the late technical proposal would not unduly delay the acquisition is joined to them by and [@CL-EST-2155].
-
-A late modification of an otherwise successful proposal that makes its terms more favorable to the Government will be considered at any time it is received and may be accepted [@CL-EST-2192].
-
-The emergency extension applies where an emergency or unanticipated event interrupts normal Government processes so that technical proposals cannot be received at the Government office designated for receipt of technical proposals by the exact time specified in the request for technical proposals, and urgent Government requirements preclude amendment of the request for technical proposals [@CL-EST-2193; @CL-EST-2228]. A withdrawal of a technical proposal received at the designated office after the exact time specified for receipt will not be considered unless the further conditions of paragraph (b)(1) are met [@CL-EST-2154]; technical proposals may be withdrawn by written notice received at any time before the exact time set for receipt [@CL-EST-2160].
+This provision governs late step-one unpriced technical proposals, modifications and withdrawals under two-step sealed bidding [@CL-EST-0829; @CL-EST-0831; @CL-EST-2153], rather than late priced sealed bids governed by [Late submissions, modifications and withdrawals of bids](est-late-bid-submissions-and-withdrawals.md) [@CL-EST-1968].
 
 ## Company calibration
 
@@ -85,6 +81,7 @@ Confirm who owns delivery and withdrawal of technical proposals, and what proof 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut absence statements and unquoted contrasts and restated the alternatives and emergency-extension rules in the provision's words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; removed an unsupported contract-specific gloss and a necessary-condition reading of the emergency extension.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for late submissions, modifications, revisions and withdrawals of technical proposals under two-step sealed bidding.

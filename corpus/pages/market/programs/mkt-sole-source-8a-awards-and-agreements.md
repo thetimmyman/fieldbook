@@ -62,7 +62,7 @@ An agency wants a sole-source 8(a) award estimated at 40,000,000. The SBA may no
 
 ## Never confuse
 
-A sole-source 8(a) award is made through the SBA: the agency contract is awarded to the SBA, and the SBA awards the contract to the participant, unless the single-document alternative combines them in one tripartite document [@CL-MKT-1375; @CL-MKT-1376; @CL-MKT-1382]. The SBA's approval before award applies whether or not the contracting officer negotiates directly [@CL-MKT-1276]. Under FAR 19.804-5(a), the contracting office must submit an offering letter for, and the SBA must accept, each order under a basic ordering agreement or blanket purchase agreement issued under part 13, in addition to the agency offering and the SBA accepting the agreement itself [@CL-MKT-1279; @CL-MKT-1374]. The offering and acceptance steps are on [the offering and acceptance card](mkt-8a-offering-and-acceptance.md), the competition notice is on [the award and competition notification card](mkt-section-8a-award-and-competition-notification.md), and the special conditions are on [the special conditions card](mkt-special-8a-contract-and-subcontract-conditions.md).
+A sole-source 8(a) contract requires a FAR 6.303 justification before SBA may accept it for negotiation above $30 million and requires a separate offering letter and SBA acceptance for each Part 13 BOA or BPA order [@CL-MKT-1272; @CL-MKT-1279], unlike competitive 8(a) acquisitions on the [competitive awards card](mkt-8a-competitive-awards.md), where eligible 8(a) participants compete against each other [@CL-MKT-0507].
 
 ## Company calibration
 
@@ -71,6 +71,7 @@ Whether any planned sole-source award sits near the justification trigger, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the statutory citations in FAR 19.811-1(a)-(c) and removed unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: 8a signature return wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sole-source 8(a) awards, agreement orders and the agency contract.

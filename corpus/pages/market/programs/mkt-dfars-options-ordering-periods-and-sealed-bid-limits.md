@@ -51,7 +51,7 @@ A DoD delivery order contract is awarded under the statute the paragraph cites a
 
 ## Never confuse
 
-The ordering period may be subsequently extended in accordance with an option provided in the contract or a modification of the contract [@CL-MKT-1904], and the ordering period shall not exceed 10 years unless the head of the agency determines in writing that exceptional circumstances require a longer ordering period [@CL-MKT-1905]. Sealed bid solicitations shall not include provisions for evaluations of options unless the contracting officer determines that there is a reasonable likelihood that the options will be exercised [@CL-MKT-1910], and that limitation also applies to sealed bid solicitations for the contracts excluded by FAR 17.200 [@CL-MKT-1911].
+In sealed bidding, solicitations may not include option-evaluation provisions unless the contracting officer determines the options are reasonably likely to be exercised [@CL-MKT-1910], unlike general negotiated option evaluation on [Evaluation of options and options exercised at award provisions](../../contract-finance/funding/ctf-option-evaluation-provisions.md), where option prices are evaluated unless determined not to be in the Government's best interests [@CL-CTF-2296].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ How ordering-period end dates and option exercise decisions are tracked for each
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined senior procurement executive limit rule and removed unquoted commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Advisory and assistance statute reference restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contracts with options and the sealed bid option evaluation limit.

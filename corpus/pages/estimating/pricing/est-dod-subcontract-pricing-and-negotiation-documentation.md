@@ -47,7 +47,7 @@ A subcontractor's proposal for a component priced at 2 million dollars is under 
 
 ## Never confuse
 
-Establishing prenegotiation objectives follows the procedures at PGI 215.406-1 [@CL-EST-2807], and documenting the negotiation follows the procedures at PGI 215.406-3 [@CL-EST-2808]. Reviewing a subcontractor's proposal follows the procedures at PGI 215.404-3 [@CL-EST-2806]. Uploading sole source business clearance documentation into the Contract Business Analysis Repository is part of the procedures at PGI 215.406-3 [@CL-EST-2808].
+These DFARS pointers add DoD PGI procedures—including uploading sole-source business clearance files into the Contract Business Analysis Repository [@CL-EST-2806; @CL-EST-2807; @CL-EST-2808]—rather than altering the contracting officer's substantive FAR duty to determine prime and subcontract price reasonableness on [that card](est-subcontract-pricing-considerations.md) [@CL-EST-0213].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Who owns the subcontract pricing review and the prenegotiation objective file, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited negatives, contrasts and meta sentences and stated each PGI pointer as the provision does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontract pricing review, prenegotiation objectives and negotiation documentation.

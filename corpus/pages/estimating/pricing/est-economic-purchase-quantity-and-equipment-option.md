@@ -49,11 +49,7 @@ On the equipment option, the contract sets a purchase price of 80,000. The credi
 
 ## Never confuse
 
-An economic purchase quantity is the quantity at which a significant price break occurs [@CL-EST-2304]. Where different quantities are recommended, the offeror must quote a total and a unit price for applicable items [@CL-EST-2303].
-
-The Contracting Officer may exercise the equipment option only by providing a unilateral modification to the contractor [@CL-EST-2305], and the purchase conversion cost is based on the purchase price set forth in the contract, minus the total purchase option credits accumulated during the period of lease or rental [@CL-EST-2306].
-
-The variation in quantity policy is covered in [Variation in quantity policy for supply and construction contracts](../../supply-chain/procure-to-pay/sup-variation-in-quantity-policy.md), and the option solicitation provisions and contract clauses are covered in [Option solicitation provisions and contract clauses](../../contract-finance/funding/ctf-option-clauses-and-provisions.md).
+FAR 52.207-4 invites preaward offeror opinions on whether different supply quantities would yield a better price break [@CL-EST-0189; @CL-EST-2302]—unlike postaward delivery tolerances on [Variation in quantity policy for supply and construction contracts](../../supply-chain/procure-to-pay/sup-variation-in-quantity-policy.md) [@CL-SUP-3306]—while the equipment purchase option lets the contracting officer buy leased equipment during performance by unilateral modification [@CL-EST-2305].
 
 ## Company calibration
 
@@ -63,6 +59,7 @@ How the quantity assumptions and option credits are held so the conversion cost 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Worded the price break desire, resolicitation right and deviation sentence as the cited text states them, and cut two uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: The pointer to the option clauses card no longer repeats a section number.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on variation in quantity and option clauses.

@@ -45,7 +45,7 @@ A foreign military sale contract expects 5 million of cost tied to an indirect o
 
 ## Never confuse
 
-The offset exception applies to the extent the certified cost or pricing data relate to an indirect offset [@CL-EST-1546]. The debriefing provision is a notice of rights and timing; the general debriefing rules are on [Postaward debriefing of offerors](est-postaward-debriefing.md), and the threshold for certified data is on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md).
+DFARS 252.215-7014 excuses certified cost or pricing data only to the extent the data relate to a foreign military sales indirect offset [@CL-EST-1526; @CL-EST-1546]—not the rest of the prime proposal—while the companion debriefing notice covers awards of 15 million dollars or more [@CL-EST-1547] rather than replacing the 3-day request rule on [Postaward debriefing of offerors](est-postaward-debriefing.md) [@CL-EST-1417].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notwithstanding scope of the offset exception; stated the clause conditions together; cut statements about what the clause and provision leave unsaid or are not.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the foreign military sales offset exception and the postaward debriefing notice.

@@ -47,7 +47,7 @@ A DoD contracting officer prepares a solicitation for supplies delivered in the 
 
 ## Never confuse
 
-A procurement center representative recommends. The contracting officer can reject a recommendation, and one listed remedy is a written appeal [@CL-MKT-0309; @CL-MKT-0333]. Offeror size and status representations are on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card, and rerepresentation after award is on the [Rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card.
+An SBA procurement center representative reviews proposed acquisitions and recommends small business actions rather than making the award decision [@CL-MKT-0331], while inserting FAR 52.219-1 collects offeror representations in solicitations above the micro-purchase threshold [@CL-MKT-0334] instead of creating a set-aside by itself.
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which product families and customer groups buy through activities with an assign
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: recommendation lead-in and package conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the agency focal points for interfacing with SBA.
