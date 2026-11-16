@@ -9,6 +9,6 @@ edition = "2021"
 publish = false
 
 [dependencies]
-smallvec = "=1.6.0"
+smallvec = "=1.6.1"
 
 [workspace]
