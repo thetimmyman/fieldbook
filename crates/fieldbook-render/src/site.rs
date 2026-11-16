@@ -15,8 +15,8 @@ use fieldbook_core::version::SCHEMA_VERSION_MAX;
 use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
 use crate::{
-    about, area, csv_copy, day_one, edition, home, ids, nav, register, search_index, search_page,
-    source, templates_xlsx, xlsx,
+    about, area, csv_copy, day_one, edition, home, ids, map, nav, register, search_index,
+    search_page, source, templates_xlsx, xlsx,
 };
 
 const APP_CSS: &str = include_str!("../assets/app.css");
@@ -184,6 +184,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     paths.extend([
         home::OUTPUT_PATH.to_owned(),
         about::OUTPUT_PATH.to_owned(),
+        map::OUTPUT_PATH.to_owned(),
         day_one::OUTPUT_PATH.to_owned(),
         edition::OUTPUT_PATH.to_owned(),
     ]);
@@ -242,6 +243,10 @@ pub fn render_with_info(
     }
     let about_html = about::render_page(view, ctx, info.profile, &navigation, &planned);
     site.insert(about::OUTPUT_PATH, about_html.into_bytes());
+    site.insert(
+        map::OUTPUT_PATH,
+        map::render_page(view, ctx, info.profile, &navigation, &planned).into_bytes(),
+    );
     site.insert(
         day_one::OUTPUT_PATH,
         day_one::render_page(view, ctx, &navigation, &planned).into_bytes(),

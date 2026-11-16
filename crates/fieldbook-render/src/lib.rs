@@ -19,6 +19,7 @@ pub mod ids;
 pub mod inline;
 pub mod links;
 pub mod lint;
+pub mod map;
 pub mod meta;
 pub mod nav;
 pub mod page;
