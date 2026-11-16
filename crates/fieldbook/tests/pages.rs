@@ -881,3 +881,147 @@ fn desk_git_guard_enforces_public_home_owner_supplied_and_refuses_unlabelled_or_
         before_home
     );
 }
+
+#[test]
+fn desk_backup_admission_and_git_guard_enforce_snapshot_labels() {
+    use fieldbook_core::policy::EffectivePolicy;
+
+    // 1. State admission (FB0412): snapshot carrying `np-0007` must be refused on Home floor
+    //    even when target metadata (`main`) and `last-backup.json` only carry `public`/`owner-supplied`.
+    let desk = desk_fixture(true);
+    let ok = write_pages(&desk.world);
+    assert_eq!(ok.code, 0, "stderr: {}", ok.stderr);
+    let before = desk.page("backup.html");
+
+    let snap_toml_path = desk.target.path().join("fieldbook-backup-0001/backup.toml");
+    let snap_toml = std::fs::read_to_string(&snap_toml_path).expect("read backup.toml");
+    let np_toml = snap_toml.replacen("labels = [\"owner-supplied\"]", "labels = [\"np-0007\"]", 1);
+    assert_ne!(
+        np_toml, snap_toml,
+        "backup.toml must contain owner-supplied label"
+    );
+    std::fs::write(&snap_toml_path, &np_toml).expect("write np-0007 snapshot label");
+
+    let denied = write_pages(&desk.world);
+    assert_eq!(denied.code, 3, "stderr: {}", denied.stderr);
+    assert!(
+        denied.stderr.contains("FB0412"),
+        "expected FB0412 for np-0007 snapshot, got: {}",
+        denied.stderr
+    );
+    assert_eq!(
+        desk.page("backup.html"),
+        before,
+        "existing backup.html must be preserved on FB0412"
+    );
+
+    // 2. Git boundary guard (FB0415): on Floor B (`State` admits `marked`), a snapshot carrying
+    //    `marked` under `.git` is refused with FB0415 and preserves existing pages.
+    let root = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    std::fs::create_dir_all(root.path().join(".git")).expect("create .git dir");
+    std::fs::write(root.path().join(".gitignore"), "/.fieldbook/\n").expect("write .gitignore");
+    let target = tempfile::tempdir().expect("create external target dir");
+    let state = root.path().join(".fieldbook");
+    support::state::build_state(&state, &support::state::state_mini_events());
+    write_settings(&state, target.path(), 7);
+
+    let world = TestWorld::new(root.path());
+    let tree = world.read_tree().expect("read tree");
+    let catalogue = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue");
+    let (_, sha) = catalogue.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(catalogue, sha);
+    let made = fieldbook::run(&["backup".to_owned()], &world);
+    assert_eq!(made.code, 0, "backup stderr: {}", made.stderr);
+    let verified = fieldbook::run(&["backup".to_owned(), "verify".to_owned()], &world);
+    assert_eq!(verified.code, 0, "verify stderr: {}", verified.stderr);
+    let init_pages = write_pages(&world);
+    assert_eq!(
+        init_pages.code, 0,
+        "init pages stderr: {}",
+        init_pages.stderr
+    );
+    let before_git = std::fs::read_to_string(state.join("pages/backup.html")).expect("backup.html");
+
+    let git_toml_path = target.path().join("fieldbook-backup-0001/backup.toml");
+    let git_toml = std::fs::read_to_string(&git_toml_path).expect("read git backup.toml");
+    let marked_toml =
+        git_toml.replacen("labels = [\"owner-supplied\"]", "labels = [\"marked\"]", 1);
+    assert_ne!(
+        marked_toml, git_toml,
+        "git backup.toml must contain owner-supplied label"
+    );
+    std::fs::write(&git_toml_path, marked_toml).expect("write marked snapshot label");
+
+    world.set_effective_policy(EffectivePolicy::floor(true));
+    let git_refused = write_pages(&world);
+    assert_eq!(git_refused.code, 3, "stderr: {}", git_refused.stderr);
+    assert!(
+        git_refused.stderr.contains("FB0415"),
+        "expected FB0415 for marked snapshot under .git, got: {}",
+        git_refused.stderr
+    );
+    assert_eq!(
+        std::fs::read_to_string(state.join("pages/backup.html")).expect("preserved"),
+        before_git
+    );
+}
+
+#[test]
+fn desk_frame_spans_full_grid_and_keeps_nav_visible_below_960px() {
+    let desk = desk_fixture(true);
+    assert_eq!(write_pages(&desk.world).code, 0);
+
+    for name in PAGE_FILES {
+        let html = desk.page(name);
+        assert!(
+            html.contains("<div class=\"app\"><div class=\"shell desk-shell\">"),
+            "{name} must wrap desk shell with `.desk-shell` so `.app` does not squeeze it into 232px"
+        );
+        assert!(
+            html.contains("<nav class=\"desk-sections\" aria-label=\"Desk\">"),
+            "{name} must use `.desk-sections` instead of `.sections` so mobile CSS does not hide navigation"
+        );
+    }
+
+    let css = fieldbook_render::site::APP_CSS;
+    let compact: String = css.chars().filter(|c| !c.is_whitespace()).collect();
+    assert!(
+        compact.contains(".desk-shell{grid-column:1/-1;}"),
+        "app.css must span `.desk-shell` across all columns of `.app`"
+    );
+    assert!(
+        compact.contains(".desk-sections{")
+            && compact.contains(".desk-sections[aria-current=\"page\"]{"),
+        "app.css must style `.desk-sections` and its active link"
+    );
+
+    let mobile_start = css
+        .find("@media (max-width: 959px)")
+        .expect("mobile media query");
+    let rest = &css[mobile_start..];
+    let mut depth = 0usize;
+    let mut mobile_end = rest.len();
+    for (idx, ch) in rest.char_indices() {
+        if ch == '{' {
+            depth += 1;
+        } else if ch == '}' {
+            depth -= 1;
+            if depth == 0 {
+                mobile_end = idx + 1;
+                break;
+            }
+        }
+    }
+    let mobile_block: String = rest[..mobile_end]
+        .chars()
+        .filter(|c| !c.is_whitespace())
+        .collect();
+    assert!(
+        !mobile_block.contains(".desk-sections"),
+        "mobile media query (<960px) must not hide or match `.desk-sections`"
+    );
+}

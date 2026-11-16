@@ -111,13 +111,16 @@ pub fn write_desk_pages(
     if let ReportSource::Ready(report) = &import_source {
         carried = carried.union(input_labels.as_ref().unwrap_or(&report.labels));
     }
-    if let ReportSource::Ready(list) = &backup_source
-        && let Some(target) = &list.target
-    {
-        carried = carried.union(&LabelSet::owner_supplied());
-        let rules = policy.marking_rules();
-        if let Some(mark_set) = fieldbook_core::labels::markings_in(&target.id, &rules) {
-            carried = carried.union(&mark_set);
+    if let ReportSource::Ready(list) = &backup_source {
+        if let Some(target) = &list.target {
+            carried = carried.union(&LabelSet::owner_supplied());
+            let rules = policy.marking_rules();
+            if let Some(mark_set) = fieldbook_core::labels::markings_in(&target.id, &rules) {
+                carried = carried.union(&mark_set);
+            }
+        }
+        if let Some(labels) = backup_snapshot_labels(list) {
+            carried = carried.union(&labels);
         }
     }
     if let Some(labels) = read_last_backup_labels(&state_dir) {
@@ -222,6 +225,36 @@ fn read_last_backup_labels(state_dir: &Path) -> Option<LabelSet> {
     Some(LabelSet::from_ids(report.labels))
 }
 
+fn labels_from_names<'a>(items: impl IntoIterator<Item = Option<&'a str>>) -> LabelSet {
+    let mut ids = Vec::new();
+    let mut count = 0usize;
+    let mut invalid = false;
+    for item in items {
+        count += 1;
+        match item.and_then(|id| fieldbook_core::audit::LabelId::parse(id).ok()) {
+            Some(id) => ids.push(id),
+            None => invalid = true,
+        }
+    }
+    if count == 0 || invalid {
+        LabelSet::from_ids(ids).union(&LabelSet::unlabelled())
+    } else {
+        LabelSet::from_ids(ids)
+    }
+}
+
+fn backup_snapshot_labels(list: &BackupList) -> Option<LabelSet> {
+    let mut out: Option<LabelSet> = None;
+    for snapshot in &list.snapshots {
+        let snap_set = labels_from_names(snapshot.labels.iter().map(|s| Some(s.as_str())));
+        out = Some(match out {
+            Some(prev) => prev.union(&snap_set),
+            None => snap_set,
+        });
+    }
+    out
+}
+
 fn event_labels(report: &AuditShowReport) -> Option<LabelSet> {
     let mut out: Option<LabelSet> = None;
     for event in &report.events {
@@ -229,22 +262,7 @@ fn event_labels(report: &AuditShowReport) -> Option<LabelSet> {
             continue;
         }
         if let Some(RawJsonValue::Array(items)) = event.get("labels") {
-            let mut ids = Vec::with_capacity(items.len());
-            let mut invalid = items.is_empty();
-            for item in items {
-                match item
-                    .as_str()
-                    .and_then(|id| fieldbook_core::audit::LabelId::parse(id).ok())
-                {
-                    Some(id) => ids.push(id),
-                    None => invalid = true,
-                }
-            }
-            let event_set = if invalid {
-                LabelSet::from_ids(ids).union(&LabelSet::unlabelled())
-            } else {
-                LabelSet::from_ids(ids)
-            };
+            let event_set = labels_from_names(items.iter().map(RawJsonValue::as_str));
             out = Some(match out {
                 Some(prev) => prev.union(&event_set),
                 None => event_set,

@@ -52,9 +52,14 @@ pub fn run_with_policy(
             matches!(
                 d.code,
                 check::Code::Fb0100
+                    | check::Code::Fb0114
                     | check::Code::Fb0200
                     | check::Code::Fb0201
                     | check::Code::Fb0202
+                    | check::Code::Fb0203
+                    | check::Code::Fb0204
+                    | check::Code::Fb0205
+                    | check::Code::Fb0206
             )
         })
         .map(check::Diagnostic::render_text)

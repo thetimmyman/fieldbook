@@ -871,3 +871,74 @@ fn status_warns_on_unverified_one_off_backup_and_omits_when_absent() {
         unverified.stdout
     );
 }
+
+#[test]
+fn status_rejects_invalid_register_cells_excluded_from_typed_rows() {
+    let cases = [
+        (
+            "bad vocabulary (FB0204)",
+            "FB0204",
+            ",fact,Synthetic withholding threshold is 5 percent of billed amounts.,",
+            ",bogus_kind,Synthetic withholding threshold is 5 percent of billed amounts.,",
+        ),
+        (
+            "invalid calendar date (FB0114)",
+            "FB0114",
+            ",2026-01-15,S-0002,2,",
+            ",2026-02-30,S-0002,2,",
+        ),
+        (
+            "invalid primary key (FB0203)",
+            "FB0203",
+            "CL-EST-0002,est,",
+            "NOT-A-CLAIM-ID,est,",
+        ),
+        (
+            "empty required cell (FB0205)",
+            "FB0205",
+            ",fact,Synthetic withholding threshold is 5 percent of billed amounts.,",
+            ",fact,,",
+        ),
+        (
+            "empty locator for ext locator_kind (FB0206)",
+            "FB0206",
+            ",S-0002,2,text_section,sec. 3,",
+            ",S-0002,2,ext:future_graph_node,,",
+        ),
+    ];
+
+    for (label, expected_code, find, replace) in cases {
+        let tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+        let claims_path = tmp.path().join("corpus/registers/claims.csv");
+        let text = std::fs::read_to_string(&claims_path).expect("read claims.csv");
+        let updated = text.replacen(find, replace, 1);
+        assert_ne!(updated, text, "{label}: test fixture pattern must match");
+        std::fs::write(&claims_path, updated).expect("write broken claims.csv");
+
+        let world = TestWorld::new(tmp.path());
+        let outcome = fieldbook::run(&status_args(snapshot_today()), &world);
+        assert_eq!(
+            outcome.code, 1,
+            "{label}: status must fail with EXIT_FINDINGS, stdout:\n{}",
+            outcome.stdout
+        );
+        assert!(
+            outcome.stdout.is_empty(),
+            "{label}: status must not print understated counts on stdout:\n{}",
+            outcome.stdout
+        );
+        assert!(
+            outcome.stderr.contains(&format!("error[{expected_code}]"))
+                && outcome.stderr.contains("corpus/registers/claims.csv"),
+            "{label}: stderr must report {expected_code}, got:\n{}",
+            outcome.stderr
+        );
+
+        let page_outcome = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &world);
+        assert_eq!(page_outcome.code, 1, "{label}: status --page must fail");
+        assert!(
+            world.written().is_empty(),
+            "{label}: status --page must not write desk pages when register rows fail to parse"
+        );
+    }
+}
