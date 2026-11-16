@@ -499,3 +499,62 @@ fn since_order_is_rechecked_under_the_write_lease() {
         "a --since refused under the lease must build nothing"
     );
 }
+
+/// Build unreleased with `--since since` into `root/out` and assert it succeeds and lists the
+/// ids against `edition-002`.
+fn assert_unreleased_since_builds(world: &TestWorld, root: &Path, since: &Path, what: &str) {
+    let info = BuildInfo::unreleased(BuildProfile::Silent);
+    assert!(!info.is_released());
+    let outcome = run_with_info(
+        &BuildArgs {
+            out: root.join("out"),
+            watch: false,
+            since: Some(since.to_string_lossy().into_owned()),
+        },
+        world,
+        &info,
+    );
+    assert_eq!(outcome.code, 0, "{what}: stderr: {}", outcome.stderr);
+    assert!(
+        !outcome.stderr.contains("not earlier than"),
+        "{what}: {}",
+        outcome.stderr
+    );
+    let html = std::fs::read_to_string(root.join("out/edition/changes.html"))
+        .unwrap_or_else(|e| panic!("{what}: {e}"));
+    assert!(html.contains("Ids since edition-002"), "{what}");
+    let built = EditionInfo::parse(
+        &std::fs::read_to_string(root.join("out/edition/edition.toml"))
+            .unwrap_or_else(|e| panic!("{what}: {e}")),
+    )
+    .unwrap_or_else(|e| panic!("{what}: {e}"));
+    assert_eq!(built.edition, "unreleased", "{what}");
+    assert_eq!(built.number, 0, "{what}");
+}
+
+#[test]
+fn since_latest_released_edition_is_accepted_by_an_unreleased_build() {
+    let (_seed, ed2, _ed3) = seed_manifests();
+    let tmp = temp_copy(&fixture_root());
+    // After `edition-002` is released, `changes.md` still starts with its heading while the
+    // Corpus is edited. An unreleased build has no number, so the heading orders nothing.
+    set_changes_heading(tmp.path(), 2);
+    let world = TestWorld::new(tmp.path());
+
+    assert_unreleased_since_builds(&world, tmp.path(), &ed2, "the read-only check");
+}
+
+#[test]
+fn since_order_recheck_under_the_write_lease_skips_an_unreleased_build() {
+    let (_seed, ed2, _ed3) = seed_manifests();
+    let tmp = temp_copy(&fixture_root());
+    set_changes_heading(tmp.path(), 3);
+    let world = TestWorld::new(tmp.path());
+
+    // The Corpus falls back to `edition-002` before the write lease, so only the check under
+    // the lease sees a heading equal to the `--since` edition.
+    let root = tmp.path().to_path_buf();
+    world.set_before_write_lease(move || set_changes_heading(&root, 2));
+
+    assert_unreleased_since_builds(&world, tmp.path(), &ed2, "the check under the lease");
+}

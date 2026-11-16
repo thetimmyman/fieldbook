@@ -536,8 +536,10 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
     // 1a. Refuse an out-of-order `--since` against the read-only snapshot, before the write
     //     lease: taking the lease creates the state folder and its lock files, and a refused
     //     `--since` writes nothing. The check repeats under the lease below, in case the
-    //     Corpus changed in between.
-    if let Some(previous) = &previous
+    //     Corpus changed in between. Only a released build is numbered: an unreleased one
+    //     is `unreleased` whatever `changes.md` starts with, so its heading orders nothing.
+    if info.is_released()
+        && let Some(previous) = &previous
         && let Err(err) = since::check_order(previous, current_heading.as_deref())
     {
         return since_outcome(&err);
@@ -579,7 +581,8 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
         };
     }
     // Recheck the order under the lease: the snapshot read under it may name a newer edition.
-    if let Some(previous) = &previous
+    if info.is_released()
+        && let Some(previous) = &previous
         && let Err(err) = since::check_order(previous, current_heading.as_deref())
     {
         return since_outcome(&err);

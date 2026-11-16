@@ -100,7 +100,8 @@ pub fn read_since(arg: &str) -> Result<EditionInfo, SinceError> {
 
 /// Refuse `previous` when both editions are numbered and `previous`'s number is not lower than
 /// the number of the edition being built (`current_heading`, the newest `changes.md` heading).
-/// An unnumbered current build refuses nothing here.
+/// An unnumbered current build refuses nothing here. `build` calls this for a released build
+/// only: an unreleased build has no number, whatever heading `changes.md` starts with.
 ///
 /// # Errors
 ///
