@@ -193,6 +193,7 @@ struct TestHooks {
     lock_timeout: Vec<(ThreadId, Duration)>,
     fail_before_begin_append: Option<ThreadId>,
     fail_after_end_append: Option<ThreadId>,
+    fail_on_backup_end_append: Option<ThreadId>,
     fail_on_settings_change_append: Option<ThreadId>,
 }
 
@@ -268,6 +269,15 @@ pub fn set_fail_after_end_append(enabled: bool) {
     let tid = std::thread::current().id();
     if let Ok(mut guard) = test_hooks().lock() {
         guard.fail_after_end_append = enabled.then_some(tid);
+    }
+}
+
+/// Arm or disarm a one-shot fault on the current thread when appending `backup.end`
+/// (`end_append_failure_names_the_removed_snapshots`).
+pub fn set_fail_on_backup_end_append(enabled: bool) {
+    let tid = std::thread::current().id();
+    if let Ok(mut guard) = test_hooks().lock() {
+        guard.fail_on_backup_end_append = enabled.then_some(tid);
     }
 }
 
@@ -2080,6 +2090,25 @@ impl<'a> Journal<'a> {
         }
 
         let tail = inspect_tail_strict(&self.state_dir)?;
+        let tid = std::thread::current().id();
+        let should_fail = test_hooks()
+            .lock()
+            .ok()
+            .map(|mut g| {
+                if g.fail_on_backup_end_append == Some(tid) {
+                    g.fail_on_backup_end_append = None;
+                    true
+                } else {
+                    false
+                }
+            })
+            .unwrap_or(false);
+        if should_fail {
+            return Err(JournalError::io(
+                &tail.active_segment,
+                "injected backup.end append failure",
+            ));
+        }
         let payload = EventPayload::BackupEnd {
             outcome,
             files: Count::new(files),
@@ -2146,6 +2175,58 @@ impl<'a> Journal<'a> {
         if !is_journal_chain_clean(&self.state_dir) {
             return Err(JournalError::BrokenChain("hash chain broken".to_owned()));
         }
+
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let payload = EventPayload::Refuse {
+            code,
+            sha256: about.sha256.clone(),
+            name_sha256: about.name_sha256.clone(),
+            labels: about.labels.clone(),
+            dest: about.dest,
+            reason,
+            verb: parsed_verb,
+            system: about.system.clone(),
+            stream: about.stream.clone(),
+        };
+        let _ = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+        Ok(())
+    }
+
+    /// Append a `refuse` event with `verb = backup` without requiring an unbroken earlier chain,
+    /// matching `begin_backup` so a backup refusal after an earlier break is still recorded.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `reason` is invalid or if the lock, tail check, or append fails.
+    pub fn refuse_backup(
+        &self,
+        code: Code,
+        reason: Word,
+        about: &RefuseAbout,
+    ) -> Result<(), JournalError> {
+        let parsed_verb = Some(
+            Verb::parse("backup").map_err(|_| JournalError::InvalidVerb("backup".to_owned()))?,
+        );
+        if !fieldbook_core::audit::kind::REFUSE_REASONS.contains(&reason.as_str()) {
+            return Err(JournalError::Vocab(format!(
+                "invalid refuse reason `{reason}`"
+            )));
+        }
+
+        let has_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        let _short_lock = if has_active {
+            None
+        } else {
+            Some(acquire_journal_lock(&self.state_dir)?)
+        };
 
         let tail = inspect_tail_strict(&self.state_dir)?;
         let payload = EventPayload::Refuse {
@@ -3268,11 +3349,41 @@ fn inspect_tail_strict(state_dir: &Path) -> Result<TailState, JournalError> {
 fn last_recorded_settings_baseline(
     state_dir: &Path,
 ) -> Result<Option<fieldbook_core::audit::SettingsBaseline>, JournalError> {
-    let events = read_valid_events_prefix(state_dir);
+    let audit_dir = state_dir.join("audit");
+    let segments = list_segments(&audit_dir)?;
     let mut latest = None;
-    for event in events {
-        if let EventPayload::SettingsChange { baseline, .. } = event.payload {
-            latest = Some(baseline);
+    let mut prev_hex = Some(ZERO_HASH.to_owned());
+    let mut expected_seq = 1u64;
+
+    for (_, seg_path) in segments {
+        let raw = std::fs::read_to_string(&seg_path)
+            .map_err(|err| JournalError::io(&seg_path, err.to_string()))?;
+        for line in raw.lines() {
+            if line.is_empty() {
+                continue;
+            }
+            let current_pos = expected_seq;
+            expected_seq = expected_seq.saturating_add(1);
+
+            let verified_res = prev_hex
+                .as_deref()
+                .and_then(|prev| verify_line(prev, line).ok());
+            match verified_res {
+                Some(verified) => {
+                    prev_hex = Some(verified.hash.as_str().to_owned());
+                    if let Ok((event, _)) = Event::parse_line(line)
+                        && event.seq == current_pos
+                        && let EventPayload::SettingsChange { baseline, .. } = event.payload
+                    {
+                        latest = Some(baseline);
+                    }
+                }
+                None => {
+                    prev_hex = split_hash_suffix(line)
+                        .ok()
+                        .map(|(_, parsed_hash)| parsed_hash.as_str().to_owned());
+                }
+            }
         }
     }
     Ok(latest)

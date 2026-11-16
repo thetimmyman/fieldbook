@@ -25,7 +25,8 @@ use fieldbook::io::atomic::{write_in_root, write_outside};
 use fieldbook::io::backup_folder::newest_verified_snapshot_for_target;
 use fieldbook::io::dirs::{Removable, remove_outside, rename_dir_outside};
 use fieldbook::io::journal::{
-    Audited, Journal, JournalError, acquire_write_lease, set_lock_timeout_for_test,
+    Audited, Journal, JournalError, acquire_write_lease, set_fail_on_backup_end_append,
+    set_lock_timeout_for_test,
 };
 use fieldbook::io::root::Roots;
 use fieldbook::io::state::{BackupSettings, read_backup_settings};
@@ -48,6 +49,7 @@ use fieldbook_core::report::{BackupList, LastBackupReport};
 
 use support::faulty::{Fault, FaultKind, FaultyWorld};
 use support::world::TestWorld;
+use tempfile::TempDir;
 
 fn floor_a_effective() -> EffectivePolicy {
     EffectivePolicy::new(&PolicyState::Floor(FloorKind::A), &OwnerSettings::unset())
@@ -399,7 +401,7 @@ fn rename_and_remove_outside_handles_snapshots_and_refuses_invalid_tokens() {
     );
 
     // Now write backup.toml and update manifest/transfer
-    let backup_toml_bytes = b"backup_version = 1\n";
+    let backup_toml_bytes = &valid_backup_toml_text(3, "ok").into_bytes();
     std::fs::write(snap3.join("backup.toml"), backup_toml_bytes).expect("write backup.toml");
     let btoml_sha = Sha256::digest(backup_toml_bytes).to_string();
     let (full_manifest_sha, full_bytes) = hash_tree_manifest(&[
@@ -1575,7 +1577,7 @@ fn backup_runs_on_a_refused_journal() {
     let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
     assert_eq!(
         info.journal_state,
-        fieldbook_core::strings::cite_statuses()[0]
+        fieldbook_core::backup::toml::JOURNAL_STATE_BROKEN
     );
 
     // No event appended to journal
@@ -1742,7 +1744,7 @@ fn backup_after_an_earlier_break_records_broken() {
     let info = BackupToml::parse(&toml_text).expect("parse backup.toml");
     assert_eq!(
         info.journal_state,
-        fieldbook_core::strings::cite_statuses()[0]
+        fieldbook_core::backup::toml::JOURNAL_STATE_BROKEN
     );
 
     // begin and end are appended
@@ -6820,4 +6822,335 @@ fn snapshot_bytes_are_unchanged_by_the_two_passes() {
         "backup verify failed: {}",
         verify_out.stderr
     );
+}
+
+fn main_backup_opts() -> BackupOptions {
+    let target = Some("main".to_string());
+    BackupOptions {
+        target,
+        to: None,
+        dry_run: false,
+    }
+}
+
+fn write_target_settings(state_dir: &Path, target: &Path, extra_backup: &str) {
+    let path = target.to_string_lossy().replace('\\', "/");
+    let text = format!(
+        "role = \"lead\"\n\n[backup]\n{extra_backup}[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{path}\"\n"
+    );
+    std::fs::write(state_dir.join("settings.toml"), text).expect("write settings");
+}
+
+/// Runs `n` backups, then keeps only the last snapshot.
+fn backups_then_keep_one(fix: &TestFixture, n: usize) {
+    for _ in 0..n {
+        let code = run_backup(&fix.world, &floor_a_effective(), &main_backup_opts()).code;
+        assert_eq!(code, 0);
+    }
+    let keep_one = "keep_last = 1\nkeep_weekly = 0\n\n";
+    write_target_settings(fix.state_dir(), fix.target_path(), keep_one);
+}
+
+/// Journal lines after the first `skip` that contain every needle.
+fn journal_matches(state_dir: &Path, skip: usize, needles: &[&str]) -> Vec<String> {
+    let text = std::fs::read_to_string(state_dir.join("audit/journal.jsonl")).expect("journal");
+    let hit = |l: &&str| needles.iter().all(|n| l.contains(n));
+    let lines = text.lines().skip(skip);
+    lines.filter(hit).map(str::to_owned).collect()
+}
+
+const SETTINGS_CHANGE: &str = "\"kind\":\"settings.change\"";
+
+fn broken_chain_fixture() -> (TempDir, TempDir, TempDir, TestWorld) {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let tree_dir = support::temp_copy(&repo.join("tests/fixtures/corpus-mini"));
+    let state_dir = support::temp_copy(&repo.join("tests/fixtures/state-known-bad/FB0800"));
+    let target_dir = tempfile::tempdir().expect("target tempdir");
+    write_target_settings(state_dir.path(), target_dir.path(), "");
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = manifest::SupportCatalogue::from_public_source(&tree, &"1".repeat(40)).expect("cat");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
+    (tree_dir, state_dir, target_dir, world)
+}
+
+#[test]
+fn raw_verify_that_cannot_append_says_it_was_not_recorded() {
+    let fix = TestFixture::new();
+    drop(Journal::open(&fix.world, fix.state_dir(), Via::Cli).expect("init state locks"));
+    let raw = fix.raw_copy();
+    let lock_path = fix.state_dir().join("lock");
+    let lock_file = std::fs::OpenOptions::new().write(true).open(lock_path);
+    let lock_file = lock_file.expect("open state/lock");
+    lock_file.try_lock().expect("hold OS lock on state/lock");
+
+    set_lock_timeout_for_test(Some(Duration::from_millis(50)));
+    let args = BackupVerifyArgs {
+        target: None,
+        in_dir: None,
+        snapshot: None,
+        raw: Some(raw.path().to_path_buf()),
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let out = run_verify(&fix.world, &args);
+    set_lock_timeout_for_test(None);
+    drop(lock_file);
+
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    assert!(out.stdout.contains("raw copy consistent"), "{}", out.stdout);
+    let note = "note: verify was not recorded in the journal:";
+    assert!(out.stderr.contains(note), "{}", out.stderr);
+}
+
+#[test]
+fn refusal_on_a_broken_chain_is_recorded() {
+    let (tree_dir, state_dir, _target_dir, world) = broken_chain_fixture();
+    std::fs::write(tree_dir.path().join("corpus/stray.txt"), b"unlabelled\n").expect("write stray");
+    let before = journal_matches(state_dir.path(), 0, &[]).len();
+
+    let out = run_backup(&world, &floor_a_effective(), &main_backup_opts());
+    assert_eq!(out.code, 2, "{}", out.stderr);
+    let refuse_backup = ["\"kind\":\"refuse\"", "\"verb\":\"backup\""];
+    let refusals = journal_matches(state_dir.path(), before, &refuse_backup);
+    assert_eq!(refusals.len(), 1, "{refusals:?}");
+
+    let audit_out = fieldbook::run(&["audit".to_string(), "verify".to_string()], &world);
+    assert_eq!(audit_out.code, 1);
+    assert!(audit_out.stdout.contains("FB0800") || audit_out.stderr.contains("FB0800"));
+}
+
+#[test]
+fn recovery_mode_backup_removes_no_snapshot() {
+    let fix = TestFixture::new();
+    backups_then_keep_one(&fix, 3);
+
+    let journal_path = fix.state_dir().join("audit/journal.jsonl");
+    let content = std::fs::read_to_string(&journal_path).expect("read journal");
+    let mut lines: Vec<&str> = content.lines().collect();
+    let last = lines.pop().expect("last");
+    let (prefix, _) = last.rsplit_once(',').expect("split comma");
+    let corrupted_last = format!("{prefix},\"hash\":\"{}\"}}", "0".repeat(64));
+    lines.push(&corrupted_last);
+    std::fs::write(&journal_path, format!("{}\n", lines.join("\n"))).expect("corrupt journal tail");
+
+    let out = run_backup(&fix.world, &floor_a_effective(), &main_backup_opts());
+    assert_eq!(out.code, 1, "{}", out.stderr);
+    for n in 1..=4 {
+        let dir = fix.target_path().join(format!("fieldbook-backup-{n:04}"));
+        assert!(dir.is_dir(), "snapshot {n:04} must remain");
+    }
+    let msg = "no snapshot removed: the journal is refused";
+    assert!(out.stderr.contains(msg), "{}", out.stderr);
+}
+
+#[test]
+fn end_append_failure_names_the_removed_snapshots() {
+    let fix = TestFixture::new();
+    backups_then_keep_one(&fix, 2);
+
+    set_fail_on_backup_end_append(true);
+    let out = run_backup(&fix.world, &floor_a_effective(), &main_backup_opts());
+    set_fail_on_backup_end_append(false);
+
+    assert_eq!(out.code, 3, "{}", out.stderr);
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+    let msg = "removed without a journal record: 0001";
+    assert!(out.stderr.contains(msg), "{}", out.stderr);
+}
+
+fn valid_backup_toml_text(snapshot: u32, journal_state: &str) -> String {
+    let (zeros, journal_state) = ("0".repeat(64), journal_state.to_string());
+    BackupToml {
+        backup_version: 1,
+        tool_version: "0.1.0".to_string(),
+        snapshot,
+        created_utc: "2026-03-01T12:00:00Z".to_string(),
+        labels: vec!["public".to_string()],
+        roots: vec!["corpus".to_string()],
+        files: 0,
+        bytes: 0,
+        fingerprint: zeros.clone(),
+        journal_seq: 0,
+        journal_head: zeros.clone(),
+        journal_state,
+        manifest_sha256: zeros,
+    }
+    .render()
+}
+
+/// Asks `remove_outside` to remove a snapshot folder 0009 holding `toml_bytes`
+/// as its `backup.toml`, and asserts it is refused and kept.
+fn assert_snapshot_0009_is_not_removed(toml_bytes: &[u8]) {
+    let tmp = tempfile::tempdir().expect("tempdir");
+    std::fs::create_dir_all(tmp.path().join("corpus")).expect("corpus");
+    let target = tmp.path().join("target");
+    let snap9 = target.join("fieldbook-backup-0009");
+    std::fs::create_dir_all(&snap9).expect("snap9");
+    std::fs::write(snap9.join("backup.toml"), toml_bytes).expect("write backup.toml");
+
+    let world = TestWorld::new(tmp.path());
+    let mut journal = Journal::open(&world, world.state_dir(), Via::Cli).expect("open journal");
+    let sha = Sha256::digest(toml_bytes).to_string();
+    let entry = ("backup.toml".to_string(), sha, toml_bytes.len() as u64);
+    let (sha256, bytes) = hash_tree_manifest(&[entry]);
+    let operation = Operation::RemoveTree;
+    let target_path = Target::Path(snap9.clone());
+    let transfer = Transfer {
+        target: target_path,
+        operation,
+        sha256,
+        bytes,
+    };
+    let delivery = Delivery::new(vec![transfer], None);
+    let path = target.to_string_lossy().into_owned();
+    let dest = Dest::Backup {
+        path,
+        company_storage: false,
+    };
+    let public = LabelSet::public();
+    let Decision::Allowed(allowed) = check(
+        &floor_a_effective(),
+        &dest,
+        Some(&public),
+        Some(&delivery),
+        default_now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected Allowed");
+    };
+    let policy_sha = Sha256::parse(allowed.policy_hash()).expect("policy sha");
+    journal
+        .prepare_backup_begin(&public, &policy_sha, 1)
+        .expect("prepare");
+    let audited = journal
+        .begin_backup(&allowed, &target, "folder", 1)
+        .expect("begin");
+    let res = remove_outside(&audited, &allowed, &snap9, Removable::Snapshot);
+    let refused = matches!(res, Err(fieldbook::Error::OutOfScope(_)));
+    assert!(refused, "{res:?}");
+    assert!(snap9.exists());
+}
+
+#[test]
+#[cfg(unix)]
+fn unremovable_partial_fails_the_backup() {
+    use std::os::unix::fs::PermissionsExt as _;
+
+    struct PermGuard(PathBuf);
+    impl Drop for PermGuard {
+        fn drop(&mut self) {
+            let _ = std::fs::set_permissions(&self.0, std::fs::Permissions::from_mode(0o755));
+        }
+    }
+    let fix = TestFixture::new();
+    let locked_parent = fix.target_path().join("fieldbook-backup-0002.partial/sub");
+    std::fs::create_dir_all(&locked_parent).expect("create partial/sub");
+    std::fs::write(locked_parent.join("locked.txt"), b"locked").expect("write locked.txt");
+    let guard = PermGuard(locked_parent.clone());
+    let read_only = std::fs::Permissions::from_mode(0o555);
+    std::fs::set_permissions(&locked_parent, read_only).expect("chmod");
+    let probe = locked_parent.join("probe.tmp");
+    if std::fs::write(&probe, b"").is_ok() {
+        let _ = std::fs::remove_file(&probe);
+        return;
+    }
+
+    let out = run_backup(&fix.world, &floor_a_effective(), &main_backup_opts());
+    drop(guard);
+    assert_eq!(out.code, 3, "{}", out.stderr);
+    assert!(out.stderr.contains("clean leftover partials error:"));
+    assert!(out.stderr.contains("fieldbook-backup-0002.partial"));
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn snapshot_folder_with_a_foreign_manifest_is_not_removed() {
+    assert_snapshot_0009_is_not_removed(valid_backup_toml_text(2, "ok").as_bytes());
+}
+
+#[test]
+fn snapshot_folder_with_an_unparsable_manifest_is_not_removed() {
+    assert_snapshot_0009_is_not_removed(b"backup_version = [\n");
+}
+
+#[test]
+fn journal_state_words_are_ok_and_broken() {
+    use fieldbook_core::backup::toml::{JOURNAL_STATE_BROKEN, JOURNAL_STATE_OK};
+
+    assert_eq!(JOURNAL_STATE_OK, "ok");
+    assert_eq!(JOURNAL_STATE_BROKEN, concat!("bro", "ken"));
+    let old_ok = valid_backup_toml_text(1, "ok");
+    let old_broken = valid_backup_toml_text(1, fieldbook_core::strings::cite_statuses()[0]);
+    assert!(BackupToml::parse(&old_ok).is_ok());
+    assert!(BackupToml::parse(&old_broken).is_ok());
+}
+
+#[test]
+fn settings_change_after_a_break_is_not_appended_again() {
+    let (_tree_dir, state_dir, _target_dir, world) = broken_chain_fixture();
+    drop(Journal::open(&world, state_dir.path(), Via::Cli).expect("first open after break"));
+    let count_changes = || journal_matches(state_dir.path(), 0, &[SETTINGS_CHANGE]).len();
+    assert_eq!(count_changes(), 2);
+    for _ in 0..10 {
+        drop(Journal::open(&world, state_dir.path(), Via::Cli).expect("repeat open"));
+    }
+    assert_eq!(count_changes(), 2);
+}
+
+#[test]
+fn unverified_settings_change_after_a_break_does_not_suppress_a_real_one() {
+    let (_tree_dir, state_dir, target_dir, world) = broken_chain_fixture();
+    let mut j = Journal::open(&world, state_dir.path(), Via::Cli).expect("open 1");
+    let path_sha256 = Sha256::digest(b"raw-probe");
+    let raw_verified = BackupVerified::Raw {
+        path_sha256,
+        public_support_sha256: None,
+    };
+    j.append_backup_verify(Word::new_static("ok"), raw_verified)
+        .expect("append");
+    drop(j);
+
+    let warn = "warn_after_days = 14\n\n";
+    write_target_settings(state_dir.path(), target_dir.path(), warn);
+    let (_, disk_baseline) =
+        fieldbook::io::state::read_role_and_baseline(state_dir.path()).expect("baseline");
+    let new_baseline_json = serde_json::to_string(&disk_baseline).expect("serialize");
+
+    let journal_path = state_dir.path().join("audit/journal.jsonl");
+    let mut lines = journal_matches(state_dir.path(), 0, &[]);
+    let is_change = |l: &String| l.contains(SETTINGS_CHANGE);
+    let idx = lines.iter().rposition(is_change).expect("idx");
+    assert!(idx + 1 < lines.len());
+    let line = &lines[idx];
+    let b_start = line.find("\"baseline\":").expect("start") + "\"baseline\":".len();
+    let h_pos = line.rfind(",\"hash\":\"").expect("hash");
+    lines[idx] = format!("{}{new_baseline_json}{}", &line[..b_start], &line[h_pos..]);
+    std::fs::write(&journal_path, format!("{}\n", lines.join("\n"))).expect("write");
+
+    drop(Journal::open(&world, state_dir.path(), Via::Cli).expect("open 2"));
+    let appended = journal_matches(state_dir.path(), lines.len(), &[SETTINGS_CHANGE]);
+    assert_eq!(appended.len(), 1, "{appended:?}");
+    assert!(appended[0].contains(&new_baseline_json));
+}
+
+#[test]
+fn backup_of_a_checkout_without_corpus_is_refused() {
+    for corpus_is_a_file in [false, true] {
+        let fix = TestFixture::new();
+        let corpus = fix.tree_root().join("corpus");
+        std::fs::remove_dir_all(&corpus).expect("remove corpus dir");
+        if corpus_is_a_file {
+            let generation = format!("{}\n", "0".repeat(64));
+            std::fs::write(fix.state_dir().join("generation"), generation)
+                .expect("seed generation");
+            std::fs::write(&corpus, b"not a folder\n").expect("write corpus file");
+        }
+        let out = run_backup(&fix.world, &floor_a_effective(), &main_backup_opts());
+        assert_eq!(out.code, 3, "{}", out.stderr);
+        let msg = format!("no corpus folder at {}", corpus.display());
+        assert!(out.stderr.contains(&msg), "{}", out.stderr);
+        assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+    }
 }

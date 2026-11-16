@@ -549,7 +549,11 @@ pub struct BackupReadError {
 
 impl std::fmt::Display for BackupReadError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "cannot read {}: {}", self.path, self.reason)
+        if self.reason.starts_with("no corpus folder at ") {
+            write!(f, "{}", self.reason)
+        } else {
+            write!(f, "cannot read {}: {}", self.path, self.reason)
+        }
     }
 }
 
@@ -563,13 +567,32 @@ impl std::error::Error for BackupReadError {}
 pub fn enumerate_roots(world: &dyn World) -> Result<Vec<String>, BackupReadError> {
     let mut files = Vec::new();
     let corpus_root = world.tree_root().join("corpus");
-    if let Ok(meta) = std::fs::symlink_metadata(&corpus_root) {
-        if meta.file_type().is_dir() {
+    match std::fs::symlink_metadata(&corpus_root) {
+        Ok(meta) if meta.file_type().is_dir() => {
             collect_rel_files(&corpus_root, "corpus", &mut files)?;
-        } else if !meta.file_type().is_file() {
+        }
+        Ok(meta) if !meta.file_type().is_file() => {
             return Err(BackupReadError {
                 path: corpus_root.display().to_string(),
                 reason: "not a regular file or folder (symbolic link or special file)".to_string(),
+            });
+        }
+        Ok(_) => {
+            return Err(BackupReadError {
+                path: corpus_root.display().to_string(),
+                reason: format!("no corpus folder at {}", corpus_root.display()),
+            });
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => {
+            return Err(BackupReadError {
+                path: corpus_root.display().to_string(),
+                reason: format!("no corpus folder at {}", corpus_root.display()),
+            });
+        }
+        Err(err) => {
+            return Err(BackupReadError {
+                path: corpus_root.display().to_string(),
+                reason: err.to_string(),
             });
         }
     }

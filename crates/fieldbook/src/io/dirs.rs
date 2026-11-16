@@ -302,11 +302,25 @@ pub fn remove_outside(
 
     let resolved = crate::io::root::resolve_outside_path(path)?;
     if what == Removable::Snapshot {
+        let Some(folder_num) =
+            crate::io::versions::backup_folder_v1::parse_snapshot_dir_name(file_name)
+        else {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        };
         let backup_toml = resolved.join("backup.toml");
         let Ok(meta) = std::fs::symlink_metadata(&backup_toml) else {
             return Err(Error::OutOfScope(path.to_path_buf()));
         };
         if meta.file_type().is_symlink() || !meta.is_file() {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        }
+        let Ok(toml_text) = std::fs::read_to_string(&backup_toml) else {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        };
+        let Ok(info) = fieldbook_core::backup::BackupToml::parse(&toml_text) else {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        };
+        if info.snapshot != folder_num {
             return Err(Error::OutOfScope(path.to_path_buf()));
         }
     }
