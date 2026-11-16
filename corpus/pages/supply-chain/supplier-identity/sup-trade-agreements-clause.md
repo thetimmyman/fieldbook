@@ -45,7 +45,7 @@ A contract applies the trade agreements. The contractor delivers pumps made whol
 
 ## Never confuse
 
-A U.S.-made end product under this clause turns on where the article is mined, produced, manufactured or substantially transformed [@CL-SUP-1251]. The plain supplies clause uses its own domestic end product definition [@CL-SUP-1230], covered on [Buy American clause for supplies](sup-buy-american-supplies-clause.md). The Free Trade Agreements and Israeli Trade Act clause has its own delivery rule [@CL-SUP-1249], covered on [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md). A designated country end product is also a separate category from a U.S.-made end product, and the delivery rule names both and refers to the provision entitled Trade Agreements Certificate [@CL-SUP-1253] (see also [Buy American certificates in offers](sup-buy-american-certificates.md)).
+A U.S.-made end product under this clause turns on where the article is mined, produced, manufactured or substantially transformed [@CL-SUP-1251], unlike the plain supplies clause, which uses its own domestic end product definition [@CL-SUP-1230] on [Buy American clause for supplies](sup-buy-american-supplies-clause.md), or the Free Trade Agreements and Israeli Trade Act clause, which has its own delivery rule [@CL-SUP-1249] on [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md). A designated country end product is also a separate category from a U.S.-made end product, and the delivery rule names both and refers to the provision entitled Trade Agreements Certificate [@CL-SUP-1253] (see also [Buy American certificates in offers](sup-buy-american-certificates.md)).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which executed contracts carry this clause, and who confirms that the trade agre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Trade Agreements clause.

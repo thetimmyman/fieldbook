@@ -45,7 +45,7 @@ A contracting officer reviews the findings and sends an initial determination th
 
 ## Never confuse
 
-See [Earned value management system requirement](prg-evms-requirement.md) and [Business system withholds](../../compliance/business-systems/cmp-business-system-withholds.md). Where material weaknesses remain, the contracting officer shall withhold payments in accordance with the clause at 252.242-7005, Contractor Business Systems, if the clause is included in the contract [@CL-PRG-0606; @CL-PRG-0611]. Under DFARS 234.201, the high-risk guidelines in ANSI/EIA-748 standards are guidelines 1, 3, 6, 7, 8, 9, 10, 12, 16, 21, 23, 26, 27, 28, 30, or 32, with 16 remaining guidelines [@CL-PRG-0609; @CL-PRG-0610], while the DoD EVMS Interpretation Guide provides the overarching DoD interpretation of the 27 Guidelines where an EVMS requirement is applied and is used as the basis for the DoD to assess EVMS compliance with the 27 Guidelines [@CL-PRG-0623; @CL-PRG-0071].
+See [Earned value management system requirement](prg-evms-requirement.md) and [Business system withholds](../../compliance/business-systems/cmp-business-system-withholds.md). Where material weaknesses remain, the contracting officer shall withhold payments in accordance with the clause at 252.242-7005, Contractor Business Systems, if the clause is included in the contract [@CL-PRG-0606; @CL-PRG-0611]. Under DFARS 234.201, the high-risk guidelines in ANSI/EIA-748 standards are guidelines 1, 3, 6, 7, 8, 9, 10, 12, 16, 21, 23, 26, 27, 28, 30, or 32, with 16 remaining guidelines [@CL-PRG-0609; @CL-PRG-0610], unlike the DoD EVMS Interpretation Guide, which provides the overarching DoD interpretation of the 27 Guidelines where an EVMS requirement is applied and is used as the basis for the DoD to assess EVMS compliance with the 27 Guidelines [@CL-PRG-0623; @CL-PRG-0071].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which contracts with an earned value requirement have a system the cognizant age
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added response-evaluation step, acceptability-evaluation lead-in, and 27-Guidelines tail, and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the cause condition and actor for the initial determination and for copy distribution.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed corrective-action wording and who approves a previously disapproved system.

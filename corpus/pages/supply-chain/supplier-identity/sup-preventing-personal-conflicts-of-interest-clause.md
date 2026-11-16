@@ -46,7 +46,7 @@ A support contractor assigns an analyst to review contract proposals for an agen
 
 ## Never confuse
 
-The clause requires the Contractor to screen covered employees and prevent personal conflicts of interest for each covered employee [@CL-SUP-1008; @CL-SUP-1009] (see also [Contractor employee personal conflicts of interest](../../compliance/regulatory-framework/cmp-contractor-employee-personal-conflicts-of-interest.md)).
+The clause requires the Contractor to screen covered employees and prevent personal conflicts of interest for each covered employee [@CL-SUP-1008; @CL-SUP-1009], and flows down to subcontracts exceeding the simplified acquisition threshold where subcontractor employees perform acquisition functions closely associated with inherently governmental functions rather than performance only by a self-employed individual [@CL-SUP-1011; @CL-SUP-1012; @CL-SUP-1540] (see also [Contractor employee personal conflicts of interest](../../compliance/regulatory-framework/cmp-contractor-employee-personal-conflicts-of-interest.md)).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who counts as a covered employee and how disclosures are kept. [@Q-014]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: personal conflicts clause: added the disclosure list, the "and" join, the prevention detail and the self-employed reason.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

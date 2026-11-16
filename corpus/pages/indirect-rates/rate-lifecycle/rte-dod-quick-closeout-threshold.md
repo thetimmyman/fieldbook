@@ -43,7 +43,7 @@ A delivery order worth 12,000,000 still has 1,800,000 of unsettled direct and in
 
 ## Never confuse
 
-For the FAR quick-closeout procedure, see [quick-closeout](rte-quick-closeout.md); for contracting officer final rate determination, see [final indirect rates](rte-co-final-indirect-rates.md).
+Under the DoD quick-closeout rule, unsettled direct and indirect costs for a specific contract, task order, or delivery order are considered relatively insignificant when the total to be allocated to any one contract, task order, or delivery order does not exceed $2 million, regardless of the percentage of unsettled direct or indirect costs allocable to it, in lieu of the thresholds at FAR 42.708(a)(2)(i) and (ii) [@CL-RTE-0314; @CL-RTE-0315; @CL-RTE-0316; @CL-RTE-0317]; for the FAR quick-closeout procedure, see [quick-closeout](rte-quick-closeout.md), and for contracting officer final rate determination, see [final indirect rates](rte-co-final-indirect-rates.md).
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Confirm which fiscal years are still open and whether any contract, task order o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Joined the $2 million condition directly to the relatively-insignificant sentence in The rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the early-settlement and FAR-threshold wording in the DFARS terms, and replaced uncited contrasts with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD quick-closeout threshold for unsettled costs.

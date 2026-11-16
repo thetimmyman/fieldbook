@@ -43,7 +43,7 @@ A program has a budget at completion of 100. The program manager holds a most li
 
 ## Never confuse
 
-The program manager's EAC includes a range of estimates—Best Case, Worst Case, and Most Likely—from which the Most Likely EAC is considered the official Management EAC [@CL-PRG-0136; @CL-PRG-0358], and at least monthly the program manager’s assessment of contract-level forecast builds upon the Performance Measurement Baseline (PMB) level EAC updated monthly or from the Comprehensive EAC (CEAC) and results in the Management EAC [@CL-PRG-0359], which accounts for dollarized risks and opportunities that are related to the risk management process and are tracked at the program level but have not yet been realized or incorporated into control accounts [@CL-PRG-0360].
+The program manager's EAC includes a range of estimates—Best Case, Worst Case, and Most Likely—from which the Most Likely EAC is considered the official Management EAC [@CL-PRG-0136; @CL-PRG-0358], and at least monthly the program manager’s assessment of contract-level forecast builds upon the Performance Measurement Baseline (PMB) level EAC updated monthly or from the Comprehensive EAC (CEAC) and results in the Management EAC [@CL-PRG-0359], which—unlike control account budgets—accounts for dollarized risks and opportunities that are related to the risk management process and are tracked at the program level but have not yet been realized or incorporated into control accounts [@CL-PRG-0360].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Who owns the program estimate at completion, how often it is refreshed, and how 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0136, restored Best Case/Worst Case, monthly update, and contractor qualifiers, and removed uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added risk-management and basis qualifiers the guide states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the at-least-annual comprehensive estimate at completion at the contract level.

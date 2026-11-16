@@ -52,7 +52,7 @@ Omitting all four of A to D would total 320,000 of investment and 80,000 of inco
 
 ## Never confuse
 
-In paragraph (b)(3), the more-than-50-percent threshold applies to securities representing voting power of a corporation [@CL-FPA-0303], whereas in paragraph (c) the 5 percent entity-level thresholds and the 15 percent aggregate proviso compare the person's investment in and income from the entity (and all such omitted entities) against 5 percent and 15 percent of his total assets and gross income, respectively [@CL-FPA-0304; @CL-FPA-0305; @CL-FPA-0306].
+In paragraph (b)(3), the more-than-50-percent threshold applies to securities representing voting power of a corporation [@CL-FPA-0303], unlike in paragraph (c), where the 5 percent entity-level thresholds and the 15 percent aggregate proviso compare the person's investment in and income from the entity (and all such omitted entities) against 5 percent and 15 percent of his total assets and gross income, respectively [@CL-FPA-0304; @CL-FPA-0305; @CL-FPA-0306].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Whether each controlled entity's investment and income are measured on the same 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted absence and meta statements, aligned Never confuse with the cited quotes, and cited the Purpose sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements of natural persons.

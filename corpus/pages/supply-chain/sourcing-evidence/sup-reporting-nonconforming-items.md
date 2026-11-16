@@ -48,7 +48,7 @@ A contractor buys 1,000 electronic parts for delivery to the Government. A recor
 
 ## Never confuse
 
-Screening GIDEP reports is part of the contractor's inspection system or program for the control of quality [@CL-SUP-1187], while submitting a report to GIDEP at www.gidep.org is required, except as provided in paragraph (c) of the clause, within 60 days of becoming aware or having reason to suspect that an item purchased by the contractor for delivery to, or for, the Government is a counterfeit or suspect counterfeit item or a common item that has a major or critical nonconformance [@CL-SUP-1191; @CL-SUP-0286; @CL-SUP-1207]. See [Rejection of nonconforming supplies and who may accept them](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md) and [Costs of counterfeit and suspect counterfeit electronic parts](../../compliance/cas-allowability/cmp-counterfeit-electronic-part-costs.md).
+Screening GIDEP reports is part of the contractor's inspection system or program for the control of quality [@CL-SUP-1187], unlike submitting a report to GIDEP at www.gidep.org, which is required, except as provided in paragraph (c) of the clause, within 60 days of becoming aware or having reason to suspect that an item purchased by the contractor for delivery to, or for, the Government is a counterfeit or suspect counterfeit item or a common item that has a major or critical nonconformance [@CL-SUP-1191; @CL-SUP-0286; @CL-SUP-1207]. See [Rejection of nonconforming supplies and who may accept them](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md) and [Costs of counterfeit and suspect counterfeit electronic parts](../../compliance/cas-allowability/cmp-counterfeit-electronic-part-costs.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which contracts carry the clause, who screens GIDEP reports and files the notice
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added codified companions for GIDEP reporting and flowdown, separated RFO and codified citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Electronic parts item completed; no RFO-only wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

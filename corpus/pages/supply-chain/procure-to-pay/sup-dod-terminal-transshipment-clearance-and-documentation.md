@@ -49,9 +49,7 @@ A contractor ships a 12,000-pound lot of ordinary parts to a water port for tran
 
 ## Never confuse
 
-The Contractor obtains the Export Release from the Government transportation office [@CL-SUP-2044], and annotates all movement documents, Government or commercial bills of lading or other delivery documents [@CL-SUP-2048]. The 10-day Export Release requirement applies to cargo shipped to a water port [@CL-SUP-2044], and the 5-day information requirement applies to cargo shipped to either a water port or an air port [@CL-SUP-2047].
-
-For the proper shipping name of items classified as dangerous substances, the codified clause names 46 CFR 146.05 [@CL-SUP-2168], while the RFO text names 49 CFR 172.101 [@CL-SUP-0186].
+The Contractor obtains the Export Release from the Government transportation office [@CL-SUP-2044], and annotates all movement documents, Government or commercial bills of lading or other delivery documents [@CL-SUP-2048]. The 10-day Export Release requirement applies to cargo shipped to a water port [@CL-SUP-2044], and the 5-day information requirement applies to cargo shipped to either a water port or an air port [@CL-SUP-2047]. For the proper shipping name of items classified as dangerous substances, the codified clause names 46 CFR 146.05 [@CL-SUP-2168], unlike the RFO text, which names 49 CFR 172.101 [@CL-SUP-0186].
 
 ## Company calibration
 
@@ -60,6 +58,7 @@ Which shipments the company routes through Department of Defense transshipment p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned release cases, RFO wording and notice basis with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added when the information list is furnished.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

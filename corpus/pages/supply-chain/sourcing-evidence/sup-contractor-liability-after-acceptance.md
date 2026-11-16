@@ -47,7 +47,7 @@ A contractor delivers 20 end items that are not high-value items under a contrac
 
 ## Never confuse
 
-This relief covers loss of or damage to Government property that occurs after acceptance and results from defects or deficiencies [@CL-SUP-4149]. Liability for Government property in the contractor's possession is on [Responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md), and the effect of acceptance is on [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
+This relief covers loss of or damage to Government property that occurs after acceptance and results from defects or deficiencies [@CL-SUP-4149], unlike liability for Government property in the contractor's possession on [Responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md) or the effect of acceptance on [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md), and the limitation-of-liability clauses prescribed for contracts exceeding the simplified acquisition threshold are not required for contracts at or below it [@CL-SUP-0898].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts carry each limitation of liability clause, and whether insurance
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the high-value relief limit, the alternatives and the clause insertion duty as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named both alternatives of the high-value relief limit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the limitation of liability subpart.

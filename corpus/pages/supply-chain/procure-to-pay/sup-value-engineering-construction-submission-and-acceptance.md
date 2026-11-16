@@ -67,7 +67,7 @@ The contractor marks the pricing detail of the wall proposal with the legend. Th
 
 ## Never confuse
 
-Any value engineering change proposal may be accepted, in whole or in part, by the contracting officer's award of a modification to the contract citing the clause, and the decision to accept or reject all or part of any proposal is a unilateral decision made solely at the discretion of the contracting officer [@CL-SUP-3128; @CL-SUP-3130]. Until a notice to proceed is issued or a contract modification applies a proposal to the contract, the contractor performs in accordance with the existing contract [@CL-SUP-3221]. Instant contract savings and collateral savings, which are the money side, sit in the [sharing card](sup-value-engineering-construction-sharing.md). The value engineering clause for other contracts is covered at [value engineering general](../../program-finance/evms/prg-far-value-engineering-general.md) and [value engineering sharing](../../program-finance/evms/prg-far-value-engineering-sharing.md).
+Any value engineering change proposal may be accepted, in whole or in part, by the contracting officer's award of a modification to the contract citing the clause, and the decision to accept or reject all or part of any proposal is a unilateral decision made solely at the discretion of the contracting officer [@CL-SUP-3128; @CL-SUP-3130], whereas until a notice to proceed is issued or a contract modification applies a proposal to the contract, the contractor performs in accordance with the existing contract rather than the proposed change [@CL-SUP-3221]. Instant contract savings and collateral savings, which are the money side, sit in the [sharing card](sup-value-engineering-construction-sharing.md). The value engineering clause for other contracts is covered at [value engineering general](../../program-finance/evms/prg-far-value-engineering-general.md) and [value engineering sharing](../../program-finance/evms/prg-far-value-engineering-sharing.md).
 
 ## Company calibration
 
@@ -77,6 +77,7 @@ Which subcontracts and work packages could generate proposals, who decides to su
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned submission and acceptance summaries with the cited quotes and removed meta cross-reference comparisons and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

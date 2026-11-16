@@ -44,7 +44,7 @@ A contract target cost is 2,000,000 and authorized unpriced work is estimated at
 
 ## Never confuse
 
-Contract target cost is synonymous with negotiated contract cost [@CL-PRG-0282], whereas the contract budget base is established by the sum of control account budgets, summary level planning packages, and undistributed budget plus management reserve, and reconciles with the contract target cost plus authorized unpriced work [@CL-PRG-0283; @CL-PRG-0284].
+Contract target cost is synonymous with negotiated contract cost [@CL-PRG-0282], unlike the contract budget base, which is established by the sum of control account budgets, summary level planning packages, and undistributed budget plus management reserve, and reconciles with the contract target cost plus authorized unpriced work [@CL-PRG-0283; @CL-PRG-0284].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which figure the company treats as the contract budget base, and how unpriced ch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the applies-to field, rule statement, reconciliation mechanics, and target-cost versus contract-budget-base comparison directly with the Guideline 13 claims.

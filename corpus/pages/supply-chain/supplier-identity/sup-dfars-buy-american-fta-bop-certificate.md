@@ -49,7 +49,7 @@ An offer covers four line items under the basic provision. Line item one is made
 
 ## Never confuse
 
-For the delivery duty and the definitions, see the [basic clause card](sup-dfars-buy-american-fta-bop-clause.md); for the changes each alternate makes to the clause, see the [alternates card](sup-dfars-buy-american-fta-bop-clause-alternates.md). The certificate keeps qualifying country end products and Free Trade Agreement country end products in separate lists [@CL-SUP-1853; @CL-SUP-1854]. For the certificate provision for the DoD clause without Free Trade Agreements, see [DoD Buy American and Balance of Payments Program clause: exceptions, certificate and evaluation of offers](sup-dfars-buy-american-exceptions-certificate-and-evaluation.md). For the FAR certificates, see [Buy American certificates in offers](sup-buy-american-certificates.md), and for the DoD trade agreements pair, see [DoD trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md).
+The Offeror certifies that each end product, except the end products it identifies as not domestic, is a domestic end product [@CL-SUP-1850; @CL-SUP-1910], and the certificate keeps qualifying country end products and Free Trade Agreement country end products in separate lists [@CL-SUP-1853; @CL-SUP-1854], unlike the basic clause, which sets the delivery duty and definitions on the [basic clause card](sup-dfars-buy-american-fta-bop-clause.md) (for the changes each alternate makes to the clause, see the [alternates card](sup-dfars-buy-american-fta-bop-clause-alternates.md)). For the certificate provision for the DoD clause without Free Trade Agreements, see [DoD Buy American and Balance of Payments Program clause: exceptions, certificate and evaluation of offers](sup-dfars-buy-american-exceptions-certificate-and-evaluation.md). For the FAR certificates, see [Buy American certificates in offers](sup-buy-american-certificates.md), and for the DoD trade agreements pair, see [DoD trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md).
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Which line items of each executed contract carry this provision or an alternate,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the three listing places and the alternates; completed the Alternate V restrictions wording; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American, Free Trade Agreements and Balance of Payments Program certificate.

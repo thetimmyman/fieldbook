@@ -49,9 +49,7 @@ An offeror offers two end products. Product A is made in the United States and p
 
 ## Never confuse
 
-The place of manufacture answer is for statistical purposes only [@CL-SUP-1269]. The domestic end product test is a separate test under the Buy American supplies clause [@CL-SUP-1230], covered on [Buy American clause for supplies](sup-buy-american-supplies-clause.md) (see also [Buy American certificates in offers](sup-buy-american-certificates.md) and [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md)).
-
-The Iran representation is about exports of sensitive technology [@CL-SUP-1272]. The two certifications are about sanctionable activities and about transactions with the Revolutionary Guard Corps [@CL-SUP-1273; @CL-SUP-1274]. The codified provision refers to the threshold at FAR 25.703-2(a)(2) [@CL-SUP-1274], while RFO FAR 52.240-90(f)(1)(iii) specifies $15,000 [@CL-SUP-3743]. The codified provision cites a waiver under FAR 25.703-4 [@CL-SUP-1271], while RFO FAR 52.240-90(f)(1) cites a waiver in accordance with FAR 40.203-3 and has the offeror make the representation and certifications after a reasonable inquiry [@CL-SUP-3740].
+The place of manufacture answer is for statistical purposes only [@CL-SUP-1269]. The domestic end product test is a separate test under the Buy American supplies clause [@CL-SUP-1230], covered on [Buy American clause for supplies](sup-buy-american-supplies-clause.md) (see also [Buy American certificates in offers](sup-buy-american-certificates.md) and [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md)). The Iran representation is about exports of sensitive technology [@CL-SUP-1272]. The two certifications are about sanctionable activities and about transactions with the Revolutionary Guard Corps [@CL-SUP-1273; @CL-SUP-1274]. The codified provision refers to the threshold at FAR 25.703-2(a)(2) [@CL-SUP-1274], unlike RFO FAR 52.240-90(f)(1)(iii), which specifies $15,000 [@CL-SUP-3743]. The codified provision cites a waiver under FAR 25.703-4 [@CL-SUP-1271], while RFO FAR 52.240-90(f)(1) cites a waiver in accordance with FAR 40.203-3 and has the offeror make the representation and certifications after a reasonable inquiry [@CL-SUP-3740].
 
 ## Company calibration
 
@@ -61,6 +59,7 @@ Which offers include each provision, and who confirms the Iran representation an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for FAR 52.225-18(b)(2) and FAR 52.225-25(c)(2), (c)(3), and (d)(1), and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for place of manufacture and the Iran-related representation and certifications.

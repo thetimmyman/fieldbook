@@ -49,11 +49,7 @@ A product is manufactured in the United States and is not predominantly iron or 
 
 ## Never confuse
 
-The Contractor shall deliver only domestic end products unless, in its offer, it specified delivery of other end products [@CL-SUP-1311], and an offeror that certified a qualifying country end product shall deliver a qualifying country end product or, at its option, a domestic end product [@CL-SUP-1312].
-
-The FAR clause for supplies has its own domestic end product definition and delivery rule, covered on [Buy American clause for supplies](sup-buy-american-supplies-clause.md). Where the two differ, the DoD component test counts qualifying country components together with United States components [@CL-SUP-1302], while the FAR clause's component test counts the cost of components mined, produced, or manufactured in the United States [@CL-SUP-1231]. The DoD delivery rule also gives a contractor that certified a qualifying country end product a choice between that end product and a domestic one [@CL-SUP-1312], while the FAR delivery rule speaks of domestic end products except to the extent the offer specified foreign end products [@CL-SUP-1235].
-
-The offeror's side of this clause is on [DoD Buy American clause: exceptions, certificate and evaluation](sup-dfars-buy-american-exceptions-certificate-and-evaluation.md). See also the [DoD specialty metals restriction](sup-dfars-specialty-metals-restriction.md), the [DoD bearings clause](sup-dfars-bearings-and-communist-chinese-military-companies.md), the [DoD domestic commodities preference](sup-dfars-domestic-commodities-preference.md) and the [DoD trade agreements clause](sup-dfars-trade-agreements-clause-and-certificate.md).
+The Contractor shall deliver only domestic end products unless, in its offer, it specified delivery of other end products [@CL-SUP-1311], and an offeror that certified a qualifying country end product shall deliver a qualifying country end product or, at its option, a domestic end product [@CL-SUP-1312]. The FAR clause for supplies has its own domestic end product definition and delivery rule, covered on [Buy American clause for supplies](sup-buy-american-supplies-clause.md). Where the two differ, the DoD component test counts qualifying country components together with United States components [@CL-SUP-1302], unlike the FAR clause's component test, which counts the cost of components mined, produced, or manufactured in the United States [@CL-SUP-1231]. The DoD delivery rule also gives a contractor that certified a qualifying country end product a choice between that end product and a domestic one [@CL-SUP-1312], whereas the FAR delivery rule speaks of domestic end products except to the extent the offer specified foreign end products [@CL-SUP-1235]. The offeror's side of this clause is on [DoD Buy American clause: exceptions, certificate and evaluation](sup-dfars-buy-american-exceptions-certificate-and-evaluation.md). See also the [DoD specialty metals restriction](sup-dfars-specialty-metals-restriction.md), the [DoD bearings clause](sup-dfars-bearings-and-communist-chinese-military-companies.md), the [DoD domestic commodities preference](sup-dfars-domestic-commodities-preference.md) and the [DoD trade agreements clause](sup-dfars-trade-agreements-clause-and-certificate.md).
 
 ## Company calibration
 
@@ -62,6 +58,7 @@ Which line items of each executed contract carry this clause or one of its alter
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the qualifying country conditions and cost-of-components qualifier; cited the alternates framing; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American and Balance of Payments Program clause, definitions and delivery rule.

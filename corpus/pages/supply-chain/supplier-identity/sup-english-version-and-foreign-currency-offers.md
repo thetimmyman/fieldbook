@@ -56,7 +56,7 @@ Separately, the contract is signed in English with a translation. The English te
 
 ## Never confuse
 
-The English version clause provides that in the event of inconsistency between any terms of the contract and any translation into another language, the English language meaning shall control [@CL-SUP-2807], whereas the foreign currency provision evaluates offers received in more than one currency by converting the foreign currency to United States currency [@CL-SUP-2808] (see also [Trade Agreements Certificate](sup-trade-agreements-certificate.md) and [Trade Agreements clause](sup-trade-agreements-clause.md)).
+The English version clause provides that in the event of inconsistency between any terms of the contract and any translation into another language, the English language meaning shall control [@CL-SUP-2807], unlike the foreign currency provision, which evaluates offers received in more than one currency by converting the foreign currency to United States currency [@CL-SUP-2808] (see also [Trade Agreements Certificate](sup-trade-agreements-certificate.md) and [Trade Agreements clause](sup-trade-agreements-clause.md)).
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Which rate source the solicitation inserts, and whether the company's translated
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited negative commentary and meta wording on the RFO text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

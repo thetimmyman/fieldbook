@@ -45,7 +45,7 @@ A home office personnel department costs 60,000 a year. It both runs personnel s
 
 ## Never confuse
 
-The allocation of centralized service functions shall be governed by a hierarchy of preferable allocation techniques which represent beneficial or causal relationships, where the preferred representation is a measure of the activity of the organization performing the function, the basis for allocation shall be a measurement of the output of the supporting function when activity-rate measures are unavailable or impractical to ascertain, and a surrogate for the beneficial or causal relationship must be selected where neither activity nor output of the supporting function can be practically measured [@CL-RTE-0682; @CL-RTE-0683; @CL-RTE-0684; @CL-RTE-0685]. Residual expenses shall be allocated to all segments under a home office by means of a base representative of the total activity of such segments, except where paragraph (c)(2) or (3) of 9904.403-40 applies [@CL-CMP-0555], and where residual expenses are required to be allocated pursuant to 9904.403-40(c)(2), the three factor formula must be used [@CL-RTE-0686]. For the underlying allocation requirements, see [the CAS home office card](../../compliance/cas-allowability/cmp-cas-403-home-office-allocation.md).
+The allocation of centralized service functions shall be governed by a hierarchy of preferable allocation techniques which represent beneficial or causal relationships—where the preferred representation is a measure of the activity of the organization performing the function, the basis for allocation shall be a measurement of the output of the supporting function when activity-rate measures are unavailable or impractical to ascertain, and a surrogate for the beneficial or causal relationship must be selected where neither activity nor output of the supporting function can be practically measured [@CL-RTE-0682; @CL-RTE-0683; @CL-RTE-0684; @CL-RTE-0685]—unlike residual expenses, which shall be allocated to all segments under a home office by means of a base representative of the total activity of such segments, except where paragraph (c)(2) or (3) of 9904.403-40 applies [@CL-CMP-0555], and where residual expenses are required to be allocated pursuant to 9904.403-40(c)(2), the three factor formula must be used [@CL-RTE-0686]. For the underlying allocation requirements, see [the CAS home office card](../../compliance/cas-allowability/cmp-cas-403-home-office-allocation.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How the company groups its home office expenses and which base it uses for each 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the residual-expense threshold lead-in, added the surrogate proportionality rule, matched shall wording and cost per square foot, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the paragraph for the common-base exception and the percentage list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a residual-expense threshold condition the cited quotes do not state.

@@ -52,9 +52,7 @@ A new facility costs 240,000 and the agreed salvage value is 40,000, so the net 
 
 ## Never confuse
 
-If the Government discontinues utility service before completion of the facilities cost recovery period, the Government pays termination charges calculated under the termination liability clause in consideration of the contractor furnishing and installing the new facility at its expense [@CL-SUP-2697; @CL-SUP-2698]. The connection charge is a different clause; see [Utility connection charge for new facilities](sup-utility-connection-charge.md). Under the nonrefundable, nonrecurring service charge clause, the Government pays a nonrefundable, nonrecurring charge when the contractor's rules and regulations require that a customer pay a charge for the initiation of service, a contribution in aid of construction, or a nonrefundable membership fee, and that charge may be in addition to or in lieu of a connection charge [@CL-SUP-2704; @CL-SUP-2705].
-
-The clauses on multiple service locations and capital credits are covered in [Multiple service locations and capital credits](sup-utility-multiple-locations-and-capital-credits.md).
+If the Government discontinues utility service before completion of the facilities cost recovery period, the Government pays termination charges calculated under the termination liability clause in consideration of the contractor furnishing and installing the new facility at its expense [@CL-SUP-2697; @CL-SUP-2698]. The connection charge is a different clause; see [Utility connection charge for new facilities](sup-utility-connection-charge.md). Under the nonrefundable, nonrecurring service charge clause, the Government pays a nonrefundable, nonrecurring charge when the contractor's rules and regulations require that a customer pay a charge for the initiation of service, a contribution in aid of construction, or a nonrefundable membership fee, and that charge may be in addition to or instead of a connection charge [@CL-SUP-2704; @CL-SUP-2705]. The clauses on multiple service locations and capital credits are covered in [Multiple service locations and capital credits](sup-utility-multiple-locations-and-capital-credits.md).
 
 ## Company calibration
 
@@ -64,6 +62,7 @@ Confirm, for each new facility, the cost recovery period, the monthly rate, the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned termination liability and nonrefundable service charge summaries with the cited quotes and removed meta blank wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on multiple service locations and capital credits.

@@ -49,7 +49,7 @@ A contractor sends two engineers from a plant in Ohio to a supplier in Germany, 
 
 ## Never confuse
 
-If available, the contractor, in performing work under the contract, shall use U.S.-flag carriers for international air transportation of personnel (and their personal effects) or property, and international air transportation means transportation by air between a place in the United States and a place outside the United States or between two places both of which are outside the United States [@CL-SUP-2022; @CL-SUP-2023]. The voucher statement states that international air transportation by a U.S.-flag air carrier was not available or that it was necessary to use foreign-flag air carrier service for the stated reasons, and the clause recites that the Act requires the General Services Administration to issue regulations that, in the absence of satisfactory proof of the necessity for foreign-flag air transportation, disallow expenditures from funds, appropriated or otherwise established for the account of the United States, for international air transportation secured aboard a foreign-flag air carrier if a U.S.-flag air carrier is available to provide such services [@CL-SUP-2149; @CL-SUP-9717; @CL-SUP-2150; @CL-SUP-2183].
+If available, the contractor, in performing work under the contract, shall use U.S.-flag carriers for international air transportation of personnel (and their personal effects) or property—meaning transportation by air between a place in the United States and a place outside the United States or between two places both of which are outside the United States [@CL-SUP-2022; @CL-SUP-2023]—unlike foreign-flag air carrier service, for which the voucher statement must state that U.S.-flag air carrier service was not available or that foreign-flag service was necessary for the stated reasons, because without satisfactory proof of necessity the General Services Administration regulations disallow expenditures for foreign-flag air transportation when a U.S.-flag air carrier is available [@CL-SUP-2149; @CL-SUP-9717; @CL-SUP-2150; @CL-SUP-2183].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ How the company books international air travel and shipments, where the statemen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality, flowdown wording, and disallowance conditions with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the Fly America Act and the General Services Administration as the source of the requirements; removed an unsupported statement about vouchers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

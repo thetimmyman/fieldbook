@@ -49,7 +49,7 @@ Answer: both listed conditions of the offer provision are met, so the offeror su
 
 ## Never confuse
 
-The offer provision and the after-award clause use different triggers. The offer provision has a dollar test on the offer and a dollar test on the part to be performed abroad [@CL-SUP-1506; @CL-SUP-1507], while the clause uses the threshold specified in Defense Federal Acquisition Regulation Supplement 225.7201(a) on the date of award [@CL-SUP-1510]. For the general duty on competition in subcontracting, see [Competition in Subcontracting clause](../sourcing-evidence/sup-competition-in-subcontracting.md). For the photovoltaic devices clause, see [Photovoltaic devices clause and certificate](sup-dfars-photovoltaic-devices-clause-and-certificate.md).
+The offer provision and the after-award clause use different triggers. The offer provision has a dollar test on the offer and a dollar test on the part to be performed abroad [@CL-SUP-1506; @CL-SUP-1507], unlike the clause, which uses the threshold specified in Defense Federal Acquisition Regulation Supplement 225.7201(a) on the date of award [@CL-SUP-1510]. For the general duty on competition in subcontracting, see [Competition in Subcontracting clause](../sourcing-evidence/sup-competition-in-subcontracting.md). For the photovoltaic devices clause, see [Photovoltaic devices clause and certificate](sup-dfars-photovoltaic-devices-clause-and-certificate.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether the purchasing process lets qualifying country and U.S. sources compete,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the cited DFARS sections; removed meta sentence; replaced uncited contrasts with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for qualifying country subcontractors and reports of intended performance outside the United States and Canada.

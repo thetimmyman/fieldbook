@@ -43,7 +43,7 @@ A program purchases material of 500,000 and issues 400,000 of it to control acco
 
 ## Never confuse
 
-All purchased material for which earned value has been calculated must be accounted for, including material residual to the program, and the material management process must reflect the acquisition, issue to control accounts, return of unused materials from control accounts, scrap quantity and disposition, and residual material inventory [@CL-PRG-0304; @CL-PRG-0305].
+All purchased material for which earned value has been calculated must be accounted for, including material residual to the program, through a material management process covering acquisition, issue to control accounts, return of unused material, scrap quantity and disposition, and residual material inventory [@CL-PRG-0304; @CL-PRG-0305], and the accounting treatment differs from the quantity trail it follows: the results of material disposition are incorporated into the management estimate at completion [@CL-PRG-0703].
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Whether all purchased material is accounted for through final disposition. [@Q-0
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrast in Never confuse with the full material-accounting scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 16 purchased material.

@@ -57,7 +57,7 @@ Notice of the proposed acquisition must be given the broadest and most effective
 
 ## Never confuse
 
-Paragraph (a) states that the program manager shall promote full and open competition and sustain effective competition between alternative major system concepts and sources, as long as it is economically beneficial and practicable to do so [@CL-PRG-0406], while paragraph (b) states that the contracting officer should time solicitation issuance and contract award to maintain continuity of concept development during the transition from withdrawing concept proposer to new contractor [@CL-PRG-0409]. Under paragraph (a), notice of the proposed acquisition shall be given the broadest and most effective circulation practicable throughout the business, academic, and Government communities [@CL-PRG-0407], while foreign contractors, technology, and equipment may be considered when it is feasible and permissible to do so [@CL-PRG-0408].
+Paragraph (a) states that the program manager shall promote full and open competition and sustain effective competition between alternative major system concepts and sources, as long as it is economically beneficial and practicable to do so [@CL-PRG-0406], unlike paragraph (b), which states that the contracting officer should time solicitation issuance and contract award to maintain continuity of concept development during the transition from withdrawing concept proposer to new contractor [@CL-PRG-0409]. Under paragraph (a), notice of the proposed acquisition shall be given the broadest and most effective circulation practicable throughout the business, academic, and Government communities [@CL-PRG-0407], while foreign contractors, technology, and equipment may be considered when it is feasible and permissible to do so [@CL-PRG-0408].
 
 ## Company calibration
 
@@ -67,6 +67,7 @@ What work breakdown and control account standards, and which scheduling tool, pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the codified and RFO FAR 2.101 definitions of full and open competition, populated the RFO citation field, and removed absence and meta-commentary statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of full and open competition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of full and open competition.

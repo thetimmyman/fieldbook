@@ -47,7 +47,7 @@ Answer: the contract may continue unless the agency head directs otherwise, but 
 
 ## Never confuse
 
-Continuation of existing contracts or subcontracts is allowed unless the agency head directs otherwise [@CL-SUP-0084; @CL-SUP-0757], while the listed orders, new work, option exercises and extensions are barred unless the agency head makes a written determination of the compelling reasons for doing so [@CL-SUP-0759; @CL-SUP-0760; @CL-SUP-0761] (see also [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md)). The consent bar applies when a contractor that is debarred, suspended, or proposed for debarment is proposed as a subcontractor for any subcontract subject to Government consent [@CL-SUP-0762] (see [Evaluation of subcontract consent requests and contracting officer considerations](../procure-to-pay/sup-subcontract-consent-evaluation.md)).
+Continuation of existing contracts or subcontracts is allowed unless the agency head directs otherwise [@CL-SUP-0084; @CL-SUP-0757], unlike the listed orders, new work, option exercises and extensions, which are barred unless the agency head makes a written determination of the compelling reasons for doing so [@CL-SUP-0759; @CL-SUP-0760; @CL-SUP-0761] (see also [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md)). The consent bar applies when a contractor that is debarred, suspended, or proposed for debarment is proposed as a subcontractor for any subcontract subject to Government consent [@CL-SUP-0762] (see [Evaluation of subcontract consent requests and contracting officer considerations](../procure-to-pay/sup-subcontract-consent-evaluation.md)).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm how consent-required subcontracts and orders are checked against exclusi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 9.405-1(a)(1) opening clause and review-purpose phrase in FAR 9.405-1(a)(2), and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the off-the-shelf exception and compelling-reason exception to the $45,000 prohibition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for continuation of current contracts and restrictions on subcontracting with listed parties.

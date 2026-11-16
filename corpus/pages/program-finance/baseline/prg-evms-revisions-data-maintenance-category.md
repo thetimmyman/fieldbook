@@ -45,7 +45,7 @@ The government adds scope worth 600,000 to a contract. The company puts the new 
 
 ## Never confuse
 
-Authorized contractual changes must be incorporated into budgets, schedules, work authorizations, and other program documents in a timely manner prior to the commencement of that work so that the performance measurement baseline reflects all authorized work scope [@CL-PRG-0647; @CL-PRG-0111], whereas retroactive changes to performance measurement data are controlled and limited to only certain circumstances to maintain the accuracy and validity of performance measurement data and its use for making reliable cost and schedule projections [@CL-PRG-0648; @CL-PRG-0112]. See [the retroactive changes guideline](prg-evms-guideline-26-retroactive-changes.md).
+Authorized contractual changes must be incorporated into budgets, schedules, work authorizations, and other program documents in a timely manner prior to the commencement of that work so that the performance measurement baseline reflects all authorized work scope [@CL-PRG-0647; @CL-PRG-0111], unlike retroactive changes to performance measurement data, which are controlled and limited to only certain circumstances to maintain the accuracy and validity of performance measurement data and its use for making reliable cost and schedule projections [@CL-PRG-0648; @CL-PRG-0112]. See [the retroactive changes guideline](prg-evms-guideline-26-retroactive-changes.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ How baseline changes are reconciled to accounting and reporting, and who owns th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0111, CL-PRG-0112, and CL-PRG-0113 for the full category overview sentences and removed uncited meta-commentary and contrast phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EVMS Revisions and Data Maintenance category.

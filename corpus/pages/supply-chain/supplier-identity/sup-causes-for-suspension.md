@@ -49,7 +49,7 @@ Answer: the indictment is adequate evidence for suspension, and the official may
 
 ## Never confuse
 
-Suspension is imposed on adequate evidence of a suspected cause [@CL-SUP-0776], and indictment for a cause in paragraph (a) constitutes adequate evidence [@CL-SUP-0778]. Debarment on a listed offense rests on a conviction or civil judgment [@CL-SUP-0766]; see the [Causes for debarment](sup-causes-for-debarment.md) card. The effect of either listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card.
+Suspension is imposed on adequate evidence of a suspected cause [@CL-SUP-0776], and indictment for a cause in paragraph (a) constitutes adequate evidence [@CL-SUP-0778], unlike debarment on a listed offense, which rests on a conviction or civil judgment [@CL-SUP-0766]; see the [Causes for debarment](sup-causes-for-debarment.md) card. The effect of either listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card.
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm how supplier screening picks up indictments and other signs that could l
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the never-confuse wording and example with their quotes and added the immediate-action condition for suspension.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said the listed offenses and conduct are alternatives, any one of which may be a cause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of adequate evidence.

@@ -47,7 +47,7 @@ A change order adds work to one element of a construction contract and delays th
 
 ## Never confuse
 
-Time extensions for contract changes will depend upon the extent, if any, by which the changes cause delay in the completion of the various elements of construction [@CL-SUP-2575], and the change order granting the time extension may provide that the contract completion date will be extended only for those specific elements related to the changed work and that the remaining contract completion dates for all other portions of the work will not be altered [@CL-SUP-2576].
+Time extensions for contract changes will depend upon the extent, if any, by which the changes cause delay in the completion of the various elements of construction [@CL-SUP-2575], and the change order granting the time extension may provide that the contract completion date will be extended only for those specific elements related to the changed work rather than altering the remaining contract completion dates for all other portions of the work [@CL-SUP-2576].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm which change orders carry a time extension and whether the liquidated da
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and meta wording and aligned modality with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed "daily amount", which the clause does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

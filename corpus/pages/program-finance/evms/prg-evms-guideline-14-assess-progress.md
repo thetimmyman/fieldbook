@@ -44,9 +44,7 @@ A work package is budgeted at 120,000 and planned to finish in four months. At t
 
 ## Never confuse
 
-Schedule status is time-based, while using predefined performance measurement criteria, the contractor statuses the schedule and assesses physical progress (earned value) to determine budget earned [@CL-PRG-0289; @CL-PRG-0287].
-
-The guideline on performance measurement criteria for each work package is covered in [performance measurement criteria for each work package](prg-evms-guideline-10-performance-measurement-criteria.md), and the guideline on calculating schedule variance and cost variance is covered in [Calculate schedule variance and cost variance](prg-evms-guideline-17-schedule-cost-variance.md).
+Schedule status is time-based, whereas using predefined performance measurement criteria the contractor statuses the schedule and assesses physical progress (earned value) to determine budget earned rather than relying on elapsed time alone [@CL-PRG-0289; @CL-PRG-0287]. The guideline on performance measurement criteria for each work package is covered in [performance measurement criteria for each work package](prg-evms-guideline-10-performance-measurement-criteria.md), and the guideline on calculating schedule variance and cost variance is covered in [Calculate schedule variance and cost variance](prg-evms-guideline-17-schedule-cost-variance.md).
 
 ## Company calibration
 
@@ -56,6 +54,7 @@ Which contracts the company measures this way, whether the system has been valid
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned schedule-status wording in How it works and Never confuse to cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.

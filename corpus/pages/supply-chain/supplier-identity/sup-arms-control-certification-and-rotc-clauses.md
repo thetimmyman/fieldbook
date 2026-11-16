@@ -46,9 +46,7 @@ A manufacturer bidding above the simplified acquisition threshold on an acquisit
 
 ## Never confuse
 
-The arms control certification is made by offerors about their own activity and that of owned or controlled entities [@CL-SUP-1044; @CL-SUP-1045]. The ROTC clause applies to institutions of higher education and turns on a determination by the Secretary of Defense [@CL-SUP-1047]. For the offeror responsibility certifications, see [Responsibility certification and information provisions](sup-responsibility-certification-and-information-provisions.md), and for the tax and felony representations, see [Inverted domestic corporations and tax or felony representations](sup-inverted-corporation-and-tax-felony-provisions.md).
-
-The codified false-certification sentence says if it is later determined, without saying who determines [@CL-SUP-1046]; the RFO text says if the Government later determines [@CL-SUP-3547].
+The arms control certification is made by offerors about their own activity and that of owned or controlled entities [@CL-SUP-1044; @CL-SUP-1045], unlike the ROTC clause, which applies to institutions of higher education and turns on a determination by the Secretary of Defense [@CL-SUP-1047]. For the offeror responsibility certifications, see [Responsibility certification and information provisions](sup-responsibility-certification-and-information-provisions.md), and for the tax and felony representations, see [Inverted domestic corporations and tax or felony representations](sup-inverted-corporation-and-tax-felony-provisions.md). The codified false-certification sentence says if it is later determined, without saying who determines [@CL-SUP-1046]; the RFO text says if the Government later determines [@CL-SUP-3547].
 
 ## Company calibration
 
@@ -57,6 +55,7 @@ Which owned or controlled entities have activity in the countries named in the a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the either-(1)-or-(2) choice, the joining of the two certification items and the report-review procedures; aligned the example.
 - COMPATIBLE_EXTENSION, 2026-10-31: listed ROTC and recruiting actions described as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

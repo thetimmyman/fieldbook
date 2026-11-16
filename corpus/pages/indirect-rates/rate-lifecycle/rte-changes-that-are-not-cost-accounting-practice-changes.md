@@ -45,7 +45,7 @@ A contractor starts a new training function and first incurs 40,000 of cost for 
 
 ## Never confuse
 
-For the illustrations of changes that meet the definition, see the [companion card](rte-changes-that-are-cost-accounting-practice-changes.md). For unilateral and desirable changes, see the [unilateral and desirable changes card](rte-unilateral-and-desirable-changes.md), and for who makes each finding, see the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md).
+Initial adoption of an accounting practice for the first-time incurrence of a cost, elimination of a cost, a change in estimate (not in method), or an organizational change that continues the same G&A expense pool combination is not a change in cost accounting practice [@CL-RTE-0829; @CL-RTE-0830; @CL-RTE-0833; @CL-RTE-0834], unlike the illustrations that meet the definition on the [companion card](rte-changes-that-are-cost-accounting-practice-changes.md). For unilateral and desirable changes, see the [unilateral and desirable changes card](rte-unilateral-and-desirable-changes.md), and for who makes each finding, see the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ How pools, bases and allocation methods are defined, so that a change in an inpu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated each illustration's treatment directly, restored the several-years lead-in and the unabridged conclusions, and replaced uncited contrasts and meta wording with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for illustrations of changes that are not a change to a cost accounting practice.

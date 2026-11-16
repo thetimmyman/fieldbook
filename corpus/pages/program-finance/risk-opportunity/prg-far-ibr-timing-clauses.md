@@ -45,7 +45,7 @@ An agency plans to hold a review before award on a contract that requires an EVM
 
 ## Never confuse
 
-The contracting officer shall insert a provision that is substantially the same as the provision at FAR 52.234-2, Notice of Earned Value Management System—Preaward Integrated Baseline Review, in solicitations for contracts that require the contractor to use an EVMS and for which the Government requires an IBR prior to award [@CL-PRG-0869; @CL-PRG-0870], a provision that is substantially the same as the provision at 52.234-3, Notice of Earned Value Management System—Postaward Integrated Baseline Review, in solicitations for contracts that require the contractor to use an EVMS and for which the Government requires an IBR after contract award [@CL-PRG-0871; @CL-PRG-0872], and a clause that is substantially the same as the clause at FAR 52.234-4, Earned Value Management System, in solicitations and contracts that require a contractor to use an EVMS [@CL-PRG-0873]. If permitted, reimbursement of offerors' pre-award IBR costs is governed by the provisions of FAR Part 31 [@CL-PRG-0868]; see [Allowability factors](../../compliance/cas-allowability/cmp-allowability-factors.md), [Earned value management system requirement](../evms/prg-evms-requirement.md), [Integrated Baseline Reviews under the FAR](prg-far-integrated-baseline-review.md), and [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md).
+The contracting officer shall insert a provision that is substantially the same as the provision at FAR 52.234-2, Notice of Earned Value Management System—Preaward Integrated Baseline Review, in solicitations for contracts that require the contractor to use an EVMS and for which the Government requires an IBR prior to award [@CL-PRG-0869; @CL-PRG-0870], unlike a postaward IBR, for which the contracting officer inserts a provision substantially the same as 52.234-3, Notice of Earned Value Management System—Postaward Integrated Baseline Review [@CL-PRG-0871; @CL-PRG-0872], while inserting a clause substantially the same as FAR 52.234-4, Earned Value Management System, in solicitations and contracts that require a contractor to use an EVMS [@CL-PRG-0873]. If permitted, reimbursement of offerors' pre-award IBR costs is governed by the provisions of FAR Part 31 [@CL-PRG-0868]; see [Allowability factors](../../compliance/cas-allowability/cmp-allowability-factors.md), [Earned value management system requirement](../evms/prg-evms-requirement.md), [Integrated Baseline Reviews under the FAR](prg-far-integrated-baseline-review.md), and [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which of the company's contracts carry the earned value clause, and whether a re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals, offerors' pre-award IBR costs scope, and full provision titles and conditions, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: named contracting officer as actor for clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

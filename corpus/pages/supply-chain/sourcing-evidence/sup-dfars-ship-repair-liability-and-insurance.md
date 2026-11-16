@@ -47,7 +47,7 @@ A fire damages a Government-furnished engine during repair and the loss is 80,00
 
 ## Never confuse
 
-The contractor's deductible and its indemnity limit are different figures for different exposures. The deductible applies to loss the Government has assumed on the vessel and its materials [@CL-SUP-1427]. The indemnity limit applies to the contractor's indemnity for third-party claims, per occurrence and per vessel [@CL-SUP-1429]. For aircraft in a contractor's hands, see [Ground and flight risk](sup-dfars-ground-and-flight-risk.md), and for Government indemnity of unusually hazardous risks, see [Indemnification for unusually hazardous risks](sup-dfars-indemnification-unusually-hazardous-risks.md). For insurance costs in general, see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
+The contractor's deductible and its indemnity limit are not the same figure: they apply to different exposures. The deductible applies to loss the Government has assumed on the vessel and its materials [@CL-SUP-1427]. The indemnity limit applies to the contractor's indemnity for third-party claims, per occurrence and per vessel [@CL-SUP-1429]. For aircraft in a contractor's hands, see [Ground and flight risk](sup-dfars-ground-and-flight-risk.md), and for Government indemnity of unusually hazardous risks, see [Indemnification for unusually hazardous risks](sup-dfars-indemnification-unusually-hazardous-risks.md). For insurance costs in general, see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ What the executed contract says about the vessel risk, and what liability and wo
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exclusion, replacement-or-repair alternatives and indemnity limit as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Government non-assumption sentences with the quoted costs and actors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the indemnity sentence so the covered negligence or wrongful act keeps the words or its agents or employees after any subcontractor.

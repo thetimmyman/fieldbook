@@ -52,7 +52,7 @@ Separately, if charges based on the contractor's lowest rate available to the ge
 
 ## Never confuse
 
-Aggregate weight rating charges each shipment the rate applicable to the aggregate weight [@CL-SUP-2238]. The multiple shipments clause is for consignees at the same destination [@CL-SUP-2239], and the stopping in transit clause is for consignees along the route between the origin and the last destination, with a charge added for each shipment unloaded at an intermediate point en route to the last destination [@CL-SUP-2270; @CL-SUP-2240].
+Aggregate weight rating charges each shipment the rate applicable to the aggregate weight [@CL-SUP-2238]. The multiple shipments clause is for consignees at the same destination [@CL-SUP-2239], unlike the stopping in transit clause, which is for consignees along the route between the origin and the last destination, with a charge added for each shipment unloaded at an intermediate point en route to the last destination [@CL-SUP-2270; @CL-SUP-2240].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Confirm how the company prices each transportation award against its lowest publ
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned aggregate-weight and intermediate-charge wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for charges, multiple shipments and stopping in transit.

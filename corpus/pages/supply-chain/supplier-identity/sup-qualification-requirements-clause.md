@@ -46,7 +46,7 @@ An offeror's valve is not yet on the qualified products list, but it passed the 
 
 ## Never confuse
 
-A qualification requirement is a demonstration that must be completed before award [@CL-SUP-1023], while first article approval is a separate step in which, under the contractor-testing clause, the Contracting Officer notifies the Contractor of conditional approval, approval, or disapproval of the first article after the Government receives the test report [@CL-SUP-1029]; see [First article approval clauses: contractor testing and government testing](sup-first-article-approval-clauses.md) and [Qualification requirements and the opportunity to qualify before award](../sourcing-evidence/sup-qualification-requirements.md).
+A qualification requirement is a demonstration that must be completed before award [@CL-SUP-1023], unlike first article approval, which is a separate step in which, under the contractor-testing clause, the Contracting Officer notifies the Contractor of conditional approval, approval, or disapproval of the first article after the Government receives the test report [@CL-SUP-1029]; see [First article approval clauses: contractor testing and government testing](sup-first-article-approval-clauses.md) and [Qualification requirements and the opportunity to qualify before award](../sourcing-evidence/sup-qualification-requirements.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which items and sources carry qualification requirements and where the evidence 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of qualified products list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of qualified products list.

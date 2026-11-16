@@ -47,7 +47,7 @@ An offer has two line items under the basic clause. For line 1 the offeror speci
 
 ## Never confuse
 
-The supply rule names Free Trade Agreement country end products other than Bahraini, Moroccan, Omani, Panamanian and Peruvian end products, as well as an Israeli end product and, at the Contractor's option, a domestic end product [@CL-SUP-1249]. The plain supplies clause requires delivery of only domestic end products except to the extent that the contractor specified delivery of foreign end products in the Buy American Certificate [@CL-SUP-1235]; see [Buy American clause for supplies](sup-buy-american-supplies-clause.md). The Trade Agreements clause delivery rule speaks of U.S.-made or designated country end products [@CL-SUP-1253]; see [Trade Agreements clause](sup-trade-agreements-clause.md).
+The supply rule names Free Trade Agreement country end products other than Bahraini, Moroccan, Omani, Panamanian and Peruvian end products, as well as an Israeli end product and, at the Contractor's option, a domestic end product [@CL-SUP-1249], unlike the plain supplies clause, which requires delivery of only domestic end products except to the extent that the contractor specified delivery of foreign end products in the Buy American Certificate [@CL-SUP-1235] (see [Buy American clause for supplies](sup-buy-american-supplies-clause.md)), or the Trade Agreements clause delivery rule, which speaks of U.S.-made or designated country end products [@CL-SUP-1253] (see [Trade Agreements clause](sup-trade-agreements-clause.md)).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed contracts carry this clause rather than the plain supplies clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Alternate III paragraph (c) substitution; aligned the delivery-rule, definitions pointer and never-confuse wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Israeli end product definition stated as two alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
