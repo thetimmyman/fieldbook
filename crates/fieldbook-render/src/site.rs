@@ -195,8 +195,15 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     paths.push(xlsx::OUTPUT_PATH.to_owned());
     paths.extend(templates_xlsx::planned_paths(view));
     for reg in Register::ALL {
-        paths.push(csv_copy::output_path(reg));
+        if reg != Register::Claims {
+            paths.push(csv_copy::output_path(reg));
+        }
     }
+    paths.extend(
+        register::claims_parts(view)
+            .into_iter()
+            .map(|p| csv_copy::claims_part_output_path(&p.area_code, p.part)),
+    );
     paths.extend(register::claims_part_paths(view));
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
@@ -294,7 +301,12 @@ pub fn render_with_info(
         site.insert(&path, bytes);
     }
     for reg in Register::ALL {
-        site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
+        if reg != Register::Claims {
+            site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
+        }
+    }
+    for (path, bytes) in csv_copy::render_claims_parts(view) {
+        site.insert(&path, bytes);
     }
     debug_assert_eq!(
         site.files().keys().map(String::as_str).collect::<Vec<_>>(),

@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: the claims copy for Excel is one CSV per claims part, data/claims-<AREA>-<part>.csv, in place of data/claims.csv.
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
 - Changed: a printed page's footer shows the page id, not its route.
 - Changed: backup holds one file in memory at a time.

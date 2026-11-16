@@ -1,6 +1,6 @@
 # Edition search index
 
-Status: accepted by the owner. It is amended by [glossary term units](#amendment-glossary-term-units), which is accepted by the owner-delegated judge and JEV review, as in [ADR 0007](0007-hosted-edition.md). It supersedes the edition index budget in AD-11, the data-file line of AD-15 for `assets/search-index.js`, and the edition index figure in the `later-sqlite-tantivy` row of AD-24, all in [ADR 0001](0001-foundation.md). It decides nothing else.
+Status: accepted by the owner. It is amended by [glossary term units](#amendment-glossary-term-units), which is accepted by the owner-delegated judge and JEV review, as in [ADR 0007](0007-hosted-edition.md), and by [claims copy in parts](#amendment-claims-copy-in-parts) (proposed for owner review). It supersedes the edition index budget in AD-11, the data-file line of AD-15 for `assets/search-index.js`, and the edition index figure in the `later-sqlite-tantivy` row of AD-24, all in [ADR 0001](0001-foundation.md). It decides nothing else.
 
 ## Trigger
 
@@ -79,3 +79,21 @@ The decision is reopened, with the same review as reaching the cap, when `assets
 - Term units change N, document frequencies and average field lengths, so impacts move slightly. Impacts and the order of pages move slightly. Regression cases are only appended (`search-glossary-aliases` appends six), and no existing case changes.
 - The edition still holds public units only, and no label reaches it.
 - Rollback: revert the merge commit. The index holds page and section units only, as before; `search-site-terms` cannot start.
+
+## Amendment: claims copy in parts
+
+Status: proposed for owner review.
+
+### Why
+
+`data/claims.csv` was the one edition file whose byte size grew linearly with the Corpus. At 28,926 claims it reached 20,012,178 bytes, 76% of the hosted site's 25 MiB per-file limit (`MAX_FILE_BYTES`, 26,214,400 bytes), so about 8,700 additional claims would break `fieldbook build` with FB0605 and the 20x scale fixture far exceeded it. By contrast, `data/registers.xlsx` is 4,814,585 bytes across all five sheets and the other four CSV copies are small.
+
+### Decision
+
+`fieldbook build` writes the claims copy for Excel as one file per claims part, `data/claims-<AREA>-<part>.csv`, grouped and ordered by `fieldbook_core::ids::claim_part` (`CLAIMS_PER_PART = 500`, uppercase area code, part number without leading zeros) to match `claims/<AREA>-<part>.html`, and no longer writes `data/claims.csv`. The other four register CSV copies (`data/sources.csv`, `data/questions.csv`, `data/conflicts.csv` and `data/glossary.csv`) and the `claims` sheet of `data/registers.xlsx` stay whole, and `corpus/registers/claims.csv` stays in the shipped Corpus. Each register copy (`data/registers.xlsx`, each `data/<register>.csv` for the other four registers, and each `data/claims-<AREA>-<part>.csv`) remains a download no page loads and keeps the hosted site's 25 MiB per-file limit under FB0605. Edition verification requires the set of `data/claims-<AREA>-<part>.csv` files to equal the set of `claims/<AREA>-<part>.html` part pages (FB0601), and the Site allowlist accepts under `data/` only `registers.xlsx`, those four register CSVs and valid `claims-<AREA>-<part>.csv` part names.
+
+### Effect
+
+- No claims CSV copy grows without bound as claims are added: each `data/claims-<AREA>-<part>.csv` holds at most 500 claims, about 350 KB, well under the 25 MiB per-file limit. The `claims` sheet of `data/registers.xlsx` stays whole and still grows with the Corpus (4,814,585 bytes for all five sheets at 28,926 claims); it keeps the FB0605 per-file limit, and partitioning it is not part of this decision.
+- Each `claims/<AREA>-<part>.html` page links its own `data/claims-<AREA>-<part>.csv` beside `data/registers.xlsx`; `claims.html` keeps `data/registers.xlsx` and drops its single-CSV link until the follow-up design revision settles `PATHS` and per-part index links.
+- Rollback: revert the merge commit. `fieldbook build` writes `data/claims.csv` again and restores the single-file wording in `corpus-format.md` and `search.md`.

@@ -743,10 +743,10 @@ The Corpus sources of truth are the CSV files in `corpus/registers/`. `build` wr
 
 | File | When | What it is |
 |---|---|---|
-| `data/<register>.csv` | Day 1 | A plain export of one register: `data/sources.csv`, `data/claims.csv`, `data/questions.csv`, `data/conflicts.csv`, `data/glossary.csv` |
+| `data/<register>.csv`, `data/claims-<AREA>-<part>.csv` | Day 1 | Plain CSV exports for Excel: `data/sources.csv`, `data/questions.csv`, `data/conflicts.csv` and `data/glossary.csv` (one file each), and one `data/claims-<AREA>-<part>.csv` per claims part (`claims/<AREA>-<part>.html`) in place of `data/claims.csv` |
 | `data/registers.xlsx` | Day 1 | One workbook with one sheet per register |
 
-**The CSV copies.** Same columns, same rows, same order as the source. A byte-order mark, CRLF line endings, and a leading apostrophe on any text cell that starts with `=`, `+`, `-`, `@`, TAB or CR. A decimal is not a text cell and gets no apostrophe. Because `check` refuses such text cells in the source, the apostrophe is a second guard for hand-edited copies. If Excel mangles a copy, use Data > From Text/CSV.
+**The CSV copies.** The claims copy is one file per claims part (`data/claims-<AREA>-<part>.csv`), in the same groups and order as `claims/<AREA>-<part>.html`; the other four registers are one file each. Same columns, same rows, same order as the source (for claims, across the part files taken together in order). A byte-order mark, CRLF line endings, and a leading apostrophe on any text cell that starts with `=`, `+`, `-`, `@`, TAB or CR. A decimal is not a text cell and gets no apostrophe. Because `check` refuses such text cells in the source, the apostrophe is a second guard for hand-edited copies. If Excel mangles a copy, use Data > From Text/CSV.
 
 In the edition, both copies hold only the rows the edition keeps. A kept row's cell that names a record the edition leaves out (a claim in `supersedes`, a source version in `evidence`, a question in `question_id`, and so on) is written without that reference, and the copies carry no count or note of what was left out.
 
@@ -1420,7 +1420,7 @@ Raised by `build`, `cargo xtask edition` and the tests of the build and edition 
 | FB0602 | error | An edition path breaks the path rules: over 150 characters from the edition root | A 151-character path |
 | FB0603 | error | A link in the built site does not resolve to a built file or anchor | A link to a page that has no output |
 | FB0604 | error | A built page breaks a site rule: an `href="http`, a `style="` attribute, an inline event handler, a script that is not a file in `assets/`, no content security policy, or a policy that is not equal to `CSP_STATIC` | An `href="http` in a page |
-| FB0605 | error | A script or data file is over budget: `app.js` 32 KB, `search.js` 11 KB, `assist.js` 20 KB, 64 KB of scripts in all, 15 MB for `search-index.js`, or 3 MB for any other data file of the edition, except that `data/registers.xlsx` and each `data/<register>.csv` are downloads no page loads and have the hosted site's 25 MiB per-file limit. The edition's `search-index.js` holds page, section and glossary term units only. The company browser loads shards of at most 8 MB with at most 24 MB of live search data, as search.md specifies. Scripts are app.js, search.js, strings.js and assist.js; strings.js counts only in the 64 KB total. search-index.js and assist-data.js are data, not scripts. Other .js files count as scripts. A KB is 1,000 bytes. A register cell too long for a workbook cell (over 32,767 characters) also stops the build with FB0605, naming the register, the row id and the column | A 70 KB `app.js`; a joined list in one `claims` cell over 32,767 characters |
+| FB0605 | error | A script or data file is over budget: `app.js` 32 KB, `search.js` 11 KB, `assist.js` 20 KB, 64 KB of scripts in all, 15 MB for `search-index.js`, or 3 MB for any other data file of the edition, except that `data/registers.xlsx`, each `data/<register>.csv` and each `data/claims-<AREA>-<part>.csv` are downloads no page loads and have the hosted site's 25 MiB per-file limit. The edition's `search-index.js` holds page, section and glossary term units only. The company browser loads shards of at most 8 MB with at most 24 MB of live search data, as search.md specifies. Scripts are app.js, search.js, strings.js and assist.js; strings.js counts only in the 64 KB total. search-index.js and assist-data.js are data, not scripts. Other .js files count as scripts. A KB is 1,000 bytes. A register cell too long for a workbook cell (over 32,767 characters) also stops the build with FB0605, naming the register, the row id and the column | A 70 KB `app.js`; a joined list in one `claims` cell over 32,767 characters |
 | FB0606 | error | Two builds of one commit differ | A timestamp in an output file |
 | FB0607 | warning on Linux, error in the `windows` job | A `brief` prints on more than one page | A brief that runs onto a second page |
 | FB0608 | error | Edition integrity: a file is missing from `SHA256SUMS` or differs from it, the fingerprint differs from `edition.toml`, or an extraction hash differs | A zip with one file changed |
@@ -1589,7 +1589,7 @@ One HTML file per page. A `#` is used only for anchors and for `search.html#q=`.
 
 ### Workbooks and templates
 
-The Day-1 copies, `data/<register>.csv` and `data/registers.xlsx`, are in [Excel copies of the registers](#excel-copies-of-the-registers). The other workbooks follow AD-13.
+The Day-1 copies, `data/<register>.csv`, `data/claims-<AREA>-<part>.csv` and `data/registers.xlsx`, are in [Excel copies of the registers](#excel-copies-of-the-registers). The other workbooks follow AD-13.
 
 | File | From | Content |
 |---|---|---|

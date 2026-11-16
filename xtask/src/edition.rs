@@ -42,9 +42,8 @@ pub const REQUIRED_FILES: &[&str] = &[
     "intake/network-silence-summary.txt",
     // `day-one.html`: the day-one binder, a Site page.
     fieldbook_core::strings::PATHS[3],
-    // data/: the workbook and the CSV copies of the registers.
+    // data/: the workbook and the CSV copies of the non-claims registers.
     fieldbook_core::strings::PATHS[0],
-    "data/claims.csv",
     "data/conflicts.csv",
     "data/glossary.csv",
     "data/questions.csv",
@@ -967,6 +966,7 @@ pub fn edition(root: &Path, stage: &mut dyn Stage, contact: Option<&str>) -> Res
 
     verify_staged_maps(AllowlistProfile::Site, &edition, &originals, REQUIRED_FILES)
         .map_err(|v| Stop::Refused(v.to_string()))?;
+    check_claims_part_csvs(&edition)?;
 
     // 5l. Write deterministic zips, reopen, verify four-way equality.
     let edition_zip =
@@ -1056,6 +1056,50 @@ pub fn command_edition(root: &Path, args: &[&str]) -> Result<bool, String> {
         }
         Err(Stop::Failed(msg)) => Err(msg),
     }
+}
+
+/// Requires the stem set of `claims/<stem>.html` part pages to equal the stem set of
+/// `data/claims-<stem>.csv` files, raising `FB0601` with the missing or extra path.
+fn check_claims_part_csvs(edition: &BTreeMap<String, Vec<u8>>) -> Result<(), Stop> {
+    let mut page_stems: BTreeSet<&str> = BTreeSet::new();
+    let mut csv_stems: BTreeSet<&str> = BTreeSet::new();
+
+    for path in edition.keys() {
+        if let Some(stem) = path
+            .strip_prefix("claims/")
+            .and_then(|rest| rest.strip_suffix(".html"))
+            && !stem.contains('/')
+        {
+            page_stems.insert(stem);
+        }
+        if let Some(stem) = path
+            .strip_prefix("data/claims-")
+            .and_then(|rest| rest.strip_suffix(".csv"))
+            && !stem.contains('/')
+        {
+            csv_stems.insert(stem);
+        }
+    }
+
+    for stem in &page_stems {
+        if !csv_stems.contains(stem) {
+            let missing = format!("data/claims-{stem}.csv");
+            return Err(Stop::Refused(format!(
+                "{missing}: error[FB0601]: required claims part CSV `{missing}` is missing from the edition (page `claims/{stem}.html` is present)"
+            )));
+        }
+    }
+
+    for stem in &csv_stems {
+        if !page_stems.contains(stem) {
+            let extra = format!("data/claims-{stem}.csv");
+            return Err(Stop::Refused(format!(
+                "{extra}: error[FB0601]: stray claims part CSV `{extra}` has no matching `claims/{stem}.html` part page"
+            )));
+        }
+    }
+
+    Ok(())
 }
 
 /// A verified delivery set holding edition and originals archives, metadata, and reopened trees.
@@ -1306,6 +1350,7 @@ pub fn verify_delivery(d: &Delivery) -> Result<(), Stop> {
         REQUIRED_FILES,
     )
     .map_err(|v| Stop::Refused(v.to_string()))?;
+    check_claims_part_csvs(&d.edition)?;
 
     // (c) Support catalogue and sidecar verification.
     let staged_support = d.edition.get("evidence/corpus-support.toml").ok_or_else(|| {
@@ -1687,7 +1732,6 @@ mod tests {
             "out/edition/data/registers.xlsx",
             b"PK synthetic workbook",
         );
-        write(root, "out/edition/data/claims.csv", b"claim_id\r\n");
         write(root, "out/edition/data/conflicts.csv", b"conflict_id\r\n");
         write(root, "out/edition/data/glossary.csv", b"term_id\r\n");
         write(root, "out/edition/data/questions.csv", b"question_id\r\n");
@@ -3078,6 +3122,69 @@ mod tests {
         }
         assert!(!stage.called("build"));
         assert!(!stage.called("harness"));
+    }
+
+    fn stage_with_two_claims_parts() -> Scripted {
+        let mut stage = Scripted::new();
+        stage.planted = vec![
+            (
+                "edition/claims/CMP-1.html".to_owned(),
+                b"<!doctype html><title>CMP 1</title>\n".to_vec(),
+            ),
+            (
+                "edition/claims/CMP-2.html".to_owned(),
+                b"<!doctype html><title>CMP 2</title>\n".to_vec(),
+            ),
+            (
+                "edition/data/claims-CMP-1.csv".to_owned(),
+                b"claim_id\r\n".to_vec(),
+            ),
+            (
+                "edition/data/claims-CMP-2.csv".to_owned(),
+                b"claim_id\r\n".to_vec(),
+            ),
+        ];
+        stage
+    }
+
+    #[test]
+    fn missing_claims_part_csv_is_fb0601() {
+        let ok_repo = fixture_repo();
+        let mut ok_stage = stage_with_two_claims_parts();
+        assert!(
+            edition(ok_repo.path(), &mut ok_stage, Some(CONTACT)).is_ok(),
+            "matching claims part pages and CSVs must pass edition verification"
+        );
+
+        let repo = fixture_repo();
+        let mut stage = stage_with_two_claims_parts();
+        stage
+            .planted
+            .retain(|(path, _)| path != "edition/data/claims-CMP-2.csv");
+        let res = edition(repo.path(), &mut stage, Some(CONTACT));
+        let msg = refused(res);
+        assert!(
+            msg.contains("FB0601") && msg.contains("data/claims-CMP-2.csv"),
+            "expected FB0601 naming missing data/claims-CMP-2.csv, got: {msg}"
+        );
+        assert!(!repo.path().join("out/dist").exists(), "out/dist exists");
+    }
+
+    #[test]
+    fn stray_claims_part_csv_is_fb0601() {
+        let repo = fixture_repo();
+        let mut stage = stage_with_two_claims_parts();
+        stage.planted.push((
+            "edition/data/claims-EST-1.csv".to_owned(),
+            b"claim_id\r\n".to_vec(),
+        ));
+        let res = edition(repo.path(), &mut stage, Some(CONTACT));
+        let msg = refused(res);
+        assert!(
+            msg.contains("FB0601") && msg.contains("data/claims-EST-1.csv"),
+            "expected FB0601 naming extra data/claims-EST-1.csv, got: {msg}"
+        );
+        assert!(!repo.path().join("out/dist").exists(), "out/dist exists");
     }
 
     /// The child half of `two_runs_give_identical_zips`: it builds the fixture named by the
