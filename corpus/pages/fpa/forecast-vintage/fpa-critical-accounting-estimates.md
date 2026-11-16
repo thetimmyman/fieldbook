@@ -11,7 +11,7 @@ as_of = 2026-10-27
 handling = ["public"]
 terms = ["estimate_at_completion", "forecast_vintage"]
 questions = ["Q-006"]
-links = ["prg-evms-guideline-20-eac-updates", "prg-evms-guideline-23-program-manager-eac", "fpa-risk-factors"]
+links = ["prg-evms-guideline-20-eac-updates", "prg-evms-guideline-23-program-manager-eac", "fpa-risk-factors", "fpa-rolling-forecast"]
 +++
 
 ## Purpose
