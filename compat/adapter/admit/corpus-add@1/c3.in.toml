@@ -1,0 +1,12 @@
+today = "2026-03-01"
+proposal_toml = """
+proposal_version = 1
+state = "proposed"
+kind = "reclassify"
+labels = ["public"]
+writer = 0
+
+[reclassify]
+source_version = "S-0001-v1"
+series = "synthetic-series"
+"""

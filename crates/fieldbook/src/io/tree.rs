@@ -456,6 +456,21 @@ impl World for Disk {
         crate::io::journal::read_tree_coherent(&self.tree_root, &self.state_dir)
     }
 
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        match std::fs::symlink_metadata(path) {
+            Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ok(None),
+            Err(err) => Err(WorldError::new(path, err.to_string())),
+            Ok(meta) => {
+                if !meta.is_file() {
+                    return Err(WorldError::new(path, "not a regular file"));
+                }
+                std::fs::read(path)
+                    .map(Some)
+                    .map_err(|err| WorldError::new(path, err.to_string()))
+            }
+        }
+    }
+
     fn write_lease(&self) -> Result<StoreLease, WorldError> {
         crate::io::journal::acquire_write_lease(&self.tree_root, &self.state_dir)
     }

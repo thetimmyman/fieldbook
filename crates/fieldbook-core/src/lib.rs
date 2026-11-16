@@ -31,6 +31,7 @@ pub mod ids;
 pub mod labels;
 pub mod manifest;
 pub mod new;
+pub mod pipeline;
 pub mod policy;
 pub mod ports;
 pub mod quote;

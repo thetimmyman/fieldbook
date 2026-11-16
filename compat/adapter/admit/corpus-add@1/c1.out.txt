@@ -1,0 +1,8 @@
+planned
+files 4
+affected S-0001
+affected S-0001-v1
+file corpus/sources/public/S-0001-v1.txt
+file corpus/sources/text/S-0001-v1/p0001.txt
+file corpus/sources/text/S-0001-v1/extraction.toml
+file corpus/registers/sources.csv

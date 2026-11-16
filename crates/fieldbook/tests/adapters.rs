@@ -17,19 +17,31 @@ mod extractor_suite;
 // Included here so that the registered suites need no line in `support/mod.rs`.
 #[path = "support/authz_suite.rs"]
 mod authz_suite;
+#[expect(
+    clippy::duplicate_mod,
+    reason = "shared seeded test RNG is included per integration test binary"
+)]
+#[path = "../../../tests/support/rng.rs"]
+mod rng;
 #[path = "support/store_suite.rs"]
 mod store_suite;
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 
+use fieldbook::adapters::extract_io::Staged;
 use fieldbook::adapters::registry::{ADAPTERS, Caps, Port, Row, State};
 use fieldbook::io::Disk;
 use fieldbook_core::audit::{Actor, Principal, Role, Sha256, Via};
 use fieldbook_core::authz::{Act, Authz, AuthzDecision, PolicyReaders, Scope};
 use fieldbook_core::extraction::methods::{METHODS, Method};
-use fieldbook_core::extraction::{Extractor, HtmlStrip, Plain, thin_page_numbers};
+use fieldbook_core::extraction::{
+    ExtractError, Extraction, Extractor, HtmlStrip, PageText, Plain, build_record,
+    thin_page_numbers,
+};
+use fieldbook_core::hash::sha256_hex;
 use fieldbook_core::labels::StoreId;
+use fieldbook_core::pipeline::VerifiedMethodMetadata;
 use fieldbook_core::policy::Policy;
 
 struct FolderTargetFactory;
@@ -101,13 +113,13 @@ fn contract_extractor_plain_1() {
     .expect("positive pages");
 
     let extractor = Plain;
-    let extraction = extractor.extract(&input).expect("extract plain");
+    let extraction = extractor.extract(&input, "txt").expect("extract plain");
     assert_eq!(extraction.method, expected_method);
     assert_eq!(extraction.pages.len(), expected_pages);
     assert_eq!(thin_page_numbers(&extraction.pages), Vec::<u32>::new());
 
     let vectors = extractor_suite::text_vectors();
-    extractor_suite::extractor_contract(&extractor, &vectors, &|ext| {
+    extractor_suite::extractor_contract(&extractor, "txt", &vectors, &|ext| {
         if ext.method == fieldbook_core::extraction::methods::PLAIN {
             Ok(())
         } else {
@@ -142,13 +154,15 @@ fn contract_extractor_html_strip_1() {
     .expect("positive pages");
 
     let extractor = HtmlStrip;
-    let extraction = extractor.extract(&input).expect("extract html-strip");
+    let extraction = extractor
+        .extract(&input, "html")
+        .expect("extract html-strip");
     assert_eq!(extraction.method, expected_method);
     assert_eq!(extraction.pages.len(), expected_pages);
     assert_eq!(thin_page_numbers(&extraction.pages), Vec::<u32>::new());
 
     let vectors = extractor_suite::text_vectors();
-    extractor_suite::extractor_contract(&extractor, &vectors, &|ext| {
+    extractor_suite::extractor_contract(&extractor, "html", &vectors, &|ext| {
         if ext.method == fieldbook_core::extraction::methods::HTML_STRIP {
             Ok(())
         } else {
@@ -159,6 +173,267 @@ fn contract_extractor_html_strip_1() {
             ))
         }
     });
+}
+
+fn copy_state_intake_into(root: &Path) -> PathBuf {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let src_state = repo_root.join("tests/fixtures/state-intake");
+    let dst_state = root.join("state");
+    fn copy_dir(from: &Path, to: &Path) {
+        std::fs::create_dir_all(to).expect("create_dir_all");
+        for entry in std::fs::read_dir(from).expect("read_dir") {
+            let entry = entry.expect("dir entry");
+            let path = entry.path();
+            let target = to.join(entry.file_name());
+            if path.is_dir() {
+                copy_dir(&path, &target);
+            } else {
+                std::fs::copy(&path, &target).expect("copy file");
+            }
+        }
+    }
+    copy_dir(&src_state, &dst_state);
+    dst_state
+}
+
+#[test]
+fn contract_extractor_staged_1() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let fix_dir = repo_root.join("tests/fixtures/ports/extractor/staged@1");
+    let input = std::fs::read(fix_dir.join("input.txt")).expect("read input.txt");
+    let expect_toml =
+        std::fs::read_to_string(fix_dir.join("expect.toml")).expect("read expect.toml");
+    let expect: toml::Table = toml::from_str(&expect_toml).expect("parse expect.toml");
+    let expected_method = expect
+        .get("method")
+        .and_then(toml::Value::as_str)
+        .expect("method");
+    let expected_pages = usize::try_from(
+        expect
+            .get("pages")
+            .and_then(toml::Value::as_integer)
+            .expect("pages"),
+    )
+    .expect("positive pages");
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let extractor = Staged::new(&world);
+    assert_eq!(extractor.id(), "staged@1");
+
+    let extraction = extractor.extract(&input, "txt").expect("replay staged");
+    assert_eq!(extraction.method, expected_method);
+    assert_eq!(extraction.pages.len(), expected_pages);
+    assert_eq!(thin_page_numbers(&extraction.pages), Vec::<u32>::new());
+
+    // Populate staged entries for all valid contract text vectors in this isolated TempDir,
+    // and expect `Missing` for any vector without a staged folder.
+    let mut vectors = extractor_suite::text_vectors();
+    for vec in &mut vectors {
+        if let Ok(ext) = Plain.extract(&vec.input, "txt") {
+            let sha = sha256_hex(&vec.input);
+            let record = build_record(&ext, "plain", "1", &sha, &BTreeMap::new());
+            let dir = state_dir.join("staging").join(&sha);
+            std::fs::create_dir_all(&dir).expect("create staging dir");
+            std::fs::write(dir.join("extraction.toml"), record.render()).expect("write toml");
+            for page in &ext.pages {
+                let stem = fieldbook_core::extraction::page_stem(page.number);
+                std::fs::write(dir.join(format!("{stem}.txt")), page.text.as_bytes())
+                    .expect("write page");
+            }
+        } else {
+            vec.expect = extractor_suite::Expect::Refused("Missing");
+        }
+    }
+    extractor_suite::extractor_contract(&extractor, "txt", &vectors, &|ext| {
+        if ext.method == fieldbook_core::extraction::methods::PLAIN {
+            Ok(())
+        } else {
+            Err(format!("unexpected method {}", ext.method))
+        }
+    });
+
+    // Unknown bytes without a staging folder return ExtractError::Missing("staging folder").
+    assert_eq!(
+        extractor.extract(b"unstaged content", "txt"),
+        Err(ExtractError::Missing("staging folder"))
+    );
+}
+
+#[test]
+fn staged_rejects_a_changed_page() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    // Mutate one byte in staged p0001.txt.
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let page_path = state_dir.join("staging").join(&orig_sha).join("p0001.txt");
+    let mut page_bytes = std::fs::read(&page_path).expect("read p0001.txt");
+    page_bytes[0] ^= 0x01;
+    std::fs::write(&page_path, &page_bytes).expect("write mutated page");
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let extractor = Staged::new(&world);
+    let err = extractor
+        .extract(&input, "txt")
+        .expect_err("changed page must fail");
+    assert_eq!(err, ExtractError::Missing("matching staging folder"));
+    let line = format!("{}: {err}", extractor.id());
+    assert!(
+        line.starts_with("staged@1"),
+        "printed refusal line must start with `staged@1`: {line}"
+    );
+
+    // Restoring p0001.txt succeeds, while mutating original input returns Missing("staging folder").
+    let mut mutated_input = input;
+    mutated_input[0] ^= 0x01;
+    assert_eq!(
+        extractor.extract(&mutated_input, "txt"),
+        Err(ExtractError::Missing("staging folder"))
+    );
+}
+
+#[test]
+fn staged_replays_known_and_preserves_unsupported_metadata_as_unavailable() {
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let orig_bytes = b"%PDF-1.4\nsynthetic fixture payload\n";
+    let orig_sha = sha256_hex(orig_bytes);
+    let staging_dir = state_dir.join("staging").join(&orig_sha);
+    std::fs::create_dir_all(&staging_dir).expect("create staging dir");
+
+    let long_page =
+        "Synthetic extracted PDF body text long enough to avoid being flagged thin in tests.\n"
+            .to_owned();
+    let p1_sha = sha256_hex(long_page.as_bytes());
+    std::fs::write(staging_dir.join("p0001.txt"), long_page.as_bytes()).expect("write p0001");
+
+    // 1. Known method (`pdftotext-layout`) preserves validated tool metadata without re-running PDF tool.
+    let known_ext = Extraction {
+        method: fieldbook_core::extraction::methods::PDFTOTEXT_LAYOUT,
+        pages: vec![PageText {
+            number: 1,
+            text: long_page.clone(),
+        }],
+    };
+    let record = build_record(
+        &known_ext,
+        "pdftotext",
+        "24.02.0",
+        &orig_sha,
+        &BTreeMap::new(),
+    );
+    std::fs::write(staging_dir.join("extraction.toml"), record.render()).expect("write known toml");
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let staged = Staged::new(&world);
+    let verified = staged
+        .verify(orig_bytes)
+        .expect("verify known pdftotext-layout");
+    assert_eq!(
+        verified.extraction.method,
+        fieldbook_core::extraction::methods::PDFTOTEXT_LAYOUT
+    );
+    assert_eq!(verified.tool, "pdftotext");
+    assert_eq!(verified.tool_version, "24.02.0");
+    assert!(matches!(
+        verified.method_metadata,
+        VerifiedMethodMetadata::Known { .. }
+    ));
+
+    // 2. Unsupported method preserves metadata as Unavailable rather than silently inventing Known fields.
+    let _ = p1_sha;
+    let unsupported_toml = record.render().replace(
+        "method = \"pdftotext-layout\"",
+        "method = \"future-ocr-engine\"",
+    );
+    std::fs::write(staging_dir.join("extraction.toml"), &unsupported_toml)
+        .expect("write unsupported toml");
+    let verified_unsup = staged
+        .verify(orig_bytes)
+        .expect("verify unsupported staging preserves hash-checked pages");
+    assert_eq!(verified_unsup.extraction.method, "unsupported");
+    assert_eq!(
+        verified_unsup.method_metadata,
+        VerifiedMethodMetadata::Unavailable {
+            method: "future-ocr-engine".to_owned(),
+            reason: "unsupported extraction method",
+        }
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn staged_refuses_a_symlinked_page_file() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let page_path = state_dir.join("staging").join(&orig_sha).join("p0001.txt");
+    let outside_target = tmp.path().join("outside_page.txt");
+    let page_bytes = std::fs::read(&page_path).expect("read p0001.txt");
+    std::fs::write(&outside_target, &page_bytes).expect("write outside file");
+    std::fs::remove_file(&page_path).expect("remove original p0001.txt");
+    std::os::unix::fs::symlink(&outside_target, &page_path).expect("plant symlink");
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let extractor = Staged::new(&world);
+    assert_eq!(
+        extractor.extract(&input, "txt"),
+        Err(ExtractError::Missing("staging folder"))
+    );
+}
+
+#[test]
+fn random_and_mutated_bytes_never_panic() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let toml_path = state_dir
+        .join("staging")
+        .join(&orig_sha)
+        .join("extraction.toml");
+    let orig_toml = std::fs::read(&toml_path).expect("read extraction.toml");
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let staged = Staged::new(&world);
+
+    let mut rng = rng::Rng::new(1);
+    for idx in 0..200 {
+        let len = match idx {
+            0 => 0,
+            1 => 2048,
+            _ => usize::try_from(rng.next_u64() % 2049).expect("len fits usize"),
+        };
+        let bytes = rng.bytes(len);
+        let _ = staged.extract(&bytes, "txt");
+        let text = String::from_utf8_lossy(&bytes);
+        std::fs::write(&toml_path, text.as_bytes()).expect("write random toml");
+        let _ = staged.extract(&input, "txt");
+    }
+    std::fs::write(&toml_path, &orig_toml).expect("restore extraction.toml");
+
+    for pos in 0..orig_toml.len() {
+        let mut flipped = orig_toml.clone();
+        flipped[pos] ^= 0x01;
+        std::fs::write(&toml_path, &flipped).expect("write flipped");
+        let _ = staged.extract(&input, "txt");
+
+        let mut deleted = orig_toml.clone();
+        deleted.remove(pos);
+        std::fs::write(&toml_path, &deleted).expect("write deleted");
+        let _ = staged.extract(&input, "txt");
+    }
 }
 
 #[test]
@@ -483,6 +758,12 @@ fn scan_impls_in_file(
 
         let port = match trait_name {
             "Extractor" => Port::Extractor,
+            "Admit" => {
+                if type_name == "BorrowedAdmit" {
+                    continue;
+                }
+                Port::Admit
+            }
             "Authz" => Port::Authz,
             "BackupTarget" => Port::Backup,
             "World" => {
@@ -653,6 +934,8 @@ pub fn registry_drift(
             let contract_fn = format!("fn {}(", row.contract_name());
             let test_file = if row.krate == "xtask" {
                 repo.join("xtask/src/extract.rs")
+            } else if row.port == Port::Admit && row.krate == "fieldbook-core" {
+                repo.join("crates/fieldbook-core/tests/pipeline.rs")
             } else {
                 repo.join("crates/fieldbook/tests/adapters.rs")
             };
@@ -953,5 +1236,31 @@ fn methods_fails_on_unregistered_extractor() {
     assert!(
         err.contains("unregistered@1"),
         "error must name unregistered extractor: {err}"
+    );
+}
+
+#[test]
+fn methods_fails_on_unmatched_extractor_adapter() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_format_md =
+        std::fs::read_to_string(repo_root.join("docs/reference/corpus-format.md"))
+            .expect("read corpus-format.md");
+
+    let mut custom_rows = ADAPTERS.to_vec();
+    let staged_row = custom_rows
+        .iter_mut()
+        .find(|r| r.id == "staged@1")
+        .expect("staged@1 row must exist in ADAPTERS");
+    staged_row.id = "other-replay@1";
+
+    let res = check_methods_match_extractors(METHODS, &custom_rows, &repo_root, &corpus_format_md);
+    assert!(
+        res.is_err(),
+        "non-staged@1 Extractor row without producer METHODS entry must fail"
+    );
+    let err = res.unwrap_err();
+    assert!(
+        err.contains("other-replay@1"),
+        "error must name unmatched extractor adapter: {err}"
     );
 }

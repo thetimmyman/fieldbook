@@ -6,4 +6,5 @@
 //! **One table instead of one per port.** Every adapter across all ports is registered in
 //! [`registry::ADAPTERS`], describing its capabilities, crate, dependencies, and contract suite.
 
+pub mod extract_io;
 pub mod registry;
