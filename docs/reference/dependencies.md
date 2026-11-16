@@ -330,7 +330,7 @@ Every action is pinned by commit SHA. The workflow line reads `uses: owner/name@
 | Action | Version (released) | Commit SHA | Note |
 |---|---|---|---|
 | `actions/checkout` | v7.0.1 (2026-07-20) | `3d3c42e5aac5ba805825da76410c181273ba90b1` | |
-| `Swatinem/rust-cache` | v2.9.2 (2026-08-06) | `6323deb102c322ba6fcbdcafc7e3dddab59af2b6` | v2.9.3 was younger than 14 days when pinned. Saves the cache on `main` only |
+| `Swatinem/rust-cache` | v2.9.3 (2026-10-20) | `d1527c8f67ef9af357290475d4af4b0fab8f12e0` | Saves the cache on `main` only |
 | `taiki-e/install-action` | v2.87.27 (2026-10-09) | `ab6895351a88b908e96a4697860d4ffea5e57dbe` | Later releases were younger than 14 days when pinned |
 | `actions/setup-node` | v7.1.0 (2026-10-08) | `949feb2413d6458794dcd2491c4babbbce0c15c1` | Installs the pinned Node for the hosted deploy workflow only, with the package-manager cache off |
 | `actions/upload-artifact` | v7.0.2 (2026-10-07) | `cf430e030ddbb5b0abf93d22962f4752f3646cd9` | |
