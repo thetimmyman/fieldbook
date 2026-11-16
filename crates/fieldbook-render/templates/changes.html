@@ -1,0 +1,106 @@
+<div class="changes-view page-w">
+  <header class="page-head">
+    <h1>{{ title }}</h1>
+    <p class="muted">What each edition added, changed and verified.</p>
+  </header>
+
+  <section class="panel" aria-labelledby="changes-notes">
+    <div class="panel-head">
+      <h2 class="panel-title" id="changes-notes">Edition notes</h2>
+    </div>
+    {% if notes_shown.is_empty() %}
+    <p class="muted">No edition notes recorded.</p>
+    {% else %}
+    {% for note in &notes_shown %}
+    <div class="changes-note">
+      <h3 class="mono">{{ note.edition }}</h3>
+      {% for line in &note.lines %}
+      <p><b>{{ line.label }}</b> {{ line.text }}</p>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    {% if !notes_folded.is_empty() %}
+    <details class="fold nav-more">
+      <summary><b>{{ notes_folded.len() }} more</b> <span class="fold-d">older editions</span></summary>
+      <div class="fold-b">
+        {% for note in &notes_folded %}
+        <div class="changes-note">
+          <h3 class="mono">{{ note.edition }}</h3>
+          {% for line in &note.lines %}
+          <p><b>{{ line.label }}</b> {{ line.text }}</p>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </details>
+    {% endif %}
+    {% endif %}
+  </section>
+
+  <section class="panel" aria-labelledby="changes-ids">
+    <div class="panel-head">
+      <h2 class="panel-title" id="changes-ids">{{ ids_heading }}</h2>
+    </div>
+    {% match &ids_panel %}
+    {% when IdsPanelView::NotCompared %}
+    <p class="muted">No earlier edition was named for this build, so the ids added and removed are not listed.</p>
+    {% when IdsPanelView::Unchanged with (unchanged_line) %}
+    <p class="muted">{{ unchanged_line }}</p>
+    {% when IdsPanelView::Diff with (diff_view) %}
+    <div class="table-wrap">
+      <table class="reg-table">
+        <caption>{{ diff_view.caption }}</caption>
+        <thead>
+          <tr>
+            <th scope="col">Group</th>
+            <th scope="col">Added</th>
+            <th scope="col">Removed</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in &diff_view.rows %}
+          <tr>
+            <td>{{ row.name }}</td>
+            <td class="mono">{{ row.added }}</td>
+            <td class="mono">{{ row.removed }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">This compares ids only. An item that kept its id may still have changed.</p>
+    {% if let Some(hidden_line) = &diff_view.hidden_line %}
+    <p class="muted">{{ hidden_line }}</p>
+    {% endif %}
+    {% for group in &diff_view.groups %}
+    <div class="changes-group">
+      <h3>{{ group.name }}</h3>
+      {% if let Some(sub) = &group.added %}
+      <h4>Added</h4>
+      <div class="source-chips">{{ sub.shown_html|safe }}</div>
+      {% if let Some(more) = &sub.folded %}
+      <details class="fold nav-more">
+        <summary><b>{{ more.count }} more</b></summary>
+        <div class="fold-b">
+          <div class="source-chips">{{ more.chips_html|safe }}</div>
+        </div>
+      </details>
+      {% endif %}
+      {% endif %}
+      {% if let Some(sub) = &group.removed %}
+      <h4>Removed</h4>
+      <div class="source-chips">{{ sub.shown_html|safe }}</div>
+      {% if let Some(more) = &sub.folded %}
+      <details class="fold nav-more">
+        <summary><b>{{ more.count }} more</b></summary>
+        <div class="fold-b">
+          <div class="source-chips">{{ more.chips_html|safe }}</div>
+        </div>
+      </details>
+      {% endif %}
+      {% endif %}
+    </div>
+    {% endfor %}
+    {% endmatch %}
+  </section>
+</div>

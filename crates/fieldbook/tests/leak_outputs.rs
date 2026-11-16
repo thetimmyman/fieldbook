@@ -11,7 +11,8 @@ mod support;
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 
-use fieldbook::build::{plan_edition, write_edition_outputs};
+use fieldbook::build::{plan_edition, run_with_info, write_edition_outputs};
+use fieldbook::cli::BuildArgs;
 use fieldbook::io::state;
 use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
@@ -21,6 +22,7 @@ use fieldbook_core::audit::{
 };
 use fieldbook_core::authz::ReadableStores;
 use fieldbook_core::check::{Host, Model, Options, Severity, Tree, load};
+use fieldbook_core::edition::{EditionCounts, EditionIds, EditionInfo};
 use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Transfer, check};
 use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, effective_item};
 use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
@@ -67,6 +69,7 @@ const BUILT_SINKS: &[&str] = &[
     "restore",
     "template_workbooks",
     "desk_pages",
+    "changes_page",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -114,6 +117,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "desk_pages",
         run: run_desk_pages_surface,
+    },
+    Surface {
+        name: "changes_page",
+        run: run_changes_page_surface,
     },
 ];
 
@@ -2687,6 +2694,106 @@ fn run_template_workbooks_surface() {
                 }
             }
         }
+    }
+}
+
+fn run_changes_page_surface() {
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+
+    // Plant a public canary page whose body carries the fixture's public canary string: the
+    // page is in the permitted view, but `changes.html` prints no record text, so the canary
+    // must not appear on it.
+    let public_canary = fixture
+        .record
+        .iter()
+        .find(|r| r.label == "public")
+        .unwrap_or_else(|| panic!("fixture holds a public record"));
+    let canary_page = format!(
+        "+++\nid = \"cmp-changes-canary\"\ntitle = \"Synthetic compliance Changes canary page\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\n{}.\n\n## The rule\n\nSynthetic rule.\n\n## How it works\n\nSynthetic steps.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSynthetic answer.\n\n## Never confuse\n\nSynthetic boundary.\n\n## Company calibration\n\nNot established.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Synthetic change.\n",
+        public_canary.canary
+    );
+    let canary_dir = tmp.path().join("corpus/pages/compliance/business-systems");
+    std::fs::create_dir_all(&canary_dir).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(canary_dir.join("cmp-changes-canary.md"), canary_page)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Company-shaped canary ids planted in the `--since` file among the removed ids, one of
+    // each shape: a page with an `x` area, a term with `x_`, a claim with an `X` area and a
+    // public number, a company claim and a company source version. None is in the current view,
+    // so each is a removed id the page must count and never print.
+    let since_dir = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let since_path = since_dir.path().join("edition.toml");
+    std::fs::write(&since_path, since_planted_edition().to_toml())
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // The real sink: `build --since <file>` end to end.
+    let outcome = run_with_info(
+        &BuildArgs {
+            out: tmp.path().join("out"),
+            watch: false,
+            since: Some(since_path.to_string_lossy().into_owned()),
+        },
+        &world,
+        &BuildInfo::default(),
+    );
+    assert_eq!(
+        outcome.code, 0,
+        "build --since must succeed: {}",
+        outcome.stderr
+    );
+    let html = std::fs::read_to_string(tmp.path().join("out/edition/changes.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // No canary text appears on the page.
+    for rec in &fixture.record {
+        assert!(
+            !html.contains(&rec.canary),
+            "canary `{}` must not appear in changes.html",
+            rec.canary
+        );
+    }
+    // Each planted company-shaped id is absent, and the not-shown count includes them.
+    for id in [
+        "xes-forbidden-canary",
+        "S-00012-v1",
+        "CL-XES-0012",
+        "CL-XES-000012",
+        "x_forbidden_canary",
+    ] {
+        assert!(
+            !html.contains(id),
+            "canary id `{id}` must not appear in changes.html"
+        );
+    }
+    assert!(
+        html.contains("5 removed ids are not listed. They are not in the public id form."),
+        "the not-shown count must include the planted ids:\n{html}"
+    );
+}
+
+/// The `--since` edition: the five planted company-shaped ids, one per shape, and nothing else,
+/// so every one of them is a removed id.
+fn since_planted_edition() -> EditionInfo {
+    EditionInfo {
+        edition: "edition-001".to_owned(),
+        number: 1,
+        built: "2026-02-01".to_owned(),
+        tool_version: "0.1.0".to_owned(),
+        min_tool_version: "0.1.0".to_owned(),
+        schema_version: 1,
+        commit: "0".repeat(40),
+        fingerprint: "f".repeat(64),
+        counts: EditionCounts::default(),
+        ids: EditionIds {
+            pages: vec!["xes-forbidden-canary".to_owned()],
+            source_versions: vec!["S-00012-v1".to_owned()],
+            claims: vec!["CL-XES-0012".to_owned(), "CL-XES-000012".to_owned()],
+            questions: Vec::new(),
+            conflicts: Vec::new(),
+            terms: vec!["x_forbidden_canary".to_owned()],
+        },
     }
 }
 
