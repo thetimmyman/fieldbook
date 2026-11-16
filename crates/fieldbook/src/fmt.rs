@@ -307,7 +307,16 @@ pub(crate) fn run(args: &FmtArgs, world: &dyn World) -> Outcome {
             match try_recover_pending(world, &mut journal, &lease, &tree, &key, &req_sha, &pending)
             {
                 Ok(None) => {}
-                Ok(Some(outcome)) | Err(outcome) => return outcome,
+                // A finished recovery still owes the faults this run already collected from
+                // targets outside the pending write set: report them and exit with findings.
+                Ok(Some(mut outcome)) => {
+                    if !eval.errors.is_empty() {
+                        outcome.stderr.push_str(&eval.errors);
+                        outcome.code = EXIT_FINDINGS;
+                    }
+                    return outcome;
+                }
+                Err(outcome) => return outcome,
             }
         }
         Ok(None) => {}

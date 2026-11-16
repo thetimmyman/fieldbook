@@ -781,6 +781,51 @@ fn fmt_recovers_after_last_write_before_journal_end() {
 }
 
 #[test]
+fn fmt_recovery_still_reports_a_fault_outside_the_pending_write() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    let glossary_path = root.join(REG_GLOSSARY);
+    let orig_glossary = std::fs::read_to_string(&glossary_path).expect("read glossary");
+    std::fs::write(&glossary_path, to_crlf(&orig_glossary).as_bytes()).expect("dirty glossary");
+
+    // A page whose front matter cannot be normalized: reported, never part of the write set.
+    let page_path = root.join(PAGE_STEPS);
+    let orig_page = std::fs::read_to_string(&page_path).expect("read page");
+    let bad_page = orig_page.replacen("status = \"draft\"\n", "status = \"draft\"   \n", 1);
+    assert_ne!(orig_page, bad_page);
+    std::fs::write(&page_path, bad_page.as_bytes()).expect("write faulty page");
+
+    let faulty = FaultyWorld::new(
+        TestWorld::new(root),
+        Fault::FailOnName {
+            name: "glossary.csv",
+            kind: FaultKind::Io,
+        },
+    );
+    assert_eq!(run(&faulty, &["fmt"]).code, 3);
+    assert!(root.join(".fieldbook/pending.toml").exists());
+
+    let world = TestWorld::new(root);
+    let resumed = run(&world, &["fmt"]);
+    assert_eq!(resumed.stdout, format!("formatted {REG_GLOSSARY}\n"));
+    assert!(
+        resumed.stderr.contains(PAGE_STEPS),
+        "recovery must keep the page fault: {}",
+        resumed.stderr
+    );
+    assert_eq!(resumed.code, 1, "a fault is a finding even after recovery");
+    assert!(!root.join(".fieldbook/pending.toml").exists());
+    assert_eq!(
+        std::fs::read_to_string(&glossary_path).expect("glossary normalized"),
+        orig_glossary
+    );
+    assert_eq!(
+        std::fs::read_to_string(&page_path).expect("page untouched"),
+        bad_page
+    );
+}
+
+#[test]
 fn fmt_recovers_after_journal_end_before_cleanup() {
     let tmp = temp_copy(&fixture_root());
     let root = tmp.path();
