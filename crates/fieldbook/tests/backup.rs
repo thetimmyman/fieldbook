@@ -858,6 +858,21 @@ impl TestFixture {
     fn target_path(&self) -> &Path {
         self.target_dir.path()
     }
+
+    fn policy_target(&self) -> String {
+        // Policy fixtures use ordinary canonical drive/UNC paths, as settings do.
+        // std::fs::canonicalize alone retains Windows' verbatim prefix.
+        let path = self
+            .target_path()
+            .canonicalize()
+            .expect("canonical policy target");
+        let text = path.to_string_lossy().replace('\\', "/");
+        if let Some(unc) = text.strip_prefix("//?/UNC/") {
+            format!("//{unc}")
+        } else {
+            text.strip_prefix("//?/").unwrap_or(&text).to_owned()
+        }
+    }
 }
 
 #[test]
@@ -3058,12 +3073,7 @@ fn malformed_unknown_field_cache_refusal() {
 #[test]
 fn refused_filename_report_obeys_backup_labels() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     let policy_toml_allow_np = format!(
         r#"
@@ -3288,12 +3298,7 @@ fn schema_invalid_repair_archive_obeys_backup_labels() {
 #[test]
 fn backup_settings_require_owner_supplied() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     // Policy whose backup destination allows public, but excludes owner-supplied
     let policy_toml = format!(
@@ -3354,12 +3359,7 @@ fn backup_settings_preserve_authorized_bytes() {
 #[test]
 fn backup_settings_keep_comment_markings() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     // Add comment with marking to settings.toml
     let settings_file = fix.state_dir().join("settings.toml");
@@ -3453,12 +3453,7 @@ paths = ["{target_str}"]
 #[test]
 fn backup_settings_include_loaded_state_default() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     let policy_toml = format!(
         r#"
@@ -4203,12 +4198,7 @@ fn public_support_keeps_markings_and_admission() {
     assert!(out.stderr.contains("FB0901"));
 
     // Mapped restrictive label: when policy maps marking and destination allows it, backup succeeds
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
     let policy_toml = format!(
         r#"
 policy_schema = 1
@@ -4283,12 +4273,7 @@ paths = ["{target_str}"]
     // Floor B route: restore clean AGENTS.md, but remove support provenance facts so support is unlabelled.
     // Configure target with company_storage = true.
     let fix2 = TestFixture::new();
-    let target2_str = fix2
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target2_str = fix2.policy_target();
     let settings_cs = format!(
         "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{target2_str}\"\ncompany_storage = true\n"
     );
