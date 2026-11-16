@@ -716,7 +716,7 @@ fn check_just_installed(yaml: &str, job: &str) -> Result<(), String> {
     let mut just_invocation_idx = None;
 
     const INSTALL_ACTION_REF: &str =
-        "taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27";
+        "taiki-e/install-action@682ce6c3c696a4cd5168a05f98e51aa02b877941 # v2.89.1";
 
     for (idx, step) in steps.iter().enumerate() {
         let uses = step_uses_line(step).unwrap_or("");
