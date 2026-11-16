@@ -7,7 +7,6 @@
     reason = "drill4 integration test invokes the built binary and shell tools"
 )]
 
-use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
@@ -64,103 +63,57 @@ fn extract_drill4_script(markdown: &str) -> Result<String, &'static str> {
     Ok(blocks.join("\n\n"))
 }
 
-struct TempDrillDirGuard<'a> {
-    tmpdir: &'a Path,
-    initial: &'a BTreeSet<PathBuf>,
-}
-
-impl Drop for TempDrillDirGuard<'_> {
-    fn drop(&mut self) {
-        if let Ok(entries) = std::fs::read_dir(self.tmpdir) {
-            for entry in entries.filter_map(Result::ok) {
-                let p = entry.path();
-                if let Some(name) = p.file_name().and_then(|n| n.to_str())
-                    && name.starts_with("field book drill.")
-                    && !self.initial.contains(&p)
-                {
-                    let _ = std::fs::remove_dir_all(&p);
-                }
-            }
-        }
-    }
-}
-
-#[expect(
-    clippy::print_stderr,
-    reason = "contract requires eprintln! skip message when tools are missing"
-)]
-#[test]
-fn restore_drill4_runs_against_binary() {
-    if !tool_available("sha256sum") {
-        eprintln!("skipping drill4: sha256sum tool not available");
-        return;
-    }
-    if !tool_available("diff") {
-        eprintln!("skipping drill4: diff tool not available");
-        return;
-    }
-
+fn run_drill4_with_outer_tmpdir(
+    outer_tmpdir: &Path,
+    after_tmpdir_setup: impl FnOnce(),
+) -> Result<(), String> {
     let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
     let corpus_mini = repo_root.join("tests/fixtures/corpus-mini");
     let state_mini = repo_root.join("tests/fixtures/state-mini");
 
     // 1. Build disposable synthetic/public tree and state
-    let tmp_tree = tempfile::tempdir().expect("create tmp_tree");
-    copy_dir_all(&corpus_mini, tmp_tree.path()).expect("copy corpus-mini");
+    let tmp_tree = tempfile::tempdir().map_err(|e| format!("create tmp_tree: {e}"))?;
+    copy_dir_all(&corpus_mini, tmp_tree.path()).map_err(|e| format!("copy corpus-mini: {e}"))?;
 
     // The runbook Drill 4 Step 1 calls `fieldbook backup verify --raw .`.
     // Verification of a raw directory looks for state/audit under the specified directory
     // (e.g. `<raw_dir>/.fieldbook/audit`). Thus, the state must live inside the tree at
     // `.fieldbook` for `--raw .` to succeed.
     let tmp_state = tmp_tree.path().join(".fieldbook");
-    copy_dir_all(&state_mini, &tmp_state).expect("copy state-mini into tmp_tree/.fieldbook");
+    copy_dir_all(&state_mini, &tmp_state)
+        .map_err(|e| format!("copy state-mini into tmp_tree/.fieldbook: {e}"))?;
 
-    let tmp_home = tempfile::tempdir().expect("create tmp_home");
+    let tmp_home = tempfile::tempdir().map_err(|e| format!("create tmp_home: {e}"))?;
 
     // 2. Build the support catalogue with the pure producer
-    let tree = fieldbook::io::read_tree(tmp_tree.path()).expect("read corpus-mini tree");
+    let tree =
+        fieldbook::io::read_tree(tmp_tree.path()).map_err(|e| format!("read corpus-mini: {e}"))?;
     let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
         &tree,
         "1111111111111111111111111111111111111111",
     )
-    .expect("support catalogue from public source");
+    .map_err(|e| format!("support catalogue from public source: {e}"))?;
     let (cat_bytes, cat_sha) = cat.to_toml_bytes_and_sha256();
 
     let dist_dir = tmp_tree.path().join("out/dist");
-    std::fs::create_dir_all(&dist_dir).expect("create out/dist");
+    std::fs::create_dir_all(&dist_dir).map_err(|e| format!("create out/dist: {e}"))?;
     std::fs::write(dist_dir.join("corpus-support.toml"), &cat_bytes)
-        .expect("write corpus-support.toml");
+        .map_err(|e| format!("write corpus-support.toml: {e}"))?;
     let sha_line = format!("{cat_sha}  corpus-support.toml\n");
     std::fs::write(dist_dir.join("corpus-support.sha256"), sha_line)
-        .expect("write corpus-support.sha256");
+        .map_err(|e| format!("write corpus-support.sha256: {e}"))?;
 
-    // Track TMPDIR entries before execution
-    let tmpdir = std::env::var_os("TMPDIR")
-        .map(PathBuf::from)
-        .unwrap_or_else(std::env::temp_dir);
+    // Isolate TMPDIR per Drill 4 invocation inside `outer_tmpdir` so concurrent test runs
+    // sharing an outer TMPDIR never observe or delete each other's `field book drill.XXXXXX` dirs.
+    std::fs::create_dir_all(outer_tmpdir).map_err(|e| format!("create outer_tmpdir: {e}"))?;
+    let isolated_tmpdir = tempfile::tempdir_in(outer_tmpdir)
+        .map_err(|e| format!("create isolated drill4 tmpdir: {e}"))?;
 
-    let initial_drill_dirs: BTreeSet<PathBuf> = std::fs::read_dir(&tmpdir)
-        .ok()
-        .map(|entries| {
-            entries
-                .filter_map(Result::ok)
-                .map(|e| e.path())
-                .filter(|p| {
-                    p.file_name()
-                        .and_then(|n| n.to_str())
-                        .is_some_and(|name| name.starts_with("field book drill."))
-                })
-                .collect()
-        })
-        .unwrap_or_default();
-
-    let _cleanup_guard = TempDrillDirGuard {
-        tmpdir: &tmpdir,
-        initial: &initial_drill_dirs,
-    };
+    after_tmpdir_setup();
 
     // 3. Extract and assemble runbook shell blocks
-    let script_body = extract_drill4_script(RUNBOOK).expect("extract Drill 4 script blocks");
+    let script_body =
+        extract_drill4_script(RUNBOOK).map_err(|e| format!("extract Drill 4 script: {e}"))?;
     let preamble = r#"fieldbook() { "$FIELDBOOK_BIN" "$@"; }"#;
     let combined_script = format!("{{\n{preamble}\n\n{script_body}\n}} 2>&1\n");
 
@@ -169,11 +122,14 @@ fn restore_drill4_runs_against_binary() {
     cmd.arg("-c")
         .arg(&combined_script)
         .current_dir(tmp_tree.path())
+        .env("TMPDIR", isolated_tmpdir.path())
         .env("FIELDBOOK_BIN", fieldbook_bin)
         .env("FIELDBOOK_STATE", &tmp_state)
         .env("HOME", tmp_home.path());
 
-    let output = cmd.output().expect("execute shell drill script");
+    let output = cmd
+        .output()
+        .map_err(|e| format!("execute shell drill script: {e}"))?;
     let combined_output = format!(
         "{}{}",
         String::from_utf8_lossy(&output.stdout),
@@ -203,67 +159,61 @@ fn restore_drill4_runs_against_binary() {
 
     let mut cursor = 0;
     for needle in needles {
-        let match_pos = combined_output[cursor..].find(needle).unwrap_or_else(|| {
-            panic!(
-                "Did not find needle {:?} after byte offset {} in output.\nFull output:\n{}",
-                needle, cursor, combined_output
-            );
-        });
+        let Some(match_pos) = combined_output[cursor..].find(needle) else {
+            return Err(format!(
+                "Did not find needle {needle:?} after byte offset {cursor} in output.\nFull output:\n{combined_output}"
+            ));
+        };
         cursor += match_pos + needle.len();
     }
 
     // Assert on "drill passed:" line formatting
-    let drill_line = combined_output
+    let Some(drill_line) = combined_output
         .lines()
         .find(|l| l.contains("drill passed: check clean, journal ok, fingerprint"))
-        .unwrap_or_else(|| {
-            panic!(
-                "Missing 'drill passed:' line in output.\nFull output:\n{}",
-                combined_output
-            );
-        });
+    else {
+        return Err(format!(
+            "Missing 'drill passed:' line in output.\nFull output:\n{combined_output}"
+        ));
+    };
 
     let drill_trimmed = drill_line.trim();
-    assert!(
-        drill_trimmed.ends_with(" matches"),
-        "Line must end with ' matches', got {:?}\nFull output:\n{}",
-        drill_line,
-        combined_output
-    );
+    if !drill_trimmed.ends_with(" matches") {
+        return Err(format!(
+            "Line must end with ' matches', got {drill_line:?}\nFull output:\n{combined_output}"
+        ));
+    }
 
     let prefix = "drill passed: check clean, journal ok, fingerprint ";
     let suffix = " matches";
-    let after_prefix = drill_trimmed.strip_prefix(prefix).unwrap_or_else(|| {
-        panic!(
-            "Expected prefix {:?} in {:?}\nFull output:\n{}",
-            prefix, drill_line, combined_output
-        );
-    });
-    let hex_part = after_prefix.strip_suffix(suffix).unwrap_or_else(|| {
-        panic!(
-            "Expected suffix {:?} in {:?}\nFull output:\n{}",
-            suffix, drill_line, combined_output
-        );
-    });
+    let Some(after_prefix) = drill_trimmed.strip_prefix(prefix) else {
+        return Err(format!(
+            "Expected prefix {prefix:?} in {drill_line:?}\nFull output:\n{combined_output}"
+        ));
+    };
+    let Some(hex_part) = after_prefix.strip_suffix(suffix) else {
+        return Err(format!(
+            "Expected suffix {suffix:?} in {drill_line:?}\nFull output:\n{combined_output}"
+        ));
+    };
 
-    assert!(
-        hex_part.len() == 12 && hex_part.chars().all(|c| c.is_ascii_hexdigit()),
-        "Expected 12 hex characters before ' matches', got {:?}\nFull output:\n{}",
-        hex_part,
-        combined_output
-    );
+    if hex_part.len() != 12 || !hex_part.chars().all(|c| c.is_ascii_hexdigit()) {
+        return Err(format!(
+            "Expected 12 hex characters before ' matches', got {hex_part:?}\nFull output:\n{combined_output}"
+        ));
+    }
 
     // Assert tmp_state has no drill folder afterwards
     let drill_folder = tmp_state.join("drill");
-    assert!(
-        !drill_folder.exists(),
-        "tmp_state must not contain 'drill' folder afterwards: {}\nFull output:\n{}",
-        drill_folder.display(),
-        combined_output
-    );
+    if drill_folder.exists() {
+        return Err(format!(
+            "tmp_state must not contain 'drill' folder afterwards: {}\nFull output:\n{combined_output}",
+            drill_folder.display()
+        ));
+    }
 
-    // Assert no leftover drill temp directory in TMPDIR
-    let remaining_drill_dirs: Vec<PathBuf> = std::fs::read_dir(&tmpdir)
+    // Assert Step 7 cleaned up its `field book drill.*` temp directory inside `isolated_tmpdir`
+    let remaining_drill_dirs: Vec<PathBuf> = std::fs::read_dir(isolated_tmpdir.path())
         .ok()
         .map(|entries| {
             entries
@@ -273,17 +223,97 @@ fn restore_drill4_runs_against_binary() {
                     p.file_name()
                         .and_then(|n| n.to_str())
                         .is_some_and(|name| name.starts_with("field book drill."))
-                        && !initial_drill_dirs.contains(p)
                 })
                 .collect()
         })
         .unwrap_or_default();
 
+    if !remaining_drill_dirs.is_empty() {
+        return Err(format!(
+            "Expected step 7 to clean up temp drill dir, but found leftovers in TMPDIR: {remaining_drill_dirs:?}\nFull output:\n{combined_output}"
+        ));
+    }
+
+    Ok(())
+}
+
+#[expect(
+    clippy::print_stderr,
+    reason = "contract requires eprintln! skip message when tools are missing"
+)]
+#[test]
+fn restore_drill4_runs_against_binary() {
+    if !tool_available("sha256sum") {
+        eprintln!("skipping drill4: sha256sum tool not available");
+        return;
+    }
+    if !tool_available("diff") {
+        eprintln!("skipping drill4: diff tool not available");
+        return;
+    }
+
+    let tmpdir = std::env::var_os("TMPDIR")
+        .map(PathBuf::from)
+        .unwrap_or_else(std::env::temp_dir);
+
+    if let Err(err) = run_drill4_with_outer_tmpdir(&tmpdir, || {}) {
+        panic!("{err}");
+    }
+}
+
+#[expect(
+    clippy::print_stderr,
+    reason = "contract requires eprintln! skip message when tools are missing"
+)]
+#[test]
+fn restore_drill4_shared_tmpdir_isolates_concurrent_siblings() {
+    if !tool_available("sha256sum") {
+        eprintln!("skipping drill4: sha256sum tool not available");
+        return;
+    }
+    if !tool_available("diff") {
+        eprintln!("skipping drill4: diff tool not available");
+        return;
+    }
+
+    let shared_outer = tempfile::tempdir().expect("create shared outer tmpdir");
+    let sibling_drill_dir = shared_outer.path().join("field book drill.sibling");
+    let sibling_target = sibling_drill_dir.join("target/sentinel.txt");
+
+    let res = run_drill4_with_outer_tmpdir(shared_outer.path(), || {
+        std::fs::create_dir_all(sibling_drill_dir.join("target"))
+            .expect("create concurrent sibling drill dir");
+        std::fs::write(&sibling_target, b"live-sibling\n").expect("write sibling sentinel");
+    });
+
     assert!(
-        remaining_drill_dirs.is_empty(),
-        "Expected step 7 to clean up temp drill dir, but found leftovers in TMPDIR: {:?}\nFull output:\n{}",
-        remaining_drill_dirs,
-        combined_output
+        sibling_target.is_file(),
+        "concurrent sibling drill directory in shared TMPDIR was deleted by drill4 cleanup"
+    );
+    if let Err(err) = res {
+        panic!(
+            "drill4 failed when a concurrent sibling drill directory existed in shared TMPDIR:\n{err}"
+        );
+    }
+
+    let outer_path = shared_outer.path();
+    let (r1, r2) = std::thread::scope(|s| {
+        let t1 = s.spawn(|| run_drill4_with_outer_tmpdir(outer_path, || {}));
+        let t2 = s.spawn(|| run_drill4_with_outer_tmpdir(outer_path, || {}));
+        (
+            t1.join().expect("join first concurrent drill4"),
+            t2.join().expect("join second concurrent drill4"),
+        )
+    });
+    if let Err(err) = r1 {
+        panic!("first concurrent drill4 failed under shared TMPDIR:\n{err}");
+    }
+    if let Err(err) = r2 {
+        panic!("second concurrent drill4 failed under shared TMPDIR:\n{err}");
+    }
+    assert!(
+        sibling_target.is_file(),
+        "concurrent sibling sentinel must remain intact after parallel drill4 runs"
     );
 }
 
