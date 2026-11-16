@@ -43,7 +43,7 @@ A level-of-effort support work package is budgeted in the current period, but th
 
 ## Never confuse
 
-Guideline 25 addresses documenting and reconciling changes to current scope, schedule, and budgets as a result of internal replanning to maintain an executable baseline for the remaining in-scope work on the contract, with contract budget logs providing traceability of authorized baseline changes [@CL-PRG-0099; @CL-PRG-0367; @CL-PRG-0368], whereas Guideline 24 addresses incorporating customer directed changes in a timely manner and incorporating authorized changes into the performance measurement baseline before the commencement of work [@CL-PRG-0098; @CL-PRG-0366].
+Guideline 25 addresses documenting and reconciling changes to current scope, schedule, and budgets as a result of internal replanning to maintain an executable baseline for the remaining in-scope work on the contract, with contract budget logs providing traceability of authorized baseline changes [@CL-PRG-0099; @CL-PRG-0367; @CL-PRG-0368], unlike Guideline 24, which addresses incorporating customer directed changes in a timely manner and incorporating authorized changes into the performance measurement baseline before the commencement of work [@CL-PRG-0098; @CL-PRG-0366].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which changes to the forecast come from internal replanning versus contingency, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0099, CL-PRG-0100, and CL-PRG-0104 for the Guideline 25 rule text and freeze-period sentences, populated the instrument field, and cited the distinction between internal replanning and customer directed changes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the baseline start or finish and future-periods conditions and the as-long-as wording for level-of-effort replanning.
 - COMPATIBLE_EXTENSION, 2026-10-29: Added the rule against masking legitimate variances and the level-of-effort replanning conditions.

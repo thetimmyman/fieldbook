@@ -11,7 +11,8 @@ mod support;
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 
-use fieldbook::build::{plan_edition, write_edition_outputs};
+use fieldbook::build::{plan_edition, run_with_info, write_edition_outputs};
+use fieldbook::cli::BuildArgs;
 use fieldbook::io::state;
 use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
@@ -21,6 +22,7 @@ use fieldbook_core::audit::{
 };
 use fieldbook_core::authz::ReadableStores;
 use fieldbook_core::check::{Host, Model, Options, Severity, Tree, load};
+use fieldbook_core::edition::{EditionCounts, EditionIds, EditionInfo};
 use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Transfer, check};
 use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, effective_item};
 use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
@@ -66,6 +68,8 @@ const BUILT_SINKS: &[&str] = &[
     "register_csvs",
     "restore",
     "template_workbooks",
+    "desk_pages",
+    "changes_page",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -109,6 +113,14 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "template_workbooks",
         run: run_template_workbooks_surface,
+    },
+    Surface {
+        name: "desk_pages",
+        run: run_desk_pages_surface,
+    },
+    Surface {
+        name: "changes_page",
+        run: run_changes_page_surface,
     },
 ];
 
@@ -2711,6 +2723,106 @@ fn run_template_workbooks_surface() {
     }
 }
 
+fn run_changes_page_surface() {
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+
+    // Plant a public canary page whose body carries the fixture's public canary string: the
+    // page is in the permitted view, but `changes.html` prints no record text, so the canary
+    // must not appear on it.
+    let public_canary = fixture
+        .record
+        .iter()
+        .find(|r| r.label == "public")
+        .unwrap_or_else(|| panic!("fixture holds a public record"));
+    let canary_page = format!(
+        "+++\nid = \"cmp-changes-canary\"\ntitle = \"Synthetic compliance Changes canary page\"\narea = \"cmp\"\nsubarea = \"business-systems\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\n{}.\n\n## The rule\n\nSynthetic rule.\n\n## How it works\n\nSynthetic steps.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSynthetic answer.\n\n## Never confuse\n\nSynthetic boundary.\n\n## Company calibration\n\nNot established.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Synthetic change.\n",
+        public_canary.canary
+    );
+    let canary_dir = tmp.path().join("corpus/pages/compliance/business-systems");
+    std::fs::create_dir_all(&canary_dir).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(canary_dir.join("cmp-changes-canary.md"), canary_page)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Company-shaped canary ids planted in the `--since` file among the removed ids, one of
+    // each shape: a page with an `x` area, a term with `x_`, a claim with an `X` area and a
+    // public number, a company claim and a company source version. None is in the current view,
+    // so each is a removed id the page must count and never print.
+    let since_dir = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let since_path = since_dir.path().join("edition.toml");
+    std::fs::write(&since_path, since_planted_edition().to_toml())
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // The real sink: `build --since <file>` end to end.
+    let outcome = run_with_info(
+        &BuildArgs {
+            out: tmp.path().join("out"),
+            watch: false,
+            since: Some(since_path.to_string_lossy().into_owned()),
+        },
+        &world,
+        &BuildInfo::default(),
+    );
+    assert_eq!(
+        outcome.code, 0,
+        "build --since must succeed: {}",
+        outcome.stderr
+    );
+    let html = std::fs::read_to_string(tmp.path().join("out/edition/changes.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // No canary text appears on the page.
+    for rec in &fixture.record {
+        assert!(
+            !html.contains(&rec.canary),
+            "canary `{}` must not appear in changes.html",
+            rec.canary
+        );
+    }
+    // Each planted company-shaped id is absent, and the not-shown count includes them.
+    for id in [
+        "xes-forbidden-canary",
+        "S-00012-v1",
+        "CL-XES-0012",
+        "CL-XES-000012",
+        "x_forbidden_canary",
+    ] {
+        assert!(
+            !html.contains(id),
+            "canary id `{id}` must not appear in changes.html"
+        );
+    }
+    assert!(
+        html.contains("5 removed ids are not listed. They are not in the public id form."),
+        "the not-shown count must include the planted ids:\n{html}"
+    );
+}
+
+/// The `--since` edition: the five planted company-shaped ids, one per shape, and nothing else,
+/// so every one of them is a removed id.
+fn since_planted_edition() -> EditionInfo {
+    EditionInfo {
+        edition: "edition-001".to_owned(),
+        number: 1,
+        built: "2026-02-01".to_owned(),
+        tool_version: "0.1.0".to_owned(),
+        min_tool_version: "0.1.0".to_owned(),
+        schema_version: 1,
+        commit: "0".repeat(40),
+        fingerprint: "f".repeat(64),
+        counts: EditionCounts::default(),
+        ids: EditionIds {
+            pages: vec!["xes-forbidden-canary".to_owned()],
+            source_versions: vec!["S-00012-v1".to_owned()],
+            claims: vec!["CL-XES-0012".to_owned(), "CL-XES-000012".to_owned()],
+            questions: Vec::new(),
+            conflicts: Vec::new(),
+            terms: vec!["x_forbidden_canary".to_owned()],
+        },
+    }
+}
+
 #[test]
 fn output_surfaces_cover_built_sinks() {
     let mut surface_names = Vec::new();
@@ -2755,6 +2867,142 @@ fn delivered_workbook_and_csvs_filter_rows() {
 #[test]
 fn delivered_templates_are_public_and_complete() {
     run_template_workbooks_surface();
+}
+
+fn desk_add_report_json(labels: &str, file_canary: &str, source_id: &str) -> String {
+    format!(
+        concat!(
+            "{{",
+            "\"report_version\":1,\"verb\":\"add\",\"dir\":\"incoming\",",
+            "\"labels\":{labels},",
+            "\"inputs\":[{{\"store\":\"corpus\",\"id\":\"{source_id}\"}}],",
+            "\"files\":[{{\"name\":\"{file_canary}\",\"result\":\"added\",\"id\":\"{source_id}\",",
+            "\"sha256\":\"{sha}\",\"bytes\":42,\"needs_extraction\":false}}],",
+            "\"counts\":{{\"added\":1,\"present\":0,\"refused\":0,\"needs_extraction\":0}},",
+            "\"exit\":0",
+            "}}"
+        ),
+        labels = labels,
+        file_canary = file_canary,
+        source_id = source_id,
+        sha = "1".repeat(64),
+    )
+}
+
+fn run_desk_pages_surface() {
+    const PERMITTED_DESK_CANARY: &str = "Permitted desk import file canary.txt";
+    const FORBIDDEN_DESK_CANARY: &str = "Forbidden desk import file canary.txt";
+
+    // 1. Forbidden non-State label (`np-0007`) on a fresh state folder is refused before writing.
+    let fresh_tmp = temp_copy(&repo_root_from_manifest().join("tests/fixtures/corpus-mini"));
+    let fresh_state = fresh_tmp.path().join("state");
+    std::fs::create_dir_all(fresh_state.join("reports")).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(fresh_state.join("settings.toml"), "role = \"lead\"\n")
+        .unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(
+        fresh_state.join("reports/last-add.json"),
+        desk_add_report_json(
+            "[\"public\",\"np-0007\"]",
+            FORBIDDEN_DESK_CANARY,
+            "S-0001-v1",
+        ),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    let fresh_world = TestWorld::with_state(fresh_tmp.path(), &fresh_state);
+    let refused_fresh = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &fresh_world);
+    assert_eq!(refused_fresh.code, 3, "stderr: {}", refused_fresh.stderr);
+    assert!(refused_fresh.stderr.contains("FB0412"));
+    assert!(
+        !fresh_state.join("pages").exists(),
+        "refused desk write must not create state/pages"
+    );
+
+    // 2. Permitted State label (`owner-supplied` + `public` input) writes `pages/import.html`
+    //    containing the permitted canary and keeps journal segments free of file-name canaries.
+    let tmp = temp_copy(&repo_root_from_manifest().join("tests/fixtures/corpus-mini"));
+    let state_dir = tmp.path().join("state");
+    std::fs::create_dir_all(state_dir.join("reports")).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(state_dir.join("settings.toml"), "role = \"lead\"\n")
+        .unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(
+        state_dir.join("reports/last-add.json"),
+        desk_add_report_json("[\"owner-supplied\"]", PERMITTED_DESK_CANARY, "S-0001-v1"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    let world = TestWorld::with_state(tmp.path(), &state_dir);
+    let ok = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &world);
+    assert_eq!(ok.code, 0, "stderr: {}", ok.stderr);
+    let import_html = std::fs::read_to_string(state_dir.join("pages/import.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    assert!(import_html.contains(PERMITTED_DESK_CANARY));
+    assert!(!import_html.contains(FORBIDDEN_DESK_CANARY));
+    let audit_dir = state_dir.join("audit");
+    for entry in std::fs::read_dir(&audit_dir).unwrap_or_else(|e| panic!("{e}")) {
+        let path = entry.unwrap_or_else(|e| panic!("{e}")).path();
+        if path.extension().is_some_and(|ext| ext == "jsonl") {
+            let text = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("{e}"));
+            assert!(
+                !text.contains(PERMITTED_DESK_CANARY) && !text.contains(FORBIDDEN_DESK_CANARY),
+                "journal segment must hold no desk canary: {path:?}"
+            );
+        }
+    }
+
+    // 3. Input provenance re-evaluation: relabelling S-0001 to `public;np-0007` between the
+    //    command's initial read and its exclusive write lease refuses and preserves `import.html`.
+    std::fs::write(
+        state_dir.join("reports/last-add.json"),
+        desk_add_report_json("[\"public\"]", FORBIDDEN_DESK_CANARY, "S-0001-v1"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    let sources_csv = tmp.path().join("corpus/registers/sources.csv");
+    world.set_before_write_lease(move || {
+        let csv = std::fs::read_to_string(&sources_csv).unwrap_or_else(|e| panic!("{e}"));
+        let updated = csv
+            .lines()
+            .map(|line| {
+                if line.starts_with("S-0001,") {
+                    line.replacen(",public,", ",public|np-0007,", 1)
+                } else {
+                    line.to_owned()
+                }
+            })
+            .collect::<Vec<_>>()
+            .join("\n");
+        std::fs::write(&sources_csv, format!("{updated}\n")).unwrap_or_else(|e| panic!("{e}"));
+    });
+    let relabelled = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &world);
+    assert_eq!(relabelled.code, 3, "stderr: {}", relabelled.stderr);
+    assert!(relabelled.stderr.contains("FB0412"));
+    let preserved = std::fs::read_to_string(state_dir.join("pages/import.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    assert_eq!(preserved, import_html);
+    assert!(!preserved.contains(FORBIDDEN_DESK_CANARY));
+
+    // 4. Negative sink plant: `StateScope` (`write_file`) refuses any path outside `state/`.
+    let lease = world.write_lease().unwrap_or_else(|e| panic!("{e}"));
+    let journal = state::open(&world, &state_dir, Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .state_scope(&lease)
+        .unwrap_or_else(|e| panic!("{e}"));
+    let outside = tmp.path().join("outside-desk.html");
+    let Err(err) = world.write_file(&audited, &outside, FORBIDDEN_DESK_CANARY.as_bytes()) else {
+        panic!("StateScope must refuse writes outside state_dir");
+    };
+    assert!(
+        matches!(err, Error::OutOfScope(_)),
+        "expected OutOfScope, got: {err:?}"
+    );
+    assert!(!outside.exists());
+}
+
+fn repo_root_from_manifest() -> PathBuf {
+    PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..")
+}
+
+#[test]
+fn delivered_desk_pages_admit_and_bind() {
+    run_desk_pages_surface();
 }
 
 #[test]

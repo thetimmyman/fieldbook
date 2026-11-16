@@ -54,9 +54,7 @@ A mission needs State tags for six leased trucks, so the contractor sends the Go
 
 ## Never confuse
 
-Under the tagging clause, while it is the intent that vehicles leased under the contract will operate on Federal tags, the Government reserves the right to utilize State tags if necessary to accomplish its mission [@CL-SUP-2938], whereas under the Government supply sources clause, title to all property acquired by the contractor under such an authorization shall vest in the Government unless otherwise specified in the contract [@CL-SUP-2942]. Under the fleet vehicles clause, the use, service, and maintenance of IFMS vehicles and the use of related services by the contractor shall be in accordance with 41 CFR 101-39 and 41 CFR 101-38.301-1 [@CL-SUP-2986]. Codified FAR 52.251-2 covers interagency fleet management system vehicles and cites 41 CFR 101-39 and 41 CFR 101-38.301-1, while RFO FAR 52.208-91 covers GSA Fleet vehicles and cites 41 CFR 101-39 and 41 CFR 102-34 [@CL-SUP-2940; @CL-SUP-2986; @CL-SUP-0633; @CL-SUP-0634].
-
-The clauses on vehicle lease payments, condition of leased vehicles and marking of leased vehicles are covered in [Vehicle lease payments, condition of leased vehicles and marking of leased vehicles](sup-vehicle-lease-payments-condition-and-marking.md).
+Under the tagging clause, while it is the intent that vehicles leased under the contract will operate on Federal tags, the Government reserves the right to utilize State tags if necessary to accomplish its mission [@CL-SUP-2938], unlike under the Government supply sources clause, where title to all property acquired by the contractor under such an authorization shall vest in the Government unless otherwise specified in the contract [@CL-SUP-2942]. Under the fleet vehicles clause, the use, service, and maintenance of IFMS vehicles and the use of related services by the contractor shall be in accordance with 41 CFR 101-39 and 41 CFR 101-38.301-1 [@CL-SUP-2986]. Codified FAR 52.251-2 covers interagency fleet management system vehicles and cites 41 CFR 101-39 and 41 CFR 101-38.301-1, while RFO FAR 52.208-91 covers GSA Fleet vehicles and cites 41 CFR 101-39 and 41 CFR 102-34 [@CL-SUP-2940; @CL-SUP-2986; @CL-SUP-0633; @CL-SUP-0634]. The clauses on vehicle lease payments, condition of leased vehicles and marking of leased vehicles are covered in [Vehicle lease payments, condition of leased vehicles and marking of leased vehicles](sup-vehicle-lease-payments-condition-and-marking.md).
 
 ## Company calibration
 
@@ -66,6 +64,7 @@ Who reconciles vehicle tags, fleet authorizations and Government supply source p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned prescription, modality, and RFO reserved wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on leased vehicle payments and marking.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

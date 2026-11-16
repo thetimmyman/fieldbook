@@ -59,9 +59,7 @@ A cost-plus-fixed-fee construction contract is outside paragraph (b), so paragra
 
 ## Never confuse
 
-Paragraph (c) prescribes the clause at 52.211-13, Time Extensions, in solicitations and contracts for construction that use the clause at 52.211-12 when that clause has been revised as provided in paragraph (b) [@CL-PRG-0475].
-
-Paragraph (a) applies to fixed-price solicitations and contracts for supplies, services, or research and development [@CL-PRG-0472], while paragraph (b) applies to solicitations and contracts for construction, other than cost-plus-fixed-fee [@CL-PRG-0473].
+Paragraph (c) prescribes the clause at 52.211-13, Time Extensions, in solicitations and contracts for construction that use the clause at 52.211-12 when that clause has been revised as provided in paragraph (b) [@CL-PRG-0475]. Paragraph (a) applies to fixed-price solicitations and contracts for supplies, services, or research and development [@CL-PRG-0472], unlike paragraph (b), which applies to solicitations and contracts for construction, other than cost-plus-fixed-fee [@CL-PRG-0473].
 
 ## Company calibration
 
@@ -71,6 +69,7 @@ Who confirms that each executed construction contract states damages by stage an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart 22.21 cross-reference from CL-PRG-1001 and removed uncited framing, absence, and meta-commentary statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the other expected expenses in section 11.502(b).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of subpart 11.5 and the solicitation rules in section 11.502.

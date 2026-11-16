@@ -47,7 +47,7 @@ A Schedule line item calls for three trucks, and the requiring activity sends a 
 
 ## Never confuse
 
-The Government-assigned serial number comes from the requiring activity, while the contractor establishes the unique item identifier [@CL-SUP-1552; @CL-SUP-1556]. They are registered together at delivery [@CL-SUP-1555]. The registration is made in accordance with paragraph (d) of the clause at DFARS 252.211-7003 [@CL-SUP-1555], covered in [Item unique identification and valuation clause](../../compliance/business-systems/cmp-dfars-item-unique-identification.md). The examination provision concerns documents cited in a solicitation [@CL-SUP-1557], while the marking duty is in the serial numbers clause [@CL-SUP-1554].
+The Government-assigned serial number comes from the requiring activity, unlike the unique item identifier, which the contractor establishes [@CL-SUP-1552; @CL-SUP-1556]. They are registered together at delivery [@CL-SUP-1555]. The registration is made in accordance with paragraph (d) of the clause at DFARS 252.211-7003 [@CL-SUP-1555], covered in [Item unique identification and valuation clause](../../compliance/business-systems/cmp-dfars-item-unique-identification.md). The examination provision concerns documents cited in a solicitation [@CL-SUP-1557], while the marking duty is in the serial numbers clause [@CL-SUP-1554].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed contracts carry the serial numbers clause and which Schedule line
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied clause pointer, identifier wording and examination provision to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the vehicle wording of the major end item list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the serial number definition so the rule keeps the accompanying marking instructions.

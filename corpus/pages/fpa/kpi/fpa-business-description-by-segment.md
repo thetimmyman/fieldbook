@@ -47,7 +47,7 @@ A contractor has two reportable segments. One earns most of its revenue from a s
 
 ## Never confuse
 
-Under Item 101(c)(1), when describing each segment, only information material to an understanding of the business taken as a whole is required, and disclosure may include, but should not be limited to, revenue-generating activities, products and/or services, any dependence on revenue-generating activities, key products, services, product families or customers (including governmental customers), and the status of development efforts for new or enhanced products, trends in market demand and competitive conditions [@CL-FPA-0007; @CL-FPA-0008; @CL-FPA-0009]. See [Government contract exposure in the business description](../backlog/fpa-government-contract-exposure-disclosure.md).
+Under Item 101(c)(1), when describing each segment, only information material to an understanding of the business taken as a whole is required, and disclosure may include, but should not be limited to, revenue-generating activities, products and/or services, any dependence on revenue-generating activities, key products, services, product families or customers (including governmental customers), and the status of development efforts for new or enhanced products, trends in market demand and competitive conditions [@CL-FPA-0007; @CL-FPA-0008; @CL-FPA-0009], unlike the general development of the business under Item 101(a) on [Business development disclosure by public registrants](../planning-chain/fpa-business-development-disclosure.md) or the specific government-contract and environmental-compliance disclosures on [Government contract exposure in the business description](../backlog/fpa-government-contract-exposure-disclosure.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which reporting measures management uses for segment performance and customer de
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Instruction 1 factor companions and Item 10(a)(2) filing companions, restored full quote wording, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored should-not-be-limited wording and the only-material-information-is-required wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business description by segment.

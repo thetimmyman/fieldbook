@@ -47,7 +47,7 @@ A cost-reimbursement contractor ships supplies on a commercial bill of lading th
 
 ## Never confuse
 
-The notation is made on the commercial shipping documents before shipment when the contracting officer authorizes the commercial bill of lading and the costs are reimbursed as direct allowable costs [@CL-SUP-2141; @CL-SUP-2011], and the audit submission covers the documents for freight charges the United States will assume and goes to the address the contracting officer fills in [@CL-SUP-2014; @CL-SUP-2144].
+The notation is made on the commercial shipping documents before shipment when the contracting officer authorizes the commercial bill of lading and the costs are reimbursed as direct allowable costs [@CL-SUP-2141; @CL-SUP-2011], unlike the audit submission, which covers the documents for freight charges the United States will assume and goes to the address the contracting officer fills in [@CL-SUP-2014; @CL-SUP-2144].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which shipping documents the company annotates, which bills it submits for a pre
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned audit, notice alternatives and notation wording with the cited quotes; added the or-alternatives companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

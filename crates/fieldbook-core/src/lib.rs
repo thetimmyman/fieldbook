@@ -39,6 +39,7 @@ pub mod scan;
 pub mod schema;
 pub mod schema_json;
 pub mod search;
+pub mod status;
 pub mod strings;
 pub mod verify;
 pub mod version;

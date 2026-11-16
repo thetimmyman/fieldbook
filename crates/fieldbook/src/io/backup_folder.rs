@@ -60,21 +60,36 @@ impl<'a> FolderTarget<'a> {
     ///
     /// Returns [`BackupError`] if removal fails.
     pub fn clean_leftover_partials(&self) -> Result<(), BackupError> {
-        let Ok(read_dir) = std::fs::read_dir(&self.target) else {
-            return Ok(());
+        let read_dir = match std::fs::read_dir(&self.target) {
+            Ok(rd) => rd,
+            Err(err) if err.kind() == std::io::ErrorKind::NotFound => return Ok(()),
+            Err(err) => {
+                return Err(BackupError::Target(format!(
+                    "{}: {err}",
+                    self.target.display()
+                )));
+            }
         };
-        for entry in read_dir.flatten() {
+        let mut partials = Vec::new();
+        for entry in read_dir {
+            let entry = entry
+                .map_err(|err| BackupError::Target(format!("{}: {err}", self.target.display())))?;
             let path = entry.path();
             if let Some(file_name) = path.file_name().and_then(|n| n.to_str())
                 && backup_folder_v1::is_partial_dir_name(file_name)
             {
-                let _ = dirs::remove_outside(
-                    self.audited,
-                    self.allowed,
-                    &path,
-                    Removable::PartialSnapshot,
-                );
+                partials.push(path);
             }
+        }
+        partials.sort();
+        for path in partials {
+            dirs::remove_outside(
+                self.audited,
+                self.allowed,
+                &path,
+                Removable::PartialSnapshot,
+            )
+            .map_err(|err| BackupError::Target(err.to_string()))?;
         }
         Ok(())
     }

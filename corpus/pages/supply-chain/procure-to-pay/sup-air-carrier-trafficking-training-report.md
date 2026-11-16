@@ -45,7 +45,7 @@ A carrier's report is due by October 30th and covers the fiscal year that ended 
 
 ## Never confuse
 
-The report states whether a hotline or law enforcement was notified and, where one was, the date and method [@CL-SUP-2041; @CL-SUP-2042]. The training count covers personnel trained in the detection and reporting of potential human trafficking, including the training required under section 44734(a)(4) of title 49, United States Code [@CL-SUP-2039], and the clause says the personnel trained should include the listed categories of workers [@CL-SUP-2162].
+The report states whether a hotline or law enforcement was notified and, where one was, the date and method [@CL-SUP-2041; @CL-SUP-2042], unlike the training count, which covers personnel trained in the detection and reporting of potential human trafficking, including the training required under section 44734(a)(4) of title 49, United States Code [@CL-SUP-2039], where the clause says the personnel trained should include the listed categories of workers [@CL-SUP-2162].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who owns the annual trafficking-prevention report and how training and notificat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Spelled out the statute reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned report contents and statute wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

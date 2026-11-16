@@ -45,7 +45,7 @@ A business unit books 60 million of new negotiated CAS-covered prime contract an
 
 ## Never confuse
 
-Net awards, as used in this chapter, means the total value of negotiated CAS-covered prime contract and subcontract awards, including the potential value of contract options, received during the reporting period minus cancellations, terminations, and other related credit transactions [@CL-RTE-0814]. CAS-covered contract, as used in this part, means any negotiated contract or subcontract in which a CAS clause is required to be included [@CL-RTE-0813]. What counts as a cost accounting practice, and what counts as a change to one, is on the [definitions card](../../compliance/cas-allowability/cmp-cost-accounting-practice-definitions.md).
+Net awards, as used in this chapter, means the total value of negotiated CAS-covered prime contract and subcontract awards, including the potential value of contract options, received during the reporting period minus cancellations, terminations, and other related credit transactions [@CL-RTE-0814], unlike a CAS-covered contract, which as used in this part means any negotiated contract or subcontract in which a CAS clause is required to be included [@CL-RTE-0813]. What counts as a cost accounting practice, and what counts as a change to one, is on the [definitions card](../../compliance/cas-allowability/cmp-cost-accounting-practice-definitions.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ How pools, bases and awards are defined and reconciled so that net awards can be
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the definitions card to state the definitions and pointers directly, added the chapter 99 applicability and the Disclosure statement definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Board definitions used with practice changes.

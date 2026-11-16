@@ -45,7 +45,7 @@ A prime passes an earned value requirement down to one outside supplier. It also
 
 ## Never confuse
 
-When contractually required, contractors are required to demonstrate compliance with the 27 Guidelines, regardless of EVM reporting requirements defined in the contractual Contract Data Requirements List (CDRL) [@CL-PRG-0629]. See [Earned value management system requirement](prg-evms-requirement.md).
+When contractually required, contractors must demonstrate compliance with the 27 Guidelines regardless of the EVM reporting requirements defined in the contractual Contract Data Requirements List (CDRL) [@CL-PRG-0629], and while inter-company work agreements whose planning, execution, and reporting of scope and schedule are independent of the prime are treated as subcontractors, inter-company work scope and schedule under the direct daily management control of the prime and directly integrated into the prime effort are not considered a subcontract [@CL-PRG-0631; @CL-PRG-0632]. See [Earned value management system requirement](prg-evms-requirement.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Whether the company's System Description is current, has been shown in practice,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned three compliance steps and Never confuse wording to cited quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS compliance determination.

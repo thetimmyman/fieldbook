@@ -44,7 +44,7 @@ A listed contractor buys a smaller firm for 40 million, which is material to its
 
 ## Never confuse
 
-Item 101(a) requires describing the general development of the business of the registrant, its subsidiaries, and any predecessors, where only information material to an understanding of the general development of the business is required and disclosure may include, but should not be limited to, any material changes to a previously disclosed business strategy, the nature and effects of any material bankruptcy, receivership, or any similar proceeding or of any material reclassification, merger or consolidation of the registrant or any of its significant subsidiaries, and the acquisition or disposition of any material amount of assets otherwise than in the ordinary course of business [@CL-FPA-0001; @CL-FPA-0002; @CL-FPA-0004; @CL-FPA-0003]. See [Business description by segment](../kpi/fpa-business-description-by-segment.md).
+Item 101(a) requires describing the general development of the business of the registrant, its subsidiaries, and any predecessors, where only information material to an understanding of the general development of the business is required and disclosure may include, but should not be limited to, any material changes to a previously disclosed business strategy, the nature and effects of any material bankruptcy, receivership, or any similar proceeding or of any material reclassification, merger or consolidation of the registrant or any of its significant subsidiaries, and the acquisition or disposition of any material amount of assets otherwise than in the ordinary course of business [@CL-FPA-0001; @CL-FPA-0002; @CL-FPA-0004; @CL-FPA-0003], unlike the segment-by-segment description of business done and intended to be done under Item 101(c)(1) on [Business description by segment](../kpi/fpa-business-description-by-segment.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which management reporting measures flag a strategy change, merger or asset disp
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Item 101(a)(2) lead-in companion and Item 10(a)(2) filing companions, restored full quote wording, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Topic list now says disclosure may include but should not be limited to the topics, as the source states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business development disclosure.

@@ -54,7 +54,7 @@ An offeror ships pumps in wooden crates and states that packing and container ma
 
 ## Never confuse
 
-The classification description covers the commodity, its packing and its shipping conditions [@CL-SUP-2452], and shipments under an awarded f.o.b. origin contract will be made in conformity with the description the Government specifies, which may be different from the one the offeror furnished [@CL-SUP-2453]. Loading, blocking and bracing is a duty the contractor performs on receipt of shipping instructions, with liability for payment of any damage caused by the failure to load, block and brace in accordance with acceptable standards [@CL-SUP-2455; @CL-SUP-2457]. For liability for loss and damage in carriage generally, see [Freight loss and damage liability](sup-freight-loss-and-damage-liability.md).
+The classification description covers the commodity, its packing and its shipping conditions [@CL-SUP-2452], and shipments under an awarded f.o.b. origin contract will be made in conformity with the description the Government specifies, which may be different from the one the offeror furnished [@CL-SUP-2453], unlike loading, blocking and bracing, which is a duty the contractor performs on receipt of shipping instructions, with liability for payment of any damage caused by the failure to load, block and brace in accordance with acceptable standards [@CL-SUP-2455; @CL-SUP-2457]. For liability for loss and damage in carriage generally, see [Freight loss and damage liability](sup-freight-loss-and-damage-liability.md).
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Whether the description the company bids with matches the classification the Gov
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the blank, loading duty and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for freight classification description and carload loading, blocking and bracing.

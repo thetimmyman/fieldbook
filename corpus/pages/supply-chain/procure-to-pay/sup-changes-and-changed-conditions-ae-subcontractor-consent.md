@@ -53,7 +53,7 @@ On a separate architect-engineer contract, the team agreed in negotiations inclu
 
 ## Never confuse
 
-Paragraph (a) covers changes the contracting officer orders in writing within the general scope of the contract [@CL-SUP-3091], and paragraph (b) puts a duty on the contractor to notify the contracting officer, in writing, of the conditions before proceeding with the work [@CL-SUP-3092]. The architect-engineer clause limits the team to the individuals or firms specifically identified and agreed to during negotiations and requires the contracting officer's written consent before any substitution [@CL-SUP-3097; @CL-SUP-3098]. Related cards are [construction changes](../../close-revrec/revenue/cls-changes-construction.md), [notification of changes](../../close-revrec/revenue/cls-notification-of-changes.md), [the Disputes clause](../../close-revrec/revenue/cls-disputes-clause.md) and [subcontract consent and advance notification](sup-subcontracts-consent-advance-notification.md). The codified paragraph (a) lets the contracting officer order changes in writing within the general scope of the contract [@CL-SUP-3091], while the RFO paragraph (a) says within the scope of the contract [@CL-SUP-0018].
+Paragraph (a) covers changes the contracting officer orders in writing within the general scope of the contract [@CL-SUP-3091], and paragraph (b) puts a duty on the contractor to notify the contracting officer, in writing, of the conditions before proceeding with the work [@CL-SUP-3092]. The architect-engineer clause limits the team to the individuals or firms specifically identified and agreed to during negotiations and requires the contracting officer's written consent before any substitution [@CL-SUP-3097; @CL-SUP-3098]. Related cards are [construction changes](../../close-revrec/revenue/cls-changes-construction.md), [notification of changes](../../close-revrec/revenue/cls-notification-of-changes.md), [the Disputes clause](../../close-revrec/revenue/cls-disputes-clause.md) and [subcontract consent and advance notification](sup-subcontracts-consent-advance-notification.md). The codified paragraph (a) lets the contracting officer order changes in writing within the general scope of the contract [@CL-SUP-3091], unlike the RFO paragraph (a), which says within the scope of the contract [@CL-SUP-0018].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which clause text sits in each construction and architect-engineer contract, whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned notice, prescription and architect-engineer wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

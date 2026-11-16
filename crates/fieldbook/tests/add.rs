@@ -722,6 +722,15 @@ fn held_open_target_is_in_use() {
         fn remove_drill(&self, audited: &fieldbook::Audited) -> Result<(), fieldbook::WorldError> {
             self.inner.remove_drill(audited)
         }
+        fn read_maintenance(&self) -> Result<String, fieldbook::WorldError> {
+            self.inner.read_maintenance()
+        }
+        fn read_state_summary(
+            &self,
+            today: fieldbook_core::CivilDate,
+        ) -> Result<fieldbook_core::status::StateSummary, fieldbook::WorldError> {
+            self.inner.read_state_summary(today)
+        }
     }
 
     let tmp = temp_copy(&fixture_root());

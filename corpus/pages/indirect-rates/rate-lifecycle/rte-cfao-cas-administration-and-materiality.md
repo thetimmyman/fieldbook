@@ -49,7 +49,7 @@ An audit report identifies a noncompliance with an estimated net cost impact of 
 
 ## Never confuse
 
-The CFAO shall perform CAS administration for all contracts and subcontracts in a business unit, even when the contracting officer retains other administration functions [@CL-RTE-0600]. The materiality criteria sit on [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md), the contractor's clause duties sit on [Administration of Cost Accounting Standards clause](../../compliance/cas-allowability/cmp-administration-of-cost-accounting-standards.md), and the choice of lead agency sits on [Cognizant Federal agency responsibilities](../../compliance/cas-allowability/cmp-cas-cognizant-agency.md).
+The CFAO shall perform CAS administration for all contracts and subcontracts in a business unit, even when the contracting officer retains other administration functions [@CL-RTE-0600], and when the CFAO determines that a cost impact is immaterial the CFAO makes no contract adjustments and concludes the cost impact process [@CL-RTE-0603], unlike material cost impacts, which follow the adjustment procedures in FAR 30.603, 30.604, 30.605, and 30.606 [@CL-RTE-0703]. The materiality criteria sit on [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md), the contractor's clause duties sit on [Administration of Cost Accounting Standards clause](../../compliance/cas-allowability/cmp-administration-of-cost-accounting-standards.md), and the choice of lead agency sits on [Cognizant Federal agency responsibilities](../../compliance/cas-allowability/cmp-cas-cognizant-agency.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which business units have full coverage, modified coverage or neither, and so wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Added the if-not-corrected condition on future contract adjustments in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the immaterial-noncompliance notice with its lead-in, restated shall duties as duties, and replaced meta references with the rules themselves.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second CAS determination item and the shall wording; separated the two immaterial-noncompliance notices.

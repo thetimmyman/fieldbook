@@ -46,7 +46,7 @@ A contractor delivers 500 catalog fittings under a contract whose clause sets a 
 
 ## Never confuse
 
-This warranty applies notwithstanding inspection and acceptance by the Government of supplies furnished under the contract, or any condition of the contract concerning the conclusiveness thereof [@CL-SUP-1151]. See [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), [Warranties: criteria, terms and remedies](sup-warranties.md), [Warranty of supplies of a complex nature](sup-warranty-complex-supplies.md), [Limitation of liability clauses](sup-limitation-of-liability-clauses.md), and [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
+This express warranty applies notwithstanding inspection and acceptance by the Government of supplies furnished under the contract, or any condition of the contract concerning the conclusiveness thereof [@CL-SUP-1151], whereas all implied warranties of merchantability and fitness for a particular purpose are excluded from any obligation contained in the contract rather than implied alongside it [@CL-SUP-3498], and under Alternate II necessary transportation incident to correction or replacement is at the Government's expense instead of the contractor's [@CL-SUP-1216; @CL-SUP-0436]. See [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), [Warranties: criteria, terms and remedies](sup-warranties.md), [Warranty of supplies of a complex nature](sup-warranty-complex-supplies.md), [Limitation of liability clauses](sup-limitation-of-liability-clauses.md), and [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether each fixed-price supply contract carries this clause, what warranty peri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for codified FAR 52.246-17(b)(1)(ii), (b)(3), (c)(2)(i), (c)(4)(i)(B), and Alternate II, and RFO FAR 52.246-17(b)(3); separated codified and RFO citations; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cure-period condition and alternatives wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

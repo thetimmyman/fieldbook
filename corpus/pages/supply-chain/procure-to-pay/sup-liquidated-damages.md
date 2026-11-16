@@ -53,7 +53,7 @@ A construction contract sets liquidated damages at 1,000 per calendar day. The G
 
 ## Never confuse
 
-Under both clauses, liquidated damages are charged in addition to excess costs of repurchase under the Termination clause [@CL-SUP-2570; @CL-SUP-2574]. Under the supplies clause the daily amount is paid in place of actual damages [@CL-SUP-2568]. After a termination under the Default clause, supplies liquidated damages accrue until similar supplies or services are reasonably obtained [@CL-SUP-2569], and for construction, after a termination of the right to proceed, they continue until the work is completed [@CL-SUP-2573].
+Under both clauses, liquidated damages are charged in addition to excess costs of repurchase under the Termination clause [@CL-SUP-2570; @CL-SUP-2574]. Under the supplies clause the daily amount is paid instead of actual damages [@CL-SUP-2568]. After a termination under the Default clause, supplies liquidated damages accrue until similar supplies or services are reasonably obtained [@CL-SUP-2569], and for construction, after a termination of the right to proceed, they continue until the work is completed [@CL-SUP-2573].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm the daily amount inserted in each contract and whether the recorded dela
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used shall wording in the rule paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded how-it-works, never-confuse and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the contracting officer insertion for the daily amount.

@@ -53,7 +53,7 @@ A separate cost-reimbursement contract carries no warranty beyond the two named 
 
 ## Never confuse
 
-Warranty clauses shall not limit the Government's rights under an inspection clause (see subpart 46.3) in relation to latent defects, fraud, or gross mistakes that amount to fraud, and except for warranty clauses in construction contracts, warranty clauses shall provide that the warranty applies notwithstanding inspection and acceptance or other clauses or terms of the contract [@CL-SUP-3955; @CL-SUP-3956]. See [Warranties: criteria, terms and remedies](sup-warranties.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), [Inspection of Supplies—Cost-Reimbursement clause](sup-inspection-of-supplies-cost-reimbursement.md), and [Inspection of Research and Development clauses](sup-inspection-of-research-and-development.md).
+Warranty clauses shall not limit the Government's rights under an inspection clause (see subpart 46.3) in relation to latent defects, fraud, or gross mistakes that amount to fraud, and—unlike warranty clauses in construction contracts—shall provide that the warranty applies notwithstanding inspection and acceptance or other clauses or terms of the contract [@CL-SUP-3955; @CL-SUP-3956]. See [Warranties: criteria, terms and remedies](sup-warranties.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), [Inspection of Supplies—Cost-Reimbursement clause](sup-inspection-of-supplies-cost-reimbursement.md), and [Inspection of Research and Development clauses](sup-inspection-of-research-and-development.md).
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Which warranty terms the company offers and how it tracks the stated period or e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Combined cost-reimbursement warranty exception claims into one sentence and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on warranties of data.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes and limits of warranties in Government contracts.

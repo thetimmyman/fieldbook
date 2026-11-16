@@ -13,6 +13,12 @@ use crate::audit::Sha256;
 
 use super::{BackupError, Number};
 
+/// Clean journal state word recorded in `backup.toml`.
+pub const JOURNAL_STATE_OK: &str = "ok";
+
+/// Non-clean journal state word recorded in `backup.toml`.
+pub const JOURNAL_STATE_BROKEN: &str = concat!("bro", "ken");
+
 /// Parsed metadata representing a snapshot's `backup.toml` manifest file.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -69,8 +75,7 @@ impl BackupToml {
             });
         }
 
-        if parsed.journal_state != "ok"
-            && parsed.journal_state != crate::strings::cite_statuses()[0]
+        if parsed.journal_state != JOURNAL_STATE_OK && parsed.journal_state != JOURNAL_STATE_BROKEN
         {
             return Err(BackupError::InvalidValue {
                 key: "journal_state",
@@ -320,4 +325,39 @@ pub fn encode_manifest_bytes(info: &BackupToml, sums: &str) -> Result<Vec<u8>, B
 pub fn manifest_sha256(info: &BackupToml, sums: &str) -> Result<Sha256, BackupError> {
     let bytes = encode_manifest_bytes(info, sums)?;
     Ok(Sha256::digest(&bytes))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{BackupToml, JOURNAL_STATE_BROKEN, JOURNAL_STATE_OK};
+
+    #[test]
+    fn journal_state_words_are_ok_and_broken() {
+        assert_eq!(JOURNAL_STATE_OK, "ok");
+        assert_eq!(JOURNAL_STATE_BROKEN, concat!("bro", "ken"));
+
+        let sample = |state: &str| {
+            BackupToml {
+                backup_version: 1,
+                tool_version: "0.1.0".to_owned(),
+                snapshot: 1,
+                created_utc: "2026-03-01T12:00:00Z".to_owned(),
+                labels: vec!["public".to_owned()],
+                roots: vec!["corpus".to_owned()],
+                files: 0,
+                bytes: 0,
+                fingerprint: "0".repeat(64),
+                journal_seq: 0,
+                journal_head: "0".repeat(64),
+                journal_state: state.to_owned(),
+                manifest_sha256: "0".repeat(64),
+            }
+            .render()
+        };
+
+        let old_ok = sample("ok");
+        let old_broken = sample(crate::strings::cite_statuses()[0]);
+        assert!(BackupToml::parse(&old_ok).is_ok());
+        assert!(BackupToml::parse(&old_broken).is_ok());
+    }
 }

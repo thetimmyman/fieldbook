@@ -45,7 +45,7 @@ A contractor's crane damages a Government-owned pier through its own fault, and 
 
 ## Never confuse
 
-This is the Liability and Insurance clause prescribed at DFARS 247.270-4(c) [@CL-SUP-1677]. The vessel repair clause is a different clause with its own deductible and indemnity limit; see [Liability and insurance for vessel repair (DFARS)](sup-dfars-ship-repair-liability-and-insurance.md). The clause on loss or damage to shipped property under the transportation schedules is also separate; see [Contractor liability for loss or damage, and demurrage (DFARS)](sup-dfars-contractor-liability-and-demurrage.md). Revision of Prices is a different clause, prescribed at DFARS 247.270-4(b) [@CL-SUP-1671]; see [Revision of prices in transportation and stevedoring contracts (DFARS)](sup-dfars-stevedoring-revision-of-prices.md). Responsibility for property furnished under the Government property clause is separate; see [Responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md). Whether insurance premiums are allowable costs is a separate question; see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md). Liability after acceptance of supplies is also separate; see [Limitation of liability clauses: basic, high-value items and services](sup-limitation-of-liability-clauses.md).
+This is the Liability and Insurance clause prescribed at DFARS 247.270-4(c) [@CL-SUP-1677]. The vessel repair clause is not the same; it is a different clause with its own deductible and indemnity limit; see [Liability and insurance for vessel repair (DFARS)](sup-dfars-ship-repair-liability-and-insurance.md). The clause on loss or damage to shipped property under the transportation schedules is also separate; see [Contractor liability for loss or damage, and demurrage (DFARS)](sup-dfars-contractor-liability-and-demurrage.md). Revision of Prices is a different clause, prescribed at DFARS 247.270-4(b) [@CL-SUP-1671]; see [Revision of prices in transportation and stevedoring contracts (DFARS)](sup-dfars-stevedoring-revision-of-prices.md). Responsibility for property furnished under the Government property clause is separate; see [Responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md). Whether insurance premiums are allowable costs is a separate question; see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md). Liability after acceptance of supplies is also separate; see [Limitation of liability clauses: basic, high-value items and services](sup-limitation-of-liability-clauses.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which executed contracts carry this clause, what insurance the company carries a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated limitations, self-insurance, endorsement and recovery duties as cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the limitation lead-in saying what the limitation relieves.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for liability and insurance in stevedoring contracts.

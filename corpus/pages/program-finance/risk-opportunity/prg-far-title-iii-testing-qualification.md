@@ -47,7 +47,7 @@ A prime contractor on a major system receives a request to test a new alloy made
 
 ## Never confuse
 
-It is the policy of the Government, as required by section 126 of Public Law 102-558, to pay for any testing and qualification required for the use or incorporation of the industrial resources manufactured or developed with assistance provided under Title III of the Defense Production Act of 1950 [@CL-PRG-0891]. Contractors receiving requests from a Title III project contractor for testing and qualification of a Title III industrial resource shall refer such requests to the contracting officer [@CL-PRG-0892], the contracting officer shall modify the contract to require the contractor to test the Title III industrial resource for qualification if the determination at FAR 34.103(a) is affirmative [@CL-PRG-0897], and the Defense Production Act Office, Title III Program, shall provide to the contractor the industrial resource produced by the Title III project contractor in sufficient amounts to meet testing needs [@CL-PRG-0898]. See [Major system acquisition governance under the FAR](../baseline/prg-far-major-system-governance.md).
+Under section 126 of Public Law 102-558, it is the policy of the Government—rather than the contractor—to pay for any testing and qualification required for the use or incorporation of industrial resources manufactured or developed with assistance under Title III of the Defense Production Act of 1950 [@CL-PRG-0891], and contractors receiving requests from a Title III project contractor must refer them to the contracting officer, who modifies the contract to require testing if the FAR 34.103(a) determination is affirmative while the Title III Program provides the industrial resource in sufficient amounts to meet testing needs [@CL-PRG-0892; @CL-PRG-0897; @CL-PRG-0898]. See [Major system acquisition governance under the FAR](../baseline/prg-far-major-system-governance.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether any contract has received a Title III testing request or modification, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0134 and CL-PRG-0135, restored shall modals, statutory references, and office location, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed mis-cited pointer; policy wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

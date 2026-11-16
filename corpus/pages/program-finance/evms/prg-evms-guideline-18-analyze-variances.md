@@ -43,7 +43,7 @@ A control account has earned 400,000 of budget and spent 460,000, so its cost va
 
 ## Never confuse
 
-The guideline requires identifying and evaluating, at least monthly for each control account, the significant differences between both planned and actual schedule performance and planned and actual cost performance, and analyzing and providing the reasons for the variances in the detail needed by program management [@CL-PRG-0310].
+Guideline 18 requires identifying and evaluating, at least monthly for each control account, the significant differences between planned and actual schedule performance and between planned and actual cost performance—identifying causes such as efficiency, rate, and timing and supplementing schedule variance analysis with integrated master schedule critical-path analysis [@CL-PRG-0310; @CL-PRG-0705; @CL-PRG-0312]—unlike indirect cost variance analysis attributed to indirect rate adjustments in [Evaluate indirect cost variances](prg-evms-guideline-19-indirect-cost-variances.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether significant variances are analyzed, with reasons and potential impacts, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added control-account and summary-level scope in How it works and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the risk-mitigation purpose of management action that the guide states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 18 significant variance analysis.

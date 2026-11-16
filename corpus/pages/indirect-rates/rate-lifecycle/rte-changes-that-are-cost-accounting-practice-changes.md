@@ -45,7 +45,7 @@ A contractor depreciates a class of equipment costing 800,000 using an accelerat
 
 ## Never confuse
 
-For the illustrations of changes that are not cost accounting practice changes, see the [companion card](rte-changes-that-are-not-cost-accounting-practice-changes.md). For unilateral and desirable changes, see the [unilateral and desirable changes card](rte-unilateral-and-desirable-changes.md), and for who makes each finding, see the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md).
+The illustrations in 48 CFR 9903.302-3—such as changing pension cost computation from the aggregate cost method to the unit credit method or changing depreciation from an accelerated method to the straight line method [@CL-RTE-0815; @CL-RTE-0816; @CL-RTE-0820]—meet the definition of a change to a cost accounting practice, unlike the illustrations of changes that are not cost accounting practice changes on the [companion card](rte-changes-that-are-not-cost-accounting-practice-changes.md). For unilateral and desirable changes, see the [unilateral and desirable changes card](rte-unilateral-and-desirable-changes.md), and for who makes each finding, see the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How pools, bases and allocation methods are defined, so that a change to one can
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Added for hardware common to all projects on the hardware illustration in The rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited explanations and contrasts, restored the G&A after-change lead-in, and replaced them with cited text and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for illustrations of changes to a cost accounting practice.

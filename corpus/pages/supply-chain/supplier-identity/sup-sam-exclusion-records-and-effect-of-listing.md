@@ -47,7 +47,7 @@ Answer: the contracting officer shall not consent to the subcontract. The listin
 
 ## Never confuse
 
-An exclusion record in SAM contains the cause for the action or other statutory or regulatory authority, the effect of the action, and the termination date for each listing [@CL-SUP-0750; @CL-SUP-0751] (see also [Causes for debarment](sup-causes-for-debarment.md), [Causes for suspension](sup-causes-for-suspension.md), [Continuing current contracts and limits on subcontracting with listed parties](sup-listed-party-continuation-and-subcontracting-limits.md), and [Protecting the Government's interest when subcontracting with debarred or suspended contractors](sup-debarred-suspended-subcontractors.md)).
+An exclusion record in SAM contains the cause for the action or other statutory or regulatory authority, the effect of the action, and the termination date for each listing [@CL-SUP-0750; @CL-SUP-0751], and while bids, proposals, quotations, or offers from a listed contractor are rejected or not evaluated for award during a period of ineligibility absent a written agency-head compelling-reason determination [@CL-SUP-0754; @CL-SUP-0285; @CL-SUP-0755], if the period of ineligibility expires or is terminated before award the contracting officer may, but is not required to, consider such offers [@CL-SUP-0800] (see also [Causes for debarment](sup-causes-for-debarment.md), [Causes for suspension](sup-causes-for-suspension.md), [Continuing current contracts and limits on subcontracting with listed parties](sup-listed-party-continuation-and-subcontracting-limits.md), and [Protecting the Government's interest when subcontracting with debarred or suspended contractors](sup-debarred-suspended-subcontractors.md)).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm how supplier names, addresses and identifiers are matched to SAM exclusi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for FAR 9.404(b)(1) cross-references and FAR 9.405(e)(3) proposals, quotations, or offers, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Attached the compelling-reason exception to the right bar and restored the contracting officer's duty wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SAM exclusion records and the effect of listing.

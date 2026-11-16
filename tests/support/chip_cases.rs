@@ -157,6 +157,22 @@ pub const CASES: &[ChipCase] = &[
         outcome: ChipOutcome::Terminal,
     },
     ChipCase {
+        chip: "fieldbook status",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &[],
+        outcome: ChipOutcome::Exit0,
+    },
+    ChipCase {
+        chip: "fieldbook status --page",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &[],
+        outcome: ChipOutcome::Exit0,
+    },
+    ChipCase {
         chip: "fieldbook build",
         context: ChipContext::Home,
         samples: &[],

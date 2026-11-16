@@ -78,7 +78,7 @@ Two offers compete for one overseas port of discharge, and the solicitation uses
 
 ## Never confuse
 
-For f.o.b. origin offers, the evaluation includes, in addition to the f.o.b. origin price of the item, the inland transportation costs, the port handling charges and the ocean shipping costs [@CL-SUP-2444]; for f.o.b. port of loading offers, it includes, in addition to the price to the United States port of loading, the port handling charges and the ocean shipping cost [@CL-SUP-2446]. On the origin basis, ports of loading shall be considered as destinations within the meaning of f.o.b. destination as used in the F.o.b. Origin clause [@CL-SUP-2445], and on the port basis, offerors shall designate at least one of the listed ports of loading as their place of delivery unless offers are applicable only to f.o.b. origin delivery under Government bills of lading [@CL-SUP-2447]. For the general method of evaluating f.o.b. offers, see [F.o.b. offer evaluation](sup-fob-offer-evaluation.md). The codified text prints the Evaluation of Export Offers provision at FAR 52.247-51 [@CL-SUP-2490], while the RFO text lists that number as [Reserved] [@CL-SUP-0213].
+For f.o.b. origin offers, the evaluation includes, in addition to the f.o.b. origin price of the item, the inland transportation costs, the port handling charges and the ocean shipping costs [@CL-SUP-2444]; for f.o.b. port of loading offers, it includes, in addition to the price to the United States port of loading, the port handling charges and the ocean shipping cost [@CL-SUP-2446]. On the origin basis, ports of loading shall be considered as destinations within the meaning of f.o.b. destination as used in the F.o.b. Origin clause [@CL-SUP-2445], and on the port basis, offerors shall designate at least one of the listed ports of loading as their place of delivery unless offers are applicable only to f.o.b. origin delivery under Government bills of lading [@CL-SUP-2447]. For the general method of evaluating f.o.b. offers, see [F.o.b. offer evaluation](sup-fob-offer-evaluation.md). The codified text prints the Evaluation of Export Offers provision at FAR 52.247-51 [@CL-SUP-2490], unlike the RFO text, which lists that number as [Reserved] [@CL-SUP-0213].
 
 ## Company calibration
 
@@ -87,6 +87,7 @@ Which delivery bases and alternates each export solicitation uses, which ports t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned alternates, price basis and evaluation wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation of export offers.

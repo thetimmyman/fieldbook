@@ -45,7 +45,7 @@ Assume a weight-of-articles clause where the contract fills the blanks with a 2 
 
 ## Never confuse
 
-Count and weight are different bases for liability. The count clause is about the number and kind of articles and their value from the price lists [@CL-SUP-1642; @CL-SUP-1643]. The weight clause allows a maximum weight loss and charges only the excess [@CL-SUP-1644; @CL-SUP-1645]. Under Alternate I the contractor verifies and records the weight and bag type, and under Alternate II the weight [@CL-SUP-1640; @CL-SUP-1641]. A copy of each delivery ticket goes with the invoice [@CL-SUP-1639]; for what a proper invoice must contain, see [Proper invoice: required content and payment documentation](../../contract-finance/billing-payment/ctf-proper-invoice-content.md). The loss or damage clause for shipments under the transportation schedules is a different clause; see [Contractor liability for loss or damage, and demurrage (DFARS)](sup-dfars-contractor-liability-and-demurrage.md).
+Count and weight are not the same bases for liability. The count clause is about the number and kind of articles and their value from the price lists [@CL-SUP-1642; @CL-SUP-1643]. The weight clause allows a maximum weight loss and charges only the excess [@CL-SUP-1644; @CL-SUP-1645]. Under Alternate I the contractor verifies and records the weight and bag type, and under Alternate II the weight [@CL-SUP-1640; @CL-SUP-1641]. A copy of each delivery ticket goes with the invoice [@CL-SUP-1639]; for what a proper invoice must contain, see [Proper invoice: required content and payment documentation](../../contract-finance/billing-payment/ctf-proper-invoice-content.md). The loss or damage clause for shipments under the transportation schedules is a different clause; see [Contractor liability for loss or damage, and demurrage (DFARS)](sup-dfars-contractor-liability-and-demurrage.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which executed contracts carry these clauses, which version of the ticket clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the alternate clauses and weight-loss rules without commentary on the printed text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for laundry and dry cleaning delivery tickets and loss or damage by count of articles or by weight.

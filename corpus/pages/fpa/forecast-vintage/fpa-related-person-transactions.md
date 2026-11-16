@@ -48,7 +48,7 @@ A registrant that is not a smaller reporting company sells goods to a firm owned
 
 ## Never confuse
 
-In Item 404(a), the $120,000 threshold applies to the amount involved in a transaction in which the registrant was or is to be a participant, while the material interest requirement applies to a related person's direct or indirect material interest in the transaction [@CL-FPA-0146; @CL-FPA-0147]. Item 404(a) requires a description of the transaction [@CL-FPA-0146; @CL-FPA-0147], while Item 404(b)(1) requires a description of the registrant's policies and procedures for the review, approval, or ratification of any transaction required to be reported under paragraph (a) [@CL-FPA-0150]. Material pending legal proceedings to which the registrant or any of its subsidiaries is a party, or of which any of their property is the subject, are covered by Item 103 [@CL-FPA-0107]; see [Legal proceedings disclosure in Regulation S-K](fpa-legal-proceedings-disclosure.md).
+In Item 404(a), the $120,000 threshold applies to the amount involved in a transaction in which the registrant was or is to be a participant, unlike the material interest requirement, which applies to a related person's direct or indirect material interest in the transaction [@CL-FPA-0146; @CL-FPA-0147]. Item 404(a) requires a description of the transaction [@CL-FPA-0146; @CL-FPA-0147], while Item 404(b)(1) requires a description of the registrant's policies and procedures for the review, approval, or ratification of any transaction required to be reported under paragraph (a) [@CL-FPA-0150]. Material pending legal proceedings to which the registrant or any of its subsidiaries is a party, or of which any of their property is the subject, are covered by Item 103 [@CL-FPA-0107]; see [Legal proceedings disclosure in Regulation S-K](fpa-legal-proceedings-disclosure.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ How the company would identify related persons and tie transaction amounts to le
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added timing and $120,000 threshold in Applies to, included immediate-parent ownership detail in Item 404(d), and removed meta-wording and unquoted negative statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Policy-exception wording now follows the source (did not require review or were not followed).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transactions with related persons.
