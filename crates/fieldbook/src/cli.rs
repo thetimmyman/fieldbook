@@ -230,6 +230,10 @@ pub struct BuildArgs {
         help = "Rebuild when the Corpus changes (checks every 500 ms; Ctrl-C stops)"
     )]
     pub watch: bool,
+
+    /// Path of an earlier edition's folder or `edition.toml`, for `changes.html`.
+    #[arg(long, value_name = "EDITION")]
+    pub since: Option<String>,
 }
 
 /// Arguments for `fieldbook add`.
