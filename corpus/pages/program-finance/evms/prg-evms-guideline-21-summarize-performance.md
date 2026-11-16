@@ -43,7 +43,7 @@ A program rolls up five control accounts through the work breakdown structure to
 
 ## Never confuse
 
-This guideline's purpose is to ensure that program performance status can be accurately summarized from the control account (at a minimum) through the Work Breakdown Structure and Organizational Breakdown Structure for program management insight and control as well as to meet customer reporting requirements [@CL-PRG-0351], while corrective action management plans indicate the program manager has recognized a cost or schedule variance is significant enough to require management actions through a closed-loop (identification through closure) corrective action management process [@CL-PRG-0355]; see [Implement corrective actions for significant variances](prg-evms-guideline-22-corrective-actions.md).
+This guideline's purpose is to ensure that program performance status can be accurately summarized from the control account (at a minimum) through the Work Breakdown Structure and Organizational Breakdown Structure for program management insight and control as well as to meet customer reporting requirements [@CL-PRG-0351], unlike corrective action management plans, which indicate the program manager has recognized a cost or schedule variance is significant enough to require management actions through a closed-loop (identification through closure) corrective action management process [@CL-PRG-0355]; see [Implement corrective actions for significant variances](prg-evms-guideline-22-corrective-actions.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether internal management control and external customer reporting draw from th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims in Never confuse and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose and critical-data statements attributed to the guide's wording.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: restated the summarizing sentence to match its claim.

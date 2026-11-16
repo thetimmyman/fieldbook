@@ -51,7 +51,7 @@ Answer: approval shall be withheld or withdrawn for recurring noncompliance. The
 
 ## Never confuse
 
-For defense contracts, DoD 244.305-70 shall be used in lieu of FAR 44.305-2(c) and 44.305-3(b) [@CL-SUP-0533], and payment withholds under the business systems clause are on the [Business system withholds](../../compliance/business-systems/cmp-business-system-withholds.md) card.
+Purchasing system approval waives the contractual requirement for advance notification in fixed-price contracts, unlike cost-reimbursement contracts where advance notification is not waived [@CL-SUP-0035; @CL-SUP-0528], and for defense contracts DoD 244.305-70 applies in lieu of FAR 44.305-2(c) and 44.305-3(b) [@CL-SUP-0533]; payment withholds under the business systems clause are on the [Business system withholds](../../compliance/business-systems/cmp-business-system-withholds.md) card.
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Confirm whether the company can meet the reply and plan deadlines after a review
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for system approval notification contents and aligned modality with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed all four recurring noncompliance items as alternatives and tied the plan request to the same steps.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for granting, withholding or withdrawing approval of a contractor purchasing system.

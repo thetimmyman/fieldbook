@@ -47,9 +47,7 @@ A contractor has 30 million of cash and a 20 million purchase obligation due in 
 
 ## Never confuse
 
-Under Item 303(b)(1), the registrant analyzes its ability to generate and obtain adequate amounts of cash to meet its requirements and its plans for cash in the short term (the next 12 months from the most recent fiscal period end required to be presented) and separately in the long term (beyond the next 12 months), and the discussion should analyze material cash requirements from known contractual and other obligations and must specify the type of obligation and the relevant time period for the related cash requirements [@CL-FPA-0019; @CL-FPA-0020; @CL-FPA-0021]. For the contractor cash flow forecast that a DoD contracting officer may require, see [DoD cash flow forecasts](../../contract-finance/cash/ctf-dod-cash-flow-forecasts.md). For the ways the Government finances work before delivery, see [Financing overview](../../contract-finance/financing/ctf-financing-overview.md). The explanation of results of operations is on [MD&A results of operations](../kpi/fpa-mdna-results-of-operations.md).
-
-The quantitative and qualitative market risk disclosure is covered in [Quantitative and qualitative market risk disclosure](../forecast-vintage/fpa-market-risk-disclosure.md).
+Under Item 303(b)(1), the registrant analyzes its ability to generate and obtain adequate amounts of cash to meet its requirements and its plans for cash in the short term (the next 12 months from the most recent fiscal period end required to be presented) and separately in the long term (beyond the next 12 months), and the discussion should analyze material cash requirements from known contractual and other obligations and must specify the type of obligation and the relevant time period for the related cash requirements [@CL-FPA-0019; @CL-FPA-0020; @CL-FPA-0021], unlike the contractor cash flow forecast that a DoD contracting officer may require on [DoD cash flow forecasts](../../contract-finance/cash/ctf-dod-cash-flow-forecasts.md), the ways the Government finances work before delivery on [Financing overview](../../contract-finance/financing/ctf-financing-overview.md), the explanation of results of operations on [MD&A results of operations](../kpi/fpa-mdna-results-of-operations.md), or the quantitative and qualitative market risk disclosure in [Quantitative and qualitative market risk disclosure](../forecast-vintage/fpa-market-risk-disclosure.md).
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Which accounting frameworks and cash assumptions management uses to bridge backl
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Item 303(a) impact-scope companion and Item 10(a)(2) filing companions, cited the material-deficiency remedy clause, and restored full quote qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the must-consider-changes requirement for capital resources and named Instruction 4 to paragraph (b).
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the deficiency step from the unconditional liquidity-source duty and added the as-of date.

@@ -49,7 +49,7 @@ A cost-reimbursement contract carries a fixed fee of 100,000. After delivery, a 
 
 ## Never confuse
 
-Except as otherwise provided in paragraph (h), the cost of replacement or correction shall be included in allowable cost, determined as provided in the Allowable Cost and Payment clause, but no additional fee shall be paid [@CL-SUP-1080]. Under paragraph (h), notwithstanding paragraphs (f) and (g), the Government may at any time require the contractor to correct or replace, without cost to the Government, nonconforming supplies, if the nonconformances are due to fraud, lack of good faith, or willful misconduct on the part of the contractor's managerial personnel, or to the conduct of one or more of the contractor's employees selected or retained by the contractor after any of the contractor's managerial personnel has reasonable grounds to believe that the employee is habitually careless or unqualified [@CL-SUP-9778; @CL-SUP-1081; @CL-SUP-4169; @CL-SUP-1131]. The cost-reimbursement contract framework is on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md), and the general policy on rejecting nonconforming supplies is on [Rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
+Except as otherwise provided in paragraph (h), the cost of replacement or correction shall be included in allowable cost, determined as provided in the Allowable Cost and Payment clause, but no additional fee shall be paid [@CL-SUP-1080], unlike paragraph (h), under which—notwithstanding paragraphs (f) and (g)—the Government may at any time require the contractor to correct or replace, without cost to the Government, nonconforming supplies if the nonconformances are due to fraud, lack of good faith, or willful misconduct on the part of the contractor's managerial personnel, or to the conduct of one or more of the contractor's employees selected or retained by the contractor after any of the contractor's managerial personnel has reasonable grounds to believe that the employee is habitually careless or unqualified [@CL-SUP-9778; @CL-SUP-1081; @CL-SUP-4169; @CL-SUP-1131]. The cost-reimbursement contract framework is on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md), and the general policy on rejecting nonconforming supplies is on [Rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether the executed contract includes this clause or the fixed-price one, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for fixed-fee reduction and alternative cause; aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added nonconforming scope and notwithstanding lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

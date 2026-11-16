@@ -43,7 +43,7 @@ A program has an accumulated cost variance of 15 and decides to replan all remai
 
 ## Never confuse
 
-Under Guideline 26, a Single Point Adjustment is included among the adjustments made only for correction of errors, routine accounting adjustments, or effects of customer or management directed changes [@CL-PRG-0372; @CL-PRG-0751], is implemented sparingly to set some or all existing contract cost and/or schedule variances to zero, typically accompanies a replan of all remaining effort with the goal of developing a new performance measurement baseline [@CL-PRG-0374], and requires the contractor to provide advance notification to the contracting officer prior to implementation [@CL-PRG-0375].
+Under Guideline 26, retroactive adjustments to previously recorded work performed, hours, or budgets are prohibited except for correction of errors, routine accounting adjustments, or effects of customer or management directed changes [@CL-PRG-0105; @CL-PRG-0372; @CL-PRG-0751], and a Single Point Adjustment is implemented sparingly to set some or all existing contract cost and/or schedule variances to zero—typically accompanying a replan of all remaining effort with advance notification to the contracting officer prior to implementation—rather than routine monthly variance reporting [@CL-PRG-0374; @CL-PRG-0375].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Whether a proposed reset of variances is a permitted retroactive change or a sin
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Aligned the Guideline 26 adjustment list directly with CL-PRG-0372.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0105 for the Guideline 26 rule text, populated the instrument field, and removed meta-commentary and unsupported contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose-statement list reworded as alternatives the changes should be limited to.

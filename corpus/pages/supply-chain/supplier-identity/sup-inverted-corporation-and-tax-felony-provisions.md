@@ -46,7 +46,7 @@ A supplier's parent company reorganizes abroad during performance of a contract.
 
 ## Never confuse
 
-Where the contractor reorganizes as an inverted domestic corporation or becomes a subsidiary of one at any time during the period of performance, the codified clause says the Government may be prohibited from paying [@CL-SUP-1037; @CL-SUP-1069], while the RFO clause says applicable law may prohibit the Government from paying [@CL-SUP-3672; @CL-SUP-3673]. The codified clause places the exceptions at FAR 9.108-2 [@CL-SUP-1538], and the RFO clause places them at 9.108-3 [@CL-SUP-3674]. The clause applies when a status change happens during performance, and the provision asks for a representation at the offer stage [@CL-SUP-1037; @CL-SUP-1041]. Neither is the same as the debarment and responsibility certifications on [Responsibility certification and information provisions](sup-responsibility-certification-and-information-provisions.md), or the arms control certification on [Arms control treaty certification and ROTC and military recruiting access](sup-arms-control-certification-and-rotc-clauses.md).
+Where the contractor reorganizes as an inverted domestic corporation or becomes a subsidiary of one at any time during the period of performance, the codified clause says the Government may be prohibited from paying [@CL-SUP-1037; @CL-SUP-1069], unlike the RFO clause, which says applicable law may prohibit the Government from paying [@CL-SUP-3672; @CL-SUP-3673]. The codified clause places the exceptions at FAR 9.108-2 [@CL-SUP-1538], and the RFO clause places them at 9.108-3 [@CL-SUP-3674]. The clause applies when a status change happens during performance, and the provision asks for a representation at the offer stage [@CL-SUP-1037; @CL-SUP-1041]. Neither is the same as the debarment and responsibility certifications on [Responsibility certification and information provisions](sup-responsibility-certification-and-information-provisions.md), or the arms control certification on [Arms control treaty certification and ROTC and military recruiting access](sup-arms-control-certification-and-rotc-clauses.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How changes in ownership and corporate form are detected and reported. [@Q-021]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the two-differences statement to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the codified FAR waiver section for the inverted domestic corporation prohibition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -45,7 +45,7 @@ A contractor's fiscal year ends on the last day of month 12. Six months later, a
 
 ## Never confuse
 
-For billing rates and final rates, see [final and billing rate purpose](rte-final-and-billing-rate-purpose.md); for the proposal itself, see [final indirect rate proposal](rte-final-indirect-rate-proposal.md).
+Proposed final annual indirect cost rates are based on the Contractor's actual cost experience for the covered period rather than temporary billing rates [@CL-RTE-9232; @CL-RTE-9233], and under RFO FAR 52.216-7(d)(2)(iv) the listed supplemental information is not required to determine if a proposal is adequate, though it may be required during the audit process [@CL-RTE-9039]; for billing rates and final rates, see [final and billing rate purpose](rte-final-and-billing-rate-purpose.md), and for the proposal itself, see [final indirect rate proposal](rte-final-indirect-rate-proposal.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which fiscal years are open, and the status of each incurred cost submission. [@
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced the uncited process summary with cited clause paragraphs (d)(1) and (d)(2)(ii), pointed the RFO row at RFO claims, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the shall wording and recipients of the proposal duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the clause's own extension sentence.

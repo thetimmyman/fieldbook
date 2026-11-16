@@ -53,7 +53,7 @@ A contractor ships spare parts from a depot to a military base overseas and the 
 
 ## Never confuse
 
-The contractor and its subcontractors may request a waiver of the U.S.-flag requirement via the contracting officer [@CL-SUP-1393]. The prime and subcontractor rules are worded differently: the prime shall use U.S.-flag vessels for any supplies by sea [@CL-SUP-1389], while a subcontractor shall do so if one of the listed conditions is met [@CL-SUP-1390]. For the wider rules on commercial subcontracts, see [Subcontracts for commercial products and commercial services](sup-subcontracts-commercial-products-and-services.md).
+The contractor and its subcontractors may request a waiver of the U.S.-flag requirement via the contracting officer [@CL-SUP-1393]. The prime and subcontractor rules are worded differently: the prime shall use U.S.-flag vessels for any supplies by sea [@CL-SUP-1389], unlike a subcontractor, which shall do so if one of the listed conditions is met [@CL-SUP-1390]. For the wider rules on commercial subcontracts, see [Subcontracts for commercial products and commercial services](sup-subcontracts-commercial-products-and-services.md).
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Which contracts carry this clause, whether any supplies will move by sea, and wh
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the last waiver-request content item, stated the reasons as alternatives and removed commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the U.S. military and statute wording and the alternatives in the commercial product kinds.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transportation of supplies by sea, definitions and the U.S.-flag requirement.

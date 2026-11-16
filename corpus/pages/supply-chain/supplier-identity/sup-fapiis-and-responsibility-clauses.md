@@ -53,7 +53,7 @@ Answer: the value is above 750,000, so the information provision and the updates
 
 ## Never confuse
 
-The contracting officer's review of FAPIIS information before awarding a contract in excess of the simplified acquisition threshold includes FAPIIS information from SAM Exclusions and CPARS [@CL-SUP-0900; @CL-SUP-0076], and if the contracting officer obtains relevant information from FAPIIS on the listed proceedings, terminations, nonresponsibility determinations, or comparable grant information [@CL-SUP-0902; @CL-SUP-9728], then unless the contractor has already been debarred, suspended, or has agreed to a voluntary exclusion, the contracting officer shall promptly request such additional information from the offeror as the offeror deems necessary in order to demonstrate the offeror's responsibility (but see FAR 9.405) [@CL-SUP-0903] (see also [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md), [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md), [Obtaining responsibility information and documenting the determination](sup-responsibility-information-and-determination.md), [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md), and [Predecessor of offeror](../../mna/diligence/mna-predecessor-of-offeror.md)).
+The contracting officer's review of FAPIIS information before awarding a contract in excess of the simplified acquisition threshold includes FAPIIS information from SAM Exclusions and CPARS [@CL-SUP-0900; @CL-SUP-0076], and if the contracting officer obtains relevant information from FAPIIS on the listed proceedings, terminations, nonresponsibility determinations, or comparable grant information [@CL-SUP-0902; @CL-SUP-9728], the contracting officer shall promptly request such additional information from the offeror as the offeror deems necessary in order to demonstrate its responsibility (but see FAR 9.405), unlike when the contractor has already been debarred, suspended, or has agreed to a voluntary exclusion [@CL-SUP-0903] (see also [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md), [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md), [Obtaining responsibility information and documenting the determination](sup-responsibility-information-and-determination.md), [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md), and [Predecessor of offeror](../../mna/diligence/mna-predecessor-of-offeror.md)).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm who owns the semi-annual FAPIIS update and the posting of mitigating fac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for FAPIIS availability, mitigating-factor example, 52.209-7 cross-reference, and 52.209-9(b)(2) exceptions, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed the alternatives that trigger the additional-information paragraph.

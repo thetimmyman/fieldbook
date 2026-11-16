@@ -51,7 +51,7 @@ During the work the contractor also produces unserviceable parts and scrap. The 
 
 ## Never confuse
 
-The Government Property clause of the contract governs Government property furnished under the contract, except as provided in the installation operation services clause [@CL-SUP-3104]. Under the installation operation services clause the contractor shall have title to all replacement property [@CL-SUP-3101], and the listed property is furnished in an "as-is, where is" condition with no Government warranty regarding suitability for use [@CL-SUP-3187; @CL-SUP-3099]. Compare [the Government property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md), [responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md) and [title to Government-furnished and contractor-acquired property](../../close-revrec/fixed-assets/cls-title-to-gfp-and-contractor-acquired-property.md).
+The Government Property clause of the contract governs Government property furnished under the contract, except as provided in the installation operation services clause [@CL-SUP-3104], under which—unlike the standard Government Property clause—the contractor shall have title to all replacement property [@CL-SUP-3101], and the listed property is furnished in an "as-is, where is" condition with no Government warranty regarding suitability for use [@CL-SUP-3187; @CL-SUP-3099]. Compare [the Government property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md), [responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md) and [title to Government-furnished and contractor-acquired property](../../close-revrec/fixed-assets/cls-title-to-gfp-and-contractor-acquired-property.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Whether each installation operation services contract lists its Government prope
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the shall wording, how-it-works and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government property in installation operation services.

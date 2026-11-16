@@ -46,9 +46,7 @@ A contractor's fiscal year ends on 30 September and it files an adequate proposa
 
 ## Never confuse
 
-Under RFO FAR 42.505-1(a)(3), for business units not included in paragraph (a)(1) or (a)(2), the contracting officer (or cognizant Federal agency official) will determine whether the rates will be contracting officer or auditor determined [@CL-RTE-0917]. The contracting officer (or cognizant Federal agency official) shall head the Government negotiating team [@CL-RTE-0107], and the cognizant contracting officer shall prepare a written indirect cost rate agreement conforming to the requirements of the contracts [@CL-RTE-9139].
-
-The codified contracting officer determination procedure at FAR 42.705-1 [@CL-RTE-0103] corresponds to RFO FAR 42.505-1 [@CL-RTE-0914].
+Under RFO FAR 42.505-1(a)(3), for business units not included in paragraph (a)(1) or (a)(2), the contracting officer (or cognizant Federal agency official) will determine whether the rates will be contracting officer or auditor determined [@CL-RTE-0917], and under contracting officer determination—unlike auditor determination on [Auditor-determined final indirect cost rates](rte-final-indirect-rate-auditor-determination.md)—the contracting officer (or cognizant Federal agency official) shall head the Government negotiating team [@CL-RTE-0107] and the cognizant contracting officer shall prepare a written indirect cost rate agreement conforming to the requirements of the contracts [@CL-RTE-9139]; the codified contracting officer determination procedure at FAR 42.705-1 [@CL-RTE-0103] corresponds to RFO FAR 42.505-1 [@CL-RTE-0914].
 
 ## Company calibration
 
@@ -57,6 +55,7 @@ Which fiscal years are still open for incurred cost, whether not submitted, subm
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability lead-in, the 52.216-7 lead-in, the upon-receipt timing and the remaining negotiation memorandum items, and removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named who acts in the procedure, added the resident officer case, the negotiation memorandum items and the shall wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut the 75 percent sentence back to its quote; removed the elevation step from the codified auditor sentence; stated the list items without an actor the quotes do not name.

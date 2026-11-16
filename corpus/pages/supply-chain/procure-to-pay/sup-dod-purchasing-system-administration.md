@@ -51,7 +51,7 @@ Answer: the negotiator considers allowing the contractor additional time to corr
 
 ## Never confuse
 
-The contracting officer requests the contractor to respond in writing to the initial determination within 30 days [@CL-SUP-0537]. The final determination notice identifies any remaining material weaknesses and indicates the adequacy of any proposed or completed corrective action [@CL-SUP-0675]. Payment withholds under the business systems clause are on the [Business system withholds](../../compliance/business-systems/cmp-business-system-withholds.md) card.
+The contracting officer requests the contractor to respond in writing to the initial determination within 30 days [@CL-SUP-0537], unlike the final determination notice, which identifies any remaining material weaknesses and indicates the adequacy of any proposed or completed corrective action [@CL-SUP-0675]. Payment withholds under the business systems clause are on the [Business system withholds](../../compliance/business-systems/cmp-business-system-withholds.md) card.
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Confirm who receives and answers initial determinations and how the reply deadli
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned shall wording, notice list and response periods with the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD purchasing system determinations and material weaknesses.

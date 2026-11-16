@@ -48,7 +48,7 @@ A named executive officer receives one option grant and one stock grant in the y
 
 ## Never confuse
 
-The tables in paragraphs (d), (f) and (g) of Item 402 cover grants of plan-based awards, outstanding equity awards at fiscal year-end, and option exercises and stock vested for named executive officers [@CL-FPA-1075; @CL-FPA-1082; @CL-FPA-1089]. Compensation plans under which equity securities of the registrant are authorized for issuance are covered on [Market price, dividends and equity compensation plans](fpa-market-price-dividends-and-equity-compensation-plans.md). The Summary Compensation Table reports in column (e), for awards of stock, and in column (f), for awards of options with or without tandem SARs (including awards that subsequently have been transferred), the aggregate grant date fair value computed in accordance with FASB ASC Topic 718 [@CL-FPA-1067; @CL-FPA-1068], as covered on [Executive compensation scope, discussion and summary compensation table](fpa-executive-compensation-scope-and-summary-compensation-table.md). Retirement, nonqualified deferred compensation, termination payments and director compensation are covered in [Pension, deferred compensation, termination payments and director pay](fpa-pension-deferred-compensation-termination-and-director-pay.md).
+The tables in paragraphs (d), (f) and (g) of Item 402 report individual grants of plan-based awards, outstanding equity awards at fiscal year-end, and aggregated option exercises and stock vested for named executive officers [@CL-FPA-1075; @CL-FPA-1082; @CL-FPA-1089], unlike the Summary Compensation Table, which reports in columns (e) and (f) the aggregate grant date fair value of stock and option awards computed in accordance with FASB ASC Topic 718 [@CL-FPA-1067; @CL-FPA-1068] on [Executive compensation scope, discussion and summary compensation table](fpa-executive-compensation-scope-and-summary-compensation-table.md). Compensation plans under which equity securities of the registrant are authorized for issuance are covered on [Market price, dividends and equity compensation plans](fpa-market-price-dividends-and-equity-compensation-plans.md), and retirement, nonqualified deferred compensation, termination payments and director compensation are covered in [Pension, deferred compensation, termination payments and director pay](fpa-pension-deferred-compensation-termination-and-director-pay.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ How the company tracks award grants, vesting dates, exercise prices and closing 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added transferred-other-than-for-value and tandem-SAR qualifiers from the cited quotes and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Grant payout and instrument qualifiers restored.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for executive equity award, outstanding award and stock vested tables.

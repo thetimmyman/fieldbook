@@ -51,7 +51,7 @@ This example applies the codified clauses [@CL-SUP-2314; @CL-SUP-2317; @CL-SUP-2
 
 ## Never confuse
 
-Advance notification is the Government giving information about shipments [@CL-SUP-2314; @CL-SUP-2315]. Furnishing equipment is a separate duty that arises under the equipment clause, to assist in loading or unloading when required [@CL-SUP-2317]. Marking property and directing its placement fall on the agency being relocated under the direction and marking clause, which is inserted when office relocations are involved [@CL-SUP-2318; @CL-SUP-2319; @CL-SUP-2354]. The rules above come from the codified clauses at FAR 52.247-24, 52.247-25 and 52.247-26 [@CL-SUP-2314; @CL-SUP-2317; @CL-SUP-2318]; the RFO text prints those three section numbers as [Reserved] [@CL-SUP-0006; @CL-SUP-0007; @CL-SUP-0008].
+Advance notification is the Government giving information about shipments [@CL-SUP-2314; @CL-SUP-2315], unlike furnishing equipment, which is a separate duty that arises under the equipment clause to assist in loading or unloading when required [@CL-SUP-2317], or marking property and directing its placement, which fall on the agency being relocated under the direction and marking clause when office relocations are involved [@CL-SUP-2318; @CL-SUP-2319; @CL-SUP-2354]. The rules above come from the codified clauses at FAR 52.247-24, 52.247-25 and 52.247-26 [@CL-SUP-2314; @CL-SUP-2317; @CL-SUP-2318]; the RFO text prints those three section numbers as [Reserved] [@CL-SUP-0006; @CL-SUP-0007; @CL-SUP-0008].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which of the three clauses each transportation award carries, the notice
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contract-specific wording the quotes do not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

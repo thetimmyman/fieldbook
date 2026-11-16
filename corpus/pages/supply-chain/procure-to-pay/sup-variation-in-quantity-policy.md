@@ -53,9 +53,7 @@ On a fixed-price construction line item estimated at 4,000 cubic yards, the actu
 
 ## Never confuse
 
-A fixed-price supply contract may authorize Government acceptance of a variation in the quantity of items called for if the variation is caused by conditions of loading, shipping, or packing, or by allowances in manufacturing processes, and any permissible variation must be stated as a percentage and may be an increase, a decrease, or a combination of both unless the contract is for subsistence items and uses other applicable terms of variation in quantity [@CL-SUP-3306; @CL-SUP-3358]. If a contractor delivers a quantity of items in excess of the contract requirements plus any allowable variation in quantity, particularly small dollar value overshipments, it results in unnecessary administrative costs to the Government in determining disposition of the excess quantity, so the contract may include the clause at 52.211-17, Delivery of Excess Quantities, when a fixed-price supply contract is contemplated, to provide that excess quantities of items totaling up to $250 in value may be retained without compensating the contractor [@CL-SUP-3395; @CL-SUP-3308; @CL-SUP-3367].
-
-The invitation to comment on economic purchase quantities, and the option to purchase leased or rented equipment, are covered in [Economic purchase quantity for supplies and option to purchase equipment](../../estimating/pricing/est-economic-purchase-quantity-and-equipment-option.md).
+A fixed-price supply contract may authorize Government acceptance of a variation in the quantity of items called for if the variation is caused by conditions of loading, shipping, or packing, or by allowances in manufacturing processes, and any permissible variation must be stated as a percentage and may be an increase, a decrease, or a combination of both unless the contract is for subsistence items and uses other applicable terms of variation in quantity [@CL-SUP-3306; @CL-SUP-3358], unlike deliveries in excess of the contract requirements plus any allowable variation in quantity, where the contract may include the clause at 52.211-17, Delivery of Excess Quantities, when a fixed-price supply contract is contemplated, to provide that excess quantities of items totaling up to $250 in value may be retained without compensating the contractor [@CL-SUP-3395; @CL-SUP-3308; @CL-SUP-3367]. The invitation to comment on economic purchase quantities, and the option to purchase leased or rented equipment, are covered in [Economic purchase quantity for supplies and option to purchase equipment](../../estimating/pricing/est-economic-purchase-quantity-and-equipment-option.md).
 
 ## Company calibration
 
@@ -64,6 +62,7 @@ Confirm the variation percentages and excess-quantity terms in each supply contr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned supply and construction variation summaries with the cited quotes and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the 10-day limit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on economic purchase quantity.

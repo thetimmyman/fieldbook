@@ -44,7 +44,7 @@ A company's code applies to its chief executive, chief financial officer and con
 
 ## Never confuse
 
-Item 406(a) and (b) address a registrant's code of ethics for its principal executive officer, principal financial officer, principal accounting officer or controller, or persons performing similar functions [@CL-FPA-0199; @CL-FPA-0200; @CL-FPA-0046; @CL-FPA-0047]; for the contract clause on a contractor code of business ethics, see [Contractor code of business ethics](../../compliance/regulatory-framework/cmp-contractor-code-of-business-ethics.md). Item 408(b)(1) addresses insider trading policies and procedures governing the purchase, sale, and/or other dispositions of the registrant's securities by directors, officers and employees, or the registrant itself, reasonably designed to promote compliance with insider trading laws, rules and regulations and applicable listing standards [@CL-FPA-0205; @CL-FPA-0242]. Who the directors and officers are is covered in [Directors, executive officers, promoters and control persons](fpa-directors-officers-and-control-persons.md), and board committees in [Corporate governance disclosure](fpa-corporate-governance-disclosure.md). Which documents are filed as exhibits, and how the exhibit table and index work, is on [Exhibits: the exhibit table, the index and the general instructions](fpa-exhibits-general-instructions.md).
+Item 406(a) and (b) address a registrant's code of ethics for its principal executive officer, principal financial officer, principal accounting officer or controller, or persons performing similar functions [@CL-FPA-0199; @CL-FPA-0200; @CL-FPA-0046; @CL-FPA-0047] (for the contract clause on a contractor code of business ethics, see [Contractor code of business ethics](../../compliance/regulatory-framework/cmp-contractor-code-of-business-ethics.md)), unlike Item 408(b)(1), which addresses insider trading policies and procedures governing the purchase, sale, and/or other dispositions of the registrant's securities by directors, officers and employees, or the registrant itself, reasonably designed to promote compliance with insider trading laws, rules and regulations and applicable listing standards [@CL-FPA-0205; @CL-FPA-0242]. Who the directors and officers are is covered in [Directors, executive officers, promoters and control persons](fpa-directors-officers-and-control-persons.md), and board committees in [Corporate governance disclosure](fpa-corporate-governance-disclosure.md). Which documents are filed as exhibits, and how the exhibit table and index work, is on [Exhibits: the exhibit table, the index and the general instructions](fpa-exhibits-general-instructions.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ How the company documents its code of ethics, its website posting, its trading a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for Item 406(b)(2)-(5), Item 408(a)(1)(ii), Item 408(a)(2)(A)-(D), and Item 408(c)(2)(i)-(iii), and removed meta-wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: 406(c) described as alternatives, 408(a)(2) identification and 408(c) and-joined conditions added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a statement that the code-of-ethics exhibit rule is not restated, since it is now cited.

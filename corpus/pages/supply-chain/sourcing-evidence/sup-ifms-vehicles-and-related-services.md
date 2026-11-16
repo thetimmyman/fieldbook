@@ -45,7 +45,7 @@ A contractor with an agency authorization needs four vehicles for three months. 
 
 ## Never confuse
 
-The contractor shall assume, without the right of reimbursement from the Government, the cost or expense of any use of IFMS vehicles and services not related to the performance of the contract [@CL-SUP-1582]. Only the contractor may request authorization for subcontractor use of IFMS vehicles, and the Contracting Officer will not grant authorization for subcontractor use without approval of the contractor [@CL-SUP-1583]. Ordering from Government supply sources is covered on [Ordering from Government supply sources](sup-ordering-from-government-supply-sources.md).
+The contractor shall assume, without the right of reimbursement from the Government, the cost or expense of any use of IFMS vehicles and services not related to the performance of the contract [@CL-SUP-1582], and only the contractor—rather than a subcontractor acting without the contractor's approval—may request authorization from the Contracting Officer for subcontractor use of IFMS vehicles [@CL-SUP-1583]. Ordering from Government supply sources is covered on [Ordering from Government supply sources](sup-ordering-from-government-supply-sources.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Whether any contract authorizes the company to use these vehicles and who may re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted insurance commentary and aligned IFMS vehicle wording with quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Interagency Fleet Management System vehicles and related services.

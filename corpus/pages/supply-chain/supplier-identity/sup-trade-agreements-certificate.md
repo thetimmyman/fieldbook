@@ -52,9 +52,7 @@ The Contracting Officer later finds that X can supply only 60 of the 100 sensors
 
 ## Never confuse
 
-The Trade Agreements clause carries the contractor's delivery rule, which requires the Contractor to deliver only U.S.-made or designated country end products except to the extent that, in its offer, it specified delivery of other end products in the provision entitled "Trade Agreements Certificate" [@CL-SUP-1253] (see [Trade Agreements clause](sup-trade-agreements-clause.md), [Buy American certificates in offers](sup-buy-american-certificates.md), and [Buy American clause for supplies](sup-buy-american-supplies-clause.md)).
-
-For line items covered by the WTO GPA, the Government will evaluate offers of U.S.-made or designated country end products without regard to the restrictions of the Buy American statute [@CL-SUP-2783], and the Government will consider for award only offers of U.S.-made or designated country end products unless the Contracting Officer determines that there are no offers for such products or that the offers for those products are insufficient to fulfill the requirements of the solicitation [@CL-SUP-2784].
+The Trade Agreements clause carries the contractor's delivery rule, which requires the Contractor to deliver only U.S.-made or designated country end products except to the extent that, in its offer, it specified delivery of other end products in the provision entitled "Trade Agreements Certificate" [@CL-SUP-1253] (see [Trade Agreements clause](sup-trade-agreements-clause.md), [Buy American certificates in offers](sup-buy-american-certificates.md), and [Buy American clause for supplies](sup-buy-american-supplies-clause.md)), unlike the evaluation rule for line items covered by the WTO GPA, under which the Government will evaluate offers of U.S.-made or designated country end products without regard to the restrictions of the Buy American statute [@CL-SUP-2783] and will consider for award only offers of U.S.-made or designated country end products unless the Contracting Officer determines that there are no offers for such products or that the offers for those products are insufficient to fulfill the requirements of the solicitation [@CL-SUP-2784].
 
 ## Company calibration
 
@@ -64,6 +62,7 @@ Which record holds the country of origin for each end product, and who signs the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Trade Agreements Certificate.

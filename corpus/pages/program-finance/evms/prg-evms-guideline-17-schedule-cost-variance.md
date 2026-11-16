@@ -43,9 +43,7 @@ A control account planned a budget of 100,000 and earned 90,000 for the work acc
 
 ## Never confuse
 
-Schedule variance is the comparison of the amount of planned budget and the amount of budget earned for work accomplished, while cost variance is the comparison of the amount of the budget earned and the actual (applied where appropriate) direct costs for the same work [@CL-PRG-0306; @CL-PRG-0307].
-
-The guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
+Schedule variance is the comparison of the amount of planned budget and the amount of budget earned for work accomplished, unlike cost variance, which is the comparison of the amount of the budget earned and the actual (applied where appropriate) direct costs for the same work [@CL-PRG-0306; @CL-PRG-0307]. The guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
 
 ## Company calibration
 
@@ -55,6 +53,7 @@ Whether schedule and cost variances are calculated monthly at the control accoun
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited variance definitions in Never confuse and added control-account and accounting-data qualifiers in How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on EVMS Guideline 14.

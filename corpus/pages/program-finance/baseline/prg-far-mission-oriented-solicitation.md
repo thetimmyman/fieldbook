@@ -72,11 +72,7 @@ The contracting officer held no presolicitation conference. Paragraph (a)(2) sta
 
 ## Never confuse
 
-Under paragraph (b)(1), the final solicitation shall describe the nature of the need in terms of mission capabilities required, without reference to any specific systems to satisfy the need [@CL-PRG-0416; @CL-PRG-0417], and under paragraph (b)(5), it shall clearly state that each offeror is free to propose its own technical approach, main design features, subsystems, and alternatives to schedule, cost, and capability goals [@CL-PRG-0416; @CL-PRG-0114; @CL-PRG-0423].
-
-The presolicitation steps in paragraph (a) are written with "should" whenever practicable and consistent with agency procedures [@CL-PRG-0410], while sending the final solicitation to all prospective offerors and meeting the paragraph (b) content requirements are written with "shall" [@CL-PRG-0416].
-
-Paragraph (b)(6) requires the use of an Earned Value Management System that complies with the guidelines of EIA-748 (current version at time of solicitation) [@CL-PRG-0416; @CL-PRG-0421], while paragraph (b)(5) requires stating that each offeror is free to propose its own technical approach, main design features, subsystems, and alternatives to schedule, cost, and capability goals [@CL-PRG-0416; @CL-PRG-0423].
+Under paragraph (b)(1), the final solicitation shall describe the nature of the need in terms of mission capabilities required, without reference to any specific systems to satisfy the need [@CL-PRG-0416; @CL-PRG-0417], and under paragraph (b)(5), it shall clearly state that each offeror is free to propose its own technical approach, main design features, subsystems, and alternatives to schedule, cost, and capability goals [@CL-PRG-0416; @CL-PRG-0114; @CL-PRG-0423]. The presolicitation steps in paragraph (a) are written with "should" whenever practicable and consistent with agency procedures [@CL-PRG-0410], unlike sending the final solicitation to all prospective offerors and meeting the paragraph (b) content requirements, which are written with "shall" [@CL-PRG-0416]. Paragraph (b)(6) requires the use of an Earned Value Management System that complies with the guidelines of EIA-748 (current version at time of solicitation) [@CL-PRG-0416; @CL-PRG-0421], while paragraph (b)(5) requires stating that each offeror is free to propose its own technical approach, main design features, subsystems, and alternatives to schedule, cost, and capability goals [@CL-PRG-0416; @CL-PRG-0423].
 
 ## Company calibration
 
@@ -86,5 +82,6 @@ Which contracts carry an earned value requirement, and whether the earned value 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0114 for the conjunction between items (4) and (5) of FAR 34.005-2(b), cited the introductory paragraph (a) and (b) claims across each subordinate item, and removed absence and meta-commentary statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mission-oriented solicitations for major systems.

@@ -45,7 +45,7 @@ One element of work worth 400,000 is split across 2 organizations, with 250,000 
 
 ## Never confuse
 
-The intersection of the lowest level work breakdown structure element and the organizational breakdown structure is the point at which control accounts are established, and each control account is assigned to a single organizational element directly responsible for the work identifiable to a single element of the work breakdown structure [@CL-PRG-0167; @CL-PRG-0172]. For scope that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package above the control account level with the assignment of an SLPP manager [@CL-PRG-0171]. Each control account has a corresponding Control Account Manager, who is responsible for ensuring the accomplishment of work in the control account and is the focal point of management control [@CL-PRG-0169].
+The intersection of the lowest level work breakdown structure element and the organizational breakdown structure is the point at which control accounts are established, and each control account is assigned to a single organizational element directly responsible for the work identifiable to a single element of the work breakdown structure [@CL-PRG-0167; @CL-PRG-0172], unlike scope that cannot practically be identified to a control account, for which it is permissible to establish a Summary Level Planning Package above the control account level with the assignment of an SLPP manager [@CL-PRG-0171]. Each control account has a corresponding Control Account Manager, who is responsible for ensuring the accomplishment of work in the control account and is the focal point of management control [@CL-PRG-0169].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which control account managers own the baseline decisions that change the curren
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exit-criteria definition and SLPP manager requirement and removed uncited contrasts in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored scope and exit criteria driver, kept should.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the control account guideline.

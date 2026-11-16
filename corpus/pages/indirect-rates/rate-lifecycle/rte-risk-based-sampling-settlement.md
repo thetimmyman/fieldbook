@@ -45,7 +45,7 @@ A business unit files a proposal with sampling auditable dollar volume of 60,000
 
 ## Never confuse
 
-Eligible proposals are assessed based on their Sampling Auditable Dollar Volume (ADV) and various risk factors [@CL-RTE-0318]. Under audit determination, final indirect cost rates may be set based on the results of an audit or accepted as proposed if a low-risk sampling process is used [@CL-RTE-0323]. For how materiality shapes the procedures within an audit, see [Materiality in incurred cost audits](../../compliance/audit-retention/cmp-materiality-incurred-cost-audits.md).
+Eligible proposals are assessed based on their Sampling Auditable Dollar Volume (ADV) and various risk factors [@CL-RTE-0318], and under audit determination final indirect cost rates may be set based on the results of an audit or accepted as proposed if a low-risk sampling process is used rather than performing a full audit on every proposal [@CL-RTE-0323]. For how materiality shapes the procedures within an audit, see [Materiality in incurred cost audits](../../compliance/audit-retention/cmp-materiality-incurred-cost-audits.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm which open fiscal years closed by sampling memorandum, which were audite
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the remaining sampling tiers, the audit-requirements scope of the class deviation, the methods lead-in and the educational, state and local, and nonprofit method, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the sampling treatment of incurred cost proposals below 100 million dollars and at or above 1 billion dollars of auditable dollar volume.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for risk-based sampling and the settlement of final indirect rates.

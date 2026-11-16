@@ -55,7 +55,7 @@ An agency has three alternative concepts for a major system. It must state its n
 
 ## Never confuse
 
-Promoting innovation and full and open competition in developing concepts is a different duty from sustaining effective competition between alternative concepts and sources. The first is stated with reference to part 6 and the development of concepts [@CL-PRG-0402]. The second lasts for as long as it is beneficial [@CL-PRG-0405]. Neither duty is placed on the contractor; the section places them on agencies [@CL-PRG-0401].
+Promoting innovation and full and open competition in developing concepts is not the same; it is a different duty from sustaining effective competition between alternative concepts and sources. The first is stated with reference to part 6 and the development of concepts [@CL-PRG-0402]. The second lasts for as long as it is beneficial [@CL-PRG-0405]. Neither duty is placed on the contractor; the section places them on agencies [@CL-PRG-0401].
 
 ## Company calibration
 
@@ -65,6 +65,7 @@ Which baseline, contingency and risk decisions change the current program foreca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the example sentence on who judges the benefit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of major system.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.000 part scope.

@@ -45,7 +45,7 @@ A fixed-price research and development contract of 3,000,000 uses funds from two
 
 ## Never confuse
 
-DFARS 232.706-70 directs using the clause at 252.232-7007, Limitation of Government's Obligation, in solicitations and resultant incrementally funded fixed-price contracts, and provides that the contracting officer may revise the contractor's notification period, in paragraph (c) of the clause, from ninety to thirty or sixty days, as appropriate [@CL-FPA-0078; @CL-FPA-0079]. See [Limitation of Government's obligation clause](fpa-limitation-of-government-obligation.md) and [Limitation of Funds clause](../../contract-finance/funding/ctf-limitation-of-funds.md).
+DFARS 232.706-70 directs using the clause at 252.232-7007, Limitation of Government's Obligation, in solicitations and resultant incrementally funded fixed-price contracts and allows revising the contractor's notification period in paragraph (c) from ninety to thirty or sixty days [@CL-FPA-0078; @CL-FPA-0079]. That clause, covered on [Limitation of Government's obligation clause](fpa-limitation-of-government-obligation.md), is not the cost-reimbursement clause: for that, see the [Limitation of Funds clause](../../contract-finance/funding/ctf-limitation-of-funds.md) rather than this page.
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which fixed-price contracts are incrementally funded, which of the two sets of c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added DFARS 232.704-70(c) actor companion, matched verbs and recipients to quotes, and removed uncited meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Incremental-funding conditions stated as alternatives, stop-work and risk statements tied to the third notice, clause paragraph and as-appropriate added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.001 definition and 232.702 policy.

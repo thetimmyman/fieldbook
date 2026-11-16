@@ -57,7 +57,7 @@ Under f.o.b. inland carrier, the shipment is damaged on the road before it reach
 
 ## Never confuse
 
-F.a.s. vessel, port of shipment, means free of expense to the Government delivered alongside the ocean vessel and within reach of its loading tackle at the specified port of shipment [@CL-SUP-2333]. F.o.b. vessel, port of shipment, means free of expense to the Government loaded, stowed, and trimmed on board the ocean vessel at the specified port of shipment [@CL-SUP-2336]. F.o.b. inland carrier, point of exportation, means free of expense to the Government, on board the conveyance of the inland carrier, delivered to the specified point of exportation [@CL-SUP-2339].
+F.a.s. vessel, port of shipment, means free of expense to the Government delivered alongside the ocean vessel and within reach of its loading tackle at the specified port of shipment [@CL-SUP-2333], unlike f.o.b. vessel, port of shipment, which means free of expense to the Government loaded, stowed, and trimmed on board the ocean vessel at the specified port of shipment [@CL-SUP-2336], or f.o.b. inland carrier, point of exportation, which means free of expense to the Government, on board the conveyance of the inland carrier, delivered to the specified point of exportation [@CL-SUP-2339].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Confirm which delivery term each export order carries, the delivery date or peri
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the prescription sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added contractor duty lead-in, aligned RFO and delivery wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

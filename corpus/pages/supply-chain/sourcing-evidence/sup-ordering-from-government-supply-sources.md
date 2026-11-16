@@ -53,7 +53,7 @@ A contractor orders stock on a reimbursable basis from a DoD supply source and r
 
 ## Never confuse
 
-When placing orders for Government stock on a reimbursable basis, the contractor shall pay invoices from Government supply sources promptly, which for purchases made from DoD supply sources means within 30 days of the date of a proper invoice [@CL-SUP-1570; @CL-SUP-1572]. See [Prompt payment for invoices](../../contract-finance/billing-payment/ctf-prompt-payment.md) and [Interagency Fleet Management System vehicles and related services](sup-ifms-vehicles-and-related-services.md).
+When placing orders for Government stock on a reimbursable basis, the contractor shall pay invoices from Government supply sources promptly—which for purchases made from DoD supply sources means within 30 days of the date of a proper invoice [@CL-SUP-1570; @CL-SUP-1572]—unlike orders placed under Federal Supply Schedules, Personal Property Rehabilitation Price Schedules, or Enterprise Software Agreements, which follow the terms of the applicable schedule or agreement and authorization [@CL-SUP-1567]. See [Prompt payment for invoices](../../contract-finance/billing-payment/ctf-prompt-payment.md) and [Interagency Fleet Management System vehicles and related services](sup-ifms-vehicles-and-related-services.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which orders the company places against Government supply sources and how it pay
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for order address item and paragraph (b) items; aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Order statement item; excusable delay scope; 30-day scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for ordering from Government supply sources.

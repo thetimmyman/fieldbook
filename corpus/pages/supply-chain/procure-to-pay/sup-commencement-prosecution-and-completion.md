@@ -53,7 +53,7 @@ This example applies codified FAR 52.211-10 and its Alternate I [@CL-SUP-2620]; 
 
 ## Never confuse
 
-Where Alternate I is used, the completion date is extended by the number of calendar days after the stated date that the Contractor receives the notice to proceed [@CL-SUP-2620; @CL-SUP-2566], except to the extent that the delay in issuance of the notice to proceed results from the failure of the Contractor to execute the contract and give the required performance and payment bonds within the time specified in the offer [@CL-SUP-2567]. The duty to commence work is paragraph (a), the duty to prosecute the work diligently is paragraph (b), and the duty to complete the entire work ready for use is paragraph (c) [@CL-SUP-2563; @CL-SUP-2564; @CL-SUP-2565]. The duties to commence, prosecute and complete the work, and the Alternate I extension for a late notice to proceed, come from codified FAR 52.211-10 [@CL-SUP-2563; @CL-SUP-2564; @CL-SUP-2565; @CL-SUP-2620]; the RFO text prints FAR 52.211-10 as [Reserved] [@CL-SUP-0033] and prints no Alternate I in that section [@CL-SUP-0034].
+Where Alternate I is used, the completion date is extended by the number of calendar days after the stated date that the Contractor receives the notice to proceed [@CL-SUP-2620; @CL-SUP-2566], except to the extent that the delay in issuance of the notice to proceed results from the failure of the Contractor to execute the contract and give the required performance and payment bonds within the time specified in the offer [@CL-SUP-2567]. The duty to commence work is paragraph (a), the duty to prosecute the work diligently is paragraph (b), and the duty to complete the entire work ready for use is paragraph (c) [@CL-SUP-2563; @CL-SUP-2564; @CL-SUP-2565]. The duties to commence, prosecute and complete the work, and the Alternate I extension for a late notice to proceed, come from codified FAR 52.211-10 [@CL-SUP-2563; @CL-SUP-2564; @CL-SUP-2565; @CL-SUP-2620], unlike the RFO text, which prints FAR 52.211-10 as [Reserved] [@CL-SUP-0033] and prints no Alternate I in that section [@CL-SUP-0034].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm which notice-to-proceed date each construction contract assumes and whet
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned blanks and Alternate I extension wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commencement, prosecution and completion of work.

@@ -47,7 +47,7 @@ A contractor finishes a data line item on a set date and the contract sets no lo
 
 ## Never confuse
 
-This clause applies to technical data delivered under a contract that includes it [@CL-SUP-1381], and the FAR warranty clauses are covered on separate cards; see [Warranties: criteria, terms and remedies](sup-warranties.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md) and [Warranty of systems and equipment](sup-warranty-systems-and-equipment.md). The basic clause and the alternates differ on damages: in the basic clause the listed remedies are the only way to enforce the Government's rights [@CL-SUP-1434], while Alternate I and Alternate II add liability for all damages with different limits [@CL-SUP-1386; @CL-SUP-1387].
+This clause applies to technical data delivered under a contract that includes it [@CL-SUP-1381], and the FAR warranty clauses are covered on separate cards; see [Warranties: criteria, terms and remedies](sup-warranties.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md) and [Warranty of systems and equipment](sup-warranty-systems-and-equipment.md). The basic clause and the alternates differ on damages: in the basic clause the listed remedies are the only way to enforce the Government's rights [@CL-SUP-1434], unlike Alternate I and Alternate II, which add liability for all damages with different limits [@CL-SUP-1386; @CL-SUP-1387].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which data line items carry this clause, which alternate the contract uses, and 
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated warranty period, remedies and alternates damages with their lead-ins.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the acceptance lead-in, the equipment subcontractor limit and the Alternate II exception, and said who decides on price adjustment.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for warranty of data.

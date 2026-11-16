@@ -28,7 +28,7 @@ In the areas this part covers, listed in the pull request (as many pages as fit 
 
 ## Preconditions
 
-- Cards merged: `kb-never-confuse-pass`, `kb-never-confuse-pass-2` (all edit pages across every area).
+- Cards merged: `kb-never-confuse-pass`, `kb-never-confuse-pass-2`, `kb-never-confuse-pass-3` (all edit pages across every area).
 
 ## Steps
 

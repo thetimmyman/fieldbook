@@ -47,7 +47,7 @@ Answer: the contracting officer notifies the agency official responsible for ini
 
 ## Never confuse
 
-When an offeror provides an affirmative response in paragraph (a)(1) of the provision at FAR 52.209-5, Certification Regarding Responsibility Matters, or paragraph (h) of provision 52.212-3, the contracting officer shall request additional information upon receipt of offers and notify the agency official responsible for initiating debarment or suspension action as required [@CL-SUP-0789; @CL-SUP-0293; @CL-SUP-0790; @CL-SUP-0791], whereas generally prospective prime contractors are responsible for determining the responsibility of their prospective subcontractors (but see FAR 9.405 and 9.405-2 regarding debarred, ineligible, or suspended firms) [@CL-SUP-0787]. See [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md), [Competition in Subcontracting clause](sup-competition-in-subcontracting.md) and [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md).
+When an offeror provides an affirmative response in paragraph (a)(1) of the provision at FAR 52.209-5, Certification Regarding Responsibility Matters, or paragraph (h) of provision 52.212-3, the contracting officer shall request additional information upon receipt of offers and notify the agency official responsible for initiating debarment or suspension action as required [@CL-SUP-0789; @CL-SUP-0293; @CL-SUP-0790; @CL-SUP-0791], unlike subcontractor responsibility determinations, where prospective prime contractors are generally responsible for determining the responsibility of their prospective subcontractors (but see FAR 9.405 and 9.405-2 regarding debarred, ineligible, or suspended firms) [@CL-SUP-0787]. See [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md), [Competition in Subcontracting clause](sup-competition-in-subcontracting.md) and [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm how the company determines and records the responsibility of a supplier 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions for subcontractor responsibility standards and contracting officer information requests, cited nonresponsibility consequence, and aligned provision details with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the responsibility subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor responsibility and responsibility representations.

@@ -58,7 +58,7 @@ This example applies the codified clauses [@CL-SUP-2428; @CL-SUP-2432]; the RFO 
 
 ## Never confuse
 
-The two terms deliver at different terminals. The exportation-point term delivers at the terminal named in the contract at the point of exportation and the contractor's charges run up to that point [@CL-SUP-2428; @CL-SUP-2430]. The importation-point term delivers at the terminal named at the point of importation, and the contractor's charges run up to the delivery point and include import fees, landing costs and duties [@CL-SUP-2432; @CL-SUP-2433; @CL-SUP-2434]. For the ocean terms, see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md) and [Import delivery terms](sup-import-delivery-terms-cf-cif.md). The rules above come from the codified clauses at FAR 52.247-43 and 52.247-44 [@CL-SUP-2428; @CL-SUP-2432]; the RFO text prints those two section numbers as [Reserved] [@CL-SUP-0016; @CL-SUP-0017].
+The two terms deliver at different terminals rather than the same point. The exportation-point term delivers at the terminal named in the contract at the point of exportation and the contractor's charges run up to that point [@CL-SUP-2428; @CL-SUP-2430]. The importation-point term delivers at the terminal named at the point of importation, and the contractor's charges run up to the delivery point and include import fees, landing costs and duties [@CL-SUP-2432; @CL-SUP-2433; @CL-SUP-2434]. For the ocean terms, see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md) and [Import delivery terms](sup-import-delivery-terms-cf-cif.md). The rules above come from the codified clauses at FAR 52.247-43 and 52.247-44 [@CL-SUP-2428; @CL-SUP-2432]; the RFO text prints those two section numbers as [Reserved] [@CL-SUP-0016; @CL-SUP-0017].
 
 ## Company calibration
 
@@ -67,6 +67,7 @@ Which air term each shipment carries and where the named terminal sits, because 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned importation-point charges wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for air delivery terms at the designated air carrier's terminal.

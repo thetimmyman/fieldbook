@@ -45,7 +45,7 @@ A contract has a total value of 2,000,000. The file holds written assurance from
 
 ## Never confuse
 
-Under FAR 32.702, before executing any contract, the contracting officer shall either (a) obtain written assurance from responsible fiscal authority that adequate funds are available or (b) expressly condition the contract upon availability of funds in accordance with FAR 32.703-2 [@CL-FPA-0051]. See [Contracts conditioned on availability of funds](fpa-funds-availability-conditioned-contracts.md).
+Under FAR 32.702, no Government officer or employee may create or authorize an obligation in excess of available funds or in advance of appropriations unless authorized by law [@CL-FPA-0050; @CL-FPA-0272], so before executing any contract the contracting officer must either obtain written assurance from responsible fiscal authority that adequate funds are available or expressly condition the contract upon availability of funds in accordance with FAR 32.703-2 rather than executing an unconditioned unfunded obligation [@CL-FPA-0051; @CL-FPA-0273]. See [Contracts conditioned on availability of funds](fpa-funds-availability-conditioned-contracts.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which open contracts rest on written assurance of funds, which are conditioned o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Anti-Deficiency Act statutory citation, separated RFO and codified citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the FAR 32.703-2 reference for the express funds condition.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

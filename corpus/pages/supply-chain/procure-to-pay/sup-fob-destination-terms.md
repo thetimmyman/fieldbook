@@ -49,7 +49,7 @@ A contract is f.o.b. destination to a consignee's receiving dock. The contractor
 
 ## Never confuse
 
-F.o.b. destination means, in part, free of expense to the Government, on board the carrier's conveyance, at a specified delivery point where the consignee's facility is located [@CL-SUP-1978]. F.o.b. destination, within consignee's premises, means free of expense to the Government delivered and laid down within the doors of the consignee's premises, including delivery to specific rooms within a building if so specified [@CL-SUP-1984]. The f.o.b. origin term has its own page, [F.o.b. origin delivery term](sup-fob-origin-delivery-term.md).
+F.o.b. destination means, in part, free of expense to the Government, on board the carrier's conveyance, at a specified delivery point where the consignee's facility is located [@CL-SUP-1978], unlike f.o.b. destination, within consignee's premises, which means free of expense to the Government delivered and laid down within the doors of the consignee's premises, including delivery to specific rooms within a building if so specified [@CL-SUP-1984]. The f.o.b. origin term has its own page, [F.o.b. origin delivery term](sup-fob-origin-delivery-term.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm who arranges and pays freight to the consignee's dock on each contract a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the within-premises duties lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the RFO definition sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added contractor duty lead-in, aligned RFO and liability wording.

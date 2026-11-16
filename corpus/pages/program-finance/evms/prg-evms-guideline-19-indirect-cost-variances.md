@@ -43,9 +43,7 @@ A program has a total cost variance of minus 100,000. An indirect rate increase 
 
 ## Never confuse
 
-The program's indirect cost variance is the portion of the total cost variance attributed to indirect rate adjustments [@CL-PRG-0314].
-
-The guideline on indirect budgets in the performance measurement baseline is covered in [indirect budgets in the performance measurement baseline](prg-evms-guideline-11-indirect-budgets.md).
+The program's indirect cost variance is the portion of the total cost variance attributed to indirect rate adjustments and analyzed by indirect rate category [@CL-PRG-0314; @CL-PRG-0710], unlike establishing the initial indirect budgets in the performance measurement baseline in [indirect budgets in the performance measurement baseline](prg-evms-guideline-11-indirect-budgets.md).
 
 ## Company calibration
 
@@ -55,6 +53,7 @@ Whether indirect cost variances are evaluated and their program impact is visibl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.

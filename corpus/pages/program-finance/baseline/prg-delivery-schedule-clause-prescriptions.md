@@ -63,13 +63,7 @@ A fixed-price construction contract is contemplated for a warehouse. The contrac
 
 ## Never confuse
 
-The Time of Delivery clause at 52.211-8 applies if the Government requires delivery by a particular time [@CL-PRG-0459; @CL-PRG-0460], whereas the Desired and Required Time of Delivery clause at 52.211-9 applies if the Government desires delivery by a certain time but requires delivery by a specified later time [@CL-PRG-0464; @CL-PRG-0465].
-
-For 52.211-8 and 52.211-9, Alternates I, II, and III depend on the date the delivery schedule is based on and, for Alternates I and II, on the schedule being expressed in terms of specific calendar dates or specific periods [@CL-PRG-0461; @CL-PRG-0462; @CL-PRG-0463; @CL-PRG-0466; @CL-PRG-0467; @CL-PRG-0468].
-
-Under 52.211-10, Alternate I applies if the completion date is expressed as a specific calendar date, computed on the basis of the contractor receiving the notice to proceed by a certain day [@CL-PRG-0471], whereas under 52.211-8 and 52.211-9, Alternate I applies if the delivery schedule is expressed in terms of specific calendar dates or specific periods and is based on an assumed date of award [@CL-PRG-0461; @CL-PRG-0466].
-
-The delivery clauses in paragraph (a) are for solicitations and contracts other than those for construction and architect-engineering [@CL-PRG-0459; @CL-PRG-0464].
+The Time of Delivery clause at 52.211-8 applies if the Government requires delivery by a particular time [@CL-PRG-0459; @CL-PRG-0460], whereas the Desired and Required Time of Delivery clause at 52.211-9 applies if the Government desires delivery by a certain time but requires delivery by a specified later time [@CL-PRG-0464; @CL-PRG-0465]. For 52.211-8 and 52.211-9, Alternates I, II, and III depend on the date the delivery schedule is based on and, for Alternates I and II, on the schedule being expressed in terms of specific calendar dates or specific periods [@CL-PRG-0461; @CL-PRG-0462; @CL-PRG-0463; @CL-PRG-0466; @CL-PRG-0467; @CL-PRG-0468]. Under 52.211-10, Alternate I applies if the completion date is expressed as a specific calendar date, computed on the basis of the contractor receiving the notice to proceed by a certain day [@CL-PRG-0471], unlike under 52.211-8 and 52.211-9, where Alternate I applies if the delivery schedule is expressed in terms of specific calendar dates or specific periods and is based on an assumed date of award [@CL-PRG-0461; @CL-PRG-0466]. The delivery clauses in paragraph (a) are for solicitations and contracts other than those for construction and architect-engineering [@CL-PRG-0459; @CL-PRG-0464].
 
 ## Company calibration
 
@@ -79,6 +73,7 @@ Who in the company confirms which delivery clause and which alternate actually l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated each alternate condition for 52.211-9 explicitly, separated the codified and RFO FAR 2.101 alternate definitions, and removed uncited framing and contrast sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the alternate definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of alternate.

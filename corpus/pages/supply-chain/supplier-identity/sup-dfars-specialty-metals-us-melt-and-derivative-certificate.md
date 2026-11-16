@@ -47,9 +47,7 @@ Assume an offeror lists one commercial derivative military article, and the Gove
 
 ## Never confuse
 
-The engine and vessel component clauses allow the United States, Australia, Canada, New Zealand, or the United Kingdom [@CL-SUP-1732; @CL-SUP-1734]; see [Diesel engines, vessel components and overseas contingency operation fuel](sup-dfars-diesel-engines-tao-vessel-components-and-ocs-fuel.md) (and see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md), [Restriction on acquisition of certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md), and [Anchor chain, forgings and steel plate restrictions](sup-dfars-anchor-chain-forgings-and-steel-plate-restrictions.md)).
-
-The offeror's designation of an item as a commercial derivative military article is subject to Government review and approval, and the certification applies if the offeror is awarded a contract and the Government approves the designation of the listed items as commercial derivative military articles [@CL-SUP-1747; @CL-SUP-1702; @CL-SUP-0067].
+The engine and vessel component clauses allow the United States, Australia, Canada, New Zealand, or the United Kingdom [@CL-SUP-1732; @CL-SUP-1734]—see [Diesel engines, vessel components and overseas contingency operation fuel](sup-dfars-diesel-engines-tao-vessel-components-and-ocs-fuel.md) (and see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md), [Restriction on acquisition of certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md), and [Anchor chain, forgings and steel plate restrictions](sup-dfars-anchor-chain-forgings-and-steel-plate-restrictions.md))—unlike the commercial derivative military article provision, under which the offeror's designation of an item as a commercial derivative military article is subject to Government review and approval, and the certification applies if the offeror is awarded a contract and the Government approves the designation of the listed items as commercial derivative military articles [@CL-SUP-1747; @CL-SUP-1702; @CL-SUP-0067].
 
 ## Company calibration
 
@@ -59,6 +57,7 @@ Which executed contracts and modifications carry the clause or the provision, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for paragraph (b), (c), (c)(1), and (d) of DFARS 252.225-7010 and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: definition items worded as alternatives; offer listing and certification scope stated.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the derivative certificate sentence so the purchase agreements keep their use in producing each commercial derivative military article and the related commercial article.

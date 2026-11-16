@@ -53,9 +53,7 @@ A contract runs for 12 months at a stated minimum monthly charge of 4,000. Servi
 
 ## Never confuse
 
-In the event of a change in the class of service, the service is provided at the contractor's lowest available rate schedule applicable to the class of service furnished [@CL-SUP-2670]. A change in rates or terms and conditions follows a separate path; see [Rate changes for regulated and unregulated utility service](sup-utility-rate-changes-regulated-and-unregulated.md).
-
-The clauses on the contractor's facilities and the utility service provisions are covered in [Contractor's facilities and utility service provisions](sup-utility-facilities-and-service-provisions.md).
+In the event of a change in the class of service, utility service is provided at the contractor's lowest available rate schedule applicable to the class of service furnished (or a negotiated rate schedule when none is on file with the regulatory body) [@CL-SUP-2670; @CL-SUP-2671], unlike a change in utility rates or terms and conditions, which follows the separate path on [Rate changes for regulated and unregulated utility service](sup-utility-rate-changes-regulated-and-unregulated.md); the clauses on the contractor's facilities and utility service provisions are covered in [Contractor's facilities and utility service provisions](sup-utility-facilities-and-service-provisions.md).
 
 ## Company calibration
 
@@ -65,6 +63,7 @@ Confirm which rate schedule each site is billed on and who checks it against the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the class-of-service and scope summaries from the cited quotes and removed meta blank wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility facilities and service provisions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
