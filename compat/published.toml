@@ -17,7 +17,7 @@ sha256 = "150b7c4e9e813083ed019ef8bef26ee17aa357c2a401bf5365e78ef5d79b6e75"
 role = "expected"
 case = "c1"
 path = "compat/adapter/admit/corpus-add@1/c1.out.txt"
-sha256 = "d8f22da180549b2c585e9bb1cb139fe99b046d4845d184a3deed2afc420cf35c"
+sha256 = "39c86495553b5d742850ab1f04b6baecd7894ad658c58f4bf6a1e5623a291ffe"
 
 [[binding.files]]
 role = "expected"
@@ -34,7 +34,7 @@ sha256 = "a63138decb9b087e17f32a27b92fb26e7963e28cf0176cb8b8918c876c38e8f0"
 [[binding.files]]
 role = "implementation"
 path = "crates/fieldbook-core/src/versions/corpus_add_v1.rs"
-sha256 = "d9102878d2549747e996d01f4f392fb2f9aeb6d61281473ee4adcf7746559edc"
+sha256 = "e790f02de6d5968999efc3b33924399446ae318eb0ca2d41e437fa7a5a88f229"
 
 [[binding.files]]
 role = "input"
@@ -346,7 +346,7 @@ sha256 = "6a89e760f1b8fff9c495bfef5d3c85e1a4d375262d862ee84be6e1aee9345c87"
 [[binding.files]]
 role = "implementation"
 path = "crates/fieldbook/src/io/versions/staged_v1.rs"
-sha256 = "abc8f808e812d317d4184ab9e57a9f47468cdcf34aebb2fda832ab65309b3ddc"
+sha256 = "2dce4d8696451b93993c31943f6a8680b025055c58d75f71df644895530d9002"
 
 [[binding.files]]
 role = "input"

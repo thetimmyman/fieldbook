@@ -50,6 +50,17 @@ pub fn mark_not_indexed(path: &Path) -> bool {
     fieldbook_win::mark_not_indexed(path).is_ok()
 }
 
+/// Return the final path of the object that the open `file` handle refers to (`None` off
+/// Windows or when the handle cannot be queried), read from the handle and not from a pathname.
+#[must_use]
+#[expect(
+    clippy::disallowed_types,
+    reason = "the final path is read from an open file handle, never from a pathname"
+)]
+pub fn final_path(file: &std::fs::File) -> Option<PathBuf> {
+    fieldbook_win::final_path(file).ok()
+}
+
 /// Convert a [`fieldbook_win::Place`] result into [`PlaceFacts`].
 ///
 /// Off Windows (`call == "not windows"`), every fact is `false`. On Windows, a failed

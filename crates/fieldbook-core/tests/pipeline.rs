@@ -1463,3 +1463,170 @@ fn classifier_and_correlator_suites_pass_on_stub_adapters() {
     let index = StubIndex;
     pipeline_suites::correlator_suite(&|| StubCorrelator, &view, &index);
 }
+
+#[test]
+fn origin_bearing_new_version_changed_to_new_reopens_cleanly() {
+    use fieldbook_core::date::{CivilDate, PartialDate};
+    use fieldbook_core::ids::VersionId;
+    use fieldbook_core::pipeline::Origin;
+
+    let (_, mut prop) = load_queue_proposal("new_version.toml");
+    prop.origin = Some(Origin {
+        system: "synth-erp".to_owned(),
+        stream: "rate-cards".to_owned(),
+        key: "rc-2026".to_owned(),
+        as_of: PartialDate::parse("2026-03").unwrap(),
+        retrieved: CivilDate::parse("2026-03-01").unwrap(),
+        base: Some(VersionId::parse("S-0001-v1").unwrap()),
+        series: Some("annual-rates".to_owned()),
+        workbook: false,
+    });
+    let initial_toml = prop.render();
+    let parsed_initial = Proposal::parse("P-0090", &initial_toml).unwrap();
+    assert_eq!(
+        parsed_initial.origin.as_ref().and_then(|o| o.base.as_ref()),
+        Some(&VersionId::parse("S-0001-v1").unwrap())
+    );
+
+    // Switching a `new_version` proposal with `origin.base` to `SourceChoice::New` must clear
+    // `origin.base` so rendering and reopening succeeds with exact round-trip equality.
+    let mut switched_new = parsed_initial.clone();
+    apply_edits(
+        &mut switched_new,
+        &Edits {
+            source_choice: Some(SourceChoice::New),
+            ..Edits::default()
+        },
+    );
+    assert_eq!(switched_new.kind, ProposalKind::NewSource);
+    let rendered_new = switched_new.render();
+    let reopened_new = Proposal::parse("P-0090", &rendered_new)
+        .expect("origin-bearing proposal switched to New must reopen cleanly");
+    assert_eq!(reopened_new, switched_new);
+    assert_eq!(
+        reopened_new.origin.as_ref().and_then(|o| o.base.as_ref()),
+        None
+    );
+    assert_eq!(
+        reopened_new.origin.as_ref().map(|o| o.stream.as_str()),
+        Some("rate-cards")
+    );
+
+    // Switching to a different `Existing` source (`S-0002`) also clears stale `S-0001-v1` base,
+    // while keeping `S-0001` preserves `S-0001-v1`.
+    let mut switched_s2 = parsed_initial.clone();
+    apply_edits(
+        &mut switched_s2,
+        &Edits {
+            source_choice: Some(SourceChoice::Existing(SourceId::parse("S-0002").unwrap())),
+            ..Edits::default()
+        },
+    );
+    let reopened_s2 = Proposal::parse("P-0090", &switched_s2.render()).unwrap();
+    assert_eq!(reopened_s2, switched_s2);
+    assert_eq!(
+        reopened_s2.origin.as_ref().and_then(|o| o.base.as_ref()),
+        None
+    );
+
+    let mut kept_s1 = parsed_initial;
+    apply_edits(
+        &mut kept_s1,
+        &Edits {
+            source_choice: Some(SourceChoice::Existing(SourceId::parse("S-0001").unwrap())),
+            ..Edits::default()
+        },
+    );
+    let reopened_s1 = Proposal::parse("P-0090", &kept_s1.render()).unwrap();
+    assert_eq!(
+        reopened_s1.origin.as_ref().and_then(|o| o.base.as_ref()),
+        Some(&VersionId::parse("S-0001-v1").unwrap())
+    );
+}
+
+#[test]
+fn verified_extraction_requires_validated_construction_and_exposes_immutable_views() {
+    use fieldbook_core::extraction::ExtractError;
+    use fieldbook_core::hash::sha256_hex;
+
+    let (raw_bytes, verified) = load_state_intake_verified();
+    let orig_sha = sha256_hex(&raw_bytes);
+    assert_eq!(verified.original_sha256(), orig_sha);
+    assert_eq!(verified.tool(), "plain");
+    assert_eq!(verified.tool_version(), "1");
+    assert_eq!(verified.extraction().pages.len(), 1);
+    assert_eq!(verified.record().page_count, 1);
+
+    let p1_bytes = verified.page_bytes().get("p0001").expect("p0001 bytes");
+    let p1_hash = verified.page_hashes().get("p0001").expect("p0001 hash");
+    assert_eq!(sha256_hex(p1_bytes), *p1_hash);
+
+    // Invalid hex64 original digest and tampered page bytes must both be rejected by `verify`.
+    let toml_bytes = verified.rendered_toml_bytes();
+    assert_eq!(
+        VerifiedExtraction::verify("not-hex64", &toml_bytes, verified.page_bytes().clone()),
+        Err(ExtractError::Missing("matching staging folder"))
+    );
+    let mut tampered_pages = verified.page_bytes().clone();
+    tampered_pages.get_mut("p0001").expect("p0001").push(b'!');
+    assert_eq!(
+        VerifiedExtraction::verify(&orig_sha, &toml_bytes, tampered_pages),
+        Err(ExtractError::Missing("matching staging folder"))
+    );
+}
+
+#[test]
+fn candidate_file_rejects_windows_prefixes_rooted_and_unc_paths() {
+    let base_toml =
+        std::fs::read_to_string(repo_root().join("tests/fixtures/queue/new_source.toml"))
+            .expect("read new_source.toml");
+
+    for accepted in ["synthetic_notice.txt", "nested/dir/notice.txt"] {
+        let valid_raw = base_toml.replace(
+            "file = \"synthetic_notice.txt\"",
+            &format!("file = {accepted:?}"),
+        );
+        assert!(
+            Proposal::parse("P-0091", &valid_raw).is_ok(),
+            "safe relative inbox path `{accepted}` must be accepted"
+        );
+    }
+
+    for unsafe_path in [
+        r"C:\outside\notice.txt",
+        "C:/outside/notice.txt",
+        "C:outside.txt",
+        r"\outside\notice.txt",
+        r"\\server\share\notice.txt",
+        r"\\?\C:\outside\notice.txt",
+        "/outside/notice.txt",
+        "../outside.txt",
+        "nested/../outside.txt",
+        r"nested\..\outside.txt",
+        r"nested\notice.txt",
+        "./notice.txt",
+        "nested/./notice.txt",
+        "nested//notice.txt",
+        "nested/dir/",
+        "notice.txt:ads",
+        "notice.txt ",
+        "notice.txt.",
+        "CON.txt",
+        "LPT1.pdf",
+    ] {
+        let bad_raw = base_toml.replace(
+            "file = \"synthetic_notice.txt\"",
+            &format!("file = {unsafe_path:?}"),
+        );
+        let err = Proposal::parse("P-0092", &bad_raw).expect_err(&format!(
+            "unsafe candidate.file `{unsafe_path}` must be refused"
+        ));
+        assert!(
+            matches!(
+                err,
+                ProposalParseError::InvalidValue { ref key, .. } if key == "candidate.file"
+            ),
+            "expected InvalidValue on candidate.file for `{unsafe_path}`, got {err:?}"
+        );
+    }
+}

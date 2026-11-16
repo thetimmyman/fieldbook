@@ -335,13 +335,13 @@ fn staged_replays_known_and_preserves_unsupported_metadata_as_unavailable() {
         .verify(orig_bytes)
         .expect("verify known pdftotext-layout");
     assert_eq!(
-        verified.extraction.method,
+        verified.extraction().method,
         fieldbook_core::extraction::methods::PDFTOTEXT_LAYOUT
     );
-    assert_eq!(verified.tool, "pdftotext");
-    assert_eq!(verified.tool_version, "24.02.0");
+    assert_eq!(verified.tool(), "pdftotext");
+    assert_eq!(verified.tool_version(), "24.02.0");
     assert!(matches!(
-        verified.method_metadata,
+        verified.method_metadata(),
         VerifiedMethodMetadata::Known { .. }
     ));
 
@@ -356,10 +356,10 @@ fn staged_replays_known_and_preserves_unsupported_metadata_as_unavailable() {
     let verified_unsup = staged
         .verify(orig_bytes)
         .expect("verify unsupported staging preserves hash-checked pages");
-    assert_eq!(verified_unsup.extraction.method, "unsupported");
+    assert_eq!(verified_unsup.extraction().method, "unsupported");
     assert_eq!(
-        verified_unsup.method_metadata,
-        VerifiedMethodMetadata::Unavailable {
+        verified_unsup.method_metadata(),
+        &VerifiedMethodMetadata::Unavailable {
             method: "future-ocr-engine".to_owned(),
             reason: "unsupported extraction method",
         }
@@ -389,6 +389,350 @@ fn staged_refuses_a_symlinked_page_file() {
         extractor.extract(&input, "txt"),
         Err(ExtractError::Missing("staging folder"))
     );
+}
+
+#[cfg(unix)]
+#[test]
+fn staged_refuses_symlinked_staging_ancestors() {
+    use fieldbook::World as _;
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    // 1. Symlink at `<state>/staging` pointing outside `<state>`.
+    let tmp1 = tempfile::tempdir().expect("create tempdir 1");
+    let state1 = copy_state_intake_into(tmp1.path());
+    let outside_staging = tmp1.path().join("outside_staging");
+    std::fs::rename(state1.join("staging"), &outside_staging).expect("move staging outside");
+    std::os::unix::fs::symlink(&outside_staging, state1.join("staging"))
+        .expect("symlink staging dir");
+    let world1 = support::world::TestWorld::with_state(tmp1.path(), &state1);
+    assert_eq!(
+        Staged::new(&world1).extract(&input, "txt"),
+        Err(ExtractError::Missing("staging folder")),
+        "symlinked `<state>/staging` directory must be refused"
+    );
+
+    // 2. Symlink at `<state>/staging/<sha256>` pointing outside `staging`.
+    let tmp2 = tempfile::tempdir().expect("create tempdir 2");
+    let state2 = copy_state_intake_into(tmp2.path());
+    let sha_dir = state2.join("staging").join(&orig_sha);
+    let outside_sha = tmp2.path().join("outside_sha");
+    std::fs::rename(&sha_dir, &outside_sha).expect("move <sha256> outside");
+    std::os::unix::fs::symlink(&outside_sha, &sha_dir).expect("symlink <sha256> dir");
+    let world2 = support::world::TestWorld::with_state(tmp2.path(), &state2);
+    assert_eq!(
+        Staged::new(&world2).extract(&input, "txt"),
+        Err(ExtractError::Missing("staging folder")),
+        "symlinked `<state>/staging/<sha256>` directory must be refused"
+    );
+
+    // 3. `..` traversal component in `World::read_file` must be refused even when target exists.
+    let escape_file = tmp2.path().join("escape_probe.txt");
+    std::fs::write(&escape_file, b"outside secret\n").expect("write escape file");
+    let dotdot_path = state2
+        .join("staging")
+        .join("..")
+        .join("..")
+        .join("escape_probe.txt");
+    assert!(
+        world2.read_file(&dotdot_path).is_err(),
+        "`..` traversal in Disk::read_file must be refused"
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn disk_read_file_refuses_concurrent_file_and_ancestor_symlink_swaps() {
+    use fieldbook::{World as _, WorldError};
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let real_staging = state_dir.join("staging_real");
+    let active_staging = state_dir.join("staging");
+    let outside_dir = tmp.path().join("outside_secret_dir");
+    std::fs::create_dir_all(real_staging.join("sub")).expect("create real_staging");
+    std::fs::create_dir_all(outside_dir.join("sub")).expect("create outside_dir");
+
+    let legit_bytes = b"legitimate staged page bytes\n";
+    let secret_bytes = b"OUTSIDE SECRET BYTES MUST NEVER BE READ\n";
+    std::fs::write(real_staging.join("sub/p0001.txt"), legit_bytes).expect("write legit page");
+    std::fs::write(outside_dir.join("sub/p0001.txt"), secret_bytes).expect("write outside page");
+    let outside_leaf = tmp.path().join("outside_leaf.txt");
+    std::fs::write(&outside_leaf, secret_bytes).expect("write outside leaf");
+
+    // Seed initial valid directory tree under `<state>/staging/sub/p0001.txt`.
+    std::fs::create_dir_all(active_staging.join("sub")).expect("create active_staging");
+    std::fs::write(active_staging.join("sub/p0001.txt"), legit_bytes).expect("seed active page");
+
+    let stop = Arc::new(AtomicBool::new(false));
+    let swaps = Arc::new(AtomicUsize::new(0));
+    let active_clone = active_staging.clone();
+    let real_clone = real_staging.clone();
+    let outside_dir_clone = outside_dir.clone();
+    let outside_leaf_clone = outside_leaf.clone();
+    let stop_clone = Arc::clone(&stop);
+    let swaps_clone = Arc::clone(&swaps);
+
+    let swapper = std::thread::spawn(move || {
+        let backup_dir = active_clone.with_file_name("staging_bak");
+        let leaf_path = active_clone.join("sub/p0001.txt");
+        let leaf_tmp = active_clone.join("sub/.swap_leaf");
+        while !stop_clone.load(Ordering::Relaxed) {
+            // 1. Atomic leaf file <-> symlink swap inside `sub/`.
+            let _ = std::fs::remove_file(&leaf_tmp);
+            if std::os::unix::fs::symlink(&outside_leaf_clone, &leaf_tmp).is_ok() {
+                let _ = std::fs::rename(&leaf_tmp, &leaf_path);
+                swaps_clone.fetch_add(1, Ordering::Relaxed);
+            }
+            let _ = std::fs::remove_file(&leaf_tmp);
+            if std::fs::write(&leaf_tmp, legit_bytes).is_ok() {
+                let _ = std::fs::rename(&leaf_tmp, &leaf_path);
+            }
+
+            // 2. Ancestor directory `<state>/staging` <-> outside symlink swap.
+            let _ = std::fs::remove_dir_all(&backup_dir);
+            if std::fs::rename(&active_clone, &backup_dir).is_ok() {
+                let _ = std::os::unix::fs::symlink(&outside_dir_clone, &active_clone);
+                swaps_clone.fetch_add(1, Ordering::Relaxed);
+                let _ = std::fs::remove_file(&active_clone);
+                let _ = std::fs::rename(&backup_dir, &active_clone);
+            } else {
+                // Ensure `active_clone` stays restored if interrupted mid-step.
+                let _ = std::fs::remove_file(&active_clone);
+                if !active_clone.exists() {
+                    let _ = std::fs::create_dir_all(active_clone.join("sub"));
+                    let _ = std::fs::copy(
+                        real_clone.join("sub/p0001.txt"),
+                        active_clone.join("sub/p0001.txt"),
+                    );
+                }
+            }
+        }
+    });
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let target = active_staging.join("sub/p0001.txt");
+    let mut refused = 0usize;
+    let mut ok_reads = 0usize;
+    let mut iter = 0usize;
+    while iter < 1500 || swaps.load(Ordering::Relaxed) < 10 {
+        iter += 1;
+        match world.read_file(&target) {
+            Ok(Some(bytes)) => {
+                assert_ne!(
+                    bytes.as_slice(),
+                    secret_bytes,
+                    "TOCTOU escape: Disk::read_file read bytes from outside `<state>`!"
+                );
+                assert_eq!(bytes.as_slice(), legit_bytes);
+                ok_reads += 1;
+            }
+            Ok(None) => {}
+            Err(WorldError::OutOfScope(_)) => {
+                refused += 1;
+            }
+            Err(WorldError::Io { .. }) => {
+                // Concurrent rename between directory open and child lookup can yield ENOTDIR.
+                refused += 1;
+            }
+            Err(other) => panic!("unexpected WorldError variant: {other:?}"),
+        }
+        if iter >= 20_000 {
+            break;
+        }
+    }
+
+    stop.store(true, Ordering::Relaxed);
+    swapper.join().expect("join swapper thread");
+    assert!(
+        swaps.load(Ordering::Relaxed) > 0,
+        "swapper thread must perform concurrent swaps"
+    );
+    assert!(
+        refused > 0 || ok_reads > 0,
+        "concurrent reader must observe live reads/refusals"
+    );
+}
+
+/// A leaf swapped between a regular file and a FIFO while `Disk::read_file` runs must never block
+/// the reader: the leaf is opened with `O_NONBLOCK | O_NOFOLLOW` and rejected by `fstat` before any
+/// byte is read. A blocking open waits forever on a FIFO with no writer, so the watchdog fails.
+#[cfg(target_os = "linux")]
+#[test]
+fn disk_read_file_never_blocks_on_a_leaf_swapped_to_a_fifo() {
+    use fieldbook::{World as _, WorldError};
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+    use std::time::Duration;
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let sub = state_dir.join("staging/sub");
+    std::fs::create_dir_all(&sub).expect("create staging/sub");
+    let legit_bytes = b"legitimate staged page bytes\n";
+    let leaf = sub.join("p0001.txt");
+    let parked_file = sub.join(".parked_file");
+    let parked_fifo = sub.join(".parked_fifo");
+    std::fs::write(&leaf, legit_bytes).expect("write leaf");
+    let made = std::process::Command::new("mkfifo")
+        .arg(&parked_fifo)
+        .status()
+        .expect("run mkfifo");
+    assert!(made.success(), "mkfifo must create the FIFO");
+
+    let stop = Arc::new(AtomicBool::new(false));
+    let swaps = Arc::new(AtomicUsize::new(0));
+    let swapper = {
+        let (stop, swaps) = (Arc::clone(&stop), Arc::clone(&swaps));
+        let (leaf, parked_file, parked_fifo) =
+            (leaf.clone(), parked_file.clone(), parked_fifo.clone());
+        std::thread::spawn(move || {
+            while !stop.load(Ordering::Relaxed) {
+                // Regular file out, FIFO in; then back again. Renames keep both inodes.
+                if std::fs::rename(&leaf, &parked_file).is_ok() {
+                    if std::fs::rename(&parked_fifo, &leaf).is_ok() {
+                        swaps.fetch_add(1, Ordering::Relaxed);
+                        let _ = std::fs::rename(&leaf, &parked_fifo);
+                    }
+                    let _ = std::fs::rename(&parked_file, &leaf);
+                }
+            }
+        })
+    };
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let (done_tx, done_rx) = std::sync::mpsc::channel();
+    let reader = {
+        let swaps = Arc::clone(&swaps);
+        let target = leaf.clone();
+        std::thread::spawn(move || {
+            let mut iter = 0usize;
+            while iter < 100_000 || swaps.load(Ordering::Relaxed) < 200 {
+                iter += 1;
+                match world.read_file(&target) {
+                    Ok(Some(bytes)) => assert_eq!(bytes.as_slice(), legit_bytes),
+                    Ok(None) | Err(WorldError::Io { .. }) => {}
+                    Err(other) => panic!("unexpected WorldError variant: {other:?}"),
+                }
+                if iter >= 500_000 {
+                    break;
+                }
+            }
+            let _ = done_tx.send(iter);
+        })
+    };
+
+    let outcome = done_rx.recv_timeout(Duration::from_secs(60));
+    stop.store(true, Ordering::Relaxed);
+    swapper.join().expect("join swapper thread");
+    let iters =
+        outcome.expect("Disk::read_file blocked: a leaf swapped to a FIFO was opened blocking");
+    reader.join().expect("join reader thread");
+    assert!(iters > 0);
+    assert!(
+        swaps.load(Ordering::Relaxed) > 0,
+        "the swapper must put the FIFO in place while the reader runs"
+    );
+}
+
+/// Where no descriptor-relative open exists, `Disk::read_file` refuses instead of walking pathnames.
+#[cfg(all(unix, not(target_os = "linux")))]
+#[test]
+fn disk_read_file_refuses_without_descriptor_relative_opens() {
+    use fieldbook::World as _;
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    std::fs::create_dir_all(state_dir.join("staging")).expect("create staging");
+    let leaf = state_dir.join("staging/p0001.txt");
+    std::fs::write(&leaf, b"page\n").expect("write leaf");
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    assert!(world.read_file(&leaf).is_err());
+}
+
+/// Windows: `<state>/staging` swapped by rename between the real folder and a junction to an
+/// outside folder must never yield the outside bytes, and a junction in place is refused. The
+/// checks are bound to the held handles (final path of each handle, no delete sharing), not to
+/// the pathname. Junctions need no privilege; the test is skipped where `mklink /J` fails.
+#[cfg(windows)]
+#[test]
+fn disk_read_file_refuses_junction_swaps_by_handle() {
+    use fieldbook::{World as _, WorldError};
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, Ordering};
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let staging = state_dir.join("staging");
+    let parked_real = state_dir.join("staging_real");
+    let parked_link = state_dir.join("staging_link");
+    let outside = tmp.path().join("outside");
+    std::fs::create_dir_all(staging.join("sub")).expect("create staging/sub");
+    std::fs::create_dir_all(outside.join("sub")).expect("create outside/sub");
+    let legit_bytes = b"legitimate staged page bytes\n";
+    let secret_bytes = b"OUTSIDE SECRET BYTES MUST NEVER BE READ\n";
+    std::fs::write(staging.join("sub/p0001.txt"), legit_bytes).expect("write legit page");
+    std::fs::write(outside.join("sub/p0001.txt"), secret_bytes).expect("write outside page");
+    let made = std::process::Command::new("cmd.exe")
+        .args(["/C", "mklink", "/J"])
+        .arg(&parked_link)
+        .arg(&outside)
+        .status();
+    if !made.is_ok_and(|s| s.success()) {
+        println!("skipped: mklink /J is not available");
+        return;
+    }
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let target = staging.join("sub/p0001.txt");
+
+    // A junction standing at `<state>/staging` is refused outright.
+    std::fs::rename(&staging, &parked_real).expect("park the real staging folder");
+    std::fs::rename(&parked_link, &staging).expect("put the junction in place");
+    assert!(
+        world.read_file(&target).is_err(),
+        "a junction at `<state>/staging` must be refused"
+    );
+    std::fs::rename(&staging, &parked_link).expect("park the junction");
+    std::fs::rename(&parked_real, &staging).expect("restore the real staging folder");
+
+    let stop = Arc::new(AtomicBool::new(false));
+    let swapper = {
+        let stop = Arc::clone(&stop);
+        let (staging, parked_real, parked_link) =
+            (staging.clone(), parked_real.clone(), parked_link.clone());
+        std::thread::spawn(move || {
+            while !stop.load(Ordering::Relaxed) {
+                if std::fs::rename(&staging, &parked_real).is_ok() {
+                    if std::fs::rename(&parked_link, &staging).is_ok() {
+                        let _ = std::fs::rename(&staging, &parked_link);
+                    }
+                    let _ = std::fs::rename(&parked_real, &staging);
+                }
+            }
+        })
+    };
+
+    for _ in 0..5_000 {
+        match world.read_file(&target) {
+            Ok(Some(bytes)) => {
+                assert_ne!(
+                    bytes.as_slice(),
+                    secret_bytes,
+                    "TOCTOU escape: Disk::read_file read bytes through a junction swap"
+                );
+                assert_eq!(bytes.as_slice(), legit_bytes);
+            }
+            Ok(None) | Err(WorldError::OutOfScope(_) | WorldError::Io { .. }) => {}
+            Err(other) => panic!("unexpected WorldError variant: {other:?}"),
+        }
+    }
+    stop.store(true, Ordering::Relaxed);
+    swapper.join().expect("join swapper thread");
 }
 
 #[test]

@@ -1,17 +1,23 @@
 //! Retained verification kernel for the Extractor `staged@1` adapter (published compatibility binding).
 //!
-//! **Responsibility.** Frozen pure verification logic of `staged@1`: resolves the original
-//! SHA-256 staging directory (`staging/<sha256>`), checks that staged `extraction.toml` and page
-//! files are present and bound to `original_bytes`, and delegates full record/page verification to
-//! [`VerifiedExtraction::verify`].
+//! **Responsibility.** Frozen pure verification behavior of `staged@1`: resolves the original
+//! SHA-256 staging directory (`staging/<sha256>`), validates `extraction.toml` header, page count,
+//! page digests, UTF-8 page bodies, thin-page set, and method schema keys against `original_bytes`.
+//! A change of contract requires a new `staged_v2` file; this file and its archived vectors stay
+//! executable.
 //!
-//! **Rules.** Pure: no I/O. Any change is a new `staged_v2` file.
+//! **Rules.** Pure: no I/O.
 
 use std::collections::BTreeMap;
 
-use fieldbook_core::extraction::{ExtractError, ExtractionToml, page_stem};
+use fieldbook_core::extraction::{
+    ExtractError, ExtractionMethod, ExtractionToml, PageText, page_stem, thin_page_numbers,
+};
 use fieldbook_core::hash::sha256_hex;
 use fieldbook_core::pipeline::VerifiedExtraction;
+
+/// Adapter identifier retained by this kernel (`staged@1`).
+pub const ADAPTER_ID: &str = "staged@1";
 
 /// Canonical relative directory path under `<state>` holding staged extraction artifacts for `orig_sha`.
 #[must_use]
@@ -55,7 +61,8 @@ pub fn expected_page_stems(
     Ok((orig_sha, stems))
 }
 
-/// Verifies pre-loaded staged `extraction.toml` bytes and `page_files` against `original_bytes`.
+/// Executes the frozen `staged@1` verification contract over pre-loaded staged `extraction.toml`
+/// bytes and `page_files` against `original_bytes`.
 ///
 /// # Errors
 ///
@@ -64,9 +71,57 @@ pub fn expected_page_stems(
 pub fn verify_staged(
     original_bytes: &[u8],
     toml_bytes: Option<&[u8]>,
-    page_files: BTreeMap<String, Vec<u8>>,
+    mut page_files: BTreeMap<String, Vec<u8>>,
 ) -> Result<VerifiedExtraction, ExtractError> {
     let raw_toml = toml_bytes.ok_or(ExtractError::Missing("staging folder"))?;
-    let (orig_sha, _) = expected_page_stems(original_bytes, Some(raw_toml))?;
-    VerifiedExtraction::verify(&orig_sha, raw_toml, page_files)
+    let (orig_sha, stems) = expected_page_stems(original_bytes, Some(raw_toml))?;
+    let toml_text = std::str::from_utf8(raw_toml)
+        .map_err(|_| ExtractError::Missing("matching staging folder"))?;
+    let record = ExtractionToml::parse(toml_text)
+        .map_err(|_| ExtractError::Missing("matching staging folder"))?;
+
+    if page_files.len() != stems.len() {
+        return Err(ExtractError::Missing("matching staging folder"));
+    }
+
+    let mut pages = Vec::with_capacity(stems.len());
+    let mut verified_files = BTreeMap::new();
+    for (idx, stem) in stems.into_iter().enumerate() {
+        let expected_hash = record
+            .pages
+            .get(&stem)
+            .ok_or(ExtractError::Missing("matching staging folder"))?;
+        let bytes = page_files
+            .remove(&stem)
+            .ok_or(ExtractError::Missing("matching staging folder"))?;
+        if sha256_hex(&bytes) != *expected_hash {
+            return Err(ExtractError::Missing("matching staging folder"));
+        }
+        let text = std::str::from_utf8(&bytes)
+            .map_err(|_| ExtractError::Missing("matching staging folder"))?
+            .to_owned();
+        let num =
+            u32::try_from(idx + 1).map_err(|_| ExtractError::Missing("matching staging folder"))?;
+        pages.push(PageText { number: num, text });
+        verified_files.insert(stem, bytes);
+    }
+
+    if thin_page_numbers(&pages) != record.thin_pages {
+        return Err(ExtractError::Missing("matching staging folder"));
+    }
+
+    if let ExtractionMethod::Known(method) = &record.method {
+        if record.method_data.is_some() && !method.keys.contains(&"method_data") {
+            return Err(ExtractError::Missing("matching staging folder"));
+        }
+        if record
+            .extra
+            .keys()
+            .any(|k| !method.keys.contains(&k.as_str()))
+        {
+            return Err(ExtractError::Missing("matching staging folder"));
+        }
+    }
+
+    VerifiedExtraction::verify(&orig_sha, raw_toml, verified_files)
 }

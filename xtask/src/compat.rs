@@ -1173,8 +1173,9 @@ fn run_vector(
                         page_files,
                     ) {
                         Ok(verified) => {
-                            let mut out = format!("ok\nmethod {}\n", verified.extraction.method);
-                            for page in verified.extraction.pages {
+                            let ext = verified.extraction();
+                            let mut out = format!("ok\nmethod {}\n", ext.method);
+                            for page in &ext.pages {
                                 out.push_str(&format!("page {}\n", page.number));
                                 out.push_str(&page.text);
                                 if !page.text.ends_with('\n') {
@@ -1283,7 +1284,43 @@ fn run_vector(
                                 out.push_str(&format!("affected {}\n", item.id));
                             }
                             for pw in files {
-                                out.push_str(&format!("file {}\n", pw.file.path));
+                                match &pw.source {
+                                    fieldbook_core::pipeline::WriteSource::Inbox => {
+                                        out.push_str(&format!(
+                                            "file {} {} inbox\n",
+                                            pw.file.path, pw.file.sha256
+                                        ));
+                                    }
+                                    fieldbook_core::pipeline::WriteSource::Staging(rel) => {
+                                        out.push_str(&format!(
+                                            "file {} {} staging:{rel}\n",
+                                            pw.file.path, pw.file.sha256
+                                        ));
+                                    }
+                                    fieldbook_core::pipeline::WriteSource::Rendered(bytes) => {
+                                        out.push_str(&format!(
+                                            "file {} {} rendered:{}\n",
+                                            pw.file.path,
+                                            pw.file.sha256,
+                                            bytes.len()
+                                        ));
+                                        match std::str::from_utf8(bytes) {
+                                            Ok(text) => {
+                                                out.push_str(text);
+                                                if !text.ends_with('\n') {
+                                                    out.push('\n');
+                                                }
+                                            }
+                                            Err(_) => {
+                                                for b in bytes {
+                                                    out.push_str(&format!("{b:02x}"));
+                                                }
+                                                out.push('\n');
+                                            }
+                                        }
+                                        out.push_str("end-rendered\n");
+                                    }
+                                }
                             }
                             out
                         }
@@ -2125,6 +2162,38 @@ archive_manifest_sha256 = "fedcba9876543210fedcba9876543210fedcba9876543210fedcb
             "parse_baselines",
             &[VALID_EMPTY_BASELINE, VALID_RELEASE_BASELINE],
             parse_baselines,
+        );
+    }
+
+    #[test]
+    fn admit_compat_runner_detects_rendered_byte_and_hash_drift() {
+        let root = crate::proc::repo_root();
+        let published = parse_published(VALID_PUBLISHED).unwrap_or_else(|e| panic!("{e}"));
+        let binding = published
+            .bindings
+            .iter()
+            .find(|b| b.id.id == "corpus-add@1")
+            .unwrap_or_else(|| panic!("corpus-add@1 binding missing"));
+
+        let c1_in =
+            super::read_non_symlink_bytes(&root, "compat/adapter/admit/corpus-add@1/c1.in.toml")
+                .unwrap_or_else(|e| panic!("{e}"));
+        let c1_expected =
+            std::fs::read_to_string(root.join("compat/adapter/admit/corpus-add@1/c1.out.txt"))
+                .unwrap_or_else(|e| panic!("{e}"));
+
+        let actual =
+            super::run_vector(&root, binding, "c1", &c1_in).unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(actual, c1_expected);
+
+        let drifted_in = String::from_utf8_lossy(&c1_in)
+            .replace("Synthetic Compat Title", "Synthetic Drifted Title")
+            .into_bytes();
+        let drifted_out =
+            super::run_vector(&root, binding, "c1", &drifted_in).unwrap_or_else(|e| panic!("{e}"));
+        assert_ne!(
+            drifted_out, c1_expected,
+            "changing rendered sources.csv content must change corpus-add@1 compat output"
         );
     }
 }

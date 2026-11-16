@@ -58,7 +58,7 @@ impl<'w> Staged<'w> {
             .map_err(|_| ExtractError::Missing("staging folder"))?
             .ok_or(ExtractError::Missing("staging folder"))?;
 
-        let (verified_sha, stems) = staged_v1::expected_page_stems(bytes, Some(&toml_bytes))?;
+        let (_, stems) = staged_v1::expected_page_stems(bytes, Some(&toml_bytes))?;
         let mut page_files = BTreeMap::new();
         for stem in stems {
             let page_path = staging_dir.join(format!("{stem}.txt"));
@@ -70,7 +70,7 @@ impl<'w> Staged<'w> {
             page_files.insert(stem, page_bytes);
         }
 
-        VerifiedExtraction::verify(&verified_sha, &toml_bytes, page_files)
+        staged_v1::verify_staged(bytes, Some(&toml_bytes), page_files)
     }
 }
 
@@ -84,6 +84,6 @@ impl Extractor for Staged<'_> {
     }
 
     fn extract(&self, bytes: &[u8], _ext: &str) -> Result<Extraction, ExtractError> {
-        self.verify(bytes).map(|v| v.extraction)
+        self.verify(bytes).map(VerifiedExtraction::into_extraction)
     }
 }

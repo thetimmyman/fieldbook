@@ -1016,6 +1016,34 @@ fn parse_origin(val: &toml::Value, kind: ProposalKind) -> Result<Origin, Proposa
     })
 }
 
+fn is_safe_relative_inbox_path(file: &str) -> bool {
+    if file.is_empty()
+        || file.starts_with('/')
+        || file.ends_with('/')
+        || file.contains('\\')
+        || file.contains(':')
+        || file.bytes().any(|b| b < 0x20 || b == 0x7f)
+    {
+        return false;
+    }
+    for seg in file.split('/') {
+        if seg.is_empty() || seg == "." || seg == ".." || seg.ends_with(' ') || seg.ends_with('.') {
+            return false;
+        }
+        let stem = seg.split('.').next().unwrap_or(seg);
+        let upper = stem.to_ascii_uppercase();
+        if matches!(upper.as_str(), "CON" | "PRN" | "AUX" | "NUL")
+            || (upper.len() == 4
+                && (upper.starts_with("COM") || upper.starts_with("LPT"))
+                && upper.as_bytes()[3].is_ascii_digit()
+                && upper.as_bytes()[3] != b'0')
+        {
+            return false;
+        }
+    }
+    true
+}
+
 fn parse_candidate(val: &toml::Value) -> Result<CandidateMeta, ProposalParseError> {
     let tbl = val
         .as_table()
@@ -1026,10 +1054,7 @@ fn parse_candidate(val: &toml::Value) -> Result<CandidateMeta, ProposalParseErro
     check_allowed_keys(tbl, "candidate", &["file", "sha256", "bytes"])?;
 
     let file = req_nonempty_line(tbl, "candidate", "file")?;
-    if file.starts_with('/')
-        || file.contains('\0')
-        || file.split(['/', '\\']).any(|seg| seg == "..")
-    {
+    if !is_safe_relative_inbox_path(file) {
         return Err(ProposalParseError::InvalidValue {
             key: "candidate.file".to_owned(),
             reason: "must be a safe relative inbox path".to_owned(),

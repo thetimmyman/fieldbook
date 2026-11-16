@@ -4,11 +4,11 @@ use std::collections::BTreeMap;
 use std::fmt;
 
 use crate::date::{CivilDate, PartialDate, Volatility};
+use crate::extraction::page_stem;
 use crate::extraction::{
     ExtractError, Extraction, ExtractionMethod, ExtractionToml, LocatorPages, Method, PageText,
     thin_page_numbers,
 };
-use crate::extraction::{page_stem, recognise_locators};
 use crate::hash::sha256_hex;
 use crate::ids::VersionId;
 use crate::labels::{LabelContext, LabelId, LabelSet, MarkingRules, for_text};
@@ -391,26 +391,51 @@ pub enum VerifiedMethodMetadata {
 }
 
 /// Complete extracted text and verified metadata bound to one original SHA-256.
+///
+/// Fields are private so verified page bytes, hashes, and metadata cannot be mutated or
+/// constructed without [`VerifiedExtraction::verify`]:
+///
+/// ```compile_fail
+/// use fieldbook_core::pipeline::VerifiedExtraction;
+///
+/// fn tamper(mut v: VerifiedExtraction) {
+///     v.page_bytes.insert("p0001".to_owned(), b"tampered".to_vec());
+/// }
+/// ```
+///
+/// ```compile_fail
+/// use std::collections::BTreeMap;
+/// use fieldbook_core::extraction::{Extraction, ExtractionMethod, ExtractionToml};
+/// use fieldbook_core::pipeline::{VerifiedExtraction, VerifiedMethodMetadata};
+///
+/// fn forge(record: ExtractionToml) -> VerifiedExtraction {
+///     VerifiedExtraction {
+///         extraction: Extraction { method: "plain", pages: Vec::new() },
+///         record,
+///         page_bytes: BTreeMap::new(),
+///         page_hashes: BTreeMap::new(),
+///         locators: BTreeMap::new(),
+///         tool: "plain".to_owned(),
+///         tool_version: "1".to_owned(),
+///         original_sha256: "0".repeat(64),
+///         method_metadata: VerifiedMethodMetadata::Unavailable {
+///             method: "x".to_owned(),
+///             reason: "x",
+///         },
+///     }
+/// }
+/// ```
 #[derive(Debug, Clone, PartialEq)]
 pub struct VerifiedExtraction {
-    /// Complete page-text extraction.
-    pub extraction: Extraction,
-    /// Verified `extraction.toml` record bound to the original and page hashes.
-    pub record: ExtractionToml,
-    /// Exact UTF-8 bytes per page stem (`"p0001"`, ...).
-    pub page_bytes: BTreeMap<String, Vec<u8>>,
-    /// Verified SHA-256 hex digest per page stem (`"p0001"`, ...).
-    pub page_hashes: BTreeMap<String, String>,
-    /// Recognised and retained section locators.
-    pub locators: BTreeMap<String, LocatorPages>,
-    /// Extraction tool name recorded in `extraction.toml`.
-    pub tool: String,
-    /// Extraction tool version recorded in `extraction.toml`.
-    pub tool_version: String,
-    /// Original file SHA-256 digest this extraction is bound to.
-    pub original_sha256: String,
-    /// Method metadata validation outcome.
-    pub method_metadata: VerifiedMethodMetadata,
+    extraction: Extraction,
+    record: ExtractionToml,
+    page_bytes: BTreeMap<String, Vec<u8>>,
+    page_hashes: BTreeMap<String, String>,
+    locators: BTreeMap<String, LocatorPages>,
+    tool: String,
+    tool_version: String,
+    original_sha256: String,
+    method_metadata: VerifiedMethodMetadata,
 }
 
 impl VerifiedExtraction {
@@ -523,51 +548,64 @@ impl VerifiedExtraction {
         })
     }
 
-    /// Builds a [`VerifiedExtraction`] directly from an in-memory [`Extraction`] for tests or callers
-    /// that generated the extraction in-process.
+    /// Returns the verified page-text [`Extraction`].
     #[must_use]
-    pub fn from_extraction(
-        extraction: Extraction,
-        tool: &str,
-        tool_version: &str,
-        original_sha256: &str,
-    ) -> Self {
-        let mut locators = recognise_locators(&extraction.pages);
-        let record = crate::extraction::build_record(
-            &extraction,
-            tool,
-            tool_version,
-            original_sha256,
-            &locators,
-        );
-        locators = record.locators.clone();
-        let mut page_bytes = BTreeMap::new();
-        for page in &extraction.pages {
-            page_bytes.insert(page_stem(page.number), page.text.as_bytes().to_vec());
-        }
-        let page_hashes = record.pages.clone();
-        let method_metadata = match &record.method {
-            ExtractionMethod::Known(method) => VerifiedMethodMetadata::Known {
-                method,
-                method_data: record.method_data.clone(),
-                extra: record.extra.clone(),
-            },
-            ExtractionMethod::Unsupported(name) => VerifiedMethodMetadata::Unavailable {
-                method: name.clone(),
-                reason: "unsupported extraction method",
-            },
-        };
-        Self {
-            extraction,
-            record,
-            page_bytes,
-            page_hashes,
-            locators,
-            tool: tool.to_owned(),
-            tool_version: tool_version.to_owned(),
-            original_sha256: original_sha256.to_owned(),
-            method_metadata,
-        }
+    pub const fn extraction(&self) -> &Extraction {
+        &self.extraction
+    }
+
+    /// Consumes `self`, returning the verified page-text [`Extraction`].
+    #[must_use]
+    pub fn into_extraction(self) -> Extraction {
+        self.extraction
+    }
+
+    /// Returns the verified [`ExtractionToml`] record.
+    #[must_use]
+    pub const fn record(&self) -> &ExtractionToml {
+        &self.record
+    }
+
+    /// Returns the verified UTF-8 page bytes keyed by stem (`"p0001"`, ...).
+    #[must_use]
+    pub const fn page_bytes(&self) -> &BTreeMap<String, Vec<u8>> {
+        &self.page_bytes
+    }
+
+    /// Returns the verified SHA-256 hex digests keyed by page stem (`"p0001"`, ...).
+    #[must_use]
+    pub const fn page_hashes(&self) -> &BTreeMap<String, String> {
+        &self.page_hashes
+    }
+
+    /// Returns the recognised section locators recorded in `extraction.toml`.
+    #[must_use]
+    pub const fn locators(&self) -> &BTreeMap<String, LocatorPages> {
+        &self.locators
+    }
+
+    /// Returns the extraction tool name recorded in `extraction.toml`.
+    #[must_use]
+    pub fn tool(&self) -> &str {
+        &self.tool
+    }
+
+    /// Returns the extraction tool version recorded in `extraction.toml`.
+    #[must_use]
+    pub fn tool_version(&self) -> &str {
+        &self.tool_version
+    }
+
+    /// Returns the 64-hex SHA-256 digest of the original file this extraction is bound to.
+    #[must_use]
+    pub fn original_sha256(&self) -> &str {
+        &self.original_sha256
+    }
+
+    /// Returns the validated method metadata outcome.
+    #[must_use]
+    pub const fn method_metadata(&self) -> &VerifiedMethodMetadata {
+        &self.method_metadata
     }
 
     /// Returns the canonical rendered `extraction.toml` bytes for this verified extraction.

@@ -2,7 +2,24 @@ planned
 files 4
 affected S-0001
 affected S-0001-v1
-file corpus/sources/public/S-0001-v1.txt
-file corpus/sources/text/S-0001-v1/p0001.txt
-file corpus/sources/text/S-0001-v1/extraction.toml
-file corpus/registers/sources.csv
+file corpus/sources/public/S-0001-v1.txt 846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9 inbox
+file corpus/sources/text/S-0001-v1/p0001.txt 846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9 rendered:145
+Synthetic compat input notice for deterministic replay verification across releases.
+Line two keeps the page well above the thin-page threshold.
+end-rendered
+file corpus/sources/text/S-0001-v1/extraction.toml e5c57df05212e7455867e99e2bcfe14010f83101307d77fdf4495071efd213a2 rendered:269
+tool = "plain"
+tool_version = "1"
+method = "plain"
+page_count = 1
+thin_pages = []
+original_sha256 = "846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9"
+[pages]
+p0001 = "846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9"
+[locators]
+"1" = 1
+end-rendered
+file corpus/registers/sources.csv 9333667e038aa81b4256cf4b9b5735797c4f73979afcced565ee6b1dd4e300ec rendered:496
+source_id,version,tag,title,publisher,source_kind,source_role,authority_tier,licence,source_family,family_basis,location,sha256,published,effective_from,as_of,retrieved,lifecycle,supersedes,volatility,handling,note,purpose,origin_system,origin_stream,origin_key,doc_kind,series
+S-0001,1,,Synthetic Compat Title,Synthetic Publisher,synthetic_fixture,,,Synthetic CC0-1.0,,,synthetic_notice.txt,846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9,,,,2026-03-01,active,,V2,public,,,,,,,
+end-rendered
