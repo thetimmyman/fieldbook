@@ -52,7 +52,16 @@ pub fn run_with_policy(
             matches!(
                 d.code,
                 check::Code::Fb0100
+                    | check::Code::Fb0101
+                    | check::Code::Fb0102
+                    | check::Code::Fb0103
+                    | check::Code::Fb0104
+                    | check::Code::Fb0105
+                    | check::Code::Fb0106
+                    | check::Code::Fb0107
+                    | check::Code::Fb0108
                     | check::Code::Fb0114
+                    | check::Code::Fb0120
                     | check::Code::Fb0200
                     | check::Code::Fb0201
                     | check::Code::Fb0202

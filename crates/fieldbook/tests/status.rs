@@ -942,3 +942,100 @@ fn status_rejects_invalid_register_cells_excluded_from_typed_rows() {
         );
     }
 }
+
+#[test]
+fn status_rejects_malformed_pages_dropped_from_typed_pages() {
+    let rel_page = "corpus/pages/compliance/business-systems/cmp-clause-9900-101.md";
+    let original = std::fs::read_to_string(
+        repo_root()
+            .join("tests/fixtures/corpus-mini")
+            .join(rel_page),
+    )
+    .expect("read fixture page");
+
+    let cases: [(&str, &str, Vec<u8>); 8] = [
+        (
+            "invalid status value (FB0104)",
+            "FB0104",
+            original
+                .replacen("status = \"draft\"", "status = \"bogus_status\"", 1)
+                .into_bytes(),
+        ),
+        (
+            "malformed front-matter fence (FB0101)",
+            "FB0101",
+            b"broken without fences\n".to_vec(),
+        ),
+        (
+            "TOML syntax error (FB0102)",
+            "FB0102",
+            original
+                .replacen("status = \"draft\"", "status = \"draft", 1)
+                .into_bytes(),
+        ),
+        (
+            "missing required field (FB0103)",
+            "FB0103",
+            original
+                .replacen("status = \"draft\"\n", "", 1)
+                .into_bytes(),
+        ),
+        (
+            "invalid page id form (FB0105)",
+            "FB0105",
+            original
+                .replacen("id = \"cmp-clause-9900-101\"", "id = \"BAD\"", 1)
+                .into_bytes(),
+        ),
+        (
+            "invalid page type (FB0108)",
+            "FB0108",
+            original
+                .replacen("type = \"clause-card\"", "type = \"bogus-type\"", 1)
+                .into_bytes(),
+        ),
+        (
+            "invalid calendar date in front matter (FB0114)",
+            "FB0114",
+            original
+                .replacen("as_of = 2026-02-01", "as_of = 2026-02-30", 1)
+                .into_bytes(),
+        ),
+        (
+            "non-UTF-8 page file (FB0120)",
+            "FB0120",
+            b"+++\n\xff\xfe\n+++\n".to_vec(),
+        ),
+    ];
+
+    for (label, expected_code, bytes) in cases {
+        let tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+        std::fs::write(tmp.path().join(rel_page), bytes).expect("write broken page");
+
+        let world = TestWorld::new(tmp.path());
+        let outcome = fieldbook::run(&status_args(snapshot_today()), &world);
+        assert_eq!(
+            outcome.code, 1,
+            "{label}: status must fail with EXIT_FINDINGS, stdout:\n{}",
+            outcome.stdout
+        );
+        assert!(
+            outcome.stdout.is_empty(),
+            "{label}: status must not print understated counts on stdout:\n{}",
+            outcome.stdout
+        );
+        assert!(
+            outcome.stderr.contains(&format!("error[{expected_code}]"))
+                && outcome.stderr.contains(rel_page),
+            "{label}: stderr must report {expected_code}, got:\n{}",
+            outcome.stderr
+        );
+
+        let page_outcome = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &world);
+        assert_eq!(page_outcome.code, 1, "{label}: status --page must fail");
+        assert!(
+            world.written().is_empty(),
+            "{label}: status --page must not write desk pages when pages fail to load"
+        );
+    }
+}
