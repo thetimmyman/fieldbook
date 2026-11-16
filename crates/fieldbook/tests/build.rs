@@ -1914,6 +1914,17 @@ mod build {
         fn remove_drill(&self, audited: &fieldbook::Audited) -> Result<(), fieldbook::WorldError> {
             self.inner.remove_drill(audited)
         }
+
+        fn read_maintenance(&self) -> Result<String, fieldbook::WorldError> {
+            self.inner.read_maintenance()
+        }
+
+        fn read_state_summary(
+            &self,
+            today: fieldbook_core::CivilDate,
+        ) -> Result<fieldbook_core::status::StateSummary, fieldbook::WorldError> {
+            self.inner.read_state_summary(today)
+        }
     }
 
     /// The real `build` path: a valid preflight (the row of `S-0098-v1` is public and active, and

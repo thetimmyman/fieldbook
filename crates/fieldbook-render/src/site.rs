@@ -19,7 +19,11 @@ use crate::{
     search_page, source, templates_xlsx, xlsx,
 };
 
-const APP_CSS: &str = include_str!("../assets/app.css");
+const APP_CSS_TEXT: &str = include_str!("../assets/app.css");
+/// `assets/app.css`, the site's stylesheet; the desk pages copy the same bytes.
+pub const APP_CSS: &str = APP_CSS_TEXT;
+/// The stylesheet's path relative to an edition root or a state folder.
+pub const APP_CSS_PATH: &str = "assets/app.css";
 /// `assets/app.js`, which the harness also loads into its shortcut pages.
 pub const APP_JS: &str = include_str!("../assets/app.js");
 
@@ -172,7 +176,7 @@ pub fn render_context(
 #[must_use]
 pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     let mut paths = vec![
-        "assets/app.css".to_owned(),
+        APP_CSS_PATH.to_owned(),
         "assets/app.js".to_owned(),
         search_index::OUTPUT_PATH.to_owned(),
         search_page::SCRIPT_PATH.to_owned(),

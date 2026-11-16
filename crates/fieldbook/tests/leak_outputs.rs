@@ -66,6 +66,7 @@ const BUILT_SINKS: &[&str] = &[
     "register_csvs",
     "restore",
     "template_workbooks",
+    "desk_pages",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -109,6 +110,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "template_workbooks",
         run: run_template_workbooks_surface,
+    },
+    Surface {
+        name: "desk_pages",
+        run: run_desk_pages_surface,
     },
 ];
 
@@ -2729,6 +2734,142 @@ fn delivered_workbook_and_csvs_filter_rows() {
 #[test]
 fn delivered_templates_are_public_and_complete() {
     run_template_workbooks_surface();
+}
+
+fn desk_add_report_json(labels: &str, file_canary: &str, source_id: &str) -> String {
+    format!(
+        concat!(
+            "{{",
+            "\"report_version\":1,\"verb\":\"add\",\"dir\":\"incoming\",",
+            "\"labels\":{labels},",
+            "\"inputs\":[{{\"store\":\"corpus\",\"id\":\"{source_id}\"}}],",
+            "\"files\":[{{\"name\":\"{file_canary}\",\"result\":\"added\",\"id\":\"{source_id}\",",
+            "\"sha256\":\"{sha}\",\"bytes\":42,\"needs_extraction\":false}}],",
+            "\"counts\":{{\"added\":1,\"present\":0,\"refused\":0,\"needs_extraction\":0}},",
+            "\"exit\":0",
+            "}}"
+        ),
+        labels = labels,
+        file_canary = file_canary,
+        source_id = source_id,
+        sha = "1".repeat(64),
+    )
+}
+
+fn run_desk_pages_surface() {
+    const PERMITTED_DESK_CANARY: &str = "Permitted desk import file canary.txt";
+    const FORBIDDEN_DESK_CANARY: &str = "Forbidden desk import file canary.txt";
+
+    // 1. Forbidden non-State label (`np-0007`) on a fresh state folder is refused before writing.
+    let fresh_tmp = temp_copy(&repo_root_from_manifest().join("tests/fixtures/corpus-mini"));
+    let fresh_state = fresh_tmp.path().join("state");
+    std::fs::create_dir_all(fresh_state.join("reports")).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(fresh_state.join("settings.toml"), "role = \"lead\"\n")
+        .unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(
+        fresh_state.join("reports/last-add.json"),
+        desk_add_report_json(
+            "[\"public\",\"np-0007\"]",
+            FORBIDDEN_DESK_CANARY,
+            "S-0001-v1",
+        ),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    let fresh_world = TestWorld::with_state(fresh_tmp.path(), &fresh_state);
+    let refused_fresh = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &fresh_world);
+    assert_eq!(refused_fresh.code, 3, "stderr: {}", refused_fresh.stderr);
+    assert!(refused_fresh.stderr.contains("FB0412"));
+    assert!(
+        !fresh_state.join("pages").exists(),
+        "refused desk write must not create state/pages"
+    );
+
+    // 2. Permitted State label (`owner-supplied` + `public` input) writes `pages/import.html`
+    //    containing the permitted canary and keeps journal segments free of file-name canaries.
+    let tmp = temp_copy(&repo_root_from_manifest().join("tests/fixtures/corpus-mini"));
+    let state_dir = tmp.path().join("state");
+    std::fs::create_dir_all(state_dir.join("reports")).unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(state_dir.join("settings.toml"), "role = \"lead\"\n")
+        .unwrap_or_else(|e| panic!("{e}"));
+    std::fs::write(
+        state_dir.join("reports/last-add.json"),
+        desk_add_report_json("[\"owner-supplied\"]", PERMITTED_DESK_CANARY, "S-0001-v1"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    let world = TestWorld::with_state(tmp.path(), &state_dir);
+    let ok = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &world);
+    assert_eq!(ok.code, 0, "stderr: {}", ok.stderr);
+    let import_html = std::fs::read_to_string(state_dir.join("pages/import.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    assert!(import_html.contains(PERMITTED_DESK_CANARY));
+    assert!(!import_html.contains(FORBIDDEN_DESK_CANARY));
+    let audit_dir = state_dir.join("audit");
+    for entry in std::fs::read_dir(&audit_dir).unwrap_or_else(|e| panic!("{e}")) {
+        let path = entry.unwrap_or_else(|e| panic!("{e}")).path();
+        if path.extension().is_some_and(|ext| ext == "jsonl") {
+            let text = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("{e}"));
+            assert!(
+                !text.contains(PERMITTED_DESK_CANARY) && !text.contains(FORBIDDEN_DESK_CANARY),
+                "journal segment must hold no desk canary: {path:?}"
+            );
+        }
+    }
+
+    // 3. Input provenance re-evaluation: relabelling S-0001 to `public;np-0007` between the
+    //    command's initial read and its exclusive write lease refuses and preserves `import.html`.
+    std::fs::write(
+        state_dir.join("reports/last-add.json"),
+        desk_add_report_json("[\"public\"]", FORBIDDEN_DESK_CANARY, "S-0001-v1"),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    let sources_csv = tmp.path().join("corpus/registers/sources.csv");
+    world.set_before_write_lease(move || {
+        let csv = std::fs::read_to_string(&sources_csv).unwrap_or_else(|e| panic!("{e}"));
+        let updated = csv
+            .lines()
+            .map(|line| {
+                if line.starts_with("S-0001,") {
+                    line.replacen(",public,", ",public|np-0007,", 1)
+                } else {
+                    line.to_owned()
+                }
+            })
+            .collect::<Vec<_>>()
+            .join("\n");
+        std::fs::write(&sources_csv, format!("{updated}\n")).unwrap_or_else(|e| panic!("{e}"));
+    });
+    let relabelled = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &world);
+    assert_eq!(relabelled.code, 3, "stderr: {}", relabelled.stderr);
+    assert!(relabelled.stderr.contains("FB0412"));
+    let preserved = std::fs::read_to_string(state_dir.join("pages/import.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    assert_eq!(preserved, import_html);
+    assert!(!preserved.contains(FORBIDDEN_DESK_CANARY));
+
+    // 4. Negative sink plant: `StateScope` (`write_file`) refuses any path outside `state/`.
+    let lease = world.write_lease().unwrap_or_else(|e| panic!("{e}"));
+    let journal = state::open(&world, &state_dir, Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .state_scope(&lease)
+        .unwrap_or_else(|e| panic!("{e}"));
+    let outside = tmp.path().join("outside-desk.html");
+    let Err(err) = world.write_file(&audited, &outside, FORBIDDEN_DESK_CANARY.as_bytes()) else {
+        panic!("StateScope must refuse writes outside state_dir");
+    };
+    assert!(
+        matches!(err, Error::OutOfScope(_)),
+        "expected OutOfScope, got: {err:?}"
+    );
+    assert!(!outside.exists());
+}
+
+fn repo_root_from_manifest() -> PathBuf {
+    PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..")
+}
+
+#[test]
+fn delivered_desk_pages_admit_and_bind() {
+    run_desk_pages_surface();
 }
 
 #[test]

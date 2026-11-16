@@ -18,9 +18,11 @@ pub mod cli;
 pub mod ctx;
 pub mod io;
 pub mod new;
+pub mod pages;
 pub mod report;
 pub mod restore;
 pub mod search;
+pub mod status;
 pub mod verbs;
 pub mod verify;
 
@@ -130,6 +132,24 @@ pub trait World {
     fn store_id(&self) -> &'static str {
         "folder@1"
     }
+
+    /// Return the operation's effective policy (`Floor` until a policy loader overrides it).
+    fn effective_policy(&self) -> fieldbook_core::policy::EffectivePolicy {
+        fieldbook_core::policy::EffectivePolicy::floor(self.has_company_store())
+    }
+
+    /// Read `docs/maintenance.csv` from the repository root.
+    ///
+    /// An absent file is the empty string: `status` prints `Unavailable` and does not fail.
+    fn read_maintenance(&self) -> Result<String, WorldError>;
+
+    /// Read the state lines `status` prints after its sections.
+    ///
+    /// A part whose data is absent or cannot be read adds no line and is never an error.
+    fn read_state_summary(
+        &self,
+        today: fieldbook_core::CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, WorldError>;
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -293,6 +313,19 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 search::run(&search_args, world)
             }
         }
+        Commands::Status(status_args) => {
+            let policy = world.effective_policy();
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                status::run_with_policy(&status_args, &overridden, &policy)
+            } else {
+                status::run_with_policy(&status_args, world, &policy)
+            }
+        }
         Commands::Verify(verify_args) => {
             if let Some(flag) = parsed.state.as_deref() {
                 let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
@@ -413,6 +446,21 @@ impl World for StateOverrideWorld<'_> {
 
     fn store_id(&self) -> &'static str {
         self.inner.store_id()
+    }
+
+    fn effective_policy(&self) -> fieldbook_core::policy::EffectivePolicy {
+        self.inner.effective_policy()
+    }
+
+    fn read_maintenance(&self) -> Result<String, WorldError> {
+        self.inner.read_maintenance()
+    }
+
+    fn read_state_summary(
+        &self,
+        today: fieldbook_core::CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
+        Ok(io::state_summary(&self.state_dir, today))
     }
 
     /// Support facts follow the selected state directory specified by `--state`.
@@ -652,6 +700,17 @@ mod tests {
 
         fn remove_drill(&self, _audited: &super::Audited) -> Result<(), WorldError> {
             Err(WorldError::OutOfScope(self.state_dir.join("drill")))
+        }
+
+        fn read_maintenance(&self) -> Result<String, WorldError> {
+            Ok(String::new())
+        }
+
+        fn read_state_summary(
+            &self,
+            _today: fieldbook_core::CivilDate,
+        ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
+            Ok(fieldbook_core::status::StateSummary::default())
         }
     }
 

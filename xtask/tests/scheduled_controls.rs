@@ -1236,7 +1236,8 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
         );
     }
 
-    // 3. job ids exactly, in order: advisories, secrets, lint-controls, lock, edition-linux, scale
+    // 3. job ids exactly, in order: advisories, secrets, lint-controls, lock, edition-linux,
+    // scale, freshness
     let expected_jobs = [
         "advisories",
         "secrets",
@@ -1244,6 +1245,7 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
         "lock",
         "edition-linux",
         "scale",
+        "freshness",
     ];
     let jobs = job_names(&real_yml);
     assert_eq!(jobs, expected_jobs);
@@ -1285,18 +1287,32 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
         }
     }
 
-    // 7. no line contains continue-on-error, set -x or pull_request_target
+    // 7. no line contains continue-on-error outside the advisory freshness job, set -x or
+    // pull_request_target; the freshness job is advisory by design and carries exactly one.
+    let freshness = job_text(&real_yml, "freshness").expect("freshness job text");
+    let mut continue_on_error_outside_freshness = 0usize;
     for line in real_yml.lines() {
-        assert!(
-            !line.contains("continue-on-error"),
-            "line contains continue-on-error: `{line}`"
-        );
+        if line.contains("continue-on-error") && !freshness.lines().any(|own| own == line) {
+            continue_on_error_outside_freshness += 1;
+        }
         assert!(!line.contains("set -x"), "line contains set -x: `{line}`");
         assert!(
             !line.contains("pull_request_target"),
             "line contains pull_request_target: `{line}`"
         );
     }
+    assert_eq!(
+        continue_on_error_outside_freshness, 0,
+        "continue-on-error belongs to the freshness job only"
+    );
+    assert_eq!(
+        freshness
+            .lines()
+            .filter(|line| line.trim() == "continue-on-error: true")
+            .count(),
+        1,
+        "the freshness job must be advisory"
+    );
 
     // 8. every tool: pin name@version equals .config/tools.toml [cargo] version
     let tools_toml_path = repo_root().join(".config/tools.toml");
@@ -1379,4 +1395,233 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
     );
     assert_ne!(plant_unpinned, real_yml);
     assert!(check_uses_pinned(&plant_unpinned).is_err());
+}
+
+fn check_freshness_job(yaml: &str) -> Result<String, String> {
+    let job = job_text(yaml, "freshness")?;
+    if !job
+        .lines()
+        .any(|line| line == "    continue-on-error: true")
+    {
+        return Err("freshness job must be advisory".to_string());
+    }
+    let steps = job_steps(yaml, "freshness")?;
+    let report_step = steps
+        .iter()
+        .find(|s| {
+            s.lines()
+                .any(|l| l.trim() == "- name: Report the stale items")
+        })
+        .ok_or_else(|| "job `freshness` missing `Report the stale items` step".to_string())?;
+
+    if !report_step.lines().any(|l| l.trim() == "shell: bash") {
+        return Err("`Report the stale items` missing `shell: bash`".to_string());
+    }
+
+    let run_text = step_run(report_step)
+        .ok_or_else(|| "`Report the stale items` missing `run:` script".to_string())?;
+
+    const STATUS_TO_FILE: &str = "cargo run --locked -p fieldbook -- status --today \"$(git log -1 --format=%cs)\" > freshness-report.txt";
+    if !run_text.contains(STATUS_TO_FILE) {
+        return Err(format!(
+            "`Report the stale items` must write full output to `freshness-report.txt` via `{STATUS_TO_FILE}`"
+        ));
+    }
+    if run_text
+        .contains("status --today \"$(git log -1 --format=%cs)\" >> \"$GITHUB_STEP_SUMMARY\"")
+    {
+        return Err(
+            "`Report the stale items` must not stream unbounded `fieldbook status` output directly to `$GITHUB_STEP_SUMMARY`"
+                .to_string(),
+        );
+    }
+    if !run_text.contains("GITHUB_STEP_SUMMARY") || !run_text.contains("max_bytes=") {
+        return Err(
+            "`Report the stale items` must bound bytes written to `$GITHUB_STEP_SUMMARY`"
+                .to_string(),
+        );
+    }
+
+    let upload_step = steps
+        .iter()
+        .find(|s| {
+            step_uses_line(s).is_some_and(|l| {
+                l.starts_with("uses: actions/upload-artifact@")
+                    || l.starts_with("- uses: actions/upload-artifact@")
+            })
+        })
+        .ok_or_else(|| "job `freshness` missing `actions/upload-artifact` step".to_string())?;
+
+    if !upload_step.contains("name: freshness-report") {
+        return Err("freshness upload step missing `name: freshness-report`".to_string());
+    }
+    if !upload_step.contains("path: freshness-report.txt") {
+        return Err("freshness upload step missing `path: freshness-report.txt`".to_string());
+    }
+    if !upload_step.contains("if-no-files-found: ignore") {
+        return Err("freshness upload step missing `if-no-files-found: ignore`".to_string());
+    }
+    if !upload_step.contains("retention-days: 14") {
+        return Err("freshness upload step missing `retention-days: 14`".to_string());
+    }
+
+    Ok(run_text)
+}
+
+#[test]
+fn freshness_job_bounds_step_summary_and_uploads_full_report() {
+    const GITHUB_STEP_SUMMARY_LIMIT: usize = 1_048_576;
+    const STATUS_TO_FILE: &str = "cargo run --locked -p fieldbook -- status --today \"$(git log -1 --format=%cs)\" > freshness-report.txt";
+
+    let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/scheduled.yml"))
+        .unwrap_or_else(|e| panic!("read scheduled.yml: {e}"))
+        .replace("\r\n", "\n");
+
+    let run_text = check_freshness_job(&real_yml)
+        .unwrap_or_else(|e| panic!("freshness job check failed: {e}"));
+
+    // Planted regressions: streaming unbounded output or dropping the artifact upload must fail.
+    let plant_unbounded = real_yml.replace(
+        STATUS_TO_FILE,
+        "cargo run --locked -p fieldbook -- status --today \"$(git log -1 --format=%cs)\" >> \"$GITHUB_STEP_SUMMARY\"",
+    );
+    assert_ne!(plant_unbounded, real_yml);
+    assert!(check_freshness_job(&plant_unbounded).is_err());
+
+    let plant_required = real_yml.replace("    continue-on-error: true\n", "");
+    assert!(check_freshness_job(&plant_required).is_err());
+
+    let plant_no_artifact = real_yml.replace("name: freshness-report", "name: wrong-artifact");
+    assert_ne!(plant_no_artifact, real_yml);
+    assert!(check_freshness_job(&plant_no_artifact).is_err());
+
+    // Execute the real workflow bash logic against small, >1.5 MiB multiline UTF-8, and
+    // >1.5 MiB single-line UTF-8 reports.
+    let harness_script = run_text.replace(
+        STATUS_TO_FILE,
+        "cp \"$SYNTHETIC_REPORT\" freshness-report.txt",
+    );
+    assert_ne!(harness_script, run_text);
+
+    let temp = tempfile::tempdir().unwrap_or_else(|e| panic!("create tempdir: {e}"));
+
+    // 1. Small report stays byte-for-byte identical.
+    let small_dir = temp.path().join("small");
+    std::fs::create_dir_all(&small_dir).unwrap_or_else(|e| panic!("mkdir small: {e}"));
+    let small_input = small_dir.join("input.txt");
+    let small_summary = small_dir.join("summary.md");
+    let small_body = "Counts\n  2 claims\n\nNext actions\n  none\n";
+    std::fs::write(&small_input, small_body).unwrap_or_else(|e| panic!("write small: {e}"));
+    std::fs::write(&small_summary, "").unwrap_or_else(|e| panic!("init summary: {e}"));
+
+    let out_small = Command::new("bash")
+        .arg("-c")
+        .arg(&harness_script)
+        .current_dir(&small_dir)
+        .env("SYNTHETIC_REPORT", &small_input)
+        .env("GITHUB_STEP_SUMMARY", &small_summary)
+        .output()
+        .unwrap_or_else(|e| panic!("run bash small: {e}"));
+    assert!(
+        out_small.status.success(),
+        "small report script failed:\n{}",
+        combined(&out_small)
+    );
+    let small_written =
+        std::fs::read_to_string(&small_summary).unwrap_or_else(|e| panic!("read small sum: {e}"));
+    assert_eq!(small_written, small_body);
+
+    // 2. Large (>1.5 MiB) multiline UTF-8 report stays well below 1 MiB, valid UTF-8, preserves
+    // full freshness-report.txt, keeps header + Next actions tail, and prints truncation notice.
+    let large_dir = temp.path().join("large");
+    std::fs::create_dir_all(&large_dir).unwrap_or_else(|e| panic!("mkdir large: {e}"));
+    let large_input = large_dir.join("input.txt");
+    let large_summary = large_dir.join("summary.md");
+
+    let mut large_body = String::from("Counts\n  26000 stale claims\n\nStale\n");
+    for i in 0..26_000 {
+        large_body.push_str(&format!(
+            "  C-{i:05} — review_by 2026-01-01 passed (café naïve résumé 🦀)\n"
+        ));
+    }
+    large_body.push_str("\nNext actions\n  fieldbook verify <claim-id> --on YYYY-MM-DD\n");
+    assert!(
+        large_body.len() > 1_500_000,
+        "synthetic report must exceed 1.5 MiB, got {}",
+        large_body.len()
+    );
+    std::fs::write(&large_input, &large_body).unwrap_or_else(|e| panic!("write large: {e}"));
+    std::fs::write(&large_summary, "").unwrap_or_else(|e| panic!("init large sum: {e}"));
+
+    let out_large = Command::new("bash")
+        .arg("-c")
+        .arg(&harness_script)
+        .current_dir(&large_dir)
+        .env("SYNTHETIC_REPORT", &large_input)
+        .env("GITHUB_STEP_SUMMARY", &large_summary)
+        .output()
+        .unwrap_or_else(|e| panic!("run bash large: {e}"));
+    assert!(
+        out_large.status.success(),
+        "large report script failed:\n{}",
+        combined(&out_large)
+    );
+
+    let full_artifact = std::fs::read(large_dir.join("freshness-report.txt"))
+        .unwrap_or_else(|e| panic!("read freshness-report.txt: {e}"));
+    assert_eq!(
+        full_artifact,
+        large_body.as_bytes(),
+        "freshness-report.txt must retain the complete untruncated output"
+    );
+
+    let summary_bytes =
+        std::fs::read(&large_summary).unwrap_or_else(|e| panic!("read large summary: {e}"));
+    assert!(
+        summary_bytes.len() < GITHUB_STEP_SUMMARY_LIMIT,
+        "step summary must stay below GitHub's 1 MiB limit, got {} bytes",
+        summary_bytes.len()
+    );
+    let summary_text = std::str::from_utf8(&summary_bytes)
+        .unwrap_or_else(|e| panic!("step summary must remain valid UTF-8: {e}"));
+    assert!(summary_text.starts_with("Counts\n  26000 stale claims\n"));
+    assert!(
+        summary_text.contains("freshness-report") && summary_text.contains("truncated"),
+        "step summary must explain truncation and point to freshness-report artifact"
+    );
+    assert!(
+        summary_text.ends_with("\nNext actions\n  fieldbook verify <claim-id> --on YYYY-MM-DD\n"),
+        "step summary must retain trailing Next actions section"
+    );
+
+    // 3. Pathological >1.5 MiB single-line multi-byte UTF-8 report (no newlines) still stays
+    // valid UTF-8 and below 1 MiB.
+    let single_dir = temp.path().join("single");
+    std::fs::create_dir_all(&single_dir).unwrap_or_else(|e| panic!("mkdir single: {e}"));
+    let single_input = single_dir.join("input.txt");
+    let single_summary = single_dir.join("summary.md");
+    let single_body = "🦀é—".repeat(200_000);
+    assert!(single_body.len() > 1_500_000);
+    std::fs::write(&single_input, &single_body).unwrap_or_else(|e| panic!("write single: {e}"));
+    std::fs::write(&single_summary, "").unwrap_or_else(|e| panic!("init single sum: {e}"));
+
+    let out_single = Command::new("bash")
+        .arg("-c")
+        .arg(&harness_script)
+        .current_dir(&single_dir)
+        .env("SYNTHETIC_REPORT", &single_input)
+        .env("GITHUB_STEP_SUMMARY", &single_summary)
+        .output()
+        .unwrap_or_else(|e| panic!("run bash single: {e}"));
+    assert!(
+        out_single.status.success(),
+        "single-line report script failed:\n{}",
+        combined(&out_single)
+    );
+    let single_bytes =
+        std::fs::read(&single_summary).unwrap_or_else(|e| panic!("read single summary: {e}"));
+    assert!(single_bytes.len() < GITHUB_STEP_SUMMARY_LIMIT);
+    let single_text = std::str::from_utf8(&single_bytes)
+        .unwrap_or_else(|e| panic!("single-line summary must remain valid UTF-8: {e}"));
+    assert!(single_text.contains("freshness-report") && single_text.contains("truncated"));
 }

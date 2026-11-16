@@ -70,6 +70,15 @@ Find an id or a word in the Corpus; list the versions of a source
 | `--units` | - | - | List every matching unit in rank order instead of grouping sections into their page |
 | `<QUERY>` | `QUERY` | - | The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-` |
 
+### `fieldbook status`
+
+Show what needs work, and optionally write the desk pages
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `--today` | `YYYY-MM-DD` | - | Calendar date (YYYY-MM-DD) for freshness, instead of the clock |
+| `--page` | - | - | Write the desk pages into `pages/` of the state folder |
+
 ### `fieldbook verify`
 
 Record that the owner (or lead) verified a claim, at a terminal

@@ -67,29 +67,113 @@ pub fn is_corpus_support(rel_path: &str) -> bool {
 
 struct ModelLabelGraph<'a> {
     model: &'a Model,
+    ledgers: std::collections::BTreeMap<StoreId, Ledger>,
     empty_ledger: Ledger,
+}
+
+fn broken_ledger() -> Ledger {
+    Ledger::parse("\0").unwrap_or_else(Ledger::broken)
+}
+
+fn load_store_ledger(world: &dyn World, model: &Model, store: StoreId) -> Ledger {
+    let rel = format!("{}/labels.csv", store.as_str());
+    if let Some(bytes) = model.tree().get_bytes(&rel) {
+        return match std::str::from_utf8(bytes) {
+            Ok(text) => Ledger::parse(text).unwrap_or_else(Ledger::broken),
+            Err(_) => broken_ledger(),
+        };
+    }
+    let path = if store == StoreId::State {
+        world.state_dir().join("labels.csv")
+    } else {
+        world.tree_root().join(store.as_str()).join("labels.csv")
+    };
+    match std::fs::symlink_metadata(&path) {
+        Ok(meta) => {
+            if !meta.file_type().is_file() {
+                return broken_ledger();
+            }
+            match std::fs::read(&path) {
+                Ok(bytes) => match std::str::from_utf8(&bytes) {
+                    Ok(text) => Ledger::parse(text).unwrap_or_else(Ledger::broken),
+                    Err(_) => broken_ledger(),
+                },
+                Err(_) => broken_ledger(),
+            }
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ledger::empty(),
+        Err(_) => broken_ledger(),
+    }
+}
+
+impl<'a> ModelLabelGraph<'a> {
+    fn from_model(model: &'a Model) -> Self {
+        let mut ledgers = std::collections::BTreeMap::new();
+        for store in [
+            StoreId::Corpus,
+            StoreId::Overlay,
+            StoreId::Working,
+            StoreId::State,
+        ] {
+            let rel = format!("{}/labels.csv", store.as_str());
+            let ledger = match model.tree().get_bytes(&rel) {
+                Some(bytes) => match std::str::from_utf8(bytes) {
+                    Ok(text) => Ledger::parse(text).unwrap_or_else(Ledger::broken),
+                    Err(_) => broken_ledger(),
+                },
+                None => Ledger::empty(),
+            };
+            ledgers.insert(store, ledger);
+        }
+        Self {
+            model,
+            ledgers,
+            empty_ledger: Ledger::default(),
+        }
+    }
+
+    fn from_world(world: &dyn World, model: &'a Model) -> Self {
+        let mut ledgers = std::collections::BTreeMap::new();
+        for store in [
+            StoreId::Corpus,
+            StoreId::Overlay,
+            StoreId::Working,
+            StoreId::State,
+        ] {
+            ledgers.insert(store, load_store_ledger(world, model, store));
+        }
+        Self {
+            model,
+            ledgers,
+            empty_ledger: Ledger::default(),
+        }
+    }
 }
 
 impl LabelGraph for ModelLabelGraph<'_> {
     fn node(&self, item: &ItemRef) -> Option<LabelNode> {
-        for s in self.model.sources() {
-            let vid = format!("{}-v{}", s.value.source_id, s.value.version);
-            if item.id == vid || item.id == s.value.source_id.as_str() {
-                let own = parse_handling_vec(&s.value.handling);
-                return Some(LabelNode::new(own, Vec::new()));
+        if item.store == StoreId::Corpus {
+            for s in self.model.sources() {
+                let vid = format!("{}-v{}", s.value.source_id, s.value.version);
+                if item.id == vid || item.id == s.value.source_id.as_str() {
+                    let own = parse_handling_vec(&s.value.handling);
+                    return Some(LabelNode::new(own, Vec::new()));
+                }
             }
-        }
-        for p in self.model.pages() {
-            if item.id == p.path {
-                let own = parse_handling_vec(&p.meta.handling);
-                return Some(LabelNode::new(own, Vec::new()));
+            for p in self.model.pages() {
+                if item.id == p.path {
+                    let own = parse_handling_vec(&p.meta.handling);
+                    return Some(LabelNode::new(own, Vec::new()));
+                }
             }
+            return None;
         }
+        // A ledger records labels, not proof that an item or its dependencies exist.
         None
     }
 
-    fn ledger(&self, _store: StoreId) -> &Ledger {
-        &self.empty_ledger
+    fn ledger(&self, store: StoreId) -> &Ledger {
+        self.ledgers.get(&store).unwrap_or(&self.empty_ledger)
     }
 }
 
@@ -301,10 +385,7 @@ pub fn classify_file(
 
         let mut union_labels = report.labels;
         if let Some(m) = model {
-            let graph = ModelLabelGraph {
-                model: m,
-                empty_ledger: Ledger::default(),
-            };
+            let graph = ModelLabelGraph::from_model(m);
             for inp in &report.inputs {
                 let item_ref = ItemRef::new(inp.store, &inp.id);
                 let eff_item = effective_item(&graph, &item_ref);
@@ -379,10 +460,7 @@ pub fn classify_file(
         };
         let mut labels = pw.labels;
         if let Some(m) = model {
-            let graph = ModelLabelGraph {
-                model: m,
-                empty_ledger: Ledger::default(),
-            };
+            let graph = ModelLabelGraph::from_model(m);
             for rec in &pw.affected {
                 let item_ref = ItemRef::new(rec.store(), rec.id().as_str());
                 let eff_item = effective_item(&graph, &item_ref);
@@ -694,4 +772,35 @@ pub fn read_file_content(world: &dyn World, rel_path: &str) -> Result<Vec<u8>, B
         });
     }
     Ok(bytes)
+}
+
+/// Resolves all report inputs against one coherent Corpus generation and store ledgers.
+pub fn report_input_labels(
+    world: &dyn World,
+    model: &Model,
+    report: &AddReport,
+) -> Option<LabelSet> {
+    let graph = ModelLabelGraph::from_world(world, model);
+    let mut labels = report.labels.clone();
+    for input in &report.inputs {
+        let item = ItemRef::new(input.store, &input.id);
+        graph.node(&item)?;
+        labels = labels.union(&effective_item(&graph, &item));
+    }
+    Some(labels)
+}
+
+/// True when `state/labels.csv` or any referenced input store's `labels.csv` fails strict ledger parsing.
+pub fn broken_desk_ledger(world: &dyn World, model: &Model, report: Option<&AddReport>) -> bool {
+    if load_store_ledger(world, model, StoreId::State).is_broken() {
+        return true;
+    }
+    if let Some(report) = report {
+        for input in &report.inputs {
+            if load_store_ledger(world, model, input.store).is_broken() {
+                return true;
+            }
+        }
+    }
+    false
 }
