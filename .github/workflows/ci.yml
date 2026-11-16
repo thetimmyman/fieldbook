@@ -1,9 +1,6 @@
 # Pull request and main checks. `ci-ok` is the only required check.
 # The windows job arrives with the card that needs it; add it to `needs` of `ci-ok`.
-# Temporary: GitHub-hosted runners are unavailable to this repository, so every job runs on
-# the owner's self-hosted runner (labels below), and `windows` type-checks the Windows target
-# on Linux in place of its nextest and import scan. Revert to ubuntu-24.04 and windows-2025
-# when hosted runners return (CI-01 in docs/controls.md).
+# Standard GitHub-hosted runners keep public CI isolated from local machines.
 name: ci
 
 on:
@@ -22,9 +19,9 @@ concurrency:
 
 jobs:
   rust:
-    # The self-hosted runner persists between jobs: never run a fork's code on it.
+    # Keep the existing policy of accepting only same-repository pull requests.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
       CARGO_INCREMENTAL: "0"
@@ -68,9 +65,9 @@ jobs:
           retention-days: 7
 
   changes:
-    # The self-hosted runner persists between jobs: never run a fork's code on it.
+    # Keep the existing policy of accepting only same-repository pull requests.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     outputs:
       code: ${{ steps.scan.outputs.code }}
@@ -97,9 +94,9 @@ jobs:
 
   corpus:
     needs: [rust]
-    # The self-hosted runner persists between jobs: never run a fork's code on it.
+    # Keep the existing policy of accepting only same-repository pull requests.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     # 35 to 42 minutes alone; two runs at once on the shared runners need more room.
     timeout-minutes: 75
     steps:
@@ -125,9 +122,8 @@ jobs:
 
   windows:
     needs: [changes]
-    # The self-hosted runner persists between jobs: never run a fork's code on it.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: windows-2025
     timeout-minutes: 30
     env:
       CARGO_INCREMENTAL: "0"
@@ -136,19 +132,30 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Install the pinned Rust toolchain and the Windows target
+      - name: Install the pinned Rust toolchain
+        if: needs.changes.outputs.code == 'true'
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        if: needs.changes.outputs.code == 'true'
+        with:
+          save-if: ${{ github.ref == 'refs/heads/main' }}
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        if: needs.changes.outputs.code == 'true'
+        with:
+          tool: cargo-nextest@0.9.148
+      - name: Run shipped crate tests on Windows
+        if: needs.changes.outputs.code == 'true'
+        run: cargo nextest run --workspace --exclude xtask --locked
+      - name: Build and scan the development binary on Windows
         if: needs.changes.outputs.code == 'true'
         run: |
-          rustup toolchain install
-          rustup target add x86_64-pc-windows-msvc
-      - name: Type-check every shipped crate for Windows
-        if: needs.changes.outputs.code == 'true'
-        run: cargo check --locked --workspace --exclude xtask --all-targets --target x86_64-pc-windows-msvc
+          cargo build --locked --package fieldbook
+          cargo xtask binscan target/debug/fieldbook.exe --build silent
 
   ci-ok:
     needs: [rust, corpus, changes, windows]
     if: ${{ always() && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - name: Every job this one needs succeeded
