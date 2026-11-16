@@ -5329,17 +5329,13 @@ fn snapshot_labels_are_the_union() {
 
     let listing =
         fieldbook::io::backup_classify::enumerate_roots(&fix.world).expect("enumerate roots");
+    let facts = fix.world.support_facts();
     let mut files = Vec::new();
     for rel in &listing {
         let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel)
             .expect("read file content");
-        let cf = fieldbook::io::backup_classify::classify_file(
-            &fix.world,
-            Some(&model),
-            &eff,
-            rel,
-            &bytes,
-        );
+        let cf =
+            fieldbook::io::backup_classify::classify_file(&facts, Some(&model), &eff, rel, &bytes);
         files.push(cf);
     }
     let union_labels = fieldbook_core::backup::snapshot_labels(&files);
@@ -5367,13 +5363,8 @@ fn snapshot_labels_are_the_union() {
     for rel in &listing2 {
         let bytes = fieldbook::io::backup_classify::read_file_content(&fix.world, rel)
             .expect("read file content 2");
-        let cf = fieldbook::io::backup_classify::classify_file(
-            &fix.world,
-            Some(&model),
-            &eff,
-            rel,
-            &bytes,
-        );
+        let cf =
+            fieldbook::io::backup_classify::classify_file(&facts, Some(&model), &eff, rel, &bytes);
         files2.push(cf);
     }
     let union_labels2 = fieldbook_core::backup::snapshot_labels(&files2);
@@ -5683,8 +5674,9 @@ fn classify_an_original(fix: &TestFixture, file_name: &str) -> LabelSet {
     let rel = format!("corpus/sources/public/{file_name}");
     let bytes =
         fieldbook::io::backup_classify::read_file_content(&fix.world, &rel).expect("read original");
+    let facts = fix.world.support_facts();
     fieldbook::io::backup_classify::classify_file(
-        &fix.world,
+        &facts,
         Some(&model),
         &floor_a_effective(),
         &rel,
@@ -6339,5 +6331,493 @@ fn support_facts_follow_the_selected_state() {
     assert!(
         sums_text.contains("data/corpus/AGENTS.md"),
         "snapshot must contain support files: {sums_text}"
+    );
+}
+
+#[test]
+fn support_facts_are_computed_once() {
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    struct CountingWorld {
+        inner: TestWorld,
+        calls: AtomicUsize,
+    }
+
+    impl World for CountingWorld {
+        fn read_tree(&self) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
+            self.inner.read_tree()
+        }
+        fn write_lease(&self) -> Result<fieldbook::StoreLease, fieldbook::WorldError> {
+            self.inner.write_lease()
+        }
+        fn read_tree_under(
+            &self,
+            lease: &fieldbook::StoreLease,
+        ) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
+            self.inner.read_tree_under(lease)
+        }
+        fn write_file(
+            &self,
+            audited: &fieldbook::io::journal::Audited,
+            path: &Path,
+            bytes: &[u8],
+        ) -> Result<Sha256, fieldbook::WorldError> {
+            self.inner.write_file(audited, path, bytes)
+        }
+        fn write_outside(
+            &self,
+            allowed: &Allowed,
+            audited: &fieldbook::io::journal::Audited,
+            path: &Path,
+            bytes: &[u8],
+        ) -> Result<Sha256, fieldbook::WorldError> {
+            self.inner.write_outside(allowed, audited, path, bytes)
+        }
+        fn has_company_store(&self) -> bool {
+            self.inner.has_company_store()
+        }
+        fn today(&self) -> CivilDate {
+            self.inner.today()
+        }
+        fn now(&self) -> Now {
+            self.inner.now()
+        }
+        fn principal(&self) -> fieldbook_core::audit::Principal {
+            self.inner.principal()
+        }
+        fn cwd(&self) -> &Path {
+            self.inner.cwd()
+        }
+        fn tree_root(&self) -> &Path {
+            self.inner.tree_root()
+        }
+        fn state_dir(&self) -> &Path {
+            self.inner.state_dir()
+        }
+        fn stdin_is_terminal(&self) -> bool {
+            self.inner.stdin_is_terminal()
+        }
+        fn read_line(&self) -> String {
+            self.inner.read_line()
+        }
+        fn prompt(&self, flag: &str) -> Result<(), fieldbook::WorldError> {
+            self.inner.prompt(flag)
+        }
+        fn place(&self, path: &Path) -> PlaceFacts {
+            self.inner.place(path)
+        }
+        fn support_facts(&self) -> fieldbook::SupportFacts {
+            self.calls.fetch_add(1, Ordering::SeqCst);
+            self.inner.support_facts()
+        }
+        fn reset_drill(
+            &self,
+            audited: &fieldbook::io::journal::Audited,
+        ) -> Result<(), fieldbook::WorldError> {
+            self.inner.reset_drill(audited)
+        }
+        fn remove_drill(
+            &self,
+            audited: &fieldbook::io::journal::Audited,
+        ) -> Result<(), fieldbook::WorldError> {
+            self.inner.remove_drill(audited)
+        }
+    }
+
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let counting = CountingWorld {
+        inner: fix.world,
+        calls: AtomicUsize::new(0),
+    };
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let outcome = run_backup(&counting, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+    assert_eq!(
+        counting.calls.load(Ordering::SeqCst),
+        1,
+        "world.support_facts() must be computed exactly once per run_backup"
+    );
+}
+
+#[test]
+fn file_changed_between_passes_refuses() {
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, Ordering};
+
+    struct HookGuard;
+    impl Drop for HookGuard {
+        fn drop(&mut self) {
+            fieldbook::io::backup_classify::set_after_read_hook(None);
+        }
+    }
+
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let target_rel = "corpus/changes.md";
+    let target_abs = fix.tree_root().join(target_rel);
+    let mutated = Arc::new(AtomicBool::new(false));
+    let mutated_hook = Arc::clone(&mutated);
+
+    let _guard = HookGuard;
+    fieldbook::io::backup_classify::set_after_read_hook(Some(Box::new(move |rel| {
+        if rel == target_rel && !mutated_hook.swap(true, Ordering::SeqCst) {
+            std::fs::write(&target_abs, b"# Modified Between Passes\n")
+                .expect("mutate corpus file between passes");
+        }
+    })));
+
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert!(mutated.load(Ordering::SeqCst), "hook must have fired");
+    assert_eq!(
+        outcome.code,
+        fieldbook::cli::EXIT_IO,
+        "expected EXIT_IO (3), got {} stderr={}",
+        outcome.code,
+        outcome.stderr
+    );
+    assert!(
+        outcome
+            .stderr
+            .contains(&format!("source changed during backup: {target_rel}")),
+        "unexpected stderr: {}",
+        outcome.stderr
+    );
+    assert!(
+        !fix.target_path().join("fieldbook-backup-0001").exists(),
+        "final snapshot directory must not exist when pass 2 detects a change"
+    );
+}
+
+#[test]
+fn active_journal_segment_hash_includes_begin_event() {
+    let fix = TestFixture::new();
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    let outcome = run_backup(&fix.world, &eff, &options);
+    assert_eq!(outcome.code, 0, "backup failed: {}", outcome.stderr);
+
+    let snap1 = fix.target_path().join("fieldbook-backup-0001");
+    let copied_journal_rel = "data/state/audit/journal.jsonl";
+    let copied_bytes = std::fs::read(snap1.join(copied_journal_rel)).expect("read copied journal");
+    let copied_text = std::str::from_utf8(&copied_bytes).expect("utf8 journal");
+    assert!(
+        copied_text.contains("\"kind\":\"backup.begin\""),
+        "copied active journal segment must include backup.begin event"
+    );
+
+    let actual_sha = fieldbook_core::hash::sha256_hex(&copied_bytes);
+    let sums_text = std::fs::read_to_string(snap1.join("SHA256SUMS")).expect("read SHA256SUMS");
+    let recorded_sha = sums_text
+        .lines()
+        .find_map(|line| {
+            let (sha, rel) = line.split_once("  ")?;
+            (rel == copied_journal_rel).then_some(sha)
+        })
+        .expect("SHA256SUMS must record active journal segment");
+    assert_eq!(
+        recorded_sha, actual_sha,
+        "SHA256SUMS active journal digest must match file including backup.begin"
+    );
+}
+
+#[test]
+fn finish_detects_a_changed_written_file() {
+    use fieldbook::io::backup_folder::FolderTarget;
+    use fieldbook_core::backup::BackupTarget as _;
+
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let root = tmp.path().join("root");
+    let state = tmp.path().join("state");
+    let target = tmp.path().join("target");
+    std::fs::create_dir_all(root.join("corpus")).expect("mkdir corpus");
+    std::fs::create_dir_all(&state).expect("mkdir state");
+    std::fs::create_dir_all(&target).expect("mkdir target");
+
+    let world = TestWorld::with_state(&root, &state);
+    let mut journal = Journal::open(&world, &state, Via::Cli).expect("open journal");
+
+    let partial_dir = target.join("fieldbook-backup-0001.partial");
+    let final_dir = target.join("fieldbook-backup-0001");
+    let payload_rel = Path::new("payload.txt");
+    let payload_bytes = b"original staged payload bytes\n";
+    let payload_path = partial_dir.join(payload_rel);
+
+    let eff = floor_a_effective();
+    let payload_sha = fieldbook_core::hash::sha256_hex(payload_bytes);
+    let (tree_sha, tree_bytes) = hash_tree_manifest(&[(
+        "payload.txt".to_string(),
+        payload_sha,
+        payload_bytes.len() as u64,
+    )]);
+    let delivery = Delivery {
+        entries: vec![
+            Transfer::write_path(&payload_path, payload_bytes),
+            Transfer {
+                target: Target::Path(partial_dir.clone()),
+                operation: Operation::RenameTree {
+                    to: final_dir.clone(),
+                },
+                sha256: tree_sha,
+                bytes: tree_bytes,
+            },
+        ],
+        markings: None,
+    };
+    let Decision::Allowed(allowed) = check(
+        &eff,
+        &Dest::Backup {
+            path: target.to_string_lossy().into_owned(),
+            company_storage: false,
+        },
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        default_now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected Allowed delivery");
+    };
+
+    let policy_sha = Sha256::parse(allowed.policy_hash()).expect("policy sha");
+    let _prep = journal
+        .prepare_backup_begin(&LabelSet::public(), &policy_sha, 1)
+        .expect("prepare backup");
+    let audited = journal
+        .begin_backup(&allowed, &target, "folder", 1)
+        .expect("begin backup");
+
+    let folder_target = FolderTarget::new(&world, &audited, &allowed, &target);
+    let mut stage = folder_target.begin(1, &allowed).expect("stage begin");
+    stage
+        .write(payload_rel, payload_bytes)
+        .expect("stage write");
+
+    // Mutate the staged file in the partial directory before calling finish().
+    std::fs::write(&payload_path, b"tampered staged payload bytes\n")
+        .expect("tamper staged file in partial dir");
+
+    let finish_err = stage
+        .finish()
+        .expect_err("finish must fail when a staged file changed on disk");
+    assert!(
+        finish_err.to_string().contains("readback mismatch"),
+        "unexpected finish error: {finish_err}"
+    );
+    assert!(
+        !final_dir.exists(),
+        "final snapshot directory must not exist after finish detects tampering"
+    );
+}
+
+#[test]
+fn snapshot_bytes_are_unchanged_by_the_two_passes() {
+    use std::collections::BTreeMap;
+
+    const EXPECTED_DATA_FILES: &[&str] = &[
+        "data/corpus/AGENTS.md",
+        "data/corpus/ASSISTANT.md",
+        "data/corpus/changes.md",
+        "data/corpus/corpus.toml",
+        "data/corpus/eval/regression.toml",
+        "data/corpus/pages/compliance/business-systems/cmp-clause-9900-101.md",
+        "data/corpus/pages/compliance/business-systems/cmp-onboarding-checklist.md",
+        "data/corpus/pages/compliance/business-systems/cmp-review-steps.md",
+        "data/corpus/pages/compliance/business-systems/cmp-system-review.md",
+        "data/corpus/pages/compliance/business-systems/cmp-withhold-case.md",
+        "data/corpus/pages/estimating/pricing/est-baseline-template.md",
+        "data/corpus/pages/estimating/pricing/est-calc-01.md",
+        "data/corpus/pages/estimating/pricing/est-rate-reference.md",
+        "data/corpus/pages/estimating/pricing/est-rate-window-brief.md",
+        "data/corpus/registers/claims.csv",
+        "data/corpus/registers/conflicts.csv",
+        "data/corpus/registers/glossary.csv",
+        "data/corpus/registers/questions.csv",
+        "data/corpus/registers/sources.csv",
+        "data/corpus/scan-allow.toml",
+        "data/corpus/sources/public/S-0001-v1.txt",
+        "data/corpus/sources/public/S-0002-v2.txt",
+        "data/corpus/sources/text/S-0001-v1/extraction.toml",
+        "data/corpus/sources/text/S-0001-v1/p0001.txt",
+        "data/corpus/templates/brief.md",
+        "data/corpus/templates/concept.md",
+        "data/corpus/templates/workbooks/90-day-plan.csv",
+        "data/corpus/templates/workbooks/assumption-register.csv",
+        "data/corpus/templates/workbooks/discovery-log.csv",
+        "data/state/audit/journal.jsonl",
+        "data/state/lock",
+        "data/state/settings.toml",
+        "data/state/store.lock",
+    ];
+
+    fn collect_snapshot_data_files(
+        dir: &Path,
+        snap_root: &Path,
+        out: &mut BTreeMap<String, Vec<u8>>,
+    ) {
+        let mut entries: Vec<_> = std::fs::read_dir(dir)
+            .expect("read snapshot dir")
+            .map(|e| e.expect("dir entry").path())
+            .collect();
+        entries.sort();
+        for path in entries {
+            if path.is_dir() {
+                collect_snapshot_data_files(&path, snap_root, out);
+            } else {
+                let rel = path
+                    .strip_prefix(snap_root)
+                    .expect("strip snap root")
+                    .to_string_lossy()
+                    .replace('\\', "/");
+                let bytes = std::fs::read(&path).expect("read snapshot file");
+                out.insert(rel, bytes);
+            }
+        }
+    }
+
+    let eff = floor_a_effective();
+    let options = BackupOptions {
+        target: Some("main".to_string()),
+        to: None,
+        dry_run: false,
+    };
+
+    // Build an independent single-pass reference baseline in memory before invoking run_backup.
+    // Both fixtures use identical corpus-mini, state-mini, settings.toml (same target path),
+    // and deterministic TestWorld clock (default_now).
+    let fix = TestFixture::new();
+    let ref_fix = TestFixture::new();
+    let settings_bytes =
+        std::fs::read(fix.state_dir().join("settings.toml")).expect("read fix settings.toml");
+    std::fs::write(ref_fix.state_dir().join("settings.toml"), &settings_bytes)
+        .expect("sync ref settings.toml");
+
+    let ref_journal =
+        Journal::open(&ref_fix.world, ref_fix.state_dir(), Via::Cli).expect("open ref journal");
+    let _ref_lease = ref_fix
+        .world
+        .write_lease()
+        .expect("acquire ref write lease");
+    let ref_labels = LabelSet::owner_supplied();
+    let policy_sha = Sha256::parse(eff.hash()).expect("policy sha");
+    let ref_prep = ref_journal
+        .prepare_backup_begin_at(&ref_labels, &policy_sha, 1, ref_fix.world.now())
+        .expect("prepare ref backup.begin");
+
+    // Old-implementation single-pass in-memory cache built from the independent explicit list.
+    let mut single_pass_cache: Vec<(String, Vec<u8>)> =
+        Vec::with_capacity(EXPECTED_DATA_FILES.len());
+    for &snap_rel in EXPECTED_DATA_FILES {
+        let mut bytes = if let Some(corpus_rel) = snap_rel.strip_prefix("data/corpus/") {
+            std::fs::read(ref_fix.tree_root().join("corpus").join(corpus_rel))
+                .expect("read ref corpus file")
+        } else if let Some(state_rel) = snap_rel.strip_prefix("data/state/") {
+            std::fs::read(ref_fix.state_dir().join(state_rel)).expect("read ref state file")
+        } else {
+            panic!("unexpected snapshot rel {snap_rel}");
+        };
+        if snap_rel == "data/state/audit/journal.jsonl" {
+            bytes.extend_from_slice(&ref_prep.bytes);
+        }
+        single_pass_cache.push((snap_rel.to_string(), bytes));
+    }
+
+    let mut expected_payloads = BTreeMap::new();
+    let mut expected_sums_entries = Vec::with_capacity(single_pass_cache.len());
+    let mut expected_total_bytes = 0u64;
+    for (snap_rel, bytes) in single_pass_cache {
+        expected_total_bytes = expected_total_bytes.saturating_add(bytes.len() as u64);
+        expected_sums_entries.push((snap_rel.clone(), fieldbook_core::hash::sha256_hex(&bytes)));
+        expected_payloads.insert(snap_rel, bytes);
+    }
+    let expected_sums_text = manifest::write_sums(&expected_sums_entries);
+    let expected_fingerprint = manifest::fingerprint(&corpus_entries(&expected_sums_text));
+    let mut sorted_labels: Vec<String> = ref_labels
+        .ids()
+        .iter()
+        .map(|id| id.as_str().to_string())
+        .collect();
+    sorted_labels.sort();
+    let mut expected_toml = BackupToml {
+        backup_version: 1,
+        tool_version: env!("CARGO_PKG_VERSION").to_string(),
+        snapshot: 1,
+        created_utc: ref_fix.world.now().to_string(),
+        labels: sorted_labels,
+        roots: vec!["corpus".to_string(), "state".to_string()],
+        files: EXPECTED_DATA_FILES.len() as u64,
+        bytes: expected_total_bytes,
+        fingerprint: expected_fingerprint,
+        journal_seq: ref_prep.seq,
+        journal_head: ref_prep.new_head.as_str().to_string(),
+        journal_state: "ok".to_string(),
+        manifest_sha256: String::new(),
+    };
+    expected_toml.manifest_sha256 = manifest_sha256(&expected_toml, &expected_sums_text)
+        .expect("ref manifest_sha256")
+        .as_str()
+        .to_string();
+    let expected_toml_text =
+        toml::to_string_pretty(&expected_toml).expect("serialize ref backup.toml");
+
+    // Run the two-pass backup implementation and compare every artifact against the independent baseline.
+    let out = run_backup(&fix.world, &eff, &options);
+    assert_eq!(out.code, 0, "backup failed: {}", out.stderr);
+
+    let snap1 = fix.target_path().join("fieldbook-backup-0001");
+    let mut actual_payloads = BTreeMap::new();
+    collect_snapshot_data_files(&snap1.join("data"), &snap1, &mut actual_payloads);
+
+    let actual_rel_list: Vec<&str> = actual_payloads.keys().map(String::as_str).collect();
+    assert_eq!(
+        actual_rel_list, EXPECTED_DATA_FILES,
+        "snapshot data/ file list must match the explicit expected corpus + support + state list"
+    );
+    assert_eq!(
+        actual_payloads, expected_payloads,
+        "snapshot data/ payloads must match single-pass reference byte-for-byte"
+    );
+
+    let actual_sums_text =
+        std::fs::read_to_string(snap1.join("SHA256SUMS")).expect("read SHA256SUMS");
+    assert_eq!(
+        actual_sums_text, expected_sums_text,
+        "SHA256SUMS must match single-pass reference byte-for-byte"
+    );
+
+    let actual_toml_text =
+        std::fs::read_to_string(snap1.join("backup.toml")).expect("read backup.toml");
+    assert_eq!(
+        actual_toml_text, expected_toml_text,
+        "backup.toml must match single-pass reference byte-for-byte"
+    );
+
+    let verify_args = BackupVerifyArgs {
+        target: Some("main".to_string()),
+        in_dir: None,
+        snapshot: Some(1),
+        raw: None,
+        support_catalogue: None,
+        expect_support_sha256: None,
+    };
+    let verify_out = run_verify(&fix.world, &verify_args);
+    assert_eq!(
+        verify_out.code, 0,
+        "backup verify failed: {}",
+        verify_out.stderr
     );
 }

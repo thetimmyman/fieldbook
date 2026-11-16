@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Changed: a printed page's footer shows the page id, not its route.
+- Changed: backup holds one file in memory at a time.
 - Changed: `cargo xtask extract` proposes a locator only for a label that looks like a section number, so a line that opens with `Section` or `§` and continues in prose proposes nothing.
 - Changed: an extraction of more than 9,999 pages is refused with one message for every extractor, and supplied text that holds a non-public `handling` line is refused before any page is written.
 - Changed: scope names the way through when a path is not in the card.
