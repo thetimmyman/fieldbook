@@ -81,7 +81,17 @@ pub fn run_with_policy(
         };
     }
 
-    let minutes_text = world.read_maintenance().unwrap_or_default();
+    // An absent file reads as the empty string; any other read failure stops before output.
+    let minutes_text = match world.read_maintenance() {
+        Ok(text) => text,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("error: {err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
     let minutes = if minutes_text.trim().is_empty() {
         None
     } else {

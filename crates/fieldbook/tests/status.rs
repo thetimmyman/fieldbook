@@ -1039,3 +1039,78 @@ fn status_rejects_malformed_pages_dropped_from_typed_pages() {
         );
     }
 }
+
+/// One unreadable `docs/maintenance.csv` case: its label and how to plant it in the copy.
+type MaintenanceFault = (&'static str, fn(&Path));
+
+#[test]
+fn status_rejects_unreadable_maintenance_file_before_output_or_desk_writes() {
+    let cases: [MaintenanceFault; 2] = [
+        ("invalid UTF-8 in docs/maintenance.csv", |root| {
+            let docs = root.join("docs");
+            std::fs::create_dir_all(&docs).expect("create docs folder");
+            std::fs::write(
+                docs.join("maintenance.csv"),
+                b"week,minutes,kind,note\n2026-W09,30,upkeep,\xff\xfe\n",
+            )
+            .expect("write non-UTF-8 maintenance.csv");
+        }),
+        ("a directory at docs/maintenance.csv", |root| {
+            std::fs::create_dir_all(root.join("docs/maintenance.csv"))
+                .expect("create maintenance.csv directory");
+        }),
+    ];
+
+    for (label, prepare) in cases {
+        let tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+        prepare(tmp.path());
+        let world = TestWorld::new(tmp.path());
+
+        let outcome = fieldbook::run(&status_args(fixture_today()), &world);
+        assert_eq!(
+            outcome.code, 3,
+            "{label}: status must exit 3, stdout:\n{}",
+            outcome.stdout
+        );
+        assert!(
+            outcome.stdout.is_empty(),
+            "{label}: status must print nothing on stdout:\n{}",
+            outcome.stdout
+        );
+        assert!(
+            outcome.stderr.contains("maintenance.csv"),
+            "{label}: stderr must name the maintenance file, got:\n{}",
+            outcome.stderr
+        );
+
+        let page_outcome = fieldbook::run(
+            &[
+                "status".to_owned(),
+                "--page".to_owned(),
+                "--today".to_owned(),
+                fixture_today().to_string(),
+            ],
+            &world,
+        );
+        assert_eq!(
+            page_outcome.code, 3,
+            "{label}: status --page must exit 3, stdout:\n{}",
+            page_outcome.stdout
+        );
+        assert!(
+            page_outcome.stdout.is_empty(),
+            "{label}: status --page must print nothing on stdout:\n{}",
+            page_outcome.stdout
+        );
+        assert!(
+            page_outcome.stderr.contains("maintenance.csv"),
+            "{label}: status --page stderr must name the maintenance file, got:\n{}",
+            page_outcome.stderr
+        );
+        assert!(
+            world.written().is_empty(),
+            "{label}: status --page must not write desk pages, wrote: {:?}",
+            world.written()
+        );
+    }
+}
