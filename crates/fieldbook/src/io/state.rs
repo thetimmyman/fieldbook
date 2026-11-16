@@ -477,3 +477,137 @@ pub fn has_role(state_dir: &Path) -> bool {
     text.parse::<toml::Table>()
         .is_ok_and(|table| table.get("role").is_some())
 }
+
+/// What the question log keeps of each question (`[asked] mode` in `settings.toml`).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AskedMode {
+    /// The question text (the default).
+    Text,
+    /// Only `sha256:` and the hash of the question.
+    Hash,
+    /// No row; the journal still gets an `ask` event, with no `asked` field.
+    Off,
+}
+
+/// The `[asked]` table of `settings.toml` (`ask-log`).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct AskedSettings {
+    /// What a row keeps of the question.
+    pub mode: AskedMode,
+    /// Rows older than this many days are removed, with one `purge` event.
+    pub keep_days: u32,
+}
+
+impl Default for AskedSettings {
+    fn default() -> Self {
+        Self {
+            mode: AskedMode::Text,
+            keep_days: 365,
+        }
+    }
+}
+
+/// Why the `[asked]` table cannot be used.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum AskedSettingsError {
+    /// `settings.toml` cannot be read.
+    Io(String),
+    /// `settings.toml` is not TOML, or `asked` is not a table.
+    Toml(String),
+    /// A key `[asked]` does not have.
+    UnknownKey(String),
+    /// A value outside what the key takes.
+    InvalidValue {
+        /// The key.
+        key: &'static str,
+        /// What it takes.
+        reason: &'static str,
+    },
+}
+
+impl fmt::Display for AskedSettingsError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Io(msg) => write!(f, "cannot read settings.toml: {msg}"),
+            Self::Toml(msg) => write!(f, "invalid settings.toml: {msg}"),
+            Self::UnknownKey(key) => write!(f, "unknown key `{key}` in [asked]"),
+            Self::InvalidValue { key, reason } => {
+                write!(f, "invalid value for `asked.{key}`: {reason}")
+            }
+        }
+    }
+}
+
+impl std::error::Error for AskedSettingsError {}
+
+impl AskedSettings {
+    /// Parses the `[asked]` table of `settings.toml` text; other tables are ignored, and an
+    /// absent table gives the defaults (`mode = "text"`, `keep_days = 365`).
+    ///
+    /// # Errors
+    ///
+    /// Returns [`AskedSettingsError`] for text that is not TOML, an `asked` that is not a table,
+    /// an unknown key, a `mode` other than `text`, `hash` or `off`, or a `keep_days` that is not
+    /// an integer from 0 to 4294967295.
+    pub fn parse(text: &str) -> Result<Self, AskedSettingsError> {
+        let table: toml::Table =
+            toml::from_str(text).map_err(|err| AskedSettingsError::Toml(err.to_string()))?;
+        let Some(value) = table.get("asked") else {
+            return Ok(Self::default());
+        };
+        let Some(asked) = value.as_table() else {
+            return Err(AskedSettingsError::Toml(
+                "`asked` must be a table".to_owned(),
+            ));
+        };
+        let mut settings = Self::default();
+        for (key, value) in asked {
+            match key.as_str() {
+                "mode" => {
+                    settings.mode = match value.as_str() {
+                        Some("text") => AskedMode::Text,
+                        Some("hash") => AskedMode::Hash,
+                        Some("off") => AskedMode::Off,
+                        _ => {
+                            return Err(AskedSettingsError::InvalidValue {
+                                key: "mode",
+                                reason: "expected \"text\", \"hash\" or \"off\"",
+                            });
+                        }
+                    };
+                }
+                "keep_days" => {
+                    settings.keep_days = value
+                        .as_integer()
+                        .and_then(|days| u32::try_from(days).ok())
+                        .ok_or(AskedSettingsError::InvalidValue {
+                            key: "keep_days",
+                            reason: "expected a whole number of days, 0 or more",
+                        })?;
+                }
+                other => return Err(AskedSettingsError::UnknownKey(other.to_owned())),
+            }
+        }
+        Ok(settings)
+    }
+}
+
+/// Reads the `[asked]` table from `settings.toml` inside `state_dir`; an absent file gives the
+/// defaults.
+///
+/// # Errors
+///
+/// Returns [`AskedSettingsError`] when the file exists and cannot be read or
+/// [`AskedSettings::parse`] refuses it.
+pub fn read_asked_settings(state_dir: &Path) -> Result<AskedSettings, AskedSettingsError> {
+    let settings_path = state_dir.join("settings.toml");
+    match std::fs::read(&settings_path) {
+        Ok(bytes) => {
+            let text = std::str::from_utf8(&bytes)
+                .map_err(|err| AskedSettingsError::Toml(err.to_string()))?;
+            AskedSettings::parse(text)
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ok(AskedSettings::default()),
+        Err(err) => Err(AskedSettingsError::Io(err.to_string())),
+    }
+}
