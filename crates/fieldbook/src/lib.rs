@@ -127,12 +127,12 @@ pub trait World {
     /// Returns [`WorldError`] if the drill workspace cannot be removed.
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError>;
 
-    /// Return the registry id of the Store adapter that this world is.
+    /// Return the registry id of the Store adapter that this world writes through.
     ///
-    /// The default is the folder store that [`io::Disk`] is; test doubles override it.
-    fn store_id(&self) -> &'static str {
-        "folder@1"
-    }
+    /// Every world names its store: `folder@1` for the folder store that [`io::Disk`] is,
+    /// `memory@0` for an in-memory double, or the inner world's id for a double that wraps one.
+    /// There is no default, so a new double cannot silently pass as a folder store.
+    fn store_id(&self) -> &'static str;
 
     /// Return the operation's effective policy (`Floor` until a policy loader overrides it).
     fn effective_policy(&self) -> fieldbook_core::policy::EffectivePolicy {
@@ -712,6 +712,10 @@ mod tests {
             _today: fieldbook_core::CivilDate,
         ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
             Ok(fieldbook_core::status::StateSummary::default())
+        }
+
+        fn store_id(&self) -> &'static str {
+            "memory@0"
         }
     }
 
