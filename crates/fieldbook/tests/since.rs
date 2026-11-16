@@ -327,3 +327,175 @@ fn build_without_since_builds_changes_page() {
     ));
     assert!(!html.contains("<table"));
 }
+
+/// Every directory and file under `root`, by relative path, with a trailing `/` on directories,
+/// so a new empty state folder or lock file shows up as a difference.
+fn collect_paths(root: &Path) -> Vec<String> {
+    fn walk(base: &Path, dir: &Path, out: &mut Vec<String>) {
+        let entries =
+            std::fs::read_dir(dir).unwrap_or_else(|e| panic!("read_dir {}: {e}", dir.display()));
+        for entry in entries {
+            let path = entry.unwrap_or_else(|e| panic!("dir entry: {e}")).path();
+            let rel = path
+                .strip_prefix(base)
+                .unwrap_or_else(|e| panic!("strip_prefix: {e}"))
+                .to_string_lossy()
+                .replace('\\', "/");
+            let meta = std::fs::symlink_metadata(&path)
+                .unwrap_or_else(|e| panic!("metadata {}: {e}", path.display()));
+            if meta.is_dir() {
+                out.push(format!("{rel}/"));
+                walk(base, &path, out);
+            } else {
+                out.push(rel);
+            }
+        }
+    }
+
+    let mut paths = Vec::new();
+    walk(root, root, &mut paths);
+    paths.sort();
+    paths
+}
+
+/// Build the `edition-002` and `edition-003` manifests from a separate Corpus copy, so the tree
+/// under test never gains a state folder from these seed builds. Returns the holder of both
+/// builds and the two `edition.toml` paths.
+fn seed_manifests() -> (tempfile::TempDir, PathBuf, PathBuf) {
+    let seed = temp_copy(&fixture_root());
+    let world = TestWorld::new(seed.path());
+    let mut paths = Vec::new();
+    for n in [2, 3] {
+        set_changes_heading(seed.path(), n);
+        let out = seed.path().join(format!("ed{n}"));
+        let outcome = run_with_info(
+            &BuildArgs {
+                out: out.clone(),
+                watch: false,
+                since: None,
+            },
+            &world,
+            &released_info("2026-02-15"),
+        );
+        assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+        paths.push(out.join("edition/edition.toml"));
+    }
+    let ed3 = paths
+        .pop()
+        .unwrap_or_else(|| panic!("edition-003 manifest"));
+    let ed2 = paths
+        .pop()
+        .unwrap_or_else(|| panic!("edition-002 manifest"));
+    (seed, ed2, ed3)
+}
+
+/// Run an equal and a newer `--since` against `root` (Corpus at `edition-002`) and assert each
+/// is refused with exit 2 and leaves every directory and file under `root` as it was.
+fn assert_out_of_order_refusals_write_nothing(root: &Path, ed2: &Path, ed3: &Path, what: &str) {
+    let world = TestWorld::new(root);
+    let before = collect_paths(root);
+    let bytes_before = collect_tree_bytes(root);
+    for (label, since) in [("equal", ed2), ("newer", ed3)] {
+        let outcome = run_with_info(
+            &BuildArgs {
+                out: root.join("out"),
+                watch: false,
+                since: Some(since.to_string_lossy().into_owned()),
+            },
+            &world,
+            &released_info("2026-03-01"),
+        );
+        assert_eq!(
+            outcome.code, 2,
+            "{label} on {what}: stderr: {}",
+            outcome.stderr
+        );
+        assert!(outcome.stdout.is_empty(), "{label} on {what}");
+        assert_eq!(outcome.stderr.lines().count(), 1, "{label} on {what}");
+        assert!(
+            outcome.stderr.contains("not earlier than"),
+            "{label} on {what}: {}",
+            outcome.stderr
+        );
+        assert_eq!(
+            collect_paths(root),
+            before,
+            "{label} --since on {what} must create no directory or lock file"
+        );
+        assert_eq!(collect_tree_bytes(root), bytes_before, "{label} on {what}");
+    }
+}
+
+#[test]
+fn since_out_of_order_leaves_an_absent_store_absent() {
+    let (_seed, ed2, ed3) = seed_manifests();
+    let tmp = temp_copy(&fixture_root());
+    set_changes_heading(tmp.path(), 2);
+    assert!(!tmp.path().join(".fieldbook").exists());
+
+    assert_out_of_order_refusals_write_nothing(tmp.path(), &ed2, &ed3, "an absent store");
+    assert!(
+        !tmp.path().join(".fieldbook").exists(),
+        "a refused --since must not create the state folder"
+    );
+}
+
+#[test]
+fn since_out_of_order_leaves_a_partial_store_unchanged() {
+    let (_seed, ed2, ed3) = seed_manifests();
+
+    // An empty state folder, then one holding only `audit/`: both lack `lock` and `store.lock`,
+    // which acquiring the write lease would create.
+    for partial in [&[][..], &["audit"][..]] {
+        let tmp = temp_copy(&fixture_root());
+        set_changes_heading(tmp.path(), 2);
+        let state = tmp.path().join(".fieldbook");
+        std::fs::create_dir(&state).unwrap_or_else(|e| panic!("{e}"));
+        for dir in partial {
+            std::fs::create_dir(state.join(dir)).unwrap_or_else(|e| panic!("{e}"));
+        }
+
+        let what = format!("a partial store holding {partial:?}");
+        assert_out_of_order_refusals_write_nothing(tmp.path(), &ed2, &ed3, &what);
+        for name in ["lock", "store.lock", ".init"] {
+            assert!(
+                !state.join(name).exists(),
+                "{what}: a refused --since must not create `{name}`"
+            );
+        }
+    }
+}
+
+#[test]
+fn since_order_is_rechecked_under_the_write_lease() {
+    let (_seed, ed2, _ed3) = seed_manifests();
+    let tmp = temp_copy(&fixture_root());
+    // `edition-002` is earlier than the Corpus's `edition-003`, so the read-only check passes.
+    set_changes_heading(tmp.path(), 3);
+    let world = TestWorld::new(tmp.path());
+
+    // Between that check and the write lease, the Corpus falls back to `edition-002`: the check
+    // under the lease must refuse, and nothing is built.
+    let root = tmp.path().to_path_buf();
+    world.set_before_write_lease(move || set_changes_heading(&root, 2));
+
+    let outcome = run_with_info(
+        &BuildArgs {
+            out: tmp.path().join("out"),
+            watch: false,
+            since: Some(ed2.to_string_lossy().into_owned()),
+        },
+        &world,
+        &released_info("2026-03-01"),
+    );
+    assert_eq!(outcome.code, 2, "stderr: {}", outcome.stderr);
+    assert!(
+        outcome.stderr.contains("not earlier than"),
+        "{}",
+        outcome.stderr
+    );
+    assert!(
+        !tmp.path().join("out").exists(),
+        "a --since refused under the lease must build nothing"
+    );
+}
