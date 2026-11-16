@@ -45,7 +45,7 @@ A contractor's fiscal year ends on the last day of month 12. Six months later, a
 
 ## Never confuse
 
-Proposed final annual indirect cost rates are based on the Contractor's actual cost experience for the covered period rather than temporary billing rates [@CL-RTE-9232; @CL-RTE-9233], and under RFO FAR 52.216-7(d)(2)(iv) the listed supplemental information is not required to determine if a proposal is adequate, though it may be required during the audit process [@CL-RTE-9039]; for billing rates and final rates, see [final and billing rate purpose](rte-final-and-billing-rate-purpose.md), and for the proposal itself, see [final indirect rate proposal](rte-final-indirect-rate-proposal.md).
+Proposed final annual indirect cost rates are based on the Contractor's actual cost experience for the covered period [@CL-RTE-9232; @CL-RTE-9233], unlike a billing rate, which is an indirect cost rate established temporarily for interim reimbursement of incurred indirect costs and adjusted as necessary until final indirect cost rates are established [@CL-RTE-0300], and under RFO FAR 52.216-7(d)(2)(iv) the listed supplemental information is not required to determine if a proposal is adequate, though it may be required during the audit process [@CL-RTE-9039]; for billing rates and final rates, see [final and billing rate purpose](rte-final-and-billing-rate-purpose.md).
 
 ## Company calibration
 

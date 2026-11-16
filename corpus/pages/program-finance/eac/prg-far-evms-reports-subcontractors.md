@@ -43,7 +43,7 @@ A prime contract has an EVMS requirement, and the prime places a subcontract wor
 
 ## Never confuse
 
-Under FAR 34.201(c) and (d), contracting officers shall at a minimum require contractors to submit EVMS monthly reports for contracts to which an EVMS applies [@CL-PRG-0855], and EVMS requirements apply to subcontractors using the same rules as applied to the prime contractor rather than a separate subcontractor threshold [@CL-PRG-0856]. See [Update estimates at completion for control accounts and summary level planning packages](prg-evms-guideline-20-eac-updates.md) and [Develop the program manager estimate at completion](prg-evms-guideline-23-program-manager-eac.md).
+Under FAR 34.201(c) and (d), contracting officers shall at a minimum require contractors to submit EVMS monthly reports for contracts to which an EVMS applies [@CL-PRG-0855], and EVMS requirements apply to subcontractors using the same rules as applied to the prime contractor rather than under separate rules for subcontractors [@CL-PRG-0856]. See [Update estimates at completion for control accounts and summary level planning packages](prg-evms-guideline-20-eac-updates.md) and [Develop the program manager estimate at completion](prg-evms-guideline-23-program-manager-eac.md).
 
 ## Company calibration
 

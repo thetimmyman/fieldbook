@@ -45,7 +45,7 @@ A contractor with an agency authorization needs four vehicles for three months. 
 
 ## Never confuse
 
-The contractor shall assume, without the right of reimbursement from the Government, the cost or expense of any use of IFMS vehicles and services not related to the performance of the contract [@CL-SUP-1582], and only the contractor—rather than a subcontractor acting without the contractor's approval—may request authorization from the Contracting Officer for subcontractor use of IFMS vehicles [@CL-SUP-1583]. Ordering from Government supply sources is covered on [Ordering from Government supply sources](sup-ordering-from-government-supply-sources.md).
+The contractor shall assume, without the right of reimbursement from the Government, the cost or expense of any use of IFMS vehicles and services not related to the performance of the contract [@CL-SUP-1582], and only the contractor, rather than the subcontractor, may request authorization for subcontractor use of IFMS vehicles, which the Contracting Officer will not grant without the contractor's approval [@CL-SUP-1583]. Ordering from Government supply sources is covered on [Ordering from Government supply sources](sup-ordering-from-government-supply-sources.md).
 
 ## Company calibration
 

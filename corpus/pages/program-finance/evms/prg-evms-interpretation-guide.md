@@ -45,7 +45,7 @@ A program office asks who decides whether a contractor's system complies. The co
 
 ## Never confuse
 
-The DoD EVMS Interpretation Guide provides the overarching DoD interpretation of the 27 Guidelines and serves as the basis for DoD and the Defense Contract Management Agency to assess EVMS compliance where an EVMS requirement is applied, but it is not itself a codified regulation [@CL-PRG-0623; @CL-PRG-0071; @CL-PRG-0625]. See [Earned value management system requirement](prg-evms-requirement.md).
+The DoD EVMS Interpretation Guide provides the overarching DoD interpretation of the 27 Guidelines where an EVMS requirement is applied and is used as the basis for the DoD to assess EVMS compliance [@CL-PRG-0623; @CL-PRG-0071]. Interpreting the guidelines is not the same as determining compliance: when DoD is the Cognizant Federal Agency, the Defense Contract Management Agency is responsible for determining EVMS compliance, and the procuring contracting officer does not retain this function [@CL-PRG-0625]. See [Earned value management system requirement](prg-evms-requirement.md).
 
 ## Company calibration
 

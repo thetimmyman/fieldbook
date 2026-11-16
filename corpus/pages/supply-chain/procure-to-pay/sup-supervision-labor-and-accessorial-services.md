@@ -46,7 +46,7 @@ An office relocation covers 20 workstations, 200 cartons and 3 appliances. The c
 
 ## Never confuse
 
-The supervision clause is a general duty to furnish adequate supervision, labor, materials, supplies and equipment, and it applies when the contractor is required to furnish them [@CL-SUP-2222; @CL-SUP-2259]. The accessorial clause applies to the transportation of household goods or office furniture and names the packing, crating, disassembly, reassembly and unpacking duties of such a move [@CL-SUP-2221; @CL-SUP-2223; @CL-SUP-2225; @CL-SUP-2262]. Codified FAR 52.247-12 sets out the supervision, labor, or materials clause [@CL-SUP-2222], unlike RFO FAR 52.247-12, which is marked [Reserved] [@CL-SUP-0595] and RFO FAR 52.247-13 sets out the accessorial services clause [@CL-SUP-0596].
+The supervision clause is a general duty to furnish adequate supervision, labor, materials, supplies and equipment, and it applies when the contractor is required to furnish them [@CL-SUP-2222; @CL-SUP-2259]. The accessorial clause applies to the transportation of household goods or office furniture and names the packing, crating, disassembly, reassembly and unpacking duties of such a move [@CL-SUP-2221; @CL-SUP-2223; @CL-SUP-2225; @CL-SUP-2262]. Codified FAR 52.247-12 sets out the supervision, labor, or materials clause [@CL-SUP-2222], unlike RFO FAR 52.247-12, which is marked [Reserved] [@CL-SUP-0595], while RFO FAR 52.247-13 sets out the accessorial services clause [@CL-SUP-0596].
 
 ## Company calibration
 
