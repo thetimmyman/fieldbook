@@ -11,7 +11,7 @@ as_of = 2025-12-18
 handling = ["public"]
 terms = ["forecast_vintage", "funding", "defense_far_supplement"]
 questions = ["Q-018", "Q-008"]
-links = ["ctf-incremental-funding-policy", "fpa-funds-availability-conditioned-contracts"]
+links = ["ctf-incremental-funding-policy", "fpa-funds-availability-conditioned-contracts", "fpa-annual-budget-build", "fpa-rolling-forecast"]
 +++
 
 ## Purpose

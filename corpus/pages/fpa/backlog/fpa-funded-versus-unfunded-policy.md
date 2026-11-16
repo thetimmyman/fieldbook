@@ -11,7 +11,7 @@ as_of = 2025-12-18
 handling = ["public"]
 terms = ["funding", "funded_backlog", "booked_backlog"]
 questions = ["Q-008", "Q-018"]
-links = ["ctf-incremental-funding-policy", "fpa-funds-availability-conditioned-contracts", "fpa-unauthorized-obligations-anti-deficiency"]
+links = ["ctf-incremental-funding-policy", "fpa-funds-availability-conditioned-contracts", "fpa-unauthorized-obligations-anti-deficiency", "fpa-annual-budget-build", "fpa-rolling-forecast"]
 +++
 
 ## Purpose

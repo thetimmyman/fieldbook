@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-27
 handling = ["public"]
 questions = ["Q-017"]
-links = ["fpa-mdna-objective-and-liquidity"]
+links = ["fpa-mdna-objective-and-liquidity", "fpa-variance-analysis"]
 +++
 
 ## Purpose
