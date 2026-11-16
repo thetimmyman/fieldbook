@@ -49,7 +49,7 @@ Answer: the amount that may be requested is 5 percent of 2 million, which is 100
 
 ## Never confuse
 
-The incentive amount that may be requested is 5 percent of the estimated cost, target cost, or fixed price included in the subcontract at the time of award [@CL-MKT-0941]. The clause lets the contractor and the contracting officer, acting in good faith, rely on a firm's own representation of its eligibility unless it is challenged or the contracting officer has independent reason to question it [@CL-MKT-9334; @CL-MKT-0939]. The DoD subcontracting plan clause is on the [DFARS small business subcontracting plan clause for DoD contracts](mkt-dfars-dod-small-business-subcontracting-plan.md) card. The general policy on small business opportunities is on the [Small business general policy](mkt-small-business-general-policy.md) card.
+DFARS 252.226-7001 authorizes a separate subcontracting incentive for utilizing Indian organizations, Indian-owned economic enterprises, and Native Hawaiian small business concerns and flows down to subcontracts exceeding $500,000 [@CL-MKT-0938; @CL-MKT-0943; @CL-MKT-0953], rather than merely restating the general subcontracting-plan supplement on [DFARS small business subcontracting plan clause for DoD contracts](mkt-dfars-dod-small-business-subcontracting-plan.md) [@CL-MKT-0896].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which subcontractors the company counts as Indian organizations, Indian-owned ec
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored best efforts wording and removed inference and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Good faith and Secretary of the Interior determination restored, cited to a companion.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Indian organization and Native Hawaiian small business utilization clause.

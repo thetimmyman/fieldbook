@@ -48,7 +48,7 @@ A contract is f.o.b. destination. The contractor ships 500 units by common carri
 
 ## Never confuse
 
-For transportation by common carrier, the signed copy of the commercial bill of lading indicates the carrier's intent to ship the supplies to the destination specified in the contract [@CL-SUP-1988]. For transportation by other than common carrier or parcel post, the document is a copy of the delivery document showing receipt at the destination specified in the contract [@CL-SUP-1989]. The codified text lets the Contracting Officer authorize prepaid small package freight shipments [@CL-SUP-1991], while the RFO text lists FAR 52.247-65 as [Reserved] [@CL-SUP-0251].
+For transportation by common carrier, the signed copy of the commercial bill of lading indicates the carrier's intent to ship the supplies to the destination specified in the contract [@CL-SUP-1988]. For transportation by other than common carrier or parcel post, the document is a copy of the delivery document showing receipt at the destination specified in the contract [@CL-SUP-1989]. The codified text lets the Contracting Officer authorize prepaid small package freight shipments [@CL-SUP-1991], unlike the RFO text, which lists FAR 52.247-65 as [Reserved] [@CL-SUP-0251].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm who holds the shipment documents for each f.o.b. destination contract an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned RFO and evidence-retention wording with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

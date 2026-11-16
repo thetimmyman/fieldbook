@@ -49,7 +49,7 @@ Answer: the approving official may approve, modify or reject the recommendations
 
 ## Never confuse
 
-Before determining to withhold award based on conflict of interest considerations, the contracting officer shall notify the contractor, provide the reasons therefor, and allow the contractor a reasonable opportunity to respond [@CL-SUP-0940]. See [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) and [Organizational conflicts of interest: specifications, proprietary information and examples](sup-oci-specifications-proprietary-information-and-examples.md).
+Before issuing a solicitation that involves a significant potential organizational conflict of interest, the contracting officer submits a written analysis, recommended course of action, draft provision, and any proposed clause to the approving official for written approval, modification, or rejection [@CL-SUP-0942; @CL-SUP-0998; @CL-SUP-0943], whereas before determining to withhold award based on conflict of interest considerations rather than resolving the conflict in the solicitation, the contracting officer shall notify the contractor, provide the reasons therefor, and allow a reasonable opportunity to respond [@CL-SUP-0940]. See [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) and [Organizational conflicts of interest: specifications, proprietary information and examples](sup-oci-specifications-proprietary-information-and-examples.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm which current engagements could create a conflict, who would answer a co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for 9.504(a) lead-in and 9.506(b)(3); aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: If, not when, for the approval trigger.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of organizational conflict of interest.

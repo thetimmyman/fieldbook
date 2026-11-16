@@ -49,7 +49,7 @@ A contractor with a calendar fiscal year and no previous contract subject to the
 
 ## Never confuse
 
-The purpose is to establish criteria for measuring the cost of money attributable to capital assets under construction, fabrication or development as an element of the cost of those assets [@CL-EST-2897]. An intangible capital asset has no physical substance, has more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the benefits it yields [@CL-EST-2898]. A tangible capital asset has physical substance, more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the services it yields [@CL-EST-2899]. For contractors with no previous contracts subject to this Standard, it is applied beginning with the contractor's next full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-EST-2901], and the direct and indirect cost Standard is applied beginning with the contractor's second full fiscal year beginning after that receipt [@CL-EST-2905].
+CAS 417 measures the imputed cost of money capitalized into tangible and intangible assets while under construction, fabrication, or development for the contractor's own use [@CL-EST-2897; @CL-EST-2898; @CL-CMP-1792], rather than interest paid on borrowings, which [cost of money card](../../compliance/cas-allowability/cmp-cost-of-money.md) distinguishes from imputed cost of money [@CL-CMP-0756].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm which capital projects are under construction at each segment and whethe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Asset definitions and start rules restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the capital assets under construction cost of money Standard purpose, definitions and effective date.

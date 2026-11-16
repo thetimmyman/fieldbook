@@ -50,6 +50,124 @@ fn resolve_state_dir(state_flag: Option<&Path>, world: &dyn World) -> std::path:
     }
 }
 
+/// Reads the `audit show` report the Activity page shows, with no filters.
+///
+/// `Missing` means the journal holds no events yet; an unreadable journal is `Unavailable`.
+#[must_use]
+pub fn desk_show(
+    state_dir: &Path,
+    last: usize,
+) -> fieldbook_core::report::ReportSource<AuditShowReport> {
+    use fieldbook_core::report::ReportSource;
+    let audit_dir = state_dir.join("audit");
+    if !audit_dir.exists() {
+        return ReportSource::Missing;
+    }
+    let segments = match list_segments(&audit_dir) {
+        Ok(segments) => segments,
+        Err(err) => {
+            return ReportSource::Unavailable {
+                diagnostic: format!("audit/journal.jsonl could not be listed: {err}"),
+            };
+        }
+    };
+    let mut total_count = 0usize;
+    let mut head_seq = 0u64;
+    let mut head_hash = ZERO_HASH.to_owned();
+    let mut matching_rows: Vec<RawEventObject> = Vec::new();
+    for (_, seg_path) in segments {
+        let bytes = match read_segment_bytes(&seg_path) {
+            Ok(bytes) => bytes,
+            Err(err) => {
+                return ReportSource::Unavailable {
+                    diagnostic: format!("audit/journal.jsonl could not be read: {err}"),
+                };
+            }
+        };
+        let content = String::from_utf8_lossy(&bytes);
+        for raw_line in content.lines() {
+            let line = raw_line.trim_end_matches('\r');
+            if line.is_empty() {
+                continue;
+            }
+            let Ok((_, stored_hash)) = chain::split_hash_suffix(line) else {
+                continue;
+            };
+            let Ok(raw_obj) = parse_json_object(line) else {
+                continue;
+            };
+            let parsed_event = Event::parse_line(line).ok().map(|(event, _)| event);
+            total_count += 1;
+            head_seq = parsed_event
+                .as_ref()
+                .map_or(total_count as u64, |event| event.seq);
+            head_hash = stored_hash.as_str().to_owned();
+            matching_rows.push(raw_obj);
+        }
+    }
+    if total_count == 0 {
+        return ReportSource::Missing;
+    }
+    let skip = matching_rows.len().saturating_sub(last);
+    let events: Vec<RawEventObject> = matching_rows.into_iter().skip(skip).collect();
+    ReportSource::Ready(AuditShowReport {
+        report_version: REPORT_VERSION,
+        verb: "audit show",
+        head: AuditHead {
+            seq: head_seq,
+            hash: head_hash,
+        },
+        count: total_count,
+        shown: events.len(),
+        events,
+        exit: EXIT_OK,
+    })
+}
+
+/// Reads the `audit verify` report the Activity page shows.
+#[must_use]
+pub fn desk_verify(state_dir: &Path) -> fieldbook_core::report::ReportSource<AuditVerifyReport> {
+    use fieldbook_core::report::ReportSource;
+    let audit_dir = state_dir.join("audit");
+    if !audit_dir.exists() {
+        return ReportSource::Missing;
+    }
+    let inspection = match inspect_journal(state_dir) {
+        Ok(inspection) => inspection,
+        Err(err) => {
+            return ReportSource::Unavailable {
+                diagnostic: format!("audit/journal.jsonl could not be verified: {err}"),
+            };
+        }
+    };
+    let exit = if inspection.has_error {
+        EXIT_FINDINGS
+    } else {
+        EXIT_OK
+    };
+    ReportSource::Ready(AuditVerifyReport {
+        report_version: REPORT_VERSION,
+        verb: "audit verify",
+        state: inspection.state,
+        events: inspection.events,
+        head: AuditHead {
+            seq: inspection.head_seq,
+            hash: inspection.head_hash,
+        },
+        findings: inspection
+            .findings
+            .iter()
+            .map(|finding| AuditVerifyFinding {
+                code: finding.code,
+                severity: finding.severity,
+                seq: finding.seq,
+            })
+            .collect(),
+        unfinished: inspection.unfinished,
+        exit,
+    })
+}
+
 #[derive(Debug, Clone)]
 struct FindingDetail {
     code: &'static str,

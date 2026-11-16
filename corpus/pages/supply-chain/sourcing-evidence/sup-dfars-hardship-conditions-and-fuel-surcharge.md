@@ -45,7 +45,7 @@ Assume a contractor finds unusual dock conditions that will work a hardship on i
 
 ## Never confuse
 
-A hardship request concerns unusual loading or unloading conditions, and payment is authorized at the applicable man-hour rates in the schedule of rates [@CL-SUP-1636]. A fuel surcharge adjustment is passed through to the person, corporation, or entity that directly bears the cost of fuel, unless the contracting officer authorizes an exception [@CL-SUP-1637]. For the negotiated revision of prices, see [Revision of prices in transportation and stevedoring contracts (DFARS)](sup-dfars-stevedoring-revision-of-prices.md), and for formula-based adjustments, see [Economic price adjustments in proposals and proposal audits](../../estimating/escalation/est-economic-price-adjustments.md). The application for shipping documentation is another transportation clause; see [Riding gang member requirements and shipping documentation applications (DFARS)](sup-dfars-riding-gang-members-and-shipping-documentation.md). For the wider rules on commercial subcontract flowdown, see [Subcontracts for commercial products and commercial services](sup-subcontracts-commercial-products-and-services.md) and [Subcontracts for commercial products or commercial services (DFARS)](../../close-revrec/revenue/cls-dfars-commercial-subcontract-flowdown.md).
+A hardship request concerns unusual loading or unloading conditions, and payment is authorized at the applicable man-hour rates in the schedule of rates [@CL-SUP-1636], unlike a fuel surcharge adjustment, which is passed through to the person, corporation, or entity that directly bears the cost of fuel, unless the contracting officer authorizes an exception [@CL-SUP-1637]. For the negotiated revision of prices, see [Revision of prices in transportation and stevedoring contracts (DFARS)](sup-dfars-stevedoring-revision-of-prices.md), and for formula-based adjustments, see [Economic price adjustments in proposals and proposal audits](../../estimating/escalation/est-economic-price-adjustments.md). The application for shipping documentation is another transportation clause; see [Riding gang member requirements and shipping documentation applications (DFARS)](sup-dfars-riding-gang-members-and-shipping-documentation.md). For the wider rules on commercial subcontract flowdown, see [Subcontracts for commercial products and commercial services](sup-subcontracts-commercial-products-and-services.md) and [Subcontracts for commercial products or commercial services (DFARS)](../../close-revrec/revenue/cls-dfars-commercial-subcontract-flowdown.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which executed contracts carry these clauses, and who in the company tracks sail
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the hardship request and fuel pass-through rules as the cited text has them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hardship conditions and the pass-through of motor carrier fuel surcharge adjustment to the cost bearer.

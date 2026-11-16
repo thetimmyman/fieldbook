@@ -45,7 +45,7 @@ A Federal agency plans to collect information from twelve members of the public.
 
 ## Never confuse
 
-The control numbers are the numbers the Office of Management and Budget assigned to the paperwork, recordkeeping and forms associated with the regulation [@CL-EST-2947], whose information collection and recordkeeping requirements have been approved [@CL-EST-2946]. The approval requirement is imposed on Federal agencies [@CL-EST-2945]. The Standards behind those collections are summarised in [the Cost Accounting Standards overview](../../compliance/cas-allowability/cmp-cas-overview.md).
+OMB Control Numbers 0348-0051 and 0348-0055 record Paperwork Reduction Act clearance for CAS Board forms, recordkeeping and information collections from ten or more members of the public [@CL-EST-2945; @CL-EST-2946; @CL-EST-2947], rather than establishing which contracts must comply with CAS or file Disclosure Statements on [the Cost Accounting Standards overview](../../compliance/cas-allowability/cmp-cas-overview.md) [@CL-CMP-9677].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which coverage applies to each business unit and whether a disclosure statement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Approval requirement and control numbers restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Office of Management and Budget approval of the Board's information collections.

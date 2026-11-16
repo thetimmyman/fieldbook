@@ -446,8 +446,7 @@ impl BackupSettings {
     }
 }
 
-/// Read backup settings from `settings.toml` inside `state_dir`.
-///
+/// Read backup settings from `settings.toml` inside `state_dir`.///
 /// An absent `settings.toml` returns the default [`BackupSettings`] with no targets.
 ///
 /// # Errors
@@ -464,4 +463,17 @@ pub fn read_backup_settings(state_dir: &Path) -> Result<BackupSettings, BackupSe
         Err(err) => return Err(BackupSettingsError::Io(err.to_string())),
     };
     BackupSettings::parse(&content)
+}
+
+/// Returns whether `settings.toml` in `state_dir` names a `role` key.
+///
+/// An absent file, an unreadable file and a file that is not valid TOML all answer `false`:
+/// `status` then prints the lines to add and says that `verify` is off.
+#[must_use]
+pub fn has_role(state_dir: &Path) -> bool {
+    let Ok(text) = std::fs::read_to_string(state_dir.join("settings.toml")) else {
+        return false;
+    };
+    text.parse::<toml::Table>()
+        .is_ok_and(|table| table.get("role").is_some())
 }

@@ -49,7 +49,7 @@ A cost is booked in fiscal year 1, and the same record carries entries into fisc
 
 ## Never confuse
 
-The retention periods in FAR 4.705 are calculated from the end of the contractor's fiscal year in which an entry is made charging or allocating a cost to a Government contract or subcontract, and if two or more of the record categories described in FAR 4.705 are interfiled and screening for disposal is not practical, the contractor shall retain the entire record series for the longest period prescribed for any category of records [@CL-SUP-3318; @CL-SUP-3321]. When records generated during a prior contract are relied upon by a contractor for certified cost or pricing data in negotiating a succeeding contract, the prescribed periods shall run from the date of the succeeding contract [@CL-SUP-3320].
+The retention periods in FAR 4.705 are calculated from the end of the contractor's fiscal year in which an entry is made charging or allocating a cost to a Government contract or subcontract (with interfiled record series retained for the longest period prescribed for any category when screening for disposal is not practical) [@CL-SUP-3318; @CL-SUP-3321], unlike records generated during a prior contract that are relied upon for certified cost or pricing data in negotiating a succeeding contract, for which the prescribed periods run from the date of the succeeding contract [@CL-SUP-3320].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Confirm which record categories the company holds, how they are blocked by fisca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality and removed uncited contrasts in How it works and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope and purpose of the records retention subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for calculating contractor record retention periods.

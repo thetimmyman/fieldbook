@@ -49,7 +49,7 @@ A solicitation for task order contracts for the same services draws five offers.
 
 ## Never confuse
 
-The advisory and assistance services provision states an intention to award multiple contracts, unless the Government determines, after evaluation of offers, that only one offeror is capable of providing the services at the level of quality required [@CL-EST-1930]. The single or multiple awards provision says the Government may elect between a single award and multiple awards [@CL-EST-1929]. Orders placed under multiple award contracts by the Department of Defense have further rules on [Ordering under multiple award contracts](est-dod-ordering-multiple-award-contracts.md).
+For general delivery-order or task-order contracts under FAR 52.216-27 the Government may elect either a single award or multiple awards [@CL-EST-0616; @CL-EST-1929], whereas for advisory and assistance services the Government states an intention to make multiple awards rather than a single award unless evaluation shows only one offeror can meet required quality [@CL-EST-1930].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Whether our pricing and bid posture assumes one award or several for each order-
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Described the definition's further sentences directly, cut an unstated 'only' and an unquoted contrast, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the advisory-services exception to the single or multiple awards provision scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition.

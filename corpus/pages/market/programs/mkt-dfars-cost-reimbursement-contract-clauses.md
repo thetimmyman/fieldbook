@@ -47,7 +47,7 @@ Contract A was awarded in 2012 and includes the FAR Allowable Cost and Payment c
 
 ## Never confuse
 
-The FAR Allowable Cost and Payment clause is a condition for using the DFARS clause at 252.216-7009 in both situations [@CL-MKT-1845; @CL-MKT-1846]. For a contract awarded before September 30, 2013, being modified to include the DFARS clause on informing employees of whistleblower rights, dated September 2013 or later, is the second condition of the second situation [@CL-MKT-1846]. The related legal-costs clause is covered on [Foreign-controlled price representation, whistleblower legal costs and overseas choice of law (DFARS)](../../close-revrec/revenue/cls-dfars-foreign-wage-whistleblower-legal-and-choice-of-law.md).
+DFARS 252.216-7009 governs allowability of whistleblower-proceeding costs on task orders or modified contracts awarded before September 30, 2013 that include the FAR Allowable Cost and Payment clause [@CL-MKT-1845; @CL-MKT-1846], rather than host-country foreign-controlled wage or price representations on [Foreign-controlled price representation, whistleblower legal costs and overseas choice of law (DFARS)](../../close-revrec/revenue/cls-dfars-foreign-wage-whistleblower-legal-and-choice-of-law.md) [@CL-CLS-1192].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts were awarded before the cutoff, whether each includes the FAR Al
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements and an inference about later awards.
 - COMPATIBLE_EXTENSION, 2026-10-31: Task order condition stated as the paragraph words it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Made the purpose sentence tie the cutoff date to the underlying contract, not the task order.

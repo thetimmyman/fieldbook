@@ -47,9 +47,7 @@ A carrier receives a telephone request from an agency employee for 10 extra pick
 
 ## Never confuse
 
-Under the invoices clause, the contractor shall annotate each invoice with the contract number and other ordering office document identification [@CL-SUP-2322], and shall submit itemized invoices as instructed by the agency ordering services under the contract [@CL-SUP-2321]. Under the oral agreement clause, no oral statement of any person shall modify or otherwise affect the terms, conditions, or specifications stated in the contract, and all modifications to the contract must be made in writing by the contracting officer or an authorized representative [@CL-SUP-2320].
-
-Codified FAR 52.247-27 sets out the oral agreement clause [@CL-SUP-2320], while RFO FAR 52.247-27 is marked [Reserved] [@CL-SUP-0481]. Codified FAR 52.247-28 sets out the invoices clause [@CL-SUP-2321], while RFO FAR 52.247-28 is marked [Reserved] [@CL-SUP-0482].
+Under the invoices clause, the contractor shall annotate each invoice with the contract number and other ordering office document identification [@CL-SUP-2322], and shall submit itemized invoices as instructed by the agency ordering services under the contract [@CL-SUP-2321]. Under the oral agreement clause, no oral statement of any person shall modify or otherwise affect the terms, conditions, or specifications stated in the contract, and all modifications to the contract must be made in writing by the contracting officer or an authorized representative [@CL-SUP-2320]. Codified FAR 52.247-27 sets out the oral agreement clause [@CL-SUP-2320], unlike RFO FAR 52.247-27, which is marked [Reserved] [@CL-SUP-0481]. Codified FAR 52.247-28 sets out the invoices clause [@CL-SUP-2321], while RFO FAR 52.247-28 is marked [Reserved] [@CL-SUP-0482].
 
 ## Company calibration
 
@@ -59,6 +57,7 @@ Confirm which ordering office document identifiers the contract requires on each
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality and RFO reserved status wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for oral agreements and the contractor's invoices for transportation services.

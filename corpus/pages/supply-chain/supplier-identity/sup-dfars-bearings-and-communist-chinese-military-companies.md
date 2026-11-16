@@ -47,7 +47,7 @@ A contractor delivers a ball bearing whose bearing components cost 100 in total.
 
 ## Never confuse
 
-The bearings restriction concerns where a bearing is manufactured and the cost of its bearing components manufactured in the allowed places [@CL-SUP-1340; @CL-SUP-1341]. The prohibition concerns acquiring items covered by the United States Munitions List or the 600 series of the Commerce Control List from a Communist Chinese military company [@CL-SUP-1343]. If the contract includes the specialty metals clause, all bearings that contain specialty metals, as defined in that clause, must meet the requirements of that clause [@CL-SUP-1373], as covered on [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md). See also the [restriction on certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
+The bearings restriction concerns where a bearing is manufactured and the cost of its bearing components manufactured in the allowed places [@CL-SUP-1340; @CL-SUP-1341], unlike the Communist Chinese military company prohibition, which concerns acquiring items covered by the United States Munitions List or the 600 series of the Commerce Control List from a Communist Chinese military company [@CL-SUP-1343]. If the contract includes the specialty metals clause, all bearings that contain specialty metals, as defined in that clause, must meet the requirements of that clause [@CL-SUP-1373], as covered on [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md). See also the [restriction on certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which executed contracts carry either clause, and whether the matching subcontra
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and uncited contrasts; cited the never-confuse statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the restrictions on ball and roller bearings and on items from Communist Chinese military companies.

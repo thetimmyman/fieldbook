@@ -47,7 +47,7 @@ A women-owned set-aside draws a status protest, and the contracting officer with
 
 ## Never confuse
 
-Under FAR 19.308, SBA determines the merits of a WOSB or EDWOSB status protest [@CL-MKT-0594], and its determination is final unless overturned on appeal by OHA [@CL-MKT-0595], while under FAR 19.307 for protests of an offeror's status as a service-disabled veteran-owned small business concern, OHA will determine the merits of the status protest [@CL-MKT-0580; @CL-MKT-0587]. The service-disabled route is on the [Protesting a firm's service-disabled veteran-owned small business status](mkt-sdvosb-status-protests.md) card. An interested party seeking to protest both the small business size and the WOSB or EDWOSB status of an apparent successful offeror shall file two separate protests [@CL-MKT-0654]. The size route is on the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card. The conditions for a set-aside or sole-source award under the program are on the [Women-Owned Small Business Program set-asides and sole-source awards](mkt-wosb-set-asides-and-sole-source.md) card.
+An EDWOSB or WOSB status protest challenges whether the offeror meets women-owned ownership, control and SBA or third-party certification requirements [@CL-MKT-0589; @CL-MKT-9232; @CL-MKT-9233], rather than whether the firm is small under its NAICS code on [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) [@CL-MKT-0312] or qualifies as veteran-owned on [Protesting a firm's service-disabled veteran-owned small business status](mkt-sdvosb-status-protests.md) [@CL-MKT-0580].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which bids need immediate support when a status protest could be filed or answer
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed negotiated-acquisition and alternative protest deadline rules in FAR 19.308(e)(1).
 - COMPATIBLE_EXTENSION, 2026-10-31: negotiated deadline continuation, apparent successful offeror, SBA decides wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of WOSB concern eligible under the WOSB Program.

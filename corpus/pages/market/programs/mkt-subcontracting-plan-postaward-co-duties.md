@@ -47,7 +47,7 @@ A contract with a subcontracting plan is awarded. The contracting officer sends 
 
 ## Never confuse
 
-Postaward notice of the award goes to the Area Director, Office of Government Contracting, in the SBA area office where the contract will be performed [@CL-MKT-0454], while notice before award goes to the SBA procurement center representative as covered on the [Awards involving subcontracting plans](mkt-subcontracting-plan-awards.md) card. Forwarding a copy of each plan, or a determination that there is no requirement for a subcontracting plan, to the cognizant contract administration office is a postaward duty of the contracting officer [@CL-MKT-0456], while the administrative contracting officer's duties are on the [Responsibilities of the administrative contracting officer for subcontracting plans](mkt-subcontracting-plan-aco-responsibilities.md) card. The contracting officer initiates action to assess liquidated damages in accordance with FAR 19.705-7 upon a recommendation by the administrative contracting officer, if one is assigned, or receipt of other reliable evidence to indicate that assessing liquidated damages is warranted [@CL-MKT-0453; @CL-MKT-0458].
+After award, the contracting officer sends the award document to the SBA Area Director where the contract is performed—or where the contractor's headquarters is located for a commercial plan [@CL-MKT-0453; @CL-MKT-0454; @CL-MKT-0455]—rather than sending preaward plan reviews or judging responsibility as on [Awards involving subcontracting plans](mkt-subcontracting-plan-awards.md) [@CL-MKT-0449].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who owns the subcontracting reports in the eSRS and how rejections and requests 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Office of Government Contracting title, monitoring lead-in, FAR 19.705-7 cross-reference, and report acknowledgment duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: liquidated damages trigger wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward responsibilities of the contracting officer for subcontracting plans.

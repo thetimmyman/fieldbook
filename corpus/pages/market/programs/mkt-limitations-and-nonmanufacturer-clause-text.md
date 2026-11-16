@@ -45,7 +45,7 @@ The Government pays 3,000,000 under a general construction contract, and all of 
 
 ## Never confuse
 
-Under FAR 52.219-14(e), the limitations on subcontracting cap the percentage of the amount paid by the Government that the contractor may pay to subcontractors that are not similarly situated entities [@CL-MKT-0834; @CL-MKT-0835; @CL-MKT-0836; @CL-MKT-0837]. Under FAR 52.219-33(c), the nonmanufacturer rule requires the contractor to provide an end item that a small business has manufactured, processed, or produced in the United States or its outlying areas [@CL-MKT-0839]. The acquisition-rule text, the compliance timing and the size conditions are on the [Limitations on subcontracting and the nonmanufacturer rule](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) card. Which clause goes in which solicitation is on the [Set-aside orders and clauses](mkt-set-aside-orders-and-clauses.md) card, and the notice clauses that reject offers from concerns that are not small on set-aside solicitations are on the [Small business set-aside notice clauses](mkt-small-business-set-aside-notice-clauses.md) card.
+In FAR 52.219-14, the limitations on subcontracting cap the share of Government payments going to subcontractors that are not similarly situated—such as 50 percent on non-construction service contracts [@CL-MKT-0834]—whereas the nonmanufacturer rule in FAR 52.219-33 governs whether a supply reseller provides a domestic small-business-manufactured end item rather than a service labor split [@CL-MKT-0839].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How subcontract spend is tracked against the amount paid by the Government on ea
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 52.219-14(c)(1)-(6) and RFO FAR 52.219-14(c)(3)-(6) applicability lists, parenthetical examples, and citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the limits sentence to keep the cost-of-materials exclusion for supplies and construction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -51,7 +51,7 @@ A fixed-price contract for non-commercial supplies provides for an adjustable pr
 
 ## Never confuse
 
-Unless the contract specifies otherwise, the ceiling or target price is subject to adjustment only by operation of contract clauses providing for equitable adjustment or other revision of the contract price under stated circumstances [@CL-EST-0958]. The contracting officer duty to use firm-fixed-price or fixed-price with economic price adjustment applies to commercial products and commercial services and carries the exception in 12.207(b) [@CL-EST-0959]. The section places time-and-materials and labor-hour contracts outside fixed-price contracts [@CL-EST-0960].
+Under a firm-fixed-price contract, the price is not subject to adjustment on the basis of the contractor's cost experience in performing the contract, placing maximum risk and full responsibility for all costs and resulting profit or loss on the contractor [@CL-EST-0956; @CL-EST-1150], and under an adjustable fixed-price contract, any ceiling price or target price moves, unless the contract specifies otherwise, only by operation of contract clauses providing for equitable adjustment or other revision of the contract price under stated circumstances [@CL-EST-0957; @CL-EST-0958]—unlike cost-reimbursement contracts, which provide for payment of allowable incurred costs to the extent prescribed in the contract within an estimated total-cost ceiling that the contractor may not exceed, except at its own risk, without the contracting officer's approval [@CL-CLS-0567; @CL-CLS-0680].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Which awards the company holds as firm-fixed-price, fixed-price with economic pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section does not say and an added not-simply-because-costs-rise clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'only' from the commercial-acquisitions sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price contracts in general.

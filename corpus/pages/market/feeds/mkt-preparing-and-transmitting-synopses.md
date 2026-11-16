@@ -45,7 +45,7 @@ A first-tier supplier under a prime contract above the simplified acquisition th
 
 ## Never confuse
 
-Under FAR 5.204, the contracting officer must synopsize a proposed contract action before issuing any resulting solicitation [@CL-MKT-1882; @CL-MKT-0076], whereas under FAR 5.206(a) a contractor awarded a contract exceeding the simplified acquisition threshold that is likely to result in the award of any subcontracts, or a subcontractor or supplier at any tier under such a contract that has a subcontracting opportunity exceeding $20,000, may transmit a notice to the GPE to seek competition for subcontracts, to increase participation by the listed small business concerns, and to meet established subcontracting plan goals [@CL-MKT-0077; @CL-MKT-9390; @CL-MKT-0078; @CL-MKT-0079]. Synopses of contract awards are covered on the [Synopses of contract awards](mkt-contract-award-synopses.md) card. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+A presolicitation synopsis must be published through the GPE before the contracting officer issues any resulting solicitation [@CL-MKT-1882], unlike a postaward notice on [Synopses of contract awards](mkt-contract-award-synopses.md), which publicizes covered awards exceeding $25,000 after award [@CL-MKT-0036].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm which public synopses and subcontracting notices are relevant market obs
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added parenthetical cross-references in FAR 5.204 and FAR 5.207(c)(13) and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the other purposes of a subcontracting opportunity notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preparing and transmitting synopses.

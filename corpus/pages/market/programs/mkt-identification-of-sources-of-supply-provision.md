@@ -45,7 +45,7 @@ A solicitation for supplies is run under other than full and open competition. T
 
 ## Never confuse
 
-The contract-level requirement that a contractor identify its sources of supply, and the exception in DFARS 217.7302(b) for commercial products and contracts valued at or below the simplified acquisition threshold, are on [Order review, source identification and replenishment parts](mkt-non-dod-order-review-source-id-and-replenishment-parts.md) [@CL-MKT-2155]. Under DFARS 217.7303(a), the provision is used in solicitations for supplies when the acquisition is being conducted under other than full and open competition, except in the listed situations [@CL-MKT-2105].
+DFARS 252.217-7026 is a preaward solicitation provision requiring source identification in supply solicitations conducted under other than full and open competition (with exceptions such as FAR 6.302-5) [@CL-MKT-2105; @CL-MKT-2106], rather than the agency review procedures for orders placed under non-DoD contracts on [Order review, source identification and replenishment parts](mkt-non-dod-order-review-source-id-and-replenishment-parts.md) [@CL-MKT-1575].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which supply solicitations ran outside full and open competition, and who confir
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Trimmed unquoted meta-commentary and restated the solicitation rule directly from the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the solicitation provision on identification of sources of supply.

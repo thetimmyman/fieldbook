@@ -51,9 +51,7 @@ A business unit outside the contracting-officer procedure submits a final indire
 
 ## Never confuse
 
-For contracting officer determination, see [Final indirect cost rates](rte-co-final-indirect-rates.md).
-
-The codified auditor determination procedure at FAR 42.705-2 [@CL-RTE-0214] corresponds to RFO FAR 42.505-2 [@CL-RTE-0940], which states the furnishing of audit report copies and the distribution of the rate agreement in that section [@CL-RTE-0945; @CL-RTE-0947], where the codified text states them in FAR 42.706 [@CL-CMP-7819; @CL-CMP-7818].
+Under auditor determination, the cognizant Government auditor audits the proposal and signs the indirect cost rate agreement with the contractor [@CL-RTE-0214; @CL-RTE-0216], unlike contracting officer determination on [Final indirect cost rates](rte-co-final-indirect-rates.md) or cases where agreement is not reached and the auditor forwards the audit report to the contracting officer (or cognizant Federal agency official) to resolve the disagreement [@CL-RTE-0217]; the codified auditor determination procedure at FAR 42.705-2 [@CL-RTE-0214] corresponds to RFO FAR 42.505-2 [@CL-RTE-0940], which states the furnishing of audit report copies and the distribution of the rate agreement in that section [@CL-RTE-0945; @CL-RTE-0947], whereas the codified text states them in FAR 42.706 [@CL-CMP-7819; @CL-CMP-7818].
 
 ## Company calibration
 
@@ -62,6 +60,7 @@ Which final indirect-rate sets are approved for each purpose and period. [@Q-011
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the auditor steps instead of an uncited summary, restored the advance-agreements-or-terms wording, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the shall wording of the auditor's duty and the class deviation sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the auditor's agreement duties to the lead-in that names the auditor.

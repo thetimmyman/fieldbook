@@ -33,7 +33,7 @@ A meeting note says overhead was 18 percent last year. The glossary boundary rul
 
 ## Never confuse
 
-A glossary definition explains a word; a claim proves a point from a source. An open question records what is unknown; an answer is company information and stays outside the public Corpus.
+A glossary definition explains what a word means rather than proving a point from a source as a claim does, and an open question records what is unknown in the public Corpus instead of holding the company's answer, which stays in approved company storage.
 
 ## Company calibration
 
@@ -43,4 +43,5 @@ Which outcomes come first, and where answers are kept. [@Q-001] [@Q-032]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 1 page on the glossary and open questions.

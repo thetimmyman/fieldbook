@@ -46,7 +46,7 @@ SBA finds one small business manufacturer that supplied a class of products to t
 
 ## Never confuse
 
-A class waiver turns on whether small business manufacturers are available for a whole class of products [@CL-MKT-0397]. An individual waiver turns on one solicitation and applies only to the contract for which it is granted [@CL-MKT-0400]. Whether a firm must satisfy the nonmanufacturer rule at all is a separate question; see [How a nonmanufacturer qualifies as a small business on a supply contract](../taxonomy/mkt-sba-nonmanufacturer-qualification.md) and [Limitations on subcontracting and the nonmanufacturer rule](../programs/mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md).
+A class waiver rests on the absence of any small business manufacturer in the Federal market for an entire product class and may be requested by any interested party [@CL-MKT-0397; @CL-MKT-0401], whereas an individual waiver rests on the contracting officer's determination for a specific solicitation rather than the Federal market as a whole [@CL-MKT-0399].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which supply items the company resells and whether a small business makes each o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all required items for an individual waiver request and the one-year award and extension rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the periodic review of class waivers and softened the list of request items.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the list of class waivers.

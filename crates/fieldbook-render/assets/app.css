@@ -589,6 +589,10 @@ a:hover {
   min-width: 0;
 }
 
+.desk-shell {
+  grid-column: 1 / -1;
+}
+
 .topbar {
   height: var(--topbar-h);
   background-color: var(--color-surface);
@@ -607,14 +611,20 @@ a:hover {
 }
 
 header.topbar > nav[aria-label="Sections"],
-.sections {
+.sections,
+.desk-sections {
   display: flex;
   align-items: center;
   gap: var(--space-0-5);
 }
 
+.desk-sections {
+  flex-wrap: wrap;
+}
+
 header.topbar > nav[aria-label="Sections"] a,
-.sections a {
+.sections a,
+.desk-sections a {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1-5);
@@ -628,14 +638,16 @@ header.topbar > nav[aria-label="Sections"] a,
 }
 
 header.topbar > nav[aria-label="Sections"] a:hover,
-.sections a:hover {
+.sections a:hover,
+.desk-sections a:hover {
   color: var(--color-fg);
   background-color: var(--color-surface-2);
   text-decoration: none;
 }
 
 header.topbar > nav[aria-label="Sections"] [aria-current="true"],
-.sections [aria-current="true"] {
+.sections [aria-current="true"],
+.desk-sections [aria-current="page"] {
   color: var(--color-accent);
   background-color: var(--color-accent-soft);
   font-weight: var(--weight-semibold);
@@ -1997,6 +2009,13 @@ th[aria-sort="descending"] .sort-arrow::after {
   .topbar {
     padding: 0 var(--space-2-5);
     gap: var(--space-1-5);
+  }
+
+  .topbar:has(.desk-sections) {
+    height: auto;
+    min-height: var(--topbar-h);
+    padding-top: var(--space-1);
+    padding-bottom: var(--space-1);
   }
 
   .crumbs,

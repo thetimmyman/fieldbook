@@ -52,11 +52,7 @@ Another offeror sends no questions. Its debriefing is concluded on the date it i
 
 ## Never confuse
 
-The contracting officer may use an evaluation factor that considers whether an offeror intends to perform the contract using employees or individual subcontractors who are members of the Selected Reserve [@CL-EST-2763]. The Selected Reserve clause at DFARS 252.215-7006 is the clause to use as prescribed in DFARS 215.370-3 [@CL-EST-1779]. See [Notice of intent to resolicit and the Selected Reserve clause](est-dfars-resolicit-notice-and-selected-reserve-clause.md).
-
-The notification provision is used in competitive negotiated solicitations for contract awards valued at $15 million or more [@CL-EST-2764]. The follow-up duties apply to contracting officers when providing a required postaward debriefing to successful and unsuccessful offerors [@CL-EST-2786].
-
-The contracting officer shall not consider the postaward debriefing to be concluded until the later of the date it is delivered, orally or in writing, or, if additional written questions related to the debriefing are timely received, the date the agency delivers its written response [@CL-EST-2768].
+DFARS gives debriefed offerors 2 business days after a required postaward debriefing to submit additional written follow-up questions and inserts DFARS 252.215-7016 on competitive negotiated solicitations valued at $15 million or more [@CL-EST-2764; @CL-EST-2766], unlike the initial 3-day window to request a debriefing after award notice on [Postaward debriefing of offerors](est-postaward-debriefing.md) [@CL-EST-1417].
 
 ## Company calibration
 
@@ -65,6 +61,7 @@ Which expected debriefings need written questions prepared before the question w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded reference, how-it-works and never-confuse sentences to state each provision directly without uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the Selected Reserve factor sentence to state the rule without describing the text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD selected reserve evaluation factor, the postaward debriefing provision and follow-up questions.

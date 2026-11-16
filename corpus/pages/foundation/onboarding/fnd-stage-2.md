@@ -52,7 +52,7 @@ After stage 2 a reader can say, for a sample contract of 80 million on cost-plus
 
 ## Never confuse
 
-The concepts here explain how things fit together; the clause cards in later stages state single rules with their citations.
+The concept pages in this stage explain how rules, oversight roles and contract shapes fit together rather than stating single clause prescriptions with their citations as the clause cards in later stages do.
 
 ## Company calibration
 
@@ -62,4 +62,5 @@ Where the executed contracts are and what the contract mix is. [@Q-004] [@Q-038]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 reading path.

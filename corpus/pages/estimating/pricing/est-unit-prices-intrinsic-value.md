@@ -51,7 +51,7 @@ A proposal has four line items. Three are machined parts, each priced at 10,000,
 
 ## Never confuse
 
-Paragraph (a) says unit prices must reflect the intrinsic value of an item or service and be in proportion to an item's base cost, except when pricing an item on the basis of adequate price competition or catalog or market price [@CL-EST-2538]. Paragraph (b)(2) says, as an example following the bar on distorting methods, that distributing costs equally among line items is not acceptable except when there is little or no variation in base cost [@CL-EST-2541; @CL-EST-2542].
+Outside adequate price competition or catalog or market pricing, unit prices must reflect each item's intrinsic value in proportion to base cost [@CL-EST-2538], rather than spreading costs equally across line items whose base costs vary or using any allocation method that distorts unit prices [@CL-EST-2541; @CL-EST-2542].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which line items in upcoming proposals will be priced on adequate price 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Statute citation reworded so the sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence statements; carried codified follow-on sentence and example wording; restated contrasts with cited text; added one companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed two uses of only that the quotes do not state.

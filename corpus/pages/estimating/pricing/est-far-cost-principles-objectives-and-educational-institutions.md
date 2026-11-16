@@ -73,15 +73,7 @@ A program office asks to depart from one cost principle for a single contract. T
 
 ## Never confuse
 
-In cost-reimbursement contracts with educational institutions, subpart 31.3 is incorporated by reference as the basis for settling costs of cost-reimbursement terminated contracts [@CL-EST-2518; @CL-EST-2653]; in connection with negotiating fixed-price contracts and termination settlements, the cost principles are used as a guide in evaluating costs [@CL-EST-2519].
-
-A contract that refers to subpart 31.3 for determining allowable costs under contracts with educational institutions is deemed to refer to the OMB Uniform Guidance, and the contracting officer determines allowability in accordance with it [@CL-EST-2520; @CL-EST-2654].
-
-Individual deviations concerning cost principles require advance approval of the agency head or designee [@CL-EST-2514]. Class deviations require advance approval of the Civilian Agency Acquisition Council, the Deputy Chief Acquisition Officer or the Principal Director, Defense Pricing and Contracting, according to whether they are for the civilian agencies, the National Aeronautics and Space Administration or the Department of Defense [@CL-EST-2650; @CL-EST-2515; @CL-EST-2516].
-
-The codified text requires advance approval of the agency head or designee for individual deviations and names the approving official for NASA and DoD class deviations [@CL-EST-2514; @CL-EST-2515; @CL-EST-2516], while RFO FAR 31.004 requires approval by the agency head for individual deviations under its civilian agencies heading, without the word advance, and refers readers to agency supplements for DoD and NASA [@CL-EST-3118; @CL-EST-3120; @CL-EST-2514].
-
-The related cards are [educational institution](../../compliance/cas-allowability/cmp-cas-educational-institution.md), [commercial organizations](../../compliance/cas-allowability/cmp-cost-principles-commercial-organizations.md) and [cost principles definitions](../../compliance/cas-allowability/cmp-far-cost-principles-definitions.md).
+FAR subpart 31.3 governs contracts with educational institutions (incorporating 2 CFR part 200 definitions) [@CL-EST-2513; @CL-EST-2517; @CL-EST-2520], unlike FAR subpart 31.2, which governs commercial organizations on [commercial organizations](../../compliance/cas-allowability/cmp-cost-principles-commercial-organizations.md) [@CL-CMP-2708], and differs from educational-institution CAS obligations on [educational institution](../../compliance/cas-allowability/cmp-cas-educational-institution.md) [@CL-CMP-5929].
 
 ## Company calibration
 
@@ -91,6 +83,7 @@ Which proposals are priced under educational institution cost principles and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced meta and uncited wording with cited rules; added scope and RFO comparison citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must for the DoD class deviation and removed a signing date its cited quote does not give.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.000, 31.301 and 31.302 text.

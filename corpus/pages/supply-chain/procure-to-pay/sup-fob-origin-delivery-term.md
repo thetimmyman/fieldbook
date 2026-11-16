@@ -49,9 +49,7 @@ A contract is f.o.b. origin at the contractor's plant, with carrier equipment no
 
 ## Never confuse
 
-For f.o.b. destination, under FAR 52.247-34 the contractor shall pay and bear all charges to the specified point of delivery [@CL-SUP-3870; @CL-SUP-1983], be responsible for any loss of or damage to the goods occurring before receipt of the shipment by the consignee at the delivery point specified in the contract [@CL-SUP-1982], and prepare and distribute commercial bills of lading [@CL-SUP-2076]. For f.o.b. origin, under FAR 52.247-29 the contractor shall complete the Government bill of lading supplied by the ordering agency [@CL-SUP-3872; @CL-SUP-1968].
-
-The minimum shipment terms for carload and truckload, guaranteed shipping characteristics and minimum size of shipments are covered in [F.o.b. origin minimum shipment terms: carload, guaranteed characteristics, minimum size](sup-fob-origin-minimum-shipment-terms.md).
+For f.o.b. destination, under FAR 52.247-34 the contractor shall pay and bear all charges to the specified point of delivery [@CL-SUP-3870; @CL-SUP-1983], be responsible for any loss of or damage to the goods occurring before receipt of the shipment by the consignee at the delivery point specified in the contract [@CL-SUP-1982], and prepare and distribute commercial bills of lading [@CL-SUP-2076], unlike f.o.b. origin, where under FAR 52.247-29 the contractor shall complete the Government bill of lading supplied by the ordering agency or, when a Government bill of lading is not supplied, prepare a commercial bill of lading or other transportation receipt [@CL-SUP-3872; @CL-SUP-1968]. The minimum shipment terms for carload and truckload, guaranteed shipping characteristics and minimum size of shipments are covered in [F.o.b. origin minimum shipment terms: carload, guaranteed characteristics, minimum size](sup-fob-origin-minimum-shipment-terms.md).
 
 ## Company calibration
 
@@ -60,6 +58,7 @@ Confirm which delivery term each contract carries, who loads at each shipping po
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the never-confuse sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added contractor duty lead-in, aligned RFO and responsibility wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the qualifications lead-in and kept contract-specified terms.

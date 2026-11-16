@@ -38,6 +38,9 @@ pub struct TestWorld {
     written: Mutex<Vec<PathBuf>>,
     before_write_lease: Mutex<Option<Box<dyn FnOnce() + Send>>>,
     fail_remove_drill: AtomicBool,
+    maintenance: Mutex<Option<String>>,
+    state_summary: Mutex<Option<fieldbook_core::status::StateSummary>>,
+    effective_policy: Mutex<Option<fieldbook_core::policy::EffectivePolicy>>,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -93,6 +96,9 @@ impl TestWorld {
             written: Mutex::new(Vec::new()),
             before_write_lease: Mutex::new(None),
             fail_remove_drill: AtomicBool::new(false),
+            maintenance: Mutex::new(None),
+            state_summary: Mutex::new(None),
+            effective_policy: Mutex::new(None),
         }
     }
 
@@ -121,6 +127,9 @@ impl TestWorld {
             written: Mutex::new(Vec::new()),
             before_write_lease: Mutex::new(None),
             fail_remove_drill: AtomicBool::new(false),
+            maintenance: Mutex::new(None),
+            state_summary: Mutex::new(None),
+            effective_policy: Mutex::new(None),
         }
     }
 
@@ -258,6 +267,27 @@ impl TestWorld {
     /// Make every `remove_drill` fail without touching the folder, as a file held open does.
     pub fn set_fail_remove_drill(&self, fail: bool) {
         self.fail_remove_drill.store(fail, Ordering::Relaxed);
+    }
+
+    /// Override the text [`World::read_maintenance`] returns; `None` forwards to the disk.
+    pub fn set_maintenance(&self, text: &str) {
+        if let Ok(mut g) = self.maintenance.lock() {
+            *g = Some(text.to_owned());
+        }
+    }
+
+    /// Override the summary [`World::read_state_summary`] returns; `None` forwards to the disk.
+    pub fn set_state_summary(&self, summary: fieldbook_core::status::StateSummary) {
+        if let Ok(mut g) = self.state_summary.lock() {
+            *g = Some(summary);
+        }
+    }
+
+    /// Override the policy [`World::effective_policy`] returns; `None` uses the floor for this layout.
+    pub fn set_effective_policy(&self, policy: fieldbook_core::policy::EffectivePolicy) {
+        if let Ok(mut g) = self.effective_policy.lock() {
+            *g = Some(policy);
+        }
     }
 
     fn check_fault(&self, path: &Path) -> Result<(), WorldError> {
@@ -455,5 +485,35 @@ impl World for TestWorld {
     /// Not a registry id; the drift test skips it.
     fn store_id(&self) -> &'static str {
         "memory@0"
+    }
+
+    fn effective_policy(&self) -> fieldbook_core::policy::EffectivePolicy {
+        if let Ok(g) = self.effective_policy.lock()
+            && let Some(policy) = g.as_ref()
+        {
+            return policy.clone();
+        }
+        fieldbook_core::policy::EffectivePolicy::floor(self.has_company_store())
+    }
+
+    fn read_maintenance(&self) -> Result<String, WorldError> {
+        if let Ok(g) = self.maintenance.lock()
+            && let Some(text) = g.as_ref()
+        {
+            return Ok(text.clone());
+        }
+        self.inner.read_maintenance()
+    }
+
+    fn read_state_summary(
+        &self,
+        today: fieldbook_core::CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
+        if let Ok(g) = self.state_summary.lock()
+            && let Some(summary) = g.as_ref()
+        {
+            return Ok(summary.clone());
+        }
+        Ok(fieldbook::io::state_summary(&self.state_dir, today))
     }
 }

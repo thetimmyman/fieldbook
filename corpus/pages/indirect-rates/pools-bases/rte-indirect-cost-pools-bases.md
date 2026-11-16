@@ -49,7 +49,7 @@ A company has 100,000 of overhead in one pool after direct costs are charged. Th
 
 ## Never confuse
 
-The contractor shall accumulate indirect costs by logical cost groupings with due consideration of the reasons for incurring such costs, shall determine each grouping so as to permit use of an allocation base that is common to all cost objectives to which the grouping is to be allocated, and the base selected shall allocate the grouping on the basis of the benefits accruing to intermediate and final cost objectives [@CL-RTE-0209; @CL-RTE-0210; @CL-RTE-0019]. No final cost objective shall have allocated to it as an indirect cost any cost, if other costs incurred for the same purpose, in like circumstances, have been included as a direct cost of that or any other final cost objective [@CL-RTE-9134; @CL-RTE-0208]. See [Direct costs](rte-direct-costs.md).
+The contractor shall accumulate indirect costs by logical cost groupings with due consideration of the reasons for incurring such costs, shall determine each grouping so as to permit use of an allocation base that is common to all cost objectives to which the grouping is to be allocated, and the base selected shall allocate the grouping on the basis of the benefits accruing to intermediate and final cost objectives [@CL-RTE-0209; @CL-RTE-0210; @CL-RTE-0019], and the prohibition stated for [Direct costs](rte-direct-costs.md) differs in the side it polices rather than in its force: no final cost objective shall have allocated to it as an indirect cost any cost, if other costs incurred for the same purpose, in like circumstances, have been included as a direct cost of that or any other final cost objective [@CL-RTE-9134; @CL-RTE-0208], and no final cost objective shall have allocated to it as a direct cost any cost, if other costs incurred for the same purpose in like circumstances have been included in any indirect cost pool to be allocated to that or any other final cost objective [@CL-RTE-9133; @CL-RTE-0201].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ How the company defines and reconciles its pools, bases and service-center charg
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the codified benefits-accruing base rule and the RFO pro-rata example tail, restored fiscal-year and other-circumstances qualifiers, and removed uncited paraphrases, contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the tail of the same-purpose rule and the shall wording of the grouping, base and cost accounting period rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the indirect-cost sentences to their quotes; restored "appropriate" and the fragmenting limit; cited the codified text for two RFO comparisons.

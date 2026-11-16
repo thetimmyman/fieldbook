@@ -47,7 +47,7 @@ Answer: the representation is the good faith effort statement made in the offer,
 
 ## Never confuse
 
-The representation provision is a statement the offeror makes in its offer that it has made a good faith effort, while the clause is the contract duty with its flowdown [@CL-SUP-1464; @CL-SUP-1462; @CL-SUP-1463] (see also [Forced or indentured child labor violations, remedies and clauses](../../compliance/regulatory-framework/cmp-forced-child-labor-violations-remedies-and-clauses.md) and [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md)). The personal protective equipment clause also reaches commercial subcontracts, in subcontracts valued above $150,000 that are for the acquisition of covered items [@CL-SUP-1521]; it is covered on [Restrictions on hand tools, personal protective equipment and satellite components](sup-dfars-hand-tools-ppe-and-satellite-components-restrictions.md).
+The representation provision is a statement the offeror makes in its offer that it has made a good faith effort, unlike the clause, which is the contract duty with its flowdown [@CL-SUP-1464; @CL-SUP-1462; @CL-SUP-1463] (see also [Forced or indentured child labor violations, remedies and clauses](../../compliance/regulatory-framework/cmp-forced-child-labor-violations-remedies-and-clauses.md) and [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md)). The personal protective equipment clause also reaches commercial subcontracts, in subcontracts valued above $150,000 that are for the acquisition of covered items [@CL-SUP-1521]; it is covered on [Restrictions on hand tools, personal protective equipment and satellite components](sup-dfars-hand-tools-ppe-and-satellite-components-restrictions.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which executed contracts carry the provision or the clause, and whether subcontr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited waiver-absence and cross-reference commentary sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: personal protective equipment flowdown sentence no longer adds an only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Xinjiang Uyghur Autonomous Region representation and clause.

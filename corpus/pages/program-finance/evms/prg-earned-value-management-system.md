@@ -45,7 +45,7 @@ Under the class deviation clause, whose acceptability line is $100 million, the 
 
 ## Never confuse
 
-In the performance of the contract, the contractor must use both an EVMS that complies with the EVMS guidelines in ANSI/EIA-748 and management procedures that provide for generation of timely, reliable, and verifiable information for the Contract Performance Report and the Integrated Master Schedule required by the CPR and IMS data items of the contract [@CL-PRG-9138; @CL-PRG-0101; @CL-PRG-0102; @CL-PRG-9139].
+In the performance of the contract, the contractor must use both an EVMS that complies with the EVMS guidelines in ANSI/EIA-748 and management procedures that provide for generation of timely, reliable, and verifiable information for the Contract Performance Report and the Integrated Master Schedule required by the CPR and IMS data items of the contract [@CL-PRG-9138; @CL-PRG-0101; @CL-PRG-0102; @CL-PRG-9139], and for a contract valued at $50 million or more the EVMS must be determined acceptable by the Cognizant Federal Agency [@CL-PRG-0103], whereas if the system has not been determined in compliance at award the contractor applies its current system and takes the actions needed to meet its EVMS plan milestones [@CL-PRG-9136; @CL-PRG-9137].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which contracts carry the earned value requirement, and whether the earned value
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart clause and its threshold, added the statutory exemption for nontraditional defense contractors stated in the memo, stated that the memo does not link that exemption to the waiver, narrowed the Applies to row to the codified clause, added a worked example under the class deviation clause, and filled the RFO citation and edition date rows.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned system and management-procedure wording to cited quotes and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the award-time rule, the shall-use lead-in and the reports the CPR and IMS data items require.

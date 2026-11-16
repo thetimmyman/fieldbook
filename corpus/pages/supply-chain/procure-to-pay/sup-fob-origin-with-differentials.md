@@ -57,7 +57,7 @@ On the same shipment, if the contractor loads the truck itself and poor bracing 
 
 ## Never confuse
 
-A differential is indicated in the contractor's offer [@CL-SUP-2325]. When the Government specifies at shipment a mode of transportation, type of vehicle or place of delivery for which the offeror set a differential, the contractor must include the total of the differential costs as a separate reimbursable item on its invoice [@CL-SUP-2328; @CL-SUP-2372]. The f.o.b. origin variants (contractor's facility, freight allowed and freight prepaid) and plain f.o.b. origin are covered on their own cards.
+A differential is indicated in the contractor's offer [@CL-SUP-2325], whereas when the Government specifies at shipment a mode of transportation, type of vehicle or place of delivery for which the offeror set a differential, the contractor must include the total of the differential costs as a separate reimbursable item on its invoice rather than absorbing them in the base price [@CL-SUP-2328; @CL-SUP-2372]. The f.o.b. origin variants (contractor's facility, freight allowed and freight prepaid) and plain f.o.b. origin are covered on their own cards.
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Confirm which awards carry this clause, the differential rates filled in for eac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Placed citations to satisfy the figure gate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor duty lead-ins, differential invoice wording and RFO paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the delivery methods as alternatives and cited the Postal Service alternative.

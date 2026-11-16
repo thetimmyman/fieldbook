@@ -42,7 +42,7 @@ A solicitation is issued and applies a class waiver. The contracting officer fir
 
 ## Never confuse
 
-The notification is a duty of the contracting officer: if the officer does not provide notice, and additional reasonable time for responses when required, the waiver cannot be applied to that solicitation [@CL-MKT-2066; @CL-MKT-2069]. The notice duty covers a class waiver or a contract specific waiver, and the bar when notice and required additional time are not provided applies to both class waivers and individual waivers [@CL-MKT-2066; @CL-MKT-2069]. The waiver itself is covered in [Nonmanufacturer rule waivers](../taxonomy/mkt-sba-nonmanufacturer-rule-waivers.md).
+SBA's grant of a class or individual waiver on [Nonmanufacturer rule waivers](../taxonomy/mkt-sba-nonmanufacturer-rule-waivers.md) [@CL-MKT-0397] does not apply itself automatically to an acquisition: unless the contracting officer gives potential offerors written notice of the waiver (and additional response time when required), the waiver cannot be applied to that solicitation [@CL-MKT-2066; @CL-MKT-2069].
 
 ## Company calibration
 
@@ -51,5 +51,6 @@ Whether any solicitation the company bids relies on a nonmanufacturer rule waive
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast wording not in the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of nonmanufacturer rule waivers.

@@ -50,7 +50,7 @@ A company registers 100 million dollars of debt securities for continuous sale u
 
 ## Never confuse
 
-Item 512 sets out the undertakings to be included in a registration statement if applicable to the offering being registered, including the Rule 415 undertaking in paragraph (a) and the subsequent-Exchange-Act-incorporation undertaking in paragraph (b) [@CL-FPA-1151; @CL-FPA-1152; @CL-FPA-1162]. For the description of the securities being registered, see [Description of registrant's securities](fpa-description-of-registrants-securities.md); for use of proceeds, offering price determination, dilution, selling security holders, plan of distribution, expert and counsel interests, and indemnification disclosure, see [Use of proceeds and plan of distribution](fpa-use-of-proceeds-and-plan-of-distribution.md).
+Item 512 sets out the undertakings included in a registration statement when applicable to the offering being registered—such as the Rule 415 post-effective amendment undertaking in paragraph (a) and the subsequent-Exchange-Act-incorporation undertaking in paragraph (b) [@CL-FPA-1151; @CL-FPA-1152; @CL-FPA-1162]—unlike the description of the securities being registered on [Description of registrant's securities](fpa-description-of-registrants-securities.md) or the disclosure of use of proceeds, offering price determination, dilution, selling security holders, plan of distribution, expert and counsel interests, and indemnification on [Use of proceeds and plan of distribution](fpa-use-of-proceeds-and-plan-of-distribution.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ How the company would track which undertakings apply to each registration and re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-wording and uncited contrasts and aligned How it works and Never confuse with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Later-document sentence now says the undertaking applies to any later Exchange Act document and that each incorporated annual report filing is deemed a new registration statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: One proviso of several stated as the only proviso.

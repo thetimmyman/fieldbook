@@ -11,6 +11,25 @@ use crate::search::{DocEntry, Hit, Index, PageRow, Results, ShownRows, query_tok
 /// Schema version of every `--json` report (`AD-17`).
 pub const REPORT_VERSION: u32 = 1;
 
+/// One report a desk page reads, with its absence and its read failure kept apart.
+///
+/// The binary maps a missing file to [`Self::Missing`], a successful read and parse to
+/// [`Self::Ready`], and any read or parse failure to [`Self::Unavailable`] with a safe
+/// diagnostic. A page renders each state differently; it never turns an unreadable source
+/// into an empty success.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ReportSource<T> {
+    /// The source does not exist yet.
+    Missing,
+    /// The source was read and parsed.
+    Ready(T),
+    /// The source exists but could not be read or parsed; the text is a safe diagnostic.
+    Unavailable {
+        /// Why the source is unavailable, escaped by the page before it is shown.
+        diagnostic: String,
+    },
+}
+
 /// One diagnostic entry in [`CheckReport`].
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct CheckDiagnostic {

@@ -62,9 +62,7 @@ A new engine contract also covers 40 spare gearboxes bought concurrently with th
 
 ## Never confuse
 
-Replenishment parts, as used in the subpart, means repairable or consumable parts acquired after the initial provisioning process [@CL-EST-3049].
-
-For contracts with provisioning requirements, follow the procedures at PGI 217.7601, and for technical requirements of provisioning see DoD Manual 4140.01, Volume 2 [@CL-EST-3052; @CL-EST-3053]. The three PGI directions are for acquiring spare parts concurrently with the end item [@CL-EST-3050], for acquiring parts for which the Government does not have the necessary data [@CL-EST-3051], and for contracts with provisioning requirements [@CL-EST-3052].
+Replenishment-parts guidance under DFARS subpart 217.75 distinguishes acquiring spares concurrently with end-item production under PGI 217.7503 from buying parts when technical data are unavailable under PGI 217.7504 [@CL-EST-3050; @CL-EST-3051; @CL-EST-3059], rather than governing interagency order-review procedures on [Orders under non-DoD contracts, source identification and replenishment parts](../../market/programs/mkt-non-dod-order-review-source-id-and-replenishment-parts.md) [@CL-MKT-1575].
 
 ## Company calibration
 
@@ -73,6 +71,7 @@ Whether the company prices later parts buys through the PGI procedures, and whic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated the subpart scope on the replenishment parts definition in How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the three procedure headings so each sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced references to sections and paragraphs saying things with the directions themselves and cut contrasts no quote states.

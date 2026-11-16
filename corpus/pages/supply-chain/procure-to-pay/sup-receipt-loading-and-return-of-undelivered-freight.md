@@ -54,11 +54,7 @@ At the destination the consignee refuses delivery through no fault of the contra
 
 ## Never confuse
 
-Tailgate delivery, for purposes of the loading and unloading clause, is defined as that which enables a forklift truck or similar equipment, with operator only, to place or remove cargo from the tailgate of the contractor's vehicle [@CL-SUP-2230]. Unless the contract specifies store-door or inside delivery, the contractor shall load and unload shipments at no additional expense to the Government [@CL-SUP-2229].
-
-When a shipment cannot be delivered through no fault of the contractor and is ordered returned to the origin point, the charges for the return trip shall be the same as the charges for the outbound trip, whereas when a shipment cannot be delivered due to the fault of the contractor, the contractor shall return the shipment to the origin point at no charge to the Government [@CL-SUP-2232; @CL-SUP-2233; @CL-SUP-2234].
-
-Codified FAR 52.247-14 sets out the receipt of shipment clause [@CL-SUP-2228] and codified FAR 52.247-16 sets out the returning undelivered freight clause [@CL-SUP-2232], while RFO FAR 52.247-14 and RFO FAR 52.247-16 are marked [Reserved] [@CL-SUP-0483; @CL-SUP-0484].
+Tailgate delivery, for purposes of the loading and unloading clause, is defined as that which enables a forklift truck or similar equipment, with operator only, to place or remove cargo from the tailgate of the contractor's vehicle [@CL-SUP-2230]. Unless the contract specifies store-door or inside delivery, the contractor shall load and unload shipments at no additional expense to the Government [@CL-SUP-2229]. When a shipment cannot be delivered through no fault of the contractor and is ordered returned to the origin point, the charges for the return trip shall be the same as the charges for the outbound trip, whereas when a shipment cannot be delivered due to the fault of the contractor, the contractor shall return the shipment to the origin point at no charge to the Government rather than charging outbound rates [@CL-SUP-2232; @CL-SUP-2233; @CL-SUP-2234]. Codified FAR 52.247-14 sets out the receipt of shipment clause [@CL-SUP-2228] and codified FAR 52.247-16 sets out the returning undelivered freight clause [@CL-SUP-2232], unlike RFO FAR 52.247-14 and RFO FAR 52.247-16, which are marked [Reserved] [@CL-SUP-0483; @CL-SUP-0484].
 
 ## Company calibration
 
@@ -68,6 +64,7 @@ Confirm that the company documents written exceptions at receipt and knows which
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality, return conditions, and RFO reserved wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the no-fault lead-in for the same-charges return.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

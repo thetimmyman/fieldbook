@@ -57,9 +57,7 @@ A product is made in the United States and is not mainly iron or steel. Its comp
 
 ## Never confuse
 
-The delivery paragraph names qualifying country end products and Free Trade Agreement country end products separately [@CL-SUP-1861]. Australia appears in both the list of qualifying countries and the definition of Free Trade Agreement country [@CL-SUP-1899; @CL-SUP-1869]. The carve-out for Bahraini, Moroccan, Panamanian and Peruvian end products is stated in the Free Trade Agreement country end product group [@CL-SUP-1861]. For the alternates, see the [alternates card](sup-dfars-buy-american-fta-bop-clause-alternates.md); for the offeror's side, see the [certificate card](sup-dfars-buy-american-fta-bop-certificate.md).
-
-For the older DoD Buy American clause without Free Trade Agreements, see [DoD Buy American and Balance of Payments Program clause: definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md) and [its exceptions, certificate and evaluation card](sup-dfars-buy-american-exceptions-certificate-and-evaluation.md). For the FAR clause with the Israeli Trade Act, see [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md), and for the DoD trade agreements clause, see [DoD trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md). For claiming duty-free entry, see [Duty-free entry clause](sup-dfars-duty-free-entry.md).
+The delivery paragraph names qualifying country end products and Free Trade Agreement country end products separately [@CL-SUP-1861], whereas Australia appears in both the list of qualifying countries and the definition of Free Trade Agreement country [@CL-SUP-1899; @CL-SUP-1869], unlike Bahraini, Moroccan, Panamanian and Peruvian end products, which are carved out in the Free Trade Agreement country end product group [@CL-SUP-1861]. For the alternates, see the [alternates card](sup-dfars-buy-american-fta-bop-clause-alternates.md); for the offeror's side, see the [certificate card](sup-dfars-buy-american-fta-bop-certificate.md). For the older DoD Buy American clause without Free Trade Agreements, see [DoD Buy American and Balance of Payments Program clause: definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md) and [its exceptions, certificate and evaluation card](sup-dfars-buy-american-exceptions-certificate-and-evaluation.md). For the FAR clause with the Israeli Trade Act, see [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md), and for the DoD trade agreements clause, see [DoD trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md). For claiming duty-free entry, see [Duty-free entry clause](sup-dfars-duty-free-entry.md).
 
 ## Company calibration
 
@@ -68,6 +66,7 @@ Which items on each executed contract carry the basic clause, which percentage a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the delivery lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the delivery, iron and steel, and qualifying country test wording with the quotes; removed uncited contrasts.

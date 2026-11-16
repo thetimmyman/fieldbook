@@ -45,7 +45,7 @@ Assume an offeror has two covered vessels and that the work below meets the prov
 
 ## Never confuse
 
-The provision includes an evaluation criterion on work performed in United States shipyards and requires information with the offer [@CL-SUP-1622; @CL-SUP-1623]. The reflagging clause requires performance in the United States or its outlying areas unless DoD waives the requirement [@CL-SUP-1625]. For the rule on use of United States-flag vessels for sea transport, see [Transportation of supplies by sea: definitions and the United States-flag requirement](sup-dfars-sea-transport-us-flag-requirement.md), and for the sea transport representation and flowdown, see [Transportation of supplies by sea: representation, reporting and flowdown](sup-dfars-sea-transport-representation-and-flowdown.md). Vessel crews are covered separately; see [Riding gang member requirements and shipping documentation applications (DFARS)](sup-dfars-riding-gang-members-and-shipping-documentation.md). Liability when a contractor repairs vessels is a different clause; see [Liability and insurance for vessel repair (DFARS)](sup-dfars-ship-repair-liability-and-insurance.md). For how price and past performance are weighed in general, see [Evaluation factors: price or cost, past performance and the DoD additions](../../estimating/pricing/est-evaluation-factors-price-and-past-performance.md).
+The provision includes an evaluation criterion on work performed in United States shipyards and requires information with the offer [@CL-SUP-1622; @CL-SUP-1623]. The reflagging clause requires performance in the United States or its outlying areas unless DoD waives the requirement [@CL-SUP-1625]. For the rule on use of United States-flag vessels for sea transport, see [Transportation of supplies by sea: definitions and the United States-flag requirement](sup-dfars-sea-transport-us-flag-requirement.md), and for the sea transport representation and flowdown, see [Transportation of supplies by sea: representation, reporting and flowdown](sup-dfars-sea-transport-representation-and-flowdown.md). Vessel crews are covered separately; see [Riding gang member requirements and shipping documentation applications (DFARS)](sup-dfars-riding-gang-members-and-shipping-documentation.md). Liability when a contractor repairs vessels is not the same; it is a different clause; see [Liability and insurance for vessel repair (DFARS)](sup-dfars-ship-repair-liability-and-insurance.md). For how price and past performance are weighed in general, see [Evaluation factors: price or cost, past performance and the DoD additions](../../estimating/pricing/est-evaluation-factors-price-and-past-performance.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which solicitations carry the provision, what shipyard history the company can d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the reflagging requirement lead-in for both items and removed commentary not in the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's right to request supporting documentation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the evaluation preference for use of domestic shipyards and reflagging or repair work.

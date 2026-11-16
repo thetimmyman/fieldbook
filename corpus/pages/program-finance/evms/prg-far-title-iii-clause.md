@@ -46,7 +46,7 @@ A contractor receives a request to test a new material made under Title III assi
 
 ## Never confuse
 
-See [Testing and qualification of Title III industrial resources](../risk-opportunity/prg-far-title-iii-testing-qualification.md). Under codified FAR 52.234-1, the Contractor shall refer any request from a Title III project contractor for testing and qualification of a Title III industrial resource to the Contracting Officer [@CL-PRG-0947], and upon the direction of the Contracting Officer, the Contractor shall test Title III industrial resources for qualification [@CL-PRG-0948], whereas under RFO FAR 52.234-1(d), upon receipt of a contract modification and the Title III industrial resources, the Contractor must test the Title III industrial resources for qualification [@CL-PRG-0036].
+See [Testing and qualification of Title III industrial resources](../risk-opportunity/prg-far-title-iii-testing-qualification.md). Under codified FAR 52.234-1, the Contractor shall refer any request from a Title III project contractor for testing and qualification of a Title III industrial resource to the Contracting Officer [@CL-PRG-0947], and upon the direction of the Contracting Officer, the Contractor shall test Title III industrial resources for qualification [@CL-PRG-0948], unlike under RFO FAR 52.234-1(d), where upon receipt of a contract modification and the Title III industrial resources, the Contractor must test the Title III industrial resources for qualification [@CL-PRG-0036].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether any contract has received a Title III testing request or direction, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for Wright Patterson address and paragraph (d) lead-in; separated RFO and codified citations and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored pursuant to the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

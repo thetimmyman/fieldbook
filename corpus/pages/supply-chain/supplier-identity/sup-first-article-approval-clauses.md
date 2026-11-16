@@ -46,7 +46,7 @@ A supplier is told by the contract to run first article tests itself. The first 
 
 ## Never confuse
 
-A qualification requirement is a testing or other quality assurance demonstration that must be completed before award of a contract [@CL-SUP-1023], as covered on [Qualification requirements clause: what the offeror shows before award](sup-qualification-requirements-clause.md) (see also [First article testing and approval](../../industrialization/ramp/ind-first-article-testing-and-approval.md) and [Contractor risk before first article approval and related procedures](../../industrialization/ramp/ind-first-article-contractor-risk-and-procedures.md)).
+A qualification requirement is a testing or other quality assurance demonstration that must be completed before award of a contract [@CL-SUP-1023], as covered on [Qualification requirements clause: what the offeror shows before award](sup-qualification-requirements-clause.md), unlike postaward first article approval where acquiring materials or components or starting production for the balance of the contract quantity before first article approval is at the sole risk of the Contractor and not allocable to progress payments or convenience termination settlements under the basic clause [@CL-SUP-1035; @CL-SUP-1036] unless authorized in writing under Alternate II [@CL-SUP-1066; @CL-SUP-1067] (see also [First article testing and approval](../../industrialization/ramp/ind-first-article-testing-and-approval.md) and [Contractor risk before first article approval and related procedures](../../industrialization/ramp/ind-first-article-contractor-risk-and-procedures.md)).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts carry a first article requirement and how early material spend i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added conditional-approval, disapproval-reason, and waiver-request sentences from FAR 52.209-3 and removed uncited meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the first article approval clauses for contractor testing and government testing.

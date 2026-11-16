@@ -47,7 +47,7 @@ Answer: commercial procedures may be applied to the buy without a commercial ite
 
 ## Never confuse
 
-Supplies and services provided by a nontraditional defense contractor, as defined in DFARS 202.101, may be treated as commercial products or commercial services [@CL-MKT-0944]. The card on the [DFARS solicitation provisions for negotiated acquisitions](../../estimating/pricing/est-dfars-solicitation-provisions-negotiated.md) covers where the provision is used.
+Applying commercial product or service procedures to supplies or services from a nontraditional defense contractor under DFARS 252.215-7013 is permissive and does not require a commercial item determination [@CL-MKT-0944; @CL-MKT-0945], unlike mandatory certified-data clauses such as Cost Estimating System Requirements on [DFARS solicitation provisions for negotiated acquisitions](../../estimating/pricing/est-dfars-solicitation-provisions-negotiated.md) [@CL-EST-1517].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which of the company's customers and product lines may qualify the company as a 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supplies and services from nontraditional defense contractors.

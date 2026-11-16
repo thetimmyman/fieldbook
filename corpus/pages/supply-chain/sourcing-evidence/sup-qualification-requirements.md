@@ -51,7 +51,7 @@ Answer: the offeror pays the 40,000 for the demonstration. If it can show before
 
 ## Never confuse
 
-See [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md). If a potential offeror can demonstrate to the satisfaction of the contracting officer that the potential offeror (or its product) meets the standards established for qualification or can meet them before the date specified for award of the contract, a potential offeror may not be denied the opportunity to submit and have considered an offer for a contract solely because of one of the three alternatives in FAR 9.202(c)(1) through (c)(3) [@CL-SUP-0936; @CL-SUP-0937; @CL-SUP-4178].
+See [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md). If a potential offeror can demonstrate to the satisfaction of the contracting officer that the potential offeror (or its product) meets the standards established for qualification or can meet them before the date specified for award of the contract, the potential offeror may not be denied the opportunity to submit and have considered an offer for a contract solely because of one of the three alternatives in FAR 9.202(c)(1) through (c)(3) [@CL-SUP-0936; @CL-SUP-0937; @CL-SUP-4178], whereas the contracting officer need not delay a proposed award in order to provide a potential offeror with an opportunity to demonstrate its ability to meet the standards specified for qualification [@CL-SUP-0996].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which items the company supplies under a qualification requirement, whic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for qualification demonstration methods and offer protection grounds; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of qualification requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of qualification requirement.

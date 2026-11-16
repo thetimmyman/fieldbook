@@ -44,9 +44,7 @@ A work package to build a test fixture is budgeted at 40,000 and planned to fini
 
 ## Never confuse
 
-The nature of LOE is such that the BCWP reflects only the passage of time during which LOE activities are planned, so there is never a Schedule Variance (BCWP always equals BCWS), while the concept of apportioned effort should be used when work of a supporting nature ties directly to a discrete technical activity and, if the contractor chooses to use this technique, the EVMS documentation must cover the requirements for the use of this measurement technique and the need to document the factor used to establish the relationship, and must also point out that the progress identified in the base account (percent complete) provides the basis for the progress percentage of the apportioned account [@CL-PRG-0258; @CL-PRG-0256; @CL-PRG-0257; @CL-PRG-9149].
-
-The guideline on planning work packages and planning packages is covered in [plan work packages and planning packages](prg-evms-guideline-9-work-and-planning-packages.md), and the guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
+The nature of LOE is such that the BCWP reflects only the passage of time during which LOE activities are planned, so there is never a Schedule Variance (BCWP always equals BCWS), unlike the concept of apportioned effort, which should be used when work of a supporting nature ties directly to a discrete technical activity and, if the contractor chooses to use this technique, the EVMS documentation must cover the requirements for the use of this measurement technique and the need to document the factor used to establish the relationship, and must also point out that the progress identified in the base account (percent complete) provides the basis for the progress percentage of the apportioned account [@CL-PRG-0258; @CL-PRG-0256; @CL-PRG-0257; @CL-PRG-9149]. The guideline on planning work packages and planning packages is covered in [plan work packages and planning packages](prg-evms-guideline-9-work-and-planning-packages.md), and the guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
 
 ## Company calibration
 
@@ -55,6 +53,7 @@ Which work packages the company measures as level of effort, and whether the sys
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Aligned the level-of-effort restriction wording with CL-PRG-0253.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added consumable-material examples for PERT and full apportioned-effort documentation rule in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Apportioned-effort documentation, control account manager and PERT wording aligned to the guide.

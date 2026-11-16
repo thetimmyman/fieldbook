@@ -44,9 +44,7 @@ A program carries 500,000 of direct labour budget. The responsible organization 
 
 ## Never confuse
 
-Indirect rates, developed by the responsible organizations, are applied to the program's direct resource budgets, at the applicable level, to determine the indirect budgets that support the establishment of the performance measurement baseline [@CL-PRG-0262].
-
-The guideline on evaluating indirect cost variances is covered in [Evaluate indirect cost variances](prg-evms-guideline-19-indirect-cost-variances.md), and the guideline on recording costs by element of cost is covered in [Record costs by element of cost](prg-evms-guideline-15-record-costs.md).
+Indirect rates developed by the responsible organizations are applied to the program's direct resource budgets at the applicable level to establish the indirect budgets in the performance measurement baseline [@CL-PRG-0262; @CL-PRG-0266], unlike ongoing evaluation of indirect cost variances in [Evaluate indirect cost variances](prg-evms-guideline-19-indirect-cost-variances.md) or recording actual costs by element of cost in [Record costs by element of cost](prg-evms-guideline-15-record-costs.md).
 
 ## Company calibration
 
@@ -56,6 +54,7 @@ Whether each pool carries an indirect budget in the baseline at the level the re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned Purpose, How it works, and Never confuse wording to cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the documented allocation schemes wording and the year-end timing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.

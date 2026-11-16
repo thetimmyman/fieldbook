@@ -51,9 +51,7 @@ Later, while performing, a contractor's truck backs into a customer's fence and 
 
 ## Never confuse
 
-The estimates provision considers the estimated quantities or weights as the quantities or weights to be shipped for the purpose of evaluating offers, and for no other purpose [@CL-SUP-2301]. Under FAR 52.247-21 the Contractor assumes responsibility for damage or injury to persons or property occasioned through the use, maintenance and operation of its vehicles or other equipment [@CL-SUP-2303]. Under FAR 52.247-22 the Contractor shall assume full liability for any and all goods lost and/or damaged in the movement covered by the contract, except when loss and/or damage arises out of causes beyond the control and without the fault or negligence of the Contractor [@CL-SUP-2308]; see [Freight loss and damage liability](sup-freight-loss-and-damage-liability.md).
-
-The codified text prints an estimates provision at FAR 52.247-20 that confines the estimates to evaluating offers [@CL-SUP-2301], while the RFO text lists that number as [Reserved] [@CL-SUP-0197].
+The estimates provision considers the estimated quantities or weights as the quantities or weights to be shipped for the purpose of evaluating offers, and for no other purpose [@CL-SUP-2301]. Under FAR 52.247-21 the Contractor assumes responsibility for damage or injury to persons or property occasioned through the use, maintenance and operation of its vehicles or other equipment [@CL-SUP-2303]. Under FAR 52.247-22 the Contractor shall assume full liability for any and all goods lost and/or damaged in the movement covered by the contract, except when loss and/or damage arises out of causes beyond the control and without the fault or negligence of the Contractor [@CL-SUP-2308]; see [Freight loss and damage liability](sup-freight-loss-and-damage-liability.md). The codified text prints an estimates provision at FAR 52.247-20 that confines the estimates to evaluating offers [@CL-SUP-2301], unlike the RFO text, which lists that number as [Reserved] [@CL-SUP-0197].
 
 ## Company calibration
 
@@ -62,6 +60,7 @@ Confirm which awards carry the estimates provision and the liability clause, whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned liability, estimates and RFO wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an indemnifier the clause text does not name.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

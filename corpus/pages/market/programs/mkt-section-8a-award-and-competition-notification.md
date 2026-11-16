@@ -50,7 +50,7 @@ A solicitation limited to 8(a) participants closes on day 30. On day 20, a certi
 
 ## Never confuse
 
-FAR 52.219-18 limits who may submit offers and states the representation made by submitting an offer [@CL-MKT-0998; @CL-MKT-1000], while FAR 52.219-17 states the commitments SBA makes by executing the contract [@CL-MKT-1043]. Any award is made to SBA, which subcontracts performance to the successful 8(a) offeror [@CL-MKT-1001]. FAR 52.219-18(a)(1) refers to the 8(a) support limitation set forth in the offeror's approved business plan [@CL-MKT-0999].
+FAR 52.219-18 is the solicitation notice restricting competition to SBA-certified 8(a) participants [@CL-MKT-0998], whereas FAR 52.219-17 states SBA's contract execution commitment to furnish the supplies or services by subcontracting with the designated 8(a) offeror rather than performing the work directly [@CL-MKT-1043; @CL-MKT-1142].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which certified participants in the finance remit carry a support limitation and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted commentary and 'RFO text of' phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternatives wording and plan reference.

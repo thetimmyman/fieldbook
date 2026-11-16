@@ -47,7 +47,7 @@ Answer: the Government recognizes the arrangement because it was identified and 
 
 ## Never confuse
 
-Nothing in the subpart limits the Government's rights listed in the limitations, among them the rights to require consent to subcontracts, to determine the prime contractor's responsibility on the basis of the stated arrangement and to hold the prime contractor fully responsible for contract performance [@CL-SUP-0797; @CL-SUP-0798; @CL-SUP-0799]. Make-or-buy programs are on the [Make-or-buy programs: when they are required and what they contain](sup-make-or-buy-programs.md) card.
+Recognizing the integrity and validity of a disclosed contractor team arrangement [@CL-SUP-0795] does not limit the Government's rights listed in the limitations, among them the rights to require consent to subcontracts, to determine the prime contractor's responsibility on the basis of the stated arrangement and to hold the prime contractor fully responsible for contract performance [@CL-SUP-0797; @CL-SUP-0798; @CL-SUP-0799]. Make-or-buy programs are on the [Make-or-buy programs: when they are required and what they contain](sup-make-or-buy-programs.md) card.
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Confirm whether teaming arrangements are identified and disclosed in offers, and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the alternative form and stated the limitations as one of several listed rights.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor team arrangements.

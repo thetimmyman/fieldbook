@@ -49,7 +49,7 @@ A cost-reimbursement contract awarded by the Department of Defense has a total e
 
 ## Never confuse
 
-Unless the consent or approval specifically provides otherwise, neither consent by the Contracting Officer to any subcontract nor approval of the Contractor's purchasing system shall constitute a determination of the acceptability of any subcontract terms or conditions, of the allowability of any cost under the contract, or to relieve the Contractor of any responsibility for performing the contract [@CL-SUP-0302; @CL-SUP-0303].
+Unless the consent or approval specifically provides otherwise, neither consent by the Contracting Officer to any subcontract nor approval of the Contractor's purchasing system constitutes a determination of the acceptability of any subcontract terms or conditions, of the allowability of any cost under the contract, or relieves the Contractor of any responsibility for performing the contract [@CL-SUP-0302; @CL-SUP-0303], and under the basic clause advance notification is not required when consent is not required under paragraph (b), (c), or (d) [@CL-SUP-0208], unlike Alternate I, which requires advance notification even with an approved purchasing system for cost-plus-fixed-fee or qualifying fixed-price subcontracts [@CL-SUP-0341; @CL-SUP-0342].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Whether the purchasing system is approved, and which subcontracts need customer 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added parenthetical unpriced action examples, negotiation memorandum elements, and FAR 15.404-4(c)(4)(i) fee reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated consent triggers as alternatives; added paragraph (c) or (d) to Alternate I.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the consent summary to state the fixed-price type contract limit first.

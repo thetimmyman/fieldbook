@@ -47,7 +47,7 @@ A buying office plans a multiple-award contract in which part of the requirement
 
 ## Never confuse
 
-Orders may be set aside at the contracting officer's discretion [@CL-MKT-0602], although the solicitation and contract state whether order set-asides will be discretionary or mandatory when the stated conditions are met [@CL-MKT-0637]. A reserve brings its own provision and clause [@CL-MKT-0609; @CL-MKT-0610], and the rules for reserves are on the [Set-aside determinations, rejected SBA recommendations and small business reserves](mkt-set-aside-determinations-sba-recommendations-and-reserves.md) card. The nonmanufacturer rule clause is a different clause from the limitations on subcontracting clause; see the [Limitations on subcontracting and the nonmanufacturer rule](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) card.
+Setting aside individual orders under a multiple-award contract is discretionary for the contracting officer [@CL-MKT-0602], unlike a total small business set-aside under FAR 52.219-6 that restricts the entire solicitation and contract from inception [@CL-MKT-0603], and differs from setting aside or reserving awards at contract formation on [Set-aside determinations, rejected SBA recommendations and small business reserves](mkt-set-aside-determinations-sba-recommendations-and-reserves.md) [@CL-MKT-0597].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 19.507(e)(2) and 19.507(h)(1) prescriptions and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: order-set-aside and definition alternatives wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of multiple-award contract.

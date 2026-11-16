@@ -49,7 +49,7 @@ A contracting officer plans a source selection for fuel for an overseas continge
 
 ## Never confuse
 
-For tents and other temporary structures, the determination of best value includes consideration of the total life-cycle costs, including the costs associated with any equipment, fuel or electricity needed to heat, cool or light them [@CL-EST-2428]. For fuel for an overseas contingency operation, the contracting officer must consider using a tradeoff process and, if one was not considered, must justify in writing why not [@CL-EST-2430; @CL-EST-2432]. Other source selection duties are covered in [Source selection responsibilities and evaluation](est-source-selection-responsibilities-and-evaluation.md) and [Lowest price technically acceptable source selection](est-lpta-source-selection.md).
+Acquiring Armed Forces tents or temporary structures requires best-value award and overseas contingency fuel acquisitions above the simplified acquisition threshold require considering tradeoff factors [@CL-EST-2426; @CL-EST-2427; @CL-EST-2430], rather than defaulting purely to lowest evaluated price as on [Lowest price technically acceptable source selection](est-lpta-source-selection.md) [@CL-EST-1350].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ That the program records a life-cycle comparison for shelter buys and a tradeoff
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: How it works and Never confuse reworded to track the cited text and drop uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the simplified acquisition threshold condition to the fuel tradeoff duty in the purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for best value for tents and temporary structures, and the contingency fuel tradeoff process.

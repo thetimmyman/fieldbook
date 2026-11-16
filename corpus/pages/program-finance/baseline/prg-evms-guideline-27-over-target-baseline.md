@@ -43,7 +43,7 @@ A program has a contract budget base of 100, but the remaining work now forecast
 
 ## Never confuse
 
-An over-target baseline is a total program budget greater than the contract budget base [@CL-PRG-0376], while a single point adjustment sets some or all existing contract cost and/or schedule variances to zero [@CL-PRG-0374]. The contract budget base is a controlled value and cannot be changed by the contractor except as a result of customer contract actions [@CL-PRG-0378].
+An over-target baseline is a total program budget greater than the contract budget base [@CL-PRG-0376], unlike a single point adjustment, which sets some or all existing contract cost and/or schedule variances to zero [@CL-PRG-0374]. The contract budget base is a controlled value and cannot be changed by the contractor except as a result of customer contract actions [@CL-PRG-0378].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether a forecast above the contract budget base is an over-target baseline or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Populated the instrument field from CL-PRG-0376 and aligned the Never confuse wording directly with CL-PRG-0374, CL-PRG-0376, and CL-PRG-0378.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the source's and/or between over-target baseline and over-target schedule.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed an unsupported contrast and cited the claims.

@@ -47,7 +47,7 @@ An award is made at 40 million dollars to a small business. An unsuccessful offe
 
 ## Never confuse
 
-In addition to the requirements of FAR 15.506(d), the minimum debriefing information includes an option, for a small business or nontraditional defense contractor on an award above 15 million dollars and up to 150 million dollars, to request the redacted decision document and, above 150 million dollars, disclosure of it [@CL-EST-2527; @CL-EST-2465; @CL-EST-2466]. For the general postaward debriefing rules, see [Postaward debriefing of offerors](est-postaward-debriefing.md), and for the notice that follows a foreign military sales offset exception, see [Foreign military sales offset exception and postaward debriefing notice](est-dod-fms-offset-exception-and-postaward-debrief-notice.md).
+Under DFARS, a redacted source selection decision document is disclosed automatically on awards exceeding $150 million [@CL-EST-2466], whereas on awards above $15 million up to $150 million it is an option restricted to small businesses and nontraditional defense contractors [@CL-EST-2464; @CL-EST-2465], unlike standard FAR debriefings below $15 million on [Postaward debriefing of offerors](est-postaward-debriefing.md) [@CL-EST-1417].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ That the capture team logs which awards cross the debriefing threshold and who a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse paragraph reworded to state the added debriefing items directly and point to the related cards by link.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward debriefings of DoD awards at the threshold.

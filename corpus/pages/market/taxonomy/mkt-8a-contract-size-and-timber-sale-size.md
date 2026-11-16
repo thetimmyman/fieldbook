@@ -50,7 +50,7 @@ A Participant certifies that it is small, with its initial offer, on day 0. SBA 
 
 ## Never confuse
 
-The timber standard applies to a concern buying timber that the Government sells. Size standards for procurements in which the Government buys are on the [Size standards, NAICS codes and appeals of the contracting officer's code](mkt-size-standards-and-naics-codes.md) card.
+The Government timber-sale standard measures a buyer purchasing timber sold by the Government [@CL-MKT-0684], rather than a contractor selling supplies or services to the Government under procurement NAICS codes on [Size standards, NAICS codes and appeals of the contracting officer's code](mkt-size-standards-and-naics-codes.md) [@CL-MKT-0200], while an 8(a) participant's contract-specific size certification triggers a 30-day SBA district office review [@CL-MKT-0680; @CL-MKT-0681].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Whether the company is or plans to be a Participant in the Business Development 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an 'only after' and an inferred sentence the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Pointed timber to the sale-or-lease measurement date instead of saying none is given.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the size rules for sales and leases of Government property, Special Salvage Timber and 8(a) admission.

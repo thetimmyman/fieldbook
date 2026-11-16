@@ -46,7 +46,7 @@ An offeror has current active Federal contracts and grants well above the stated
 
 ## Never confuse
 
-The certification provision looks back three years: for the Offeror and/or any of its Principals on convictions and civil judgments and on delinquent tax notices [@CL-SUP-1013; @CL-SUP-1014; @CL-SUP-1015], and for the Offeror on default terminations [@CL-SUP-1016] (see also [Inverted domestic corporations and tax or felony representations](sup-inverted-corporation-and-tax-felony-provisions.md) and [Arms control treaty certification and ROTC and military recruiting access](sup-arms-control-certification-and-rotc-clauses.md)). The information provision is a separate five-year look-back at proceedings in connection with a Federal contract or grant, again for the offeror and/or any of its principals, and the representation about the entries applies if the offeror checked that it has current active Federal contracts and grants above the stated total [@CL-SUP-1019; @CL-SUP-1020] (see [FAPIIS and responsibility clauses](sup-fapiis-and-responsibility-clauses.md) and [Responsibility information and determination](sup-responsibility-information-and-determination.md)).
+The certification provision looks back three years: for the Offeror and/or any of its Principals on convictions and civil judgments and on delinquent tax notices [@CL-SUP-1013; @CL-SUP-1014; @CL-SUP-1015], and for the Offeror on default terminations [@CL-SUP-1016] (see also [Inverted domestic corporations and tax or felony representations](sup-inverted-corporation-and-tax-felony-provisions.md) and [Arms control treaty certification and ROTC and military recruiting access](sup-arms-control-certification-and-rotc-clauses.md)), unlike the information provision, which is a separate five-year look-back at proceedings in connection with a Federal contract or grant, again for the offeror and/or any of its principals, where the representation about the entries applies if the offeror checked that it has current active Federal contracts and grants above the stated total [@CL-SUP-1019; @CL-SUP-1020] (see [FAPIIS and responsibility clauses](sup-fapiis-and-responsibility-clauses.md) and [Responsibility information and determination](sup-responsibility-information-and-determination.md)).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which principals and which contracts feed these certifications and the system en
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and RFO meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the judicial appeal condition to when a tax liability is finally determined.
 - COMPATIBLE_EXTENSION, 2026-10-31: responsibility provisions: added tax delinquency criteria, funds-total definition and second information item; and/or and payment wording.

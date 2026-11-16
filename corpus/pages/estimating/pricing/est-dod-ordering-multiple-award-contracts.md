@@ -42,7 +42,7 @@ A DoD task order under a multiple-award contract is valued at 20 million, and th
 
 ## Never confuse
 
-The DFARS debriefing duty is in addition to the notice required at FAR 16.505(b)(6) [@CL-EST-1567]. Fair opportunity and its exceptions are on [Ordering under indefinite-delivery contracts: fair opportunity, exceptions and thresholds](est-far-ordering-indefinite-delivery-contracts.md), and the contract types are on [Indefinite-delivery and indefinite-quantity contracts](../../contract-finance/funding/ctf-indefinite-delivery-and-indefinite-quantity-contracts.md).
+DFARS adds DoD-specific LPTA restrictions, follow-on sole-source order rules above the simplified acquisition threshold, and mandatory postaward debriefings on task or delivery orders valued at $15 million or more [@CL-EST-1565; @CL-EST-1566; @CL-EST-1567], rather than restating the baseline fair-opportunity threshold above micro-purchases on [Ordering under indefinite-delivery contracts: fair opportunity, exceptions and thresholds](est-far-ordering-indefinite-delivery-contracts.md) [@CL-EST-1553].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Which DoD orders under multiple-award contracts the company holds, and whether a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Worded the pointers and the follow-on justification as the provisions state them and cut uncited contrasts and notes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Follow-on pointer now states the simplified acquisition threshold condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD ordering under multiple award contracts.

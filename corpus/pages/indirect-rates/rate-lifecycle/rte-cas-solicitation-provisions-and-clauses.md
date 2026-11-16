@@ -47,7 +47,7 @@ A business unit proposes a negotiated contract of 70 million, above the Truth in
 
 ## Never confuse
 
-The provision goes in solicitations for proposed contracts subject to CAS as specified in 9903.201 and allows offerors to certify their Disclosure Statement status, to claim exemption from full CAS coverage and elect modified CAS coverage when appropriate, and to certify whether award of the contemplated contract would require a change to existing cost accounting practices [@CL-RTE-0800; @CL-RTE-0801; @CL-RTE-0850]. The clause Cost Accounting Standards goes in negotiated contracts unless the contract is exempted (see 9903.201-1), the contract is subject to modified coverage (see 9903.201-2), or the clause prescribed in paragraph (e) is used [@CL-RTE-0802]. For whether a contract is covered at all, and at what level, see the applicability card. For the clause prescriptions printed in the FAR, see the [FAR clauses card](rte-far-30-cas-clauses-waiver-and-determinations.md). The findings the Contracting Officer or the cognizant Federal agency official makes before an adjustment under these clauses are on the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md).
+The provision goes in solicitations for proposed contracts subject to CAS as specified in 9903.201 and allows offerors to certify their Disclosure Statement status, to claim exemption from full CAS coverage and elect modified CAS coverage when appropriate, and to certify whether award of the contemplated contract would require a change to existing cost accounting practices [@CL-RTE-0800; @CL-RTE-0801; @CL-RTE-0850], unlike the clause Cost Accounting Standards, which goes in negotiated contracts unless the contract is exempted (see 9903.201-1), the contract is subject to modified coverage (see 9903.201-2), or the clause prescribed in paragraph (e) is used [@CL-RTE-0802]. For whether a contract is covered at all, and at what level, see the applicability card. For the clause prescriptions printed in the FAR, see the [FAR clauses card](rte-far-30-cas-clauses-waiver-and-determinations.md). The findings the Contracting Officer or the cognizant Federal agency official makes before an adjustment under these clauses are on the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which provision and clause each open solicitation and contract carries, and whet
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated the full conditions and exceptions for each CAS clause prescription in How it works and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the provision and clause prescriptions directly with their actors and paragraph references; removed uncited explanations and contrasts.

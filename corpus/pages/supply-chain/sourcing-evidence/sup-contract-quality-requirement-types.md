@@ -67,7 +67,7 @@ A separate contract buys 20 critical items. Requiring compliance with higher-lev
 
 ## Never confuse
 
-Standard inspection requirements are in the prescribed clauses and in the specifications [@CL-SUP-3923]. Requiring compliance with higher-level standards is necessary for complex or critical items, or when the technical requirements call for the listed controls or attention [@CL-SUP-3928; @CL-SUP-3929]. The standards named in the section are examples [@CL-SUP-3984]. Commercial reliance concerns the Government relying on contractors' existing quality assurance systems as a substitute for Government inspection and testing before tender for acceptance [@CL-SUP-3983]; the procedures for higher-level requirements are separate [@CL-SUP-3926].
+Standard inspection requirements are in the prescribed clauses and in the specifications [@CL-SUP-3923], whereas requiring compliance with higher-level standards is necessary for complex or critical items, or when the technical requirements call for the listed controls or attention [@CL-SUP-3928; @CL-SUP-3929] (the standards named in the section are examples [@CL-SUP-3984]), unlike commercial reliance, which concerns the Government relying on contractors' existing quality assurance systems as a substitute for Government inspection and testing before tender for acceptance [@CL-SUP-3983; @CL-SUP-3926].
 
 ## Company calibration
 
@@ -76,6 +76,7 @@ Which product lines fall under commercial reliance, standard inspection requirem
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and cited the all-apply clause requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the four general categories of contract quality requirements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the types of contract quality requirements.

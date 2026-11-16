@@ -45,7 +45,7 @@ A proposal prices a part at a vendor quote of 100 per unit. The vendor's last se
 
 ## Never confuse
 
-A decrement factor reflects a historical pattern of price drops that the contractor must analyze, disclose and reflect in its proposal [@CL-EST-0691]. A properly constructed bill of material serves as the foundational baseline for direct material estimates [@CL-EST-0928], and the engineering version is the preferred one for audit verification [@CL-EST-0689]. Other direct costs are covered in [Other direct costs](est-other-direct-costs.md).
+Direct material estimates aggregate discrete raw materials, parts, subcontracts, tooling and freight into a consolidated bill of material [@CL-EST-0687; @CL-EST-0688; @CL-EST-0924], unlike [Other direct costs](est-other-direct-costs.md), which cover non-material direct charges evaluated under FAR cost principles and CAS rather than bill-of-material schedules [@CL-EST-0715].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ How estimate versions, source quotations and assumptions are frozen and compared
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the standard-cost qualification and inventory in the pricing sources; aligned the manufacturing-bill condition, the procedures list and the decrement wording with the quotes; reworded a not-just-a-parts-list contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the FAR 15.4 framing, the open lists (basic procedures, pricing sources), the auditor's qualitative review as a should, and the corrective-action recommendation as separate from the decrement condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the priced bill of material sentence so the price verification keeps the subcontract type, estimating consistency and CAS considerations.

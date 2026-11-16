@@ -47,7 +47,7 @@ A contracting officer asks for support on a proposal for a new production lot. T
 
 ## Never confuse
 
-An advisory service returns a memorandum with no audit opinion [@CL-EST-0661], while an audit of the complete proposal returns an opinion or a disclaimer [@CL-EST-0659]. Agreed upon procedures differ again: the tests are fixed in advance with the requestor, and the report gives factual findings but no opinion [@CL-EST-0660]. The buying activity's own request rules are in [Data to support proposal analysis](est-data-to-support-proposal-analysis.md).
+DCAA field pricing support assists the contracting officer with proposal evaluations across different service levels [@CL-EST-0650; @CL-EST-0900; @CL-EST-0901], rather than making the final fair-and-reasonable price decision, which remains with the buying activity on [Data to support proposal analysis](est-data-to-support-proposal-analysis.md) [@CL-EST-0201].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the auditor-role wording as the manual does; cut two uncited characterizations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the audit coordination sentence to the manual's customer-needs wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the partial audit sentence to the wording of the manual.

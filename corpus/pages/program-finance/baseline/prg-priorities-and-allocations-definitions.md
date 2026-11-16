@@ -65,11 +65,7 @@ A third purchase order, for 100 springs, supports an approved program but was no
 
 ## Never confuse
 
-An approved program is determined by the Secretary of Defense, the Secretary of Energy, or the Secretary of Homeland Security [@CL-PRG-0476], whereas a rated order is a prime contract, a subcontract, or a purchase order in support of an approved program issued in accordance with the provisions of the DPAS regulation (15 CFR part 700) [@CL-PRG-0481].
-
-A Delegate Agency is authorized by delegation from the Department of Commerce to place priority ratings on contracts or orders needed to support approved programs [@CL-PRG-0478], while the determination that a program is an approved program is made by the Secretary of Defense, the Secretary of Energy, or the Secretary of Homeland Security [@CL-PRG-0476].
-
-National defense covers programs for military and energy production or construction, military assistance to any foreign nation, stockpiling, space, and any directly related activity [@CL-PRG-0479], and includes emergency preparedness activities conducted pursuant to title VI of the disaster relief and emergency assistance act (title 42, United States Code, section 5195 and following) and critical infrastructure protection and restoration [@CL-PRG-0480; @CL-PRG-0488].
+An approved program is determined by the Secretary of Defense, the Secretary of Energy, or the Secretary of Homeland Security [@CL-PRG-0476], unlike a rated order, which is a prime contract, a subcontract, or a purchase order in support of an approved program issued in accordance with the provisions of the DPAS regulation (15 CFR part 700) [@CL-PRG-0481]. A Delegate Agency is authorized by delegation from the Department of Commerce to place priority ratings on contracts or orders needed to support approved programs [@CL-PRG-0478], while the determination that a program is an approved program is made by the Secretary of Defense, the Secretary of Energy, or the Secretary of Homeland Security [@CL-PRG-0476]. National defense covers programs for military and energy production or construction, military assistance to any foreign nation, stockpiling, space, and any directly related activity [@CL-PRG-0479], and includes emergency preparedness activities conducted pursuant to title VI of the disaster relief and emergency assistance act (title 42, United States Code, section 5195 and following) and critical infrastructure protection and restoration [@CL-PRG-0480; @CL-PRG-0488].
 
 ## Company calibration
 
@@ -79,6 +75,7 @@ Which supplier commitments and lead times in the near-term plan rest on orders t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed parenthetical meta-commentary and uncited framing sentences in The rule, How it works, and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DPAS scope line of subpart 11.6.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the card for the defense priorities and allocations system definitions.

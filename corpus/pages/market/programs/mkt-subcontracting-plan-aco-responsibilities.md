@@ -45,7 +45,7 @@ A contractor is behind on its small business goals part way through a contract. 
 
 ## Never confuse
 
-The administrative contracting officer assists in evaluating plans and monitors, evaluates and documents contractor performance [@CL-MKT-0459], while the contracting officer initiates action to assess liquidated damages upon a recommendation by the administrative contracting officer or receipt of other reliable evidence [@CL-MKT-0458]. The contract administration office furnishes both documentation on performance and compliance under previous contracts and immediate notices during performance and at completion [@CL-MKT-0460; @CL-MKT-0461; @CL-MKT-0462; @CL-MKT-0463]. The contracting officer's postaward duties are on the [Postaward responsibilities of the contracting officer for subcontracting plans](mkt-subcontracting-plan-postaward-co-duties.md) card.
+The administrative contracting officer assists in plan evaluation and monitors, evaluates and documents subcontracting performance after award [@CL-MKT-0459; @CL-MKT-0460], unlike the procuring contracting officer on [Reviewing the subcontracting plan](mkt-subcontracting-plan-review.md) and [Postaward responsibilities of the contracting officer for subcontracting plans](mkt-subcontracting-plan-postaward-co-duties.md), who reviews the plan for adequacy before award and executes award-level SBA notifications [@CL-MKT-0443; @CL-MKT-0453].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who at the company answers the contract administration office about plan perform
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 19.706(b)-(d) items, FAR 19.708(b) clause cross-reference, and FAR 19.705-7 reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: support wording and liquidated damages duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for responsibilities of the administrative contracting officer for subcontracting plans.

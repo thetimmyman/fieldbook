@@ -45,7 +45,7 @@ A contracting officer awards a task order of 900,000 without providing for fair 
 
 ## Never confuse
 
-Under FAR 5.406, justifications and approvals for other than full and open competition must be posted in accordance with FAR 6.305 [@CL-MKT-0095], limited-source justifications (excluding brand name) for FSS orders or blanket purchase agreements with an estimated value greater than the simplified acquisition threshold must be posted in accordance with FAR 8.405-6(a)(2) [@CL-MKT-0096], and justifications for task or delivery orders greater than the simplified acquisition threshold and awarded without providing for fair opportunity must be posted in accordance with FAR 16.505(b)(2)(ii)(D) [@CL-MKT-0097]. Under FAR 5.405(a), when the same item or class of items is being acquired by more than one agency, or by more than one contracting activity within an agency, the exchange and coordination of pertinent information, particularly cost and pricing data, between these agencies or contracting activities is necessary to promote uniformity of treatment of major issues and the resolution of particularly difficult or controversial issues [@CL-MKT-0098; @CL-MKT-9389]. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+Posting justifications and approvals for other than full and open competition follows FAR 6.305 [@CL-MKT-0095], unlike specific information requests from the general public or suppliers, which are processed under FAR subpart 24.1 or 24.2 [@CL-MKT-2219], or detailed contract requests from Members of Congress [@CL-MKT-2220].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm which posted justifications are relevant public market observations for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added within-agency contracting-activity wording in FAR 5.405(a) and removed meta-wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the purpose of the information exchange.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules for public requests and requests from Members of Congress.

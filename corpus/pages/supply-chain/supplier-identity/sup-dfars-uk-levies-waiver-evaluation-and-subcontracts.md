@@ -47,7 +47,7 @@ Assume an offeror's price includes a levy of 40, plus 4 of indirect cost and 6 o
 
 ## Never confuse
 
-A levy waived before award changes how the offer is evaluated [@CL-SUP-1741], while a levy waived after award is a price reduction right [@CL-SUP-1743] (see also [Levies on contract payments](../../contract-finance/cash/ctf-levies-on-contract-payments.md) and [Foreign military sales contingent fees, exclusionary policies and the Arab boycott certification](sup-dfars-fms-contingent-fees-exclusionary-and-arab-boycott.md)). The United Kingdom is also a listed origin in the engine and vessel component clauses [@CL-SUP-1732; @CL-SUP-1734]; see [Diesel engines, vessel components and overseas contingency operation fuel](sup-dfars-diesel-engines-tao-vessel-components-and-ocs-fuel.md) (and see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md)).
+A levy waived before award changes how the offer is evaluated [@CL-SUP-1741], unlike a levy waived after award, which is a price reduction right [@CL-SUP-1743] (see also [Levies on contract payments](../../contract-finance/cash/ctf-levies-on-contract-payments.md) and [Foreign military sales contingent fees, exclusionary policies and the Arab boycott certification](sup-dfars-fms-contingent-fees-exclusionary-and-arab-boycott.md)). The United Kingdom is also a listed origin in the engine and vessel component clauses [@CL-SUP-1732; @CL-SUP-1734]; see [Diesel engines, vessel components and overseas contingency operation fuel](sup-dfars-diesel-engines-tao-vessel-components-and-ocs-fuel.md) (and see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md)).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which subcontracts to United Kingdom firms exceed the value in the clause and ho
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (a) and (c) lead-in quotes of DFARS 252.225-7032 and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the waiver of United Kingdom levies.

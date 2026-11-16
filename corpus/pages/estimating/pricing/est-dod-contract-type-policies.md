@@ -60,7 +60,7 @@ A basic ordering agreement for spare parts allows orders to be placed for 4 year
 
 ## Never confuse
 
-The prohibition covers a cost-reimbursement line item for production of a major defense acquisition program, and it has a stated exception [@CL-EST-2985]. The selection rule directs contracting officers to follow a memorandum when selecting and negotiating contract type [@CL-EST-2986; @CL-EST-2987]. The 5-year limit is on the period during which orders may be placed against a basic ordering agreement [@CL-EST-2991].
+DoD bars cost-reimbursement line items for major defense acquisition program production (subject to statutory exception) and adds specific research-and-development approval rules [@CL-EST-2985; @CL-EST-2988], rather than leaving contract-type choice solely to the general risk-and-incentive continuum on [selecting contract types](est-selecting-contract-types.md) [@CL-EST-0944].
 
 ## Company calibration
 
@@ -70,5 +70,6 @@ Whether each DoD proposal in the pipeline is priced under an approved contract t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the sections do not name, state or prohibit; reworded the how-it-works summary to the rules' own words.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract type policies.

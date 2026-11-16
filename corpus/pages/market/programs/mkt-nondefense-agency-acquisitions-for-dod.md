@@ -57,7 +57,7 @@ Had the civilian agency not certified, the request could go ahead only if the Un
 
 ## Never confuse
 
-Under FAR 17.703(a) and (e), the head of the nondefense agency conducting the acquisition on DoD's behalf certifies compliance for the fiscal year, unless waived by a written determination of the Under Secretary of Defense for Acquisition and Sustainment identifying the acquisition categories to which the waiver applies [@CL-MKT-1753; @CL-MKT-1757; @CL-MKT-1800]. Nondefense agencies acquiring supplies and services on behalf of DoD must also comply with the policy and procedures at subpart 17.7 in addition to subpart 17.5 [@CL-MKT-1728].
+This rule governs acquisitions above the simplified acquisition threshold conducted on DoD's behalf by a nondefense Federal agency [@CL-MKT-1752; @CL-MKT-1789], rather than acquisitions conducted inside DoD components, and applies to both direct and assisted interagency acquisitions approved by a DoD acquisition official [@CL-MKT-1751].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Which contracts the company performs for a nondefense agency acting for the Depa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.703(c) submission address and removed unquoted meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: compliance wording follows quote, terms provided for incorporation, waiver lifts the limitation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the head of the nondefense agency, as the cited text does.

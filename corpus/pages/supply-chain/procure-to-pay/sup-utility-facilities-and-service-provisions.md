@@ -76,9 +76,7 @@ A site has one meter that the contractor installed and reads about every 30 days
 
 ## Never confuse
 
-At its expense, unless otherwise provided in the contract, the contractor shall furnish, install, operate, and maintain all facilities required to furnish service under the contract and measure such service at the delivery point specified in the Service Specifications, and title to all such facilities shall remain with the contractor [@CL-SUP-2672; @CL-SUP-2673]. The contractor is not liable for damages, breach of contract or otherwise, to the Government, where a cause beyond its control occasions a service failure, suspension, diminution or other variation, and if any such failure, suspension, diminution, or other variation of service aggregates more than the number of hours the contract inserts during any billing period, an equitable adjustment shall be made in the monthly billing, including the minimum monthly charge [@CL-SUP-2677; @CL-SUP-2737].
-
-The clauses on utility service scope, duration and change in class of service are covered in [Utility service scope, duration and change in class of service](sup-utility-scope-duration-and-class-change.md).
+At its expense, unless otherwise provided in the contract, the contractor shall furnish, install, operate, and maintain all facilities required to furnish service under the contract and measure such service at the delivery point specified in the Service Specifications, with title to all such facilities remaining with the contractor [@CL-SUP-2672; @CL-SUP-2673], and the contractor's protection from liability differs from the billing remedy rather than being displaced by it: where a cause beyond its control occasions a service failure, suspension, diminution or other variation, the contractor is not liable for damages or breach of contract [@CL-SUP-2677], and when such a variation aggregates more than the number of hours the contract inserts during any billing period, an equitable adjustment is made in the monthly billing, including the minimum monthly charge, as a separate remedy that does not withdraw that protection [@CL-SUP-2737]. The clauses on utility service scope, duration and change in class of service are covered in [Utility service scope, duration and change in class of service](sup-utility-scope-duration-and-class-change.md).
 
 ## Company calibration
 
@@ -88,6 +86,7 @@ Confirm which meters serve each site, who reads and tests them, and where meter 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording about blanks and RFO clauses and aligned How it works and Never confuse with the cited quotes.

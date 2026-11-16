@@ -43,7 +43,7 @@ A control account collects direct labor of 90,000 and material of 30,000 from th
 
 ## Never confuse
 
-Actual costs (direct and indirect) are collected, by elements of cost, from a formal system controlled by the general books of account for comparison to corresponding budgets in the EVMS [@CL-PRG-0301].
+Collecting actual costs differs from allocating indirect costs. Actual direct and indirect costs are collected by elements of cost from a formal system controlled by the general books of account for comparison to corresponding budgets in the EVMS, with reported actual cost of work performed reconciling to direct costs in the formal accounting system [@CL-PRG-0301; @CL-PRG-0700; @CL-PRG-0701], and indirect costs are properly and correctly allocated in a consistent manner to the contracts at the level where indirect budgets are established [@CL-PRG-0303].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether actual costs are collected by element of cost and reconcile to the accou
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added full cost-projection purpose for direct cost collection and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Indirect cost allocation stated as the guide's purpose with its full wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 15 record costs by element of cost.

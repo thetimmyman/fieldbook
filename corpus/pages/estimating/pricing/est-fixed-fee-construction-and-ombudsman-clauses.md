@@ -50,9 +50,7 @@ So the reserve withheld cannot exceed 60,000. Fee installments follow the approv
 
 ## Never confuse
 
-The contracting officer shall release 75 percent of all fee withholds after receipt of an adequate certified final indirect cost rate proposal covering the year of physical completion, provided the contractor has met the other terms and conditions [@CL-EST-1691; @CL-EST-1716].
-
-Consulting an ombudsman does not alter or postpone the timeline for any other process, such as protests [@CL-EST-1719].
+FAR 52.216-9 governs fixed-fee payment and withholding on cost-plus-fixed-fee construction contracts [@CL-EST-0265; @CL-EST-1688], whereas FAR 52.216-32 names the task-order and delivery-order ombudsman on indefinite-delivery contracts [@CL-EST-1718] rather than setting minimum and maximum order quantities like [Order limitations and indefinite quantity clauses](est-order-limitations-and-indefinite-quantity-clauses.md) [@CL-EST-1707].
 
 ## Company calibration
 
@@ -61,6 +59,7 @@ Whether any construction contract of the company carries the fee clause, and how
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's shall wording for fee payment; cut two uncited contrasts and a characterization of the ombudsman clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed fee for construction and the task-order ombudsman clause.

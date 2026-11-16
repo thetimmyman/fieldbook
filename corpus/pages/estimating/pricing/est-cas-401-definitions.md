@@ -47,7 +47,7 @@ An estimator forecasts 500,000 of engineering cost for a follow-on lot from the 
 
 ## Never confuse
 
-Estimating costs is the process of forecasting a future result in terms of cost, based on information available at the time, where actual cost is an amount determined on the basis of cost incurred, as distinguished from forecasted cost [@CL-EST-2858; @CL-EST-2857]. Pricing is the process of establishing the amount or amounts to be paid in return for goods or services [@CL-EST-2860]. Accumulating costs is the collecting of cost data in an organized manner, and reporting costs is provision of cost information to others [@CL-EST-2856; @CL-EST-2862]. The consistency requirement is on the [consistency card](../../compliance/cas-allowability/cmp-cas-401-consistency.md).
+In CAS 401, estimating costs forecasts a future cost result from information available at the time [@CL-EST-2858], unlike accumulating costs in an organized system of accounts or reporting cost information to others [@CL-EST-2856; @CL-EST-2862], though the [consistency card](../../compliance/cas-allowability/cmp-cas-401-consistency.md) requires those practices to align [@CL-CMP-0201].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm who owns proposal pricing and the estimating system description, and whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated terms defined elsewhere in chapter 99 on the paragraph (b) sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse definitions restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Proposal definition restated as quoted; uncited statements removed.

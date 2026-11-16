@@ -45,7 +45,7 @@ A solicitation covers a part whose quality characteristics are not wholly visibl
 
 ## Never confuse
 
-Government quality assurance and the contractor's own responsibilities are on separate cards. See [Government contract quality assurance](sup-government-contract-quality-assurance.md) for the Government side, [Contractor responsibilities for quality](sup-contractor-quality-responsibilities.md) for the contractor side, and [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md) for how acceptance works.
+For contracts at or below the simplified acquisition threshold, the Government relies on the contractor to accomplish all inspection and testing needed before tender except as specified in FAR 46.202-2(b) [@CL-SUP-0950; @CL-SUP-9762], whereas the Government shall not rely on inspection by the contractor when the contracting officer determines that the Government needs to test in advance of tender or pass judgment upon the adequacy of the contractor's internal work processes [@CL-SUP-0951]; see [Government contract quality assurance](sup-government-contract-quality-assurance.md) for the Government side, [Contractor responsibilities for quality](sup-contractor-quality-responsibilities.md) for the contractor side, and [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md) for how acceptance works.
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How each contract's quality requirement level is recorded and priced into suppli
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the all-apply factor list and alternative-inspection conditions as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the before-tender qualification and the Government inspection cost factor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract quality requirements.

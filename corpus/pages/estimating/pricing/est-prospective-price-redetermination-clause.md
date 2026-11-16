@@ -49,9 +49,7 @@ The contractor sends proposed prices, a cost breakdown and the cost statement 75
 
 ## Never confuse
 
-This card covers the clause text and its data duties; the contract-type card covers the conditions for using the type. Retroactive redetermination is a separate contract type with its own card: [Fixed ceiling price with retroactive price redetermination](../../close-revrec/revenue/cls-fixed-ceiling-price-retroactive-price-redetermination.md). Price revision under an incentive clause is a different mechanism, covered on its own card: [Incentive price revision clause with a firm target](est-incentive-price-revision-firm-target-clause.md).
-
-The codified clause points to the Table 15-2 format for the cost estimate [@CL-EST-1654] and for the statement of costs incurred [@CL-EST-9148], while RFO FAR 52.216-5 points to Table 15-1 for both [@CL-EST-0493; @CL-EST-9146].
+FAR 52.216-5 holds initial-period prices fixed and redetermines prices forward for stated future periods [@CL-EST-0491; @CL-EST-1650; @CL-EST-1652], unlike [Fixed ceiling price with retroactive price redetermination](../../close-revrec/revenue/cls-fixed-ceiling-price-retroactive-price-redetermination.md), which reprices past performance retroactively within a fixed ceiling after contract completion [@CL-CLS-0556].
 
 ## Company calibration
 
@@ -61,6 +59,7 @@ Who prepares and reviews the cost breakdown and support for each redetermination
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added what the parties fail to agree on; replaced a note about the printed text with the clause's blank for the months.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named paragraphs (f), (g), and (h) by their headings, with companion claims for the headings.

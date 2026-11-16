@@ -44,7 +44,7 @@ A company registers one class of common stock and one series of notes. For the s
 
 ## Never confuse
 
-Item 202(a), (b) and (c) cover the title and relevant terms of capital stock, debt securities (including maturity, interest, conversion, redemption, amortization, sinking fund or retirement, kind and priority of any lien with principal properties, and events of default and periodic compliance evidence), and warrants or rights to be registered [@CL-FPA-0220; @CL-FPA-0221; @CL-FPA-0222; @CL-FPA-0252; @CL-FPA-0223; @CL-FPA-0348; @CL-FPA-0224; @CL-FPA-0225; @CL-FPA-0253]. For principal United States trading markets and equity compensation plan disclosures, see [Market price, dividends and equity compensation plans](fpa-market-price-dividends-and-equity-compensation-plans.md); for use of proceeds and plan of distribution, see [Use of proceeds and plan of distribution](fpa-use-of-proceeds-and-plan-of-distribution.md). Under Item 601(b)(4)(i), all instruments defining the rights of holders of the equity or debt securities being registered are filed as exhibits [@CL-FPA-1183], as covered on [Exhibits: the categories a finance reader uses](fpa-exhibits-categories.md).
+Item 202(a), (b) and (c) require describing the title and relevant terms of capital stock, debt securities (including maturity, interest, conversion, redemption, amortization, sinking fund or retirement, kind and priority of any lien with principal properties, and events of default and periodic compliance evidence), and warrants or rights to be registered without needing a complete legal description of capital stock [@CL-FPA-0220; @CL-FPA-0221; @CL-FPA-0222; @CL-FPA-0252; @CL-FPA-0223; @CL-FPA-0348; @CL-FPA-0224; @CL-FPA-0225; @CL-FPA-0253], unlike Item 601(b)(4)(i), under which the underlying instruments defining the rights of holders of registered equity or debt securities are filed as exhibits [@CL-FPA-1183] on [Exhibits: the categories a finance reader uses](fpa-exhibits-categories.md). For principal United States trading markets and equity compensation plan disclosures, see [Market price, dividends and equity compensation plans](fpa-market-price-dividends-and-equity-compensation-plans.md); for use of proceeds and plan of distribution, see [Use of proceeds and plan of distribution](fpa-use-of-proceeds-and-plan-of-distribution.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ How the company keeps its charter, indenture and warrant terms in a form that ca
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included voting-requirement provisions in Item 202(a)(1)(v), cited Item 601(b)(4)(i) in Never confuse, and removed meta-wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the new card on exhibit categories.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the debt outline sentence so the lien item keeps the identification of the principal properties.

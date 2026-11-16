@@ -51,7 +51,7 @@ A contracting officer asks for a preaward survey of a bidder that missed deliver
 
 ## Never confuse
 
-A preaward survey is an evaluation of a prospective contractor's capability to perform a proposed contract [@CL-MKT-9228], while the contracting office uses Standard Form 1403 to request a capability survey of organizations employing people who are blind or have other severe disabilities [@CL-MKT-0787]. The standards are on the [Contractor responsibility standards and their application](../../mna/screening/mna-contractor-responsibility-standards.md) card, and the information gathering and documentation are on the [Obtaining responsibility information and documenting the determination](../../supply-chain/supplier-identity/sup-responsibility-information-and-determination.md) card. The arms control certification and the funding prohibition for institutions of higher education are separate rules [@CL-MKT-0755; @CL-MKT-0751]. What the arms control certification clauses say is on the [Arms control treaty certification and ROTC and military recruiting access](../../supply-chain/supplier-identity/sup-arms-control-certification-and-rotc-clauses.md) card.
+A preaward survey on SF 1403, SF 1404 and SF 1405 evaluates a specific prospective contractor's capability to perform a proposed contract [@CL-MKT-0749], rather than imposing an agency-wide exclusion like debarment or suspension on [Debarment and suspension policy and definitions](mkt-debarment-policy-and-definitions.md) [@CL-MKT-0771], and differs from an AbilityOne capability survey requested through the Committee [@CL-MKT-0786].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which preaward survey requests and offeror certifications are open and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added narrative, short-form, AbilityOne capability survey, arms-control certification submission, and 10 U.S.C. 983 list and exception claims, separated codified and RFO citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: False-certification remedies now name the 52.209-13 condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of preaward survey.

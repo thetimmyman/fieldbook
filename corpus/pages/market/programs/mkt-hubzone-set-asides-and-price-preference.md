@@ -49,7 +49,7 @@ An acquisition is competed under full and open competition. A HUBZone small busi
 
 ## Never confuse
 
-The price evaluation preference for HUBZone small business concerns is used in acquisitions conducted using full and open competition unless one of the exclusions in FAR 19.1307(a) applies [@CL-MKT-0615; @CL-MKT-1462; @CL-MKT-1463], while a HUBZone set-aside restricts competition to HUBZone small business concerns [@CL-MKT-0612]. HUBZone status protests are on the [Protesting a firm's HUBZone status](../taxonomy/mkt-hubzone-status-protests.md) card, and the general set-aside rules are on the [Small business set-asides](mkt-small-business-set-asides.md) card. The service-disabled veteran-owned and women-owned programs have their own cards: [Service-disabled veteran-owned small business status, set-asides and sole-source awards](mkt-sdvosb-status-set-asides-and-sole-source.md) and [Women-Owned Small Business Program set-asides and sole-source awards](mkt-wosb-set-asides-and-sole-source.md).
+A HUBZone set-aside or sole-source award restricts who may receive the contract before general small business set-asides are considered [@CL-MKT-0612; @CL-MKT-0613], unlike the HUBZone price evaluation preference, which applies inside full and open competition unless an exclusion applies [@CL-MKT-0615].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed FAR 19.1307(a) exclusions and separated codified and RFO FAR 2.101 citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of HUBZone small business concern and HUBZone.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of HUBZone small business concern and HUBZone.

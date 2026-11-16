@@ -59,11 +59,7 @@ Bidder B offers 100 units of item 1 at 40 each and 100 units of item 2 at 50 eac
 
 ## Never confuse
 
-The Government may reject a bid as nonresponsive if the prices bid are materially unbalanced between line items or subline items [@CL-EST-1981; @CL-EST-1986], and the definition of a materially unbalanced bid applies even though the bid may be the low evaluated bid [@CL-EST-1982; @CL-EST-2135].
-
-Unless the bidder specifies otherwise in the bid, the Government reserves the right to make an award on any item for a quantity less than the quantity offered, at the unit prices offered [@CL-EST-2089].
-
-A written award or acceptance of a bid, mailed or otherwise furnished to the successful bidder within the time for acceptance specified in the bid, results in a binding contract without further action by either party [@CL-EST-2090].
+Sealed-bidding award under FAR 52.214-10 (and construction award) considers only price and solicitation-listed price-related factors for responsive, responsible bidders [@CL-EST-0563; @CL-EST-1978; @CL-EST-1984], unlike negotiated tradeoff procurements that weigh non-price technical superiority against price.
 
 ## Company calibration
 
@@ -73,6 +69,7 @@ Confirm who checks bid prices for unbalance, who decides whether to limit a bid 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and glosses; attached the low evaluated bid wording to the reasonable-doubt condition as the provision does; gave the prescription paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated two warnings as the provision words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

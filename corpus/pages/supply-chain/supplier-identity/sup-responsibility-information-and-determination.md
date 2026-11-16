@@ -51,7 +51,7 @@ Answer: the auditor's information and the survey report go into the contract fil
 
 ## Never confuse
 
-Before making a determination of responsibility, the contracting officer shall possess or obtain information sufficient to be satisfied that a prospective contractor currently meets the standards in 9.104 [@CL-SUP-0908], and when an offer on which an award would otherwise be made is rejected because the prospective contractor is found to be nonresponsible, the contracting officer shall make, sign, and place in the contract file a determination of nonresponsibility, which shall state the basis for the determination [@CL-SUP-0913] (see also [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md), [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md), and [FAPIIS review and the responsibility provisions and clauses](sup-fapiis-and-responsibility-clauses.md)).
+Before making a determination of responsibility, the contracting officer shall possess or obtain information sufficient to be satisfied that a prospective contractor currently meets the standards in 9.104 [@CL-SUP-0908], whereas when an offer on which an award would otherwise be made is rejected because the prospective contractor is found to be nonresponsible rather than responsible, the contracting officer shall make, sign, and place in the contract file a determination of nonresponsibility stating the basis for the determination [@CL-SUP-0913] and document it in FAPIIS when the contract exceeds the simplified acquisition threshold, the determination rests on lack of a satisfactory performance record or record of integrity and business ethics, and the Small Business Administration does not issue a Certificate of Competency [@CL-SUP-0915; @CL-SUP-0916] (see also [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md), [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md), and [FAPIIS review and the responsibility provisions and clauses](sup-fapiis-and-responsibility-clauses.md)).
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Confirm who supplies financial data, credit information and accounting system in
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the standards in 9.104 in FAR 9.105-1(a) and removed uncited meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: responsibility information: added the limit on requests, auditor accounting-system information and linked FAPIIS sources.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the timing of responsibility information.

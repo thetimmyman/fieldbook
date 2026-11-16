@@ -46,7 +46,7 @@ SBA holds a contract for 1,000,000 and awards a subcontract for 900,000 of the w
 
 ## Never confuse
 
-FAR 52.219-11 states what SBA agrees to in the contract with the agency, and FAR 52.219-12 states what the subcontractor agrees and acknowledges in the subcontract [@CL-MKT-0990; @CL-MKT-0995]. In both clauses the agency's delegated authority to administer the subcontract excludes novation agreements [@CL-MKT-0992; @CL-MKT-1042]. The competition notice and the award clause are on the [award and competition notification](mkt-section-8a-award-and-competition-notification.md) card.
+FAR 52.219-11 binds SBA in the prime contract with the procuring agency [@CL-MKT-0990], whereas FAR 52.219-12 binds the 8(a) participant as subcontractor performing on SBA's behalf with the prime contract attached [@CL-MKT-0995; @CL-MKT-1041], rather than merging both relationships into a single bilateral commercial subcontract.
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which entity in the finance remit holds the special subcontract and books the di
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on the printed text, 'RFO text of' phrasing, and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: contract clause wording and delegation tail.

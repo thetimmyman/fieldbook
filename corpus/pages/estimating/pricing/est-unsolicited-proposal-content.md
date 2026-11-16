@@ -45,7 +45,7 @@ An offeror drafts an unsolicited proposal for a study. It gives a one-page abstr
 
 ## Never confuse
 
-Codified FAR 15.605 says unsolicited proposals should contain the listed information [@CL-EST-1432], while RFO FAR 15.503-2 says they must contain it [@CL-EST-3502]. What makes a proposal valid is on [Valid unsolicited proposals and agency points of contact](est-unsolicited-proposals-general.md), and how data in it is restricted is on [Limited use of data in unsolicited proposals](est-unsolicited-proposal-data-legend.md).
+Codified FAR 15.605 frames the listed unsolicited-proposal content with `should` versus RFO FAR 15.503-2, which uses `must` [@CL-EST-1432; @CL-EST-3502], and providing that content (including price or cost detail [@CL-EST-1438]) differs from meeting the threshold originality test on [Valid unsolicited proposals and agency points of contact](est-unsolicited-proposals-general.md) [@CL-EST-1426].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Who owns the proposal pricing and how much detail that owner can support for a p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the omitted qualifiers in the content lists and cut unquoted absence statements.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
