@@ -17,8 +17,9 @@ In the areas this part covers, listed in the pull request (as many pages as fit 
 
 ## Scope
 
-- Files: `corpus/pages/` (the Edition date row and the Change note of each page this part fills), `corpus/registers/claims.csv` (appended rows only).
+- Files: `corpus/pages/` (the Edition date row and the Change note of each page this part fills), `corpus/registers/claims.csv` (appended rows only), `docs/cards/kb-edition-dates-2.md`.
 - Docs to update: none.
+- Registration lines: `docs/plan/PLAN.md` (adds `kb-edition-dates-2`).
 
 ## Out of scope
 

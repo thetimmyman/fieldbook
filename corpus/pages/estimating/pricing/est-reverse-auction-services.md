@@ -24,7 +24,7 @@ Sets out what a reverse auction service provider must do, and must not do, when 
 | Instrument | Codified FAR [@CL-EST-2037] |
 | Codified citation | FAR 52.217-12 [@CL-EST-2037]; FAR 17.800 [@CL-EST-9200] |
 | RFO citation | RFO FAR 52.217-12 [@CL-EST-0546] |
-| Edition date | Not established. |
+| Edition date | Aug 2024 [@CL-EST-0546] |
 | Text status | Final [@CL-EST-2037] |
 | Applies to | A contractor that provides reverse auction services to the Government [@CL-EST-2037] |
 
@@ -66,6 +66,7 @@ Whether each platform we use is bound by these duties on our data, on its fee re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and an unquoted statement that provider fees may be included; restated the fee reporting and registration duties as the clause words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the provider duties as the clause words them, including hosting scope and notice duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.800 subpart scope.

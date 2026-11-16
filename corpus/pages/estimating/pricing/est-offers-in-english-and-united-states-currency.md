@@ -24,7 +24,7 @@ Shows what the English language and United States currency provisions require of
 | Instrument | Codified FAR [@CL-EST-2181; @CL-EST-2182] |
 | Codified citation | FAR 52.214-34 [@CL-EST-2181]; FAR 52.214-35 [@CL-EST-2182] |
 | RFO citation | RFO FAR 52.214-34 [@CL-EST-0368]; RFO FAR 52.214-35 [@CL-EST-0369] |
-| Edition date | Not established. |
+| Edition date | FAR 52.214-34: Apr 1991 [@CL-EST-0368]; FAR 52.214-35: Apr 1991 [@CL-EST-0369] |
 | Text status | Final [@CL-EST-2181; @CL-EST-2182] |
 | Applies to | Offers submitted in response to a solicitation that includes the provision [@CL-EST-2181; @CL-EST-2182] |
 
@@ -60,6 +60,7 @@ Confirm who checks language and currency on each offer before it is released, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited inferences and contrasts with cited requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

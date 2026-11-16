@@ -23,7 +23,7 @@ Shows the invitation to comment on purchase quantities and the mechanics of an o
 | Instrument | Codified FAR [@CL-EST-2302] |
 | Codified citation | FAR 52.207-4 [@CL-EST-2302]; FAR 52.207-5 [@CL-EST-2305] |
 | RFO citation | RFO FAR 52.207-4 [@CL-EST-0189] and RFO FAR 52.207-5 [@CL-EST-0193] |
-| Edition date | Not established. |
+| Edition date | FAR 52.207-4: Aug 1987 [@CL-EST-0189]; FAR 52.207-5: Feb 1995 [@CL-EST-0193] |
 | Text status | Final [@CL-EST-2302] |
 | Applies to | Solicitations that invite opinions on the quantity of supplies [@CL-EST-2302], and contracts under which equipment is provided on a lease or rental basis [@CL-EST-2391] |
 
@@ -59,6 +59,7 @@ How the quantity assumptions and option credits are held so the conversion cost 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Worded the price break desire, resolicitation right and deviation sentence as the cited text states them, and cut two uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: The pointer to the option clauses card no longer repeats a section number.

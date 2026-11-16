@@ -25,7 +25,7 @@ Shows what the offeror must complete under the DoD proposal adequacy checklist p
 | Instrument | Codified DFARS [@CL-EST-1543] |
 | Codified citation | DFARS 252.215-7009 [@CL-EST-1543] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 2023 [@CL-EST-9790] |
 | Text status | Final [@CL-EST-1543] |
 | Applies to | Solicitations that include the checklist, which the contracting officer should include when certified cost or pricing data are required [@CL-EST-1521] |
 
@@ -53,6 +53,7 @@ Which bids and estimates need the checklist completed now, and what review evide
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts and a meta sentence and cited the contracting officer inclusion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the proposal adequacy checklist provision.

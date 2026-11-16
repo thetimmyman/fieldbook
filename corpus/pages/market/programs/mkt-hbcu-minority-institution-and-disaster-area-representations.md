@@ -24,7 +24,7 @@ Covers what an offeror represents about institutional status and about presence 
 | Instrument | Codified FAR [@CL-MKT-1024] |
 | Codified citation | FAR 52.226-2; FAR 52.226-3; FAR 52.226-5 [@CL-MKT-1024; @CL-MKT-1093; @CL-MKT-1027]; FAR 2.101 [@CL-MKT-9298] |
 | RFO citation | RFO FAR 52.226-2; RFO FAR 52.226-3; RFO FAR 52.226-5 [@CL-MKT-0126; @CL-MKT-0129; @CL-MKT-0138] |
-| Edition date | Not established. |
+| Edition date | FAR 52.226-2: Oct 2014 [@CL-MKT-0126]; FAR 52.226-3: Nov 2007 [@CL-MKT-0129]; FAR 52.226-5: NOV 2007 [@CL-MKT-9426] |
 | Text status | Final [@CL-MKT-1024] |
 | Applies to | Offers that carry the two representation provisions, and contracts that carry the subcontracting restriction clause [@CL-MKT-1024; @CL-MKT-1093; @CL-MKT-1027] |
 
@@ -59,6 +59,7 @@ Which institutional and disaster area representations in the finance remit are d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named defined terms in FAR 52.226-5(a) and separated codified and RFO clause citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: residence test conditions joined, services wording follows codified text.

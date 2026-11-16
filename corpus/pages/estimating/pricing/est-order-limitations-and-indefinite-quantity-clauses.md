@@ -24,7 +24,7 @@ Shows the minimum and maximum order rules in the order limitations clause, the g
 | Instrument | Codified FAR [@CL-EST-1707; @CL-EST-1710] |
 | Codified citation | FAR 52.216-19 and FAR 52.216-22 [@CL-EST-1707; @CL-EST-1710] |
 | RFO citation | RFO FAR 52.216-19 [@CL-EST-0370]; RFO FAR 52.216-22 [@CL-EST-0376] |
-| Edition date | Not established. |
+| Edition date | FAR 52.216-19: Oct 1995 [@CL-EST-0370]; FAR 52.216-22: OCT 1995 [@CL-EST-9799] |
 | Text status | Final [@CL-EST-1707; @CL-EST-1710] |
 | Applies to | Contracts that include the Order Limitations clause or the Indefinite Quantity clause [@CL-EST-1707; @CL-EST-1710] |
 
@@ -62,6 +62,7 @@ Which indefinite-quantity contracts carry order limits and the minimum, maximum 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the governing sentence before the delivery proviso; replaced characterizations and meta wording with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Framed delivery-date limit as a proviso and cited the clauses that print the blanks.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to say a series of orders is measured against either limitation.

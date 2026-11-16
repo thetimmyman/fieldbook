@@ -25,7 +25,7 @@ Shows what master and commercial plans are, how a master plan is incorporated an
 | Instrument | Codified FAR [@CL-MKT-0826] |
 | Codified citation | FAR 52.219-9 [@CL-MKT-0826; @CL-MKT-0829] |
 | RFO citation | RFO FAR 52.219-9 [@CL-MKT-1206; @CL-MKT-1217] |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-MKT-9439] |
 | Text status | Final [@CL-MKT-0826] |
 | Applies to | Contractors, other than small business concerns, with a master plan, a commercial plan, or the listed reporting and flowdown assurances in their plans [@CL-MKT-0821; @CL-MKT-0826; @CL-MKT-0827; @CL-MKT-0828] |
 
@@ -68,6 +68,7 @@ Whether the company has an approved master plan or commercial plan, which subcon
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named paragraph (l), listed excepted indirect costs, completed individual plan definition, and separated RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: threshold wording, plan exemption alternatives, goals exception.

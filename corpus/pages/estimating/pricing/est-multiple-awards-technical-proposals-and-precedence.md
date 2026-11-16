@@ -25,7 +25,7 @@ Explains how an assumed administrative cost enters the evaluation of bids for mu
 | Instrument | Codified FAR [@CL-EST-2014] |
 | Codified citation | FAR 52.214-22 [@CL-EST-2014]; FAR 52.214-24 [@CL-EST-2016]; FAR 52.214-29 [@CL-EST-2017] |
 | RFO citation | RFO FAR 52.214-22 [@CL-EST-0343; @CL-EST-0344; @CL-EST-0345]; RFO FAR 52.214-24 [@CL-EST-0346; @CL-EST-0347]; RFO FAR 52.214-29 [@CL-EST-0348; @CL-EST-0349] |
-| Edition date | Not established. |
+| Edition date | FAR 52.214-22: Mar 1990 [@CL-EST-0343]; FAR 52.214-24: Apr 1984 [@CL-EST-0346]; FAR 52.214-29: Jan 1986 [@CL-EST-0348] |
 | Text status | Final [@CL-EST-2014] |
 | Applies to | Solicitations that include the multiple awards evaluation provision [@CL-EST-2130], the multiple technical proposals provision [@CL-EST-2132] or the order of precedence clause [@CL-EST-2134] |
 
@@ -67,6 +67,7 @@ Confirm which of the company's contracts carry these provisions and who confirms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrasts with the stated rules; cut an uncited description of the cost comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
