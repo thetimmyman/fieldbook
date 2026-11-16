@@ -46,7 +46,7 @@ A solicitation closes at noon on the fifth of the month. The offeror's courier d
 
 ## Never confuse
 
-Under FAR 52.215-1, any proposal, modification, or revision arriving after the exact deadline (or 4:30 post meridiem local time if none is stated) is late and excluded unless the narrow preaward exception applies [@CL-EST-0293; @CL-EST-0294; @CL-EST-1797], unlike post-receipt clarifications on [Exchanges after proposals and the competitive range](est-exchanges-after-proposals-and-competitive-range.md) that address timely offers [@CL-EST-1383].
+Under FAR 52.215-1(c)(3)(i) and (ii)(A), a proposal, modification, or revision received at the designated Government office after the exact deadline (or 4:30 p.m., local time, when no time is specified) is late and is not considered unless it is received before award, the Contracting Officer determines that accepting it would not unduly delay the acquisition, and one of paragraph (A)'s further conditions is met [@CL-EST-1847; @CL-EST-0293; @CL-EST-9752; @CL-EST-1797; @CL-EST-1798; @CL-EST-1799; @CL-EST-0294; @CL-EST-9022; @CL-EST-0295; @CL-EST-0296]—apart from the separate rule in FAR 52.215-1(c)(3)(ii)(B) that a late modification of an otherwise successful proposal making its terms more favorable to the Government will be considered at any time it is received and may be accepted [@CL-EST-1800; @CL-EST-0298]—unlike post-receipt clarifications on [Exchanges after proposals and the competitive range](est-exchanges-after-proposals-and-competitive-range.md) that may occur when award without discussions is contemplated [@CL-EST-1383].
 
 ## Company calibration
 
@@ -55,7 +55,7 @@ Which bids need immediate support and the approval route that must finish before
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried designated-office scope and FAR 15.306(a) clarification cross-reference; replaced contrasts and meta wording with cited statements; added one companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
