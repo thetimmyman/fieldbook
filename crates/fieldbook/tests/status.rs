@@ -726,3 +726,148 @@ fn status_next_actions_preserve_all_finding_group_priority() {
         "without conflicts, open_questions places search 4th after check"
     );
 }
+
+#[test]
+fn status_rejects_missing_malformed_and_non_utf8_registers() {
+    // 1. Missing register file (`FB0200`).
+    let missing_tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    std::fs::remove_file(missing_tmp.path().join("corpus/registers/claims.csv"))
+        .expect("remove claims.csv");
+    let missing_world = TestWorld::new(missing_tmp.path());
+    let missing = fieldbook::run(&status_args(fixture_today()), &missing_world);
+    assert_eq!(
+        missing.code, 1,
+        "missing register must fail with EXIT_FINDINGS, stdout:\n{}",
+        missing.stdout
+    );
+    assert!(
+        missing.stdout.is_empty(),
+        "missing register must not print partial status stdout:\n{}",
+        missing.stdout
+    );
+    assert!(
+        missing.stderr.contains("error[FB0200]")
+            && missing.stderr.contains("corpus/registers/claims.csv"),
+        "missing register stderr must include FB0200 diagnostic, got:\n{}",
+        missing.stderr
+    );
+    let missing_pages = fieldbook::run(&["status".to_owned(), "--page".to_owned()], &missing_world);
+    assert_eq!(missing_pages.code, 1);
+    assert!(
+        missing_world.written().is_empty(),
+        "status --page must not write desk pages when a register fails to load"
+    );
+
+    // 2. Malformed CSV syntax (`FB0201`).
+    let malformed_tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    let claims_path = malformed_tmp.path().join("corpus/registers/claims.csv");
+    let header = std::fs::read_to_string(&claims_path)
+        .expect("read claims.csv")
+        .lines()
+        .next()
+        .expect("claims header")
+        .to_owned();
+    std::fs::write(&claims_path, format!("{header}\n\"unclosed quote\n"))
+        .expect("write malformed claims.csv");
+    let malformed_world = TestWorld::new(malformed_tmp.path());
+    let malformed = fieldbook::run(&status_args(fixture_today()), &malformed_world);
+    assert_eq!(
+        malformed.code, 1,
+        "malformed register must fail with EXIT_FINDINGS, stdout:\n{}",
+        malformed.stdout
+    );
+    assert!(
+        malformed.stdout.is_empty(),
+        "malformed register must not print partial status stdout:\n{}",
+        malformed.stdout
+    );
+    assert!(
+        malformed.stderr.contains("error[FB0201]")
+            && malformed.stderr.contains("corpus/registers/claims.csv"),
+        "malformed register stderr must include FB0201 diagnostic, got:\n{}",
+        malformed.stderr
+    );
+
+    // 3. Non-UTF-8 register bytes (`FB0202`).
+    let non_utf8_tmp = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    std::fs::write(
+        non_utf8_tmp.path().join("corpus/registers/claims.csv"),
+        b"claim_id\n\xff\xfe\n",
+    )
+    .expect("write non-UTF-8 claims.csv");
+    let non_utf8_world = TestWorld::new(non_utf8_tmp.path());
+    let non_utf8 = fieldbook::run(&status_args(fixture_today()), &non_utf8_world);
+    assert_eq!(
+        non_utf8.code, 1,
+        "non-UTF-8 register must fail with EXIT_FINDINGS, stdout:\n{}",
+        non_utf8.stdout
+    );
+    assert!(
+        non_utf8.stdout.is_empty(),
+        "non-UTF-8 register must not print partial status stdout:\n{}",
+        non_utf8.stdout
+    );
+    assert!(
+        non_utf8.stderr.contains("error[FB0202]")
+            && non_utf8.stderr.contains("corpus/registers/claims.csv"),
+        "non-UTF-8 register stderr must include FB0202 diagnostic, got:\n{}",
+        non_utf8.stderr
+    );
+}
+
+#[test]
+fn status_warns_on_unverified_one_off_backup_and_omits_when_absent() {
+    let root = temp_copy(&repo_root().join("tests/fixtures/corpus-mini"));
+    let state_dir = root.path().join(".fieldbook");
+    std::fs::create_dir_all(&state_dir).expect("create .fieldbook");
+    std::fs::write(state_dir.join("settings.toml"), "role = \"lead\"\n")
+        .expect("write role-only settings without [[backup.target]]");
+
+    let world = TestWorld::new(root.path());
+    let tree = world.read_tree().expect("read fixture tree");
+    let catalogue = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("public support catalogue");
+    let (_, sha) = catalogue.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(catalogue, sha);
+
+    // Before any backup exists, no backup line or reminder is emitted.
+    let absent = fieldbook::run(&status_args(fixture_today()), &world);
+    assert_eq!(absent.code, 0, "stderr: {}", absent.stderr);
+    assert!(
+        !absent.stdout.contains("Last verified backup"),
+        "absent backup history must omit Last verified backup line, got:\n{}",
+        absent.stdout
+    );
+    assert!(
+        !absent.stdout.contains("no verified backup yet"),
+        "absent backup history must omit unverified backup reminder, got:\n{}",
+        absent.stdout
+    );
+
+    // Take a one-off `backup --to DIR` snapshot without running `backup verify --in DIR`.
+    let one_off = tempfile::tempdir().expect("create one-off folder");
+    let one_off_str = one_off.path().to_string_lossy().into_owned();
+    let made = fieldbook::run(
+        &["backup".to_owned(), "--to".to_owned(), one_off_str],
+        &world,
+    );
+    assert_eq!(made.code, 0, "backup --to: {}", made.stderr);
+
+    let unverified = fieldbook::run(&status_args(fixture_today()), &world);
+    assert_eq!(unverified.code, 0, "stderr: {}", unverified.stderr);
+    assert!(
+        unverified.stdout.contains("Last verified backup: none yet"),
+        "unverified one-off backup must report Last verified backup: none yet, got:\n{}",
+        unverified.stdout
+    );
+    assert!(
+        unverified.stdout.contains(
+            "fieldbook: no verified backup yet (warn after 7 days). Run: fieldbook backup"
+        ),
+        "unverified one-off backup must emit no-verified-backup reminder, got:\n{}",
+        unverified.stdout
+    );
+}

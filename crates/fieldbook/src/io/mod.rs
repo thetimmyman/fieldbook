@@ -332,20 +332,38 @@ fn backup_lines(
             }
         }
         None => {
-            let Some(age) = age else {
-                return;
-            };
-            summary.push(format!(
-                "Last verified backup: {age} days ago, target one-off (folder)"
-            ));
-            if age > settings.warn_after_days
-                && let Some(text) =
-                    crate::backup::reminder(state_dir, today, settings.warn_after_days)
-            {
-                summary.push(text);
+            if let Some(age) = age {
+                summary.push(format!(
+                    "Last verified backup: {age} days ago, target one-off (folder)"
+                ));
+                if age > settings.warn_after_days
+                    && let Some(text) =
+                        crate::backup::reminder(state_dir, today, settings.warn_after_days)
+                {
+                    summary.push(text);
+                }
+            } else if has_unverified_backup_history(state_dir) {
+                summary.push(crate::status::NO_BACKUP_LINE);
+                summary.push(format!(
+                    "fieldbook: no verified backup yet (warn after {} days). Run: fieldbook backup",
+                    settings.warn_after_days
+                ));
             }
         }
     }
+}
+
+fn has_unverified_backup_history(state_dir: &Path) -> bool {
+    state_dir.join("reports/last-backup.json").is_file()
+        || crate::io::journal::read_valid_events_prefix(state_dir)
+            .iter()
+            .any(|event| {
+                matches!(
+                    &event.payload,
+                    fieldbook_core::audit::EventPayload::BackupEnd { outcome, .. }
+                        if outcome.as_str() == "ok"
+                )
+            })
 }
 
 fn cached_backup_matches_target(state_dir: &Path, target: &state::BackupTargetConfig) -> bool {

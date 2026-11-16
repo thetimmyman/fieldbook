@@ -45,14 +45,24 @@ pub fn run_with_policy(
         }
     };
     let (model, findings) = check::load(&Host::new(tree, today), &check::Options::new(false));
-    if let Some(fatal) = findings
+    let load_errors: Vec<String> = findings
         .diagnostics
         .iter()
-        .find(|d| d.code == check::Code::Fb0100)
-    {
+        .filter(|d| {
+            matches!(
+                d.code,
+                check::Code::Fb0100
+                    | check::Code::Fb0200
+                    | check::Code::Fb0201
+                    | check::Code::Fb0202
+            )
+        })
+        .map(check::Diagnostic::render_text)
+        .collect();
+    if !load_errors.is_empty() {
         return Outcome {
             stdout: String::new(),
-            stderr: format!("{}\n", fatal.render_text()),
+            stderr: format!("{}\n", load_errors.join("\n")),
             code: EXIT_FINDINGS,
         };
     }
