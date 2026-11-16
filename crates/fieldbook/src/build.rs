@@ -10,6 +10,7 @@ use fieldbook_core::audit::{
 };
 use fieldbook_core::authz::ReadableStores;
 use fieldbook_core::check::{self, Code, Diagnostic, Host, Model, Options, Report};
+use fieldbook_core::edition::EditionInfo;
 use fieldbook_core::egress::{
     self, Allowed, Decision, Delivery, Denial, Dest, LabelledView, Shipped, Transfer,
 };
@@ -23,6 +24,7 @@ use fieldbook_render::source;
 use crate::cli::{BuildArgs, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE};
 use crate::io::dirs::{self, BuildRoot};
 use crate::io::{Audited, Error, out, state, tree};
+use crate::since::{self, SinceError};
 use crate::{Outcome, World};
 
 /// Planned and delivery-bound edition output ready for `Journal::begin_export` and [`write_edition_outputs`].
@@ -317,8 +319,30 @@ pub fn plan_edition_with_originals(
     shipped: Shipped,
     originals: BTreeMap<String, Vec<u8>>,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
+    plan_edition_with_previous(
+        view, info, out_dir, eff, labels, now, shipped, originals, None,
+    )
+}
+
+/// Like [`plan_edition_with_originals`], rendering `changes.html` against the earlier
+/// [`EditionInfo`] that `build --since` named, when there is one.
+#[expect(
+    clippy::too_many_arguments,
+    reason = "shares the 8 plan_edition_with_originals arguments plus the previous edition"
+)]
+pub fn plan_edition_with_previous(
+    view: &LabelledView,
+    info: &BuildInfo,
+    out_dir: &Path,
+    eff: &EffectivePolicy,
+    labels: &LabelSet,
+    now: Now,
+    shipped: Shipped,
+    originals: BTreeMap<String, Vec<u8>>,
+    previous: Option<&EditionInfo>,
+) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_info(view, &context, info).map_err(|e| {
+    let site = site::render_with_previous(view, &context, info, previous).map_err(|e| {
         BuildPlanError::Lint(vec![Diagnostic::new(
             Code::Fb0605,
             false,
@@ -445,6 +469,26 @@ fn resolve_out_dir(world: &dyn World, arg_out: &Path) -> PathBuf {
     }
 }
 
+/// The newest `## edition-NNN` heading in the snapshot's `corpus/changes.md`, which names the
+/// edition a released build is writing.
+fn current_edition_heading(snapshot: &check::Tree) -> Option<String> {
+    snapshot
+        .get_bytes("corpus/changes.md")
+        .and_then(|bytes| std::str::from_utf8(bytes).ok())
+        .and_then(fieldbook_core::edition::latest_edition_heading)
+        .map(str::to_owned)
+}
+
+/// Map a refused `--since` value to the build's outcome: one plain line on stderr, no stdout,
+/// and no write to the tree.
+fn since_outcome(err: &SinceError) -> Outcome {
+    Outcome {
+        stdout: String::new(),
+        stderr: format!("{err}\n"),
+        code: err.exit_code(),
+    }
+}
+
 fn load_checked_snapshot(
     tree: fieldbook_core::check::Tree,
     today: fieldbook_core::CivilDate,
@@ -464,6 +508,13 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
     let out_dir = resolve_out_dir(world, &args.out);
     let today = world.today();
 
+    // 0. Read `--since` before any write: a refused value must leave the tree and the journal
+    //    untouched, so it is read and checked here, before the journal opens.
+    let previous = match args.since.as_deref().map(since::read_since).transpose() {
+        Ok(p) => p,
+        Err(err) => return since_outcome(&err),
+    };
+
     // 1. Read coherent snapshot under shared store lease and run non-strict check.
     let initial_tree = match world.read_tree() {
         Ok(t) => t,
@@ -476,6 +527,7 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
         }
     };
     let initial_gen = initial_tree.generation_hash();
+    let mut current_heading = current_edition_heading(&initial_tree);
     let mut model = match load_checked_snapshot(initial_tree, today) {
         Ok(m) => m,
         Err(outcome) => return outcome,
@@ -510,10 +562,16 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
         }
     };
     if lease_tree.generation_hash() != initial_gen {
+        current_heading = current_edition_heading(&lease_tree);
         model = match load_checked_snapshot(lease_tree, today) {
             Ok(m) => m,
             Err(outcome) => return outcome,
         };
+    }
+    if let Some(previous) = &previous
+        && let Err(err) = since::check_order(previous, current_heading.as_deref())
+    {
+        return since_outcome(&err);
     }
 
     // 4. Open the audit journal and capture `now`, `shipped`, and `EffectivePolicy::floor(false)`.
@@ -569,7 +627,7 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
         Ok(o) => o,
         Err(outcome) => return outcome,
     };
-    let plan = match plan_edition_with_originals(
+    let plan = match plan_edition_with_previous(
         &view,
         info,
         &out_dir,
@@ -578,6 +636,7 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
         now,
         shipped,
         originals,
+        previous.as_ref(),
     ) {
         Ok(Ok(plan)) => plan,
         Ok(Err(denial)) => {

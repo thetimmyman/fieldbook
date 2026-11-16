@@ -3,7 +3,7 @@
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Component, Path};
 
-use fieldbook_core::edition::latest_edition_heading;
+use fieldbook_core::edition::{EditionInfo, latest_edition_heading};
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::VersionId;
 use fieldbook_core::manifest::shipped_corpus;
@@ -15,7 +15,7 @@ use fieldbook_core::version::SCHEMA_VERSION_MAX;
 use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
 use crate::{
-    about, area, csv_copy, day_one, edition, home, ids, map, nav, register, search_index,
+    about, area, changes, csv_copy, day_one, edition, home, ids, map, nav, register, search_index,
     search_page, source, templates_xlsx, xlsx,
 };
 
@@ -188,6 +188,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     paths.extend([
         home::OUTPUT_PATH.to_owned(),
         about::OUTPUT_PATH.to_owned(),
+        changes::OUTPUT_PATH.to_owned(),
         map::OUTPUT_PATH.to_owned(),
         day_one::OUTPUT_PATH.to_owned(),
         edition::OUTPUT_PATH.to_owned(),
@@ -211,15 +212,17 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     PlannedPaths::from_owned(paths)
 }
 
-/// Renders a [`Site`] from `view`, a validated [`RenderContext`] and [`BuildInfo`].
+/// Renders a [`Site`] from `view`, a validated [`RenderContext`], [`BuildInfo`], and an optional
+/// earlier [`EditionInfo`] for `changes.html`.
 ///
 /// # Errors
 ///
 /// Returns [`WorkbookError`] if any register cell exceeds the Excel cell character limit.
-pub fn render_with_info(
+pub fn render_with_previous(
     view: &LabelledView,
     ctx: &RenderContext,
     info: &BuildInfo,
+    previous: Option<&EditionInfo>,
 ) -> Result<Site, crate::xlsx::WorkbookError> {
     let planned = planned_paths(view);
     let navigation = nav::build(view, &planned);
@@ -247,6 +250,8 @@ pub fn render_with_info(
     }
     let about_html = about::render_page(view, ctx, info.profile, &navigation, &planned);
     site.insert(about::OUTPUT_PATH, about_html.into_bytes());
+    let changes_html = changes::render_page(view, ctx, &navigation, &planned, previous);
+    site.insert(changes::OUTPUT_PATH, changes_html.into_bytes());
     site.insert(
         map::OUTPUT_PATH,
         map::render_page(view, ctx, info.profile, &navigation, &planned).into_bytes(),
@@ -305,6 +310,19 @@ pub fn render_with_info(
         planned.iter().collect::<Vec<_>>()
     );
     Ok(site)
+}
+
+/// Renders a [`Site`] from `view`, a validated [`RenderContext`] and [`BuildInfo`].
+///
+/// # Errors
+///
+/// Returns [`WorkbookError`] if any register cell exceeds the Excel cell character limit.
+pub fn render_with_info(
+    view: &LabelledView,
+    ctx: &RenderContext,
+    info: &BuildInfo,
+) -> Result<Site, crate::xlsx::WorkbookError> {
+    render_with_previous(view, ctx, info, None)
 }
 
 /// Renders a [`Site`] from `view`, a validated [`RenderContext`] and the compiled `profile`.

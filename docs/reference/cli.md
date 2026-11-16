@@ -32,6 +32,7 @@ Build the static site and workbooks into an edition directory
 |---|---|---|---|
 | `--out` | `DIR` | `out` | Parent output directory (`DIR/edition` holds the built site) |
 | `--watch` | - | - | Rebuild when the Corpus changes (checks every 500 ms; Ctrl-C stops) |
+| `--since` | `EDITION` | - | Path of an earlier edition's folder or `edition.toml`, for `changes.html` |
 
 ### `fieldbook add`
 

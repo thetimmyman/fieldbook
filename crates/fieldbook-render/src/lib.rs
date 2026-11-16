@@ -6,6 +6,7 @@ pub const LAYER: &str = "render";
 pub mod about;
 pub mod area;
 pub mod calc_table;
+pub mod changes;
 pub mod charts;
 pub mod chip;
 pub mod cite;
