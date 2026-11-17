@@ -768,9 +768,11 @@ mod source {
         let site = render_site(&view);
         let html = page_text(&site, "S-0004-v1");
         let escaped_url = "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-10-27/title-48?chapter=1&amp;part=31";
+        // The template escapes the attribute value itself (`&` becomes `&#38;`).
+        let href_url = "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-10-27/title-48?chapter=1&#38;part=31";
         assert!(
             html.contains(&format!(
-                "<dt>location</dt>\n        <dd class=\"mono\"><a class=\"ext-link\" href=\"{escaped_url}\" target=\"_blank\" rel=\"noopener noreferrer\">{escaped_url}<span class=\"sr-only\">, official publisher, opens in a new tab</span><svg class=\"ic\""
+                "<dt>location</dt>\n        <dd class=\"mono\"><a class=\"ext-link\" href=\"{href_url}\" target=\"_blank\" rel=\"noopener noreferrer\">{escaped_url}<span class=\"sr-only\">, official publisher, opens in a new tab</span><svg class=\"ic\""
             )),
             "eCFR location must render as an ext-link in the register row:\n{html}"
         );
@@ -827,6 +829,81 @@ mod source {
             diags.is_empty(),
             "section links on s/ must pass lint: {diags:?}"
         );
+    }
+
+    #[test]
+    fn ecfr_section_link_follows_the_location_shape() {
+        let cases = [
+            (
+                "https://www.ecfr.gov/current/title-48/chapter-1/part-31",
+                Some("https://www.ecfr.gov/current/title-48/section-31.205-1"),
+            ),
+            (
+                "https://www.ecfr.gov/api/versioner/v1/full/2026-10-27/title-48.xml?part=31",
+                None,
+            ),
+        ];
+        for (loc_url, expected) in cases {
+            let rows = row("0004", 1, loc_url, &sha(PDF_BYTES), "active", "", "");
+            let page = CMP_SYSTEM_REVIEW_MD
+                .replace("[@CL-CMP-0001]", "[@CL-CMP-0001] [@S-0004-v1, § 31.205-1]");
+            let (_model, view) = load_view(tree_full(
+                &rows,
+                &[("S-0004-v1.pdf", PDF_BYTES)],
+                CLAIMS_CSV,
+                &page,
+            ));
+            let site = render_site(&view);
+            let html = page_text(&site, "S-0004-v1");
+            let panel_start = html.find("src-original-line").unwrap();
+            let panel_end = html[panel_start..].find("</p>").unwrap() + panel_start;
+            let panel = &html[panel_start..panel_end];
+            match expected {
+                Some(href) => assert!(
+                    panel.contains(&format!("<a class=\"ext-link\" href=\"{href}\"")),
+                    "`{loc_url}` must link to `{href}`:\n{panel}"
+                ),
+                None => assert!(
+                    !panel.contains("class=\"ext-link\""),
+                    "`{loc_url}` must give no section link:\n{panel}"
+                ),
+            }
+        }
+    }
+
+    #[test]
+    fn publisher_url_refuses_userinfo_port_and_uppercase_scheme() {
+        assert!(fieldbook_render::source::is_listed_publisher_url(
+            "https://www.ecfr.gov/current/title-48"
+        ));
+        for url in [
+            "https://user@www.ecfr.gov/current/title-48",
+            "https://user:pw@www.ecfr.gov/current/title-48",
+            "https://www.ecfr.gov:8443/current/title-48",
+            "HTTPS://www.ecfr.gov/current/title-48",
+            "http://www.ecfr.gov/current/title-48",
+        ] {
+            assert!(
+                !fieldbook_render::source::is_listed_publisher_url(url),
+                "`{url}` must not count as a listed publisher link"
+            );
+        }
+    }
+
+    #[test]
+    fn http_location_stays_text() {
+        let loc_url = "http://www.ecfr.gov/current/title-48/part-31";
+        let rows = row("0004", 1, loc_url, &sha(HTML_BYTES), "active", "", "");
+        let (_model, view) = load_view(tree_with(&rows, &[("S-0004-v1.html", HTML_BYTES)]));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0004-v1");
+        assert!(
+            html.contains(&format!(
+                "<dt>location</dt>\n        <dd class=\"mono\">{loc_url}</dd>"
+            )),
+            "http: location must stay plain text:\n{html}"
+        );
+        assert!(!html.contains("class=\"ext-link\""));
     }
 
     #[test]

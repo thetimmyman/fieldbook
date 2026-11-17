@@ -50,7 +50,7 @@
       <dl class="src-kv">
         {% for cell in &v.cells %}
         <dt>{{ cell.name }}</dt>
-        <dd{% if cell.is_mono %} class="mono"{% endif %}>{% if cell.ext_href.is_some() %}<a class="ext-link" href="{{ cell.html|safe }}" target="_blank" rel="noopener noreferrer">{{ cell.html|safe }}<span class="sr-only">, official publisher, opens in a new tab</span>{{ v.ext_icon|safe }}</a>{% else %}{{ cell.html|safe }}{% endif %}</dd>
+        <dd{% if cell.is_mono %} class="mono"{% endif %}>{% if let Some(href) = &cell.ext_href %}<a class="ext-link" href="{{ href }}" target="_blank" rel="noopener noreferrer">{{ cell.html|safe }}<span class="sr-only">, official publisher, opens in a new tab</span>{{ v.ext_icon|safe }}</a>{% else %}{{ cell.html|safe }}{% endif %}</dd>
         {% endfor %}
       </dl>
     </section>

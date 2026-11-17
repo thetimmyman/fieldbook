@@ -257,6 +257,34 @@ mod site_lints {
             assert_eq!(diags[0].path, "s/S-0001-v1.html");
         }
 
+        // An extra attribute that can fetch (`ping`) is refused.
+        let mut ping = clean_site();
+        ping.insert(
+            "s/S-0001-v1.html",
+            valid_page_with_prefix(
+                "../",
+                "<a class=\"ext-link\" href=\"https://www.ecfr.gov/\" target=\"_blank\" rel=\"noopener noreferrer\" ping=\"https://unlisted.example.org/p\">ping</a>",
+            ),
+        );
+        let d_ping = lint(&ping, &OriginalNames::default());
+        assert_eq!(
+            d_ping.len(),
+            1,
+            "extra `ping` must give FB0604, got {d_ping:?}"
+        );
+        assert_eq!(d_ping[0].code, Code::Fb0604);
+
+        // A listed link on a nested path under s/ is refused.
+        let mut nested = clean_site();
+        nested.insert("s/x/y.html", valid_page_with_prefix("../../", ecfr_link));
+        let d_nested = lint(&nested, &OriginalNames::default());
+        assert_eq!(
+            d_nested.len(),
+            1,
+            "nested s/ link must give FB0604, got {d_nested:?}"
+        );
+        assert_eq!(d_nested[0].code, Code::Fb0604);
+
         // Outside s/ (p/, search.html, sources.html, claims/), even a listed publisher link fails FB0604.
         for (path, prefix) in [
             ("p/cmp-system-review.html", "../"),

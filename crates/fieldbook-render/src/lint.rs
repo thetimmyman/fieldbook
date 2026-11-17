@@ -630,6 +630,10 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
 
 fn is_allowed_source_publisher_link(page_path: &str, tag: &HtmlTag, href: &str) -> bool {
     tag.name == "a"
+        && tag.attrs.len() == 4
+        && ["class", "href", "target", "rel"]
+            .iter()
+            .all(|n| tag.attrs.iter().any(|a| a.name == *n))
         && page_path
             .strip_prefix("s/")
             .is_some_and(|rest| !rest.contains('/') && rest.ends_with(".html"))

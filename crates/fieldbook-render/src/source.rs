@@ -131,28 +131,49 @@ fn parse_section_locator_number(locator: &str) -> Option<&str> {
     Some(section)
 }
 
+fn is_iso_date(s: &str) -> bool {
+    let b = s.as_bytes();
+    b.len() == 10
+        && b.iter().enumerate().all(|(i, c)| {
+            if i == 4 || i == 7 {
+                *c == b'-'
+            } else {
+                c.is_ascii_digit()
+            }
+        })
+}
+
+fn is_title_segment(s: &str) -> bool {
+    s.strip_prefix("title-")
+        .is_some_and(|n| !n.is_empty() && n.bytes().all(|c| c.is_ascii_digit()))
+}
+
+/// Builds the canonical eCFR section address from a register location: the date (or `current`)
+/// and `title-N` come from the location; any other shape gives no link.
 fn ecfr_section_url(location: &str, locator: &str) -> Option<String> {
     let section = parse_section_locator_number(locator)?;
     let after_scheme = location.strip_prefix("https://")?;
-    let (host, path_and_query) = match after_scheme.find('/') {
-        Some(idx) => (&after_scheme[..idx], &after_scheme[idx..]),
-        None => (after_scheme, ""),
-    };
-    let path = path_and_query
+    let path_start = after_scheme.find('/')?;
+    let path = after_scheme[path_start..]
         .split(['?', '#'])
         .next()
         .unwrap_or("")
         .trim_end_matches('/');
-    if let Some(rest) = path.strip_prefix("/api/renderer/v1/content/enhanced/") {
-        if rest.is_empty() {
-            return None;
+    let segments: Vec<&str> = path.split('/').skip(1).collect();
+    let (when, title) = match segments.as_slice() {
+        ["api", "renderer", "v1", "content", "enhanced", date, title] if is_iso_date(date) => {
+            (format!("on/{date}"), *title)
         }
-        return Some(format!("https://{host}/on/{rest}/section-{section}"));
+        ["current", title, ..] => ("current".to_owned(), *title),
+        ["on", date, title, ..] if is_iso_date(date) => (format!("on/{date}"), *title),
+        _ => return None,
+    };
+    if !is_title_segment(title) {
+        return None;
     }
-    if let Some((prefix, _)) = path.split_once("/section-") {
-        return Some(format!("https://{host}{prefix}/section-{section}"));
-    }
-    Some(format!("https://{host}{path}/section-{section}"))
+    Some(format!(
+        "https://www.ecfr.gov/{when}/{title}/section-{section}"
+    ))
 }
 
 /// Returns the name an original ships under: `<version-id>.<ext>`, with `.txt` appended exactly
