@@ -32,6 +32,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Prepare the packaged Edge sandbox
+        run: bash .github/scripts/prepare-edge-sandbox.sh
       - name: Check headless browser startup
         timeout-minutes: 2
         run: |
@@ -143,6 +145,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Prepare the packaged Edge sandbox
+        run: bash .github/scripts/prepare-edge-sandbox.sh
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: fieldbook-dev
@@ -157,8 +161,8 @@ jobs:
       - name: Check generated documentation
         run: cargo xtask docs --check
       - name: Open every page in the browser harness
-        # One browser worker per core on this dedicated standard runner. The shared-host
-        # half-core default underuses it and the full sweep exceeds the job bound.
+        # One browser worker per core on this dedicated standard runner; the default
+        # conservatively reserves half the cores for other shared-host workloads.
         run: cargo xtask harness --jobs 4
 
   windows:
