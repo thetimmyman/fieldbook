@@ -24,7 +24,7 @@ Shows what an invoice under the invoices clause must state, and what the notice 
 | Instrument | Codified FAR [@CL-EST-2293] |
 | Codified citation | FAR 52.213-2 [@CL-EST-2293]; FAR 52.213-3 [@CL-EST-2295] |
 | RFO citation | RFO FAR 52.213-2 and RFO FAR 52.213-3 are each listed as [Reserved] [@CL-EST-0588] [@CL-EST-0589] |
-| Edition date | Not established. |
+| Edition date | FAR 52.213-2: APR 1984 [@CL-EST-9814]; FAR 52.213-3: APR 1984 [@CL-EST-9815] |
 | Text status | Final [@CL-EST-2293] |
 | Applies to | Invoices for subscription delivery under the invoices clause [@CL-EST-2294], and orders that carry the notice to supplier [@CL-EST-2295] |
 
@@ -62,6 +62,7 @@ How the delivery dates and ordering status stated on the invoice are supported b
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced unquoted statements about missing RFO clause text with the [Reserved] listing; cut a gloss.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the delivery dates and addressee scope in the invoice-content sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

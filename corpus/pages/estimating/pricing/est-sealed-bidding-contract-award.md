@@ -25,7 +25,7 @@ Sets out the award basis in sealed bidding, the Government's rights to reject bi
 | Instrument | Codified FAR [@CL-EST-1978] |
 | Codified citation | FAR 52.214-10 [@CL-EST-1978]; FAR 52.214-19 [@CL-EST-1984] |
 | RFO citation | RFO FAR 52.214-10 [@CL-EST-0563]; RFO FAR 52.214-19 [@CL-EST-0572] |
-| Edition date | Not established. |
+| Edition date | FAR 52.214-10: Jul 1990 [@CL-EST-0563]; FAR 52.214-19: Aug 1996 [@CL-EST-0572] |
 | Text status | Final [@CL-EST-1978] |
 | Applies to | Sealed bidding solicitations that include the general award provision [@CL-EST-2086] or the construction award provision [@CL-EST-2091] |
 
@@ -69,6 +69,7 @@ Confirm who checks bid prices for unbalance, who decides whether to limit a bid 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and glosses; attached the low evaluated bid wording to the reasonable-doubt condition as the provision does; gave the prescription paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated two warnings as the provision words them.

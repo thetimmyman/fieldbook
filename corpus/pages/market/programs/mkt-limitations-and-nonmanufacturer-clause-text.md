@@ -25,7 +25,7 @@ Shows the percentage limits in the limitations on subcontracting clause by type 
 | Instrument | Codified FAR [@CL-MKT-0834] |
 | Codified citation | FAR 52.219-14 and FAR 52.219-33 [@CL-MKT-0834; @CL-MKT-0839] |
 | RFO citation | RFO FAR 52.219-14 [@CL-MKT-0197]; RFO FAR 52.219-33 [@CL-MKT-0260] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-14: OCT 2022 [@CL-MKT-9431]; FAR 52.219-33: SEP 2021 [@CL-MKT-9432] |
 | Text status | Final [@CL-MKT-0834] |
 | Applies to | The listed cases in the limitations clause, which include contracts set aside for small business concerns [@CL-MKT-0833] |
 
@@ -54,6 +54,7 @@ How subcontract spend is tracked against the amount paid by the Government on ea
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 52.219-14(c)(1)-(6) and RFO FAR 52.219-14(c)(3)-(6) applicability lists, parenthetical examples, and citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the limits sentence to keep the cost-of-materials exclusion for supplies and construction.

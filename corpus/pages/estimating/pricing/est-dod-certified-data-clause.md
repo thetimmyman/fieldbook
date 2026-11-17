@@ -25,7 +25,7 @@ Shows what the DoD provision asks of an offeror that seeks an exception from cer
 | Instrument | Codified DFARS [@CL-EST-0233] |
 | Codified citation | DFARS 252.215-7010 [@CL-EST-0233] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAY 2024 [@CL-EST-9786] |
 | Text status | Final [@CL-EST-0233] |
 | Applies to | Offerors under the DoD provision, which is used when reasonably certain that certified cost or pricing data or data other than certified cost or pricing data will be required, or when using the provision at 252.215-7008 [@CL-EST-1522; @CL-EST-1619], and subcontracts exceeding the simplified acquisition threshold [@CL-EST-0243] |
 
@@ -53,6 +53,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the no-exception condition to the subcontractor screening sentence; reworded three never-confuse contrasts to the provision's own words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced the applies-to row with claims that support it; kept the purpose of the 10-day request; worked example no longer says the minimum is the whole requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

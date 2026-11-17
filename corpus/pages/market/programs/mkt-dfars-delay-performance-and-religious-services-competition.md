@@ -25,7 +25,7 @@ Shows when performance on a purchase order under a program award may not begin, 
 | Instrument | Codified DFARS [@CL-MKT-0932] |
 | Codified citation | DFARS 252.219-7011 and DFARS 252.219-7012 [@CL-MKT-0932; @CL-MKT-0935] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.219-7011: JUN 1998 [@CL-MKT-9415]; DFARS 252.219-7012: APR 2018 [@CL-MKT-9416] |
 | Text status | Final [@CL-MKT-0932] |
 | Applies to | Purchase orders that carry the delay clause, prescribed in DFARS 219.811-3(3), and solicitations that carry the religious-services provision, prescribed in DFARS 219.270-3 [@CL-MKT-0932; @CL-MKT-0935; @CL-MKT-0951; @CL-MKT-0952] |
 
@@ -56,6 +56,7 @@ Which purchase orders under the program or religious-related services contracts 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta absence statements and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Religious-services provision restated as notwithstanding.

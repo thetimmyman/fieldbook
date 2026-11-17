@@ -24,7 +24,7 @@ Shows, from the clause text, who may offer when competition is limited to eligib
 | Instrument | Codified FAR [@CL-MKT-0998] |
 | Codified citation | FAR 52.219-17; FAR 52.219-18 [@CL-MKT-1043; @CL-MKT-0998] |
 | RFO citation | RFO FAR 52.219-17 [@CL-MKT-1142]; RFO FAR 52.219-18 [@CL-MKT-1149] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-17: Oct 2019 [@CL-MKT-1142]; FAR 52.219-18: Oct 2022 (basic) [@CL-MKT-1149], Mar 2023 (Alternate I) [@CL-MKT-1159] |
 | Text status | Final [@CL-MKT-0998] |
 | Applies to | Competitions limited to 8(a) participants and the award that follows [@CL-MKT-0998; @CL-MKT-1001] |
 
@@ -59,6 +59,7 @@ Which certified participants in the finance remit carry a support limitation and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted commentary and 'RFO text of' phrasing.

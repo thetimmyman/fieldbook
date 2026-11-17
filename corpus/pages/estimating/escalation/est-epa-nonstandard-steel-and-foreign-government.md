@@ -25,7 +25,7 @@ Explains the two special DoD clauses that adjust price by labor and steel indexe
 | Instrument | Codified DFARS [@CL-EST-1193] |
 | Codified citation | DFARS 252.216-7001 and DFARS 252.216-7003 [@CL-EST-1193; @CL-EST-1196] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.216-7001: JAN 2023 [@CL-EST-9764]; DFARS 252.216-7003: MAR 2012 [@CL-EST-9765] |
 | Text status | Final [@CL-EST-1193] |
 | Applies to | Contracts that include the nonstandard steel clause or the foreign-government clause [@CL-EST-1179; @CL-EST-1182] |
 
@@ -59,6 +59,7 @@ Which contracts use either clause and who tracks the index inputs, the statement
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the foreign-government adjustment rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched labor index wording.

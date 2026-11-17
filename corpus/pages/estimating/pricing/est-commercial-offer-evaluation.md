@@ -25,7 +25,7 @@ Shows how offers on a commercial products and commercial services solicitation a
 | Instrument | Codified FAR [@CL-EST-2273] |
 | Codified citation | FAR 52.212-2 [@CL-EST-2273] |
 | RFO citation | RFO FAR 52.212-2 [@CL-EST-0089; @CL-EST-0092; @CL-EST-0094] |
-| Edition date | Not established. |
+| Edition date | NOV 2021 [@CL-EST-9772] |
 | Text status | Final [@CL-EST-2273] |
 | Applies to | Solicitations in which the contracting officer inserts the evaluation provision, which may be inserted substantially as it appears, as prescribed in FAR 12.301(c) [@CL-EST-2348] |
 
@@ -64,6 +64,7 @@ How the option prices and the assumptions behind them are frozen for the evaluat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Shall and must restored, actor named, contract-specific remark removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation of commercial offers.

@@ -24,7 +24,7 @@ Explains the tie-bid priority that a small business bidder can seek by identifyi
 | Instrument | Codified FAR [@CL-MKT-1105] |
 | Codified citation | FAR 52.219-2 [@CL-MKT-1105]; FAR 2.101 [@CL-MKT-9243; @CL-MKT-9244; @CL-MKT-9245] |
 | RFO citation | RFO FAR 52.219-2 [@CL-MKT-0121; @CL-MKT-0122; @CL-MKT-0123; @CL-MKT-0124] |
-| Edition date | Not established. |
+| Edition date | OCT 1995 [@CL-MKT-9424] |
 | Text status | Final [@CL-MKT-1105] |
 | Applies to | Bidders that are small business concerns [@CL-MKT-1105] |
 
@@ -59,6 +59,7 @@ Whether each bidding entity and contract is inside the finance remit, so the lab
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed unquoted absence and contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: identification sentence limited to its quote.

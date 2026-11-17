@@ -25,7 +25,7 @@ Shows what the DoD clause for contract modifications requires from the Canadian 
 | Instrument | Codified DFARS [@CL-EST-1725] |
 | Codified citation | DFARS 252.215-7004 [@CL-EST-1725; @CL-EST-1774] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | OCT 2013 [@CL-EST-9774] |
 | Text status | Final [@CL-EST-1725] |
 | Applies to | Contracts that use this clause as prescribed at DFARS 215.408(2)(ii) [@CL-EST-1774], and the clause applies only if award is to the Canadian Commercial Corporation [@CL-EST-1725] |
 
@@ -55,5 +55,6 @@ Whether any expected award or modification will run through the Canadian Commerc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Obligation wording restored to shall obtain and provide with the dollar threshold; uncited negatives and contrasts replaced with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the modifications clause for the Canadian Commercial Corporation.

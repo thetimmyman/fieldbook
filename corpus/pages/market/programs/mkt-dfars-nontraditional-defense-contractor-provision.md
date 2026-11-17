@@ -25,7 +25,7 @@ Shows what the provision tells offerors about commercial treatment of supplies a
 | Instrument | Codified DFARS [@CL-MKT-0944] |
 | Codified citation | DFARS 252.215-7013 [@CL-MKT-0944] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 (codified) [@CL-MKT-9419]; JUL 2026 (Deviation 2026-O0048) [@CL-MKT-9420] |
 | Text status | Final [@CL-MKT-0944] |
 | Applies to | Solicitations in which the provision is prescribed by DFARS 215.408(6) [@CL-MKT-0954] |
 
@@ -56,6 +56,7 @@ Which of the company's customers and product lines may qualify the company as a 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supplies and services from nontraditional defense contractors.

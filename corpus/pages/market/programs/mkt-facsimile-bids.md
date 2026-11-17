@@ -23,7 +23,7 @@ Explains what a facsimile bid is, what the bidder must do for it to be considere
 | Instrument | Codified FAR [@CL-MKT-1129] |
 | Codified citation | FAR 52.214-31 [@CL-MKT-1129] |
 | RFO citation | RFO FAR part 52 lists 52.214-31 as "[Reserved]" [@CL-MKT-0125] |
-| Edition date | Not established. |
+| Edition date | DEC 1989 [@CL-MKT-9425] |
 | Text status | Final [@CL-MKT-1129] |
 | Applies to | Bidders responding to a solicitation that includes the provision [@CL-MKT-1130] |
 
@@ -56,6 +56,7 @@ Which solicitations the company answers by facsimile, and which legal entities s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added compatibility-characteristic examples and removed unquoted contrast and blank-entry commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: facsimile data entries and original bid request limited to quotes.

@@ -25,7 +25,7 @@ Shows the parties to a DoD direct award with a participant in the program, who i
 | Instrument | Codified DFARS [@CL-MKT-0922] |
 | Codified citation | DFARS 252.219-7009 and DFARS 252.219-7010 [@CL-MKT-0922; @CL-MKT-0927] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.219-7009: OCT 2018 [@CL-MKT-9412]; DFARS 252.219-7010: OCT 2019 [@CL-MKT-9413] |
 | Text status | Final [@CL-MKT-0922] |
 | Applies to | Contracts awarded directly under the SBA and DoD partnership agreement where the direct award clause is prescribed, and solicitations limited to eligible 8(a) participants where the competition notice is prescribed [@CL-MKT-0922; @CL-MKT-0927; @CL-MKT-0949; @CL-MKT-0950] |
 
@@ -56,6 +56,7 @@ Which contracts are direct awards or are competed among eligible participants, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added whole-or-part scope of the termination notice and removed contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: End-item requirement scope limited to paragraph (d)(1)(i) through (iii).

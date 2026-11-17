@@ -25,7 +25,7 @@ Shows what an offeror acknowledges by submitting an offer when the resulting con
 | Instrument | Codified DFARS [@CL-MKT-0919] |
 | Codified citation | DFARS 252.219-7000 [@CL-MKT-0919] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 2023 [@CL-MKT-9414] |
 | Text status | Final [@CL-MKT-0919] |
 | Applies to | Solicitations in which the provision is prescribed by DFARS 219.309(1) [@CL-MKT-0948] |
 
@@ -56,6 +56,7 @@ Which of the company's offers are made as a small business, and how close it is 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements not stated in the provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advancing small business growth.

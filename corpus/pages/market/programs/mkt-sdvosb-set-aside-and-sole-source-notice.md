@@ -24,7 +24,7 @@ Gives the clause text for a service-disabled veteran-owned small business (SDVOS
 | Instrument | Codified FAR [@CL-MKT-1005] |
 | Codified citation | FAR 52.219-27 [@CL-MKT-1005] |
 | RFO citation | RFO FAR 52.219-27 [@CL-MKT-0882; @CL-MKT-1136] |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-MKT-9435] |
 | Text status | Final [@CL-MKT-1005] |
 | Applies to | The cases the clause lists, from SDVOSB set-asides and sole-source awards to orders under multiple-award contracts [@CL-MKT-1055; @CL-MKT-1056] |
 
@@ -59,6 +59,7 @@ Which service-disabled veteran-owned entities in the finance remit hold a curren
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on RFO text omissions and negative contrasts.
