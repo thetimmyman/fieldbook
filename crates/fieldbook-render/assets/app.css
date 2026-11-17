@@ -2731,6 +2731,10 @@ svg .bar1.tot {
   color: var(--color-muted);
 }
 
+.ws-head .view-note {
+  font-size: var(--text-sm);
+}
+
 .tabs {
   display: flex;
   gap: var(--space-0-5);

@@ -167,7 +167,10 @@ mod home {
             .filter(|key| key.starts_with("a/"))
             .map(String::as_str)
             .collect();
-        assert_eq!(built, ["a/cmp.html", "a/est.html", "a/mna.html"]);
+        assert_eq!(
+            built,
+            ["a/cmp.html", "a/est.html", "a/mna.html", "a/prc.html"]
+        );
         for area in areas {
             let html = page(&site, &format!("a/{}.html", area.code));
             let main = main_of(&html);
