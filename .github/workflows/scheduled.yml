@@ -2,7 +2,7 @@
 # committed-lock check, edition build for the cross-OS compare, and the advisory scale table.
 # The workflow token is read-only (contents: read); no secret value is stored in the repository.
 #
-# Like ci.yml, every job runs on the owner's self-hosted runner (control CI-01 in
+# Like ci.yml, every job runs on standard GitHub-hosted runners (control CI-01 in
 # docs/controls.md) and only for a schedule, a manual run, or a pull request from this
 # repository (fork pull requests do not run).
 #
@@ -27,7 +27,7 @@ concurrency:
 jobs:
   advisories:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       CARGO_INCREMENTAL: "0"
@@ -51,7 +51,7 @@ jobs:
 
   secrets:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       CARGO_INCREMENTAL: "0"
@@ -80,7 +80,7 @@ jobs:
 
   lint-controls:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       CARGO_INCREMENTAL: "0"
@@ -102,7 +102,7 @@ jobs:
 
   lock:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     env:
       CARGO_INCREMENTAL: "0"
@@ -130,7 +130,7 @@ jobs:
 
   edition-linux:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     env:
       CARGO_INCREMENTAL: "0"
@@ -184,7 +184,7 @@ jobs:
 
   scale:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
       CARGO_INCREMENTAL: "0"
@@ -216,7 +216,7 @@ jobs:
   freshness:
     continue-on-error: true
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       CARGO_INCREMENTAL: "0"
