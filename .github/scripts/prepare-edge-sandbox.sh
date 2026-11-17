@@ -7,12 +7,15 @@ package=microsoft-edge-stable
 [[ "$(/usr/bin/stat -c '%u:%g' "$helper")" == 0:0 ]]
 mode="$(/usr/bin/stat -c '%a' "$helper")"
 printf 'Edge sandbox helper: root:root mode %s\n' "$mode"
-[[ "$mode" == 755 || "$mode" == 4755 ]]
+/usr/bin/stat -c '%F %u:%g mode %a %n' /opt /opt/microsoft /opt/microsoft/msedge "$helper"
+/usr/bin/dpkg-query -W '${Package} ${Version}\n' "$package"
 [[ "$(/usr/bin/dpkg-query -S "$helper")" == "$package: $helper" ]]
 manifest="$(/usr/bin/dpkg-query --control-path "$package" md5sums)"
 expected="$(/usr/bin/awk '$2 == "opt/microsoft/msedge/msedge-sandbox" { print $1 }' "$manifest")"
 [[ "$expected" =~ ^[0-9a-f]{32}$ ]]
 printf '%s  %s\n' "$expected" "$helper" | /usr/bin/md5sum --check --status
+printf 'Edge sandbox helper packaged bytes match\n'
+[[ "$mode" == 755 || "$mode" == 4755 ]]
 if [[ "$mode" == 755 ]]; then
     /usr/bin/sudo /usr/bin/chmod 4755 "$helper"
 fi
