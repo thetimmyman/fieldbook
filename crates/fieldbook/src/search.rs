@@ -5,10 +5,15 @@
 //! page view, or as the flat unit list with `--units`: two lines per result, the full record of a
 //! single exact id, the abstention phrase when nothing matches, or the `--json` report.
 //!
-//! **Rules.** Reads only: it writes no file and opens no socket. The ranking is `fieldbook-core`'s
-//! `query` and the grouping its `page_view`; this module only chooses the limits and formats the
-//! output. Every Corpus string it
-//! prints goes through `single_line`, so Corpus text cannot forge a line or drive a terminal.
+//! After the output is made, a question that is not a bare id is recorded in the question log of
+//! the state folder ([`crate::asked::log_question`]): an `ask` event, then one row of
+//! `asked/asked.csv`.
+//!
+//! **Rules.** It writes nothing to the Corpus and opens no socket. Recording fails open: a log
+//! that cannot be written adds one `question not recorded` line to stderr and changes neither the
+//! output nor the exit code. The ranking is `fieldbook-core`'s `query` and the grouping its
+//! `page_view`; this module only chooses the limits and formats the output. Every Corpus string
+//! it prints goes through `single_line`, so Corpus text cannot forge a line or drive a terminal.
 
 use std::fmt;
 
@@ -23,8 +28,13 @@ use fieldbook_core::search::{
 use serde::de::{Deserialize, Deserializer, MapAccess, Visitor};
 use serde_json::Value;
 
+use crate::asked::{Cited, Hits, TOP_IDS, Via as AskedVia};
 use crate::cli::{EXIT_FINDINGS, EXIT_IO, EXIT_OK, SearchArgs};
+use crate::io::state::read_asked_settings;
 use crate::{Outcome, World};
+use fieldbook_core::audit::Via as JournalVia;
+use fieldbook_core::labels::{ItemRef, LabelSet, StoreId};
+use fieldbook_core::policy::EffectivePolicy;
 
 /// How many results an ordinary query shows in the unit list.
 pub const DEFAULT_LIMIT: usize = 10;
@@ -67,6 +77,14 @@ pub fn run(args: &SearchArgs, world: &dyn World) -> Outcome {
             ));
         }
     };
+    let fingerprint = match crate::asked::fingerprint(&tree) {
+        Ok(fingerprint) => fingerprint,
+        Err(err) => {
+            return io_failure(&format!(
+                "cannot build the search index: {err}\nrun `fieldbook check` to see which file and line to fix"
+            ));
+        }
+    };
     let limit = if args.units {
         cli_limit(&index, &text)
     } else {
@@ -79,23 +97,105 @@ pub fn run(args: &SearchArgs, world: &dyn World) -> Outcome {
         EXIT_OK
     };
 
-    let stdout = match (args.units, args.json) {
-        (true, true) => render_json(&index, &text, &results),
-        (true, false) => render_plain(&tree, &index, &results),
+    let (stdout, top_ids) = match (args.units, args.json) {
+        (true, json) => {
+            let out = if json {
+                render_json(&index, &text, &results)
+            } else {
+                render_plain(&tree, &index, &results)
+            };
+            (out, unit_top_ids(&index, &results))
+        }
         (false, json) => {
             let view = page_view(&index, &results);
-            if json {
+            let out = if json {
                 render_view_json(&index, &text, &view)
             } else {
                 render_view_plain(&tree, &index, &view)
-            }
+            };
+            (out, view_top_ids(&index, &view))
         }
     };
+    let hits = Hits {
+        count: results.total as u64,
+        top_ids,
+        fingerprint,
+    };
+    drop(tree);
+    let stderr = record(world, &text, &hits)
+        .map(|warning| format!("{warning}\n"))
+        .unwrap_or_default();
     Outcome {
         stdout,
-        stderr: String::new(),
+        stderr,
         code,
     }
+}
+
+/// The ids of the first [`TOP_IDS`] units of the unit list, in rank order.
+fn unit_top_ids(index: &Index, results: &Results) -> Vec<String> {
+    results
+        .hits
+        .iter()
+        .filter_map(|hit| index.docs.get(hit.unit).map(|doc| doc.id.clone()))
+        .take(TOP_IDS)
+        .collect()
+}
+
+/// The ids of the first [`TOP_IDS`] rows of the page view, in the order printed: exact rows, page
+/// rows, then other rows.
+fn view_top_ids(index: &Index, view: &PageView<'_>) -> Vec<String> {
+    let shown = view.shown(ViewLimits::CLI);
+    let exact = shown
+        .exact
+        .iter()
+        .filter_map(|hit| index.docs.get(hit.unit).map(|doc| doc.id.clone()));
+    let pages = shown.pages.iter().map(|row| row.page.to_owned());
+    let other = shown
+        .other
+        .iter()
+        .filter_map(|hit| index.docs.get(hit.unit).map(|doc| doc.id.clone()));
+    exact.chain(pages).chain(other).take(TOP_IDS).collect()
+}
+
+/// Records the question `text` with its result `hits`; the warning line when it was not recorded.
+/// A bare id, and a question whose own labels the State store cannot keep, open no state.
+fn record(world: &dyn World, text: &str, hits: &Hits) -> Option<String> {
+    let policy = EffectivePolicy::floor(false);
+    let labels = LabelSet::owner_supplied();
+    match crate::asked::precheck(world, &policy, &labels, text)? {
+        Ok(()) => {}
+        Err(warning) => return Some(warning),
+    }
+    let settings = match read_asked_settings(world.state_dir()) {
+        Ok(settings) => settings,
+        Err(err) => return Some(crate::asked::warning(err)),
+    };
+    let journal = match crate::io::state::open(world, world.state_dir(), JournalVia::Cli) {
+        Ok(journal) => journal,
+        Err(err) => return Some(crate::asked::warning(err)),
+    };
+    let inputs: Vec<ItemRef> = hits
+        .top_ids
+        .iter()
+        .map(|id| ItemRef {
+            store: StoreId::Corpus,
+            id: id.clone(),
+        })
+        .collect();
+    crate::asked::log_question(
+        world,
+        &journal,
+        &settings,
+        &policy,
+        AskedVia::Search,
+        &labels,
+        &inputs,
+        text,
+        hits,
+        Cited::NotChecked,
+    )
+    .warning
 }
 
 /// The `--json` payload of the unit list: pretty JSON with a trailing newline.
