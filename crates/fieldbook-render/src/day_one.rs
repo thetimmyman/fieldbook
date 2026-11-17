@@ -23,6 +23,7 @@ use crate::page::{
 };
 use crate::site::PlannedPaths;
 use crate::sources_block::NumberedSourceRow;
+use crate::types::{CaseSplitView, build_case_split, build_clause_calibration_questions};
 
 /// Site-relative output path of the day-one binder page.
 pub const OUTPUT_PATH: &str = strings::paths()[3];
@@ -80,6 +81,43 @@ pub struct BinderPageView {
 #[template(path = "parts/plan_timeline.html")]
 struct PlanTimelinePanel<'a> {
     plan_timeline: &'a crate::plan::PlanTimelineView,
+}
+
+#[derive(Template)]
+#[template(path = "parts/case_split.html")]
+struct CaseSplitPanel<'a> {
+    case_split: &'a CaseSplitView,
+    heading_level: u8,
+}
+
+#[derive(Template)]
+#[template(path = "parts/clause_questions.html")]
+struct ClauseQuestionsPanel<'a> {
+    calibration_question_chips: &'a [String],
+}
+
+/// Renders the `div.case-split` block (`parts/case_split.html`) with its subheads at
+/// `heading_level`: `3` on the standalone page, `4` in the binder under the part's `h3`.
+fn render_case_split(view: &CaseSplitView, heading_level: u8) -> String {
+    CaseSplitPanel {
+        case_split: view,
+        heading_level,
+    }
+    .render()
+    .unwrap_or_else(|e| unreachable!("parts/case_split.html is infallible: {e}"))
+}
+
+/// Renders the `div.clause-questions` chips (`parts/clause_questions.html`), or nothing
+/// when the page names no question, as the standalone clause card does.
+fn render_clause_questions(chips: &[String]) -> String {
+    if chips.is_empty() {
+        return String::new();
+    }
+    ClauseQuestionsPanel {
+        calibration_question_chips: chips,
+    }
+    .render()
+    .unwrap_or_else(|e| unreachable!("parts/clause_questions.html is infallible: {e}"))
 }
 
 #[derive(Template)]
@@ -167,12 +205,35 @@ pub fn render_main(view: &LabelledView, edition: &EditionInfo, planned: &Planned
         } else {
             let part_names = strings::parts();
             let p0 = build_part_by_name(part_names[0], "purpose", true, page, &mut inline);
-            let p1 = if page.meta.r#type == PageType::Reference {
+            let mut p1 = if page.meta.r#type == PageType::Reference {
                 crate::types::render_reference_the_rule(page, view, &mut inline)
             } else {
                 build_part_by_name(part_names[1], "the-rule", true, page, &mut inline)
             };
-            let mut p2 = build_part_by_name(part_names[2], "how-it-works", true, page, &mut inline);
+            if page.meta.r#type == PageType::ClauseCard && !p1.is_empty {
+                p1.body_html =
+                    format!("<div class=\"clause-card-rule\">\n{}\n</div>", p1.body_html);
+            }
+            let case_split = if page.meta.r#type == PageType::Case {
+                build_case_split(page, &mut inline)
+            } else {
+                CaseSplitView::default()
+            };
+            let mut p2 = build_part_by_name(
+                part_names[2],
+                "how-it-works",
+                !case_split.has_sections,
+                page,
+                &mut inline,
+            );
+            if case_split.has_sections {
+                p2.body_html = format!(
+                    "{}{}",
+                    case_split.prefix_html,
+                    render_case_split(&case_split, 4)
+                );
+                p2.is_empty = false;
+            }
             if page.meta.r#type == PageType::Checklist && !p2.is_empty {
                 let plan_timeline = crate::plan::build_plan_timeline(page);
                 let timeline_html = PlanTimelinePanel {
@@ -183,7 +244,12 @@ pub fn render_main(view: &LabelledView, edition: &EditionInfo, planned: &Planned
                 let numbered = crate::types::number_checklist_task_lists(&p2.body_html);
                 p2.body_html = format!("{timeline_html}{numbered}");
             }
-            let p3 = build_part_by_name(part_names[3], "worked-example", true, page, &mut inline);
+            let mut p3 =
+                build_part_by_name(part_names[3], "worked-example", true, page, &mut inline);
+            if page.meta.r#type == PageType::Calc {
+                p3.body_html
+                    .push_str(&crate::calc_table::calc_table(&page.body));
+            }
             let p4 = build_part_by_name(part_names[4], "never-confuse", true, page, &mut inline);
             let p5 = build_part_by_name(
                 part_names[5],
@@ -192,10 +258,17 @@ pub fn render_main(view: &LabelledView, edition: &EditionInfo, planned: &Planned
                 page,
                 &mut inline,
             );
+            // The clause card prints its question chips whether or not the part has prose.
+            let mut clause_questions_html = if page.meta.r#type == PageType::ClauseCard {
+                let chips = build_clause_calibration_questions(OUTPUT_PATH, page, view, planned);
+                prefix_ids(&render_clause_questions(&chips), page.id.as_str())
+            } else {
+                String::new()
+            };
 
             let conflict_ids = collect_distinct_conflicts(page, view);
             let conflict_boxes = build_conflict_boxes(OUTPUT_PATH, &conflict_ids, view, planned);
-            let conflict_boxes_html =
+            let mut conflict_boxes_html =
                 prefix_ids(&render_conflict_boxes(conflict_boxes), page.id.as_str());
 
             let raw_parts = [p0, p1, p2, p3, p4, p5];
@@ -210,10 +283,10 @@ pub fn render_main(view: &LabelledView, edition: &EditionInfo, planned: &Planned
                     heading: part.heading,
                     is_empty: part.is_empty,
                     body_html,
-                    after_html: if idx == 4 {
-                        conflict_boxes_html.clone()
-                    } else {
-                        String::new()
+                    after_html: match idx {
+                        4 => std::mem::take(&mut conflict_boxes_html),
+                        5 => std::mem::take(&mut clause_questions_html),
+                        _ => String::new(),
                     },
                 });
             }

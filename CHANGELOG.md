@@ -4,10 +4,13 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: search records each question in the question log.
+- Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: the fmt command.
 - Changed: `check`, `search`, `status` and `fmt --check` read a Corpus edited by hand after a journaled write, where they refused it with exit 3.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
+- Added: the Company profile, Competitors and Programs view pages.
 - Fixed: backup records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest.
 - Changed: a printed page's footer shows the page id, not its route.
 - Changed: backup holds one file in memory at a time.
