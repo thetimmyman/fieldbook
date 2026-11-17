@@ -38,7 +38,7 @@
 
 ## Preconditions
 
-- Cards merged: `search-site-terms` (it changes `docs/reference/corpus-format.md`, which Step 6 edits too), `registers-xlsx` (it wrote `csv_copy.rs`, `data/claims.csv` and the `REQUIRED_FILES` entry), `ids-split` (it made `claim_part` and the part pages the single source of the parts).
+- Cards merged: `public-hosted-runners` (it establishes hosted Windows validation and the canonical delivery-binding fixture shared by `leak_outputs.rs`), `search-site-terms` (it changes `docs/reference/corpus-format.md`, which Step 6 edits too), `registers-xlsx` (it wrote `csv_copy.rs`, `data/claims.csv` and the `REQUIRED_FILES` entry), `ids-split` (it made `claim_part` and the part pages the single source of the parts).
 
 ## Steps
 

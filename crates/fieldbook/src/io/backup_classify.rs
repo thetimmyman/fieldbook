@@ -757,10 +757,18 @@ pub fn read_file_content(world: &dyn World, rel_path: &str) -> Result<Vec<u8>, B
             reason: "not a regular file or folder (symbolic link or special file)".to_string(),
         });
     }
-    let bytes = std::fs::read(&p).map_err(|err| BackupReadError {
-        path: p.display().to_string(),
-        reason: err.to_string(),
-    })?;
+    // Windows refuses reads through another handle while these state files are
+    // locked, even when they are empty. Preserve their empty snapshot payload
+    // without releasing either lock. Nonempty files still take the ordinary
+    // read/classification path, so unexpected lock-file text is never hidden.
+    let bytes = if meta.len() == 0 && matches!(path, "state/store.lock" | "state/lock") {
+        Vec::new()
+    } else {
+        std::fs::read(&p).map_err(|err| BackupReadError {
+            path: p.display().to_string(),
+            reason: err.to_string(),
+        })?
+    };
     let hook = AFTER_READ_HOOK.with(|cell| cell.borrow_mut().take());
     if let Some(mut f) = hook {
         f(path);
