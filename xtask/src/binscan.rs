@@ -356,6 +356,37 @@ mod tests {
     }
 
     #[test]
+    fn checked_in_lists_keep_unknown_and_forbidden_imports_failing() {
+        for (build, text) in [(BuildKind::Silent, SILENT_TXT), (BuildKind::Ai, AI_TXT)] {
+            let list = BinList::parse(build, text);
+            for (name, kind) in [
+                ("CreateProcessW", FindingKind::ForbiddenProcessStart),
+                ("OpenClipboard", FindingKind::ForbiddenClipboard),
+                ("SomeSurpriseOsCall", FindingKind::Unlisted),
+            ] {
+                assert_eq!(
+                    scan(&[name.to_owned()], &list),
+                    vec![Finding {
+                        name: name.to_owned(),
+                        kind,
+                    }]
+                );
+            }
+            if build == BuildKind::Silent {
+                for name in ["socket", "WSAStartup"] {
+                    assert_eq!(
+                        scan(&[name.to_owned()], &list),
+                        vec![Finding {
+                            name: name.to_owned(),
+                            kind: FindingKind::ForbiddenNetwork,
+                        }]
+                    );
+                }
+            }
+        }
+    }
+
+    #[test]
     fn the_lists_are_sorted_and_have_no_duplicates() {
         for (label, raw) in [("silent.txt", SILENT_TXT), ("ai.txt", AI_TXT)] {
             let entries: Vec<&str> = raw
