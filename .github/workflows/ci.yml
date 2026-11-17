@@ -97,7 +97,7 @@ jobs:
     # Keep the existing policy of accepting only same-repository pull requests.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
-    # 35 to 42 minutes alone; two runs at once on the shared runners need more room.
+    # Keep the complete site and browser sweep within the existing bound.
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -118,7 +118,9 @@ jobs:
       - name: Check generated documentation
         run: cargo xtask docs --check
       - name: Open every page in the browser harness
-        run: cargo xtask harness
+        # One browser worker per core on this dedicated standard runner. The shared-host
+        # half-core default underuses it and the full sweep exceeds the job bound.
+        run: cargo xtask harness --jobs 4
 
   windows:
     needs: [changes]
