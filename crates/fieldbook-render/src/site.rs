@@ -194,14 +194,22 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         edition::OUTPUT_PATH.to_owned(),
     ]);
     paths.extend(area::page_paths(view));
+    paths.extend(area::view_page_paths(view));
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
     paths.push(xlsx::OUTPUT_PATH.to_owned());
     paths.extend(templates_xlsx::planned_paths(view));
     for reg in Register::ALL {
-        paths.push(csv_copy::output_path(reg));
+        if reg != Register::Claims {
+            paths.push(csv_copy::output_path(reg));
+        }
     }
+    paths.extend(
+        register::claims_parts(view)
+            .into_iter()
+            .map(|p| csv_copy::claims_part_output_path(&p.area_code, p.part)),
+    );
     paths.extend(register::claims_part_paths(view));
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
@@ -232,6 +240,10 @@ pub fn render_with_previous(
     if let Some(corpus) = view.corpus() {
         for def in &corpus.area {
             let html = area::render_page(def, view, ctx, &navigation, &planned);
+            site.insert(&area::page_path(&def.code), html.into_bytes());
+        }
+        for def in &corpus.view {
+            let html = area::render_view_page(def, view, ctx, &navigation, &planned);
             site.insert(&area::page_path(&def.code), html.into_bytes());
         }
     }
@@ -303,7 +315,12 @@ pub fn render_with_previous(
         site.insert(&path, bytes);
     }
     for reg in Register::ALL {
-        site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
+        if reg != Register::Claims {
+            site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
+        }
+    }
+    for (path, bytes) in csv_copy::render_claims_parts(view) {
+        site.insert(&path, bytes);
     }
     debug_assert_eq!(
         site.files().keys().map(String::as_str).collect::<Vec<_>>(),
