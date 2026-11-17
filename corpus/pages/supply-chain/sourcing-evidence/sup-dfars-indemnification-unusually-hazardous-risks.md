@@ -43,9 +43,7 @@ A contractor on a fixed-price contract faces a third-party injury claim from a r
 
 ## Never confuse
 
-The indemnity depends on the contractor meeting all the terms and conditions of the clause [@CL-SUP-1417], and a claim, loss or damage that is compensated by insurance or other means, or is within the deductible amounts of the contractor's insurance, does not meet the clause's conditions [@CL-SUP-1420]. The cost-reimbursement clause sets aside the Limitation of Cost clause for these obligations [@CL-SUP-1424]; see [Limitation of Cost notice](../../contract-finance/funding/ctf-limitation-of-cost.md), [Liability and insurance for vessel repair](sup-dfars-ship-repair-liability-and-insurance.md), [Ground and flight risk](sup-dfars-ground-and-flight-risk.md) and [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
-
-The FAR clause on Government indemnification against unusually hazardous or nuclear risks is covered in [Indemnification against unusually hazardous or nuclear risks](../../compliance/regulatory-framework/cmp-pub-law-85-804-indemnification.md).
+The indemnity depends on the contractor meeting all the terms and conditions of the clause [@CL-SUP-1417], unlike a claim, loss or damage that is compensated by insurance or other means or is within the deductible amounts of the contractor's insurance, which does not meet the clause's conditions [@CL-SUP-1420], and the cost-reimbursement clause sets aside the Limitation of Cost clause for these obligations [@CL-SUP-1424]; see [Limitation of Cost notice](../../contract-finance/funding/ctf-limitation-of-cost.md), [Liability and insurance for vessel repair](sup-dfars-ship-repair-liability-and-insurance.md), [Ground and flight risk](sup-dfars-ground-and-flight-risk.md), [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md), and [Indemnification against unusually hazardous or nuclear risks](../../compliance/regulatory-framework/cmp-pub-law-85-804-indemnification.md).
 
 ## Company calibration
 
@@ -56,6 +54,7 @@ Whether the contract defines any unusually hazardous risk, which of the two clau
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the quoted supervision list and said the conditions listed are examples.
 - COMPATIBLE_EXTENSION, 2026-10-31: Indemnification conditions now include the supervision scope and the specific approval alternative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the pointer sentence to avoid an uncited figure.

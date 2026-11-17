@@ -340,7 +340,11 @@ mod frame {
             store: &StoreContext::Public,
             crumbs: &[
                 Crumb::linked("Today", "index.html", &planned),
-                Crumb::linked("Unbuilt map", fieldbook_core::strings::paths()[5], &planned),
+                Crumb::linked(
+                    "Unbuilt assistant",
+                    fieldbook_core::strings::paths()[4],
+                    &planned,
+                ),
                 Crumb::current("Current"),
             ],
             main_html: "",
@@ -463,33 +467,7 @@ mod frame {
         }
 
         let map_path = fieldbook_core::strings::paths()[5];
-        for href in extract_anchor_hrefs(&html) {
-            let clean = href.split('#').next().unwrap_or(&href);
-            assert!(
-                !clean.ends_with(map_path) && clean != map_path,
-                "map.html must not be a link target anywhere, found `{href}`"
-            );
-        }
-        assert!(
-            disc.contains("The app map is not available until Day 30."),
-            "app map landing line must be inside disclosure"
-        );
-
-        let planned_with_map =
-            PlannedPaths::of(&["index.html", fieldbook_core::strings::paths()[5]]);
-        let nav_with_map = nav::build(&view, &planned_with_map);
-        let html_with_map = render_page(&FrameInput {
-            output_path: "index.html",
-            title: PRODUCT_TITLE,
-            page_area: None,
-            edition: &edition_info("", 0),
-            store: &StoreContext::Public,
-            crumbs: &[],
-            main_html: "",
-            nav: &nav_with_map,
-        });
-
-        let map_link_exists = extract_anchor_hrefs(&html_with_map)
+        let map_link_exists = extract_anchor_hrefs(&html)
             .iter()
             .any(|href| href.ends_with(map_path));
         assert!(
@@ -497,8 +475,33 @@ mod frame {
             "App map entry must appear as an `<a ` link whose href ends with `{map_path}`"
         );
         assert!(
-            !html_with_map.contains("The app map is not available until Day 30."),
+            !html.contains("The app map is not available until Day 30."),
             "app map landing line must not appear anywhere in html when map is built"
+        );
+
+        let planned_without_map = PlannedPaths::of(&["index.html"]);
+        let nav_without_map = nav::build(&view, &planned_without_map);
+        let html_without_map = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            edition: &edition_info("", 0),
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &nav_without_map,
+        });
+        for href in extract_anchor_hrefs(&html_without_map) {
+            let clean = href.split('#').next().unwrap_or(&href);
+            assert!(
+                !clean.ends_with(map_path) && clean != map_path,
+                "map.html must not be a link target when unplanned, found `{href}`"
+            );
+        }
+        let (_, disc_without_map, _) = split_disclosure(&html_without_map);
+        assert!(
+            disc_without_map.contains("The app map is not available until Day 30."),
+            "app map landing line must be inside disclosure when map.html is unplanned"
         );
     }
 

@@ -49,7 +49,7 @@ A contract has materials and labor for the contract plus a small tooling charge.
 
 ## Never confuse
 
-A direct cost is any cost that is identified specifically with a particular final cost objective [@CL-RTE-9074], and direct costs of the contract shall be charged directly to the contract [@CL-RTE-0202]. No final cost objective shall have allocated to it as a direct cost any cost, if other costs incurred for the same purpose in like circumstances have been included in any indirect cost pool to be allocated to that or any other final cost objective [@CL-RTE-9133; @CL-RTE-0201]. See [Indirect costs](rte-indirect-cost-pools-bases.md).
+A direct cost is any cost that is identified specifically with a particular final cost objective [@CL-RTE-9074], direct costs of the contract shall be charged directly to the contract [@CL-RTE-0202], and the prohibition stated for [Indirect costs](rte-indirect-cost-pools-bases.md) differs in the side it polices rather than in its force: no final cost objective shall have allocated to it as a direct cost any cost, if other costs incurred for the same purpose in like circumstances have been included in any indirect cost pool to be allocated to that or any other final cost objective [@CL-RTE-9133; @CL-RTE-0201], and no final cost objective shall have allocated to it as an indirect cost any cost, if other costs incurred for the same purpose, in like circumstances, have been included as a direct cost of that or any other final cost objective [@CL-RTE-9134; @CL-RTE-0208].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ How the company assigns a cost as direct versus indirect for the same purpose. [
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched direct-cost and RFO sentences to their quotes and removed uncited paraphrases, contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the tail of the same-purpose rule and the shall and must wording of the direct-cost charging rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut the direct-cost sentence back to what its quote says.

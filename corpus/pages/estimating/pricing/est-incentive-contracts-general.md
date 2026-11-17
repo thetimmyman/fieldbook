@@ -45,7 +45,7 @@ A buyer needs 100 units whose cost and performance requirements are reasonably c
 
 ## Never confuse
 
-Where predetermined formula-type incentives on technical performance or delivery are included, increases in profit or fee are provided only for achievement that surpasses the targets [@CL-EST-1052]; under a cost-plus-award-fee contract, the award amount is based upon a judgmental evaluation by the Government [@CL-EST-1064]. For profit in price analysis, see [DoD weighted guidelines: contract type risk and working capital adjustment](est-weighted-guidelines-contract-type-risk.md) and [Profit analysis in cost-based price negotiations](est-profit-analysis.md). For how incentive fee is billed after award, see [Incentive Fee clause](../../contract-finance/billing-payment/ctf-incentive-fee.md).
+Incentive contracts tie payable profit or fee to contractor performance and require a head-of-contracting-activity determination and findings when a firm-fixed-price contract is not appropriate [@CL-EST-1050; @CL-EST-1055; @CL-EST-9511], rather than serving as a default substitute for firm-fixed-price contracting or replacing prenegotiation profit analysis on [Profit analysis in cost-based price negotiations](est-profit-analysis.md) [@CL-EST-0162].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which incentive-contract bids need immediate support, and what review evidence a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the formula-incentive versus award-fee comparison as cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the 'by relating profit or fee to performance' ending of the appropriateness sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incentive contracts in general.

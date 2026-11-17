@@ -53,7 +53,7 @@ A third contract lists a synthetic Standard X in the higher-level quality clause
 
 ## Never confuse
 
-The contracting officer inserts the title, number, date and tailoring (if any) of the higher-level quality standards [@CL-SUP-3190], and the contractor shall comply with the listed standards and include their applicable requirements, and the requirement to flow them down, to the lower-tier subcontracts described [@CL-SUP-3109; @CL-SUP-3110]. The short form gives the Government the right to inspect and evaluate the work [@CL-SUP-3107], while the contractor inspection clause makes the contractor responsible for performing or having performed all inspections and tests necessary to substantiate conformance [@CL-SUP-3105]. Related cards cover [inspection of research and development](../sourcing-evidence/sup-inspection-of-research-and-development.md), [contractor quality responsibilities](../sourcing-evidence/sup-contractor-quality-responsibilities.md), [contract quality requirements](../sourcing-evidence/sup-contract-quality-requirements.md), [quality assurance on subcontracts](../sourcing-evidence/sup-subcontract-quality-assurance.md) and [inspection of supplies under fixed-price contracts](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
+The contracting officer inserts the title, number, date and tailoring (if any) of the higher-level quality standards [@CL-SUP-3190], and the contractor shall comply with the listed standards and include their applicable requirements, and the requirement to flow them down, to the lower-tier subcontracts described [@CL-SUP-3109; @CL-SUP-3110]. The short form gives the Government the right to inspect and evaluate the work [@CL-SUP-3107], unlike the contractor inspection clause, which makes the contractor responsible for performing or having performed all inspections and tests necessary to substantiate conformance [@CL-SUP-3105]. Related cards cover [inspection of research and development](../sourcing-evidence/sup-inspection-of-research-and-development.md), [contractor quality responsibilities](../sourcing-evidence/sup-contractor-quality-responsibilities.md), [contract quality requirements](../sourcing-evidence/sup-contract-quality-requirements.md), [quality assurance on subcontracts](../sourcing-evidence/sup-subcontract-quality-assurance.md) and [inspection of supplies under fixed-price contracts](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which quality standard is written into each contract and purchase order, and whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the shall wording, alternatives and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the two subcontract kinds as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

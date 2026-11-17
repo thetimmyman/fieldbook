@@ -43,9 +43,7 @@ A registrant has variable-rate debt of 100 and chooses the sensitivity analysis 
 
 ## Never confuse
 
-Under Item 305(a)(1), sensitivity analysis expresses potential loss in future earnings, fair values, or cash flows of market risk sensitive instruments resulting from one or more selected hypothetical changes in interest rates, foreign currency exchange rates, commodity prices, and other relevant market rates or prices over a selected period of time [@CL-FPA-0133; @CL-FPA-0172], whereas value at risk expresses potential loss in future earnings, fair values, or cash flows over a selected period of time, with a selected likelihood of occurrence, from changes in interest rates, foreign currency exchange rates, commodity prices, and other relevant market rates or prices [@CL-FPA-0134; @CL-FPA-0328], and the tabular alternative presents information related to market risk sensitive instruments, including fair values and contract terms sufficient to determine future cash flows, categorized by expected maturity dates [@CL-FPA-0132]. Item 305(a)(1) covers quantitative information about market risk [@CL-FPA-0131], while Item 305(b)(1) covers qualitative descriptions, to the extent material, of primary market risk exposures, how they are managed, and changes in either [@CL-FPA-0135; @CL-FPA-0136].
-
-The management discussion of liquidity is covered in [MD&A objective and liquidity for public registrants](../planning-chain/fpa-mdna-objective-and-liquidity.md), and the risk factor disclosure is covered in [Risk factor disclosure for public registrants](fpa-risk-factors.md).
+Under Item 305(a)(1), sensitivity analysis expresses potential loss in future earnings, fair values, or cash flows of market risk sensitive instruments resulting from one or more selected hypothetical changes in interest rates, foreign currency exchange rates, commodity prices, and other relevant market rates or prices over a selected period of time [@CL-FPA-0133; @CL-FPA-0172], unlike value at risk, which expresses potential loss in future earnings, fair values, or cash flows over a selected period of time, with a selected likelihood of occurrence, from changes in interest rates, foreign currency exchange rates, commodity prices, and other relevant market rates or prices [@CL-FPA-0134; @CL-FPA-0328], and the tabular alternative presents information related to market risk sensitive instruments, including fair values and contract terms sufficient to determine future cash flows, categorized by expected maturity dates [@CL-FPA-0132]. Item 305(a)(1) covers quantitative information about market risk [@CL-FPA-0131], while Item 305(b)(1) covers qualitative descriptions, to the extent material, of primary market risk exposures, how they are managed, and changes in either [@CL-FPA-0135; @CL-FPA-0136]. The management discussion of liquidity is covered in [MD&A objective and liquidity for public registrants](../planning-chain/fpa-mdna-objective-and-liquidity.md), and the risk factor disclosure is covered in [Risk factor disclosure for public registrants](fpa-risk-factors.md).
 
 ## Company calibration
 
@@ -54,6 +52,7 @@ Which market risk sensitive instruments the company holds and how they tie to it
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for the market rates and prices clause in Item 305(a)(1)(ii)(A) and removed meta-wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on MD&A liquidity and risk factors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the sensitivity analysis sentence so the alternative keeps the duty to describe the model, assumptions and parameters.

@@ -53,6 +53,9 @@ print_stdout = "deny"
 print_stderr = "deny"
 dbg_macro = "deny"
 
+[profile.dev.package.sha2]
+opt-level = 3
+
 [profile.release]
 codegen-units = 1
 overflow-checks = true   # [J]

@@ -45,7 +45,7 @@ Offer A is f.o.b. origin at 1,000 per lot from plant X, and the land common carr
 
 ## Never confuse
 
-If the offeror uses a shipping point other than that which has been used by the Government as a basis for the evaluation of offers, any increase of transportation costs shall be borne by the Contractor and any savings shall revert to the Government [@CL-SUP-2001]. A tentative destination is used only for evaluation, and the Government may use any other destination at shipment [@CL-SUP-2086]. The codified text prints provisions on evaluating f.o.b. origin and f.o.b. destination offers, on the shipping point used in evaluation and on evaluation of f.o.b. origin offers [@CL-SUP-1995; @CL-SUP-1999; @CL-SUP-1998], while the RFO text lists all three numbers as [Reserved] [@CL-SUP-0273; @CL-SUP-0274; @CL-SUP-0275].
+If the offeror uses a shipping point other than that which has been used by the Government as a basis for the evaluation of offers, any increase of transportation costs shall be borne by the Contractor and any savings shall revert to the Government [@CL-SUP-2001]. A tentative destination is used only for evaluation, and the Government may use any other destination at shipment [@CL-SUP-2086]. The codified text prints provisions on evaluating f.o.b. origin and f.o.b. destination offers, on the shipping point used in evaluation and on evaluation of f.o.b. origin offers [@CL-SUP-1995; @CL-SUP-1999; @CL-SUP-1998], unlike the RFO text, which lists all three numbers as [Reserved] [@CL-SUP-0273; @CL-SUP-0274; @CL-SUP-0275].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm which shipping points the company offers from and whether it states quan
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned evaluation wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation of f.o.b. origin and f.o.b. destination offers.

@@ -44,7 +44,7 @@ An agency plans a four-year contract for operation, maintenance, and support of 
 
 ## Never confuse
 
-The sole source price limit applies to a sole source contract for a centrally managed replenishment part [@CL-EST-1597]. The multiyear authority in this card is for the listed types of services and related items of supply [@CL-EST-1593]; the conditions and cancellation ceilings for multiyear contracts for supplies are on [Multiyear contracting: definition, term limit and approval conditions](../../industrialization/ramp/ind-multiyear-contracting.md).
+This card pairs two distinct DoD rules: multiyear contracting up to 5 years for specified facility and complex-equipment services despite annual funding limits [@CL-EST-1593; @CL-EST-1594], versus a ban on sole-source awards for centrally managed replenishment parts whose price rose 25 percent or more over the prior 12 months [@CL-EST-1597].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which service work might qualify for a multiyear term, and which sole source par
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the written-determination findings as all applying and added the alternate-percentage provision for small contracts in place of scope notes; reworded the adjustment sentence and two contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD multiyear services and spare-part price limits.

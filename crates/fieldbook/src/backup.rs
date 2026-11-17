@@ -363,6 +363,16 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         match world.write_lease() {
             Ok(l) => Some(l),
             Err(err) => {
+                if matches!(
+                    std::fs::symlink_metadata(&corpus_root),
+                    Ok(ref m) if m.file_type().is_file()
+                ) {
+                    return Outcome {
+                        stdout: String::new(),
+                        stderr: format!("error: no corpus folder at {}\n", corpus_root.display()),
+                        code: EXIT_IO,
+                    };
+                }
                 return Outcome {
                     stdout: String::new(),
                     stderr: format!("cannot acquire store lease: {err}\n"),
@@ -454,12 +464,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                         dest: Some(DestKind::Backup),
                         ..RefuseAbout::default()
                     };
-                    let _ = j.refuse(
-                        Some("backup"),
-                        refusal.code,
-                        Word::new_static("place"),
-                        &about,
-                    );
+                    let _ = j.refuse_backup(refusal.code, Word::new_static("place"), &about);
                 }
                 return Outcome {
                     stdout: notices,
@@ -504,12 +509,13 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         };
     }
 
-    // 7. Load model for label resolution
+    // 7. Load model and support provenance once for label resolution
     let (model, _) = load_model_if_available(world);
+    let support_facts = world.support_facts();
 
-    // Classify files and resolve labels
-    let mut copied_files = Vec::new();
-    let mut file_bytes_cache = Vec::new();
+    // Pass 1: classify each file and record only its digest and byte length
+    let mut copied_files = Vec::with_capacity(plan.files.len());
+    let mut recorded_files: Vec<(String, String, u64)> = Vec::with_capacity(plan.files.len());
 
     for file_rel in &plan.files {
         let bytes = match read_file_content(world, file_rel) {
@@ -522,9 +528,9 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 };
             }
         };
-        let cf = classify_file(world, model.as_ref(), eff, file_rel, &bytes);
+        let cf = classify_file(&support_facts, model.as_ref(), eff, file_rel, &bytes);
         copied_files.push(cf);
-        file_bytes_cache.push((file_rel.clone(), bytes));
+        recorded_files.push((file_rel.clone(), sha256_hex(&bytes), bytes.len() as u64));
     }
 
     // Calculate aggregated snapshot labels
@@ -549,12 +555,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 dest: Some(DestKind::Backup),
                 ..RefuseAbout::default()
             };
-            let _ = j.refuse(
-                Some("backup"),
-                refusal.code,
-                Word::new_static("git"),
-                &about,
-            );
+            let _ = j.refuse_backup(refusal.code, Word::new_static("git"), &about);
         }
         return Outcome {
             stdout: notices,
@@ -621,7 +622,14 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 Ok(i) | Err(i) => i,
             };
             plan.files.insert(idx, segment_rel.clone());
-            file_bytes_cache.insert(idx, (segment_rel.clone(), Vec::new()));
+            recorded_files.insert(
+                idx,
+                (
+                    segment_rel.clone(),
+                    sha256_hex(&prep.bytes),
+                    prep.bytes.len() as u64,
+                ),
+            );
             copied_files.insert(
                 idx,
                 CopiedFile::new(
@@ -630,6 +638,30 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                     LabelSet::public(),
                 ),
             );
+        } else if let Some((_, expected_sha, expected_len)) = recorded_files
+            .iter_mut()
+            .find(|(rel, _, _)| rel == &segment_rel)
+        {
+            let mut seg_bytes = match read_file_content(world, &segment_rel) {
+                Ok(b) => b,
+                Err(err) => {
+                    return Outcome {
+                        stdout: notices,
+                        stderr: format!("error: {err}\n"),
+                        code: EXIT_IO,
+                    };
+                }
+            };
+            if seg_bytes.len() as u64 != *expected_len || sha256_hex(&seg_bytes) != *expected_sha {
+                return Outcome {
+                    stdout: notices,
+                    stderr: format!("source changed during backup: {segment_rel}\n"),
+                    code: EXIT_IO,
+                };
+            }
+            seg_bytes.extend_from_slice(&prep.bytes);
+            *expected_sha = sha256_hex(&seg_bytes);
+            *expected_len = seg_bytes.len() as u64;
         }
     }
 
@@ -638,34 +670,26 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     let partial_path = target_path.join(&partial_dir_name);
     let final_path = target_path.join(&final_dir_name);
 
-    // Build files delivery and SHA256SUMS
-    let mut delivery_transfers = Vec::new();
-    let mut sums_entries = Vec::new();
-    let mut tree_entries = Vec::new();
+    // Build files delivery and SHA256SUMS from pass-1 digests without retaining file bytes
+    let mut delivery_transfers = Vec::with_capacity(recorded_files.len());
+    let mut sums_entries = Vec::with_capacity(recorded_files.len());
+    let mut tree_entries = Vec::with_capacity(recorded_files.len());
     let mut total_bytes = 0u64;
 
-    let prep_segment_rel = prepared_begin
-        .as_ref()
-        .map(|p| format!("state/audit/{}", p.segment));
-
-    for (file_rel, mut bytes) in file_bytes_cache {
-        // If this is the active journal file and we prepared begin, append prepared bytes
-        if let (Some(prep), Some(prep_rel)) = (&prepared_begin, &prep_segment_rel)
-            && file_rel == *prep_rel
-        {
-            bytes.extend_from_slice(&prep.bytes);
-        }
-
-        let sha = sha256_hex(&bytes);
-        let len = bytes.len() as u64;
-        total_bytes = total_bytes.saturating_add(len);
+    for (file_rel, sha, len) in &recorded_files {
+        total_bytes = total_bytes.saturating_add(*len);
 
         let snap_rel = format!("data/{file_rel}");
         let full_out_path = partial_path.join(&snap_rel);
 
-        delivery_transfers.push(Transfer::write_path(full_out_path, &bytes));
+        delivery_transfers.push(Transfer {
+            target: Target::Path(full_out_path),
+            operation: Operation::Write,
+            sha256: sha.clone(),
+            bytes: *len,
+        });
         sums_entries.push((snap_rel.clone(), sha.clone()));
-        tree_entries.push((snap_rel, sha, len));
+        tree_entries.push((snap_rel, sha.clone(), *len));
     }
 
     // SHA256SUMS
@@ -704,9 +728,9 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         journal_seq,
         journal_head: journal_head.clone(),
         journal_state: if is_broken_chain {
-            fieldbook_core::strings::cite_statuses()[0].to_string()
+            fieldbook_core::backup::toml::JOURNAL_STATE_BROKEN.to_string()
         } else {
-            "ok".to_string()
+            fieldbook_core::backup::toml::JOURNAL_STATE_OK.to_string()
         },
         manifest_sha256: String::new(),
     };
@@ -778,12 +802,15 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     );
     // Only an entry whose backup.toml was read and parsed is a snapshot: retention
     // neither keeps nor removes a foreign folder or an unparsable one.
-    let pruned_snapshots: Vec<Number> = snapshot_infos
+    let mut pruned_snapshots: Vec<Number> = snapshot_infos
         .iter()
         .filter(|info| info.has_backup_toml && info.number != next_number)
         .map(|info| info.number)
         .filter(|n| !retained_snapshots.contains(n))
         .collect();
+    if recovery_opt.is_some() {
+        pruned_snapshots.clear();
+    }
 
     for num in &pruned_snapshots {
         let prune_dir = target_path.join(format!("fieldbook-backup-{num:04}"));
@@ -812,7 +839,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                     dest: Some(DestKind::Backup),
                     ..RefuseAbout::default()
                 };
-                let _ = j.refuse(Some("backup"), denial.code, denial.reason.to_word(), &about);
+                let _ = j.refuse_backup(denial.code, denial.reason.to_word(), &about);
             }
 
             let probe_count = copied_files
@@ -917,8 +944,8 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         }
     };
 
-    // Copy files one at a time
-    for file_rel in &plan.files {
+    // Pass 2: re-read files one at a time, verify against pass-1 digest, and stage
+    for (file_rel, expected_sha, expected_len) in &recorded_files {
         let bytes = match read_file_content(world, file_rel) {
             Ok(b) => b,
             Err(err) => {
@@ -929,6 +956,13 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 };
             }
         };
+        if bytes.len() as u64 != *expected_len || sha256_hex(&bytes) != *expected_sha {
+            return Outcome {
+                stdout: notices,
+                stderr: format!("source changed during backup: {file_rel}\n"),
+                code: EXIT_IO,
+            };
+        }
 
         let snap_rel = PathBuf::from(format!("data/{file_rel}"));
         if let Err(err) = stage.write(&snap_rel, &bytes) {
@@ -1003,9 +1037,22 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
             fp_sha,
             target_word,
         ) {
+            let mut err_text = format!("end_backup error: {err}\n");
+            if !removed.is_empty() {
+                let list = removed
+                    .iter()
+                    .map(|n| format!("{n:04}"))
+                    .collect::<Vec<_>>()
+                    .join(", ");
+                err_text.push_str(&format!("removed without a journal record: {list}\n"));
+            }
+            for problem in &prune_problems {
+                err_text.push_str(problem);
+                err_text.push('\n');
+            }
             return Outcome {
                 stdout: notices,
-                stderr: format!("end_backup error: {err}\n"),
+                stderr: err_text,
                 code: EXIT_IO,
             };
         }
@@ -1018,6 +1065,7 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     } else {
         // Recovery mode: refusal stderr notification
         stderr.push_str("refusing to append to journal: hash chain broken\n");
+        stderr.push_str("no snapshot removed: the journal is refused\n");
     }
 
     if !warn_stale.is_empty() {
@@ -1319,12 +1367,17 @@ fn run_verify_raw(
             path_sha256: raw_sha256,
             public_support_sha256: None,
         };
-        if let Ok(mut j) = Journal::open(world, world.state_dir(), Via::Cli) {
-            let _ = j.append_backup_verify(Word::new_static("ok"), verified);
+        let mut stderr = String::new();
+        if let Err(err) = Journal::open(world, world.state_dir(), Via::Cli)
+            .and_then(|mut j| j.append_backup_verify(Word::new_static("ok"), verified))
+        {
+            stderr.push_str(&format!(
+                "note: verify was not recorded in the journal: {err}\n"
+            ));
         }
         return Outcome {
             stdout: "raw copy consistent\n".to_string(),
-            stderr: String::new(),
+            stderr,
             code: EXIT_OK,
         };
     }

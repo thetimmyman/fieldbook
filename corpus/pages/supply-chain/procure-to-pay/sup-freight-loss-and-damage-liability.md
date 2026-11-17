@@ -51,7 +51,7 @@ A household goods article weighing 50 pounds is delivered, and the owner finds i
 
 ## Never confuse
 
-Responsibility for all damage or injury to persons or property occasioned through the use, maintenance and operation of the contractor's vehicles or other equipment by, or the action of, the contractor or its employees and agents is assumed under FAR 52.247-21(a) [@CL-SUP-2303], a different clause from the one on goods lost and/or damaged in the movement [@CL-SUP-2308]. The freight clause covers freight other than household goods [@CL-SUP-2309]. The household goods clause has a notice rule and an indemnity rate [@CL-SUP-2312; @CL-SUP-2313].
+Responsibility for all damage or injury to persons or property occasioned through the use, maintenance and operation of the contractor's vehicles or other equipment by, or the action of, the contractor or its employees and agents is assumed under FAR 52.247-21(a) [@CL-SUP-2303], unlike the clause on goods lost and/or damaged in the movement [@CL-SUP-2308], where the freight clause covers freight other than household goods [@CL-SUP-2309] and the household goods clause has a notice rule and an indemnity rate [@CL-SUP-2312; @CL-SUP-2313].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which liability clause each transportation award carries, the indemnity 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the exception, notice rule, indemnity and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the household goods circumstances as alternatives.

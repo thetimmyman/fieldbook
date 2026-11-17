@@ -1,0 +1,77 @@
+<div class="page-w">
+  <header class="page-head">
+    <h1>{{ heading }}</h1>
+    <p>{{ lede }}</p>
+  </header>
+  <div class="appmap">
+    <div class="layers">
+      {% for band in &bands %}
+      <section class="{{ band.section_class }}">
+        <h2>{{ band.title }}<small>{{ band.subtitle }}</small></h2>
+        <div class="layer-body">
+          {% if let Some(unavailable) = &band.unavailable_html %}
+          {{ unavailable|safe }}
+          {% else %}
+          {% if !band.pills.is_empty() %}
+          <ul class="links">
+            {% for pill in &band.pills %}
+            <li><a class="pill" href="{{ pill.href }}">{% if let Some(code) = &pill.code %}<span class="code">{{ code }}</span>{% endif %}{{ pill.label }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% if !band.unbuilt.is_empty() %}
+          <details class="fold nav-more">
+            <summary><b>Not built yet</b></summary>
+            <div class="fold-b">
+              {% for line in &band.unbuilt %}
+              <p class="nav-line">{% if let Some(code) = &line.code %}<code>{{ code }}</code> {% endif %}{{ line.text }}</p>
+              {% endfor %}
+            </div>
+          </details>
+          {% endif %}
+          {% if let Some(note) = &band.note %}
+          <p class="note">{{ note }}</p>
+          {% endif %}
+          {% endif %}
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+    <aside class="asst-col" aria-label="Assistant">
+      <h2>{{ assistant_heading }}</h2>
+      <p>{{ assistant_lead }}</p>
+      <dl class="appmap-kv">
+        {% for row in &adapter_rows %}<dt>{{ row.label }}</dt><dd>{{ row.line }}</dd>{% endfor %}
+      </dl>
+      {% if let Some(posture) = &posture_html %}
+      <p class="note">{{ posture|safe }}</p>
+      {% endif %}
+    </aside>
+  </div>
+  <div class="appmap-panels">
+    <section class="panel" aria-labelledby="map-releases">
+      <div class="panel-head"><h2 class="panel-title" id="map-releases">Releases</h2></div>
+      <dl class="appmap-kv">
+        {% for row in &releases %}<dt>{{ row.name }}</dt><dd>{{ row.line }}</dd>{% endfor %}
+      </dl>
+      <p class="muted">This build's edition and tool version are on {% if let Some(href) = &about_href %}<a href="{{ href }}">About</a>{% else %}About{% endif %}.</p>
+    </section>
+    <section class="panel" aria-labelledby="map-labels-stores">
+      <div class="panel-head"><h2 class="panel-title" id="map-labels-stores">Labels and stores</h2></div>
+      <p class="muted">{{ labels_lead }}</p>
+      <dl class="appmap-kv">
+        {% for row in &labels %}<dt><span class="chip mono">{{ row.label }}</span></dt><dd>{{ row.line }}</dd>{% endfor %}
+      </dl>
+      <div class="table-wrap">
+        <table>
+          <caption>Stores</caption>
+          <thead><tr><th scope="col">Store</th><th scope="col">Holds</th></tr></thead>
+          <tbody>
+            {% for store in &stores %}<tr><td><code>{{ store.name }}</code></td><td>{% for (idx, hold) in store.holds.iter().enumerate() %}{% if idx > 0 %}, {% endif %}<code>{{ hold }}</code>{% endfor %}</td></tr>{% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted"><code>marked</code> is held only on a machine that has a company store. A company's own labels are not listed here.</p>
+    </section>
+  </div>
+</div>

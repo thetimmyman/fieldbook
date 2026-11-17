@@ -97,7 +97,7 @@ After stage 3 a reader can take a sample overhead pool of 4.2 million, mark the 
 
 ## Never confuse
 
-Allowability asks whether a cost may be charged to a government contract; the Cost Accounting Standards ask how a cost is measured, assigned to periods and allocated. A cost can pass one test and fail the other.
+Allowability asks whether a cost may be charged to a government contract [@CL-CMP-9932], whereas the Cost Accounting Standards ask how a cost is measured, assigned to periods and allocated rather than whether it is allowable, so a cost can pass one test and fail the other.
 
 ## Company calibration
 
@@ -107,4 +107,5 @@ Which rate sets are approved for each purpose, which bids need support now, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 3 reading path.

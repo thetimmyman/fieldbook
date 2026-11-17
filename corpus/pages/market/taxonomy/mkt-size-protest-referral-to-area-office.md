@@ -44,7 +44,7 @@ A contracting officer receives a size protest from a competitor after bid openin
 
 ## Never confuse
 
-This section covers the forwarding of a protest and the contents of the referral [@CL-MKT-2056; @CL-MKT-2057; @CL-MKT-2058]. It tells the contracting officer to forward the protest promptly and lists what the referral must contain [@CL-MKT-2056; @CL-MKT-2057; @CL-MKT-2058]. Who may protest and the deadlines are in [Small business size protests](../taxonomy/mkt-small-business-size-protests.md) and [Size protest parties and deadlines](../taxonomy/mkt-sba-size-protest-parties-and-deadlines.md). What SBA does after it receives a protest is in [SBA size determination procedure](../taxonomy/mkt-sba-size-determination-procedure.md).
+This rule governs the contracting officer's ministerial duty to assemble the required file and forward a received size protest promptly to the SBA Government Contracting Area Office [@CL-MKT-2056; @CL-MKT-2057; @CL-MKT-2058], rather than deciding the protest on the merits or setting who has standing and time to file on [Size protest parties and deadlines](../taxonomy/mkt-sba-size-protest-parties-and-deadlines.md) [@CL-MKT-0405].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Who receives a size protest on each of the company's set-aside offers, and who a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unstated only and absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added where a size protest is filed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for referral of a size protest to an area office.

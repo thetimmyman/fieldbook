@@ -47,7 +47,7 @@ The same contractor allocates the cost of one type of support effort to one cont
 
 ## Never confuse
 
-Double counting occurs "most commonly" when cost items are allocated directly to a cost objective without eliminating like cost items from indirect cost pools that are allocated to that cost objective [@CL-EST-2909]. The allocation rules are in [the Standard's main card](../../compliance/cas-allowability/cmp-cas-402-same-purpose.md) and the definitions in [the definitions and illustrations card](../../compliance/cas-allowability/cmp-cas-402-definitions-illustrations-and-interpretation.md).
+CAS 402's purpose is preventing double counting by requiring each type of cost to be allocated only once and on one basis to any cost objective [@CL-EST-2906; @CL-EST-2908], rather than allowing a contractor to charge an item directly to one contract while leaving like items in an indirect pool allocated to that same contract on [the Standard's main card](../../compliance/cas-allowability/cmp-cas-402-same-purpose.md) [@CL-CMP-0204].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether the proposal applies one basis to each type of cost and removes like cos
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Double-counting sentence restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose section omits removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose of the consistency Standard on allocating costs incurred for the same purpose.

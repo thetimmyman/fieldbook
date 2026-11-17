@@ -45,7 +45,7 @@ A contracting activity makes 200 awards in a year and 30 go to small business co
 
 ## Never confuse
 
-The criteria for small business set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card, and the thresholds for subcontracting plans are on the [When a subcontracting plan is required](mkt-subcontracting-plan-when-required.md) card. Under FAR 19.201(a), the general policy provides maximum practicable opportunities in acquisitions and in subcontracting consistent with efficient contract performance [@CL-MKT-0300; @CL-MKT-0301].
+Government policy to provide maximum practicable prime and subcontracting opportunities [@CL-MKT-0300; @CL-MKT-0301] states the overarching objective assigned to heads of contracting activities [@CL-MKT-0302], rather than setting the mandatory set-aside thresholds on [Small business set-asides](mkt-small-business-set-asides.md) [@CL-MKT-0219].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which product families and customer groups the company sells into where agencies
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and unquoted negative contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the general small business policy.

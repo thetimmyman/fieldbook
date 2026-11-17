@@ -45,7 +45,7 @@ A program has a radar element and a software element in its work structure. Two 
 
 ## Never confuse
 
-Decomposing the program work into manageable segments creates the Work Breakdown Structure wherein each element contains a specific scope of work [@CL-PRG-0635], while the program establishes an organizational structure and an Organization Breakdown Structure which identifies managers responsible for work accomplishment [@CL-PRG-0636]. The assignment of organizational elements to specific Work Breakdown Structure elements establishes the control accounts, which are the primary management control points for work authorization, budgeting, cost accumulation and performance measurement [@CL-PRG-0637].
+Decomposing the program work into manageable segments creates the Work Breakdown Structure wherein each element contains a specific scope of work [@CL-PRG-0635], unlike the Organization Breakdown Structure, which the program establishes alongside its organizational structure to identify managers responsible for work accomplishment [@CL-PRG-0636]. The assignment of organizational elements to specific Work Breakdown Structure elements establishes the control accounts, which are the primary management control points for work authorization, budgeting, cost accumulation and performance measurement [@CL-PRG-0637].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which work breakdown and control account standards the company's programs use, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for Organization Category objectives and aligned prose to cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored management control purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EVMS Organization category.

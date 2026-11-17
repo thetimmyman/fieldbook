@@ -43,7 +43,7 @@ A change order adds 30 of authorized scope to a program. The undistributed budge
 
 ## Never confuse
 
-Guideline 24 requires incorporating customer directed changes in a timely manner, documenting and reconciling the effects of such changes in scope, schedule, and budget, and incorporating authorized changes into the performance measurement baseline before the commencement of work [@CL-PRG-0098; @CL-PRG-0366], whereas Guideline 25 addresses internal replanning to maintain an executable baseline for the remaining in-scope work on the contract [@CL-PRG-0099; @CL-PRG-0367].
+Guideline 24 requires incorporating customer directed changes in a timely manner, documenting and reconciling the effects of such changes in scope, schedule, and budget, and incorporating authorized changes into the performance measurement baseline before the commencement of work [@CL-PRG-0098; @CL-PRG-0366], unlike Guideline 25, which addresses internal replanning to maintain an executable baseline for the remaining in-scope work on the contract [@CL-PRG-0099; @CL-PRG-0367].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which baseline changes are customer directed and are incorporated into the contr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0098 for the Guideline 24 rule text, populated the instrument field, and cited the distinction between customer directed changes and internal replanning.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: aligned the applies-to row and removed a duplicate sentence the claim did not support.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incorporating customer directed changes.

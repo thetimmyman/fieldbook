@@ -49,9 +49,7 @@ Final negotiated cost is 1,100,000. The overrun is 100,000, so the adjustment is
 
 ## Never confuse
 
-Billing prices apply pending the modification that sets the total final price, and they start at the target prices [@CL-EST-1666].
-
-For the successive targets clause, see [Incentive price revision clause with successive targets](est-incentive-price-revision-successive-targets-clause.md). For price redetermination, see [Prospective price redetermination clause](est-prospective-price-redetermination-clause.md).
+FAR 52.216-16 revises billing prices to a final contract price after the last scheduled item is delivered using firm targets set at award [@CL-EST-0273; @CL-EST-0274; @CL-EST-1659], unlike FAR 52.216-17 on [Incentive price revision clause with successive targets](est-incentive-price-revision-successive-targets-clause.md), which resets initial targets during performance before final pricing [@CL-EST-1669].
 
 ## Company calibration
 
@@ -61,6 +59,7 @@ Who prepares the final cost statement and the cost-to-complete estimate, and how
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the receipt-of-data trigger and the actors for setting the total final price; replaced uncited contrasts with pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the data format under the codified clause.

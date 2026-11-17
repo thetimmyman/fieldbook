@@ -57,11 +57,7 @@ A construction contract sets separate completion dates for two separable items, 
 
 ## Never confuse
 
-Paragraph (a) lists nine example factors for establishing a contract delivery or performance schedule [@CL-PRG-0450; @CL-PRG-0451; @CL-PRG-0097; @CL-PRG-0452], whereas paragraph (b) lists six example factors for scheduling the time for completion of a construction contract [@CL-PRG-0453; @CL-PRG-0454].
-
-Under paragraph (b), where multiple completion dates are used for separable items of work, requests for extension of time must be evaluated with respect to each item, and the affected completion dates modified when appropriate [@CL-PRG-0455; @CL-PRG-0456].
-
-Paragraph (b) states that the contracting officer shall consider applicable factors when scheduling the time for completion of a construction contract [@CL-PRG-0453], while paragraph (a) states that consideration shall be given to applicable factors when establishing a contract delivery or performance schedule [@CL-PRG-0450].
+Paragraph (a) lists nine example factors for establishing a contract delivery or performance schedule [@CL-PRG-0450; @CL-PRG-0451; @CL-PRG-0097; @CL-PRG-0452], unlike paragraph (b), which lists six example factors for scheduling the time for completion of a construction contract [@CL-PRG-0453; @CL-PRG-0454]. Under paragraph (b), where multiple completion dates are used for separable items of work, requests for extension of time must be evaluated with respect to each item, and the affected completion dates modified when appropriate [@CL-PRG-0455; @CL-PRG-0456]. Paragraph (b) states that the contracting officer shall consider applicable factors when scheduling the time for completion of a construction contract [@CL-PRG-0453], while paragraph (a) states that consideration shall be given to applicable factors when establishing a contract delivery or performance schedule [@CL-PRG-0450].
 
 ## Company calibration
 
@@ -71,5 +67,6 @@ Which supplier lead times, production constraints and quality risks the company 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0097 for items (8) and (9) of FAR 11.402(a), cited introductory factor claims across multi-part factor sentences, and removed negative and meta-commentary sentences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for delivery and performance schedule factors.

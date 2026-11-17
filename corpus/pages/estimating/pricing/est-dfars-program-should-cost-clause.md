@@ -45,7 +45,7 @@ During performance of a development contract, the Government tells the prime con
 
 ## Never confuse
 
-The clause gives the Government the right to review and sets the contractor's cooperation duties [@CL-EST-1733; @CL-EST-1736]. When the Department considers a review and what its team looks like are on [Program should-cost review in the DoD supplement](est-dod-program-should-cost-review.md). The general FAR concept of a should-cost review, including the overhead type, is on [Should-cost review](est-should-cost-review.md). Where the clause is placed in solicitations is on [DFARS solicitation provisions for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md).
+DFARS 252.215-7015 establishes the Government's contractual right to conduct a program should-cost review during proposal evaluation or contract performance [@CL-EST-1733; @CL-EST-1734; @CL-EST-1777], unlike traditional historical-cost evaluation—which [Should-cost review](est-should-cost-review.md) notes assumes past operations were efficient [@CL-EST-0223]—and differs from internal agency selection guidance on [Program should-cost review in the DoD supplement](est-dod-program-should-cost-review.md) [@CL-EST-1535].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which programs could face a review and what cost data and staff access the contr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: How-it-works now carries the if-the-Government-performs condition and the FAR 52.203-16 reference for third-party experts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut a closing statement about points the clause leaves unsaid.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the program should-cost review clause.

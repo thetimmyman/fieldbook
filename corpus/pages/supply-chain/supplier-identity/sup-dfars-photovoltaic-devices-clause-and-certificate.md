@@ -47,7 +47,7 @@ A second offer states an estimated value of 150,000, which is above the micro-pu
 
 ## Never confuse
 
-The lower bands of the restriction paragraph name domestic photovoltaic devices, and the top band names U.S.-made, designated country or qualifying country devices [@CL-SUP-1467; @CL-SUP-1511; @CL-SUP-1513; @CL-SUP-1468]. For the DoD Buy American clause, see [DoD Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). For the trade agreements clause, see [Trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md). For the qualifying country sources clause, see [Qualifying country subcontractors and reports of performance outside the United States and Canada](sup-dfars-qualifying-country-subcontractors-and-reports.md).
+The lower bands of the restriction paragraph name domestic photovoltaic devices unless specified foreign alternatives are certified, unlike the top band at $174,000 or more, which names U.S.-made, designated country or qualifying country devices [@CL-SUP-1467; @CL-SUP-1511; @CL-SUP-1513; @CL-SUP-1468]. For the DoD Buy American clause, see [DoD Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). For the trade agreements clause, see [Trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md). For the qualifying country sources clause, see [Qualifying country subcontractors and reports of performance outside the United States and Canada](sup-dfars-qualifying-country-subcontractors-and-reports.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed contracts carry the clause, and what estimated value of photovolt
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Merged the band exceptions with their alternatives and conditions; removed absence and meta sentences; replaced contrasts with pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: exception lists worded as alternatives joined by or.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the photovoltaic devices clause and certificate.

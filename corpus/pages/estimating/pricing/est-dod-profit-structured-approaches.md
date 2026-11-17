@@ -47,7 +47,7 @@ A company proposes a cost-plus-fixed-fee action for 2,000,000 with certified dat
 
 ## Never confuse
 
-The exceptions to the structured-approach requirement for cost-plus-award-fee contracts and for contracts with FFRDCs refer to 215.404-74, 216.405-2, FAR 16.405-2 and 215.404-75 [@CL-EST-1288; @CL-EST-1289]. The factor-by-factor method is on [general policy and performance risk](est-weighted-guidelines-general-and-performance-risk.md), [contract type risk](est-weighted-guidelines-contract-type-risk.md), [facilities capital](est-weighted-guidelines-facilities-capital.md) and [cost efficiency](est-weighted-guidelines-cost-efficiency.md), and the cost-based profit policy is on [Profit analysis in cost-based price negotiations](est-profit-analysis.md). The contracting officer shall document the profit analysis in the contract file [@CL-EST-9660]; the negotiation file is covered on [Price negotiation and the price negotiation memorandum](est-price-negotiation-documentation.md).
+DoD requires a structured profit approach whenever certified cost or pricing data are obtained—allowing an alternate structure instead of weighted guidelines only if it still addresses performance risk, contract type risk (including working capital) and facilities capital [@CL-EST-1288; @CL-EST-1307]—whereas FFRDCs are excluded unlike other nonprofits that use modified weighted guidelines [@CL-EST-1316].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which current bids and estimates would be profit-analyzed under a structured app
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the earlier nonprofit paragraph, the technology incentive limit and the contract file duty, and reworded exception and contrast sentences to the provisions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the shall-use and may-use wording for the structured approaches and noted the earlier paragraph behind the words all other.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD profit policy, alternate structured approaches and the modified weighted guidelines.

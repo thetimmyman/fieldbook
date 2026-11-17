@@ -46,7 +46,7 @@ A contractor delivers a monitoring system built to a performance specification, 
 
 ## Never confuse
 
-Under FAR 52.246-19, the Contractor's warranties under the clause shall apply only to those defects discovered by either the Government or the Contractor within the warranty period or the specified event whose occurrence will terminate the warranty period that the Contracting Officer states in the clause [@CL-SUP-1165; @CL-SUP-0440]. The Contractor shall not be responsible under the clause for the correction of defects in Government-furnished property, except for defects in installation, unless the Contractor performs, or is obligated to perform, any modifications or other work on such property, in which event the Contractor shall be responsible for correction of defects that result from the modifications or other work [@CL-SUP-1168; @CL-SUP-0441]. See [Warranty of supplies of a noncomplex nature](sup-warranty-noncomplex-supplies.md), [Warranty of supplies of a complex nature](sup-warranty-complex-supplies.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), and [Warranties: criteria, terms and remedies](sup-warranties.md).
+Under FAR 52.246-19, the Contractor's warranties under the clause shall apply only to those defects discovered by either the Government or the Contractor within the warranty period or the specified event whose occurrence will terminate the warranty period that the Contracting Officer states in the clause [@CL-SUP-1165; @CL-SUP-0440], whereas the Contractor shall not be responsible under the clause for the correction of defects in Government-furnished property, except for defects in installation, unlike cases where the Contractor performs or is obligated to perform modifications or other work on such property and is responsible for correction of defects resulting from the modifications or other work [@CL-SUP-1168; @CL-SUP-0441]. See [Warranty of supplies of a noncomplex nature](sup-warranty-noncomplex-supplies.md), [Warranty of supplies of a complex nature](sup-warranty-complex-supplies.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), and [Warranties: criteria, terms and remedies](sup-warranties.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether the contract carries this clause, what its warranty-period, notice and r
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for codified FAR 52.246-19(b)(1), (b)(8), (b)(9), (c)(5), and (c)(6); separated codified and RFO citations; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Government-furnished property exception and cut-quote wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

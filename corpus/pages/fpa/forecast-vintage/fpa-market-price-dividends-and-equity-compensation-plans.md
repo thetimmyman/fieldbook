@@ -44,7 +44,7 @@ A calendar-year company trades on one exchange and names it with its symbol. Its
 
 ## Never confuse
 
-Item 201 covers principal United States markets and trading symbols for common equity, dividend policy encouragement, equity compensation plan disclosures, and the cumulative total shareholder return performance graph [@CL-FPA-0213; @CL-FPA-0249; @CL-FPA-0214; @CL-FPA-0217]. In the Item 201(d)(2) plan table, column (a) reports the number of securities to be issued upon the exercise of outstanding options, warrants and rights and column (b) their weighted-average exercise price, while column (c) reports, other than those securities, the number of securities remaining available for future issuance under the plan [@CL-FPA-0215; @CL-FPA-0216]. For the rights and terms of registered securities, see [Description of registrant's securities](fpa-description-of-registrants-securities.md); for beneficial ownership and insider reporting compliance, see [Security ownership and insider reporting compliance](fpa-security-ownership-and-section-16a-compliance.md); for unregistered sales and issuer repurchases, see [Supplementary information and securities sales](fpa-supplementary-and-securities-sales-disclosure.md); and for awards granted to, held by, and exercised or vested by named executive officers, see [Executive equity award tables](fpa-executive-equity-award-tables.md).
+Item 201 covers principal United States markets and trading symbols for common equity, dividend policy encouragement, equity compensation plan disclosures, and the cumulative total shareholder return performance graph [@CL-FPA-0213; @CL-FPA-0249; @CL-FPA-0214; @CL-FPA-0217]. In the Item 201(d)(2) plan table, column (a) reports the number of securities to be issued upon the exercise of outstanding options, warrants and rights and column (b) their weighted-average exercise price, unlike column (c), which reports, other than those securities, the number of securities remaining available for future issuance under the plan [@CL-FPA-0215; @CL-FPA-0216]. For the rights and terms of registered securities, see [Description of registrant's securities](fpa-description-of-registrants-securities.md); for beneficial ownership and insider reporting compliance, see [Security ownership and insider reporting compliance](fpa-security-ownership-and-section-16a-compliance.md); for unregistered sales and issuer repurchases, see [Supplementary information and securities sales](fpa-supplementary-and-securities-sales-disclosure.md); and for awards granted to, held by, and exercised or vested by named executive officers, see [Executive equity award tables](fpa-executive-equity-award-tables.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ How the company sources its market data, plan data and peer index choices. [@Q-0
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for Item 201(d)(1)(i)-(ii) aggregation and Item 201(e)(1)(i)-(ii) comparators, and removed meta-wording and unquoted only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the performance graph measurement period.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the executive equity award tables card from the Never confuse section.

@@ -43,9 +43,7 @@ A control account has an authorized budget of 500,000 across a 12-month period. 
 
 ## Never confuse
 
-The sum of all work package budgets plus planning package budgets within control accounts equals the budgets authorized for those control accounts [@CL-PRG-0233]. For future effort that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package above the control account level [@CL-PRG-0216]. When authorized control account work scope cannot be planned in the near-term, a planning package is used for holding the scope, schedule, and budget until the work is detail planned into work packages, and is detail planned into work packages at the earliest practicable point before any work is performed on the scope contained in the planning package [@CL-PRG-0231; @CL-PRG-0232]. See [Earned value management system requirement](prg-evms-requirement.md).
-
-The guideline on the performance measurement criteria for each work package is covered in [performance measurement criteria for each work package](prg-evms-guideline-10-performance-measurement-criteria.md).
+The sum of all work package budgets plus planning package budgets within control accounts equals the budgets authorized for those control accounts [@CL-PRG-0233], unlike future effort that cannot practically be identified to a control account, for which it is permissible to establish a Summary Level Planning Package above the control account level [@CL-PRG-0216]. When authorized control account work scope cannot be planned in the near-term, a planning package is used for holding the scope, schedule, and budget until the work is detail planned into work packages, and is detail planned into work packages at the earliest practicable point before any work is performed on the scope contained in the planning package [@CL-PRG-0231; @CL-PRG-0232]. See [Earned value management system requirement](prg-evms-requirement.md). The guideline on the performance measurement criteria for each work package is covered in [performance measurement criteria for each work package](prg-evms-guideline-10-performance-measurement-criteria.md).
 
 ## Company calibration
 
@@ -55,6 +53,7 @@ Which control account work scope the company holds in planning packages, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned work package and planning package prose with cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored and/or; SLPP permissive wording.

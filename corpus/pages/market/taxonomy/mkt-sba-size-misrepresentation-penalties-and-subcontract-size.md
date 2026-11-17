@@ -46,7 +46,7 @@ A concern with 900 employees offers as a small business on a set-aside contract 
 
 ## Never confuse
 
-The presumption of loss, which is based on the total amount expended, is listed separately from suspension, debarment, and civil and criminal penalties [@CL-MKT-0419; @CL-MKT-0420; @CL-MKT-0421; @CL-MKT-0422]. Paragraph (d) states that paragraphs (a) through (c) may be determined not to apply in those unintentional-error situations [@CL-MKT-0423]. The duty to represent size in good faith at initial offer is covered in [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md). The date on which a subcontractor's size is measured is in [When a concern's size status is measured](../taxonomy/mkt-sba-size-measurement-date.md), and the parties who may protest a prime contract size are in [Who may file a size protest and the time limits](../taxonomy/mkt-sba-size-protest-parties-and-deadlines.md).
+Willfully obtaining a small-business award by misrepresentation triggers a statutory presumption of loss based on the total amount expended [@CL-MKT-0418; @CL-MKT-0419]—unlike an honest error—and appearing on a small business source list does not excuse a section 8(d) subcontractor from qualifying and self-certifying at offer submission [@CL-MKT-0424].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Who signs size representations and how the company screens subcontractor size se
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the same-page signature rule and statutory penalty citations and removed unstated only and absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined the presumption condition, narrowed the limitation sentence and added the debarment procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size misrepresentation penalties and subcontract size.

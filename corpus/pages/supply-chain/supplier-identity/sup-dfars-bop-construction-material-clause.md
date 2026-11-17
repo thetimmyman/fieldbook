@@ -59,7 +59,7 @@ A contractor plans to bring three items to a building site. A valve valued at 20
 
 ## Never confuse
 
-The trade agreements version of this clause is a separate clause, covered on [the basic card for the trade agreements clause](sup-dfars-bop-construction-material-trade-agreements-clause.md) and [its alternates card](sup-dfars-bop-construction-material-trade-agreements-alternates.md). In the trade agreements version, the Contracting Officer has determined that the WTO GPA and Free Trade Agreements apply to the acquisition, and the Balance of Payments Program restrictions are therefore waived for designated country construction materials [@CL-SUP-1885]. This clause requires only domestic construction material, except for the listed exceptions [@CL-SUP-1877]. The FAR clause for construction materials is also separate, covered on [Buy American for construction materials](sup-buy-american-construction-materials.md).
+The trade agreements version of this clause is a separate clause, covered on [the basic card for the trade agreements clause](sup-dfars-bop-construction-material-trade-agreements-clause.md) and [its alternates card](sup-dfars-bop-construction-material-trade-agreements-alternates.md): in the trade agreements version, the Contracting Officer has determined that the WTO GPA and Free Trade Agreements apply to the acquisition, and the Balance of Payments Program restrictions are therefore waived for designated country construction materials [@CL-SUP-1885], unlike this clause, which requires only domestic construction material except for the listed exceptions [@CL-SUP-1877]. The FAR clause for construction materials is also separate, covered on [Buy American for construction materials](sup-buy-american-construction-materials.md).
 
 ## Company calibration
 
@@ -68,6 +68,7 @@ Which construction contracts carry this clause or an alternate, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the manufactured-in-the-United-States condition, the iron and steel scope and the emergency systems timing; narrowed the exceptions and waiver wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: domestic construction material definition stated as two alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Balance of Payments Program construction material clause.

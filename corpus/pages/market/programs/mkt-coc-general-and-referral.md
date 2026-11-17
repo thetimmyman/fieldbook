@@ -45,7 +45,7 @@ An apparent successful small business offeror is found to lack the capacity to p
 
 ## Never confuse
 
-A Certificate of Competency is the SBA's certificate that the holder is responsible [@CL-MKT-0475; @CL-MKT-1444]; a contracting officer refers an apparent successful small business offeror determined to be nonresponsible to the SBA for a possible Certificate of Competency [@CL-MKT-0477]. How the contracting officer gathers responsibility information is on the [Obtaining responsibility information and documenting the determination](../../supply-chain/supplier-identity/sup-responsibility-information-and-determination.md) card. Which acquisitions are set aside for small business is on the [Small business set-asides](mkt-small-business-set-asides.md) card. What the SBA does after a referral is on the [Issuing or denying a Certificate of Competency and resolving differences with SBA](mkt-coc-issuance-denial-and-resolution.md) card.
+A Certificate of Competency referral withholds award and sends a nonresponsibility finding on an apparent successful small business offeror to SBA [@CL-MKT-0475; @CL-MKT-0478], unlike 8(a) sole-source awards, which are excluded from the Certificate of Competency program [@CL-MKT-0476], and unlike non-small offerors where the contracting officer's nonresponsibility determination on [Obtaining responsibility information and documenting the determination](../../supply-chain/supplier-identity/sup-responsibility-information-and-determination.md) stands without SBA referral [@CL-SUP-0908].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether the company bids as a small business, and in which market segments, so t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the certificate and removed meta and trigger wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: referral alternatives wording and cite placement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Referral exceptions stated as alternatives.

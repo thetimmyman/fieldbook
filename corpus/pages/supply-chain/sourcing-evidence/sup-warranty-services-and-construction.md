@@ -46,7 +46,7 @@ A contractor services 200 hours of equipment, and the clause lets the contractin
 
 ## Never confuse
 
-Under FAR 52.246-20, the Contractor warrants that all services performed under the contract will, at the time of acceptance, be free from defects in workmanship and conform to the requirements of the contract [@CL-SUP-1171; @CL-SUP-0437], whereas under FAR 52.246-21 the warranty shall continue for a period of 1 year from the date of final acceptance of the work, or for a period of 1 year from the date the Government takes possession if the Government takes possession of any part of the work before final acceptance [@CL-SUP-1176]. See [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md), [Inspection of Services—Fixed-Price clause](sup-inspection-of-services-fixed-price.md), [Inspection of Construction clause](sup-inspection-of-construction.md), [Warranty of supplies of a noncomplex nature](sup-warranty-noncomplex-supplies.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), and [Warranties: criteria, terms and remedies](sup-warranties.md).
+Under FAR 52.246-20, the Contractor warrants that all services performed under the contract will, at the time of acceptance, be free from defects in workmanship and conform to the requirements of the contract [@CL-SUP-1171; @CL-SUP-0437], unlike under FAR 52.246-21, where the warranty shall continue for a period of 1 year from the date of final acceptance of the work, or for a period of 1 year from the date the Government takes possession if the Government takes possession of any part of the work before final acceptance [@CL-SUP-1176]. See [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md), [Inspection of Services—Fixed-Price clause](sup-inspection-of-services-fixed-price.md), [Inspection of Construction clause](sup-inspection-of-construction.md), [Warranty of supplies of a noncomplex nature](sup-warranty-noncomplex-supplies.md), [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md), and [Warranties: criteria, terms and remedies](sup-warranties.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether each service or construction contract carries the matching clause, what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for codified FAR 52.246-20(b) and 52.246-21(a); separated codified and RFO citations; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the construction warranty exception sentence so the exception keeps the second item, damage resulting from defects in Government-furnished material or design.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

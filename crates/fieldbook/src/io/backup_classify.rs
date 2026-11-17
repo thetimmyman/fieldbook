@@ -18,6 +18,7 @@ use fieldbook_core::labels::{
     ItemRef, LabelGraph, LabelId, LabelNode, LabelSet, Ledger, PUBLIC, StoreId, UNLABELLED,
     effective_item, markings_in,
 };
+use fieldbook_core::manifest::SupportFacts;
 use fieldbook_core::policy::{EffectivePolicy, PolicyState};
 use fieldbook_core::report::{AddReport, LastBackupReport};
 use fieldbook_core::schema::Register;
@@ -25,9 +26,24 @@ use fieldbook_core::schema::Register;
 use crate::World;
 use crate::io::state::BackupSettings;
 
+/// Per-thread callback invoked after [`read_file_content`] reads a file.
+pub type AfterReadHook = Box<dyn FnMut(&str) + Send>;
+
+thread_local! {
+    static AFTER_READ_HOOK: std::cell::RefCell<Option<AfterReadHook>> =
+        const { std::cell::RefCell::new(None) };
+}
+
+/// Installs or clears a per-thread hook invoked after [`read_file_content`] reads a file.
+pub fn set_after_read_hook(hook: Option<AfterReadHook>) {
+    AFTER_READ_HOOK.with(|cell| {
+        *cell.borrow_mut() = hook;
+    });
+}
+
 /// Check whether a Corpus support file has public provenance.
 #[must_use]
-pub fn support_has_public_provenance(world: &dyn World, rel_path: &str, bytes: &[u8]) -> bool {
+pub fn support_has_public_provenance(facts: &SupportFacts, rel_path: &str, bytes: &[u8]) -> bool {
     let norm = rel_path.replace('\\', "/");
     let clean = norm.trim_start_matches('/');
     let corpus_rel = clean.strip_prefix("corpus/").unwrap_or(clean);
@@ -35,7 +51,6 @@ pub fn support_has_public_provenance(world: &dyn World, rel_path: &str, bytes: &
         return false;
     }
     let current_sha256 = fieldbook_core::hash::sha256_hex(bytes);
-    let facts = world.support_facts();
     facts.has_provenance(corpus_rel, &current_sha256)
 }
 
@@ -52,29 +67,113 @@ pub fn is_corpus_support(rel_path: &str) -> bool {
 
 struct ModelLabelGraph<'a> {
     model: &'a Model,
+    ledgers: std::collections::BTreeMap<StoreId, Ledger>,
     empty_ledger: Ledger,
+}
+
+fn broken_ledger() -> Ledger {
+    Ledger::parse("\0").unwrap_or_else(Ledger::broken)
+}
+
+fn load_store_ledger(world: &dyn World, model: &Model, store: StoreId) -> Ledger {
+    let rel = format!("{}/labels.csv", store.as_str());
+    if let Some(bytes) = model.tree().get_bytes(&rel) {
+        return match std::str::from_utf8(bytes) {
+            Ok(text) => Ledger::parse(text).unwrap_or_else(Ledger::broken),
+            Err(_) => broken_ledger(),
+        };
+    }
+    let path = if store == StoreId::State {
+        world.state_dir().join("labels.csv")
+    } else {
+        world.tree_root().join(store.as_str()).join("labels.csv")
+    };
+    match std::fs::symlink_metadata(&path) {
+        Ok(meta) => {
+            if !meta.file_type().is_file() {
+                return broken_ledger();
+            }
+            match std::fs::read(&path) {
+                Ok(bytes) => match std::str::from_utf8(&bytes) {
+                    Ok(text) => Ledger::parse(text).unwrap_or_else(Ledger::broken),
+                    Err(_) => broken_ledger(),
+                },
+                Err(_) => broken_ledger(),
+            }
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ledger::empty(),
+        Err(_) => broken_ledger(),
+    }
+}
+
+impl<'a> ModelLabelGraph<'a> {
+    fn from_model(model: &'a Model) -> Self {
+        let mut ledgers = std::collections::BTreeMap::new();
+        for store in [
+            StoreId::Corpus,
+            StoreId::Overlay,
+            StoreId::Working,
+            StoreId::State,
+        ] {
+            let rel = format!("{}/labels.csv", store.as_str());
+            let ledger = match model.tree().get_bytes(&rel) {
+                Some(bytes) => match std::str::from_utf8(bytes) {
+                    Ok(text) => Ledger::parse(text).unwrap_or_else(Ledger::broken),
+                    Err(_) => broken_ledger(),
+                },
+                None => Ledger::empty(),
+            };
+            ledgers.insert(store, ledger);
+        }
+        Self {
+            model,
+            ledgers,
+            empty_ledger: Ledger::default(),
+        }
+    }
+
+    fn from_world(world: &dyn World, model: &'a Model) -> Self {
+        let mut ledgers = std::collections::BTreeMap::new();
+        for store in [
+            StoreId::Corpus,
+            StoreId::Overlay,
+            StoreId::Working,
+            StoreId::State,
+        ] {
+            ledgers.insert(store, load_store_ledger(world, model, store));
+        }
+        Self {
+            model,
+            ledgers,
+            empty_ledger: Ledger::default(),
+        }
+    }
 }
 
 impl LabelGraph for ModelLabelGraph<'_> {
     fn node(&self, item: &ItemRef) -> Option<LabelNode> {
-        for s in self.model.sources() {
-            let vid = format!("{}-v{}", s.value.source_id, s.value.version);
-            if item.id == vid || item.id == s.value.source_id.as_str() {
-                let own = parse_handling_vec(&s.value.handling);
-                return Some(LabelNode::new(own, Vec::new()));
+        if item.store == StoreId::Corpus {
+            for s in self.model.sources() {
+                let vid = format!("{}-v{}", s.value.source_id, s.value.version);
+                if item.id == vid || item.id == s.value.source_id.as_str() {
+                    let own = parse_handling_vec(&s.value.handling);
+                    return Some(LabelNode::new(own, Vec::new()));
+                }
             }
-        }
-        for p in self.model.pages() {
-            if item.id == p.path {
-                let own = parse_handling_vec(&p.meta.handling);
-                return Some(LabelNode::new(own, Vec::new()));
+            for p in self.model.pages() {
+                if item.id == p.path {
+                    let own = parse_handling_vec(&p.meta.handling);
+                    return Some(LabelNode::new(own, Vec::new()));
+                }
             }
+            return None;
         }
+        // A ledger records labels, not proof that an item or its dependencies exist.
         None
     }
 
-    fn ledger(&self, _store: StoreId) -> &Ledger {
-        &self.empty_ledger
+    fn ledger(&self, store: StoreId) -> &Ledger {
+        self.ledgers.get(&store).unwrap_or(&self.empty_ledger)
     }
 }
 
@@ -119,7 +218,7 @@ fn register_fully_loaded(model: &Model, register: Register) -> bool {
 /// Classifies a single file and resolves its effective labels.
 #[must_use]
 pub fn classify_file(
-    world: &dyn World,
+    facts: &SupportFacts,
     model: Option<&Model>,
     eff: &EffectivePolicy,
     rel_path: &str,
@@ -225,7 +324,7 @@ pub fn classify_file(
 
     // 5. Corpus support files
     if is_corpus_support(path) {
-        let prov = support_has_public_provenance(world, path, bytes);
+        let prov = support_has_public_provenance(facts, path, bytes);
         let mut labels = if prov {
             LabelSet::public()
         } else {
@@ -286,10 +385,7 @@ pub fn classify_file(
 
         let mut union_labels = report.labels;
         if let Some(m) = model {
-            let graph = ModelLabelGraph {
-                model: m,
-                empty_ledger: Ledger::default(),
-            };
+            let graph = ModelLabelGraph::from_model(m);
             for inp in &report.inputs {
                 let item_ref = ItemRef::new(inp.store, &inp.id);
                 let eff_item = effective_item(&graph, &item_ref);
@@ -364,10 +460,7 @@ pub fn classify_file(
         };
         let mut labels = pw.labels;
         if let Some(m) = model {
-            let graph = ModelLabelGraph {
-                model: m,
-                empty_ledger: Ledger::default(),
-            };
+            let graph = ModelLabelGraph::from_model(m);
             for rec in &pw.affected {
                 let item_ref = ItemRef::new(rec.store(), rec.id().as_str());
                 let eff_item = effective_item(&graph, &item_ref);
@@ -458,7 +551,6 @@ pub fn classify_file(
             && fieldbook_core::manifest::is_lower_hex(stem, 64)
         {
             let actual_sha = fieldbook_core::hash::sha256_hex(bytes);
-            let facts = world.support_facts();
             let has_event = facts
                 .catalogues
                 .iter()
@@ -535,7 +627,11 @@ pub struct BackupReadError {
 
 impl std::fmt::Display for BackupReadError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "cannot read {}: {}", self.path, self.reason)
+        if self.reason.starts_with("no corpus folder at ") {
+            write!(f, "{}", self.reason)
+        } else {
+            write!(f, "cannot read {}: {}", self.path, self.reason)
+        }
     }
 }
 
@@ -549,13 +645,32 @@ impl std::error::Error for BackupReadError {}
 pub fn enumerate_roots(world: &dyn World) -> Result<Vec<String>, BackupReadError> {
     let mut files = Vec::new();
     let corpus_root = world.tree_root().join("corpus");
-    if let Ok(meta) = std::fs::symlink_metadata(&corpus_root) {
-        if meta.file_type().is_dir() {
+    match std::fs::symlink_metadata(&corpus_root) {
+        Ok(meta) if meta.file_type().is_dir() => {
             collect_rel_files(&corpus_root, "corpus", &mut files)?;
-        } else if !meta.file_type().is_file() {
+        }
+        Ok(meta) if !meta.file_type().is_file() => {
             return Err(BackupReadError {
                 path: corpus_root.display().to_string(),
                 reason: "not a regular file or folder (symbolic link or special file)".to_string(),
+            });
+        }
+        Ok(_) => {
+            return Err(BackupReadError {
+                path: corpus_root.display().to_string(),
+                reason: format!("no corpus folder at {}", corpus_root.display()),
+            });
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => {
+            return Err(BackupReadError {
+                path: corpus_root.display().to_string(),
+                reason: format!("no corpus folder at {}", corpus_root.display()),
+            });
+        }
+        Err(err) => {
+            return Err(BackupReadError {
+                path: corpus_root.display().to_string(),
+                reason: err.to_string(),
             });
         }
     }
@@ -642,8 +757,50 @@ pub fn read_file_content(world: &dyn World, rel_path: &str) -> Result<Vec<u8>, B
             reason: "not a regular file or folder (symbolic link or special file)".to_string(),
         });
     }
-    std::fs::read(&p).map_err(|err| BackupReadError {
+    let bytes = std::fs::read(&p).map_err(|err| BackupReadError {
         path: p.display().to_string(),
         reason: err.to_string(),
-    })
+    })?;
+    let hook = AFTER_READ_HOOK.with(|cell| cell.borrow_mut().take());
+    if let Some(mut f) = hook {
+        f(path);
+        AFTER_READ_HOOK.with(|cell| {
+            let mut slot = cell.borrow_mut();
+            if slot.is_none() {
+                *slot = Some(f);
+            }
+        });
+    }
+    Ok(bytes)
+}
+
+/// Resolves all report inputs against one coherent Corpus generation and store ledgers.
+pub fn report_input_labels(
+    world: &dyn World,
+    model: &Model,
+    report: &AddReport,
+) -> Option<LabelSet> {
+    let graph = ModelLabelGraph::from_world(world, model);
+    let mut labels = report.labels.clone();
+    for input in &report.inputs {
+        let item = ItemRef::new(input.store, &input.id);
+        graph.node(&item)?;
+        labels = labels.union(&effective_item(&graph, &item));
+    }
+    Some(labels)
+}
+
+/// True when `state/labels.csv` or any referenced input store's `labels.csv` fails strict ledger parsing.
+pub fn broken_desk_ledger(world: &dyn World, model: &Model, report: Option<&AddReport>) -> bool {
+    if load_store_ledger(world, model, StoreId::State).is_broken() {
+        return true;
+    }
+    if let Some(report) = report {
+        for input in &report.inputs {
+            if load_store_ledger(world, model, input.store).is_broken() {
+                return true;
+            }
+        }
+    }
+    false
 }

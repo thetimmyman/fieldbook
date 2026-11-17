@@ -49,7 +49,7 @@ Answer: the official may reduce the period or extent of the debarment on that re
 
 ## Never confuse
 
-The official may extend a debarment if that official determines that an extension is necessary to protect the Government's interest, but not solely on the basis of the facts and circumstances of the initial debarment action [@CL-SUP-0781; @CL-SUP-0782]. In each direction, conduct may be imputed on the conditions stated for that direction [@CL-SUP-0784; @CL-SUP-0785; @CL-SUP-0786]. The causes themselves are on the [Causes for debarment](sup-causes-for-debarment.md) card, and the effect of listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card.
+The official may extend a debarment if that official determines that an extension is necessary to protect the Government's interest, rather than solely on the basis of the facts and circumstances of the initial debarment action [@CL-SUP-0781; @CL-SUP-0782], and in each direction conduct may be imputed on the conditions stated for that direction [@CL-SUP-0784; @CL-SUP-0785; @CL-SUP-0786]. The causes themselves are on the [Causes for debarment](sup-causes-for-debarment.md) card, and the effect of listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card.
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm how the company tracks the debarment periods and status of suppliers and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the example and never-confuse wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of suspension.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for period and scope of debarment.

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Backup status · fieldbook</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#fb:main">Skip to content</a>
+<div class="app"><div class="shell desk-shell">
+<header class="topbar"><nav class="desk-sections" aria-label="Desk"><a href="import.html">Import report</a> · <a href="activity.html">Activity log</a> · <a href="backup.html" aria-current="page">Backup status</a></nav></header>
+<main id="fb:main" class="page">
+<div class="page-head"><h1>Backup status</h1><p class="meta-row"><span>Written 2026-03-01T12:00:00Z</span><span class="sep">·</span><span>Refresh copies the command; it does not run it.</span></p><div class="cmd-row"><span class="cmd" role="group" aria-label="Write the desk pages · At home"><span class="cmd-tag">At home</span><code>fieldbook status --page</code><button type="button" class="btn ghost sm" data-copy-chip="command" aria-label="Copy command: fieldbook status --page"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>Copy</button></span></div></div>
+<p class="meta-row"><span class="mono">Source: settings.toml [[backup.target]] · reports/last-backup.json</span></p>
+<div class="cmd-row"><span class="cmd" role="group" aria-label="Back up the working data · At home"><span class="cmd-tag">At home</span><code>fieldbook backup</code><button type="button" class="btn ghost sm" data-copy-chip="command" aria-label="Copy command: fieldbook backup"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>Copy</button></span> <span class="cmd" role="group" aria-label="List backups · At home"><span class="cmd-tag">At home</span><code>fieldbook backup list</code><button type="button" class="btn ghost sm" data-copy-chip="command" aria-label="Copy command: fieldbook backup list"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>Copy</button></span> <span class="cmd" role="group" aria-label="Check a backup · At home"><span class="cmd-tag">At home</span><code>fieldbook backup verify</code><button type="button" class="btn ghost sm" data-copy-chip="command" aria-label="Copy command: fieldbook backup verify"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>Copy</button></span></div>
+<section class="panel"><div class="panel-head"><h2 class="panel-title">Verification</h2></div><div class="panel-b">
+<p>Target: main (folder)</p>
+<p>Latest recorded verification: <span class="chip ok">ok</span> 2026-03-01T12:00:00Z</p>
+<p>Last successful verification: 2026-03-01T12:00:00Z</p>
+</div></section>
+<div class="table-wrap"><table>
+<caption>Snapshots in the target</caption>
+<thead><tr><th scope="col">Snapshot</th><th scope="col">Recorded (UTC)</th><th scope="col">Target kind</th><th scope="col">Verification</th><th scope="col">Files</th></tr></thead>
+<tbody>
+<tr><td>0001</td><td class="mono">2026-03-01T12:00:00Z</td><td>folder</td><td>checked</td><td>33</td></tr>
+</tbody></table></div>
+
+</main>
+</div></div>
+<div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
+<div class="sr-only" id="fb:sr" aria-live="polite"></div>
+</body>
+</html>

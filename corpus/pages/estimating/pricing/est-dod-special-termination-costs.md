@@ -45,7 +45,7 @@ A development contract is funded in increments, has a term of 3 years, and is es
 
 ## Never confuse
 
-The agreed special termination cost amount is an estimate of the costs to which the contractor would be entitled on termination [@CL-EST-1098]. For settlement, see [Termination costs](../../close-revrec/inventory-wip/cls-termination-costs.md) and [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+Authorizing the Special Termination Costs clause on qualifying multi-year incrementally funded contracts (2 years or more with over $25 million RDT&E or over $100 million production financing) requires agency-head approval up front [@CL-EST-1096; @CL-EST-1097], rather than replacing the allowability and settlement rules applied after termination on [Termination costs](../../close-revrec/inventory-wip/cls-termination-costs.md) and [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md) [@CL-CLS-0213; @CL-CTF-0351].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which large development or production bids may carry the clause, and who prepare
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the authorizing conditions as all applying and cited them, worded the pricing limit pointer as the provision states it, and cut uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the authorizing conditions as a joined list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD special termination costs.

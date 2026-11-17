@@ -43,7 +43,7 @@ Before starting work on a control account, the manager executes a work authoriza
 
 ## Never confuse
 
-Current rates are to be utilized when incorporating new scope into the Performance Measurement Baseline, while a re-pricing of existing baselined work to the current rates is at the discretion of the contractor's defined Earned Value Management System processes [@CL-PRG-0568]. Descoped work is to be removed using the rates that are baselined with the affected scope [@CL-PRG-0225]. See [Earned Value Management System clause](prg-earned-value-management-system.md).
+Current rates are to be utilized when incorporating new scope into the Performance Measurement Baseline, unlike a re-pricing of existing baselined work to the current rates, which is at the discretion of the contractor's defined Earned Value Management System processes [@CL-PRG-0568]. Descoped work is to be removed using the rates that are baselined with the affected scope [@CL-PRG-0225]. See [Earned Value Management System clause](prg-earned-value-management-system.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether approved work authorization is in place before work starts and which rat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included element-of-cost examples and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: kept are-to-be modality and ensures wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 8 authorizing cost elements.

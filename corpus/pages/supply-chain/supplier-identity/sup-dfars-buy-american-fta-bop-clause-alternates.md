@@ -49,7 +49,7 @@ A solicitation uses Alternate III. An offeror specifies a South Caucasus/Central
 
 ## Never confuse
 
-Under Alternate II the list includes Free Trade Agreement country end products other than Bahraini, Moroccan, Panamanian or Peruvian end products [@CL-SUP-1874], while under Alternate III it names qualifying country, SC/CASA state and other foreign end products [@CL-SUP-1876]. Alternates VI to XI each include the domestic content threshold [@CL-SUP-1905], and Alternates VIII to XI also add terms to paragraph (a) [@CL-SUP-1907; @CL-SUP-1908; @CL-SUP-1909]. For the basic clause and its definitions, see the [basic clause card](sup-dfars-buy-american-fta-bop-clause.md), and for the offeror's side, with its own alternates, see the [certificate card](sup-dfars-buy-american-fta-bop-certificate.md). For the older DoD clause, see [DoD Buy American and Balance of Payments Program clause: definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). For the FAR clause with the Israeli Trade Act, see [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md).
+Under Alternate II the list includes Free Trade Agreement country end products other than Bahraini, Moroccan, Panamanian or Peruvian end products [@CL-SUP-1874], unlike under Alternate III, where it names qualifying country, SC/CASA state and other foreign end products [@CL-SUP-1876]. Alternates VI to XI each include the domestic content threshold [@CL-SUP-1905], and Alternates VIII to XI also add terms to paragraph (a) [@CL-SUP-1907; @CL-SUP-1908; @CL-SUP-1909]. For the basic clause and its definitions, see the [basic clause card](sup-dfars-buy-american-fta-bop-clause.md), and for the offeror's side, with its own alternates, see the [certificate card](sup-dfars-buy-american-fta-bop-certificate.md). For the older DoD clause, see [DoD Buy American and Balance of Payments Program clause: definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). For the FAR clause with the Israeli Trade Act, see [Buy American, Free Trade Agreements and Israeli Trade Act clause](sup-buy-american-fta-israeli-clause.md).
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Which alternate, if any, each executed contract carries, and which matching cert
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the delivery wording with the quotes; removed uncited contrasts and meta wording; limited the prescription cross-reference to the alternates cited.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the alternates of the Buy American, Free Trade Agreements and Balance of Payments Program clause.

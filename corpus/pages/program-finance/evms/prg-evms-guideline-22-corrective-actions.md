@@ -43,7 +43,7 @@ A control account shows an unfavorable schedule variance of 40 against its plan.
 
 ## Never confuse
 
-This guideline's purpose is to ensure all levels of program management are reviewing performance measurement data, implementing corrective action management plans, and using the information for decision-making purposes [@CL-PRG-0354], and corrective action management plans indicate the program manager has recognized a cost or schedule variance is significant enough to require management actions through a closed-loop (identification through closure) corrective action management process [@CL-PRG-0355]. For summarizing program performance status from the control account (at a minimum) through the Work Breakdown Structure and Organizational Breakdown Structure, see [Summarize, review, and evaluate performance and variances](prg-evms-guideline-21-summarize-performance.md) [@CL-PRG-0351].
+This guideline's purpose is to ensure all levels of program management are reviewing performance measurement data, implementing corrective action management plans, and using the information for decision-making purposes [@CL-PRG-0354], and corrective action management plans indicate the program manager has recognized a cost or schedule variance is significant enough to require management actions through a closed-loop (identification through closure) corrective action management process [@CL-PRG-0355], unlike summarizing program performance status from the control account (at a minimum) through the Work Breakdown Structure and Organizational Breakdown Structure on [Summarize, review, and evaluate performance and variances](prg-evms-guideline-21-summarize-performance.md) [@CL-PRG-0351].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether each significant cost or schedule variance is tied to a corrective actio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims in Never confuse and linked the summarization guideline.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the minimize-impact wording the guide states.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: stated the purpose as a purpose and fixed the example unit.

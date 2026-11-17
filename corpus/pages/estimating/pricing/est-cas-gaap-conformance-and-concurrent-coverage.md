@@ -63,11 +63,7 @@ The contractor then wins a full coverage contract while an earlier modified cove
 
 ## Never confuse
 
-The revenue exemption applies only to current disclosed practices where the contractor is required to use the three-factor formula prescribed in CAS 403 for residual expenses, or where its current disclosed and compliant accounting practice includes revenue as a basis for allocating costs, and a change to or from using revenue as a basis for allocation is treated as a unilateral change [@CL-EST-2477; @CL-EST-2479].
-
-The protection for concurrent coverage covers differences that result from performing the two kinds of contract side by side [@CL-EST-2483]. The consistency Standard keeps its own card; see [the consistency Standard](../../compliance/cas-allowability/cmp-cas-401-consistency.md).
-
-How the conformance is documented and dated is on the [GAAP conformance](../../compliance/cas-allowability/cmp-cas-gaap-conformance-2026.md) and [disclosure and consistency](../../compliance/cas-allowability/cmp-disclosure-consistency-modified-cas.md) cards. Which contracts carry full or modified coverage is on the [CAS applicability](../../compliance/cas-allowability/cmp-cas-applicability.md) card.
+Part 9903's contract price and cost adjustment rules do not apply to qualifying changes conforming operating revenue to GAAP revenue under CAS 403's three-factor formula [@CL-EST-2476; @CL-EST-2477], unlike ordinary accounting-practice changes, and performing a new full-CAS contract concurrently with an earlier modified-CAS contract is expressly permitted rather than converting the earlier contract [@CL-EST-2482].
 
 ## Company calibration
 
@@ -76,6 +72,7 @@ Which business units carry full coverage, modified coverage or neither, and whic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Revenue-exemption summary aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Concurrent coverage and revenue exemption wording aligned with the cited text; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for GAAP conformance changes and concurrent full and modified coverage.

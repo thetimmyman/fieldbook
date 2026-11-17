@@ -45,7 +45,7 @@ A multiple-award contract for architect-engineer services is in place, and the a
 
 ## Never confuse
 
-The procedures at FAR 36.6 apply when awarding task orders or delivery orders for architect-engineer services under a multiple-award contract [@CL-MKT-1862], and the procedures at 215.371 apply if only one offer is received in response to an order exceeding the simplified acquisition threshold that is placed on a competitive basis [@CL-MKT-1864]. PGI 216.505-70 provides guidance regarding minimum labor category qualifications for orders issued under multiple-award services contracts [@CL-MKT-1865]. The ordering rules for multiple-award orders generally are on [DoD ordering under multiple-award contracts: DFARS additions](../../estimating/pricing/est-dod-ordering-multiple-award-contracts.md) and [Ordering under indefinite-delivery contracts: fair opportunity, exceptions and thresholds](../../estimating/pricing/est-far-ordering-indefinite-delivery-contracts.md).
+Task or delivery orders for architect-engineer services under a multiple-award contract follow the qualification-based selection procedures at FAR subpart 36.6 [@CL-MKT-1862] rather than general fair-opportunity price ordering on [Ordering under indefinite-delivery contracts: fair opportunity, exceptions and thresholds](../../estimating/pricing/est-far-ordering-indefinite-delivery-contracts.md) [@CL-EST-1553], and competitive orders above the simplified acquisition threshold receiving only one offer trigger DFARS 215.371 [@CL-MKT-1864].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which multiple-award contracts the company holds, which of their orders are arch
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the qualification-information prohibition and removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stopped the purpose sentence from tying the qualification-information limit to multiple-award contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD indefinite-delivery scope and orders under multiple-award contracts under DFARS 216.500 and 216.505-70.

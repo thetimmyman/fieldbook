@@ -49,9 +49,7 @@ The cost difference is 100,000, so the profit falls by 50 percent of that, which
 
 ## Never confuse
 
-If total firm target cost plus total firm target profit represent a reasonable price for the part of the contract subject to price revision, the parties may agree on a firm fixed price [@CL-EST-1673].
-
-For the firm target clause, see [Incentive price revision clause with a firm target](est-incentive-price-revision-firm-target-clause.md).
+FAR 52.216-17 requires interim data during performance so the parties establish either a firm fixed price or firm targets and a final profit formula [@CL-EST-0283; @CL-EST-0284; @CL-EST-1669], unlike FAR 52.216-16 on [Incentive price revision clause with a firm target](est-incentive-price-revision-firm-target-clause.md), which waits until final item delivery to compute the final price from award-date targets [@CL-EST-1659].
 
 ## Company calibration
 
@@ -61,6 +59,7 @@ When the negotiation point for firm targets falls and who prepares the supportin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the total final price lead-in of the profit adjustment formula; replaced two uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the data-submission timing and the receipt-of-data trigger.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -44,7 +44,7 @@ A cost-plus-award-fee contract has an award-fee pool of 500,000 and an estimated
 
 ## Never confuse
 
-The three percent cap is on the base fee, measured against the estimated cost of the contract exclusive of the fee [@CL-EST-1579]. The general rules for award-fee plans, earning and the determination and findings are on [Award-fee contracts: cost-plus-award-fee and fixed-price with award fee](est-award-fee-contracts.md).
+DoD cost-plus-award-fee rules require keeping at least 40 percent of the award-fee pool for the final evaluation and authorize reducing or denying fee for serious bodily injury or death to Government personnel [@CL-EST-1577; @CL-EST-1580], unlike the general FAR definition on [Award-fee contracts: cost-plus-award-fee and fixed-price with award fee](est-award-fee-contracts.md), which defines base and judgmental award fee without fixing that 40 percent final-period floor [@CL-EST-1064].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which award-fee contracts the company holds, how much of each pool is set aside 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated both covered-incident alternatives with the subcontractor-liability alternative cited; cut statements that the base fee cap is separate from the award fee.

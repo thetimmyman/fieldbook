@@ -56,7 +56,7 @@ A solicitation for services covers 40 positions, and its evaluation factor consi
 
 ## Never confuse
 
-The clause at 252.215-7006 is used in solicitations and resulting contracts that include an evaluation factor considering whether an offeror intends to perform the contract using employees or individual subcontractors who are members of the Selected Reserve [@CL-EST-2798; @CL-EST-2799]. Selected Reserve members normally attend regular drills throughout the year [@CL-EST-2797].
+DFARS 215.370 authorizes an optional source-selection evaluation factor for employing or subcontracting with Selected Reserve members and pairs it with clause 252.215-7006 [@CL-EST-2796; @CL-EST-2798; @CL-EST-2810], unlike the short-solicitation resolicitation warning at DFARS 252.215-7007 on [the resolicit notice card](est-dfars-resolicit-notice-and-selected-reserve-clause.md) [@CL-EST-1739].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Whether any planned bid will carry the Selected Reserve evaluation factor, who c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted absence statements and glosses; restated the definition and clause use as the section words them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Selected Reserve evaluation factor and its contract clause.

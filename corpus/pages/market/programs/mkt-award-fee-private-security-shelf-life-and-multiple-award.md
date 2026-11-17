@@ -52,7 +52,7 @@ When the determination at FAR 16.504(c)(1)(ii)(D)(1)(i) is that the expected ord
 
 ## Never confuse
 
-The contracting officer's consideration of reducing or denying award fees for a period of noncompliance is part of evaluating the contractor's performance under a contract that includes the clause [@CL-MKT-1640; @CL-MKT-1589]. The single-source determination on the integrally-related ground concerns whether the expected orders are so integrally related that only a single source can efficiently perform the work [@CL-MKT-1593]. The ordering side is on [ordering multiple-award contracts](../../estimating/pricing/est-dod-ordering-multiple-award-contracts.md). The contractor's private security obligations are on [private security functions outside the United States](../../compliance/regulatory-framework/cmp-private-security-functions-outside-the-united-states.md), and indefinite-delivery contract mechanics on [indefinite-delivery contracts](../../contract-finance/funding/ctf-indefinite-delivery-and-indefinite-quantity-contracts.md).
+Reviewing private-security compliance in an award-fee plan governs fee evaluation on contracts with private security functions [@CL-MKT-1588], whereas the shelf-life rule addresses indefinite-delivery contracting for items with a shelf-life under 6 months [@CL-MKT-1591] and the senior procurement executive's integrally-related determination restricts a multiple-award contract to a single source rather than governing order-level competition on [ordering multiple-award contracts](../../estimating/pricing/est-dod-ordering-multiple-award-contracts.md) [@CL-MKT-1593; @CL-EST-1565].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Which contracts within the finance remit carry an award-fee plan or the private 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the shelf-life and reporting duties, cited the statute and removed explanatory clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Award-fee plan review duty restated as the quoted requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

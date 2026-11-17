@@ -50,7 +50,7 @@ An EDWOSB concern with a certification application pending in the Dynamic Small 
 
 ## Never confuse
 
-FAR 52.219-29 applies to EDWOSB concerns and FAR 52.219-30 applies to WOSB concerns eligible under the WOSB Program [@CL-MKT-1066; @CL-MKT-1074]. In both codified clauses, set-aside offers are solicited only from certified concerns or concerns with a pending application for certification in the Dynamic Small Business Search, while sole-source offers are solicited only from certified concerns [@CL-MKT-1013; @CL-MKT-1014; @CL-MKT-1076; @CL-MKT-1077]. A certified EDWOSB is automatically eligible as a certified WOSB [@CL-MKT-1073], and the EDWOSB definition requires that the women owners be economically disadvantaged in accordance with 13 CFR part 127 and that the concern be certified in accordance with 13 CFR 127.300 as an EDWOSB [@CL-MKT-1010; @CL-MKT-1011]. In RFO FAR 52.219-29, offers are solicited only from certified EDWOSB concerns, and in RFO FAR 52.219-30, offers are solicited only from certified WOSB concerns eligible under the WOSB Program [@CL-MKT-0106; @CL-MKT-0115].
+FAR 52.219-29 restricts competition to economically disadvantaged women-owned small business concerns [@CL-MKT-0102; @CL-MKT-1010], whereas FAR 52.219-30 applies more broadly to women-owned small business concerns eligible under the WOSB Program rather than requiring the economic-disadvantage qualification [@CL-MKT-1072].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which women-owned entities in the finance remit hold a certification and which a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined EDWOSB and WOSB definitions and separated codified and RFO clause citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

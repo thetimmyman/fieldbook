@@ -52,7 +52,7 @@ A company has a chief executive, a chief financial officer and five other execut
 
 ## Never confuse
 
-Pay in the table is a different matter from stock ownership, which is covered in the [security ownership card](fpa-security-ownership-and-section-16a-compliance.md). The awards behind the stock and option columns are reported in [Executive equity award tables](fpa-executive-equity-award-tables.md). The executive compensation a contractor reports to the government is a separate duty; see [Reporting executive compensation and first-tier subcontract awards](../../compliance/regulatory-framework/cmp-executive-compensation-and-subcontract-award-reporting.md).
+Compensation reported in the Summary Compensation Table for each of the registrant's last three completed fiscal years (or the last two completed fiscal years for a smaller reporting company or emerging growth company providing scaled disclosure under paragraphs (m) through (r) instead of paragraphs (a) through (k), (s) and (u)) [@CL-FPA-1065; @CL-FPA-1071; @CL-FPA-1072; @CL-FPA-1074] differs from stock ownership on the [security ownership card](fpa-security-ownership-and-section-16a-compliance.md), from the grant, outstanding-award, and exercise or vesting detail in [Executive equity award tables](fpa-executive-equity-award-tables.md), and from the executive compensation a contractor reports to the government on [Reporting executive compensation and first-tier subcontract awards](../../compliance/regulatory-framework/cmp-executive-compensation-and-subcontract-award-reporting.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ How the company keeps the pay records behind its named executive officer tables 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Competitive-harm sentence follows the instruction wording and states the confidential treatment standard.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named executive officer sentence now includes the acting in a similar capacity alternative.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for executive compensation scope, discussion and summary compensation table.

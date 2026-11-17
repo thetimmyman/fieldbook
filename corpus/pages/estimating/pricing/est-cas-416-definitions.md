@@ -47,7 +47,7 @@ A contractor buys a policy with a 200,000 deductible. The deductible portion is 
 
 ## Never confuse
 
-Self-insurance is the assumption or retention of the risk or loss by the contractor, and it includes the deductible portion of purchased insurance [@CL-EST-2895]. A self-insurance charge is a cost which represents the projected average loss under a self-insurance plan [@CL-EST-2896]. An insurance administration expense is a cost of administering an insurance program, such as the costs of processing claims and actuarial fees [@CL-EST-2893]. Actual cash value is the cost of replacing damaged property with other property of like kind and quality in the physical condition of the property immediately before the damage [@CL-EST-2892].
+In CAS 416, self-insurance is the contractor's retention of risk or loss—including purchased insurance deductibles—and a self-insurance charge is the projected average loss under a self-insurance plan [@CL-EST-2895; @CL-EST-2896], rather than an unprojected realized catastrophe loss or the replacement measure of actual cash value [@CL-EST-2892].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Confirm which risks the company retains, including deductibles, and how the self
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Definitions restated as quoted; uncited contrasts and statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the insurance cost Standard definitions.

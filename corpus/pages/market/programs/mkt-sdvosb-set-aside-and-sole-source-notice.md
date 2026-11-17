@@ -50,7 +50,7 @@ A joint venture whose managing partner meets the definition criteria and 13 CFR 
 
 ## Never confuse
 
-Under FAR 52.219-27(a) and (c), the first alternative in the SDVOSB definition sets a 51 percent ownership and control test, while eligibility for set-aside or sole-source procurements requires designation in SAM as certified by SBA or a complete application submitted on or before December 31, 2023 [@CL-MKT-1005; @CL-MKT-1007]. The 40 percent figure in FAR 52.219-27(e) is the minimum share of work performed by the SDVOSB party or parties in a joint venture [@CL-MKT-1009]. Under the codified text a concern can offer on the strength of a timely application [@CL-MKT-1007], but under the RFO text offers are solicited only from concerns designated in SAM as certified by SBA [@CL-MKT-1136].
+Under RFO FAR 52.219-27, meeting the 51 percent service-disabled veteran ownership and control test is not enough by itself [@CL-MKT-0882]: offers from concerns not designated in SAM as SBA-certified SDVOSB concerns are ineligible and rejected rather than evaluated on self-certification [@CL-MKT-1136].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which service-disabled veteran-owned entities in the finance remit hold a curren
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on RFO text omissions and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: definition alternatives and award wording.

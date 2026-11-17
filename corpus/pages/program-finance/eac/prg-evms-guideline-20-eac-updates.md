@@ -43,7 +43,7 @@ A control account has an actual cost of work performed of 900,000 to date and an
 
 ## Never confuse
 
-The EAC is based on the ACWP to date plus the ETC for the remaining authorized work [@CL-PRG-0130; @CL-PRG-0316], and EACs are not constrained by funding, negotiated contract costs, or factored budgets (see Guideline 25) [@CL-PRG-0317].
+The EAC is based on the ACWP to date plus the ETC for the remaining authorized work [@CL-PRG-0130; @CL-PRG-0316], rather than being constrained by funding, negotiated contract costs, or factored budgets (see Guideline 25) [@CL-PRG-0317].
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ Who owns the control account and summary level planning package estimates at com
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0130 and CL-PRG-0131 for CA/SLPP/ETC scope, aligned sentences with quotes, and removed uncited contrast and meta wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 20 estimates at completion.

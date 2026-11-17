@@ -49,7 +49,7 @@ A DoD component asks another agency to place an Economy Act order worth 250,000 
 
 ## Never confuse
 
-The procedures apply to purchases made for DoD by another agency, except micro-purchases, unless more specific statutory authority exists [@CL-MKT-1912]. A contracting activity from one DoD Component may provide acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-MKT-1914]. The executed determination and findings is furnished to the servicing agency as an attachment to the order when the requesting agency is within DoD [@CL-MKT-1915], and a copy is placed in the contract file for the Economy Act order when a DoD contracting office is acting as the servicing agency [@CL-MKT-1916].
+These DFARS interagency procedures govern purchases above the micro-purchase threshold made for DoD by another agency and require attaching the executed FAR 17.502-2 determination and findings to the order [@CL-MKT-1912; @CL-MKT-1915], unlike micro-purchases or acquisitions carried out under a more specific statutory authority [@CL-MKT-1912].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which contracts are placed for the company by another agency, and where the dete
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence, contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of requesting agency and servicing agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of requesting agency and servicing agency.

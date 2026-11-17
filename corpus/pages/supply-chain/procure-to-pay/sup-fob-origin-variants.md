@@ -60,7 +60,7 @@ Take a pallet load of 40 cartons under any of the three variants. The contract s
 
 ## Never confuse
 
-The codified small package clause has transportation charges billed as a separate item on the invoice for each shipment made [@CL-SUP-1994]; RFO FAR 52.247-65 is printed as [Reserved] [@CL-SUP-0339]. Freight allowed reduces the contract price by the freight allowance [@CL-SUP-1975]. Freight prepaid has the contractor prepay the transportation cost to the point specified in the contract, and that cost is ultimately the Government's obligation [@CL-SUP-1976].
+The codified small package clause has transportation charges billed as a separate item on the invoice for each shipment made [@CL-SUP-1994]; RFO FAR 52.247-65 is printed as [Reserved] [@CL-SUP-0339]. Freight allowed reduces the contract price by the freight allowance [@CL-SUP-1975], unlike freight prepaid, which has the contractor prepay the transportation cost to the point specified in the contract as a cost that is ultimately the Government's obligation [@CL-SUP-1976].
 
 ## Company calibration
 
@@ -69,6 +69,7 @@ Confirm which variant each contract carries and how freight is recovered or dedu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited comparison sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the delivery alternatives, line-haul qualifier, contractor duties and RFO paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added contractor facility location, carrier-facility alternative, invoice copy and authorization wording.

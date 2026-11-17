@@ -52,9 +52,7 @@ An offeror signs an offer to sell electricity. The Contracting Officer later ask
 
 ## Never confuse
 
-By signing the offer, the offeror represents that the offer to sell electricity is consistent with Section 8093 of Public Law 100-202, whereas under the order of precedence clause, where the terms of the contract, including the specifications, are inconsistent with a rate schedule, rider or exhibit incorporated in the contract by reference or otherwise, or with any of the contractor's rules and regulations, the terms of the contract control [@CL-SUP-2662; @CL-SUP-2664].
-
-The clauses on rate changes for regulated and unregulated utility service are covered in [Rate changes for regulated and unregulated utility service](sup-utility-rate-changes-regulated-and-unregulated.md).
+By signing the offer, the offeror represents that the offer to sell electricity is consistent with Section 8093 of Public Law 100-202, unlike the order of precedence clause, under which the terms of the contract control where the terms of the contract, including the specifications, are inconsistent with a rate schedule, rider or exhibit incorporated in the contract by reference or otherwise, or with any of the contractor's rules and regulations [@CL-SUP-2662; @CL-SUP-2664]. The clauses on rate changes for regulated and unregulated utility service are covered in [Rate changes for regulated and unregulated utility service](sup-utility-rate-changes-regulated-and-unregulated.md).
 
 ## Company calibration
 
@@ -64,6 +62,7 @@ Confirm who signs each offer to sell electricity and where the rationale for the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the territory representation and order of precedence summaries with the cited quotes and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility rate changes.

@@ -49,7 +49,7 @@ Answer: the filing is inside the 30 days after receipt. Because the action rests
 
 ## Never confuse
 
-A suspended contractor is afforded an opportunity following the imposition of suspension to submit information and argument in opposition [@CL-SUP-0928], while a notice of proposed debarment advises that the contractor and any specifically named affiliates may submit information and argument in opposition to the proposed debarment within 30 days after receipt of the notice [@CL-SUP-0921] (see [Debarment: general rules, procedures and the decision](sup-debarment-decision-process.md)). Suspension is imposed on the basis of adequate evidence, pending the completion of an investigation or legal proceedings [@CL-SUP-0926] (see also [Causes for debarment](sup-causes-for-debarment.md) and [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md)).
+A suspended contractor is afforded an opportunity following the imposition of suspension to submit information and argument in opposition [@CL-SUP-0928], unlike a notice of proposed debarment, which advises that the contractor and any specifically named affiliates may submit information and argument in opposition to the proposed debarment within 30 days after receipt of the notice [@CL-SUP-0921] (see [Debarment: general rules, procedures and the decision](sup-debarment-decision-process.md)). Suspension is imposed on the basis of adequate evidence, pending the completion of an investigation or legal proceedings [@CL-SUP-0926] (see also [Causes for debarment](sup-causes-for-debarment.md) and [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md)).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Confirm who owns the response to a suspension notice, how the response clock is 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added full FAR 9.407-3(c)(5) opposition wording and removed uncited meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the alternatives in the notice exception and the record-based decision list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rest of the fact-finding decision basis and the no-prejudice rule on modifying or ending a suspension.

@@ -47,7 +47,7 @@ An agency offers a services requirement, with a non-manufacturing NAICS code, wo
 
 ## Never confuse
 
-The competitive threshold is one of the tests for competition limited to eligible participants and the point above which sole source acceptance is possible on a listed ground [@CL-MKT-0509; @CL-MKT-0510]; and the SBA acceptance periods are on the [Agency offering and SBA acceptance of requirements for the program](mkt-8a-offering-and-acceptance.md) card. A sole source award above the threshold rests on a listed ground [@CL-MKT-0510]. General small business set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card; NAICS codes are on the [Size standards, NAICS codes and appeals of the contracting officer's code](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
+Competitive 8(a) awards restrict competition to eligible 8(a) participants when at least two are expected to offer at a fair market price and SBA checks the apparent successful offeror's eligibility within 5 working days [@CL-MKT-0507; @CL-MKT-0508; @CL-MKT-0513], unlike SBA's initial acceptance of an offering letter on [Agency offering and SBA acceptance of requirements for the program](mkt-8a-offering-and-acceptance.md) [@CL-MKT-0499] or a general responsibility referral under [Certificates of Competency: general rules and referral](mkt-coc-general-and-referral.md) [@CL-MKT-0475].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which bids and estimates for competitive program awards need immediate support, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the requesting actor and removed contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added direct negotiation with competing participants and the timing of negotiations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for competitive 8(a) awards.

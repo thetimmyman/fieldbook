@@ -52,7 +52,7 @@ A supply contract with a price of 400,000 uses the CIF destination term. The con
 
 ## Never confuse
 
-Under C&F destination the contractor pays the cost of transportation [@CL-SUP-2421]; under CIF destination it pays the cost of transportation and marine insurance [@CL-SUP-2426], and it shall also obtain and dispatch the insurance policy or certificate [@CL-SUP-3961; @CL-SUP-2427]. Both terms deliver on board the ocean vessel to the specified point of destination [@CL-SUP-2421; @CL-SUP-2426]. The export delivery terms are covered on their own card; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). The inland delivery terms at the consignee are covered on their own card; see [F.o.b. destination terms](sup-fob-destination-terms.md). The RFO part 52 text lists 52.247-41 and 52.247-42 as [Reserved] [@CL-SUP-0398; @CL-SUP-0399]; the codified clauses set the C&F and CIF destination terms [@CL-SUP-2421; @CL-SUP-2426].
+Under C&F destination the contractor pays the cost of transportation [@CL-SUP-2421], unlike CIF destination, under which it pays the cost of transportation and marine insurance [@CL-SUP-2426] and shall also obtain and dispatch the insurance policy or certificate [@CL-SUP-3961; @CL-SUP-2427]. Both terms deliver on board the ocean vessel to the specified point of destination [@CL-SUP-2421; @CL-SUP-2426]. The export delivery terms are covered on their own card; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). The inland delivery terms at the consignee are covered on their own card; see [F.o.b. destination terms](sup-fob-destination-terms.md). The RFO part 52 text lists 52.247-41 and 52.247-42 as [Reserved] [@CL-SUP-0398; @CL-SUP-0399]; the codified clauses set the C&F and CIF destination terms [@CL-SUP-2421; @CL-SUP-2426].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Which import term each order carries and who confirms that its clause applies. [
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor duty lead-ins, definitions and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported only from the C&F and CIF comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

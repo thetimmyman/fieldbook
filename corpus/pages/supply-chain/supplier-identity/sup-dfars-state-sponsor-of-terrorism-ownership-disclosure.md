@@ -49,7 +49,7 @@ Answer: the offeror attaches the disclosure to its offer, naming that government
 
 ## Never confuse
 
-This provision is about a significant interest that the government of a country that is a state sponsor of terrorism owns or controls in the Offeror, a subsidiary of the Offeror, or any other firm that owns or controls the Offeror [@CL-SUP-1503] (see also [Foreign government ownership disclosure and subcontracting with terrorist-state firms](../../compliance/regulatory-framework/cmp-foreign-government-control-and-terrorist-subcontracting.md) and [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md)). The satellite services clause defines a covered foreign country to include any country that is a state sponsor of terrorism [@CL-SUP-1495]; it is covered on [Prohibition on acquisition of certain foreign commercial satellite services](sup-dfars-foreign-commercial-satellite-services-prohibition.md).
+This provision is about a significant interest that the government of a country that is a state sponsor of terrorism owns or controls in the Offeror, a subsidiary of the Offeror, or any other firm that owns or controls the Offeror [@CL-SUP-1503] (see also [Foreign government ownership disclosure and subcontracting with terrorist-state firms](../../compliance/regulatory-framework/cmp-foreign-government-control-and-terrorist-subcontracting.md) and [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md)), unlike the satellite services clause, which defines a covered foreign country to include any country that is a state sponsor of terrorism [@CL-SUP-1495] on [Prohibition on acquisition of certain foreign commercial satellite services](sup-dfars-foreign-commercial-satellite-services-prohibition.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which executed contracts and offers carry the provision, and who prepares the ow
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (c) party list and beneficial interest definition quote, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: listed positions and the five significant-interest tests described as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure of ownership or control by a state sponsor of terrorism.

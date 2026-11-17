@@ -45,7 +45,7 @@ A contract above the simplified acquisition threshold ends with one shipment on 
 
 ## Never confuse
 
-A missing representation and an unauthorized foreign-flag shipment have different consequences. The first makes the final invoice improper [@CL-SUP-1399]. The second lets the contracting officer equitably adjust the contract [@CL-SUP-1400]. The companion card, [Transportation of supplies by sea: definitions and the U.S.-flag requirement](sup-dfars-sea-transport-us-flag-requirement.md), covers the U.S.-flag requirement, the advance notification and the waiver request. For how an invoice is judged proper, see [Proper invoice: required content and payment documentation](../../contract-finance/billing-payment/ctf-proper-invoice-content.md) and [Prompt payment interest penalties and the prompt payment clauses](../../contract-finance/billing-payment/ctf-prompt-payment-interest-and-clauses.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](sup-subcontracts-commercial-products-and-services.md).
+A missing representation and an unauthorized foreign-flag shipment have different consequences rather than the same remedy. The first makes the final invoice improper [@CL-SUP-1399]. The second lets the contracting officer equitably adjust the contract [@CL-SUP-1400]. The companion card, [Transportation of supplies by sea: definitions and the U.S.-flag requirement](sup-dfars-sea-transport-us-flag-requirement.md), covers the U.S.-flag requirement, the advance notification and the waiver request. For how an invoice is judged proper, see [Proper invoice: required content and payment documentation](../../contract-finance/billing-payment/ctf-proper-invoice-content.md) and [Prompt payment interest penalties and the prompt payment clauses](../../contract-finance/billing-payment/ctf-prompt-payment-interest-and-clauses.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](sup-subcontracts-commercial-products-and-services.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Who assembles the bills of lading and the final-invoice representation, and how 
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the flowdown trigger and example consequences as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the representation alternatives and the bill of lading sentence to match the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transportation of supplies by sea, representation, reporting and flowdown.

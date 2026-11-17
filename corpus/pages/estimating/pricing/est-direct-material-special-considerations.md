@@ -45,7 +45,7 @@ A follow-on proposal has leftover bar stock from a closed firm-fixed-price order
 
 ## Never confuse
 
-Whether a long-term agreement needs certified data still turns on the threshold and the exceptions [@CL-EST-0694]. The contractor is prohibited from including cost estimates for government-furnished material in its pricing proposals [@CL-EST-0695]. When pricing follow-on contracts, government-owned residual material from preceding Government contracts must be proposed at no cost [@CL-EST-0696].
+Contractor-furnished material priced under a long-term agreement remains subject to certified cost or pricing data at agreement execution unless an exception applies [@CL-EST-0694; @CL-EST-0933], whereas government-furnished material or property must be excluded from contractor price proposals altogether rather than estimated as contractor material [@CL-EST-0695].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ How estimate versions, source quotations and assumptions are frozen and compared
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the other-direct-costs exclusion of government-furnished material; removed 'the manual says'; restored 'and/or'; reworded a not-the-same contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the surplus-dealer lead-in to the repurchase point and kept the audit notification as a direction to auditors.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for direct material needing special consideration.

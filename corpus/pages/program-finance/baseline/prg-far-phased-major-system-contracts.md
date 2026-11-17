@@ -52,7 +52,7 @@ An agency awards a concept exploration contract for 6 months at a planned level 
 
 ## Never confuse
 
-The contract features for the three phases are stated with "whenever practicable" and "shall" or "should" [@CL-PRG-0885; @CL-PRG-0888; @CL-PRG-0890], while the sentences on the scope of work and on follow-on awards in the concept exploration phase use "shall" [@CL-PRG-0886; @CL-PRG-0887]. For the agency head's approval to proceed to full production, see [Major system acquisition governance under the FAR](prg-far-major-system-governance.md). For contract type choice for DoD programs, see [Contract type selection and program risk for major defense acquisition programs](../risk-opportunity/prg-contract-type-program-risk.md).
+The contract features for the three phases are stated with "whenever practicable" and "shall" or "should" [@CL-PRG-0885; @CL-PRG-0888; @CL-PRG-0890], unlike the sentences on the scope of work and on follow-on awards in the concept exploration phase, which use "shall" [@CL-PRG-0886; @CL-PRG-0887]. For the agency head's approval to proceed to full production, see [Major system acquisition governance under the FAR](prg-far-major-system-governance.md). For contract type choice for DoD programs, see [Contract type selection and program risk for major defense acquisition programs](../risk-opportunity/prg-contract-type-program-risk.md).
 
 ## Company calibration
 
@@ -62,5 +62,6 @@ Which phase each company program is in, and how the planned budget for the phase
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed negative and meta-commentary sentences in How it works and Never confuse and included the contracting officer's demonstration-phase criteria duty from CL-PRG-0889.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for phased major system contracts under the FAR.

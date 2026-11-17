@@ -543,4 +543,15 @@ impl World for Disk {
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
         Disk::remove_drill(self, audited)
     }
+
+    fn read_maintenance(&self) -> Result<String, WorldError> {
+        Disk::read_maintenance(self)
+    }
+
+    fn read_state_summary(
+        &self,
+        today: fieldbook_core::CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
+        Disk::read_state_summary(self, today)
+    }
 }

@@ -45,7 +45,7 @@ A plan sets a goal of 400,000 for a group of concerns and, at contract completio
 
 ## Never confuse
 
-Size protests are covered on the [Protesting a small business representation or rerepresentation](../taxonomy/mkt-small-business-size-protests.md) card, and the general rule on rerepresenting after award is on the [Rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card. Under FAR 52.219-16(b), liquidated damages apply when the contractor has failed to meet its subcontracting goals and the contracting officer decides under paragraph (c) that the contractor failed to make a good faith effort to comply with its subcontracting plan [@CL-MKT-0853]. Codified FAR 52.219-16(a) defines a failure to make a good faith effort as a willful or intentional failure to perform or willful or intentional action to frustrate the plan [@CL-MKT-0852; @CL-MKT-0978], whereas RFO FAR 52.219-16(a) begins directly with measuring performance against the percentage goals [@CL-MKT-0881].
+FAR 52.219-28 requires a contractor that represented small business status before award to rerepresent size and socioeconomic status upon triggering postaward events [@CL-MKT-0264; @CL-MKT-0848], unlike the initial offer representation in [Small business program representations provision](mkt-small-business-program-representations-provision.md) [@CL-MKT-0806], while liquidated damages attach to an other-than-small contractor's failure to make a good-faith effort on subcontracting goals rather than missing a goal despite good faith [@CL-MKT-0821; @CL-MKT-0853].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which events such as novations, mergers and acquisitions, or long-term option da
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 52.219-28(c)(1)-(4) order rerepresentation cases and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: rerepresentation lead-in, good faith definition is alternatives, paragraph (c) exception scoped.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the long-term contract sentence to show two separate rerepresentation occasions.

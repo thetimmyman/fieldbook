@@ -47,7 +47,7 @@ A company receives a solicitation that says certified cost or pricing data are r
 
 ## Never confuse
 
-The contracting officer shall request that the contractor complete the DoD checklist and submit it with the forward pricing rate proposal [@CL-EST-1271], and data supporting forward pricing rate agreements shall be submitted in a form acceptable to the contracting officer [@CL-EST-1268]. The rate side is covered on [Forward pricing rate agreements](../../indirect-rates/rate-lifecycle/rte-forward-pricing-rate-agreements.md). The data the contracting officer asks for is on [Pricing policy and the order of preference for data](est-pricing-policy-data-preference.md). The format table is Table 15-2 of 15.408 in the codified text [@CL-EST-1266] and Table 15-1 at 15.408-2 in the RFO text [@CL-EST-3215].
+Stating in a solicitation whether certified cost or pricing data are required [@CL-EST-1265; @CL-EST-3214] governs proposal-specific pricing submissions, whereas requiring FAR subpart 31.2 contractors to follow forward pricing rate submission instructions with the administrative contracting officer [@CL-EST-1269] governs multi-contract rate proposals on [Forward pricing rate agreements](../../indirect-rates/rate-lifecycle/rte-forward-pricing-rate-agreements.md) rather than one solicitation alone [@CL-RTE-0160].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Who owns the forward pricing rate proposal and the estimating system description
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Contractor scope and checklist wording matched to the cited text; uncited contrast removed; must use restored.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

@@ -188,6 +188,7 @@ fn watch_builds_once_then_waits_while_nothing_changes() {
     let args = BuildArgs {
         out: out_dir,
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
     let mut poll = ScriptedPoll::new(tmp.path().to_path_buf());
@@ -216,6 +217,7 @@ fn watch_rebuilds_after_a_changed_page() {
     let args = BuildArgs {
         out: out_dir.clone(),
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
     let page_path = tmp
@@ -264,6 +266,7 @@ fn watch_waits_for_a_change_to_settle() {
     let args = BuildArgs {
         out: out_dir,
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
     let page_path = tmp
@@ -306,6 +309,7 @@ fn watch_rebuild_equals_a_plain_build() {
     let args_watch = BuildArgs {
         out: out_watch.clone(),
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
     let sentence = "Byte equality sentence between watch rebuild and plain build.";
@@ -330,6 +334,7 @@ fn watch_rebuild_equals_a_plain_build() {
     let args_plain = BuildArgs {
         out: out_plain.clone(),
         watch: false,
+        since: None,
     };
     let page_plain = tmp_plain.path().join(page_rel);
     add_sentence(&page_plain, sentence);
@@ -351,6 +356,7 @@ fn a_failed_build_keeps_the_old_edition_and_the_watch_goes_on() {
     let args = BuildArgs {
         out: out_dir.clone(),
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
     let page_path = tmp
@@ -431,6 +437,7 @@ fn an_edit_during_a_build_is_built_next() {
     let args = BuildArgs {
         out: out_dir.clone(),
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
     let page_path = tmp
@@ -473,6 +480,7 @@ fn out_is_not_watched() {
     let args = BuildArgs {
         out: out_dir.clone(),
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
 
@@ -510,6 +518,7 @@ fn a_fingerprint_error_ends_the_watch_with_exit_3() {
     let args = BuildArgs {
         out: out_dir,
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
 
@@ -536,6 +545,7 @@ fn the_watch_journals_under_the_state_flag() {
     let args = BuildArgs {
         out: out_dir,
         watch: true,
+        since: None,
     };
     let info = BuildInfo::default();
 
