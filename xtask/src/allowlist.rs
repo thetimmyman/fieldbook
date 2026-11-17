@@ -12,9 +12,9 @@ use fieldbook_core::edition::EditionInfo;
 use fieldbook_core::hash::sha256_hex;
 use fieldbook_core::ids::VersionId;
 use fieldbook_core::manifest::{SupportCatalogue, fingerprint, shipped_corpus};
-use fieldbook_core::schema::SourceRow;
 use fieldbook_core::schema::table;
 use fieldbook_core::schema::vocab::Lifecycle;
+use fieldbook_core::schema::{Register, SourceRow};
 use serde::Deserialize;
 
 /// Maximum relative path length from the edition or originals root (`FB0602`).
@@ -1145,10 +1145,11 @@ fn is_allowed_site_data_path(path: &str) -> bool {
     if rest.contains('/') {
         return false;
     }
-    if matches!(
-        rest,
-        "registers.xlsx" | "sources.csv" | "questions.csv" | "conflicts.csv" | "glossary.csv"
-    ) {
+    if rest == "registers.xlsx"
+        || Register::ALL
+            .iter()
+            .any(|r| *r != Register::Claims && r.file_name() == rest)
+    {
         return true;
     }
     if let Some(stem) = rest

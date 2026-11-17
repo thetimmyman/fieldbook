@@ -2057,6 +2057,48 @@ fn run_register_csvs_surface() {
         .map(|r| r.canary.as_str())
         .collect();
 
+    // Every delivered data CSV is scanned, listed or not, and the claims parts on disk are
+    // exactly the ones the view lists.
+    let data_dir = delivery.edition_dir.join("data");
+    let mut claims_parts_on_disk = std::collections::BTreeSet::new();
+    for entry in std::fs::read_dir(&data_dir).unwrap_or_else(|e| panic!("read data dir: {e}")) {
+        let path = entry.unwrap_or_else(|e| panic!("data entry: {e}")).path();
+        if path.extension().and_then(|s| s.to_str()) != Some("csv") {
+            continue;
+        }
+        let name = path
+            .file_name()
+            .and_then(|s| s.to_str())
+            .unwrap_or_else(|| panic!("data file name"))
+            .to_string();
+        if name.starts_with("claims-") {
+            claims_parts_on_disk.insert(format!("data/{name}"));
+        }
+        let bytes = std::fs::read(&path).unwrap_or_else(|e| panic!("read {}: {e}", path.display()));
+        let text = String::from_utf8_lossy(&bytes);
+        for forbidden in FORBIDDEN_REGISTER_STRINGS {
+            assert!(
+                !text.contains(forbidden),
+                "data/{name} contains forbidden string `{forbidden}`"
+            );
+        }
+        for canary in &non_public_canaries {
+            assert!(
+                !text.contains(canary),
+                "data/{name} contains non-public canary `{canary}`"
+            );
+        }
+    }
+    let claims_parts_listed: std::collections::BTreeSet<String> =
+        fieldbook_render::register::claims_parts(&delivery.view)
+            .iter()
+            .map(|p| fieldbook_render::csv_copy::claims_part_output_path(&p.area_code, p.part))
+            .collect();
+    assert_eq!(
+        claims_parts_on_disk, claims_parts_listed,
+        "claims part CSVs on disk must equal the parts the view lists"
+    );
+
     let check_and_parse_csv = |csv_path: &Path, label: &str, reg: Register| -> Vec<Vec<String>> {
         let bytes =
             std::fs::read(csv_path).unwrap_or_else(|e| panic!("read {}: {e}", csv_path.display()));

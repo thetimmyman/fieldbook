@@ -1,6 +1,6 @@
 # Edition search index
 
-Status: accepted by the owner. It is amended by [glossary term units](#amendment-glossary-term-units), which is accepted by the owner-delegated judge and JEV review, as in [ADR 0007](0007-hosted-edition.md), and by [claims copy in parts](#amendment-claims-copy-in-parts) (proposed for owner review). It supersedes the edition index budget in AD-11, the data-file line of AD-15 for `assets/search-index.js`, and the edition index figure in the `later-sqlite-tantivy` row of AD-24, all in [ADR 0001](0001-foundation.md). It decides nothing else.
+Status: accepted by the owner. It is amended by [glossary term units](#amendment-glossary-term-units), which is accepted by the owner-delegated judge and JEV review, as in [ADR 0007](0007-hosted-edition.md), and by [claims copy in parts](#amendment-claims-copy-in-parts) (accepted by the owner-delegated judge and independent review). It supersedes the edition index budget in AD-11, the data-file line of AD-15 for `assets/search-index.js`, and the edition index figure in the `later-sqlite-tantivy` row of AD-24, all in [ADR 0001](0001-foundation.md). It decides nothing else.
 
 ## Trigger
 
@@ -82,7 +82,7 @@ The decision is reopened, with the same review as reaching the cap, when `assets
 
 ## Amendment: claims copy in parts
 
-Status: proposed for owner review.
+Status: accepted by the owner-delegated judge and independent review.
 
 ### Why
 
@@ -96,4 +96,4 @@ Status: proposed for owner review.
 
 - No claims CSV copy grows without bound as claims are added: each `data/claims-<AREA>-<part>.csv` holds at most 500 claims, about 350 KB, well under the 25 MiB per-file limit. The `claims` sheet of `data/registers.xlsx` stays whole and still grows with the Corpus (4,814,585 bytes for all five sheets at 28,926 claims); it keeps the FB0605 per-file limit, and partitioning it is not part of this decision.
 - Each `claims/<AREA>-<part>.html` page links its own `data/claims-<AREA>-<part>.csv` beside `data/registers.xlsx`; `claims.html` keeps `data/registers.xlsx` and drops its single-CSV link until the follow-up design revision settles `PATHS` and per-part index links.
-- Rollback: revert the merge commit. `fieldbook build` writes `data/claims.csv` again and restores the single-file wording in `corpus-format.md` and `search.md`.
+- Rollback: revert the merge commit. `fieldbook build` writes `data/claims.csv` again and restores the documents this amendment changed.
