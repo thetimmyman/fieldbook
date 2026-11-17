@@ -494,6 +494,7 @@ fn build_synthetic_evidence_dir(
     baseline_toml: &str,
     mode_toml: Option<&str>,
     vector_payload: &[u8],
+    identity: (&str, &str),
 ) -> PathBuf {
     fs::create_dir_all(dir.join("compat/calc")).unwrap_or_else(|e| panic!("mkdir: {e}"));
     let contract_bytes = b"# synthetic contract\n";
@@ -524,7 +525,17 @@ fn build_synthetic_evidence_dir(
     if let Some(mode) = mode_toml {
         fs::write(dir.join("edition-release.toml"), mode).unwrap_or_else(|e| panic!("write: {e}"));
     }
+    fs::write(
+        dir.join("release-identity.toml"),
+        identity_toml(identity.0, identity.1),
+    )
+    .unwrap_or_else(|e| panic!("write: {e}"));
     dir.to_path_buf()
+}
+
+/// The canonical `release-identity.toml` the tag check writes for `tag` at `commit`.
+fn identity_toml(tag: &str, commit: &str) -> String {
+    format!("identity_schema = 1\ntag = \"{tag}\"\ncommit = \"{commit}\"\n")
 }
 
 fn build_synthetic_tool_package(pkg_dir: &Path, tag: &str, commit: &str) {
@@ -756,7 +767,13 @@ fn archive_round_trip() {
     );
 
     let ev_dir = tmp.path().join("ev-001");
-    build_synthetic_evidence_dir(&ev_dir, EMPTY_BASELINES, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base_file = ev_dir.join("release-baseline.toml");
@@ -843,7 +860,13 @@ fn changed_archive_byte_fails() {
     );
 
     let ev_dir = tmp.path().join("ev-001");
-    build_synthetic_evidence_dir(&ev_dir, EMPTY_BASELINES, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base_file = ev_dir.join("release-baseline.toml");
@@ -889,9 +912,80 @@ fn changed_archive_byte_fails() {
         None,
     );
     assert_failure(&out_verify, "verify-archive with tampered zip");
-    assert_stderr_contains_any(
+    // The archive-manifest refusal itself, not a later check that happens to notice the zip.
+    assert_stderr_contains(
         &out_verify,
-        &["fieldbook-edition-001.zip", "sha256", "differ"],
+        "archived file `fieldbook-edition-001.zip` sha256",
+    );
+    assert_stderr_contains(&out_verify, "differs from `archive.toml`");
+}
+
+#[test]
+fn site_archive_refuses_a_support_digest_naming_other_bytes() {
+    let tmp = tempfile::TempDir::new().unwrap_or_else(|e| panic!("tempdir: {e}"));
+    let commit = "a".repeat(40);
+    let ed_dir = tmp.path().join("ed-001");
+    build_synthetic_edition_set(
+        &ed_dir,
+        "001",
+        &commit,
+        DeliveryKind::Site,
+        &default_source_specs(),
+        None,
+    );
+    let ev_dir = tmp.path().join("ev-001");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
+    let base_file = ev_dir.join("release-baseline.toml");
+    let ev_str = ev_dir.to_str().unwrap_or_else(|| panic!("utf8"));
+    let base_str = base_file.to_str().unwrap_or_else(|| panic!("utf8"));
+    let archive = |edition: &Path, to: &Path| {
+        run_xtask(
+            &[
+                "archive-release",
+                "--kind",
+                "site",
+                "--edition",
+                edition.to_str().unwrap_or_else(|| panic!("utf8")),
+                "--evidence",
+                ev_str,
+                "--base",
+                base_str,
+                "--to",
+                to.to_str().unwrap_or_else(|| panic!("utf8")),
+            ],
+            tmp.path(),
+            None,
+        )
+    };
+
+    // Every prerequisite is valid: the untouched set archives.
+    let control = archive(&ed_dir, &tmp.path().join("archives-control"));
+    assert_success(&control, "archive-release of the untouched set");
+
+    // The one change: the set's corpus-support.sha256 names other bytes.
+    let wrong = tmp.path().join("ed-001-wrong-digest");
+    copy_tree(&ed_dir, &wrong);
+    fs::write(
+        wrong.join("corpus-support.sha256"),
+        format!("{}  corpus-support.toml\n", "0".repeat(64)),
+    )
+    .unwrap_or_else(|e| panic!("write digest: {e}"));
+    let to = tmp.path().join("archives");
+    let out = archive(&wrong, &to);
+    assert_failure(&out, "a support digest that names other bytes");
+    assert_stderr_contains(
+        &out,
+        "`corpus-support.sha256` does not match `<sha256>  corpus-support.toml\\n` of `corpus-support.toml`",
+    );
+    assert!(
+        !to.join(format!("edition-001-{}", &commit[..12])).exists(),
+        "nothing is archived"
     );
 }
 
@@ -924,7 +1018,13 @@ fn missing_previous_set_blocks_delivery() {
         "2".repeat(64)
     );
     let ev_dir = tmp.path().join("ev-002");
-    build_synthetic_evidence_dir(&ev_dir, &baseline, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        &baseline,
+        None,
+        b"vector = 1\n",
+        ("edition-002", &commit),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base_file = ev_dir.join("release-baseline.toml");
@@ -1001,7 +1101,13 @@ fn explicit_first_release_verifies_current_archive() {
         "2".repeat(64)
     );
     let ev_dir = tmp.path().join("ev-t1");
-    build_synthetic_evidence_dir(&ev_dir, &baseline, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        &baseline,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base_file = ev_dir.join("release-baseline.toml");
@@ -1079,7 +1185,13 @@ fn missing_previous_is_not_an_empty_baseline() {
         "2".repeat(64)
     );
     let ev_dir = tmp.path().join("ev-t2");
-    build_synthetic_evidence_dir(&ev_dir, &baseline_pred, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        &baseline_pred,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base_file = ev_dir.join("release-baseline.toml");
@@ -1140,7 +1252,13 @@ fn missing_previous_is_not_an_empty_baseline() {
     );
 
     let ev_c_dir = tmp.path().join("ev-c");
-    build_synthetic_evidence_dir(&ev_c_dir, EMPTY_BASELINES, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_c_dir,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit_c),
+    );
 
     let base_c_file = ev_c_dir.join("release-baseline.toml");
     let pkg_c_str = pkg_c_dir.to_str().unwrap_or_else(|| panic!("utf8"));
@@ -1236,7 +1354,13 @@ fn existing_different_archive_is_refused() {
     );
 
     let ev1_dir = tmp.path().join("ev-001-v1");
-    build_synthetic_evidence_dir(&ev1_dir, EMPTY_BASELINES, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev1_dir,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base1_file = ev1_dir.join("release-baseline.toml");
@@ -1272,7 +1396,13 @@ fn existing_different_archive_is_refused() {
 
     // Evidence 2 has a changed bound vector and updated published.toml hash.
     let ev2_dir = tmp.path().join("ev-001-v2");
-    build_synthetic_evidence_dir(&ev2_dir, EMPTY_BASELINES, None, b"vector = 2\n");
+    build_synthetic_evidence_dir(
+        &ev2_dir,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 2\n",
+        ("edition-001", &commit),
+    );
     let base2_file = ev2_dir.join("release-baseline.toml");
     let ev2_str = ev2_dir.to_str().unwrap_or_else(|| panic!("utf8"));
     let base2_str = base2_file.to_str().unwrap_or_else(|| panic!("utf8"));
@@ -1325,7 +1455,13 @@ fn rollback_uses_archived_bytes() {
     );
 
     let ev_1 = tmp.path().join("ev-1");
-    build_synthetic_evidence_dir(&ev_1, EMPTY_BASELINES, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_1,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &c1),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base1_file = ev_1.join("release-baseline.toml");
@@ -1390,7 +1526,13 @@ fn rollback_uses_archived_bytes() {
          kind = \"empty\"\n"
     );
     let ev_2 = tmp.path().join("ev-2");
-    build_synthetic_evidence_dir(&ev_2, &baseline_v2, None, b"vector = 2\n");
+    build_synthetic_evidence_dir(
+        &ev_2,
+        &baseline_v2,
+        None,
+        b"vector = 2\n",
+        ("edition-001", &c2),
+    );
     let base2_file = ev_2.join("release-baseline.toml");
 
     let pkg2_str = pkg_v2.to_str().unwrap_or_else(|| panic!("utf8"));
@@ -1486,7 +1628,13 @@ fn missing_declared_edition_predecessor_refuses() {
     );
 
     let ev_1 = tmp.path().join("ev-1");
-    build_synthetic_evidence_dir(&ev_1, EMPTY_BASELINES, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_1,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &c1),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base1_file = ev_1.join("release-baseline.toml");
@@ -1544,7 +1692,13 @@ fn missing_declared_edition_predecessor_refuses() {
          archive_manifest_sha256 = \"{arch_1_sha}\"\n"
     );
     let ev_2 = tmp.path().join("ev-2");
-    build_synthetic_evidence_dir(&ev_2, &baseline_2, None, b"vector = 2\n");
+    build_synthetic_evidence_dir(
+        &ev_2,
+        &baseline_2,
+        None,
+        b"vector = 2\n",
+        ("edition-002", &c2),
+    );
     let base2_file = ev_2.join("release-baseline.toml");
 
     let ed2_str = ed_2.to_str().unwrap_or_else(|| panic!("utf8"));
@@ -1647,7 +1801,13 @@ fn raw_to_site_restores_edition_predecessor_without_tool() {
 
     let raw_mode = "release_schema = 1\nedition = \"001\"\nkind = \"raw\"\n";
     let raw_ev = tmp.path().join("raw-ev-001");
-    build_synthetic_evidence_dir(&raw_ev, EMPTY_BASELINES, Some(raw_mode), b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &raw_ev,
+        EMPTY_BASELINES,
+        Some(raw_mode),
+        b"vector = 1\n",
+        ("edition-001", &c1),
+    );
 
     let archives_root = tmp.path().join("archives");
     let raw_base_file = raw_ev.join("release-baseline.toml");
@@ -1713,6 +1873,7 @@ fn raw_to_site_restores_edition_predecessor_without_tool() {
         &baseline_2,
         Some("release_schema = 1\nedition = \"001\"\nkind = \"raw\"\n"),
         b"vector = 2\n",
+        ("edition-002", &c2),
     );
     let bad_base_file = bad_ev.join("release-baseline.toml");
     let site_ed_str = site_ed.to_str().unwrap_or_else(|| panic!("utf8"));
@@ -1740,7 +1901,13 @@ fn raw_to_site_restores_edition_predecessor_without_tool() {
 
     // Clean site edition-002 evidence.
     let site_ev = tmp.path().join("site-ev-002");
-    build_synthetic_evidence_dir(&site_ev, &baseline_2, None, b"vector = 2\n");
+    build_synthetic_evidence_dir(
+        &site_ev,
+        &baseline_2,
+        None,
+        b"vector = 2\n",
+        ("edition-002", &c2),
+    );
     let site_base_file = site_ev.join("release-baseline.toml");
     let site_ev_str = site_ev.to_str().unwrap_or_else(|| panic!("utf8"));
     let site_base_str = site_base_file.to_str().unwrap_or_else(|| panic!("utf8"));
@@ -1838,6 +2005,12 @@ fn site_evidence_reaches_archive() {
     );
     assert_success(&out_check, "release-check edition-002");
     assert!(evidence_dir.join("compat/published.toml").is_file());
+    // The tag check emits the identity it verified together with the evidence.
+    assert_eq!(
+        fs::read_to_string(evidence_dir.join("release-identity.toml"))
+            .unwrap_or_else(|e| panic!("read release-identity.toml: {e}")),
+        identity_toml("edition-002", &commit)
+    );
 
     let pair_dir = tmp.path().join("pair-002");
     build_synthetic_edition_set(
@@ -1997,6 +2170,113 @@ fn site_evidence_reaches_archive() {
         Some(&repo.dir),
     );
     assert_failure(&out_neg3, "mismatched edition-release.toml edition number");
+
+    // The archived identity is the tag check's, matching the pair and archive.toml.
+    assert_eq!(
+        fs::read_to_string(arch_dir.join("evidence/release-identity.toml"))
+            .unwrap_or_else(|e| panic!("read archived identity: {e}")),
+        identity_toml("edition-002", &commit)
+    );
+
+    // Negatives 4 and 5: evidence from another tag or another commit -> archive-release refuses
+    // before anything is archived.
+    let other_commit = if commit.starts_with('0') {
+        "1".repeat(40)
+    } else {
+        "0".repeat(40)
+    };
+    for (name, tag, ident_commit) in [
+        ("tag", "edition-003", commit.as_str()),
+        ("commit", "edition-002", other_commit.as_str()),
+    ] {
+        let ev_neg = tmp.path().join(format!("ev-identity-{name}"));
+        copy_tree(&evidence_dir, &ev_neg);
+        fs::write(
+            ev_neg.join("release-identity.toml"),
+            identity_toml(tag, ident_commit),
+        )
+        .unwrap_or_else(|e| panic!("write identity: {e}"));
+        let to_neg = tmp.path().join(format!("archives-identity-{name}"));
+        let out_neg = run_xtask(
+            &[
+                "archive-release",
+                "--kind",
+                "site",
+                "--edition",
+                pair_str,
+                "--evidence",
+                ev_neg.to_str().unwrap_or_else(|| panic!("utf8")),
+                "--base",
+                "release-baseline.toml",
+                "--to",
+                to_neg.to_str().unwrap_or_else(|| panic!("utf8")),
+            ],
+            &repo.dir,
+            Some(&repo.dir),
+        );
+        assert_failure(&out_neg, &format!("evidence identity with another {name}"));
+        assert_stderr_contains(&out_neg, "differs from the paired edition");
+        assert!(
+            !to_neg
+                .join(format!("edition-002-{}", &commit[..12]))
+                .exists()
+        );
+    }
+
+    // The Site provider refuses an archive whose retained identity names another tag or
+    // commit, even when archive.toml lists the edited bytes.
+    for (name, tag, ident_commit) in [
+        ("tag", "edition-003", commit.as_str()),
+        ("commit", "edition-002", other_commit.as_str()),
+    ] {
+        let copy = tmp.path().join(format!("arch-identity-{name}"));
+        copy_tree(&arch_dir, &copy);
+        fs::write(
+            copy.join("evidence/release-identity.toml"),
+            identity_toml(tag, ident_commit),
+        )
+        .unwrap_or_else(|e| panic!("write identity: {e}"));
+        relist_archive_file(&copy, "evidence/release-identity.toml");
+        let restore = tmp.path().join(format!("restore-identity-{name}"));
+        let out_verify = run_xtask(
+            &[
+                "verify-archive",
+                copy.to_str().unwrap_or_else(|| panic!("utf8")),
+                "--restore-to",
+                restore.to_str().unwrap_or_else(|| panic!("utf8")),
+            ],
+            &repo.dir,
+            Some(&repo.dir),
+        );
+        assert_failure(
+            &out_verify,
+            &format!("archived identity with another {name}"),
+        );
+        assert_stderr_contains(&out_verify, "not the archived pair");
+    }
+}
+
+/// Rewrite the `archive.toml` row of `rel` so it names the file's current size and digest; only
+/// a provider check can then refuse the edited archive.
+fn relist_archive_file(arch_dir: &Path, rel: &str) {
+    let bytes = fs::read(arch_dir.join(rel)).unwrap_or_else(|e| panic!("read {rel}: {e}"));
+    let manifest_path = arch_dir.join("archive.toml");
+    let text = fs::read_to_string(&manifest_path).unwrap_or_else(|e| panic!("read manifest: {e}"));
+    let row_start = format!("path = \"{rel}\"\n");
+    let at = text
+        .find(&row_start)
+        .unwrap_or_else(|| panic!("`{rel}` is listed"));
+    let after = at + row_start.len();
+    let row_end = text[after..]
+        .find("\n\n")
+        .map_or(text.len(), |n| after + n + 1);
+    let new_row = format!(
+        "size = {}\nsha256 = \"{}\"\n",
+        bytes.len(),
+        sha256_hex(&bytes)
+    );
+    let edited = format!("{}{new_row}{}", &text[..after], &text[row_end..]);
+    fs::write(&manifest_path, edited).unwrap_or_else(|e| panic!("write manifest: {e}"));
 }
 
 #[test]
@@ -2016,7 +2296,13 @@ fn site_archive_refuses_a_failing_browser_summary() {
     );
 
     let ev_dir = tmp.path().join("ev-failing");
-    build_synthetic_evidence_dir(&ev_dir, EMPTY_BASELINES, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        EMPTY_BASELINES,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
 
     let archives_root = tmp.path().join("archives");
     let base_file = ev_dir.join("release-baseline.toml");
@@ -2080,7 +2366,13 @@ fn archive_tampered_tool(tamper: &dyn Fn(&Path, &str)) -> (tempfile::TempDir, Ou
     );
     let baseline = "baseline_schema = 1\n\n[compatibility]\nkind = \"empty\"\n\n[tool]\nkind = \"empty\"\n\n[edition]\nkind = \"empty\"\n";
     let ev_dir = tmp.path().join("ev");
-    build_synthetic_evidence_dir(&ev_dir, baseline, None, b"vector = 1\n");
+    build_synthetic_evidence_dir(
+        &ev_dir,
+        baseline,
+        None,
+        b"vector = 1\n",
+        ("edition-001", &commit),
+    );
 
     let base_file = ev_dir.join("release-baseline.toml");
     let to_dir = tmp.path().join("archives");

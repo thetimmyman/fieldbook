@@ -124,6 +124,103 @@ pub struct ValidatedEditionTag {
     pub kind: DeliveryKind,
 }
 
+/// The evidence file that names the release identity the tag check verified.
+pub const RELEASE_IDENTITY_FILE: &str = "release-identity.toml";
+
+/// The release identity (`release-identity.toml`) that the tag check writes beside the public
+/// evidence: the edition tag and the full commit it resolved to. `archive-release` and the
+/// edition providers refuse evidence whose identity is not the pair's and the archive's.
+#[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ReleaseIdentity {
+    /// Schema version (`1`).
+    pub identity_schema: u32,
+    /// The edition tag (`edition-NNN`).
+    pub tag: String,
+    /// Full 40-character lowercase hex commit SHA the tag resolved to.
+    pub commit: String,
+}
+
+impl ReleaseIdentity {
+    /// The identity of `tag` at `commit`.
+    #[must_use]
+    pub fn new(tag: &str, commit: &str) -> Self {
+        Self {
+            identity_schema: 1,
+            tag: tag.to_owned(),
+            commit: commit.to_owned(),
+        }
+    }
+
+    /// Serialize in the one canonical form.
+    #[must_use]
+    pub fn to_toml(&self) -> String {
+        format!(
+            "identity_schema = {}\ntag = \"{}\"\ncommit = \"{}\"\n",
+            self.identity_schema, self.tag, self.commit
+        )
+    }
+
+    /// Parse and validate canonical `release-identity.toml` bytes.
+    pub fn parse(bytes: &[u8]) -> Result<Self, String> {
+        let text = std::str::from_utf8(bytes)
+            .map_err(|e| format!("`{RELEASE_IDENTITY_FILE}` is not UTF-8: {e}"))?;
+        let identity: Self =
+            toml::from_str(text).map_err(|e| format!("invalid `{RELEASE_IDENTITY_FILE}`: {e}"))?;
+        if identity.identity_schema != 1 {
+            return Err(format!(
+                "`{RELEASE_IDENTITY_FILE}`: unsupported identity_schema {} (expected 1)",
+                identity.identity_schema
+            ));
+        }
+        if EditionId::parse(&identity.tag).is_err() {
+            return Err(format!(
+                "`{RELEASE_IDENTITY_FILE}`: tag `{}` is not `edition-NNN`",
+                identity.tag
+            ));
+        }
+        if !is_lower_hex(&identity.commit, 40) {
+            return Err(format!(
+                "`{RELEASE_IDENTITY_FILE}`: commit `{}` must be 40 lowercase hex characters",
+                identity.commit
+            ));
+        }
+        if identity.to_toml().as_bytes() != bytes {
+            return Err(format!(
+                "`{RELEASE_IDENTITY_FILE}` is not in canonical form"
+            ));
+        }
+        Ok(identity)
+    }
+}
+
+/// Verify the archived `evidence/release-identity.toml` against the archived pair and
+/// `archive.toml`: the identity names the pair's edition tag and commit, the archive's commit,
+/// and, for the edition stream, the archive's tag. Both edition providers and the tool provider
+/// call it.
+pub(crate) fn verify_archived_identity(
+    archive_dir: &Path,
+    pair_tag: &str,
+    pair_commit: &str,
+    manifest: &ArchiveManifest,
+) -> Result<(), String> {
+    let rel = format!("evidence/{RELEASE_IDENTITY_FILE}");
+    let identity = ReleaseIdentity::parse(&read_non_symlink_file(archive_dir, &rel)?)?;
+    let manifest_tag_differs =
+        manifest.stream == ReleaseStream::Edition && identity.tag != manifest.tag;
+    if identity.tag != pair_tag
+        || identity.commit != pair_commit
+        || manifest_tag_differs
+        || identity.commit != manifest.commit
+    {
+        return Err(format!(
+            "archived `{rel}` names (`{}`, `{}`), not the archived pair (`{pair_tag}`, `{pair_commit}`) and `archive.toml` (`{}`, `{}`)",
+            identity.tag, identity.commit, manifest.tag, manifest.commit
+        ));
+    }
+    Ok(())
+}
+
 /// Arguments for [`archive_release`].
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ArchiveArgs {
@@ -617,10 +714,12 @@ fn build_evidence_map(
     bound_entries: &[(String, String)],
     baseline_toml_bytes: &[u8],
     mode_toml_bytes: Option<&[u8]>,
+    identity_toml_bytes: &[u8],
 ) -> Result<BTreeMap<String, Vec<u8>>, String> {
     let baseline_str = std::str::from_utf8(baseline_toml_bytes)
         .map_err(|e| format!("release-baseline.toml is not UTF-8: {e}"))?;
     let _ = parse_baselines(baseline_str)?;
+    let _ = ReleaseIdentity::parse(identity_toml_bytes)?;
     if let Some(mode_bytes) = mode_toml_bytes {
         let mode_str = std::str::from_utf8(mode_bytes)
             .map_err(|e| format!("edition-release.toml is not UTF-8: {e}"))?;
@@ -639,6 +738,10 @@ fn build_evidence_map(
     if let Some(mode_bytes) = mode_toml_bytes {
         staged.insert("edition-release.toml".to_owned(), mode_bytes.to_vec());
     }
+    staged.insert(
+        RELEASE_IDENTITY_FILE.to_owned(),
+        identity_toml_bytes.to_vec(),
+    );
 
     let mut seen_bound = BTreeSet::new();
     for (rel_path, expected_sha) in bound_entries {
@@ -668,10 +771,11 @@ fn build_evidence_map(
 
 /// Generic helper (`edition-manifest` step 7) that takes the already-validated `compat/published.toml`
 /// bytes, its parsed `(path, sha256)` entries from `Published::bound_files()`, `release-baseline.toml`
-/// bytes, and optional `edition-release.toml` bytes, verifies every bound blob in `source_root`
-/// against its declared SHA-256 without symlinks, and copies those exact public files into
-/// `evidence_out_dir` under their repository-relative paths (`compat/published.toml`,
-/// `release-baseline.toml`, optional `edition-release.toml`, and every bound file).
+/// bytes, optional `edition-release.toml` bytes and the verified release `identity`, verifies
+/// every bound blob in `source_root` against its declared SHA-256 without symlinks, and copies
+/// those exact public files into `evidence_out_dir` under their repository-relative paths
+/// (`compat/published.toml`, `release-baseline.toml`, optional `edition-release.toml`, and every
+/// bound file), with `release-identity.toml` naming the tag and commit.
 ///
 /// Returns the sorted `(rel_path, sha256)` list written to `evidence_out_dir`.
 pub fn collect_release_evidence(
@@ -680,6 +784,7 @@ pub fn collect_release_evidence(
     bound_entries: &[(String, String)],
     baseline_toml_bytes: &[u8],
     mode_toml_bytes: Option<&[u8]>,
+    identity: &ReleaseIdentity,
     evidence_out_dir: &Path,
 ) -> Result<Vec<(String, String)>, String> {
     let staged = build_evidence_map(
@@ -688,6 +793,7 @@ pub fn collect_release_evidence(
         bound_entries,
         baseline_toml_bytes,
         mode_toml_bytes,
+        identity.to_toml().as_bytes(),
     )?;
 
     fs::create_dir_all(evidence_out_dir).map_err(|e| {
@@ -1016,6 +1122,17 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
     let published = parse_published(pub_toml_str)?;
     let bound_entries = published.bound_files()?;
 
+    // The tag check's identity must be the pair's: evidence from another tag or commit is refused.
+    let identity_bytes = read_non_symlink_file(evidence_dir, RELEASE_IDENTITY_FILE)
+        .map_err(|e| format!("the evidence folder needs the tag check's identity: {e}"))?;
+    let identity = ReleaseIdentity::parse(&identity_bytes)?;
+    if identity.tag != ed_tag || identity.commit != ed_info.commit {
+        return Err(format!(
+            "evidence identity (`{}`, `{}`) differs from the paired edition (`{ed_tag}`, `{}`); archive the evidence of the same tag run",
+            identity.tag, identity.commit, ed_info.commit
+        ));
+    }
+
     // Verify optional `edition-release.toml` in evidence matches `ed_tag` and `kind` for edition stream.
     let mode_bytes_opt = if evidence_dir.join("edition-release.toml").exists() {
         Some(read_non_symlink_file(evidence_dir, "edition-release.toml")?)
@@ -1064,6 +1181,7 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
         &bound_entries,
         &base_bytes,
         mode_bytes_opt.as_deref(),
+        &identity_bytes,
     )?;
     for (rel, bytes) in ev_map {
         staged_archive.insert(format!("evidence/{rel}"), bytes);
@@ -2112,10 +2230,11 @@ mod tests {
     use crate::zipdet::write_deterministic_zip_bytes;
 
     use super::{
-        ArchiveArgs, ArchiveFileEntry, ArchiveManifest, DeliveryKind, ImpactStatus, ReleaseStream,
-        advance_baselines_from_archive, archive_release, collect_release_evidence, edition_impact,
-        parse_edition_release_mode, register_archive_provider, serialize_baselines,
-        validate_archive_rel_path, validate_edition_tag, verify_archive,
+        ArchiveArgs, ArchiveFileEntry, ArchiveManifest, DeliveryKind, ImpactStatus,
+        ReleaseIdentity, ReleaseStream, advance_baselines_from_archive, archive_release,
+        collect_release_evidence, edition_impact, parse_edition_release_mode,
+        register_archive_provider, serialize_baselines, validate_archive_rel_path,
+        validate_edition_tag, verify_archive,
     };
 
     const MINI_CORPUS_TOML: &str =
@@ -2161,6 +2280,7 @@ mod tests {
         baselines: &Baselines,
         mode_toml: Option<&str>,
         vector_payload: &[u8],
+        identity: (&str, &str),
     ) -> PathBuf {
         let src_root = dir.join("compat-src");
         fs::create_dir_all(src_root.join("compat/calc")).expect("mkdir");
@@ -2193,6 +2313,7 @@ mod tests {
             &bound,
             base_toml.as_bytes(),
             mode_toml.map(str::as_bytes),
+            &ReleaseIdentity::new(identity.0, identity.1),
             &ev_out,
         )
         .expect("collect_release_evidence");
@@ -2545,6 +2666,7 @@ mod tests {
             &empty_baselines,
             Some(mode_1),
             b"vector = 1\n",
+            ("edition-001", commit_1),
         );
         let ed_set_1 = tmp.path().join("ed1");
         build_synthetic_edition_set(
@@ -2605,6 +2727,7 @@ mod tests {
             &baselines,
             Some("release_schema = 1\nedition = \"001\"\nkind = \"site\"\n"),
             b"vector = 1\n",
+            ("edition-001", "1111111111111111111111111111111111111111"),
         );
         let committed = fs::read(evidence.join("release-baseline.toml")).expect("committed base");
         let other = format!("{empty}\n");
@@ -2658,6 +2781,7 @@ mod tests {
             &b0,
             Some("release_schema = 1\nedition = \"001\"\nkind = \"raw\"\n"),
             b"vector = 1\n",
+            ("edition-001", commit_e1),
         );
         let ed_e1 = tmp.path().join("ed-e1");
         build_synthetic_edition_set(
@@ -2704,8 +2828,13 @@ mod tests {
         // Because `b1.tool` is still `None`, `verify_archive` for `v0.1.0` succeeds WITHOUT `--previous`
         // and runs the first-tool rehearsal, even though `compatibility` and `edition` are non-empty.
         let commit_t1 = "2222222222222222222222222222222222222222";
-        let ev_t1 =
-            build_synthetic_evidence_dir(&tmp.path().join("ev-t1"), &b1, None, b"vector = 2\n");
+        let ev_t1 = build_synthetic_evidence_dir(
+            &tmp.path().join("ev-t1"),
+            &b1,
+            None,
+            b"vector = 2\n",
+            ("edition-001", commit_t1),
+        );
         let ed_t1 = tmp.path().join("ed-t1");
         build_synthetic_edition_set(
             &ed_t1,
@@ -2764,6 +2893,7 @@ mod tests {
             &b2,
             Some("release_schema = 1\nedition = \"002\"\nkind = \"site\"\n"),
             b"vector = 3\n",
+            ("edition-002", commit_e2),
         );
         let ed_e2 = tmp.path().join("ed-e2");
         build_synthetic_edition_set(
@@ -2826,8 +2956,13 @@ mod tests {
         // Step D: Next tool release `v0.2.0` after `edition-002`.
         // Must select `v0.1.0` (`arch_t1`) as predecessor, and reject `edition-002` (`arch_e2`) or `None`.
         let commit_t2 = "4444444444444444444444444444444444444444";
-        let ev_t2 =
-            build_synthetic_evidence_dir(&tmp.path().join("ev-t2"), &b3, None, b"vector = 4\n");
+        let ev_t2 = build_synthetic_evidence_dir(
+            &tmp.path().join("ev-t2"),
+            &b3,
+            None,
+            b"vector = 4\n",
+            ("edition-002", commit_t2),
+        );
         let ed_t2 = tmp.path().join("ed-t2");
         build_synthetic_edition_set(
             &ed_t2,
@@ -2942,6 +3077,7 @@ mod tests {
                     "release_schema = 1\nedition = \"{edition_num}\"\nkind = \"raw\"\n"
                 )),
                 b"vector = 1\n",
+                (&format!("edition-{edition_num}"), commit),
             );
             let ed_dir = tmp.path().join(format!("ed-{edition_num}"));
             build_synthetic_edition_set(&ed_dir, edition_num, commit, DeliveryKind::Raw, specs);
