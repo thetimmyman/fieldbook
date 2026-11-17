@@ -517,3 +517,124 @@ impl World for TestWorld {
         Ok(fieldbook::io::state_summary(&self.state_dir, today))
     }
 }
+
+/// [`World`] test double that wraps another world and forwards every call to it, as a decorator
+/// that changes one behaviour does.
+///
+/// It reports the store id of the world it wraps: a wrapper is not a store of its own, so it names
+/// the store of what it wraps instead of falling back to a default.
+pub struct ForwardingWorld<'a, W: World + ?Sized> {
+    inner: &'a W,
+}
+
+impl<'a, W: World + ?Sized> ForwardingWorld<'a, W> {
+    /// Wrap `inner`.
+    pub fn new(inner: &'a W) -> Self {
+        Self { inner }
+    }
+}
+
+impl<W: World + ?Sized> World for ForwardingWorld<'_, W> {
+    fn read_tree(&self) -> Result<Tree, WorldError> {
+        self.inner.read_tree()
+    }
+
+    fn write_lease(&self) -> Result<StoreLease, WorldError> {
+        self.inner.write_lease()
+    }
+
+    fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
+        self.inner.read_tree_under(lease)
+    }
+
+    fn write_file(
+        &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        self.inner.write_file(audited, path, bytes)
+    }
+
+    fn write_outside(
+        &self,
+        allowed: &Allowed,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        self.inner.write_outside(allowed, audited, path, bytes)
+    }
+
+    fn has_company_store(&self) -> bool {
+        self.inner.has_company_store()
+    }
+
+    fn today(&self) -> CivilDate {
+        self.inner.today()
+    }
+
+    fn now(&self) -> Now {
+        self.inner.now()
+    }
+
+    fn principal(&self) -> Principal {
+        self.inner.principal()
+    }
+
+    fn cwd(&self) -> &Path {
+        self.inner.cwd()
+    }
+
+    fn tree_root(&self) -> &Path {
+        self.inner.tree_root()
+    }
+
+    fn state_dir(&self) -> &Path {
+        self.inner.state_dir()
+    }
+
+    fn stdin_is_terminal(&self) -> bool {
+        self.inner.stdin_is_terminal()
+    }
+
+    fn read_line(&self) -> String {
+        self.inner.read_line()
+    }
+
+    fn prompt(&self, flag: &str) -> Result<(), WorldError> {
+        self.inner.prompt(flag)
+    }
+
+    fn place(&self, path: &Path) -> PlaceFacts {
+        self.inner.place(path)
+    }
+
+    fn support_facts(&self) -> fieldbook::SupportFacts {
+        self.inner.support_facts()
+    }
+
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.reset_drill(audited)
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        self.inner.remove_drill(audited)
+    }
+
+    fn read_maintenance(&self) -> Result<String, WorldError> {
+        self.inner.read_maintenance()
+    }
+
+    /// Report the store id of the world this double wraps: a wrapper holds no store of its own.
+    fn store_id(&self) -> &'static str {
+        self.inner.store_id()
+    }
+
+    fn read_state_summary(
+        &self,
+        today: CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
+        self.inner.read_state_summary(today)
+    }
+}

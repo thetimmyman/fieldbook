@@ -200,6 +200,111 @@ mod site_lints {
         assert_eq!(diags[0].path, "page.html");
     }
 
+    // control: WB-02
+    #[test]
+    fn fb0604_still_fails_outside_source_pages() {
+        let ecfr_link = "<a class=\"ext-link\" href=\"https://www.ecfr.gov/on/2026-10-27/title-48/section-31.205-1\" target=\"_blank\" rel=\"noopener noreferrer\">ecfr.gov</a>";
+
+        // On s/, a listed official publisher over https: is allowed.
+        let mut s_ok = clean_site();
+        s_ok.insert("s/S-0001-v1.html", valid_page_with_prefix("../", ecfr_link));
+        let d_ok = lint(&s_ok, &OriginalNames::default());
+        assert!(
+            d_ok.is_empty(),
+            "listed publisher https: link on s/ must pass FB0604, got {d_ok:?}"
+        );
+
+        // On s/, an unlisted host or http: link still fails FB0604.
+        let mut s_bad = clean_site();
+        s_bad.insert(
+            "s/S-0001-v1.html",
+            valid_page_with_prefix(
+                "../",
+                "<a class=\"ext-link\" href=\"https://unlisted.example.org/doc\" target=\"_blank\" rel=\"noopener noreferrer\">unlisted</a><a class=\"ext-link\" href=\"http://www.ecfr.gov/current/title-48\" target=\"_blank\" rel=\"noopener noreferrer\">http</a>",
+            ),
+        );
+        let d_bad = lint(&s_bad, &OriginalNames::default());
+        assert_eq!(
+            d_bad.len(),
+            2,
+            "expected 2 FB0604 diagnostics on s/, got {d_bad:?}"
+        );
+        assert!(d_bad.iter().all(|d| d.code == Code::Fb0604));
+
+        // On s/, a listed publisher link missing any required safety attribute still fails FB0604.
+        for bad_attrs_link in [
+            "<a href=\"https://www.ecfr.gov/\">bare</a>",
+            "<a href=\"https://www.ecfr.gov/\" target=\"_blank\" rel=\"noopener noreferrer\">no-class</a>",
+            "<a class=\"other\" href=\"https://www.ecfr.gov/\" target=\"_blank\" rel=\"noopener noreferrer\">wrong-class</a>",
+            "<a class=\"ext-link\" href=\"https://www.ecfr.gov/\" rel=\"noopener noreferrer\">no-target</a>",
+            "<a class=\"ext-link\" href=\"https://www.ecfr.gov/\" target=\"_self\" rel=\"noopener noreferrer\">wrong-target</a>",
+            "<a class=\"ext-link\" href=\"https://www.ecfr.gov/\" target=\"_blank\">no-rel</a>",
+            "<a class=\"ext-link\" href=\"https://www.ecfr.gov/\" target=\"_blank\" rel=\"noopener\">partial-rel</a>",
+            "<a class=\"ext-link\" href=\"https://www.ecfr.gov/\" target=\"_blank\" target=\"_self\" rel=\"noopener noreferrer\">dup-target</a>",
+        ] {
+            let mut site = clean_site();
+            site.insert(
+                "s/S-0001-v1.html",
+                valid_page_with_prefix("../", bad_attrs_link),
+            );
+            let diags = lint(&site, &OriginalNames::default());
+            assert_eq!(
+                diags.len(),
+                1,
+                "s/ link `{bad_attrs_link}` missing required attributes must fail FB0604, got {diags:?}"
+            );
+            assert_eq!(diags[0].code, Code::Fb0604);
+            assert_eq!(diags[0].path, "s/S-0001-v1.html");
+        }
+
+        // An extra attribute that can fetch (`ping`) is refused.
+        let mut ping = clean_site();
+        ping.insert(
+            "s/S-0001-v1.html",
+            valid_page_with_prefix(
+                "../",
+                "<a class=\"ext-link\" href=\"https://www.ecfr.gov/\" target=\"_blank\" rel=\"noopener noreferrer\" ping=\"https://unlisted.example.org/p\">ping</a>",
+            ),
+        );
+        let d_ping = lint(&ping, &OriginalNames::default());
+        assert_eq!(
+            d_ping.len(),
+            1,
+            "extra `ping` must give FB0604, got {d_ping:?}"
+        );
+        assert_eq!(d_ping[0].code, Code::Fb0604);
+
+        // A listed link on a nested path under s/ is refused.
+        let mut nested = clean_site();
+        nested.insert("s/x/y.html", valid_page_with_prefix("../../", ecfr_link));
+        let d_nested = lint(&nested, &OriginalNames::default());
+        assert_eq!(
+            d_nested.len(),
+            1,
+            "nested s/ link must give FB0604, got {d_nested:?}"
+        );
+        assert_eq!(d_nested[0].code, Code::Fb0604);
+
+        // Outside s/ (p/, search.html, sources.html, claims/), even a listed publisher link fails FB0604.
+        for (path, prefix) in [
+            ("p/cmp-system-review.html", "../"),
+            ("search.html", ""),
+            ("sources.html", ""),
+            ("claims/CMP-1.html", "../"),
+        ] {
+            let mut site = clean_site();
+            site.insert(path, valid_page_with_prefix(prefix, ecfr_link));
+            let diags = lint(&site, &OriginalNames::default());
+            assert_eq!(
+                diags.len(),
+                1,
+                "listed publisher link on `{path}` must still fail FB0604, got {diags:?}"
+            );
+            assert_eq!(diags[0].code, Code::Fb0604);
+            assert_eq!(diags[0].path, path);
+        }
+    }
+
     #[test]
     fn budgets_match_the_reference() {
         let fb0605_line = CORPUS_FORMAT_MD

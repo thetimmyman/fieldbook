@@ -494,6 +494,10 @@ mod tests {
         ) -> Result<fieldbook_core::status::StateSummary, Error> {
             self.disk.read_state_summary(today)
         }
+
+        fn store_id(&self) -> &'static str {
+            self.disk.store_id()
+        }
     }
 
     #[test]
