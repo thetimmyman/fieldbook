@@ -7,7 +7,7 @@
 
 use std::collections::BTreeSet;
 
-use crate::labels::{LabelSet, UNLABELLED};
+use crate::labels::{LabelGraph, LabelSet, MarkingRules, UNLABELLED, markings_in};
 
 /// Classification of a file copied into a backup snapshot.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -120,4 +120,32 @@ pub fn snapshot_labels(files: &[CopiedFile]) -> LabelSet {
     } else {
         LabelSet::from_ids(ids)
     }
+}
+
+/// The labels a backup copy of the question log (`state/asked/asked.csv`) carries: for every
+/// row, its own labels, any marking `rules` find in its question, and the current effective
+/// labels of its inputs in `graph`. A log that does not parse, or a row with inputs and no
+/// `graph` to resolve them in, adds `unlabelled`; a log with no rows is `owner-supplied`.
+#[must_use]
+pub fn question_log_labels(
+    bytes: &[u8],
+    graph: Option<&dyn LabelGraph>,
+    rules: &MarkingRules,
+) -> LabelSet {
+    let Ok(rows) = crate::asked::parse(bytes) else {
+        return LabelSet::unlabelled();
+    };
+    let mut labels = LabelSet::owner_supplied();
+    for row in &rows {
+        labels = labels.union(&row.labels);
+        if let Some(found) = markings_in(&row.question, rules) {
+            labels = labels.union(&found);
+        }
+        match graph {
+            Some(graph) => labels = crate::asked::resolve(&labels, &row.inputs, graph),
+            None if !row.inputs.is_empty() => labels = labels.union(&LabelSet::unlabelled()),
+            None => {}
+        }
+    }
+    labels
 }

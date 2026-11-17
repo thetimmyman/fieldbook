@@ -784,7 +784,7 @@ define_codes! {
         Fb0604,
         "FB0604",
         "error",
-        "Remove external hrefs, inline styles, inline event handlers and non-asset scripts, and emit the exact CSP_STATIC policy."
+        "Remove external hrefs (except listed official-publisher https: links on s/), inline styles, inline event handlers and non-asset scripts, and emit the exact CSP_STATIC policy."
     ),
     (
         Fb0605,
