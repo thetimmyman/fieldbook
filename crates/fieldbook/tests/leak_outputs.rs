@@ -2256,11 +2256,7 @@ fn run_restore_surface() {
 
     // 2. Destination / payload binding checks
     let binding_scratch = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
-    let binding_dest = binding_scratch
-        .path()
-        .canonicalize()
-        .unwrap_or_else(|e| panic!("{e}"))
-        .join("binding-dest");
+    let binding_dest = support::canonical_path(binding_scratch.path()).join("binding-dest");
     let test_file = binding_dest.join("binding-test.txt");
     let approved_bytes = b"approved-restore-bytes";
     let test_sha = Sha256::digest(approved_bytes).as_str().to_string();
