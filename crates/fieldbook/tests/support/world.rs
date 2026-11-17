@@ -551,6 +551,10 @@ impl<W: World + ?Sized> World for ForwardingWorld<'_, W> {
         self.inner.read_tree_under(lease)
     }
 
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        self.inner.read_file(path)
+    }
+
     fn write_file(
         &self,
         audited: &Audited,
