@@ -673,11 +673,14 @@ impl LabelGraph for InputGraph<'_> {
             return None;
         }
         // A section of a page (`P-0001#anchor`) and a text window of a version
-        // (`S-0001-v1#w2`) carry the labels of the item before the `#`.
-        let id = item
-            .id
-            .split_once('#')
-            .map_or(item.id.as_str(), |(base, _)| base);
+        // (`S-0001-v1#w2`) rest on the item before the `#`: the fragment is a node of its own
+        // whose one input is that base item, so the base item's ledger entries reach it.
+        if let Some((base, _)) = item.id.split_once('#') {
+            let base = ItemRef::new(StoreId::Corpus, base.to_owned());
+            self.node(&base)?;
+            return Some(LabelNode::new(LabelSet::public(), vec![base]));
+        }
+        let id = item.id.as_str();
         let model = self.model;
 
         let versions: Vec<LabelSet> = model

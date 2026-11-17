@@ -12,11 +12,14 @@
 //! one `question not recorded: <reason>` line in [`Logged::warning`]. No row is written without
 //! its event. The journal holds the question only as a hash.
 
+use std::collections::BTreeSet;
+
 use fieldbook_core::CivilDate;
 use fieldbook_core::asked::{self, AskedId, AskedRow, InputGraph, Outcome, RowState};
 use fieldbook_core::audit::{Count, EventPayload, Id, Sha256, Word};
-use fieldbook_core::check::{Entry, Host, Options, Tree, load};
+use fieldbook_core::check::{Host, Options, Tree, load};
 use fieldbook_core::labels::{ItemRef, LabelSet, StoreId, admit, git_guard, markings_in};
+use fieldbook_core::manifest::ManifestError;
 use fieldbook_core::policy::EffectivePolicy;
 
 use crate::World;
@@ -84,23 +87,17 @@ const LINE_BREAK: &str = "the question holds a line break, and a row of the log 
 /// How many result ids a row keeps.
 pub const TOP_IDS: usize = 5;
 
-/// The Corpus fingerprint of `tree`: the SHA-256 of one `<sha256 hex>  <path>` line per Corpus
-/// file, sorted by path as bytes, made by the function that writes the `fingerprint` of
-/// `edition.toml`.
-#[must_use]
-pub fn fingerprint(tree: &Tree) -> String {
-    let entries: Vec<(String, String)> = tree
-        .iter()
-        .filter(|(path, _)| path.starts_with("corpus/"))
-        .map(|(path, entry)| {
-            let sha = match entry {
-                Entry::Bytes(bytes) => fieldbook_core::hash::sha256_hex(bytes),
-                Entry::Original { sha256, .. } => sha256.clone(),
-            };
-            (path.to_owned(), sha)
-        })
-        .collect();
-    fieldbook_core::manifest::fingerprint(&entries)
+/// The Corpus fingerprint of `tree`: the SHA-256 of one `<sha256 hex>  <path>` line per shipped
+/// Corpus file (the selection the search index and an edition read, without support files,
+/// templates, originals or held versions), sorted by path as bytes, made by the function that
+/// writes the `fingerprint` of `edition.toml`.
+///
+/// # Errors
+///
+/// Returns the [`ManifestError`] of the shipped selection when the tree is not a public Corpus.
+pub fn fingerprint(tree: &Tree) -> Result<String, ManifestError> {
+    let files = fieldbook_core::manifest::shipped_corpus(tree, &BTreeSet::new())?;
+    Ok(fieldbook_core::manifest::fingerprint(&files))
 }
 
 /// The question's own labels: `labels` united with the markings `policy` finds in `query`.

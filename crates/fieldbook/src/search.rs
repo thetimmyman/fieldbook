@@ -77,6 +77,14 @@ pub fn run(args: &SearchArgs, world: &dyn World) -> Outcome {
             ));
         }
     };
+    let fingerprint = match crate::asked::fingerprint(&tree) {
+        Ok(fingerprint) => fingerprint,
+        Err(err) => {
+            return io_failure(&format!(
+                "cannot build the search index: {err}\nrun `fieldbook check` to see which file and line to fix"
+            ));
+        }
+    };
     let limit = if args.units {
         cli_limit(&index, &text)
     } else {
@@ -111,7 +119,7 @@ pub fn run(args: &SearchArgs, world: &dyn World) -> Outcome {
     let hits = Hits {
         count: results.total as u64,
         top_ids,
-        fingerprint: crate::asked::fingerprint(&tree),
+        fingerprint,
     };
     drop(tree);
     let stderr = record(world, &text, &hits)

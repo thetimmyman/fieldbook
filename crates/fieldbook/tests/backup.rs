@@ -7182,6 +7182,11 @@ fn asked_only_target(fix: &TestFixture) -> BackupOptions {
 
 /// Records one question resting on the source version `S-0001-v1` through the real logger.
 fn log_a_question_on_s0001(fix: &TestFixture) {
+    log_a_question_on(fix, "S-0001-v1");
+}
+
+/// Records one question resting on the Corpus item `input` through the real logger.
+fn log_a_question_on(fix: &TestFixture, input: &str) {
     let journal =
         fieldbook::io::state::open(&fix.world, fix.state_dir(), Via::Cli).expect("journal opens");
     let logged = fieldbook::asked::log_question(
@@ -7193,12 +7198,12 @@ fn log_a_question_on_s0001(fix: &TestFixture) {
         &LabelSet::owner_supplied(),
         &[fieldbook_core::labels::ItemRef::new(
             fieldbook_core::labels::StoreId::Corpus,
-            "S-0001-v1",
+            input,
         )],
         "synthetic cost rule",
         &fieldbook::asked::Hits {
             count: 1,
-            top_ids: vec!["S-0001-v1".to_owned()],
+            top_ids: vec![input.to_owned()],
             fingerprint: "ab".repeat(32),
         },
         fieldbook::asked::Cited::NotChecked,
@@ -7242,6 +7247,32 @@ fn backup_rechecks_asked_inputs() {
         std::fs::read(fix.state_dir().join("asked/asked.csv")).expect("read log"),
         saved
     );
+    assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
+    let journal =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+    let refuse = journal
+        .lines()
+        .rev()
+        .find(|line| line.contains("\"kind\":\"refuse\""))
+        .expect("a refuse event");
+    assert!(refuse.contains("np-0007"), "{refuse}");
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn backup_rechecks_asked_fragment_inputs_through_their_base_item() {
+    let fix = TestFixture::new();
+    log_a_question_on(&fix, "cmp-review-steps#the-rule");
+    let options = asked_only_target(&fix);
+
+    // Restrict only the parent page in the Corpus ledger; the row names a section of it.
+    std::fs::write(
+        fix.tree_root().join("corpus/labels.csv"),
+        "seq,item_id,kind,labels,origin\n1,cmp-review-steps,add,np-0007,person\n",
+    )
+    .expect("write corpus ledger");
+
+    let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
     assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
     let journal =
         std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");

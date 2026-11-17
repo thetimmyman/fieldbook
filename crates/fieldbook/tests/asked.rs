@@ -546,31 +546,37 @@ fn row_holds_version_and_fingerprint() {
     let row = rows(&world).pop().expect("one row");
     assert_eq!(row.tool_version, env!("CARGO_PKG_VERSION"));
 
-    // The fingerprint of every Corpus file, computed here from the files on disk.
-    let mut entries = Vec::new();
-    collect_files(&tmp.path().join("corpus"), tmp.path(), &mut entries);
-    entries.sort();
-    let expected = fieldbook_core::manifest::fingerprint(&entries);
-    assert_eq!(row.fingerprint, expected);
+    // The fingerprint an edition built from the same Corpus records in `edition.toml`.
+    let out = tempfile::tempdir().expect("out tempdir");
+    let out_arg = out.path().to_string_lossy().into_owned();
+    let built = run(&world, &["build", "--out", &out_arg]);
+    assert_eq!(built.code, 0, "{}", built.stderr);
+    let edition = fieldbook_core::edition::EditionInfo::parse(
+        &std::fs::read_to_string(out.path().join("edition/edition.toml")).expect("edition.toml"),
+    )
+    .expect("edition.toml parses");
+    assert_eq!(row.fingerprint, edition.fingerprint);
     let tree = world.read_tree().expect("read tree");
-    assert_eq!(row.fingerprint, fieldbook::asked::fingerprint(&tree));
+    assert_eq!(
+        Ok(row.fingerprint.clone()),
+        fieldbook::asked::fingerprint(&tree)
+    );
 }
 
-fn collect_files(dir: &Path, root: &Path, out: &mut Vec<(String, String)>) {
-    for entry in std::fs::read_dir(dir).expect("read_dir") {
-        let path = entry.expect("entry").path();
-        if path.is_dir() {
-            collect_files(&path, root, out);
-        } else {
-            let rel = path
-                .strip_prefix(root)
-                .expect("under root")
-                .to_string_lossy()
-                .replace('\\', "/");
-            let bytes = std::fs::read(&path).expect("read");
-            out.push((rel, fieldbook_core::hash::sha256_hex(&bytes)));
-        }
-    }
+#[test]
+fn fingerprint_ignores_support_files() {
+    let tmp = corpus();
+    let world = TestWorld::new(tmp.path());
+    let _ = search(&world, &["synthetic"]);
+    // A support file is not a search input: editing it leaves the recorded identity unchanged.
+    let agents = tmp.path().join("corpus/AGENTS.md");
+    let mut text = std::fs::read_to_string(&agents).expect("read AGENTS.md");
+    text.push_str("\nOne more synthetic line.\n");
+    std::fs::write(&agents, text).expect("write AGENTS.md");
+    let _ = search(&world, &["cost"]);
+    let logged = rows(&world);
+    assert_eq!(logged.len(), 2, "{logged:?}");
+    assert_eq!(logged[0].fingerprint, logged[1].fingerprint);
 }
 
 #[test]
