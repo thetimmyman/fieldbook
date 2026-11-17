@@ -13,6 +13,9 @@ pub const APP_JS: u64 = 32_000;
 pub const SEARCH_JS: u64 = 11_000;
 /// Budget for `assets/assist.js` in decimal bytes (`FB0605`).
 pub const ASSIST_JS: u64 = 20_000;
+/// Budget for `assets/day.js` in decimal bytes (`FB0605`): its measured size rounded up to the
+/// next 500 bytes.
+pub const DAY_JS: u64 = 4_000;
 /// Total budget across all script files in decimal bytes (`FB0605`).
 pub const SCRIPTS_TOTAL: u64 = 64_000;
 /// Budget for each data file other than the search index (`assets/assist-data.js`, `data/*`) in decimal bytes (`FB0605`).
@@ -866,6 +869,7 @@ fn check_budgets(site: &Site, diags: &mut Vec<Diagnostic>) {
                 "assets/app.js" => Some(APP_JS),
                 "assets/search.js" => Some(SEARCH_JS),
                 "assets/assist.js" => Some(ASSIST_JS),
+                "assets/day.js" => Some(DAY_JS),
                 _ => None,
             };
             if let Some(limit) = individual_limit

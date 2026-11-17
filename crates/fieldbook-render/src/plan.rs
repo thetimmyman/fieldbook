@@ -34,6 +34,9 @@ pub struct PlanTimelineView {
     pub aria_label: String,
     /// Windows plotted in authored order on the shared `[1, axis_max]` axis.
     pub windows: Vec<PlanWindowView>,
+    /// The header text while no day can be shown (`set_start_date_plan`); the page script
+    /// replaces it once a start date gives a day.
+    pub unset_header: &'static str,
 }
 
 /// Parse a `###` group heading against the exact `Day N to Day M` grammar (`1 <= N <= M`).
@@ -156,5 +159,6 @@ pub fn build_from_parsed_windows(raw_windows: &[(String, u32, u32)]) -> PlanTime
         axis_max,
         aria_label,
         windows,
+        unset_header: strings::set_start_date_plan(),
     }
 }

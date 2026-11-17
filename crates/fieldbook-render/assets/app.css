@@ -1724,6 +1724,7 @@ kbd {
 }
 
 .tl-axis-row {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-1-5);
@@ -1734,6 +1735,26 @@ kbd {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: var(--space-2);
   font-size: var(--text-xs);
+}
+
+.day-chip[hidden],
+.tu-item[hidden],
+.tl-now[hidden] {
+  display: none;
+}
+
+.tl-now {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: var(--border-w) dashed var(--color-accent);
+  pointer-events: none;
+}
+
+.tl90 .thirds,
+.tl-track {
+  position: relative;
+  z-index: var(--z-raised);
 }
 
 .tl-track {
@@ -1958,6 +1979,16 @@ th[aria-sort="descending"] .sort-arrow::after {
 @media (max-width: 1279px) {
   .reader {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .day-chip {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tu-item[data-day] {
+    display: none;
   }
 }
 
@@ -3784,6 +3815,10 @@ dialog.dlg .note:empty {
 
   .topbar-end {
     display: block;
+  }
+
+  .day-chip {
+    display: none;
   }
 
   .build-date-link {
