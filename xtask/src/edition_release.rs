@@ -2237,6 +2237,49 @@ mod tests {
         validate_edition_tag, verify_archive,
     };
 
+    #[test]
+    fn release_identity_parse_is_strict() {
+        let commit = "0123456789abcdef0123456789abcdef01234567";
+        let good = format!("identity_schema = 1\ntag = \"edition-001\"\ncommit = \"{commit}\"\n");
+        let id = ReleaseIdentity::new("edition-001", commit);
+        assert_eq!(id.to_toml(), good);
+        assert_eq!(ReleaseIdentity::parse(good.as_bytes()), Ok(id.clone()));
+        assert_eq!(ReleaseIdentity::parse(id.to_toml().as_bytes()), Ok(id));
+
+        let cases: Vec<(&str, Vec<u8>)> = vec![
+            ("comment", format!("# note\n{good}").into_bytes()),
+            (
+                "reordered keys",
+                format!("tag = \"edition-001\"\nidentity_schema = 1\ncommit = \"{commit}\"\n")
+                    .into_bytes(),
+            ),
+            ("CRLF", good.replace('\n', "\r\n").into_bytes()),
+            ("no final newline", good.trim_end().as_bytes().to_vec()),
+            ("schema 2", good.replace("= 1", "= 2").into_bytes()),
+            ("extra key", format!("{good}extra = 1\n").into_bytes()),
+            (
+                "tool tag",
+                good.replace("edition-001", "v0.1.0").into_bytes(),
+            ),
+            (
+                "uppercase commit",
+                good.replace(commit, &commit.to_uppercase()).into_bytes(),
+            ),
+            (
+                "short commit",
+                good.replace(commit, &commit[..39]).into_bytes(),
+            ),
+            ("non-UTF-8", {
+                let mut b = good.clone().into_bytes();
+                b.push(0xff);
+                b
+            }),
+        ];
+        for (name, bytes) in cases {
+            assert!(ReleaseIdentity::parse(&bytes).is_err(), "{name} is refused");
+        }
+    }
+
     const MINI_CORPUS_TOML: &str =
         include_str!("../../tests/fixtures/corpus-mini/corpus/corpus.toml");
 

@@ -4,7 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
-- Changed: the tag checks write `release-identity.toml` (the tag and commit they verified) with the evidence, and `archive-release` and `verify-archive` refuse evidence from another tag or commit.
+- Changed: the tag checks write `release-identity.toml` (the tag and commit they verified) with the evidence, and `archive-release` and `verify-archive` refuse evidence from another tag or commit. Evidence and archives made before this file existed are refused; repeat the tag run rather than writing an identity by hand.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
 - Fixed: backup records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest.

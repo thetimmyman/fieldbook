@@ -2254,6 +2254,76 @@ fn site_evidence_reaches_archive() {
         );
         assert_stderr_contains(&out_verify, "not the archived pair");
     }
+
+    // Evidence without the tag check's identity is refused, and nothing is archived.
+    let ev_bare = tmp.path().join("ev-no-identity");
+    copy_tree(&evidence_dir, &ev_bare);
+    fs::remove_file(ev_bare.join("release-identity.toml"))
+        .unwrap_or_else(|e| panic!("remove identity: {e}"));
+    let to_bare = tmp.path().join("archives-no-identity");
+    let out_bare = run_xtask(
+        &[
+            "archive-release",
+            "--kind",
+            "site",
+            "--edition",
+            pair_str,
+            "--evidence",
+            ev_bare.to_str().unwrap_or_else(|| panic!("utf8")),
+            "--base",
+            "release-baseline.toml",
+            "--to",
+            to_bare.to_str().unwrap_or_else(|| panic!("utf8")),
+        ],
+        &repo.dir,
+        Some(&repo.dir),
+    );
+    assert_failure(&out_bare, "evidence without the identity file");
+    assert_stderr_contains(&out_bare, "needs the tag check's identity");
+    assert!(
+        !to_bare
+            .join(format!("edition-002-{}", &commit[..12]))
+            .exists()
+    );
+
+    // An archive whose identity is removed from the folder and from archive.toml fails the
+    // exact-set check.
+    let copy_gone = tmp.path().join("arch-no-identity");
+    copy_tree(&arch_dir, &copy_gone);
+    fs::remove_file(copy_gone.join("evidence/release-identity.toml"))
+        .unwrap_or_else(|e| panic!("remove identity: {e}"));
+    unlist_archive_file(&copy_gone, "evidence/release-identity.toml");
+    let out_gone = run_xtask(
+        &[
+            "verify-archive",
+            copy_gone.to_str().unwrap_or_else(|| panic!("utf8")),
+            "--restore-to",
+            tmp.path()
+                .join("restore-no-identity")
+                .to_str()
+                .unwrap_or_else(|| panic!("utf8")),
+        ],
+        &repo.dir,
+        Some(&repo.dir),
+    );
+    assert_failure(&out_gone, "archive without the identity file");
+    assert_stderr_contains(&out_gone, "release-identity.toml");
+}
+
+/// Drop the `archive.toml` row of `rel`, as if the archive had never listed it.
+fn unlist_archive_file(arch_dir: &Path, rel: &str) {
+    let manifest_path = arch_dir.join("archive.toml");
+    let text = fs::read_to_string(&manifest_path).unwrap_or_else(|e| panic!("read manifest: {e}"));
+    let header = format!("[[file]]\npath = \"{rel}\"\n");
+    let at = text
+        .find(&header)
+        .unwrap_or_else(|| panic!("`{rel}` is listed"));
+    let after = at + header.len();
+    let row_end = text[after..]
+        .find("\n\n")
+        .map_or(text.len(), |n| after + n + 2);
+    let edited = format!("{}{}", &text[..at], &text[row_end..]);
+    fs::write(&manifest_path, edited).unwrap_or_else(|e| panic!("write manifest: {e}"));
 }
 
 /// Rewrite the `archive.toml` row of `rel` so it names the file's current size and digest; only
@@ -2443,4 +2513,49 @@ fn tool_archive_refuses_a_descriptor_for_another_commit() {
     });
     assert_failure(&out, "a descriptor for another commit is not archived");
     assert_stderr_contains(&out, "paired edition commit");
+}
+
+#[test]
+#[cfg(unix)]
+fn tool_archive_refuses_a_retained_identity_of_another_commit() {
+    let (tmp, out, to_dir) = archive_tampered_tool(&|_pkg, _commit| {});
+    assert_success(&out, "archive-release tool package");
+    let arch_dir = to_dir.join(format!("v0.1.0-{}", "a".repeat(12)));
+    let restore_ok = tmp.path().join("restore-ok");
+    let ok = run_xtask(
+        &[
+            "verify-archive",
+            arch_dir.to_str().unwrap_or_else(|| panic!("utf8")),
+            "--restore-to",
+            restore_ok.to_str().unwrap_or_else(|| panic!("utf8")),
+        ],
+        tmp.path(),
+        None,
+    );
+    assert_success(&ok, "the untouched tool archive verifies");
+
+    let copy = tmp.path().join("arch-identity-other");
+    copy_tree(&arch_dir, &copy);
+    fs::write(
+        copy.join("evidence/release-identity.toml"),
+        identity_toml("edition-001", &"b".repeat(40)),
+    )
+    .unwrap_or_else(|e| panic!("write identity: {e}"));
+    relist_archive_file(&copy, "evidence/release-identity.toml");
+    let restore = tmp.path().join("restore-identity-other");
+    let verify = run_xtask(
+        &[
+            "verify-archive",
+            copy.to_str().unwrap_or_else(|| panic!("utf8")),
+            "--restore-to",
+            restore.to_str().unwrap_or_else(|| panic!("utf8")),
+        ],
+        tmp.path(),
+        None,
+    );
+    assert_failure(
+        &verify,
+        "a tool archive retaining another commit's identity",
+    );
+    assert_stderr_contains(&verify, "not the archived pair");
 }

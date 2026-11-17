@@ -1200,6 +1200,19 @@ mod tests {
             );
         }
 
+        // Evidence without the tag check's identity is refused, and nothing is archived.
+        let bare = work.path().join("ev-no-identity");
+        copy_tree(&evidence, &bare);
+        fs::remove_file(bare.join(RELEASE_IDENTITY_FILE)).expect("rm identity");
+        let err = archive(&out, &bare, &base_of(root), &archives)
+            .expect_err("missing identity is refused");
+        assert!(err.contains("needs the tag check's identity"), "{err}");
+        assert!(
+            !archives.exists()
+                || dir_listing(&archives).iter().all(|n| n.starts_with('.'))
+                || dir_listing(&archives).is_empty()
+        );
+
         // A mismatched mode descriptor (another kind) is refused.
         let site = work.path().join("ev-site");
         copy_tree(&evidence, &site);
