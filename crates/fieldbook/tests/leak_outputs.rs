@@ -2040,6 +2040,11 @@ fn run_registers_workbook_surface() {
 
 fn run_register_csvs_surface() {
     let delivery = deliver_mixed_edition(&BuildInfo::default());
+    assert!(
+        !delivery.edition_dir.join("data/claims.csv").exists(),
+        "delivered edition must not contain unparted data/claims.csv"
+    );
+
     let wb_bytes = std::fs::read(delivery.edition_dir.join(fieldbook_core::strings::PATHS[0]))
         .unwrap_or_else(|e| panic!("read data/registers.xlsx: {e}"));
     let sheets = workbook_sheets(&wb_bytes);
@@ -2052,58 +2057,88 @@ fn run_register_csvs_surface() {
         .map(|r| r.canary.as_str())
         .collect();
 
-    let registers_info = [
-        (Register::Sources, "sources", 4, "S-0002"),
-        (Register::Claims, "claims", 5, "CL-CMP-0001"),
-        (Register::Questions, "questions", 2, "Q-001"),
-        (Register::Conflicts, "conflicts", 1, "XC-01"),
-        (Register::Glossary, "glossary", 4, "system_review"),
-    ];
+    // Every delivered data CSV is scanned, listed or not, and the claims parts on disk are
+    // exactly the ones the view lists.
+    let data_dir = delivery.edition_dir.join("data");
+    let mut claims_parts_on_disk = std::collections::BTreeSet::new();
+    for entry in std::fs::read_dir(&data_dir).unwrap_or_else(|e| panic!("read data dir: {e}")) {
+        let path = entry.unwrap_or_else(|e| panic!("data entry: {e}")).path();
+        if path.extension().and_then(|s| s.to_str()) != Some("csv") {
+            continue;
+        }
+        let name = path
+            .file_name()
+            .and_then(|s| s.to_str())
+            .unwrap_or_else(|| panic!("data file name"))
+            .to_string();
+        if name.starts_with("claims-") {
+            claims_parts_on_disk.insert(format!("data/{name}"));
+        }
+        let bytes = std::fs::read(&path).unwrap_or_else(|e| panic!("read {}: {e}", path.display()));
+        let text = String::from_utf8_lossy(&bytes);
+        for forbidden in FORBIDDEN_REGISTER_STRINGS {
+            assert!(
+                !text.contains(forbidden),
+                "data/{name} contains forbidden string `{forbidden}`"
+            );
+        }
+        for canary in &non_public_canaries {
+            assert!(
+                !text.contains(canary),
+                "data/{name} contains non-public canary `{canary}`"
+            );
+        }
+    }
+    let claims_parts_listed: std::collections::BTreeSet<String> =
+        fieldbook_render::register::claims_parts(&delivery.view)
+            .iter()
+            .map(|p| fieldbook_render::csv_copy::claims_part_output_path(&p.area_code, p.part))
+            .collect();
+    assert_eq!(
+        claims_parts_on_disk, claims_parts_listed,
+        "claims part CSVs on disk must equal the parts the view lists"
+    );
 
-    for (reg, reg_name, expected_count, permitted_canary) in registers_info {
-        let csv_path = delivery.edition_dir.join(format!("data/{}.csv", reg_name));
+    let check_and_parse_csv = |csv_path: &Path, label: &str, reg: Register| -> Vec<Vec<String>> {
         let bytes =
-            std::fs::read(&csv_path).unwrap_or_else(|e| panic!("read {}: {e}", csv_path.display()));
+            std::fs::read(csv_path).unwrap_or_else(|e| panic!("read {}: {e}", csv_path.display()));
 
         assert!(
             bytes.starts_with(&[0xEF, 0xBB, 0xBF]),
-            "CSV for {reg_name} must start with UTF-8 BOM"
+            "CSV for {label} must start with UTF-8 BOM"
         );
 
         for (i, &b) in bytes.iter().enumerate() {
             if b == b'\n' {
                 assert!(
                     i > 0 && bytes[i - 1] == b'\r',
-                    "Every LF must be preceded by CR in {reg_name} at byte {i}"
+                    "Every LF must be preceded by CR in {label} at byte {i}"
                 );
             }
         }
 
         let text = std::str::from_utf8(&bytes[3..])
-            .unwrap_or_else(|e| panic!("invalid UTF-8 in {reg_name}: {e}"));
+            .unwrap_or_else(|e| panic!("invalid UTF-8 in {label}: {e}"));
 
         for forbidden in FORBIDDEN_REGISTER_STRINGS {
             assert!(
                 !text.contains(forbidden),
-                "CSV for {reg_name} contains forbidden string `{forbidden}`"
+                "CSV for {label} contains forbidden string `{forbidden}`"
             );
         }
         for canary in &non_public_canaries {
             assert!(
                 !text.contains(canary),
-                "CSV for {reg_name} contains non-public canary `{canary}`"
+                "CSV for {label} contains non-public canary `{canary}`"
             );
         }
 
         let lines: Vec<&str> = text
             .strip_suffix("\r\n")
-            .unwrap_or_else(|| panic!("CSV for {reg_name} must end with CRLF"))
+            .unwrap_or_else(|| panic!("CSV for {label} must end with CRLF"))
             .split("\r\n")
             .collect();
-        assert!(
-            !lines.is_empty(),
-            "CSV for {reg_name} must have header line"
-        );
+        assert!(!lines.is_empty(), "CSV for {label} must have header line");
 
         let expected_header = reg
             .columns()
@@ -2113,18 +2148,51 @@ fn run_register_csvs_surface() {
             .join(",");
         assert_eq!(
             lines[0], expected_header,
-            "header line mismatch in CSV for {reg_name}"
+            "header line mismatch in CSV for {label}"
         );
 
-        let data_lines = &lines[1..];
+        lines[1..].iter().map(|line| parse_csv_line(line)).collect()
+    };
+
+    let registers_info = [
+        (Register::Sources, "sources", 4, "S-0002"),
+        (Register::Claims, "claims", 5, "CL-CMP-0001"),
+        (Register::Questions, "questions", 2, "Q-001"),
+        (Register::Conflicts, "conflicts", 1, "XC-01"),
+        (Register::Glossary, "glossary", 4, "system_review"),
+    ];
+
+    for (reg, reg_name, expected_count, permitted_canary) in registers_info {
+        let parsed_data_rows: Vec<Vec<String>> = if reg == Register::Claims {
+            let parts = fieldbook_render::register::claims_parts(&delivery.view);
+            assert!(
+                !parts.is_empty(),
+                "claims_parts on delivered view must not be empty"
+            );
+            let mut joined = Vec::new();
+            for part in &parts {
+                let rel =
+                    fieldbook_render::csv_copy::claims_part_output_path(&part.area_code, part.part);
+                let csv_path = delivery.edition_dir.join(&rel);
+                let part_rows = check_and_parse_csv(&csv_path, &rel, reg);
+                assert_eq!(
+                    part_rows.len(),
+                    part.count,
+                    "row count mismatch in claims part CSV `{rel}`"
+                );
+                joined.extend(part_rows);
+            }
+            joined
+        } else {
+            let csv_path = delivery.edition_dir.join(format!("data/{reg_name}.csv"));
+            check_and_parse_csv(&csv_path, reg_name, reg)
+        };
+
         assert_eq!(
-            data_lines.len(),
+            parsed_data_rows.len(),
             expected_count,
             "data line count mismatch for {reg_name}"
         );
-
-        let parsed_data_rows: Vec<Vec<String>> =
-            data_lines.iter().map(|line| parse_csv_line(line)).collect();
 
         assert!(
             parsed_data_rows
