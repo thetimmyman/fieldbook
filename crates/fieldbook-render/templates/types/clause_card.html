@@ -100,11 +100,7 @@
         {{ company_calibration.body_html|safe }}
         {% endif %}
         {% if !calibration_question_chips.is_empty() %}
-        <div class="chips clause-questions" aria-label="Questions settling applicability">
-          {% for qchip in &calibration_question_chips %}
-          {{ qchip|safe }}
-          {% endfor %}
-        </div>
+        {% include "parts/clause_questions.html" %}
         {% endif %}
       </div>
       {% if company_calibration.fold.is_some() %}

@@ -1,0 +1,20 @@
+<div class="case-split">
+        <div class="box case-block case-record" data-case-section="public-record">
+          <div class="case-head">
+            <span class="ev-label" title="Public record">PF · Public record</span>
+            <h{{ heading_level }} id="{{ case_split.public_record_anchor }}">Public record</h{{ heading_level }}>
+          </div>
+          <div class="case-body">
+            {{ case_split.public_record_html|safe }}
+          </div>
+        </div>
+        <div class="box case-block case-inference" data-case-section="inference">
+          <div class="case-head">
+            <span class="ev-label" title="Inference">INF · Inference</span>
+            <h{{ heading_level }} id="{{ case_split.inference_anchor }}">Inference</h{{ heading_level }}>
+          </div>
+          <div class="case-body">
+            {{ case_split.inference_html|safe }}
+          </div>
+        </div>
+      </div>

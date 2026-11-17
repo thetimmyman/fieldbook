@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
 - Added: the Company profile, Competitors and Programs view pages.
