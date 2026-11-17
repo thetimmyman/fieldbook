@@ -25,7 +25,7 @@ Explains when a late bid, modification or withdrawal can still be considered, wh
 | Instrument | Codified FAR [@CL-EST-1968] |
 | Codified citation | FAR 52.214-7 [@CL-EST-1968] |
 | RFO citation | RFO FAR 52.214-7 [@CL-EST-0326; @CL-EST-0327; @CL-EST-0328; @CL-EST-0329; @CL-EST-0330; @CL-EST-0331; @CL-EST-0332; @CL-EST-0333; @CL-EST-0334; @CL-EST-0335; @CL-EST-0336; @CL-EST-0337; @CL-EST-0338] |
-| Edition date | Not established. |
+| Edition date | NOV 1999 [@CL-EST-9795] |
 | Text status | Final [@CL-EST-1968] |
 | Applies to | Invitations for bids that include the late submissions provision [@CL-EST-2081] |
 
@@ -87,6 +87,7 @@ Confirm who owns bid delivery and withdrawal authority, and what proof of timely
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited statements; restored the otherwise successful bid scope; replaced contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'only' from the emergency-extension sentence.

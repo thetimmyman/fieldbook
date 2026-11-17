@@ -24,7 +24,7 @@ Shows what the step-two invitation is, who may bid in step two of two-step seale
 | Instrument | Codified FAR [@CL-EST-2161] |
 | Codified citation | FAR 52.214-25 [@CL-EST-2161] |
 | RFO citation | RFO FAR 52.214-25 [@CL-EST-0825; @CL-EST-0826] |
-| Edition date | Not established. |
+| Edition date | APR 1985 [@CL-EST-9821] |
 | Text status | Final [@CL-EST-2161] |
 | Applies to | Bidders that have submitted acceptable technical proposals in step one [@CL-EST-2161] |
 
@@ -64,6 +64,7 @@ Confirm which step-one technical proposals the company has submitted, which were
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut an unquoted contrast and restated the eligibility sentence in the provision's words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported contract-specific gloss and restated the eligibility sentence in the provision's words.

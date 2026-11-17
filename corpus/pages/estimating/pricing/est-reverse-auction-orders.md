@@ -24,7 +24,7 @@ Shows when an order under an existing contract or blanket purchase agreement may
 | Instrument | Codified FAR [@CL-EST-1938] |
 | Codified citation | FAR 52.217-11 [@CL-EST-1938] |
 | RFO citation | RFO FAR 52.217-11 [@CL-EST-0539] |
-| Edition date | Not established. |
+| Edition date | Aug 2024 [@CL-EST-0539] |
 | Text status | Final [@CL-EST-1938] |
 | Applies to | Contracts and blanket purchase agreements under which the Contracting Officer may conduct a reverse auction to award an order [@CL-EST-1938] |
 
@@ -59,6 +59,7 @@ Who confirms that our order quotes count as auction agreements and that a withdr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and glosses; stated the withdrawal, cancellation and release duties as the clause words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Carried the provider qualification on the release bar.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reverse auction for orders.

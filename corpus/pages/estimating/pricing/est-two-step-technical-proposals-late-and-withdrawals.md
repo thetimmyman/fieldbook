@@ -24,7 +24,7 @@ Shows when a late technical proposal under step one of two-step sealed bidding c
 | Instrument | Codified FAR [@CL-EST-2153] |
 | Codified citation | FAR 52.214-23 [@CL-EST-2153] |
 | RFO citation | RFO FAR 52.214-23 [@CL-EST-0829; @CL-EST-0831] |
-| Edition date | Not established. |
+| Edition date | NOV 1999 [@CL-EST-9822] |
 | Text status | Final [@CL-EST-2153] |
 | Applies to | Technical proposals under step one of two-step sealed bidding, as set by the request for technical proposals [@CL-EST-2154] |
 
@@ -81,6 +81,7 @@ Confirm who owns delivery and withdrawal of technical proposals, and what proof 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut absence statements and unquoted contrasts and restated the alternatives and emergency-extension rules in the provision's words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; removed an unsupported contract-specific gloss and a necessary-condition reading of the emergency extension.

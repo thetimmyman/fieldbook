@@ -25,7 +25,7 @@ Shows who the subcontracting plan clause excludes, what happens if no plan is ne
 | Instrument | Codified FAR [@CL-MKT-0821] |
 | Codified citation | FAR 52.219-9 [@CL-MKT-0821; @CL-MKT-0824] |
 | RFO citation | RFO FAR 52.219-9 [@CL-MKT-1232; @CL-MKT-1235] |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-MKT-9439] |
 | Text status | Final [@CL-MKT-0821] |
 | Applies to | Contracts that include the clause, except as to small business concerns [@CL-MKT-0821] |
 
@@ -56,6 +56,7 @@ Who administers the subcontracting program, who is named in the plan, and which 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed individual subcontracting plan definition and separated RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the plan submission sentence so the submission duty keeps the six categories the plan separately addresses.

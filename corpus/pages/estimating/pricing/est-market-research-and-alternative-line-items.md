@@ -24,7 +24,7 @@ Shows the market research a contractor owes before certain subcontract awards, a
 | Instrument | Codified FAR [@CL-EST-2297] |
 | Codified citation | FAR 52.210-1 [@CL-EST-2297]; FAR 52.204-22 [@CL-EST-2299] |
 | RFO citation | RFO FAR 52.210-1 [@CL-EST-0339; @CL-EST-0340; @CL-EST-0341]; No RFO equivalent for FAR 52.204-22, which the RFO text prints as reserved [@CL-EST-0342]; RFO FAR 2.101 [@CL-EST-9358] |
-| Edition date | Not established. |
+| Edition date | FAR 52.210-1: NOV 2021 [@CL-EST-9796]; FAR 52.204-22: JAN 2017 [@CL-EST-9797] |
 | Text status | Final [@CL-EST-2297] |
 | Applies to | Subcontracts for other than commercial acquisitions that are over the simplified acquisition threshold on the date of subcontract award [@CL-EST-2297], and solicitations that invite alternative line item proposals [@CL-EST-2299] |
 
@@ -60,6 +60,7 @@ Where the market research record for each subcontract award is kept and reviewed
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the 'to the extent' wording for nondevelopmental items; replaced two uncited contrasts with the stated rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the 'for which proposals are requested in the solicitation' scope of the alternative line item invitation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.

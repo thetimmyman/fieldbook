@@ -24,7 +24,7 @@ Shows where the solicitation provisions say Federal and Defense specifications a
 | Instrument | Codified FAR [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186] |
 | Codified citation | FAR 52.211-1 [@CL-EST-2183]; FAR 52.211-2 [@CL-EST-2184]; FAR 52.211-3 [@CL-EST-2186] |
 | RFO citation | No RFO equivalent [@CL-EST-0023; @CL-EST-0024; @CL-EST-0025] |
-| Edition date | Not established. |
+| Edition date | FAR 52.211-1: SEP 2023 [@CL-EST-9767]; FAR 52.211-2: SEP 2023 [@CL-EST-9768]; FAR 52.211-3: JUN 1988 [@CL-EST-9769] |
 | Text status | Final [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186] |
 | Applies to | Solicitations that include the matching availability provision [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186] |
 
@@ -68,6 +68,7 @@ Confirm how the company records which version of each cited specification and st
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal telephone number in FAR 52.211-2(b)(2) with a reference to the telephone number and email address given in the provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Availability routes restated as may or can; RFO reserved sections cited; examination wording aligned.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

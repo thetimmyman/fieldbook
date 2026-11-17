@@ -25,7 +25,7 @@ Shows what the DoD alternate adds to the time-and-materials and labor-hour propo
 | Instrument | Codified DFARS [@CL-EST-1744] |
 | Codified citation | DFARS 252.216-7002 [@CL-EST-1744; @CL-EST-1780] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-EST-9785] |
 | Text status | Final [@CL-EST-1744] |
 | Applies to | Solicitations where, as prescribed in DFARS 216.601(e), this paragraph is substituted for paragraph (c) of the provision at FAR 52.216-29 [@CL-EST-1780] |
 
@@ -52,6 +52,7 @@ Who owns the rate build-up by labor category and by source, including affiliate 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated of the offeror on divisions, subsidiaries, or affiliates under a common control in How it works.
