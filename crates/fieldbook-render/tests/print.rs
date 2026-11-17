@@ -735,6 +735,201 @@ mod print {
         }
     }
 
+    /// The fixture tree with the page at `path` moved to stage 1, so the binder lists it.
+    fn tree_with_stage_one(path: &str, stage: u8) -> Tree {
+        let mut tree = fixture_tree();
+        let page_md = match path {
+            "corpus/pages/estimating/pricing/est-calc-01.md" => EST_CALC_01_MD,
+            "corpus/pages/compliance/business-systems/cmp-withhold-case.md" => CMP_WITHHOLD_CASE_MD,
+            "corpus/pages/compliance/business-systems/cmp-clause-9900-101.md" => {
+                CMP_CLAUSE_9900_101_MD
+            }
+            other => panic!("no fixture page at {other}"),
+        };
+        let from = format!("\nstage = {stage}\n");
+        assert!(page_md.contains(&from), "{path} holds `stage = {stage}`");
+        tree.insert_bytes(
+            path,
+            page_md.replacen(&from, "\nstage = 1\n", 1).into_bytes(),
+        );
+        tree
+    }
+
+    fn site_page(view: &LabelledView, id: &str) -> String {
+        let site = site::render(view, &BuildInfo::default()).unwrap();
+        let path = format!("p/{id}.html");
+        let bytes = site
+            .files()
+            .get(&path)
+            .unwrap_or_else(|| panic!("{path} in site files"));
+        std::str::from_utf8(bytes).unwrap().to_owned()
+    }
+
+    /// The element that starts at the first `open` in `html`, through its matching `</tag>`.
+    fn element<'a>(html: &'a str, open: &str, tag: &str) -> Option<&'a str> {
+        let start = html.find(open)?;
+        let open_tag = format!("<{tag}");
+        let close_tag = format!("</{tag}>");
+        let mut depth = 0usize;
+        let mut at = start;
+        loop {
+            let next_open = html[at..].find(&open_tag).map(|i| i + at);
+            let next_close = html[at..].find(&close_tag).map(|i| i + at)?;
+            match next_open {
+                Some(o) if o < next_close => {
+                    depth += 1;
+                    at = o + open_tag.len();
+                }
+                _ => {
+                    depth -= 1;
+                    at = next_close + close_tag.len();
+                    if depth == 0 {
+                        return Some(&html[start..at]);
+                    }
+                }
+            }
+        }
+    }
+
+    /// `html` with every `href="..."` value blanked, since the binder and `p/` differ in depth.
+    fn without_hrefs(html: &str) -> String {
+        let mut out = String::new();
+        let mut rest = html;
+        while let Some(i) = rest.find("href=\"") {
+            out.push_str(&rest[..i + 6]);
+            rest = &rest[i + 6..];
+            let end = rest.find('"').unwrap();
+            rest = &rest[end..];
+        }
+        out.push_str(rest);
+        out
+    }
+
+    fn assert_unique_ids(html: &str) {
+        let mut seen = BTreeSet::new();
+        for rest in html.split(" id=\"").skip(1) {
+            let id = rest.split('"').next().unwrap();
+            assert!(seen.insert(id), "duplicate id in binder html: {id}");
+        }
+        for rest in html.split("href=\"#").skip(1) {
+            let target = rest.split('"').next().unwrap();
+            assert!(
+                seen.contains(target),
+                "fragment link #{target} has no element in the binder"
+            );
+        }
+    }
+
+    #[test]
+    fn binder_calc_article_holds_the_calc_table() {
+        let (_model, view) = load_view(tree_with_stage_one(
+            "corpus/pages/estimating/pricing/est-calc-01.md",
+            3,
+        ));
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let page = site_page(&view, "est-calc-01");
+        let open = "<figure class=\"panel calc\">";
+        let on_page =
+            element(&page, open, "figure").expect("p/est-calc-01.html holds the calc table");
+
+        let a = article(&html, "est-calc-01");
+        let at = a.find(&h3(strings::parts()[3])).unwrap();
+        let end = a.find(&h3(strings::parts()[4])).unwrap();
+        let worked = &a[at..end];
+        let in_binder = element(worked, open, "figure")
+            .unwrap_or_else(|| panic!("binder Worked example holds no calc table:\n{worked}"));
+        assert_eq!(in_binder.replace("b-est-calc-01-", ""), on_page);
+
+        let caption = on_page
+            .split("<caption>")
+            .nth(1)
+            .and_then(|s| s.split("</caption>").next())
+            .unwrap();
+        assert!(!caption.is_empty());
+        assert!(
+            in_binder.contains(caption),
+            "binder table holds caption {caption}"
+        );
+        assert_eq!(headings(a), strings::parts());
+        assert_unique_ids(&html);
+    }
+
+    #[test]
+    fn binder_case_article_holds_the_split() {
+        let (_model, view) = load_view(tree_with_stage_one(
+            "corpus/pages/compliance/business-systems/cmp-withhold-case.md",
+            4,
+        ));
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let page = site_page(&view, "cmp-withhold-case");
+        assert!(
+            page.contains("<div class=\"case-split\">"),
+            "standalone split"
+        );
+        let a = article(&html, "cmp-withhold-case");
+
+        assert_eq!(headings(a), strings::parts());
+        let at = a.find(&h3(strings::parts()[2])).unwrap();
+        let end = a.find(&h3(strings::parts()[3])).unwrap();
+        let how = &a[at..end];
+        assert!(
+            how.contains("<div class=\"case-split\">"),
+            "binder split:\n{how}"
+        );
+        assert!(how.contains("case-block case-record"));
+        assert!(how.contains("case-block case-inference"));
+
+        for heading in ["Public record", "Inference"] {
+            let tail = format!("\">{heading}</h3>");
+            let page_anchor = page
+                .split("<h3 id=\"")
+                .skip(1)
+                .find(|s| {
+                    s.split_once('"')
+                        .is_some_and(|(_, r)| r.starts_with(&tail[1..]))
+                })
+                .and_then(|s| s.split('"').next())
+                .unwrap_or_else(|| panic!("standalone {heading} subhead"));
+            let binder_head =
+                format!("<h4 id=\"b-cmp-withhold-case-{page_anchor}\">{heading}</h4>");
+            assert!(how.contains(&binder_head), "binder holds {binder_head}");
+        }
+        assert!(how.find("case-record") < how.find("case-inference"));
+        assert_unique_ids(&html);
+    }
+
+    #[test]
+    fn binder_clause_article_holds_the_questions() {
+        let (_model, view) = load_view(tree_with_stage_one(
+            "corpus/pages/compliance/business-systems/cmp-clause-9900-101.md",
+            5,
+        ));
+        let html = day_one::render(&view, &BuildInfo::default()).unwrap();
+        let page = site_page(&view, "cmp-clause-9900-101");
+        let open = "<div class=\"chips clause-questions\"";
+        let on_page = element(&page, open, "div").expect("standalone clause questions");
+        assert!(on_page.contains("Q-001"), "standalone chips name Q-001");
+
+        let a = article(&html, "cmp-clause-9900-101");
+        assert_eq!(headings(a), strings::parts());
+        let calib = a.find(&h3(strings::parts()[5])).unwrap();
+        let sources = a.find(&h3(strings::parts()[6])).unwrap();
+        let in_binder = element(&a[calib..sources], open, "div")
+            .unwrap_or_else(|| panic!("binder Company calibration holds no clause questions"));
+        assert_eq!(
+            without_hrefs(&in_binder.replace("b-cmp-clause-9900-101-", "")),
+            without_hrefs(on_page)
+        );
+
+        let rule = the_rule(a);
+        assert!(
+            rule.contains("<div class=\"clause-card-rule\">"),
+            "binder rule keeps its wrapper:\n{rule}"
+        );
+        assert!(page.contains("<div class=\"clause-card-rule\">"));
+        assert_unique_ids(&html);
+    }
+
     #[test]
     fn unreleased_binder_has_no_review_banner() {
         let (_model, view) = fixture_view();

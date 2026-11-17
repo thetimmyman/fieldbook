@@ -199,7 +199,9 @@ pub struct RegisterView {
     pub part_nav: Option<ClaimsPartNavView>,
     /// Structured index sections for `claims.html`.
     pub claims_index: Option<ClaimsIndexView>,
-    /// Link to this register's CSV copy (`data/<register>.csv`), when that path is planned.
+    /// Display filename for the CSV link in "Copy for Excel:" (`"sources.csv"`, `"claims-CMP-1.csv"`, ...).
+    pub csv_file_name: String,
+    /// Link to this page's CSV copy (`data/<register>.csv` or `data/claims-<AREA>-<part>.csv`), when planned.
     pub csv_href: Option<String>,
     /// Link to the workbook copy of the registers (`data/registers.xlsx`), when that path is planned.
     pub workbook_href: Option<String>,
@@ -1271,7 +1273,12 @@ pub fn build_register_view(
         rows,
         part_nav: None,
         claims_index,
-        csv_href: href_if_planned(from_path, &csv_copy::output_path(reg), planned),
+        csv_file_name: reg.file_name().to_owned(),
+        csv_href: if reg == Register::Claims {
+            None
+        } else {
+            href_if_planned(from_path, &csv_copy::output_path(reg), planned)
+        },
         workbook_href: href_if_planned(from_path, xlsx::OUTPUT_PATH, planned),
     }
 }
@@ -1449,6 +1456,11 @@ pub fn build_claims_part_view(
     );
 
     let columns = Register::Claims.columns().iter().map(|c| c.name).collect();
+    let part_csv_path = csv_copy::claims_part_output_path(&part.area_code, part.part);
+    let csv_file_name = part_csv_path
+        .strip_prefix("data/")
+        .unwrap_or(&part_csv_path)
+        .to_owned();
 
     RegisterView {
         register: Register::Claims,
@@ -1466,7 +1478,8 @@ pub fn build_claims_part_view(
         rows,
         part_nav,
         claims_index: None,
-        csv_href: href_if_planned(from_path, &csv_copy::output_path(Register::Claims), planned),
+        csv_file_name,
+        csv_href: href_if_planned(from_path, &part_csv_path, planned),
         workbook_href: href_if_planned(from_path, xlsx::OUTPUT_PATH, planned),
     }
 }

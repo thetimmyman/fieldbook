@@ -12,9 +12,9 @@ use fieldbook_core::edition::EditionInfo;
 use fieldbook_core::hash::sha256_hex;
 use fieldbook_core::ids::VersionId;
 use fieldbook_core::manifest::{SupportCatalogue, fingerprint, shipped_corpus};
-use fieldbook_core::schema::SourceRow;
 use fieldbook_core::schema::table;
 use fieldbook_core::schema::vocab::Lifecycle;
+use fieldbook_core::schema::{Register, SourceRow};
 use serde::Deserialize;
 
 /// Maximum relative path length from the edition or originals root (`FB0602`).
@@ -1068,10 +1068,7 @@ fn check_site_profile_path(path: &str) -> Result<(), AllowlistViolation> {
     if is_ids_claims_part_page(path) {
         return Ok(());
     }
-    if let Some(rest) = path.strip_prefix("data/")
-        && !rest.contains('/')
-        && (rest == "registers.xlsx" || rest.ends_with(".csv"))
-    {
+    if is_allowed_site_data_path(path) {
         return Ok(());
     }
     if let Some(rest) = path.strip_prefix("templates/")
@@ -1139,6 +1136,29 @@ fn is_claims_part_page(path: &str) -> bool {
         return false;
     };
     is_area_part_stem(stem)
+}
+
+fn is_allowed_site_data_path(path: &str) -> bool {
+    let Some(rest) = path.strip_prefix("data/") else {
+        return false;
+    };
+    if rest.contains('/') {
+        return false;
+    }
+    if rest == "registers.xlsx"
+        || Register::ALL
+            .iter()
+            .any(|r| *r != Register::Claims && r.file_name() == rest)
+    {
+        return true;
+    }
+    if let Some(stem) = rest
+        .strip_prefix("claims-")
+        .and_then(|s| s.strip_suffix(".csv"))
+    {
+        return is_area_part_stem(stem);
+    }
+    false
 }
 
 /// Match an ID group list page (`ids/<slug>.html`) for supported object kinds.
@@ -1867,5 +1887,71 @@ mod tests {
             found_ids_pages,
             "site must contain `ids/pages.html` to prove ids group pages are covered"
         );
+    }
+
+    #[test]
+    fn claims_part_csv_names_are_checked() {
+        let accepted = [
+            fieldbook_core::strings::PATHS[0],
+            "data/sources.csv",
+            "data/questions.csv",
+            "data/conflicts.csv",
+            "data/glossary.csv",
+            "data/claims-CMP-1.csv",
+            "data/claims-CMP-21.csv",
+        ];
+        for path in accepted {
+            assert!(
+                check_site_profile_path(path).is_ok(),
+                "path `{path}` must be accepted by site profile"
+            );
+        }
+
+        let (site_ed, site_orig) = build_synthetic_staged_pair(AllowlistProfile::Site);
+        let mut with_part = site_ed.clone();
+        with_part.insert("data/claims-CMP-1.csv".to_owned(), b"claim_id\r\n".to_vec());
+        refresh_sums(&mut with_part);
+        verify_staged_maps(
+            AllowlistProfile::Site,
+            &with_part,
+            &site_orig,
+            SITE_REQUIRED_PATHS,
+        )
+        .expect("site profile must accept data/claims-CMP-1.csv");
+
+        let refused = [
+            "data/claims.csv",
+            "data/claims-cmp-1.csv",
+            "data/claims-CMP-0.csv",
+            "data/claims-CMP-01.csv",
+            "data/claims-CMP-1.csv.txt",
+            "data/sub/claims-CMP-1.csv",
+        ];
+        for bad in refused {
+            let err = check_site_profile_path(bad).unwrap_err();
+            assert_eq!(
+                err.code,
+                Code::Fb0601,
+                "path `{bad}` must fail check_site_profile_path with FB0601"
+            );
+            assert_eq!(err.path, bad);
+
+            let mut bad_ed = site_ed.clone();
+            bad_ed.insert(bad.to_owned(), b"claim_id\r\n".to_vec());
+            refresh_sums(&mut bad_ed);
+            let staged_err = verify_staged_maps(
+                AllowlistProfile::Site,
+                &bad_ed,
+                &site_orig,
+                SITE_REQUIRED_PATHS,
+            )
+            .expect_err("verify_staged_maps must refuse bad data CSV path");
+            assert_eq!(
+                staged_err.code,
+                Code::Fb0601,
+                "path `{bad}` must fail verify_staged_maps with FB0601"
+            );
+            assert_eq!(staged_err.path, bad);
+        }
     }
 }

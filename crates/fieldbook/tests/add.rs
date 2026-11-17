@@ -731,6 +731,9 @@ fn held_open_target_is_in_use() {
         ) -> Result<fieldbook_core::status::StateSummary, fieldbook::WorldError> {
             self.inner.read_state_summary(today)
         }
+        fn store_id(&self) -> &'static str {
+            self.inner.store_id()
+        }
     }
 
     let tmp = temp_copy(&fixture_root());

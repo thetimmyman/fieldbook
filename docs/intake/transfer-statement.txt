@@ -41,8 +41,13 @@ Count by file type, both zips together:
 macro or executable content.
 
 The edition build refuses to pack an executable, library, script, shortcut or
-macro-enabled workbook, a link to a remote address in any asset, or an HTML or
-SVG original outside the site. HTML and SVG originals are shipped as .txt
+macro-enabled workbook, a link to a remote address in any asset other than a
+source page's links to an official publisher, or an HTML or SVG original
+outside the site. A source page links each cited source, and each section it
+cites, to the official publisher's copy, for the publishers the build names. No
+page loads anything from those addresses. Following a link is the reader's own
+click, which opens the publisher's site in the browser. HTML and SVG originals
+are shipped as .txt
 files, with the same bytes, so Edge shows them as text and runs nothing. The
 workbooks contain no macros and no links to other files or addresses. The
 registers workbook contains no formulas. Any workbook that does contain

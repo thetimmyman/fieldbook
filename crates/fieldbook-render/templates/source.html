@@ -34,7 +34,7 @@
     {% if let Some(original) = &v.original_html %}
     <section class="panel src-original">
       <div class="panel-head"><h2 class="panel-title">Original</h2></div>
-      <p class="src-original-line">{{ original|safe }}{% for loc in &v.original_locators_html %} {{ loc|safe }}{% endfor %}</p>
+      <p class="src-original-line">{{ original|safe }}{% for loc in &v.original_locators %} {% if let Some(href) = &loc.original_href %}<a class="loc" href="{{ href }}">{{ loc.text }}</a>{% else %}<span class="loc">{{ loc.text }}</span>{% endif %}{% if let Some(ext) = &loc.publisher_link %} <a class="ext-link" href="{{ ext.href }}" target="_blank" rel="noopener noreferrer">{{ ext.host }}<span class="sr-only">, {{ loc.text }} at the official publisher, opens in a new tab</span>{{ v.ext_icon|safe }}</a>{% endif %}{% endfor %}</p>
     </section>
     {% endif %}
 
@@ -50,7 +50,7 @@
       <dl class="src-kv">
         {% for cell in &v.cells %}
         <dt>{{ cell.name }}</dt>
-        <dd{% if cell.is_mono %} class="mono"{% endif %}>{{ cell.html|safe }}</dd>
+        <dd{% if cell.is_mono %} class="mono"{% endif %}>{% if let Some(href) = &cell.ext_href %}<a class="ext-link" href="{{ href }}" target="_blank" rel="noopener noreferrer">{{ cell.html|safe }}<span class="sr-only">, official publisher, opens in a new tab</span>{{ v.ext_icon|safe }}</a>{% else %}{{ cell.html|safe }}{% endif %}</dd>
         {% endfor %}
       </dl>
     </section>

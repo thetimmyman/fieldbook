@@ -96,22 +96,48 @@ pub fn render_ports_section(_current_body: &str) -> Result<String, String> {
     Ok(render_rows(ADAPTERS))
 }
 
+/// The backticked first cell of a table row, `| `id` | ...`.
+fn first_cell_id(line: &str) -> Option<&str> {
+    let rest = line.strip_prefix("| `")?;
+    let (id, _) = rest.split_once('`')?;
+    Some(id)
+}
+
 fn check_ids_in(text: &str, rows: &[Row]) -> Vec<(usize, String)> {
     let mut bad = Vec::new();
+    let mut section = "";
     for (i, line) in text.lines().enumerate() {
-        let Some(rest) = line.strip_prefix("### ") else {
+        if let Some(name) = line.strip_prefix("## ") {
+            section = name.trim();
+            continue;
+        }
+        if let Some(rest) = line.strip_prefix("### ") {
+            let rest = rest.trim();
+            if !rows.iter().any(|r| heading_text(r) == rest) {
+                bad.push((i + 1, rest.to_owned()));
+            }
+            continue;
+        }
+        let Some(id) = first_cell_id(line) else {
             continue;
         };
-        let rest = rest.trim();
-        if !rows.iter().any(|r| heading_text(r) == rest) {
-            bad.push((i + 1, rest.to_owned()));
+        let known = if section == "Templates" {
+            TEMPLATES.iter().any(|t| t.id == id)
+        } else if Port::ALL.iter().any(|p| p.as_str() == section) {
+            rows.iter()
+                .any(|r| r.port.as_str() == section && r.id == id)
+        } else {
+            continue;
+        };
+        if !known {
+            bad.push((i + 1, format!("{section} {id}")));
         }
     }
     bad
 }
 
-/// The shared registry-ID checker: every `### <port> <id>` heading of `ports.md` names a row
-/// of the registry.
+/// The shared registry-ID checker: every `### <port> <id>` heading of `ports.md`, every ID cell
+/// of its generated tables and every template id names a row of the registry.
 #[must_use]
 pub fn check_registry_ids(file: &str, text: &str) -> Vec<Finding> {
     check_ids_in(text, ADAPTERS)
@@ -120,7 +146,7 @@ pub fn check_registry_ids(file: &str, text: &str) -> Vec<Finding> {
             Finding::new(
                 file,
                 line,
-                format!("heading `{heading}` names no adapter row of the registry"),
+                format!("`{heading}` names no row of the registry"),
             )
         })
         .collect()
@@ -167,5 +193,18 @@ mod tests {
         assert_eq!(found.len(), 1);
         assert_eq!(found[0].line, 2);
         assert!(found[0].message.contains("extractor nope@9"));
+    }
+
+    #[test]
+    fn registry_id_check_names_an_unknown_table_row() {
+        let body = render_ports_section("").expect("render");
+        let bad = body.replacen("| `plain@1` |", "| `plain@9` |", 1);
+        let found = check_registry_ids("docs/reference/ports.md", &bad);
+        assert_eq!(found.len(), 1, "{found:?}");
+        assert!(found[0].message.contains("plain@9"));
+        let bad_tpl = body.replacen("| `ask@1` |", "| `ask@9` |", 1);
+        let found = check_registry_ids("docs/reference/ports.md", &bad_tpl);
+        assert_eq!(found.len(), 1, "{found:?}");
+        assert!(found[0].message.contains("ask@9"));
     }
 }

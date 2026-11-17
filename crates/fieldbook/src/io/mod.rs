@@ -9,6 +9,7 @@
     reason = "io reads SOURCE_DATE_EPOCH and traverses input folders at the process boundary"
 )]
 
+pub mod asked;
 pub mod atomic;
 pub mod backup_classify;
 pub mod backup_folder;
@@ -280,7 +281,8 @@ impl Disk {
 }
 
 /// Builds the state lines of `status` from `state_dir`: the backup line first, then the role
-/// lines when `settings.toml` names no role.
+/// lines when `settings.toml` names no role, then the question-log line when `asked/asked.csv`
+/// exists and parses.
 pub fn state_summary(
     state_dir: &Path,
     today: fieldbook_core::CivilDate,
@@ -291,6 +293,9 @@ pub fn state_summary(
         summary.push(fieldbook_core::verify::ROLE_LINE);
         summary.push(fieldbook_core::backup::BACKUP_TARGET_TEMPLATE);
         summary.push(crate::status::VERIFY_OFF);
+    }
+    if let Ok(Some(rows)) = asked::read_rows(state_dir) {
+        summary.push(fieldbook_core::asked::summary(&rows).to_string());
     }
     summary
 }

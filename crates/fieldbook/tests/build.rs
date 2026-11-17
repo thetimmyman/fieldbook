@@ -1930,6 +1930,10 @@ mod build {
         ) -> Result<fieldbook_core::status::StateSummary, fieldbook::WorldError> {
             self.inner.read_state_summary(today)
         }
+
+        fn store_id(&self) -> &'static str {
+            self.inner.store_id()
+        }
     }
 
     /// The real `build` path: a valid preflight (the row of `S-0098-v1` is public and active, and
