@@ -151,6 +151,16 @@ fn page_id_of(output_path: &str) -> Option<&str> {
     (!id.is_empty() && !id.contains('/')).then_some(id)
 }
 
+/// The current item of a view page: `a/<stem>.html` is a view's page when the navigation holds
+/// the entry `view-<stem>`, and that entry is then the current item of the Areas section. Every
+/// other route, an area page among them, is left to [`resolve_route`].
+fn view_item_of(input: &FrameInput<'_>) -> Option<(SectionId, String)> {
+    let clean = input.output_path.split('#').next()?;
+    let stem = clean.strip_prefix("a/")?.strip_suffix(".html")?;
+    let id = format!("view-{}", stem.to_ascii_lowercase());
+    input.nav.entry(&id).map(|_| (SectionId::Areas, id))
+}
+
 /// Inputs required to render one HTML page inside the global frame.
 #[derive(Debug, Clone)]
 pub struct FrameInput<'a> {
@@ -246,7 +256,8 @@ struct BaseTemplate<'a> {
 /// Renders one HTML document wrapped in the global frame (`base.html`).
 #[must_use]
 pub fn render_page(input: &FrameInput<'_>) -> String {
-    let (current_section, current_item) = resolve_route(input.output_path, input.page_area)
+    let (current_section, current_item) = view_item_of(input)
+        .or_else(|| resolve_route(input.output_path, input.page_area))
         .unwrap_or((SectionId::Today, "today".to_owned()));
     let root_prefix = root_prefix_for_path(input.output_path);
     let store_pres = input.store.presentation();

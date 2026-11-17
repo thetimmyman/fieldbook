@@ -60,26 +60,7 @@
     <section class="part" aria-labelledby="{{ how_it_works.anchor }}">
       <h2 id="{{ how_it_works.anchor }}">{{ how_it_works.heading }}</h2>
       {% if case_split.has_sections %}
-      {% if !case_split.prefix_html.is_empty() %}{{ case_split.prefix_html|safe }}{% endif %}<div class="case-split">
-        <div class="box case-block case-record" data-case-section="public-record">
-          <div class="case-head">
-            <span class="ev-label" title="Public record">PF · Public record</span>
-            <h3 id="{{ case_split.public_record_anchor }}">Public record</h3>
-          </div>
-          <div class="case-body">
-            {{ case_split.public_record_html|safe }}
-          </div>
-        </div>
-        <div class="box case-block case-inference" data-case-section="inference">
-          <div class="case-head">
-            <span class="ev-label" title="Inference">INF · Inference</span>
-            <h3 id="{{ case_split.inference_anchor }}">Inference</h3>
-          </div>
-          <div class="case-body">
-            {{ case_split.inference_html|safe }}
-          </div>
-        </div>
-      </div>
+      {% if !case_split.prefix_html.is_empty() %}{{ case_split.prefix_html|safe }}{% endif %}{% let heading_level = 3 %}{% include "parts/case_split.html" %}
       {% else if how_it_works.is_empty %}
       <p class="empty-part">{{ empty_part_text }}</p>
       {% else %}

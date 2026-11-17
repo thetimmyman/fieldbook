@@ -194,6 +194,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         edition::OUTPUT_PATH.to_owned(),
     ]);
     paths.extend(area::page_paths(view));
+    paths.extend(area::view_page_paths(view));
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
@@ -232,6 +233,10 @@ pub fn render_with_previous(
     if let Some(corpus) = view.corpus() {
         for def in &corpus.area {
             let html = area::render_page(def, view, ctx, &navigation, &planned);
+            site.insert(&area::page_path(&def.code), html.into_bytes());
+        }
+        for def in &corpus.view {
+            let html = area::render_view_page(def, view, ctx, &navigation, &planned);
             site.insert(&area::page_path(&def.code), html.into_bytes());
         }
     }

@@ -149,7 +149,9 @@ fn words_are_joined_with_single_spaces() {
 
 #[test]
 fn a_query_with_no_results_says_so_and_exits_one() {
-    let out = fixture_search(&["xylophone", "marmalade"]);
+    // A copy outside Git, so the question log records the miss and adds no warning.
+    let tmp = temp_copy(&corpus_mini());
+    let out = search(tmp.path(), &["xylophone", "marmalade"]);
     assert_eq!(out.code, 1);
     assert_eq!(out.stdout, "Not established in the library.\n");
     assert!(out.stderr.is_empty());
@@ -265,13 +267,15 @@ fn no_words_is_a_usage_error() {
 }
 
 #[test]
-fn search_writes_nothing() {
+fn search_writes_nothing_to_the_corpus() {
     let tmp = temp_copy(&corpus_mini());
-    let before = snapshot(tmp.path());
+    let before = snapshot(&tmp.path().join("corpus"));
     let out = search(tmp.path(), &["CL-"]);
     assert_eq!(out.code, 0, "{}", out.stderr);
-    assert_eq!(snapshot(tmp.path()), before);
-    assert!(!tmp.path().join(".fieldbook").exists());
+    assert!(out.stderr.is_empty(), "{}", out.stderr);
+    assert_eq!(snapshot(&tmp.path().join("corpus")), before);
+    // The only write is the question log in the state folder.
+    assert!(tmp.path().join(".fieldbook/asked/asked.csv").is_file());
 }
 
 fn snapshot(root: &Path) -> BTreeSet<(String, Vec<u8>)> {
