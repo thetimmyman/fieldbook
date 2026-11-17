@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Fixed: a `synthetic = true` template contract is refused for a live template id, and the registry-id check also covers the ID cells of the generated ports tables and the template ids.
 - Added: search records each question in the question log.
 - Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
