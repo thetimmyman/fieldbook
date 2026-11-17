@@ -8,7 +8,7 @@
     reason = "shared test support modules are selectively used across test binaries"
 )]
 
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 pub mod backup_suite;
 pub mod faulty;
@@ -16,6 +16,23 @@ pub mod state;
 pub mod world;
 
 use fieldbook_core::check::Severity;
+
+/// Canonicalize an existing fixture path to an ordinary native drive/UNC path.
+/// Windows' verbatim prefix is not part of policy paths or delivery bindings.
+#[must_use]
+pub fn canonical_path(path: &Path) -> PathBuf {
+    let canonical = path.canonicalize().expect("canonical fixture path");
+    #[cfg(windows)]
+    if let Some(text) = canonical.to_str() {
+        if let Some(unc) = text.strip_prefix(r"\\?\UNC\") {
+            return PathBuf::from(format!(r"\\{unc}"));
+        }
+        if let Some(ordinary) = text.strip_prefix(r"\\?\") {
+            return PathBuf::from(ordinary);
+        }
+    }
+    canonical
+}
 
 /// Recursively copy `fixture` into a new [`tempfile::TempDir`].
 #[must_use]
