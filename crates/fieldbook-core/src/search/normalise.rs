@@ -1,8 +1,9 @@
 //! Search text normalisation (`docs/reference/search.md#normalisation`).
 //!
 //! Applied in order on both the index side and the query side:
+//! Repeat the following until the text stops changing:
 //! 1. Unicode NFKC.
-//! 2. Full Unicode lowercase (`str::to_lowercase`), without re-running NFKC.
+//! 2. Full Unicode lowercase (`str::to_lowercase`).
 //! 3. Fold `U+2010..=U+2015` and `U+2212` to ASCII `-` (`U+002D`).
 //! 4. Delete `U+00AD` (soft hyphen).
 
@@ -11,17 +12,23 @@ use unicode_normalization::UnicodeNormalization;
 /// Normalises `input` according to `docs/reference/search.md#normalisation`.
 #[must_use]
 pub fn normalise(input: &str) -> String {
-    let nfkc: String = input.nfkc().collect();
-    let lower = nfkc.to_lowercase();
-    let mut out = String::with_capacity(lower.len());
-    for ch in lower.chars() {
-        match ch {
-            '\u{00AD}' => {}
-            '\u{2010}'..='\u{2015}' | '\u{2212}' => out.push('-'),
-            other => out.push(other),
+    let mut current = input.to_owned();
+    loop {
+        let nfkc: String = current.nfkc().collect();
+        let lower = nfkc.to_lowercase();
+        let mut next = String::with_capacity(lower.len());
+        for ch in lower.chars() {
+            match ch {
+                '\u{00AD}' => {}
+                '\u{2010}'..='\u{2015}' | '\u{2212}' => next.push('-'),
+                other => next.push(other),
+            }
         }
+        if next == current {
+            return next;
+        }
+        current = next;
     }
-    out
 }
 
 #[cfg(test)]
@@ -66,5 +73,15 @@ mod tests {
     fn deletes_soft_hyphen() {
         assert_eq!(normalise("con\u{00ad}tractor"), "contractor");
         assert_eq!(normalise("\u{00ad}start\u{00ad}end\u{00ad}"), "startend");
+    }
+
+    #[test]
+    fn normalisation_is_idempotent_for_composition_and_lowercase_marks() {
+        for input in ["e\u{00ad}\u{0301}", "J\u{030c}", "\u{0130}\u{0316}"] {
+            let once = normalise(input);
+            assert_eq!(normalise(&once), once, "input {input:?}");
+        }
+        assert_eq!(normalise("e\u{00ad}\u{0301}"), "\u{00e9}");
+        assert_eq!(normalise("J\u{030c}"), "\u{01f0}");
     }
 }

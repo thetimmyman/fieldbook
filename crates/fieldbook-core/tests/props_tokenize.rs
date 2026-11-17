@@ -69,14 +69,7 @@ fn lexer_shaped_text() -> impl Strategy<Value = String> {
     (pieces, sep).prop_map(|(p, s)| p.join(s))
 }
 
-/// Returns `true` when character `c` avoids both known non-idempotence counterexample classes of `normalise`:
-/// - Class 1 (soft hyphen U+00AD): e.g. `'e'` U+00AD U+0301 becomes `'e'` U+0301 which a second NFKC
-///   pass composes to U+00E9 (also `'A'` U+00AD U+0308).
-/// - Class 2 (lowercasing after NFKC): e.g. a capital letter followed by a mark that combines only with
-///   the small letter ('J' U+030C becomes 'j' U+030C which a second NFKC pass composes to U+01F0;
-///   also 'H' U+0331, 'T' U+0308, 'W' U+030A, full-width U+FF2A U+030C, and U+0130 followed by a mark).
-///
-/// The card `search-normalise-idempotent` fixes `normalise` and pins examples of both classes as plain tests.
+/// Returns `true` when `c` is accepted by the restricted lexer property strategies.
 fn allowed(c: char) -> bool {
     let nfkc: String = std::iter::once(c).nfkc().collect();
     !nfkc.contains('\u{00ad}') && nfkc == nfkc.to_lowercase()
@@ -159,14 +152,6 @@ proptest! {
 proptest! {
     #![proptest_config(config())]
 
-    // `normalise` is not idempotent on arbitrary inputs due to two known counterexample classes:
-    // 1. Class 1 (soft hyphen U+00AD): deletion of U+00AD can bring characters together that a
-    //    second NFKC pass composes (e.g. 'e' U+00AD U+0301 -> 'e' U+0301 -> U+00E9).
-    // 2. Class 2 (lowercasing after NFKC): lowercasing can produce sequences where combining marks
-    //    combine only with the small letter (e.g. 'J' U+030C -> 'j' U+030C -> U+01F0; also 'H' U+0331,
-    //    'T' U+0308, 'W' U+030A, full-width U+FF2A U+030C, and U+0130 followed by a mark).
-    // The follow-up card `search-normalise-idempotent` fixes `normalise` and pins tests for both classes;
-    // until then, inputs are restricted to characters avoiding both classes.
     /// Normalising already-normalised text produces the identical string.
     #[test]
     fn normalise_is_idempotent(s in prop_oneof![restricted_text(), lexer_shaped_text()]) {

@@ -51,10 +51,9 @@ The tokenizer has two sides that share one lexer. The index side turns text into
 
 Applied in this order to every string, on both sides:
 
-1. Unicode NFKC.
-2. Lowercase (full Unicode case mapping; `str::to_lowercase` in Rust, `toLowerCase()` in JavaScript). NFKC is not applied again.
-3. Fold U+2010 to U+2015 and U+2212 to `-` (U+002D). NFKC has already turned U+2011 into U+2010 and the fullwidth and small hyphen-minus forms into `-`.
-4. Delete U+00AD (soft hyphen).
+1. Repeat the following steps until the text stops changing: Unicode NFKC; lowercase (full Unicode case mapping; `str::to_lowercase` in Rust, `toLowerCase()` in JavaScript); fold U+2010 to U+2015 and U+2212 to `-` (U+002D); delete U+00AD (soft hyphen). This makes normalisation a fixed point, including when lowercasing or deleting a soft hyphen exposes a sequence that NFKC can compose.
+
+NFKC turns U+2011 into U+2010 and the fullwidth and small hyphen-minus forms into `-`.
 
 Nothing else is folded. Accents are kept (`é` stays `é`). There are no stop words, no stemming and no spelling correction.
 

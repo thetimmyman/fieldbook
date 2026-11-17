@@ -741,8 +741,13 @@ function make(tag, cls, kids, attrs) {
 }
 
 function fold(text) {
-  return text.normalize('NFKC').toLowerCase().replace(/[\u2010-\u2015\u2212]/g, '-')
-    .replace(/\u00ad/g, '').trim();
+  let current = text;
+  while (true) {
+    const next = current.normalize('NFKC').toLowerCase().replace(/[\u2010-\u2015\u2212]/g, '-')
+      .replace(/\u00ad/g, '');
+    if (next === current) return next.trim();
+    current = next;
+  }
 }
 
 function asHit(d, u) {
