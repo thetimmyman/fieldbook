@@ -1,8 +1,12 @@
 AddVectoredExceptionHandler
+# existing Windows storage sync-root safety query (fieldbook-win)
+CfGetSyncRootInfoByPath
 CloseHandle
 CreateDirectoryW
 CreateFileW
 CreateMutexA
+# pinned XLSX worksheet assembly through Rust std threads
+CreateThread
 CreateWaitableTimerExW
 DeleteFileW
 FindClose
@@ -22,7 +26,11 @@ GetCurrentProcess
 GetCurrentProcessId
 GetCurrentThread
 GetCurrentThreadId
+# existing Windows storage drive classification (fieldbook-win)
+GetDriveTypeW
 GetEnvironmentVariableW
+# existing Windows storage attributes (fieldbook-win)
+GetFileAttributesW
 GetFileInformationByHandle
 GetFileInformationByHandleEx
 # from the new-verbs terminal prompt (std::io::IsTerminal and console stdin reads)
@@ -40,6 +48,8 @@ GetStdHandle
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
 GetTokenInformation
+# existing Windows storage volume-root lookup (fieldbook-win)
+GetVolumePathNameW
 HeapAlloc
 HeapFree
 HeapReAlloc
@@ -66,6 +76,8 @@ RtlCaptureContext
 RtlLookupFunctionEntry
 RtlNtStatusToDosError
 RtlVirtualUnwind
+# existing Windows storage attribute update (fieldbook-win)
+SetFileAttributesW
 SetFileInformationByHandle
 SetFileTime
 SetLastError
@@ -139,6 +151,8 @@ accept4
 bcmp
 bind
 calloc
+# pinned XLSX drawing geometry (CRT math)
+ceil
 chmod
 clock_gettime
 clock_nanosleep
@@ -154,6 +168,8 @@ fcntl
 fdatasync
 fdopendir
 flock
+# pinned XLSX drawing geometry (CRT math)
+floor
 free
 fstat64
 fstatat64
@@ -208,6 +224,8 @@ realpath
 recvfrom
 rename
 rmdir
+# pinned XLSX worksheet dimensions (CRT math)
+round
 sendto
 sigaction
 sigaltstack
