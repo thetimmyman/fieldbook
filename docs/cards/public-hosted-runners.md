@@ -28,7 +28,7 @@ No token permissions, action pins, secrets, publication of company data, tags or
 ## Steps
 
 1. Require the approved standard hosted runners in workflow policy checks.
-2. Restore Linux runner routing and native Windows tests without changing event filters or hardening. Run the complete browser sweep with four workers on the dedicated four-core standard runner; preserve every target, assertion, negative control and the existing timeout.
+2. Restore Linux runner routing and native Windows tests without changing event filters or hardening. Require a bounded startup probe with the harness browser flags before the expensive checks. Run the complete browser sweep with four workers on the dedicated four-core standard runner; preserve every target, assertion, negative control and the existing timeout.
 3. Preserve empty state-lock snapshot payloads without opening a second read handle on Windows; nonempty lock contents still follow ordinary classification and refusal.
 4. Use ordinary canonical drive/UNC paths in backup policy fixtures and report all Windows test failures without failing fast; retain every existing assertion. Use coherent home/state roots and capture the independent reference lock payloads before holding OS locks; keep exact-token and no-copy refusal controls unchanged.
 5. Reconcile only the nine traced existing Windows storage, pinned XLSX math and Rust thread imports in the binary inventories; retain unknown-import rejection and all network, process-start and clipboard bans, with checked-in-inventory negative controls.

@@ -32,6 +32,45 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Check headless browser startup
+        timeout-minutes: 2
+        run: |
+          python3 - <<'PYTHON'
+          import os
+          import pathlib
+          import shutil
+          import subprocess
+          import tempfile
+
+          browser = next((path for name in (
+              "microsoft-edge", "microsoft-edge-stable", "chromium", "chromium-browser"
+          ) if (path := shutil.which(name))), None)
+          assert browser, "Edge or Chromium must be installed"
+          print(subprocess.check_output([browser, "--version"], text=True), flush=True)
+          print(f"available CPUs: {os.cpu_count()}", flush=True)
+          with tempfile.TemporaryDirectory(dir=os.environ["RUNNER_TEMP"]) as root:
+              root = pathlib.Path(root)
+              page = root / "startup.html"
+              page.write_text("<!doctype html><title>browser-startup-probe</title>")
+              env = os.environ | {
+                  "XDG_CONFIG_HOME": str(root / "config"),
+                  "XDG_CACHE_HOME": str(root / "cache"),
+              }
+              try:
+                  result = subprocess.run([
+                  browser, "--headless=new", "--dump-dom",
+                  f"--log-net-log={root / 'netlog.json'}",
+                  "--disable-background-networking", "--disable-component-update",
+                  "--disable-sync", "--no-default-browser-check",
+                  "--disable-features=OptimizationHints,MediaRouter", page.as_uri(),
+                  ], env=env, text=True, capture_output=True, timeout=60)
+              except subprocess.TimeoutExpired as error:
+                  print(error.stderr, flush=True)
+                  raise
+              print(result.stderr, flush=True)
+              result.check_returncode()
+              assert "<title>browser-startup-probe</title>" in result.stdout
+          PYTHON
       - name: Install the pinned Rust toolchain
         run: rustup toolchain install
       - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
