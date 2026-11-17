@@ -528,7 +528,11 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 };
             }
         };
-        let cf = classify_file(&support_facts, model.as_ref(), eff, file_rel, &bytes);
+        let cf = if file_rel == QUESTION_LOG {
+            question_log_file(model.as_ref(), eff, file_rel, &bytes)
+        } else {
+            classify_file(&support_facts, model.as_ref(), eff, file_rel, &bytes)
+        };
         copied_files.push(cf);
         recorded_files.push((file_rel.clone(), sha256_hex(&bytes), bytes.len() as u64));
     }
@@ -1104,6 +1108,29 @@ fn is_inside_or_equal(target: &Path, root: &Path) -> bool {
     } else {
         target.starts_with(root)
     }
+}
+
+/// The question log's path in the backup layout (`ask-log`).
+const QUESTION_LOG: &str = "state/asked/asked.csv";
+
+/// The question log as a copied file: each row's own labels, the markings in its question and
+/// the current labels of its inputs in `model`; `unlabelled` when the log does not parse or an
+/// input cannot be resolved.
+fn question_log_file(
+    model: Option<&Model>,
+    eff: &EffectivePolicy,
+    path: &str,
+    bytes: &[u8],
+) -> CopiedFile {
+    let graph = model.map(fieldbook_core::asked::InputGraph::new);
+    let labels = fieldbook_core::backup::labels::question_log_labels(
+        bytes,
+        graph
+            .as_ref()
+            .map(|graph| graph as &dyn fieldbook_core::labels::LabelGraph),
+        &eff.marking_rules(),
+    );
+    CopiedFile::new(path, BackupFileKind::QuestionLogLine, labels)
 }
 
 fn load_model_if_available(

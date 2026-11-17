@@ -50,6 +50,132 @@ const RENDERABLE_EXTENSIONS: [&str; 4] = ["html", "htm", "svg", "xhtml"];
 /// 12×12 stroke lock icon for the metadata-only variants (`HANDOFF.md` section 11).
 pub const ICON_LOCK: &str = "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"10.5\" width=\"14\" height=\"10\" rx=\"1.5\"/><path d=\"M8 10.5V8a4 4 0 0 1 8 0v2.5\"/></svg>";
 
+/// 16×16 external link icon for official publisher links on `s/` pages (`HANDOFF.md` section 5 `LocatorView`).
+pub const ICON_EXT: &str = "<svg class=\"ic\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M9 3h4v4M13 3L7 9M12 9v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3\"/></svg>";
+
+/// One official publisher rule for `s/` location and section-locator links (`source-location-links`).
+pub struct PublisherRule {
+    /// The URL host to match (ASCII case-insensitive), such as `"www.ecfr.gov"`.
+    pub host: &'static str,
+    /// The short host label shown on section-locator links, such as `"ecfr.gov"`.
+    pub display_host: &'static str,
+    /// Turns the version's `location` URL and a section locator (`§`, `sec.`, `para.`) into a
+    /// section URL on the publisher's site, or `None` when the locator is not a section locator.
+    pub section_url: fn(location: &str, locator: &str) -> Option<String>,
+}
+
+/// The fixed publisher rule table for `s/` pages (`HANDOFF.md` section 5 `LocatorView`, `WB-02`).
+pub const PUBLISHERS: &[PublisherRule] = &[
+    PublisherRule {
+        host: "www.ecfr.gov",
+        display_host: "ecfr.gov",
+        section_url: ecfr_section_url,
+    },
+    PublisherRule {
+        host: "ecfr.gov",
+        display_host: "ecfr.gov",
+        section_url: ecfr_section_url,
+    },
+];
+
+fn https_host(url: &str) -> Option<&str> {
+    let rest = url.strip_prefix("https://")?;
+    let authority = rest.split(['/', '?', '#']).next().unwrap_or("");
+    if authority.is_empty() || authority.contains('@') || authority.contains(':') {
+        return None;
+    }
+    Some(authority)
+}
+
+fn find_publisher(location: &str) -> Option<&'static PublisherRule> {
+    if location.starts_with(METADATA_ONLY_PREFIX) {
+        return None;
+    }
+    let host = https_host(location)?;
+    PUBLISHERS
+        .iter()
+        .find(|rule| rule.host.eq_ignore_ascii_case(host))
+}
+
+/// Returns `true` when `url` is an `https:` address whose host is in [`PUBLISHERS`].
+#[must_use]
+pub fn is_listed_publisher_url(url: &str) -> bool {
+    find_publisher(url).is_some()
+}
+
+fn parse_section_locator_number(locator: &str) -> Option<&str> {
+    let trimmed = locator.trim();
+    let rest = if let Some(after) = trimmed.strip_prefix('§') {
+        after
+    } else if trimmed
+        .get(..4)
+        .is_some_and(|p| p.eq_ignore_ascii_case("sec."))
+    {
+        trimmed.get(4..)?
+    } else if trimmed
+        .get(..5)
+        .is_some_and(|p| p.eq_ignore_ascii_case("para."))
+    {
+        trimmed.get(5..)?
+    } else {
+        return None;
+    };
+    let section = rest.trim().split('(').next().unwrap_or("").trim();
+    if section.is_empty()
+        || !section
+            .chars()
+            .all(|c| c.is_ascii_alphanumeric() || matches!(c, '.' | '-' | '_'))
+    {
+        return None;
+    }
+    Some(section)
+}
+
+fn is_iso_date(s: &str) -> bool {
+    let b = s.as_bytes();
+    b.len() == 10
+        && b.iter().enumerate().all(|(i, c)| {
+            if i == 4 || i == 7 {
+                *c == b'-'
+            } else {
+                c.is_ascii_digit()
+            }
+        })
+}
+
+fn is_title_segment(s: &str) -> bool {
+    s.strip_prefix("title-")
+        .is_some_and(|n| !n.is_empty() && n.bytes().all(|c| c.is_ascii_digit()))
+}
+
+/// Builds the canonical eCFR section address from a register location: the date (or `current`)
+/// and `title-N` come from the location; any other shape gives no link.
+fn ecfr_section_url(location: &str, locator: &str) -> Option<String> {
+    let section = parse_section_locator_number(locator)?;
+    let after_scheme = location.strip_prefix("https://")?;
+    let path_start = after_scheme.find('/')?;
+    let path = after_scheme[path_start..]
+        .split(['?', '#'])
+        .next()
+        .unwrap_or("")
+        .trim_end_matches('/');
+    let segments: Vec<&str> = path.split('/').skip(1).collect();
+    let (when, title) = match segments.as_slice() {
+        ["api", "renderer", "v1", "content", "enhanced", date, title] if is_iso_date(date) => {
+            (format!("on/{date}"), *title)
+        }
+        ["current", title, ..] => ("current".to_owned(), *title),
+        ["on", date, title, ..] if is_iso_date(date) => (format!("on/{date}"), *title),
+        _ => return None,
+    };
+    if !is_title_segment(title) {
+        return None;
+    }
+    Some(format!(
+        "https://www.ecfr.gov/{when}/{title}/section-{section}"
+    ))
+}
+
 /// Returns the name an original ships under: `<version-id>.<ext>`, with `.txt` appended exactly
 /// when the last dot segment of `ext` is one of the extensions in Renderable originals (`html`,
 /// `htm`, `svg`, `xhtml`, any case), so `x.html` ships as text like `html` does. Every other
@@ -529,10 +655,24 @@ struct SiblingView {
     is_superseded: bool,
 }
 
+/// External publisher link shown beside a section locator in the Original panel.
+struct PublisherLocatorLink {
+    href: String,
+    host: &'static str,
+}
+
+/// One distinct locator that cites the version, shown in the Original panel.
+struct OriginalLocatorView {
+    text: String,
+    original_href: Option<String>,
+    publisher_link: Option<PublisherLocatorLink>,
+}
+
 /// One non-empty cell of the register row.
 struct RowCellView {
     name: &'static str,
     html: String,
+    ext_href: Option<String>,
     is_mono: bool,
 }
 
@@ -546,7 +686,7 @@ struct SourcePageView {
     superseded_by_html: Vec<String>,
     original_html: Option<String>,
     /// The distinct locators that cite the version, shown beside the link to the original.
-    original_locators_html: Vec<String>,
+    original_locators: Vec<OriginalLocatorView>,
     cells: Vec<RowCellView>,
     siblings: Vec<SiblingView>,
     claims: Vec<CitingClaimView>,
@@ -557,6 +697,7 @@ struct SourcePageView {
     answer_meta_html: String,
     lock_icon: &'static str,
     clock_icon: &'static str,
+    ext_icon: &'static str,
 }
 
 #[derive(Template)]
@@ -807,17 +948,22 @@ fn build_view(
         })
         .collect();
 
-    let original_locators_html = if original_html.is_some() {
+    let publisher_rule = find_publisher(&row.location);
+    let original_locators = if original_html.is_some() {
         cited_locators
             .iter()
             .map(|loc| {
-                let loc_esc = escape_html(loc);
-                match located_original_href(&from_path, &vid_str, Some(loc), avail) {
-                    Some(href) => format!(
-                        "<a class=\"loc\" href=\"{}\">{loc_esc}</a>",
-                        escape_html(&href)
-                    ),
-                    None => format!("<span class=\"loc\">{loc_esc}</span>"),
+                let original_href = located_original_href(&from_path, &vid_str, Some(loc), avail);
+                let publisher_link = publisher_rule.and_then(|rule| {
+                    (rule.section_url)(&row.location, loc).map(|href| PublisherLocatorLink {
+                        href,
+                        host: rule.display_host,
+                    })
+                });
+                OriginalLocatorView {
+                    text: loc.clone(),
+                    original_href,
+                    publisher_link,
                 }
             })
             .collect()
@@ -882,7 +1028,7 @@ fn build_view(
         is_superseded: !superseders.is_empty(),
         superseded_by_html,
         original_html,
-        original_locators_html,
+        original_locators,
         cells,
         siblings,
         claims,
@@ -893,6 +1039,7 @@ fn build_view(
         answer_meta_html,
         lock_icon: ICON_LOCK,
         clock_icon: ICON_CLOCK,
+        ext_icon: ICON_EXT,
     })
 }
 
@@ -919,17 +1066,26 @@ fn row_cell(
             RowCellView {
                 name,
                 html,
+                ext_href: None,
                 is_mono: false,
             }
         }
-        "sha256" | "location" | "source_id" | "version" => RowCellView {
+        "location" => RowCellView {
             name,
             html: escape_html(text),
+            ext_href: find_publisher(text).map(|_| text.to_owned()),
+            is_mono: true,
+        },
+        "sha256" | "source_id" | "version" => RowCellView {
+            name,
+            html: escape_html(text),
+            ext_href: None,
             is_mono: true,
         },
         _ => RowCellView {
             name,
             html: escape_html(text),
+            ext_href: None,
             is_mono: false,
         },
     }
