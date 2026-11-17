@@ -14,7 +14,7 @@ Restore CI-01 in [controls.md](../controls.md) after the temporary self-hosted d
 
 ## Scope
 
-- Files: `.github/workflows/ci.yml`, `.github/workflows/hosted.yml`, `.github/workflows/scheduled.yml`, `xtask/tests/hosted_workflow.rs`, `xtask/tests/scheduled_controls.rs`, `crates/fieldbook/src/io/backup_classify.rs`, `crates/fieldbook/tests/backup.rs`, `crates/fieldbook/tests/restore.rs`, `crates/fieldbook/tests/leak_outputs.rs`, `crates/fieldbook/tests/support/mod.rs`, `crates/fieldbook-core/tests/restore.rs`.
+- Files: `.github/workflows/ci.yml`, `.github/workflows/hosted.yml`, `.github/workflows/scheduled.yml`, `xtask/binscan/silent.txt`, `xtask/binscan/ai.txt`, `xtask/src/binscan.rs`, `xtask/tests/hosted_workflow.rs`, `xtask/tests/scheduled_controls.rs`, `crates/fieldbook/src/io/backup_classify.rs`, `crates/fieldbook/tests/backup.rs`, `crates/fieldbook/tests/restore.rs`, `crates/fieldbook/tests/leak_outputs.rs`, `crates/fieldbook/tests/support/mod.rs`, `crates/fieldbook-core/tests/restore.rs`.
 - Docs to update: `docs/controls.md`, and only the CI-foundation prerequisite in `docs/cards/claims-csv-parts.md`; its owner review, CSV/ADR outcome and all other contract fields stay unchanged.
 
 ## Out of scope
@@ -31,7 +31,8 @@ No token permissions, action pins, secrets, publication of company data, tags or
 2. Restore Linux runner routing and native Windows tests without changing event filters or hardening.
 3. Preserve empty state-lock snapshot payloads without opening a second read handle on Windows; nonempty lock contents still follow ordinary classification and refusal.
 4. Use ordinary canonical drive/UNC paths in backup policy fixtures and report all Windows test failures without failing fast; retain every existing assertion. Use coherent home/state roots and capture the independent reference lock payloads before holding OS locks; keep exact-token and no-copy refusal controls unchanged.
-5. Verify the existing backup CLI suite, workflow policy tests, negative controls and the required CI gate.
+5. Reconcile only the nine traced existing Windows storage, pinned XLSX math and Rust thread imports in the binary inventories; retain unknown-import rejection and all network, process-start and clipboard bans, with checked-in-inventory negative controls.
+6. Verify the existing backup CLI suite, workflow policy tests, negative controls and the required CI gate.
 
 ## Acceptance
 
