@@ -554,4 +554,9 @@ impl World for Disk {
     ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
         Disk::read_state_summary(self, today)
     }
+
+    /// Return the `folder@1` Store adapter id: this world writes through a folder store.
+    fn store_id(&self) -> &'static str {
+        "folder@1"
+    }
 }
