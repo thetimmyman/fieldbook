@@ -629,6 +629,7 @@ pub fn build(view: &LabelledView, planned: &PlannedPaths) -> Navigation {
 
         for (idx, v) in corpus.view.iter().enumerate() {
             let code_lower = v.code.to_ascii_lowercase();
+            let path = format!("a/{code_lower}.html");
             let count = view
                 .pages()
                 .iter()
@@ -644,7 +645,7 @@ pub fn build(view: &LabelledView, planned: &PlannedPaths) -> Navigation {
                 code: Some(v.code.to_ascii_uppercase()),
                 label: v.name.clone(),
                 sub_group,
-                target: NavTarget::from_candidate(None, &v.name, "Day 30", planned),
+                target: NavTarget::from_candidate(Some(&path), &v.name, "Day 30", planned),
                 count: Some(count),
             });
         }

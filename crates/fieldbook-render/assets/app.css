@@ -1763,7 +1763,8 @@ kbd {
   margin-bottom: var(--space-2);
 }
 
-.case-head h3 {
+.case-head h3,
+.case-head h4 {
   margin: 0;
 }
 
@@ -2728,6 +2729,10 @@ svg .bar1.tot {
   margin: var(--space-0-5) 0 0;
   max-width: var(--measure);
   color: var(--color-muted);
+}
+
+.ws-head .view-note {
+  font-size: var(--text-sm);
 }
 
 .tabs {

@@ -228,7 +228,7 @@ mod map {
         );
         assert!(!bands[2].contains(">PRC<"));
 
-        // When CPY, CPT and PGM exist in corpus.toml and their page paths are planned, Workspaces includes them.
+        // Without planned view paths, CPY, CPT and PGM stay out of Workspaces.
         let mut tree = fixture_tree();
         let toml_text = std::str::from_utf8(tree.get_bytes("corpus/corpus.toml").unwrap())
             .unwrap()
@@ -239,7 +239,7 @@ mod map {
         tree.insert_bytes("corpus/corpus.toml", toml_text.into_bytes());
         let (_m, view_with_mkt) = load_view(tree);
         let ctx = site::render_context(&view_with_mkt, &BuildInfo::default()).unwrap();
-        let unbuilt_views = site::planned_paths(&view_with_mkt);
+        let unbuilt_views = PlannedPaths::of(&["a/cmp.html", "a/est.html", "a/mkt.html"]);
         let main_unbuilt_views =
             map::render_main(&view_with_mkt, &ctx, BuildProfile::Silent, &unbuilt_views);
         let ws_unbuilt = band_sections(&main_unbuilt_views)[2];
@@ -250,14 +250,7 @@ mod map {
             "CPY, CPT and PGM appear only if their page paths are planned"
         );
 
-        let planned_with_views = PlannedPaths::of(&[
-            "a/cmp.html",
-            "a/est.html",
-            "a/mkt.html",
-            "a/cpy.html",
-            "a/cpt.html",
-            "a/pgm.html",
-        ]);
+        let planned_with_views = site::planned_paths(&view_with_mkt);
         let main_built_views = map::render_main(
             &view_with_mkt,
             &ctx,

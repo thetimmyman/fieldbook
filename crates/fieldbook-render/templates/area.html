@@ -1,18 +1,22 @@
 <div class="area-view page-w" data-area="{{ code }}">
   <header class="ws-head">
-    <div class="eyebrow">{{ code }} · workspace</div>
+    <div class="eyebrow">{{ eyebrow }}</div>
     <h1>{{ name }}</h1>
-    <p>{{ summary }}</p>
+    {% if let Some(summary) = &summary %}<p>{{ summary }}</p>{% endif %}
+    {% if let Some(note) = &note %}<p class="view-note">{{ note }}</p>{% endif %}
   </header>
 
   <nav class="tabs" aria-label="On this page">
-    {% for j in &jump %}
-    <a href="#{{ j.id }}">{{ j.label }}{% if let Some(n) = j.count %} <span class="count">{{ n }}</span>{% endif %}</a>
+    {% for s in &sections %}
+    <a href="#{{ s.id }}">{{ s.label }}{% if let Some(n) = s.count %} <span class="count">{{ n }}</span>{% endif %}</a>
     {% endfor %}
   </nav>
+  {% for s in &sections %}
 
-  <section class="ws-section" id="overview">
-    <h2>Overview</h2>
+  <section class="ws-section" id="{{ s.id }}">
+    <h2>{{ s.label }}</h2>
+    {% match s.body %}
+    {% when Body::Overview %}
     {{ three_up_html|safe }}
     {{ charts_html|safe }}
     <section class="panel cover-panel">
@@ -23,20 +27,9 @@
       {{ bar_html|safe }}
       {% if !legend_html.is_empty() %}<div class="cover-legend">{{ legend_html|safe }}</div>{% endif %}
     </section>
-  </section>
-
-  <section class="ws-section" id="processes">
-    <h2>Processes</h2>
-    {{ processes_html|safe }}
-  </section>
-
-  <section class="ws-section" id="procedures">
-    <h2>Procedures</h2>
-    {{ procedures_html|safe }}
-  </section>
-
-  <section class="ws-section" id="templates">
-    <h2>Templates</h2>
+    {% when Body::Html with (html) %}
+    {{ html|safe }}
+    {% when Body::Templates %}
     {% if templates.is_empty() %}
     {{ templates_html|safe }}
     {% else %}
@@ -46,15 +39,17 @@
       {% endfor %}
     </ul>
     {% endif %}
-  </section>
-
-  <section class="ws-section" id="module">
-    <h2>Module</h2>
-    {{ module_html|safe }}
-  </section>
-
-  <section class="ws-section" id="library-pages">
-    <h2>Library pages</h2>
+    {% when Body::Profiles %}
+    {% if profiles.is_empty() %}
+    <p>No profiles for {{ name }} yet. That means none recorded here, not that none exist.</p>
+    {% else %}
+    <ul class="tu-list panel">
+      {% for p in &profiles %}
+      <li class="tu-item">{{ p.link_html|safe }}<span class="meta">{{ p.why }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% when Body::Library %}
     {% if pages.is_empty() %}
     <p>No pages in {{ name }} yet.</p>
     <p class="muted">
@@ -64,7 +59,7 @@
     {% else %}
     <div class="table-wrap">
       <table class="reg-table area-table" id="fb:registerTable">
-        <caption>Pages in {{ name }} by subarea and stage</caption>
+        <caption>{{ caption }}</caption>
         <thead>
           <tr>
             <th scope="col" data-col="Page">Page</th>
@@ -95,15 +90,17 @@
       <span id="fb:registerPageInfo" aria-live="polite"></span>
     </nav>
     {% endif %}
-  </section>
-
-  <section class="ws-section" id="history">
-    <h2>History</h2>
-    {{ history_html|safe }}
-  </section>
-
-  <section class="ws-section" id="questions">
-    <h2>Questions</h2>
+    {% when Body::Sources %}
+    {% if sources.is_empty() %}
+    <p>No sources for {{ name }} yet. That means none recorded here, not that none exist.</p>
+    {% else %}
+    <ul class="tu-list panel">
+      {% for src in &sources %}
+      <li class="tu-item"><span>{{ src.chip_html|safe }} {{ src.title }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% when Body::Questions %}
     {% if questions.is_empty() %}
     <p>No questions for {{ name }} yet. That means none recorded here, not that none exist.</p>
     {% else %}
@@ -116,5 +113,7 @@
       {% endfor %}
     </ul>
     {% endif %}
+    {% endmatch %}
   </section>
+  {% endfor %}
 </div>
