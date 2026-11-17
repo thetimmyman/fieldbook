@@ -95,6 +95,7 @@ pub fn place(path: &Path) -> PlaceFacts {
 
 #[cfg(test)]
 mod tests {
+    #[cfg(not(windows))]
     use std::path::Path;
 
     use fieldbook_core::labels::PlaceFacts;
