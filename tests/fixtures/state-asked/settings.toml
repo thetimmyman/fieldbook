@@ -1,0 +1,5 @@
+role = "lead"
+
+[asked]
+mode = "text"
+keep_days = 365
