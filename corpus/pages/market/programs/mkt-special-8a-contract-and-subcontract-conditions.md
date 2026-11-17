@@ -24,7 +24,7 @@ Sets out the clause text that divides the roles in an 8(a) contract: what the Sm
 | Instrument | Codified FAR [@CL-MKT-0990] |
 | Codified citation | FAR 52.219-11; FAR 52.219-12 [@CL-MKT-0990; @CL-MKT-1041] |
 | RFO citation | RFO FAR 52.219-11 [@CL-MKT-1194]; RFO FAR 52.219-12 [@CL-MKT-1201] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-11: Jan 2017 [@CL-MKT-1194]; FAR 52.219-12: Oct 2019 [@CL-MKT-1201] |
 | Text status | Final [@CL-MKT-0990] |
 | Applies to | Contracts under which SBA subcontracts the work to an eligible concern, and the subcontracts awarded under them [@CL-MKT-0990; @CL-MKT-1041] |
 
@@ -55,6 +55,7 @@ Which entity in the finance remit holds the special subcontract and books the di
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on the printed text, 'RFO text of' phrasing, and unquoted contrasts.

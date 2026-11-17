@@ -25,7 +25,7 @@ Shows who gets a copy of a proposal when it is submitted and how the cost portio
 | Instrument | Codified DFARS [@CL-EST-1731; @CL-EST-1732] |
 | Codified citation | DFARS 252.215-7011 [@CL-EST-1731]; DFARS 252.215-7012 [@CL-EST-1732] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.215-7011: JAN 2018 [@CL-EST-9781]; DFARS 252.215-7012: JAN 2018 [@CL-EST-9782] |
 | Text status | Final [@CL-EST-1731; @CL-EST-1732] |
 | Applies to | Offerors in solicitations that use the copies provision as prescribed at DFARS 215.408(5)(ii) [@CL-EST-1775] and the electronic media provision as prescribed at DFARS 215.408(5)(iii) [@CL-EST-1776] |
 
@@ -54,6 +54,7 @@ Who owns sending the proposal copies and building the cost portion in the format
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Copy-provision sentence in how-it-works states the submission requirement directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the provisions leave unsaid; reworded the never-confuse lines to the provisions' own words.

@@ -25,7 +25,7 @@ Shows when the price of a modification under a sealed bidding contract is reduce
 | Instrument | Codified FAR [@CL-EST-2163] |
 | Codified citation | FAR 52.214-27 [@CL-EST-2163] |
 | RFO citation | RFO FAR 52.214-27 [@CL-EST-0470] |
-| Edition date | Not established. |
+| Edition date | Jun 2020 [@CL-EST-0470] |
 | Text status | Final [@CL-EST-2163] |
 | Applies to | Modifications expected to exceed the certified data threshold on the date of execution, unless an exception applies [@CL-EST-2163; @CL-EST-2230; @CL-EST-2164] |
 
@@ -81,6 +81,7 @@ Confirm which executed modifications carry this clause, who confirms that it app
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted dollar-figure and contrast wording; listed the alternatives, the prospective-subcontractor limit and the interest and penalty as the clause states them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

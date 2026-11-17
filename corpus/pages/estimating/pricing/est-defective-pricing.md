@@ -24,7 +24,7 @@ Shows when the Government is entitled to a price reduction after award because c
 | Instrument | Codified FAR [@CL-EST-0101] |
 | Codified citation | FAR 15.407-1(b) [@CL-EST-0102] |
 | RFO citation | RFO FAR 15.304(a) [@CL-EST-3231; @CL-EST-3233]; RFO FAR 52.215-10(a), (b), (c) and (d) [@CL-EST-9241; @CL-EST-9242; @CL-EST-9243; @CL-EST-9244; @CL-EST-9245; @CL-EST-9246; @CL-EST-9247; @CL-EST-9248; @CL-EST-9249; @CL-EST-9250; @CL-EST-9251; @CL-EST-9252; @CL-EST-9259; @CL-EST-9260; @CL-EST-9261; @CL-EST-9262; @CL-EST-9263; @CL-EST-9264; @CL-EST-9265; @CL-EST-9266] |
-| Edition date | Not established. |
+| Edition date | Aug 2011 [@CL-EST-9241] |
 | Text status | Final [@CL-EST-0102] |
 | Applies to | Contracts that include one of the prescribed price reduction clauses [@CL-EST-0102] |
 
@@ -58,6 +58,7 @@ That estimate versions, source quotations and assumptions are frozen and compare
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Lead-in conditions restored with companion claims; clause defenses, interest and penalty tied to the clause text; uncited contrasts replaced.

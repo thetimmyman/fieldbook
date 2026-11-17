@@ -25,7 +25,7 @@ Separates three rules that decide how an offeror answers a solicitation: the inf
 | Instrument | Codified FAR [@CL-EST-1918; @CL-EST-1920; @CL-EST-1925] |
 | Codified citation | FAR 52.215-3 [@CL-EST-1918]; FAR 52.215-5 [@CL-EST-1920]; FAR 52.215-8 [@CL-EST-1925] |
 | RFO citation | RFO FAR 52.215-8 [@CL-EST-0432]; RFO part 52 lists FAR 52.215-3 as reserved [@CL-EST-0430] and FAR 52.215-5 as reserved [@CL-EST-0431] |
-| Edition date | Not established. |
+| Edition date | FAR 52.215-3: OCT 1997 [@CL-EST-9803]; FAR 52.215-5: OCT 1997 [@CL-EST-9804]; FAR 52.215-8: OCT 1997 [@CL-EST-9805] |
 | Text status | Final [@CL-EST-1918] |
 | Applies to | Solicitations that include the information or planning provision [@CL-EST-1397]; solicitations that include the facsimile provision, which is inserted if facsimile proposals are authorized [@CL-EST-1496]; solicitations and contracts using the uniform contract format, which include the order of precedence clause [@CL-EST-1382] |
 
@@ -71,6 +71,7 @@ Which provision governs each live solicitation we answer, what its contract-spec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added uniform contract format scope and facility address qualifiers; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the no-award intent sentence for the information-request contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

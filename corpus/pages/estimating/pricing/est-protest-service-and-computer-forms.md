@@ -24,7 +24,7 @@ Shows how a protest is served on the contracting officer and when a computer gen
 | Instrument | Codified FAR [@CL-EST-2307] |
 | Codified citation | FAR 52.233-2 [@CL-EST-2307]; FAR 52.253-1 [@CL-EST-2397] |
 | RFO citation | RFO FAR 52.233-2 [@CL-EST-0500]; RFO FAR 52.253-1 [@CL-EST-0502] |
-| Edition date | Not established. |
+| Edition date | FAR 52.233-2: SEP 2006 [@CL-EST-9809]; FAR 52.253-1: JAN 1991 [@CL-EST-9810] |
 | Text status | Final [@CL-EST-2307] |
 | Applies to | Protests filed directly with an agency and copies of protests filed with the Government Accountability Office [@CL-EST-2307], and data required on forms prescribed by the FAR or an agency supplement [@CL-EST-2397; @CL-EST-2398] |
 
@@ -59,6 +59,7 @@ Who keeps the dated acknowledgment of service and the form edition evidence for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced unquoted contrasts and an absence statement with the provisions' own wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Used shall, official or location and the provided conditions as the clause words them.

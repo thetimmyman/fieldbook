@@ -24,7 +24,7 @@ Explains when a sealed bid must include product samples, how the Government test
 | Instrument | Codified FAR [@CL-EST-2005] |
 | Codified citation | FAR 52.214-20 [@CL-EST-2006]; FAR 2.101 [@CL-EST-9370] |
 | RFO citation | RFO FAR 52.214-20 [@CL-EST-0063; @CL-EST-0064]; RFO FAR 2.101 [@CL-EST-9371] |
-| Edition date | Not established. |
+| Edition date | Apr 2002 (basic) [@CL-EST-0063]; May 2002 (Alternate I and Alternate II) [@CL-EST-0069] |
 | Text status | Final [@CL-EST-2005] |
 | Applies to | Solicitations that include the bid samples provision [@CL-EST-2110], and those that add its Alternate I [@CL-EST-2112] or Alternate II [@CL-EST-2116] |
 
@@ -67,6 +67,7 @@ Confirm who produces and ships samples, and who can prove the delivery date for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse wording tied to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Class deviation wording changed to must use; unsupported contrast on waiver removed.

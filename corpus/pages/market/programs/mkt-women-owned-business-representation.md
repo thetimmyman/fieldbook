@@ -24,7 +24,7 @@ Sets out the definition of a women-owned business concern used in this provision
 | Instrument | Codified FAR [@CL-MKT-1124] |
 | Codified citation | FAR 52.204-5 [@CL-MKT-1124] |
 | RFO citation | RFO FAR 52.204-5 [@CL-MKT-1253; @CL-MKT-1256] |
-| Edition date | Not established. |
+| Edition date | Oct 2014 [@CL-MKT-1253] |
 | Text status | Final [@CL-MKT-1124] |
 | Applies to | Offerors that are women-owned business concerns and have not represented themselves as small business concerns in paragraph (c)(1) of FAR 52.219-1 [@CL-MKT-1127] |
 
@@ -55,6 +55,7 @@ Which legal entities in the group meet the ownership and control test, and which
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated FAR 52.204-5 definition directly and separated RFO citations from codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the women-owned business representation.

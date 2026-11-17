@@ -25,7 +25,7 @@ Covers bidder duties in sealed bidding: acknowledging amendments, giving complet
 | Instrument | Codified FAR [@CL-EST-1955; @CL-EST-1959; @CL-EST-1962] |
 | Codified citation | FAR 52.214-3 [@CL-EST-1955]; FAR 52.214-4 [@CL-EST-2151]; FAR 52.214-5 [@CL-EST-1959]; FAR 52.214-6 [@CL-EST-1962]; FAR 2.101 [@CL-EST-9341] |
 | RFO citation | RFO FAR 52.214-3 [@CL-EST-0578]; RFO FAR 52.214-4 [@CL-EST-0581]; RFO FAR 52.214-5 [@CL-EST-0582]; RFO FAR 52.214-6 [@CL-EST-0585] |
-| Edition date | Not established. |
+| Edition date | FAR 52.214-3: DEC 2016 [@CL-EST-9812]; FAR 52.214-4: Apr 1984 [@CL-EST-0581]; FAR 52.214-5: DEC 2016 [@CL-EST-9813]; FAR 52.214-6: Apr 1984 [@CL-EST-0585] |
 | Text status | Final [@CL-EST-1955] |
 | Applies to | Invitations for bids that include the amendment, bid submission and explanation provisions [@CL-EST-1955; @CL-EST-1959; @CL-EST-1962] |
 
@@ -63,6 +63,7 @@ Who tracks amendment acknowledgements and written clarification requests against
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted absence statements, a contract-specific gloss and meta wording; restated the amendment information and oral explanation rules and the if-amended condition as the provisions word them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the acknowledgement, oral explanation and electronic bid warnings as the provisions word them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of electronic commerce.

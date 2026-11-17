@@ -25,7 +25,7 @@ Shows what the prospective price redetermination clause asks the contractor to s
 | Instrument | Codified FAR [@CL-EST-1650] |
 | Codified citation | FAR 52.216-5 [@CL-EST-1650] |
 | RFO citation | RFO FAR 52.216-5 [@CL-EST-0491] |
-| Edition date | Not established. |
+| Edition date | JAN 2022 [@CL-EST-9808] |
 | Text status | Final [@CL-EST-1650] |
 | Applies to | Contracts that include the clause as prescribed [@CL-EST-1650] |
 
@@ -59,6 +59,7 @@ Who prepares and reviews the cost breakdown and support for each redetermination
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added what the parties fail to agree on; replaced a note about the printed text with the clause's blank for the months.
