@@ -5,10 +5,13 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Changed: the claims copy for Excel is one CSV per claims part, data/claims-<AREA>-<part>.csv, in place of data/claims.csv.
+- Fixed: a line of context, question or subject text that looks like a block delimiter is escaped in the model prompt, so it cannot open or close a block.
+- Fixed: a `synthetic = true` template contract is refused for a live template id, and the registry-id check also covers the ID cells of the generated ports tables and the template ids.
 - Added: search records each question in the question log.
 - Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
+- Changed: every world names its store id, so a test double or a wrapper can no longer report itself as the folder store by default.
 - Added: the Company profile, Competitors and Programs view pages.
 - Fixed: backup records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest.
 - Changed: a printed page's footer shows the page id, not its route.
