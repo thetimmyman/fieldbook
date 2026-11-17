@@ -1,6 +1,6 @@
-//! Plain CSV copies of the registers for Excel (`data/<register>.csv`).
+//! Plain CSV copies of the registers for Excel (`data/<register>.csv` and `data/claims-<AREA>-<part>.csv`).
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::schema::{ColumnKind, Register};
@@ -12,6 +12,12 @@ const GUARD_PREFIXES: [char; 6] = ['=', '+', '-', '@', '\t', '\r'];
 #[must_use]
 pub fn output_path(register: Register) -> String {
     format!("data/{}", register.file_name())
+}
+
+/// Returns the site-relative output path for one claims part CSV (`data/claims-<AREA>-<part>.csv`).
+#[must_use]
+pub fn claims_part_output_path(area_code: &str, part: u32) -> String {
+    format!("data/claims-{}-{part}.csv", area_code.to_ascii_uppercase())
 }
 
 /// Applies the Excel apostrophe guard to unsafe text prefixes.
@@ -168,12 +174,8 @@ pub fn rows(view: &LabelledView, register: Register) -> Vec<Vec<String>> {
     out_rows
 }
 
-/// Renders the CSV bytes for `register`, including UTF-8 BOM, header, and scrubbed, guarded data rows.
-#[must_use]
-pub fn render(view: &LabelledView, register: Register) -> Vec<u8> {
+fn render_rows(register: Register, data_rows: &[Vec<String>]) -> Vec<u8> {
     let columns = register.columns();
-    let data_rows = rows(view, register);
-
     let out = vec![0xEF, 0xBB, 0xBF];
     let mut writer = csv::WriterBuilder::new()
         .terminator(csv::Terminator::CRLF)
@@ -185,7 +187,7 @@ pub fn render(view: &LabelledView, register: Register) -> Vec<u8> {
         .write_record(header_record)
         .unwrap_or_else(|e| unreachable!("a CSV write into memory is infallible: {e}"));
 
-    for row in &data_rows {
+    for row in data_rows {
         let guarded_record = row.iter().enumerate().map(|(idx, cell)| {
             let kind = columns.get(idx).map_or(ColumnKind::Text, |col| col.kind);
             guard_cell(kind, cell)
@@ -198,6 +200,45 @@ pub fn render(view: &LabelledView, register: Register) -> Vec<u8> {
     writer
         .into_inner()
         .unwrap_or_else(|e| unreachable!("a CSV write into memory is infallible: {e}"))
+}
+
+/// Renders the CSV bytes for `register`, including UTF-8 BOM, header, and scrubbed, guarded data rows.
+#[must_use]
+pub fn render(view: &LabelledView, register: Register) -> Vec<u8> {
+    let data_rows = rows(view, register);
+    render_rows(register, &data_rows)
+}
+
+/// Renders one `(output_path, csv_bytes)` pair per claims part in [`crate::register::claims_parts`] order.
+///
+/// Scrubs [`Register::Claims`] once via [`rows`] and partitions rows in a single pass by
+/// [`fieldbook_core::ids::claim_part`] of the first cell (`claim_id`). Any row that `claim_part`
+/// cannot place is omitted, matching the part pages.
+#[must_use]
+pub fn render_claims_parts(view: &LabelledView) -> Vec<(String, Vec<u8>)> {
+    let all_rows = rows(view, Register::Claims);
+    let mut grouped: BTreeMap<(String, u32), Vec<Vec<String>>> = BTreeMap::new();
+    for row in all_rows {
+        if let Some(part_key) = row
+            .first()
+            .and_then(|id| fieldbook_core::ids::claim_part(id))
+        {
+            grouped.entry(part_key).or_default().push(row);
+        }
+    }
+
+    let parts = crate::register::claims_parts(view);
+    let mut out = Vec::with_capacity(parts.len());
+    for part in parts {
+        let part_rows = grouped
+            .remove(&(part.area_code.clone(), part.part))
+            .unwrap_or_default();
+        out.push((
+            claims_part_output_path(&part.area_code, part.part),
+            render_rows(Register::Claims, &part_rows),
+        ));
+    }
+    out
 }
 
 #[cfg(test)]
@@ -238,5 +279,7 @@ mod tests {
         assert_eq!(output_path(Register::Questions), "data/questions.csv");
         assert_eq!(output_path(Register::Conflicts), "data/conflicts.csv");
         assert_eq!(output_path(Register::Glossary), "data/glossary.csv");
+        assert_eq!(claims_part_output_path("cmp", 1), "data/claims-CMP-1.csv");
+        assert_eq!(claims_part_output_path("CMP", 12), "data/claims-CMP-12.csv");
     }
 }
