@@ -190,22 +190,32 @@ fn rename_help_is_stable() {
 fn rename_help_follows_a_restore_moved_with_its_live_root() {
     // `--to <state>/drill/restored` is allowed, and moving the live state folder aside takes the
     // restored copy with it: the second state line must read it from under `<state>.old`.
+    let native = |text: &str| {
+        if cfg!(windows) {
+            text.replace("/home", "C:/home").replace('/', "\\")
+        } else {
+            text.to_owned()
+        }
+    };
     let plan = RestorePlan {
-        destination: PathBuf::from("/home/.fieldbook/drill/restored"),
+        destination: PathBuf::from(native("/home/.fieldbook/drill/restored")),
         roots: vec![
             PlannedRoot {
                 name: "corpus".to_string(),
-                path: PathBuf::from("/home/.fieldbook/drill/restored/corpus"),
+                path: PathBuf::from(native("/home/.fieldbook/drill/restored/corpus")),
             },
             PlannedRoot {
                 name: "state".to_string(),
-                path: PathBuf::from("/home/.fieldbook/drill/restored/state"),
+                path: PathBuf::from(native("/home/.fieldbook/drill/restored/state")),
             },
         ],
     };
     let live = vec![
-        ("corpus".to_string(), PathBuf::from("/home/corpus")),
-        ("state".to_string(), PathBuf::from("/home/.fieldbook")),
+        ("corpus".to_string(), PathBuf::from(native("/home/corpus"))),
+        (
+            "state".to_string(),
+            PathBuf::from(native("/home/.fieldbook")),
+        ),
     ];
 
     assert_eq!(
@@ -216,6 +226,9 @@ fn rename_help_follows_a_restore_moved_with_its_live_root() {
             "mv '/home/.fieldbook' '/home/.fieldbook.old'",
             "mv '/home/.fieldbook.old/drill/restored/state' '/home/.fieldbook'",
         ]
+        .into_iter()
+        .map(native)
+        .collect::<Vec<_>>()
     );
     assert_eq!(
         rename_help(&plan, &live, RestoreShell::PowerShell),
@@ -225,6 +238,9 @@ fn rename_help_follows_a_restore_moved_with_its_live_root() {
             "Move-Item -LiteralPath '/home/.fieldbook' -Destination '/home/.fieldbook.old'",
             "Move-Item -LiteralPath '/home/.fieldbook.old/drill/restored/state' -Destination '/home/.fieldbook'",
         ]
+        .into_iter()
+        .map(native)
+        .collect::<Vec<_>>()
     );
 }
 

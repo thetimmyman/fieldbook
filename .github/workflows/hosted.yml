@@ -3,7 +3,7 @@
 # The three values CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID and FIELDBOOK_HOST exist only as
 # secrets of the GitHub environment `hosted`, whose deployment branch policy allows main only,
 # never at repository level.
-# The job runs on the owner's self-hosted runner by the owner's decision (CI-01: no GitHub-hosted runners).
+# The job runs on a fresh standard GitHub-hosted runner (CI-01).
 # Mitigations: secrets only in environment `hosted` (main only); clean checkout without credentials;
 # fresh out/; cargo --locked; npm ci --ignore-scripts; no data root, store, overlay, policy or state flag.
 name: hosted
@@ -29,7 +29,7 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
     environment: hosted
-    runs-on: [self-hosted, Linux, X64, fieldbook]
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     env:
       WRANGLER_SEND_METRICS: "false"
