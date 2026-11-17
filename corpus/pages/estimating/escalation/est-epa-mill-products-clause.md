@@ -25,7 +25,7 @@ Explains how the unit price moves with the contractor's established price under 
 | Instrument | Codified DFARS [@CL-EST-1185] |
 | Codified citation | DFARS 252.216-7000 and DFARS 252.216-7007 [@CL-EST-1185; @CL-EST-1184] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.216-7000: JAN 2023 [@CL-EST-9762]; DFARS 252.216-7007: MAR 2012 [@CL-EST-9763] |
 | Text status | Final [@CL-EST-1185] |
 | Applies to | Fixed-price supply contracts for these mill products that include the clause [@CL-EST-1177] |
 
@@ -55,6 +55,7 @@ Which contracts use this clause and how established prices and written requests 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the prescription of the representation provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the price increase rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic price adjustment for basic steel, aluminum, brass, bronze and copper mill products.

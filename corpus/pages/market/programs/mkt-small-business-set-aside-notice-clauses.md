@@ -25,7 +25,7 @@ Shows who may submit offers under the total and partial set-aside notice clauses
 | Instrument | Codified FAR [@CL-MKT-0841] |
 | Codified citation | FAR 52.219-6 and FAR 52.219-7 [@CL-MKT-0841; @CL-MKT-0843] |
 | RFO citation | RFO FAR 52.219-6 [@CL-MKT-1187; @CL-MKT-1188]; RFO FAR 52.219-7 [@CL-MKT-1189] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-6: NOV 2020 [@CL-MKT-9438]; FAR 52.219-7: Nov 2020 [@CL-MKT-1189] |
 | Text status | Final [@CL-MKT-0841] |
 | Applies to | Contracts totally set aside, and orders set aside under multiple-award contracts, for the first clause; contracts partially set aside for the second [@CL-MKT-0842; @CL-MKT-0843] |
 
@@ -54,6 +54,7 @@ Which product families and customer groups the company bids on as set-aside work
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' phrasing and meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: partial clause cites identified concerns.

@@ -24,7 +24,7 @@ Shows how orders are issued under a delivery or task order contract, what the Go
 | Instrument | Codified FAR [@CL-EST-1835] |
 | Codified citation | FAR 52.216-18, FAR 52.216-20 and FAR 52.216-21 [@CL-EST-1835; @CL-EST-1837; @CL-EST-1839]; FAR 2.101 [@CL-EST-9317] |
 | RFO citation | RFO FAR 52.216-18 [@CL-EST-0386]; RFO FAR 52.216-20 [@CL-EST-0391]; RFO FAR 52.216-21 [@CL-EST-0396]; RFO FAR 2.101 [@CL-EST-9367] |
-| Edition date | Not established. |
+| Edition date | FAR 52.216-18: Aug 2020 [@CL-EST-0386]; FAR 52.216-20: Oct 1995 [@CL-EST-0391]; FAR 52.216-21: OCT 1995 [@CL-EST-9800] |
 | Text status | Final [@CL-EST-1835] |
 | Applies to | Delivery order and task order contracts that include the ordering, definite quantity or requirements clause [@CL-EST-1835; @CL-EST-1837; @CL-EST-1839] |
 
@@ -57,6 +57,7 @@ Which bids and task order proposals need immediate support and the approval rout
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Scoped the order-all duty to the basic requirements clause; replaced contrast and meta wording with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted actor, added provisos, urgency condition and contract exceptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of task order.

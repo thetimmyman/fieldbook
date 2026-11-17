@@ -25,7 +25,7 @@ Shows what the program should-cost review clause lets the Government do and what
 | Instrument | Codified DFARS [@CL-EST-1733] |
 | Codified citation | DFARS 252.215-7015 [@CL-EST-1733; @CL-EST-1777] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | NOV 2019 [@CL-EST-9780] |
 | Text status | Final [@CL-EST-1733] |
 | Applies to | Contracts that use the program should-cost review clause as prescribed at DFARS 215.408(8) [@CL-EST-1777] |
 
@@ -54,6 +54,7 @@ Which programs could face a review and what cost data and staff access the contr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: How-it-works now carries the if-the-Government-performs condition and the FAR 52.203-16 reference for third-party experts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut a closing statement about points the clause leaves unsaid.

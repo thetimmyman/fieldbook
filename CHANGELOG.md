@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Changed: the tag checks write `release-identity.toml` (the tag and commit they verified) with the evidence, and `archive-release` and `verify-archive` refuse evidence from another tag or commit. Evidence and archives made before this file existed are refused; repeat the tag run rather than writing an identity by hand.
+- Fixed: an export no longer writes through a destination folder that was swapped for a symlink after its token was issued.
 - Changed: the claims copy for Excel is one CSV per claims part, data/claims-<AREA>-<part>.csv, in place of data/claims.csv.
 - Fixed: a line of context, question or subject text that looks like a block delimiter is escaped in the model prompt, so it cannot open or close a block.
 - Fixed: a `synthetic = true` template contract is refused for a live template id, and the registry-id check also covers the ID cells of the generated ports tables and the template ids.

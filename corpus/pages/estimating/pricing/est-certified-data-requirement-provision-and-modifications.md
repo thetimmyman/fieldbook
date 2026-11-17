@@ -25,7 +25,7 @@ Shows the exception route an offeror or Contractor can use instead of certified 
 | Instrument | Codified FAR [@CL-EST-1819] |
 | Codified citation | FAR 52.215-20 and FAR 52.215-21 [@CL-EST-1819; @CL-EST-1824] |
 | RFO citation | RFO FAR 52.215-20 [@CL-EST-0075; @CL-EST-0079] and RFO FAR 52.215-21 [@CL-EST-0085; @CL-EST-0087] |
-| Edition date | Not established. |
+| Edition date | FAR 52.215-20: NOV 2021 (codified) [@CL-EST-9770], Oct 1997 (Alternate II) [@CL-EST-0084]; FAR 52.215-21: NOV 2021 [@CL-EST-9771] |
 | Text status | Final [@CL-EST-1819] |
 | Applies to | Offerors under the solicitation provision, and the Contractor for modifications under the contract with price adjustments expected to exceed the threshold set forth in FAR 15.403-4(a)(1) [@CL-EST-1819; @CL-EST-1824] |
 
@@ -56,6 +56,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied provision and modifications-clause wording to quotes: lead-ins, threshold, exception condition on certificate; added two companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certificate timing, decision wording and shall/must restored; uncited price-reduction contrast removed.

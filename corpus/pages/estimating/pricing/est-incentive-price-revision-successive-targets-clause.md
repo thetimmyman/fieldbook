@@ -25,7 +25,7 @@ Shows how firm targets are set at the negotiation point under the successive tar
 | Instrument | Codified FAR [@CL-EST-1669] |
 | Codified citation | FAR 52.216-17 [@CL-EST-1669] |
 | RFO citation | RFO FAR 52.216-17 [@CL-EST-0283; @CL-EST-0284; @CL-EST-0285; @CL-EST-0286; @CL-EST-0287; @CL-EST-0288; @CL-EST-9026; @CL-EST-0289; @CL-EST-9027; @CL-EST-0290; @CL-EST-0291; @CL-EST-0292] |
-| Edition date | Not established. |
+| Edition date | JAN 2022 [@CL-EST-9793] |
 | Text status | Final [@CL-EST-1669] |
 | Applies to | Contracts that include the clause as prescribed [@CL-EST-1669] |
 
@@ -59,6 +59,7 @@ When the negotiation point for firm targets falls and who prepares the supportin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the total final price lead-in of the profit adjustment formula; replaced two uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the data-submission timing and the receipt-of-data trigger.

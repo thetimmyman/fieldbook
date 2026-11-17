@@ -25,7 +25,7 @@ Explains when a charge for work done by a subcontractor becomes an excessive pas
 | Instrument | Codified FAR [@CL-EST-0604] |
 | Codified citation | FAR 52.215-23 [@CL-EST-0604] |
 | RFO citation | RFO FAR 52.215-23 [@CL-EST-0413] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 (codified) [@CL-EST-9801]; Oct 2009 (Alternate I) [@CL-EST-0426] |
 | Text status | Final [@CL-EST-0604] |
 | Applies to | Contracts that include the clause [@CL-EST-0604] |
 
@@ -57,6 +57,7 @@ Whether the purchasing system has been reviewed, and when a subcontract needs cu
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the applicable and associated qualifiers and the scope of no or negligible value; cut an uncited contrast.

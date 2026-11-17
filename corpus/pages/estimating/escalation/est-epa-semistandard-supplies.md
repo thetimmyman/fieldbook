@@ -25,7 +25,7 @@ Explains the Economic Price Adjustment clause for semistandard supplies, where t
 | Instrument | Codified FAR [@CL-EST-0757] |
 | Codified citation | FAR 52.216-3 [@CL-EST-0757] |
 | RFO citation | RFO FAR 52.216-3 [@CL-EST-0013; @CL-EST-0014; @CL-EST-0019] |
-| Edition date | Not established. |
+| Edition date | Nov 2021 [@CL-EST-0013] |
 | Text status | Final [@CL-EST-0757] |
 | Applies to | Semistandard supplies that have an established price apart from contract specification modifications [@CL-EST-0757] |
 
@@ -57,6 +57,7 @@ That each semistandard line item price gap to the established price is attributa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the price increase rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the increase sentence so the price increase rule keeps the limitations that follow.

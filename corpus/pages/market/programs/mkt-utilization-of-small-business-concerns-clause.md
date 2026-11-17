@@ -25,7 +25,7 @@ Shows the policy the clause states, the contractor's duty to carry it out when i
 | Instrument | Codified FAR [@CL-MKT-0817] |
 | Codified citation | FAR 52.219-8 [@CL-MKT-0815; @CL-MKT-0817] |
 | RFO citation | RFO FAR 52.219-8 [@CL-MKT-1239; @CL-MKT-1243] |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-MKT-9440] |
 | Text status | Final [@CL-MKT-0817] |
 | Applies to | Contractors that agree to the clause in their contracts [@CL-MKT-0817] |
 
@@ -56,6 +56,7 @@ How the company records a subcontractor's size and status representation, when i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 52.219-8(d) cooperation agreement and codified SAM representation and HUBZone confirmation rules, and separated RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: good-faith liability opening phrase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

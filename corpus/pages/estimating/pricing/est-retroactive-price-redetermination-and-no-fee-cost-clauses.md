@@ -24,7 +24,7 @@ Shows how the retroactive redetermination clause sets the price and its ceiling,
 | Instrument | Codified FAR [@CL-EST-1826] |
 | Codified citation | FAR 52.216-6, FAR 52.216-11 and FAR 52.216-12 [@CL-EST-1826; @CL-EST-1830; @CL-EST-1833] |
 | RFO citation | RFO FAR 52.216-6 [@CL-EST-0507]; RFO FAR 52.216-11 [@CL-EST-0529]; RFO FAR 52.216-12 [@CL-EST-0534] |
-| Edition date | Not established. |
+| Edition date | FAR 52.216-6: JAN 2022 [@CL-EST-9811]; FAR 52.216-11: Apr 1984 [@CL-EST-0529]; FAR 52.216-12: Apr 1984 [@CL-EST-0534] |
 | Text status | Final [@CL-EST-1826] |
 | Applies to | Contracts that include the retroactive redetermination clause, the cost contract no fee clause or the cost-sharing contract no fee clause [@CL-EST-1826; @CL-EST-1830; @CL-EST-1833]; when contracting by negotiation, the contracting officer shall insert the retroactive clause in solicitations and contracts when a fixed-price contract is contemplated and the conditions in FAR 16.206-2 and 16.206-3(a) through (d) apply [@CL-EST-1863] |
 
@@ -58,6 +58,7 @@ Who owns proposal pricing and the choice between these contract types and the fe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the billing price sentence with a companion claim; replaced statements about what RFO text omits with what it provides.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the overpayment lead-in, the reserve amount standard, the 60-day disagreement period and the contracting officer's clause insertion duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the refund reduction sentence.

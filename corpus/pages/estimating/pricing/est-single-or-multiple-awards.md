@@ -25,7 +25,7 @@ Explains when the Government keeps the choice between one award and several for 
 | Instrument | Codified FAR [@CL-EST-1929; @CL-EST-1930] |
 | Codified citation | FAR 52.216-27 [@CL-EST-1929]; FAR 52.216-28 [@CL-EST-1930] |
 | RFO citation | RFO FAR 52.216-27 [@CL-EST-0616]; RFO FAR 52.216-28 [@CL-EST-0617]; RFO FAR 2.101 [@CL-EST-9376] |
-| Edition date | Not established. |
+| Edition date | FAR 52.216-27: Oct 1995 [@CL-EST-0616]; FAR 52.216-28: Oct 1995 [@CL-EST-0617] |
 | Text status | Final [@CL-EST-1929] |
 | Applies to | Solicitations for indefinite-quantity contracts that may result in multiple contract awards, for the single or multiple awards provision [@CL-CTF-1227], which is not to be used for advisory and assistance services contracts that exceed 3 years and $20 million (including all options) [@CL-CTF-1256]; solicitations that include the advisory and assistance services provision [@CL-EST-1930] |
 
@@ -59,6 +59,7 @@ Whether our pricing and bid posture assumes one award or several for each order-
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Described the definition's further sentences directly, cut an unstated 'only' and an unquoted contrast, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the advisory-services exception to the single or multiple awards provision scope.

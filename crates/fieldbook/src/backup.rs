@@ -337,7 +337,25 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         };
     };
 
-    let target_path = target_cfg.path.clone();
+    // The owner may spell the declared target through a link or a junction. Resolve it once, here,
+    // before the export token is issued: the destination, every transfer target and every write then
+    // names the resolved folder, so a link or junction in the target cannot be swapped between the
+    // token and the write. The policy row names the resolved folder, as its paths are matched on
+    // whole components with links and junctions resolved.
+    let target_spelled = target_cfg.path.clone();
+    let target_path = match crate::io::root::resolve_outside_path(&target_spelled) {
+        Ok(resolved) => resolved,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!(
+                    "cannot resolve backup target {}: {err}\n",
+                    target_spelled.display()
+                ),
+                code: EXIT_USAGE,
+            };
+        }
+    };
     let target_str = target_path.to_string_lossy().into_owned();
 
     // 2. Refuse a target inside the Corpus or state folder (FB0812)
@@ -428,7 +446,9 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     let mut notices = String::new();
 
     // 5. Target place check
-    let facts = world.place(&target_path);
+    // The place test reads the folder as the owner spells it: a target reached through a link, a
+    // junction or a sync root is a declared-target finding, and resolving it first would hide it.
+    let facts = world.place(&target_spelled);
     let declared = eff.state().policy().is_some_and(|p| {
         p.destinations().iter().any(|d| {
             d.kind == DestKind::Backup

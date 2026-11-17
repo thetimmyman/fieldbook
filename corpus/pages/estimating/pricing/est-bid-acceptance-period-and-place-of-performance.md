@@ -24,7 +24,7 @@ Explains how long a sealed bid stays open for acceptance, how a minimum acceptan
 | Instrument | Codified FAR [@CL-EST-1999] |
 | Codified citation | FAR 52.214-14 [@CL-EST-1999]; FAR 52.214-15 [@CL-EST-2000]; FAR 52.214-16 [@CL-EST-2001] |
 | RFO citation | RFO FAR 52.214-14 [@CL-EST-0026; @CL-EST-0027]; RFO FAR 52.214-15 [@CL-EST-0028; @CL-EST-0029]; RFO FAR 52.214-16 [@CL-EST-0030; @CL-EST-0032; @CL-EST-0036] |
-| Edition date | Not established. |
+| Edition date | FAR 52.214-14: Apr 1985 [@CL-EST-0026]; FAR 52.214-15: Apr 1984 [@CL-EST-0028]; FAR 52.214-16: Apr 1984 [@CL-EST-0030] |
 | Text status | Final [@CL-EST-1999] |
 | Applies to | Invitations for bids that include the place of performance provision [@CL-EST-2103] or the period for acceptance provision [@CL-EST-2105]; the minimum period provision is inserted in invitations for bids, except for construction, if the Contracting Officer determines that a minimum acceptance period must be specified [@CL-EST-2004] |
 
@@ -71,6 +71,7 @@ Confirm who sets the acceptance period the company offers and who signs off on t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Acceptance-period and delivery-time contrast reworded to what the cited text states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Period for acceptance restated as the bidder's conditional agreement; contract-specific wording replaced.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

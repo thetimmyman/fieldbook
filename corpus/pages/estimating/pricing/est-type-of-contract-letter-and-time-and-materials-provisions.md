@@ -24,7 +24,7 @@ Shows what the type of contract provision tells offerors, how a letter contract 
 | Instrument | Codified FAR [@CL-EST-1842] |
 | Codified citation | FAR 52.216-1, FAR 52.216-23 and FAR 52.216-31 [@CL-EST-1842; @CL-EST-1843; @CL-EST-1845] |
 | RFO citation | RFO FAR 52.216-1 [@CL-EST-0844], RFO FAR 52.216-23 [@CL-EST-0846; @CL-EST-0847; @CL-EST-9101] and RFO FAR 52.216-31 [@CL-EST-0848; @CL-EST-0849] |
-| Edition date | Not established. |
+| Edition date | FAR 52.216-1: APR 1984 [@CL-EST-9823]; FAR 52.216-23: Apr 1984 [@CL-EST-0846]; FAR 52.216-31: Nov 2021 [@CL-EST-0848] |
 | Text status | Final [@CL-EST-1842] |
 | Applies to | Solicitations and contracts that carry the type of contract provision, the letter contract clause or the time-and-materials proposal provision [@CL-EST-1842; @CL-EST-1843; @CL-EST-1845] |
 
@@ -56,6 +56,7 @@ Who owns proposal pricing and the hourly rate build for time-and-materials and l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted characterizations and an absence statement, removed an unquoted 'commercial' label, and restored the and/or wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

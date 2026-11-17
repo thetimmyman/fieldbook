@@ -25,7 +25,7 @@ Explains when a sealed bid must be supported by descriptive literature, what tha
 | Instrument | Codified FAR [@CL-EST-2010] |
 | Codified citation | FAR 52.214-21 [@CL-EST-2011]; FAR 2.101 [@CL-EST-9333] |
 | RFO citation | RFO FAR 52.214-21 [@CL-EST-0160; @CL-EST-0182] |
-| Edition date | Not established. |
+| Edition date | Apr 2002 (basic) [@CL-EST-0160]; Jan 2017 (Alternate I) [@CL-EST-0185] |
 | Text status | Final [@CL-EST-2010] |
 | Applies to | Solicitations that include the descriptive literature provision [@CL-EST-2120], and those that add its Alternate I [@CL-EST-2124] |
 
@@ -71,6 +71,7 @@ Confirm who assembles descriptive literature for a bid and who checks it against
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Definition scope and exceptions restored, RFO and codified definitions separated, contrast statements replaced with the provision text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the descriptive literature definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of descriptive literature.

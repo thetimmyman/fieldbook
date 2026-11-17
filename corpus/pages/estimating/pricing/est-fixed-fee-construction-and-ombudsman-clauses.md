@@ -24,7 +24,7 @@ Shows how fixed fee is paid and withheld under the construction fee clause, and 
 | Instrument | Codified FAR [@CL-EST-1688; @CL-EST-1718] |
 | Codified citation | FAR 52.216-9 and FAR 52.216-32 [@CL-EST-1688; @CL-EST-1718] |
 | RFO citation | RFO FAR 52.216-9 and RFO FAR 52.216-32 [@CL-EST-0265; @CL-EST-0266; @CL-EST-0267; @CL-EST-0268; @CL-EST-0269; @CL-EST-0270; @CL-EST-0271; @CL-EST-0272] |
-| Edition date | Not established. |
+| Edition date | FAR 52.216-9: Jun 2011 [@CL-EST-0265]; FAR 52.216-32: Sep 2019 [@CL-EST-0271] |
 | Text status | Final [@CL-EST-1688; @CL-EST-1718] |
 | Applies to | Cost-plus-fixed-fee construction contracts for the fee clause, and contracts that include the ombudsman clause [@CL-EST-1688; @CL-EST-1718] |
 
@@ -59,6 +59,7 @@ Whether any construction contract of the company carries the fee clause, and how
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's shall wording for fee payment; cut two uncited contrasts and a characterization of the ombudsman clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

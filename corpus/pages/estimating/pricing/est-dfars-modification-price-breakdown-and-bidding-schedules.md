@@ -25,7 +25,7 @@ Shows what price breakdown a contractor must furnish with a modification proposa
 | Instrument | Codified DFARS [@CL-EST-1747; @CL-EST-1752] |
 | Codified citation | DFARS 252.236-7000 [@CL-EST-1747; @CL-EST-1781]; DFARS 252.236-7008 [@CL-EST-1752; @CL-EST-1782] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.236-7000: DEC 1991 [@CL-EST-9778]; DFARS 252.236-7008: DEC 1991 [@CL-EST-9779] |
 | Text status | Final [@CL-EST-1747; @CL-EST-1752] |
 | Applies to | Contracts that use the price breakdown clause as prescribed in DFARS 236.570(a) [@CL-EST-1781], and solicitations that use the bidding schedule provision as prescribed in DFARS 236.570(b)(6) [@CL-EST-1782] |
 
@@ -54,6 +54,7 @@ Who prepares modification price breakdowns, how fast they can be itemized when t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now carries the itemization and time conditions of the price breakdown requirement.
