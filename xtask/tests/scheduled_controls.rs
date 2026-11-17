@@ -1250,8 +1250,8 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
     let jobs = job_names(&real_yml);
     assert_eq!(jobs, expected_jobs);
 
-    // 4. every job has runs-on: [self-hosted, Linux, X64, fieldbook] and event filter
-    const EXPECTED_RUNS_ON_COMPACT: &str = "runs-on:[self-hosted,Linux,X64,fieldbook]";
+    // 4. every job uses the approved standard hosted runner and event filter
+    const EXPECTED_RUNS_ON_COMPACT: &str = "runs-on:ubuntu-24.04";
     const EXPECTED_IF: &str = "if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository";
 
     for job in &jobs {
@@ -1259,10 +1259,7 @@ fn scheduled_workflow_is_read_only_pinned_and_runs_where_ci_does() {
         let has_runs_on = text.lines().any(|l| {
             l.chars().filter(|c| !c.is_whitespace()).collect::<String>() == EXPECTED_RUNS_ON_COMPACT
         });
-        assert!(
-            has_runs_on,
-            "job `{job}` missing runs-on: [self-hosted, Linux, X64, fieldbook]"
-        );
+        assert!(has_runs_on, "job `{job}` missing runs-on: ubuntu-24.04");
         let has_if = text.lines().any(|l| l.trim() == EXPECTED_IF);
         assert!(has_if, "job `{job}` missing expected `if:` line");
     }

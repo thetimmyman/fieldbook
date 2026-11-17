@@ -84,6 +84,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 
 Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), ending Day −6: every P1 card in this file merged; `check --strict` clean on the lead's first content; pages render. Content pull requests merge from here.
 
+- public-hosted-runners: restore standard hosted Linux jobs and native Windows checks
 - workspace-skeleton: the workspace, the toolchain and tool pins, `just check` and the CI skeleton
 - hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
 - product-first-delivery: standard-Cargo dependency work order with actual review evidence; complete custom automation deferred
