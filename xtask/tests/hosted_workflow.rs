@@ -188,7 +188,7 @@ fn check_runner(yml: &str) -> Result<(), String> {
         return Err(format!("expected exactly one runs-on: line, found {count}"));
     }
     let compact: String = found_val.chars().filter(|c| !c.is_whitespace()).collect();
-    if compact != "[self-hosted,Linux,X64,fieldbook]" {
+    if compact != "ubuntu-24.04" {
         return Err(format!("unexpected runs-on value: `{found_line}`"));
     }
     Ok(())
@@ -912,7 +912,7 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
 
 // control: HO-05
 #[test]
-fn the_deploy_job_runs_on_the_self_hosted_runner_and_declares_the_environment() {
+fn the_deploy_job_uses_the_approved_hosted_runner_and_environment() {
     let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
         .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
     assert!(check_runner(&yml).is_ok());
@@ -947,7 +947,7 @@ fn the_deploy_job_runs_on_the_self_hosted_runner_and_declares_the_environment() 
 
 // control: HO-05
 #[test]
-fn a_hosted_runner_label_or_a_partial_label_set_is_refused() {
+fn self_hosted_and_unapproved_hosted_runners_are_refused() {
     let hosted_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
         .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
 
@@ -964,7 +964,7 @@ fn a_hosted_runner_label_or_a_partial_label_set_is_refused() {
             .collect::<Vec<_>>()
             .join("\n")
     };
-    assert!(check_runner(&plant("    runs-on: ubuntu-24.04")).is_err());
+    assert!(check_runner(&plant("    runs-on: ubuntu-latest")).is_err());
     assert!(check_runner(&plant("    runs-on: [self-hosted]")).is_err());
     assert!(check_runner(&plant("    runs-on: [self-hosted, Linux, X64]")).is_err());
 
@@ -983,17 +983,23 @@ fn a_hosted_runner_label_or_a_partial_label_set_is_refused() {
         !ci_vals.is_empty(),
         "ci.yml must contain at least one runs-on: line"
     );
-    for val in &ci_vals {
-        assert_eq!(
-            val, target,
-            "ci.yml runs-on `{val}` differs from hosted.yml `{target}`"
-        );
-    }
+    assert_eq!(target, "ubuntu-24.04");
+    assert_eq!(
+        ci_vals,
+        [
+            "ubuntu-24.04",
+            "ubuntu-24.04",
+            "ubuntu-24.04",
+            "windows-2025",
+            "ubuntu-24.04"
+        ],
+        "CI jobs must use the approved standard hosted runners"
+    );
 }
 
 // control: HO-05
 #[test]
-fn the_deploy_job_is_hardened_on_the_persistent_runner() {
+fn the_deploy_job_preserves_checkout_build_and_deploy_hardening() {
     let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
         .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
     let res = check_job_hardening(&yml);
