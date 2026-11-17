@@ -741,8 +741,9 @@ function make(tag, cls, kids, attrs) {
 }
 
 function fold(text) {
-  return text.normalize('NFKC').toLowerCase().replace(/[\u2010-\u2015\u2212]/g, '-')
-    .replace(/\u00ad/g, '').normalize('NFKC').trim();
+  for (let p; p !== text;) p = text, text = text.normalize('NFKC').toLowerCase()
+    .replace(/[\u2010-\u2015\u2212]/g, '-').replace(/\u00ad\p{M}*/gu, '');
+  return text.trim();
 }
 
 function asHit(d, u) {
