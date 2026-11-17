@@ -33,7 +33,8 @@ fn floor_a_effective() -> EffectivePolicy {
 struct TestFixture {
     _tree_dir: tempfile::TempDir,
     _state_dir: tempfile::TempDir,
-    target_dir: tempfile::TempDir,
+    _target_dir: tempfile::TempDir,
+    target_path: PathBuf,
     scratch: tempfile::TempDir,
     world: TestWorld,
 }
@@ -47,7 +48,7 @@ impl TestFixture {
         let tree_dir = support::temp_copy(&corpus_mini);
         let state_dir = support::temp_copy(&state_mini);
         let target_dir = tempfile::tempdir().expect("target tempdir");
-        let target_path = target_dir.path().to_path_buf();
+        let target_path = support::canonical_path(target_dir.path());
 
         let settings_path = state_dir.path().join("settings.toml");
         let settings_text = format!(
@@ -56,7 +57,10 @@ impl TestFixture {
         );
         std::fs::write(&settings_path, settings_text).expect("write settings.toml");
 
-        let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+        let world = TestWorld::with_state(
+            &support::canonical_path(tree_dir.path()),
+            &support::canonical_path(state_dir.path()),
+        );
         let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
         let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
             &tree,
@@ -68,7 +72,8 @@ impl TestFixture {
         Self {
             _tree_dir: tree_dir,
             _state_dir: state_dir,
-            target_dir,
+            _target_dir: target_dir,
+            target_path,
             scratch: tempfile::tempdir().expect("scratch tempdir"),
             world,
         }
@@ -76,7 +81,7 @@ impl TestFixture {
 
     /// A path outside the data root that does not exist yet and is cleaned up with the fixture.
     fn dest(&self, name: &str) -> PathBuf {
-        self.scratch.path().join(name)
+        support::canonical_path(self.scratch.path()).join(name)
     }
 
     fn tree_root(&self) -> &Path {
@@ -88,7 +93,7 @@ impl TestFixture {
     }
 
     fn target_path(&self) -> &Path {
-        self.target_dir.path()
+        &self.target_path
     }
 
     fn backup(&self) {
@@ -1056,7 +1061,8 @@ struct GitFixture {
 impl GitFixture {
     fn new() -> Self {
         let tmp = tempfile::tempdir().expect("tempdir");
-        let git_repo = tmp.path().join("git-repo");
+        let root = support::canonical_path(tmp.path());
+        let git_repo = root.join("git-repo");
         std::fs::create_dir_all(git_repo.join(".git")).expect("create .git");
         std::fs::write(git_repo.join(".gitignore"), ".fieldbook\n").expect("write gitignore");
 
@@ -1069,7 +1075,7 @@ impl GitFixture {
         let state = git_repo.join(".fieldbook");
         support::copy_dir_recursive(&state_mini, &state).expect("copy state");
 
-        let outside_target = tmp.path().join("outside-target");
+        let outside_target = root.join("outside-target");
         std::fs::create_dir_all(&outside_target).expect("create outside target");
 
         let settings_path = state.join("settings.toml");
@@ -1246,7 +1252,7 @@ fn restore_outside_the_data_root_asks_for_an_export_token() {
 #[test]
 fn restore_export_binding_is_exact() {
     let tmp = tempfile::tempdir().expect("tempdir");
-    let tmp_canonical = tmp.path().canonicalize().expect("canonicalize");
+    let tmp_canonical = support::canonical_path(tmp.path());
     let corpus_dir = tmp_canonical.join("corpus");
     let state_dir = tmp_canonical.join(".fieldbook");
     std::fs::create_dir_all(&corpus_dir).expect("create corpus dir");
@@ -1618,18 +1624,11 @@ fn drill_refuses_company_labels_under_git_before_copy() {
 fn restore_to_refuses_company_labels_under_git_before_copy() {
     let fix = GitFixture::new();
 
-    let tmp_prefix = fix
-        ._tmp
-        .path()
-        .canonicalize()
-        .expect("canon tmp")
+    let tmp_prefix = support::canonical_path(fix._tmp.path())
         .to_string_lossy()
         .replace('\\', "/");
     let plain_outside = tempfile::tempdir().expect("plain_outside");
-    let outside_prefix = plain_outside
-        .path()
-        .canonicalize()
-        .expect("canon outside")
+    let outside_prefix = support::canonical_path(plain_outside.path())
         .to_string_lossy()
         .replace('\\', "/");
 
@@ -2341,14 +2340,16 @@ fn restore_inside_the_drill_folder_prints_rename_lines_that_run() {
     let fix = TestFixture::new();
     fix.backup();
     let state = fix.state_dir().to_path_buf();
-    let dest = state.join("drill/restored");
+    let dest = state.join("drill").join("restored");
 
     let outcome = fix.restore(Some(dest.clone()), false);
     assert_eq!(outcome.code, 0, "restore failed: {}", outcome.stderr);
 
     let state_str = state.display().to_string();
     let moved = Path::new(&format!("{state_str}.old"))
-        .join("drill/restored/state")
+        .join("drill")
+        .join("restored")
+        .join("state")
         .display()
         .to_string();
     let stale = dest.join("state").display().to_string();
