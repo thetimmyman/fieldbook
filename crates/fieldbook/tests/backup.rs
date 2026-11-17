@@ -583,12 +583,13 @@ fn journal_prepare_backup_invalidated_by_changed_head() {
 #[test]
 fn journal_open_backup_recovery_operates_on_broken_tail() {
     let tmp = tempfile::tempdir().expect("tempdir");
-    let corpus = tmp.path().join("corpus");
+    let root = support::canonical_path(tmp.path());
+    let corpus = root.join("corpus");
     std::fs::create_dir_all(&corpus).expect("create corpus");
-    let target = tmp.path().join("target");
+    let target = root.join("target");
     std::fs::create_dir_all(&target).expect("create target");
 
-    let world = TestWorld::new(&corpus);
+    let world = TestWorld::new(&root);
     let state = world.state_dir().to_path_buf();
     std::fs::create_dir_all(&state).expect("create state");
     let _journal = Journal::open(&world, &state, Via::Cli).expect("open journal");
@@ -642,7 +643,7 @@ fn journal_open_backup_recovery_operates_on_broken_tail() {
     assert_eq!(current_bytes, corrupted);
 
     // In-root write is refused
-    let roots = Roots::at_home(&corpus, &state);
+    let roots = Roots::at_home(&root, &state);
     assert!(
         write_in_root(&roots.state, Path::new("test.txt"), b"in-root", &audited).is_err(),
         "in-root write must be refused for recovery-only token"
@@ -665,10 +666,11 @@ fn journal_open_backup_recovery_operates_on_broken_tail() {
 #[test]
 fn journal_open_backup_recovery_refused_on_held_lock() {
     let tmp = tempfile::tempdir().expect("tempdir");
-    let corpus = tmp.path().join("corpus");
+    let root = support::canonical_path(tmp.path());
+    let corpus = root.join("corpus");
     std::fs::create_dir_all(&corpus).expect("create corpus");
 
-    let world = TestWorld::new(&corpus);
+    let world = TestWorld::new(&root);
     let state = world.state_dir().to_path_buf();
     std::fs::create_dir_all(&state).expect("create state");
 
@@ -804,7 +806,8 @@ fn make_raw_copy(tree_root: &Path, state_dir: &Path) -> tempfile::TempDir {
 struct TestFixture {
     _tree_dir: tempfile::TempDir,
     _state_dir: tempfile::TempDir,
-    target_dir: tempfile::TempDir,
+    _target_dir: tempfile::TempDir,
+    target_path: PathBuf,
     world: TestWorld,
 }
 
@@ -821,7 +824,7 @@ impl TestFixture {
         let tree_dir = support::temp_copy(&corpus_mini);
         let state_dir = support::temp_copy(&state_mini);
         let target_dir = tempfile::tempdir().expect("target tempdir");
-        let target_path = target_dir.path().to_path_buf();
+        let target_path = support::canonical_path(target_dir.path());
 
         let settings_path = state_dir.path().join("settings.toml");
         let settings_text = format!(
@@ -830,7 +833,10 @@ impl TestFixture {
         );
         std::fs::write(&settings_path, settings_text).expect("write settings.toml");
 
-        let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+        let world = TestWorld::with_state(
+            &support::canonical_path(tree_dir.path()),
+            &support::canonical_path(state_dir.path()),
+        );
         let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
         let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
             &tree,
@@ -842,7 +848,8 @@ impl TestFixture {
         Self {
             _tree_dir: tree_dir,
             _state_dir: state_dir,
-            target_dir,
+            _target_dir: target_dir,
+            target_path,
             world,
         }
     }
@@ -856,7 +863,11 @@ impl TestFixture {
     }
 
     fn target_path(&self) -> &Path {
-        self.target_dir.path()
+        &self.target_path
+    }
+
+    fn policy_target(&self) -> String {
+        self.target_path().to_string_lossy().replace('\\', "/")
     }
 }
 
@@ -3058,12 +3069,7 @@ fn malformed_unknown_field_cache_refusal() {
 #[test]
 fn refused_filename_report_obeys_backup_labels() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     let policy_toml_allow_np = format!(
         r#"
@@ -3288,12 +3294,7 @@ fn schema_invalid_repair_archive_obeys_backup_labels() {
 #[test]
 fn backup_settings_require_owner_supplied() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     // Policy whose backup destination allows public, but excludes owner-supplied
     let policy_toml = format!(
@@ -3354,12 +3355,7 @@ fn backup_settings_preserve_authorized_bytes() {
 #[test]
 fn backup_settings_keep_comment_markings() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     // Add comment with marking to settings.toml
     let settings_file = fix.state_dir().join("settings.toml");
@@ -3453,12 +3449,7 @@ paths = ["{target_str}"]
 #[test]
 fn backup_settings_include_loaded_state_default() {
     let fix = TestFixture::new();
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
 
     let policy_toml = format!(
         r#"
@@ -4203,12 +4194,7 @@ fn public_support_keeps_markings_and_admission() {
     assert!(out.stderr.contains("FB0901"));
 
     // Mapped restrictive label: when policy maps marking and destination allows it, backup succeeds
-    let target_str = fix
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target_str = fix.policy_target();
     let policy_toml = format!(
         r#"
 policy_schema = 1
@@ -4283,12 +4269,7 @@ paths = ["{target_str}"]
     // Floor B route: restore clean AGENTS.md, but remove support provenance facts so support is unlabelled.
     // Configure target with company_storage = true.
     let fix2 = TestFixture::new();
-    let target2_str = fix2
-        .target_path()
-        .canonicalize()
-        .expect("canon")
-        .to_string_lossy()
-        .replace('\\', "/");
+    let target2_str = fix2.policy_target();
     let settings_cs = format!(
         "role = \"lead\"\n\n[[backup.target]]\nid = \"main\"\nkind = \"folder\"\npath = \"{target2_str}\"\ncompany_storage = true\n"
     );
@@ -6719,6 +6700,17 @@ fn snapshot_bytes_are_unchanged_by_the_two_passes() {
 
     let ref_journal =
         Journal::open(&ref_fix.world, ref_fix.state_dir(), Via::Cli).expect("open ref journal");
+    // Capture the actual empty-control baseline before mandatory Windows locks
+    // make second-handle reads unavailable; the reference remains independent.
+    let ref_lock_bytes: BTreeMap<_, _> = ["lock", "store.lock"]
+        .into_iter()
+        .map(|name| {
+            let bytes =
+                std::fs::read(ref_fix.state_dir().join(name)).expect("reference lock bytes");
+            assert!(bytes.is_empty(), "fixture state lock must be empty");
+            (name, bytes)
+        })
+        .collect();
     let _ref_lease = ref_fix
         .world
         .write_lease()
@@ -6737,7 +6729,11 @@ fn snapshot_bytes_are_unchanged_by_the_two_passes() {
             std::fs::read(ref_fix.tree_root().join("corpus").join(corpus_rel))
                 .expect("read ref corpus file")
         } else if let Some(state_rel) = snap_rel.strip_prefix("data/state/") {
-            std::fs::read(ref_fix.state_dir().join(state_rel)).expect("read ref state file")
+            if let Some(bytes) = ref_lock_bytes.get(state_rel) {
+                bytes.clone()
+            } else {
+                std::fs::read(ref_fix.state_dir().join(state_rel)).expect("read ref state file")
+            }
         } else {
             panic!("unexpected snapshot rel {snap_rel}");
         };
