@@ -883,3 +883,83 @@ fn fmt_refuses_recovery_on_third_hash() {
         third_bytes
     );
 }
+
+#[test]
+fn readers_accept_a_hand_edit_after_a_journaled_write() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    let glossary_path = root.join(REG_GLOSSARY);
+    let orig_glossary = std::fs::read_to_string(&glossary_path).expect("read glossary");
+    std::fs::write(&glossary_path, to_crlf(&orig_glossary).as_bytes()).expect("dirty glossary");
+
+    let world = TestWorld::new(root);
+    assert_eq!(run(&world, &["fmt"]).code, 0);
+    assert!(
+        root.join(".fieldbook/generation").is_file(),
+        "the journaled write leaves a generation marker"
+    );
+
+    // A hand edit after the journaled write: one line that needs formatting.
+    let page_path = root.join(PAGE_STEPS);
+    let mut page = std::fs::read_to_string(&page_path).expect("read page");
+    page.push_str("A sentence added by hand.   \n");
+    std::fs::write(&page_path, page.as_bytes()).expect("hand edit");
+
+    let checked = run(&world, &["fmt", "--check"]);
+    assert_eq!(checked.stdout, format!("would format {PAGE_STEPS}\n"));
+    assert_eq!(checked.code, 1, "stderr: {}", checked.stderr);
+
+    for args in [
+        &["check", "--today", "2026-01-15"][..],
+        &["status"][..],
+        &["search", "review"][..],
+    ] {
+        let out = run(&world, args);
+        assert_ne!(out.code, 3, "{args:?} refused a hand edit: {}", out.stderr);
+        assert!(
+            !out.stderr.contains("generation"),
+            "{args:?} named the generation marker: {}",
+            out.stderr
+        );
+    }
+
+    // The writing command still formats the hand edit, and the tree is normal afterwards.
+    let fixed = run(&world, &["fmt"]);
+    assert_eq!(fixed.stdout, format!("formatted {PAGE_STEPS}\n"));
+    assert_eq!(run(&world, &["fmt", "--check"]).code, 0);
+}
+
+#[test]
+fn readers_still_refuse_a_pending_write_after_a_hand_edit() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    let glossary_path = root.join(REG_GLOSSARY);
+    let orig_glossary = std::fs::read_to_string(&glossary_path).expect("read glossary");
+    std::fs::write(&glossary_path, to_crlf(&orig_glossary).as_bytes()).expect("dirty glossary");
+
+    let faulty = FaultyWorld::new(
+        TestWorld::new(root),
+        Fault::FailOnName {
+            name: "glossary.csv",
+            kind: FaultKind::Io,
+        },
+    );
+    assert_eq!(run(&faulty, &["fmt"]).code, 3);
+    assert!(root.join(".fieldbook/pending.toml").exists());
+
+    let world = TestWorld::new(root);
+    for args in [
+        &["fmt", "--check"][..],
+        &["check", "--today", "2026-01-15"][..],
+        &["status"][..],
+        &["search", "review"][..],
+    ] {
+        let out = run(&world, args);
+        assert_eq!(out.code, 3, "{args:?} read an interrupted write");
+        assert!(
+            out.stderr.contains("pending"),
+            "{args:?} must name the pending write: {}",
+            out.stderr
+        );
+    }
+}

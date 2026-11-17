@@ -698,7 +698,6 @@ pub fn read_tree_coherent(tree_root: &Path, state_dir: &Path) -> Result<Tree, Wo
     let init_marker = state_dir.join(".init");
     let store_lock = state_dir.join("store.lock");
     let pending_path = state_dir.join("pending.toml");
-    let gen_path = state_dir.join("generation");
 
     loop {
         if !state_dir.exists() {
@@ -755,17 +754,12 @@ pub fn read_tree_coherent(tree_root: &Path, state_dir: &Path) -> Result<Tree, Wo
             continue;
         }
 
+        // The shared lease excludes a writer, and `acquire_read_lease` has refused a pending
+        // write, so the tree read here is a complete generation. It may differ from the
+        // committed marker only by a hand edit made since the last journaled write, which a
+        // reader accepts: the returned tree carries its own generation hash.
         let lease = acquire_read_lease(tree_root, state_dir)?;
         let tree = crate::io::tree::read_tree(tree_root)?;
-        if gen_path.exists() {
-            let actual_gen = tree.generation_hash();
-            if &actual_gen != lease.generation_hash() {
-                return Err(WorldError::new(
-                    &gen_path,
-                    "store generation does not match committed generation marker",
-                ));
-            }
-        }
         drop(lease);
         return Ok(tree);
     }
