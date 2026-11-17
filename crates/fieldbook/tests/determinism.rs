@@ -17,7 +17,7 @@ use fieldbook::io::journal::Journal;
 use fieldbook_core::audit::Via;
 
 use support::faulty::{Fault, FaultyWorld};
-use support::world::TestWorld;
+use support::world::{ForwardingWorld, TestWorld};
 
 const ADR_0001: &str = include_str!("../../../docs/decisions/0001-foundation.md");
 
@@ -239,4 +239,9 @@ fn world_store_ids() {
 
     let faulty = FaultyWorld::new(TestWorld::new(tmp.path()), Fault::BrokenPrompt);
     assert_eq!(faulty.store_id(), "memory@0");
+
+    // A wrapper is no store of its own: it reports the store of the world it wraps rather than
+    // a default of its own.
+    assert_eq!(ForwardingWorld::new(&test_world).store_id(), "memory@0");
+    assert_eq!(ForwardingWorld::new(&disk).store_id(), "folder@1");
 }

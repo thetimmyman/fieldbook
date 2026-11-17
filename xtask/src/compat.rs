@@ -530,6 +530,22 @@ pub fn parse_published(toml_str: &str) -> Result<Published, String> {
     Ok(published)
 }
 
+/// Whether a template contract declares `synthetic = true` for `template_id`.
+///
+/// The flag is honoured only for ids absent from the compiled-in `TEMPLATES`; a live id with the
+/// flag is refused (`compatibility.md#published-manifest`).
+fn synthetic_template_contract(template_id: &str, contract_text: &str) -> Result<bool, String> {
+    let flagged = contract_text
+        .lines()
+        .any(|l| l.trim() == "synthetic = true");
+    if flagged && fieldbook_core::ports::templates::Template::new(template_id).is_ok() {
+        return Err(format!(
+            "template binding `{template_id}` is a live template; its contract must not set `synthetic = true`"
+        ));
+    }
+    Ok(flagged)
+}
+
 fn is_valid_tool_tag(tag: &str) -> bool {
     ToolRelease::parse(tag).is_ok()
 }
@@ -1369,10 +1385,7 @@ fn run_vector(
                 let contract_bytes = read_non_symlink_bytes(root, &contract_file.path)?;
                 let contract_text = std::str::from_utf8(&contract_bytes)
                     .map_err(|e| format!("binding `{}` contract is not UTF-8: {e}", binding.id))?;
-                if contract_text
-                    .lines()
-                    .any(|l| l.trim() == "synthetic = true")
-                {
+                if synthetic_template_contract(&binding.id.id, contract_text)? {
                     let table: toml::Table = toml::from_str(input_str).map_err(|e| {
                         format!(
                             "binding `{}` case `{case_id}` invalid template input TOML: {e}",
@@ -1498,20 +1511,15 @@ fn check_binding_vectors(
             }
         } else {
             let is_synthetic = if binding.runner == RunnerKind::Template {
-                if let Some(contract_file) =
-                    binding.files.iter().find(|f| f.role == FileRole::Contract)
-                {
-                    if let Ok(c_bytes) = file_loader(&contract_file.path) {
-                        if let Ok(c_text) = std::str::from_utf8(&c_bytes) {
-                            c_text.lines().any(|l| l.trim() == "synthetic = true")
-                        } else {
-                            false
-                        }
-                    } else {
-                        false
-                    }
-                } else {
-                    false
+                match binding.files.iter().find(|f| f.role == FileRole::Contract) {
+                    Some(contract_file) => match file_loader(&contract_file.path) {
+                        Ok(c_bytes) => match std::str::from_utf8(&c_bytes) {
+                            Ok(c_text) => synthetic_template_contract(&binding.id.id, c_text)?,
+                            Err(_) => false,
+                        },
+                        Err(_) => false,
+                    },
+                    None => false,
                 }
             } else {
                 false
@@ -1849,9 +1857,26 @@ pub(crate) mod rng;
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn synthetic_contract_for_a_live_template_id_is_refused() {
+        let err = synthetic_template_contract("ask@1", "kind = \"template\"\nsynthetic = true\n")
+            .expect_err("live template id must refuse synthetic");
+        assert!(err.contains("ask@1"), "{err}");
+    }
+
+    #[test]
+    fn synthetic_contract_for_an_absent_template_id_is_honoured() {
+        let c = "kind = \"template\"\nsynthetic = true\n";
+        assert_eq!(synthetic_template_contract("ask-answer@1", c), Ok(true));
+        assert_eq!(
+            synthetic_template_contract("ask@1", "kind = \"template\"\n"),
+            Ok(false)
+        );
+    }
+
     use std::panic::{AssertUnwindSafe, catch_unwind};
 
-    use super::{parse_baselines, parse_published, rng};
+    use super::{parse_baselines, parse_published, rng, synthetic_template_contract};
 
     const VALID_PUBLISHED: &str = include_str!("../../compat/published.toml");
     const VALID_EMPTY_BASELINE: &str = include_str!("../../release-baseline.toml");

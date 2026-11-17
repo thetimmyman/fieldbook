@@ -4,16 +4,19 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Fixed: a `synthetic = true` template contract is refused for a live template id, and the registry-id check also covers the ID cells of the generated ports tables and the template ids.
 - Added: search records each question in the question log.
 - Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: the fmt command.
 - Changed: `check`, `search`, `status` and `fmt --check` read a Corpus edited by hand after a journaled write, where they refused it with exit 3.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
+- Changed: every world names its store id, so a test double or a wrapper can no longer report itself as the folder store by default.
 - Added: the Company profile, Competitors and Programs view pages.
 - Fixed: backup records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest.
 - Changed: a printed page's footer shows the page id, not its route.
 - Changed: backup holds one file in memory at a time.
+- Added: source pages link to the official location and to each cited section.
 - Added: the status command.
 - Changed: `cargo xtask extract` proposes a locator only for a label that looks like a section number, so a line that opens with `Section` or `§` and continues in prose proposes nothing.
 - Changed: an extraction of more than 9,999 pages is refused with one message for every extractor, and supplied text that holds a non-public `handling` line is refused before any page is written.
