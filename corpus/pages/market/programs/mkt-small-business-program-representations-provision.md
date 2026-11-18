@@ -25,7 +25,7 @@ Shows what the small business program representations provision asks an offeror 
 | Instrument | Codified FAR [@CL-MKT-0806] |
 | Codified citation | FAR 52.219-1 [@CL-MKT-0806; @CL-MKT-0809] |
 | RFO citation | RFO FAR 52.219-1 [@CL-MKT-1166; @CL-MKT-1171] |
-| Edition date | Not established. |
+| Edition date | FEB 2024 (codified) [@CL-MKT-9436]; Mar 2023 (Alternate II) [@CL-MKT-1172] |
 | Text status | Final [@CL-MKT-0806] |
 | Applies to | Offerors that make the representations as part of their offers [@CL-MKT-0808] |
 
@@ -56,6 +56,7 @@ Which legal entities make offers under this provision, and who confirms size and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: size-standard and representation alternatives; consequences all apply.

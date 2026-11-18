@@ -2,6 +2,7 @@
 
 use std::ffi::{OsStr, OsString, c_void};
 use std::os::windows::ffi::{OsStrExt, OsStringExt};
+use std::os::windows::io::AsRawHandle as _;
 use std::path::{Component, Path, PathBuf, Prefix};
 use std::ptr;
 
@@ -24,8 +25,9 @@ use windows_sys::Win32::Storage::CloudFilters::{
 };
 use windows_sys::Win32::Storage::FileSystem::{
     DELETE, FILE_APPEND_DATA, FILE_ATTRIBUTE_NOT_CONTENT_INDEXED, FILE_ATTRIBUTE_REPARSE_POINT,
-    FILE_WRITE_DATA, GetDriveTypeW, GetFileAttributesW, GetVolumePathNameW,
-    INVALID_FILE_ATTRIBUTES, SetFileAttributesW, WRITE_DAC, WRITE_OWNER,
+    FILE_NAME_NORMALIZED, FILE_WRITE_DATA, GetDriveTypeW, GetFileAttributesW,
+    GetFinalPathNameByHandleW, GetVolumePathNameW, INVALID_FILE_ATTRIBUTES, SetFileAttributesW,
+    VOLUME_NAME_DOS, WRITE_DAC, WRITE_OWNER,
 };
 use windows_sys::Win32::System::Com::CoTaskMemFree;
 use windows_sys::Win32::System::RemoteDesktop::{
@@ -601,4 +603,47 @@ pub(crate) fn mark_not_indexed(path: &Path) -> Result<(), WinError> {
         return Err(last_error("SetFileAttributesW"));
     }
     Ok(())
+}
+
+#[expect(
+    clippy::disallowed_types,
+    reason = "the final path is read from an open file handle, never from a pathname"
+)]
+pub(crate) fn final_path(file: &std::fs::File) -> Result<PathBuf, WinError> {
+    let handle: HANDLE = file.as_raw_handle();
+    let mut buf: Vec<u16> = vec![0; 512];
+    // The first call reports the size it needs when `buf` is too small; one retry suffices
+    // unless the object is renamed in between, so give up after a few attempts.
+    for _ in 0..4 {
+        let cap = u32::try_from(buf.len()).map_err(|_| WinError {
+            call: "GetFinalPathNameByHandleW",
+            code: ERROR_INSUFFICIENT_BUFFER,
+        })?;
+        // SAFETY: `handle` is borrowed from `file`, which stays open for the whole call, and
+        // `buf` is a writable buffer of exactly `cap` UTF-16 units.
+        let got = unsafe {
+            GetFinalPathNameByHandleW(
+                handle,
+                buf.as_mut_ptr(),
+                cap,
+                FILE_NAME_NORMALIZED | VOLUME_NAME_DOS,
+            )
+        };
+        if got == 0 {
+            return Err(last_error("GetFinalPathNameByHandleW"));
+        }
+        let len = usize::try_from(got).map_err(|_| WinError {
+            call: "GetFinalPathNameByHandleW",
+            code: ERROR_INSUFFICIENT_BUFFER,
+        })?;
+        if len < buf.len() {
+            buf.truncate(len);
+            return Ok(PathBuf::from(OsString::from_wide(&buf)));
+        }
+        buf.resize(len, 0);
+    }
+    Err(WinError {
+        call: "GetFinalPathNameByHandleW",
+        code: ERROR_INSUFFICIENT_BUFFER,
+    })
 }

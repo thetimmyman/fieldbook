@@ -1578,8 +1578,12 @@ pub(crate) mod tests {
 
     pub(crate) fn commit_all(dir: &Path) {
         git(dir, &["add", "-A"]);
+        // Fixture repositories are copied immediately after this commit. Keep Git's
+        // background maintenance from racing the copy through transient lock files.
         let out = std::process::Command::new("git")
             .args([
+                "-c",
+                "maintenance.auto=false",
                 "-c",
                 "user.name=Test Owner",
                 "-c",

@@ -24,7 +24,7 @@ Explains when orders are set aside for small business concerns under this clause
 | Instrument | Codified FAR [@CL-MKT-1116] |
 | Codified citation | FAR 52.219-13 and its Alternate I [@CL-MKT-1116; @CL-MKT-1119] |
 | RFO citation | RFO FAR 52.219-13 [@CL-MKT-1161]; Alternate I: No RFO equivalent [@CL-MKT-1164] |
-| Edition date | Not established. |
+| Edition date | Mar 2020 (basic) [@CL-MKT-1161]; Mar 2020 (Alternate I) [@CL-MKT-1164] |
 | Text status | Final [@CL-MKT-1116] |
 | Applies to | Orders set aside for the small business concerns identified in FAR 19.000(a)(3) [@CL-MKT-1116; @CL-MKT-1118] |
 
@@ -55,6 +55,7 @@ Which orders and contracts sit inside the finance remit, so a set-aside notice i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: clause concerns wording.

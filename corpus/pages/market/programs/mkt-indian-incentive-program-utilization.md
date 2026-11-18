@@ -24,7 +24,7 @@ Explains, from the clause text, the contractor's duty to use best efforts to giv
 | Instrument | Codified FAR [@CL-MKT-1017] |
 | Codified citation | FAR 52.226-1 [@CL-MKT-1017] |
 | RFO citation | RFO FAR 52.226-1 [@CL-MKT-0177; @CL-MKT-0186] |
-| Edition date | Not established. |
+| Edition date | JUN 2000 [@CL-MKT-9430] |
 | Text status | Final [@CL-MKT-1017] |
 | Applies to | The subcontracts the contractor awards [@CL-MKT-1022] |
 
@@ -55,6 +55,7 @@ Which subcontract awards in the finance remit could carry an adjustment, and who
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the parenthetical corporations in the Indian tribe definition and removed unquoted commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: BIA office address claims added, good faith reliance wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

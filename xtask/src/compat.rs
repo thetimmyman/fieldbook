@@ -846,6 +846,27 @@ struct ScriptCaseInput {
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
+struct StagedCaseInput {
+    original_hex: String,
+    #[serde(default)]
+    extraction_toml: Option<String>,
+    #[serde(default)]
+    pages: BTreeMap<String, String>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct AdmitCaseInput {
+    proposal_toml: String,
+    today: String,
+    #[serde(default)]
+    existing_sha256: Option<String>,
+    #[serde(default)]
+    verified: Option<StagedCaseInput>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct AuthzCaseInput {
     #[serde(default)]
     groups: BTreeMap<String, toml::Value>,
@@ -1123,6 +1144,193 @@ fn run_vector(
                         Err(fieldbook_core::extraction::ExtractError::ToolFailed { status }) => {
                             format!("refuse tool-failed:{status}\n")
                         }
+                        Err(fieldbook_core::extraction::ExtractError::Missing(what)) => {
+                            format!("refuse missing:{what}\n")
+                        }
+                    }
+                }
+                ("extractor", "staged@1") => {
+                    let parsed: StagedCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid staged input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let raw_bytes = decode_hex(&parsed.original_hex).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid hex in input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let page_files: BTreeMap<String, Vec<u8>> = parsed
+                        .pages
+                        .into_iter()
+                        .map(|(k, v)| (k, v.into_bytes()))
+                        .collect();
+                    match fieldbook::io::versions::staged_v1::verify_staged(
+                        &raw_bytes,
+                        parsed.extraction_toml.as_deref().map(str::as_bytes),
+                        page_files,
+                    ) {
+                        Ok(verified) => {
+                            let ext = verified.extraction();
+                            let mut out = format!("ok\nmethod {}\n", ext.method);
+                            for page in &ext.pages {
+                                out.push_str(&format!("page {}\n", page.number));
+                                out.push_str(&page.text);
+                                if !page.text.ends_with('\n') {
+                                    out.push('\n');
+                                }
+                            }
+                            out
+                        }
+                        Err(fieldbook_core::extraction::ExtractError::Missing(what)) => {
+                            format!("refuse missing:{what}\n")
+                        }
+                        Err(other) => format!("refuse {other}\n"),
+                    }
+                }
+                ("admit", "corpus-add@1") => {
+                    let parsed: AdmitCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid admit input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let today = fieldbook_core::date::CivilDate::parse(parsed.today.trim())
+                        .map_err(|e| {
+                            format!(
+                                "binding `{}` case `{case_id}` invalid today date: {e}",
+                                binding.id
+                            )
+                        })?;
+                    let mut tree = fieldbook_core::check::Tree::new();
+                    tree.insert_dir("corpus");
+                    tree.insert_dir("corpus/registers");
+                    tree.insert_bytes(
+                        "corpus/corpus.toml",
+                        include_bytes!("../../tests/fixtures/corpus-mini/corpus/corpus.toml")
+                            .to_vec(),
+                    );
+                    for reg in fieldbook_core::schema::Register::ALL {
+                        let header = reg
+                            .columns()
+                            .iter()
+                            .map(|c| c.name)
+                            .collect::<Vec<_>>()
+                            .join(",");
+                        let mut content = format!("{header}\n");
+                        if reg == fieldbook_core::schema::Register::Sources
+                            && let Some(existing_sha) = &parsed.existing_sha256
+                        {
+                            content.push_str(&format!(
+                                "S-0001,1,synthetic-tag,Synthetic Baseline,Synthetic Publisher,synthetic_fixture,primary_evidence,A,Synthetic CC0-1.0,,,S-0001-v1.txt,{existing_sha},,,2026-01-01,{today},active,,V2,public,,,,,,,\n"
+                            ));
+                        }
+                        tree.insert_bytes(
+                            format!("corpus/registers/{}", reg.file_name()),
+                            content.into_bytes(),
+                        );
+                    }
+                    let (model, _) = fieldbook_core::check::load(
+                        &fieldbook_core::check::Host::new(tree, today),
+                        &fieldbook_core::check::Options::new(false),
+                    );
+                    let view = fieldbook_core::pipeline::CorpusView::from_model(&model);
+                    let proposal =
+                        fieldbook_core::pipeline::Proposal::parse("P-0001", &parsed.proposal_toml)
+                            .map_err(|e| {
+                                format!(
+                                    "binding `{}` case `{case_id}` invalid proposal: {e}",
+                                    binding.id
+                                )
+                            })?;
+                    let verified = if let Some(staged) = parsed.verified {
+                        let raw_bytes = decode_hex(&staged.original_hex).map_err(|e| {
+                            format!(
+                                "binding `{}` case `{case_id}` invalid verified hex: {e}",
+                                binding.id
+                            )
+                        })?;
+                        let page_files: BTreeMap<String, Vec<u8>> = staged
+                            .pages
+                            .into_iter()
+                            .map(|(k, v)| (k, v.into_bytes()))
+                            .collect();
+                        let v = fieldbook::io::versions::staged_v1::verify_staged(
+                            &raw_bytes,
+                            staged.extraction_toml.as_deref().map(str::as_bytes),
+                            page_files,
+                        )
+                        .map_err(|e| {
+                            format!(
+                                "binding `{}` case `{case_id}` staged verification failed: {e}",
+                                binding.id
+                            )
+                        })?;
+                        Some(v)
+                    } else {
+                        None
+                    };
+                    match fieldbook_core::versions::corpus_add_v1::plan(
+                        &proposal,
+                        &fieldbook_core::pipeline::Edits::default(),
+                        &view,
+                        verified.as_ref(),
+                    ) {
+                        Ok(fieldbook_core::pipeline::AdmitOutcome::Planned { files, affected }) => {
+                            let mut out = format!("planned\nfiles {}\n", files.len());
+                            for item in affected {
+                                out.push_str(&format!("affected {}\n", item.id));
+                            }
+                            for pw in files {
+                                match &pw.source {
+                                    fieldbook_core::pipeline::WriteSource::Inbox => {
+                                        out.push_str(&format!(
+                                            "file {} {} inbox\n",
+                                            pw.file.path, pw.file.sha256
+                                        ));
+                                    }
+                                    fieldbook_core::pipeline::WriteSource::Staging(rel) => {
+                                        out.push_str(&format!(
+                                            "file {} {} staging:{rel}\n",
+                                            pw.file.path, pw.file.sha256
+                                        ));
+                                    }
+                                    fieldbook_core::pipeline::WriteSource::Rendered(bytes) => {
+                                        out.push_str(&format!(
+                                            "file {} {} rendered:{}\n",
+                                            pw.file.path,
+                                            pw.file.sha256,
+                                            bytes.len()
+                                        ));
+                                        match std::str::from_utf8(bytes) {
+                                            Ok(text) => {
+                                                out.push_str(text);
+                                                if !text.ends_with('\n') {
+                                                    out.push('\n');
+                                                }
+                                            }
+                                            Err(_) => {
+                                                for b in bytes {
+                                                    out.push_str(&format!("{b:02x}"));
+                                                }
+                                                out.push('\n');
+                                            }
+                                        }
+                                        out.push_str("end-rendered\n");
+                                    }
+                                }
+                            }
+                            out
+                        }
+                        Ok(fieldbook_core::pipeline::AdmitOutcome::Present { id }) => {
+                            format!("present {id}\n")
+                        }
+                        Err(fieldbook_core::pipeline::AdmitError::KindNotBuilt(k)) => {
+                            format!("refuse kind-not-built:{}\n", k.as_str())
+                        }
+                        Err(e) => format!("refuse {e}\n"),
                     }
                 }
                 ("extractor", "pdftotext-layout@1") => {
@@ -1954,6 +2162,38 @@ archive_manifest_sha256 = "fedcba9876543210fedcba9876543210fedcba9876543210fedcb
             "parse_baselines",
             &[VALID_EMPTY_BASELINE, VALID_RELEASE_BASELINE],
             parse_baselines,
+        );
+    }
+
+    #[test]
+    fn admit_compat_runner_detects_rendered_byte_and_hash_drift() {
+        let root = crate::proc::repo_root();
+        let published = parse_published(VALID_PUBLISHED).unwrap_or_else(|e| panic!("{e}"));
+        let binding = published
+            .bindings
+            .iter()
+            .find(|b| b.id.id == "corpus-add@1")
+            .unwrap_or_else(|| panic!("corpus-add@1 binding missing"));
+
+        let c1_in =
+            super::read_non_symlink_bytes(&root, "compat/adapter/admit/corpus-add@1/c1.in.toml")
+                .unwrap_or_else(|e| panic!("{e}"));
+        let c1_expected =
+            std::fs::read_to_string(root.join("compat/adapter/admit/corpus-add@1/c1.out.txt"))
+                .unwrap_or_else(|e| panic!("{e}"));
+
+        let actual =
+            super::run_vector(&root, binding, "c1", &c1_in).unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(actual, c1_expected);
+
+        let drifted_in = String::from_utf8_lossy(&c1_in)
+            .replace("Synthetic Compat Title", "Synthetic Drifted Title")
+            .into_bytes();
+        let drifted_out =
+            super::run_vector(&root, binding, "c1", &drifted_in).unwrap_or_else(|e| panic!("{e}"));
+        assert_ne!(
+            drifted_out, c1_expected,
+            "changing rendered sources.csv content must change corpus-add@1 compat output"
         );
     }
 }

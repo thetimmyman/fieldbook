@@ -8,8 +8,8 @@ use std::collections::BTreeSet;
 use fieldbook_core::check::Code;
 use fieldbook_render::csp::CSP_STATIC;
 use fieldbook_render::lint::{
-    APP_JS, ASSIST_JS, DATA_FILE, OriginalNames, SCRIPTS_TOTAL, SEARCH_INDEX, SEARCH_JS, lint,
-    scan_html,
+    APP_JS, ASSIST_JS, DATA_FILE, DAY_JS, OriginalNames, SCRIPTS_TOTAL, SEARCH_INDEX, SEARCH_JS,
+    lint, scan_html,
 };
 use fieldbook_render::site::Site;
 
@@ -387,6 +387,36 @@ mod site_lints {
         let other_diags = lint(&site_other_js, &OriginalNames::default());
         assert_eq!(other_diags.len(), 1);
         assert_eq!(other_diags[0].code, Code::Fb0605);
+    }
+
+    #[test]
+    fn day_js_passes_at_its_cap_and_fails_one_byte_over() {
+        assert_eq!(DAY_JS, 4_000);
+        let doc = CORPUS_FORMAT_MD
+            .lines()
+            .find(|l| l.starts_with("| FB0605 |"))
+            .unwrap_or_else(|| panic!("FB0605 row missing from corpus-format.md"));
+        assert!(
+            doc.contains("day.js, is a script of its own with a cap of 4,000 bytes"),
+            "FB0605 row must name day.js and its cap"
+        );
+        let cap = usize::try_from(DAY_JS).unwrap_or(4_000);
+
+        let mut at_cap = clean_site();
+        at_cap.insert("assets/day.js", vec![b'x'; cap]);
+        let diags = lint(&at_cap, &OriginalNames::default());
+        assert!(
+            diags.is_empty(),
+            "day.js at its cap must pass, got {diags:?}"
+        );
+
+        // Negative control: one byte over the cap fails with FB0605 on day.js.
+        let mut over = clean_site();
+        over.insert("assets/day.js", vec![b'x'; cap + 1]);
+        let diags = lint(&over, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "{diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0605);
+        assert!(diags[0].message.contains("assets/day.js"));
     }
 
     #[test]

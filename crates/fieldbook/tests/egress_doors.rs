@@ -16,7 +16,8 @@ use std::time::Duration;
 
 use fieldbook::io::atomic::{write_in_root, write_outside};
 use fieldbook::io::journal::{
-    JournalError, acquire_read_lease, set_lock_timeout_for_test, set_write_pause_hook,
+    AtomicStage, JournalError, acquire_read_lease, set_atomic_stage_hook,
+    set_lock_timeout_for_test, set_write_pause_hook,
 };
 use fieldbook::io::state;
 use fieldbook::{Error, World};
@@ -1045,4 +1046,798 @@ fn failed_state_scope_acquisition_cannot_write() {
     );
     std::fs::write(&seg_path, &valid_journal).unwrap_or_else(|e| panic!("{e}"));
     assert!(!state_dir.join("should-not-exist.bin").exists());
+}
+
+#[cfg(unix)]
+#[test]
+fn write_outside_rejects_post_binding_symlink_swap() {
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+
+    let dest_tmp = tempfile::tempdir().unwrap();
+    let folder = dest_tmp.path().join("folder");
+    std::fs::create_dir_all(&folder).unwrap();
+
+    let elsewhere_tmp = tempfile::tempdir().unwrap();
+    let existing_outside = elsewhere_tmp.path().join("existing.txt");
+    std::fs::write(&existing_outside, b"untouched\n").unwrap();
+
+    let target_existing = folder.join("existing.txt");
+    let target_nested = folder.join("new_dir/escaped.txt");
+    let payload = b"overwritten\n";
+    let payload_sha = Sha256::digest(payload);
+
+    let delivery = Delivery {
+        entries: vec![
+            Transfer::write_path(target_existing.clone(), payload),
+            Transfer::write_path(target_nested.clone(), payload),
+        ],
+        markings: None,
+    };
+    let Decision::Allowed(allowed) = check(
+        &floor_a_effective(),
+        &Dest::Export {
+            path: dest_tmp.path().to_string_lossy().into_owned(),
+        },
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        default_now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected Allowed");
+    };
+
+    let ws = WriteSet {
+        labels: LabelSet::public(),
+        files: vec![
+            WriteFile::new("folder/existing.txt", payload_sha.as_str().to_owned()),
+            WriteFile::new(
+                "folder/new_dir/escaped.txt",
+                payload_sha.as_str().to_owned(),
+            ),
+        ],
+        affected: vec![RecordRef::parse("corpus/S-0001").unwrap_or_else(|e| panic!("{e}"))],
+    };
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("context", &ws, &allowed, dest_tmp.path())
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // 1. Directory component swapped for a symlink after `egress::check` issued `Allowed`.
+    std::fs::remove_dir(&folder).unwrap();
+    std::os::unix::fs::symlink(elsewhere_tmp.path(), &folder).unwrap();
+
+    let res_swap_existing = write_outside(&allowed, &target_existing, payload, &audited);
+    assert!(
+        matches!(res_swap_existing, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when parent directory was swapped for a symlink after binding, got {res_swap_existing:?}"
+    );
+    assert_eq!(
+        std::fs::read(&existing_outside).unwrap(),
+        b"untouched\n",
+        "existing outside file must remain untouched after post-binding symlink swap"
+    );
+
+    let res_swap_nested = write_outside(&allowed, &target_nested, payload, &audited);
+    assert!(
+        matches!(res_swap_nested, Err(Error::OutOfScope(_))),
+        "expected OutOfScope for nested target under swapped symlink parent, got {res_swap_nested:?}"
+    );
+    assert!(
+        !elsewhere_tmp.path().join("new_dir").exists(),
+        "no outside directory may be created under swapped symlink parent"
+    );
+
+    // Passing the symlink target path directly must also fail (bound_path must not re-resolve through the symlink).
+    let res_direct_elsewhere = write_outside(&allowed, &existing_outside, payload, &audited);
+    assert!(
+        matches!(res_direct_elsewhere, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when addressing symlink target directly, got {res_direct_elsewhere:?}"
+    );
+    assert_eq!(
+        std::fs::read(&existing_outside).unwrap(),
+        b"untouched\n",
+        "existing outside file must remain untouched"
+    );
+
+    // 2. Final file component replaced with a symlink (live or dangling) inside a real folder.
+    std::fs::remove_file(&folder).unwrap();
+    std::fs::create_dir_all(&folder).unwrap();
+    std::os::unix::fs::symlink(&existing_outside, &target_existing).unwrap();
+
+    let res_sym_file = write_outside(&allowed, &target_existing, payload, &audited);
+    assert!(
+        matches!(res_sym_file, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when target file is a symlink, got {res_sym_file:?}"
+    );
+    assert_eq!(
+        std::fs::read(&existing_outside).unwrap(),
+        b"untouched\n",
+        "existing outside file must remain untouched when target file is a symlink"
+    );
+    std::fs::remove_file(&target_existing).unwrap();
+
+    // 2b. Dangling symlink at the final file component inside a real folder.
+    let dangling_dest = elsewhere_tmp.path().join("does-not-exist.txt");
+    std::os::unix::fs::symlink(&dangling_dest, &target_existing).unwrap();
+    let res_dangling_file = write_outside(&allowed, &target_existing, payload, &audited);
+    assert!(
+        matches!(res_dangling_file, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when target file is a dangling symlink, got {res_dangling_file:?}"
+    );
+    assert!(
+        !dangling_dest.exists(),
+        "dangling symlink target must not be created"
+    );
+    std::fs::remove_file(&target_existing).unwrap();
+
+    // 3. TOCTOU swap during `set_write_pause_hook` between `check_outside_write_binding` and `write_atomic`.
+    let folder_for_hook = folder.clone();
+    let elsewhere_for_hook = elsewhere_tmp.path().to_path_buf();
+    set_write_pause_hook(Some(Arc::new(move |_resolved| {
+        let _ = std::fs::remove_dir(&folder_for_hook);
+        let _ = std::os::unix::fs::symlink(&elsewhere_for_hook, &folder_for_hook);
+    })));
+    let res_hook_swap = write_outside(&allowed, &target_existing, payload, &audited);
+    set_write_pause_hook(None);
+    assert!(
+        matches!(res_hook_swap, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when parent directory is swapped during write pause hook, got {res_hook_swap:?}"
+    );
+    assert_eq!(
+        std::fs::read(&existing_outside).unwrap(),
+        b"untouched\n",
+        "existing outside file must remain untouched when parent is swapped during pause window"
+    );
+
+    // 4. TOCTOU swap during `BeforeMkdir` (ancestor `folder` replaced with a symlink right before creating `new_dir`).
+    std::fs::remove_file(&folder).unwrap();
+    std::fs::create_dir_all(&folder).unwrap();
+    let moved_mkdir = dest_tmp.path().join("folder_moved_mkdir");
+    let folder_mkdir = folder.clone();
+    let moved_mkdir_cl = moved_mkdir.clone();
+    let elsewhere_mkdir = elsewhere_tmp.path().to_path_buf();
+    set_atomic_stage_hook(Some(Arc::new(move |stage, _path| {
+        if stage == AtomicStage::BeforeMkdir {
+            let _ = std::fs::rename(&folder_mkdir, &moved_mkdir_cl);
+            let _ = std::os::unix::fs::symlink(&elsewhere_mkdir, &folder_mkdir);
+        }
+    })));
+    let res_mkdir_swap = write_outside(&allowed, &target_nested, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        matches!(res_mkdir_swap, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when ancestor is swapped before mkdir, got {res_mkdir_swap:?}"
+    );
+    assert!(
+        !elsewhere_tmp.path().join("new_dir").exists(),
+        "mkdir must not follow a swapped ancestor symlink into elsewhere"
+    );
+    let _ = std::fs::remove_file(&folder);
+    let _ = std::fs::remove_dir_all(&moved_mkdir);
+    std::fs::create_dir_all(&folder).unwrap();
+
+    // 5. TOCTOU swap during `BeforeTmpOpen` (parent `folder` replaced with a symlink after directory validation and before temporary-file open).
+    let moved_tmpopen = dest_tmp.path().join("folder_moved_tmpopen");
+    let folder_tmpopen = folder.clone();
+    let moved_tmpopen_cl = moved_tmpopen.clone();
+    let elsewhere_tmpopen = elsewhere_tmp.path().to_path_buf();
+    set_atomic_stage_hook(Some(Arc::new(move |stage, _path| {
+        if stage == AtomicStage::BeforeTmpOpen {
+            let _ = std::fs::rename(&folder_tmpopen, &moved_tmpopen_cl);
+            let _ = std::os::unix::fs::symlink(&elsewhere_tmpopen, &folder_tmpopen);
+        }
+    })));
+    let res_tmpopen_swap = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        matches!(res_tmpopen_swap, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when parent is swapped before temp open, got {res_tmpopen_swap:?}"
+    );
+    let outside_entries_after_tmpopen: Vec<String> = std::fs::read_dir(elsewhere_tmp.path())
+        .unwrap()
+        .map(|e| e.unwrap().file_name().to_string_lossy().into_owned())
+        .collect();
+    assert_eq!(
+        outside_entries_after_tmpopen,
+        vec!["existing.txt".to_owned()],
+        "temp open must never write a temporary file into the swapped symlink target"
+    );
+    let _ = std::fs::remove_file(&folder);
+    let _ = std::fs::remove_dir_all(&moved_tmpopen);
+    std::fs::create_dir_all(&folder).unwrap();
+
+    // 6. TOCTOU swap during `BeforeRename` (parent `folder` replaced with a symlink or target replaced with a dangling symlink right before rename).
+    let moved_rename = dest_tmp.path().join("folder_moved_rename");
+    let folder_rename = folder.clone();
+    let moved_rename_cl = moved_rename.clone();
+    let elsewhere_rename = elsewhere_tmp.path().to_path_buf();
+    set_atomic_stage_hook(Some(Arc::new(move |stage, _path| {
+        if stage == AtomicStage::BeforeRename {
+            let _ = std::fs::rename(&folder_rename, &moved_rename_cl);
+            let _ = std::os::unix::fs::symlink(&elsewhere_rename, &folder_rename);
+        }
+    })));
+    let res_rename_swap = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        matches!(res_rename_swap, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when parent is swapped before rename, got {res_rename_swap:?}"
+    );
+    assert_eq!(
+        std::fs::read(&existing_outside).unwrap(),
+        b"untouched\n",
+        "existing outside file must remain untouched when parent is swapped before rename"
+    );
+    let moved_rename_entries: Vec<String> = std::fs::read_dir(&moved_rename)
+        .unwrap()
+        .map(|e| e.unwrap().file_name().to_string_lossy().into_owned())
+        .collect();
+    assert!(
+        moved_rename_entries.is_empty(),
+        "owned temporary file in original bound directory must be cleaned up on rename abort, found {moved_rename_entries:?}"
+    );
+    let _ = std::fs::remove_file(&folder);
+    let _ = std::fs::remove_dir_all(&moved_rename);
+    std::fs::create_dir_all(&folder).unwrap();
+
+    // 6b. Target replaced with a dangling symlink during `BeforeRename`.
+    let target_for_dangling_rename = target_existing.clone();
+    let dangling_rename_dest = elsewhere_tmp.path().join("dangling-rename-target.txt");
+    let dangling_rename_dest_cl = dangling_rename_dest.clone();
+    set_atomic_stage_hook(Some(Arc::new(move |stage, _path| {
+        if stage == AtomicStage::BeforeRename {
+            let _ =
+                std::os::unix::fs::symlink(&dangling_rename_dest_cl, &target_for_dangling_rename);
+        }
+    })));
+    let res_dangling_rename = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        matches!(res_dangling_rename, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when target is replaced with a dangling symlink before rename, got {res_dangling_rename:?}"
+    );
+    assert!(!dangling_rename_dest.exists());
+    std::fs::remove_file(&target_existing).unwrap();
+
+    // 6c. Temporary file entry replaced with a foreign regular file during `BeforeRename`.
+    let replaced_rename_tmp_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let replaced_rename_holder_cl = Arc::clone(&replaced_rename_tmp_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, hook_path| {
+        if stage == AtomicStage::BeforeTmpOpen {
+            *replaced_rename_holder_cl.lock().unwrap() = Some(hook_path.to_path_buf());
+        } else if stage == AtomicStage::BeforeRename {
+            let temp_path = replaced_rename_holder_cl
+                .lock()
+                .unwrap()
+                .clone()
+                .expect("BeforeTmpOpen recorded path");
+            std::fs::rename(&temp_path, temp_path.with_extension("saved")).unwrap();
+            std::fs::write(&temp_path, b"foreign-unapproved-bytes\n").unwrap();
+        }
+    })));
+    let res_replaced_rename = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        matches!(res_replaced_rename, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when temporary entry is replaced with foreign file before rename, got {res_replaced_rename:?}"
+    );
+    assert!(
+        !target_existing.exists(),
+        "foreign temporary replacement must never be published to target"
+    );
+    let replaced_rename_tmp = replaced_rename_tmp_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeTmpOpen recorded path");
+    assert_eq!(
+        std::fs::read(&replaced_rename_tmp).unwrap(),
+        b"foreign-unapproved-bytes\n",
+        "cleanup after aborted rename must preserve the foreign replacement file at the temp path"
+    );
+    let _ = std::fs::remove_file(&replaced_rename_tmp);
+    let _ = std::fs::remove_file(replaced_rename_tmp.with_extension("saved"));
+
+    // 7. Medium finding: pre-existing temporary file (`AlreadyExists` on `create_new(true)`) must NOT be unlinked.
+    let preexisting_tmp_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let holder_cl = Arc::clone(&preexisting_tmp_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, tmp_path| {
+        if stage == AtomicStage::BeforeTmpOpen {
+            std::fs::write(tmp_path, b"foreign-temp-do-not-unlink\n").unwrap();
+            *holder_cl.lock().unwrap() = Some(tmp_path.to_path_buf());
+        }
+    })));
+    let res_already_exists = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        matches!(res_already_exists, Err(Error::Io { .. })),
+        "expected Io error when temporary file already exists, got {res_already_exists:?}"
+    );
+    let foreign_tmp = preexisting_tmp_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeTmpOpen recorded path");
+    assert_eq!(
+        std::fs::read(&foreign_tmp).unwrap(),
+        b"foreign-temp-do-not-unlink\n",
+        "cleanup must never unlink a pre-existing file that create_new(true) did not create"
+    );
+    std::fs::remove_file(&foreign_tmp).unwrap();
+
+    // 8. Medium finding: cleanup on failure after parent swap must unlink only in the bound parent dirfd, never following mutable ancestor paths.
+    let moved_cleanup = dest_tmp.path().join("folder_moved_cleanup");
+    let folder_cleanup = folder.clone();
+    let moved_cleanup_cl = moved_cleanup.clone();
+    let elsewhere_cleanup = elsewhere_tmp.path().to_path_buf();
+    let target_cleanup = target_existing.clone();
+    let canary_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let canary_cl = Arc::clone(&canary_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, hook_path| {
+        if stage == AtomicStage::BeforeRename {
+            // Place a symlink at target so post-write validation fails and triggers cleanup.
+            let _ =
+                std::os::unix::fs::symlink(elsewhere_cleanup.join("existing.txt"), &target_cleanup);
+        } else if stage == AtomicStage::BeforeCleanup {
+            let tmp_name = hook_path.file_name().unwrap();
+            let canary = elsewhere_cleanup.join(tmp_name);
+            std::fs::write(&canary, b"outside-canary-must-survive\n").unwrap();
+            *canary_cl.lock().unwrap() = Some(canary);
+            let _ = std::fs::rename(&folder_cleanup, &moved_cleanup_cl);
+            let _ = std::os::unix::fs::symlink(&elsewhere_cleanup, &folder_cleanup);
+        }
+    })));
+    let res_cleanup_swap = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        matches!(res_cleanup_swap, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when target is swapped before rename, got {res_cleanup_swap:?}"
+    );
+    let canary_path = canary_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeCleanup recorded canary");
+    assert_eq!(
+        std::fs::read(&canary_path).unwrap(),
+        b"outside-canary-must-survive\n",
+        "cleanup must unlink inside the bound directory descriptor and never follow a swapped ancestor symlink"
+    );
+    std::fs::remove_file(&canary_path).unwrap();
+    let _ = std::fs::remove_file(&folder);
+    let _ = std::fs::remove_dir_all(&moved_cleanup);
+    std::fs::create_dir_all(&folder).unwrap();
+
+    // 8b. Temporary file entry replaced with a foreign regular file in the same bound directory during `BeforeCleanup`.
+    let target_cleanup_replace = target_existing.clone();
+    let replaced_cleanup_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let replaced_cleanup_cl = Arc::clone(&replaced_cleanup_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, hook_path| {
+        if stage == AtomicStage::BeforeRename {
+            std::fs::create_dir(&target_cleanup_replace).unwrap();
+        } else if stage == AtomicStage::BeforeCleanup {
+            std::fs::rename(hook_path, hook_path.with_extension("saved")).unwrap();
+            std::fs::write(hook_path, b"foreign-cleanup-replacement-must-survive\n").unwrap();
+            *replaced_cleanup_cl.lock().unwrap() = Some(hook_path.to_path_buf());
+        }
+    })));
+    let res_cleanup_replace = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        res_cleanup_replace.is_err(),
+        "expected error when destination is a directory at rename, got {res_cleanup_replace:?}"
+    );
+    let replaced_cleanup_tmp = replaced_cleanup_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeCleanup recorded replacement path");
+    assert_eq!(
+        std::fs::read(&replaced_cleanup_tmp).unwrap(),
+        b"foreign-cleanup-replacement-must-survive\n",
+        "cleanup must preserve a foreign replacement file placed at the temporary path"
+    );
+    let _ = std::fs::remove_file(&replaced_cleanup_tmp);
+    let _ = std::fs::remove_file(replaced_cleanup_tmp.with_extension("saved"));
+    let _ = std::fs::remove_dir(&target_existing);
+
+    // 8c. A foreign sibling written in the same bound directory during cleanup survives it.
+    // The unlink-boundary race is covered by `cleanup_unlink_race_never_forges_a_copy`.
+    let target_cleanup_sibling = target_existing.clone();
+    let cleanup_tmp_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let cleanup_tmp_cl = Arc::clone(&cleanup_tmp_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, hook_path| {
+        if stage == AtomicStage::BeforeTmpOpen {
+            *cleanup_tmp_cl.lock().unwrap() = Some(hook_path.to_path_buf());
+        } else if stage == AtomicStage::BeforeRename {
+            std::fs::create_dir(&target_cleanup_sibling).unwrap();
+        } else if stage == AtomicStage::BeforeCleanup {
+            std::fs::write(
+                hook_path.parent().unwrap().join(".review-foreign"),
+                b"foreign-preserve",
+            )
+            .unwrap();
+        }
+    })));
+    let res_cleanup_sibling = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        res_cleanup_sibling.is_err(),
+        "expected error when destination is a directory at rename, got {res_cleanup_sibling:?}"
+    );
+    let cleanup_tmp_path = cleanup_tmp_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeTmpOpen recorded path");
+    let review_foreign_path = folder.join(".review-foreign");
+    let preserved_bytes =
+        std::fs::read(&review_foreign_path).expect("foreign sibling must survive cleanup");
+    assert_eq!(preserved_bytes, b"foreign-preserve");
+    assert!(
+        std::fs::symlink_metadata(&cleanup_tmp_path).is_err(),
+        "cleanup must unlink the verified owned temporary entry"
+    );
+    let _ = std::fs::remove_file(&cleanup_tmp_path);
+    let _ = std::fs::remove_file(&review_foreign_path);
+    let _ = std::fs::remove_dir(&target_existing);
+
+    // 9. Restoring `folder` as a real directory allows the bound write to succeed.
+    let sha = write_outside(&allowed, &target_existing, payload, &audited)
+        .expect("legitimate bound write_outside must succeed once folder is a real directory");
+    assert_eq!(sha, payload_sha);
+    assert_eq!(std::fs::read(&target_existing).unwrap(), payload);
+    assert_eq!(std::fs::read(&existing_outside).unwrap(), b"untouched\n");
+}
+
+/// Cleanup that loses a race at the unlink system-call boundary must not forge recovery.
+///
+/// POSIX has no unlink-by-identity call, so a replacement that lands after the cleanup
+/// identity check and before `unlink` cannot be stopped from user space. What cleanup must
+/// never do is fabricate a byte copy of the lost file: that copy is a new inode with new
+/// ownership, mode and timestamps, and it hides the loss. The entry at the temporary path is
+/// either gone or still the original inode, never a recreated stand-in.
+#[cfg(unix)]
+#[test]
+fn cleanup_unlink_race_never_forges_a_copy() {
+    use std::os::unix::fs::{MetadataExt as _, PermissionsExt as _};
+
+    let dest_tmp = tempfile::tempdir().unwrap();
+    let folder = dest_tmp.path().join("folder");
+    std::fs::create_dir_all(&folder).unwrap();
+    let target = folder.join("existing.txt");
+    let payload = b"payload\n";
+    let payload_sha = Sha256::digest(payload);
+
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let delivery = Delivery {
+        entries: vec![Transfer::write_path(target.clone(), payload)],
+        markings: None,
+    };
+    let Decision::Allowed(allowed) = check(
+        &floor_a_effective(),
+        &Dest::Export {
+            path: dest_tmp.path().to_string_lossy().into_owned(),
+        },
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        default_now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected Allowed");
+    };
+    let ws = WriteSet {
+        labels: LabelSet::public(),
+        files: vec![WriteFile::new(
+            "folder/existing.txt",
+            payload_sha.as_str().to_owned(),
+        )],
+        affected: vec![RecordRef::parse("corpus/S-0001").unwrap_or_else(|e| panic!("{e}"))],
+    };
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("context", &ws, &allowed, dest_tmp.path())
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let foreign = folder.join("foreign.dat");
+    let aside = folder.join("owned.aside");
+    let tmp_holder: Arc<std::sync::Mutex<Option<PathBuf>>> = Arc::new(std::sync::Mutex::new(None));
+    let foreign_ino: Arc<std::sync::Mutex<Option<u64>>> = Arc::new(std::sync::Mutex::new(None));
+    let (tmp_cl, ino_cl, foreign_cl, aside_cl, target_cl) = (
+        Arc::clone(&tmp_holder),
+        Arc::clone(&foreign_ino),
+        foreign.clone(),
+        aside.clone(),
+        target.clone(),
+    );
+    set_atomic_stage_hook(Some(Arc::new(move |stage, hook_path| match stage {
+        AtomicStage::BeforeTmpOpen => *tmp_cl.lock().unwrap() = Some(hook_path.to_path_buf()),
+        // A directory at the target makes the rename fail, so the guard runs cleanup.
+        AtomicStage::BeforeRename => std::fs::create_dir(&target_cl).unwrap(),
+        // A foreign sibling exists while cleanup verifies the temporary entry.
+        AtomicStage::BeforeCleanup => {
+            std::fs::write(&foreign_cl, b"foreign-bytes\n").unwrap();
+            std::fs::set_permissions(&foreign_cl, std::fs::Permissions::from_mode(0o640)).unwrap();
+            *ino_cl.lock().unwrap() = Some(std::fs::metadata(&foreign_cl).unwrap().ino());
+        }
+        // After verification, the owned entry is moved aside and the sibling takes its name.
+        AtomicStage::CleanupUnlink => {
+            std::fs::rename(hook_path, &aside_cl).unwrap();
+            std::fs::rename(&foreign_cl, hook_path).unwrap();
+        }
+        _ => {}
+    })));
+    let res = write_outside(&allowed, &target, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(
+        res.is_err(),
+        "rename onto a directory must fail, got {res:?}"
+    );
+
+    let tmp_path = tmp_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("temporary path recorded");
+    let original_ino = foreign_ino.lock().unwrap().expect("foreign inode recorded");
+    if let Ok(meta) = std::fs::symlink_metadata(&tmp_path) {
+        assert_eq!(
+            meta.ino(),
+            original_ino,
+            "cleanup recreated a byte copy at the temporary path instead of leaving the original inode"
+        );
+    }
+    assert!(
+        !foreign.exists(),
+        "the foreign file was moved onto the temporary path by the race"
+    );
+    let _ = std::fs::remove_file(&tmp_path);
+    let _ = std::fs::remove_file(&aside);
+    let _ = std::fs::remove_dir(&target);
+}
+
+#[cfg(windows)]
+#[test]
+fn write_outside_rejects_post_binding_junction_swap() {
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+
+    let dest_tmp = tempfile::tempdir().unwrap();
+    let folder = dest_tmp.path().join("folder");
+    std::fs::create_dir_all(&folder).unwrap();
+
+    let elsewhere_tmp = tempfile::tempdir().unwrap();
+    let existing_outside = elsewhere_tmp.path().join("existing.txt");
+    std::fs::write(&existing_outside, b"untouched\n").unwrap();
+
+    let target_existing = folder.join("existing.txt");
+    let target_nested = folder.join("new_dir/escaped.txt");
+    let payload = b"overwritten\n";
+    let payload_sha = Sha256::digest(payload);
+
+    let delivery = Delivery {
+        entries: vec![
+            Transfer::write_path(target_existing.clone(), payload),
+            Transfer::write_path(target_nested.clone(), payload),
+        ],
+        markings: None,
+    };
+    let Decision::Allowed(allowed) = check(
+        &floor_a_effective(),
+        &Dest::Export {
+            path: dest_tmp.path().to_string_lossy().into_owned(),
+        },
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        default_now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected Allowed");
+    };
+
+    let ws = WriteSet {
+        labels: LabelSet::public(),
+        files: vec![
+            WriteFile::new("folder/existing.txt", payload_sha.as_str().to_owned()),
+            WriteFile::new(
+                "folder/new_dir/escaped.txt",
+                payload_sha.as_str().to_owned(),
+            ),
+        ],
+        affected: vec![RecordRef::parse("corpus/S-0001").unwrap_or_else(|e| panic!("{e}"))],
+    };
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("context", &ws, &allowed, dest_tmp.path())
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // 1. Replace `folder` with a Windows directory junction (`mklink /J`) to `elsewhere_tmp`.
+    std::fs::remove_dir(&folder).unwrap();
+    let status = std::process::Command::new("cmd")
+        .args(["/C", "mklink", "/J"])
+        .arg(&folder)
+        .arg(elsewhere_tmp.path())
+        .status()
+        .expect("cmd /C mklink /J starts");
+    assert!(status.success(), "mklink /J succeeded");
+
+    let res_junction = write_outside(&allowed, &target_existing, payload, &audited);
+    assert!(
+        matches!(res_junction, Err(Error::OutOfScope(_))),
+        "expected OutOfScope when parent directory is a Windows junction, got {res_junction:?}"
+    );
+    assert_eq!(
+        std::fs::read(&existing_outside).unwrap(),
+        b"untouched\n",
+        "existing outside file must remain untouched when parent is a junction"
+    );
+
+    let res_nested_junction = write_outside(&allowed, &target_nested, payload, &audited);
+    assert!(
+        matches!(res_nested_junction, Err(Error::OutOfScope(_))),
+        "expected OutOfScope for nested path under a Windows junction, got {res_nested_junction:?}"
+    );
+    assert!(!elsewhere_tmp.path().join("new_dir").exists());
+
+    // 2. Restore real directory and verify pre-existing temp file is not unlinked on AlreadyExists.
+    std::fs::remove_dir(&folder).unwrap();
+    std::fs::create_dir_all(&folder).unwrap();
+    let preexisting_tmp_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let holder_cl = Arc::clone(&preexisting_tmp_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, tmp_path| {
+        if stage == AtomicStage::BeforeTmpOpen {
+            std::fs::write(tmp_path, b"foreign-temp-do-not-unlink\n").unwrap();
+            *holder_cl.lock().unwrap() = Some(tmp_path.to_path_buf());
+        }
+    })));
+    let res_already_exists = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(matches!(res_already_exists, Err(Error::Io { .. })));
+    let foreign_tmp = preexisting_tmp_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeTmpOpen recorded path");
+    assert_eq!(
+        std::fs::read(&foreign_tmp).unwrap(),
+        b"foreign-temp-do-not-unlink\n"
+    );
+    std::fs::remove_file(&foreign_tmp).unwrap();
+
+    // 3. Temporary entry replaced with a foreign file during `BeforeRename` must be refused.
+    let replaced_rename_tmp_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let replaced_rename_cl = Arc::clone(&replaced_rename_tmp_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, hook_path| {
+        if stage == AtomicStage::BeforeTmpOpen {
+            *replaced_rename_cl.lock().unwrap() = Some(hook_path.to_path_buf());
+        } else if stage == AtomicStage::BeforeRename {
+            let temp_path = replaced_rename_cl
+                .lock()
+                .unwrap()
+                .clone()
+                .expect("BeforeTmpOpen recorded path");
+            std::fs::rename(&temp_path, temp_path.with_extension("saved")).unwrap();
+            std::fs::write(&temp_path, b"foreign-unapproved-bytes\n").unwrap();
+        }
+    })));
+    let res_replaced_rename = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(matches!(res_replaced_rename, Err(Error::OutOfScope(_))));
+    assert!(!target_existing.exists());
+    let replaced_rename_tmp = replaced_rename_tmp_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeTmpOpen recorded path");
+    assert_eq!(
+        std::fs::read(&replaced_rename_tmp).unwrap(),
+        b"foreign-unapproved-bytes\n"
+    );
+    let _ = std::fs::remove_file(&replaced_rename_tmp);
+    let _ = std::fs::remove_file(replaced_rename_tmp.with_extension("saved"));
+
+    // 4. Temporary entry replaced with a foreign file during `BeforeCleanup` must be preserved.
+    let target_cleanup_replace = target_existing.clone();
+    let replaced_cleanup_holder: Arc<std::sync::Mutex<Option<PathBuf>>> =
+        Arc::new(std::sync::Mutex::new(None));
+    let replaced_cleanup_cl = Arc::clone(&replaced_cleanup_holder);
+    set_atomic_stage_hook(Some(Arc::new(move |stage, hook_path| {
+        if stage == AtomicStage::BeforeRename {
+            std::fs::create_dir(&target_cleanup_replace).unwrap();
+        } else if stage == AtomicStage::BeforeCleanup {
+            std::fs::rename(hook_path, hook_path.with_extension("saved")).unwrap();
+            std::fs::write(hook_path, b"foreign-cleanup-replacement-must-survive\n").unwrap();
+            *replaced_cleanup_cl.lock().unwrap() = Some(hook_path.to_path_buf());
+        }
+    })));
+    let res_cleanup_replace = write_outside(&allowed, &target_existing, payload, &audited);
+    set_atomic_stage_hook(None);
+    assert!(res_cleanup_replace.is_err());
+    let replaced_cleanup_tmp = replaced_cleanup_holder
+        .lock()
+        .unwrap()
+        .clone()
+        .expect("BeforeCleanup recorded replacement path");
+    assert_eq!(
+        std::fs::read(&replaced_cleanup_tmp).unwrap(),
+        b"foreign-cleanup-replacement-must-survive\n"
+    );
+    let _ = std::fs::remove_file(&replaced_cleanup_tmp);
+    let _ = std::fs::remove_file(replaced_cleanup_tmp.with_extension("saved"));
+    let _ = std::fs::remove_dir(&target_existing);
+
+    let sha = write_outside(&allowed, &target_existing, payload, &audited)
+        .expect("legitimate bound write_outside must succeed once folder is a real directory");
+    assert_eq!(sha, payload_sha);
+}
+
+// A destination whose ancestor grants traversal but not read: the component walk must need
+// execute permission only, and must not fail with PermissionDenied on the ancestor.
+#[cfg(unix)]
+#[test]
+fn write_outside_allows_an_execute_only_ancestor() {
+    use std::os::unix::fs::PermissionsExt as _;
+
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+
+    let holder = tempfile::tempdir().unwrap();
+    let ancestor = holder.path().join("traversal-only");
+    let dest = ancestor.join("dest");
+    std::fs::create_dir_all(&dest).unwrap();
+    std::fs::set_permissions(&ancestor, std::fs::Permissions::from_mode(0o111)).unwrap();
+
+    let target = dest.join("existing.txt");
+    let payload = b"written\n";
+    let delivery = Delivery {
+        entries: vec![Transfer::write_path(target.clone(), payload)],
+        markings: None,
+    };
+    let Decision::Allowed(allowed) = check(
+        &floor_a_effective(),
+        &Dest::Export {
+            path: dest.to_string_lossy().into_owned(),
+        },
+        Some(&LabelSet::public()),
+        Some(&delivery),
+        default_now(),
+        Shipped::Never,
+    ) else {
+        panic!("expected Allowed");
+    };
+    let ws = WriteSet {
+        labels: LabelSet::public(),
+        files: vec![WriteFile::new(
+            "existing.txt",
+            Sha256::digest(payload).as_str().to_owned(),
+        )],
+        affected: vec![RecordRef::parse("corpus/S-0001").unwrap_or_else(|e| panic!("{e}"))],
+    };
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("context", &ws, &allowed, &dest)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let result = write_outside(&allowed, &target, payload, &audited);
+    // Restore the mode before asserting, so the holder can be removed whichever way the write went.
+    std::fs::set_permissions(&ancestor, std::fs::Permissions::from_mode(0o755)).unwrap();
+
+    assert_eq!(
+        result.unwrap_or_else(|e| panic!("write beneath an execute-only ancestor: {e}")),
+        Sha256::digest(payload)
+    );
+    assert_eq!(std::fs::read(&target).unwrap(), payload);
 }

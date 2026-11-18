@@ -1,0 +1,5 @@
+ok
+method plain
+page 1
+Synthetic compat input notice for deterministic replay verification across releases.
+Line two keeps the page well above the thin-page threshold.

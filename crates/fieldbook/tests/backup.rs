@@ -2881,6 +2881,53 @@ fn one_off_verification_survives_reopen() {
     assert_eq!(age, Some(0));
 }
 
+#[cfg(unix)]
+#[test]
+fn one_off_backup_accepts_a_symlinked_target() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    let real_target = tempfile::tempdir().expect("real target");
+    let link_parent = tempfile::tempdir().expect("link parent");
+    let link = link_parent.path().join("target-link");
+    std::os::unix::fs::symlink(real_target.path(), &link).expect("symlink");
+
+    let settings_path = state_dir.path().join("settings.toml");
+    std::fs::write(&settings_path, "role = \"lead\"\n").expect("write settings");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
+
+    let out = fieldbook::run(
+        &[
+            "backup".to_string(),
+            "--to".to_string(),
+            link.display().to_string(),
+        ],
+        &world,
+    );
+    assert_eq!(
+        out.code, 0,
+        "backup into a symlinked target: {}",
+        out.stderr
+    );
+    assert!(
+        std::fs::read_dir(real_target.path())
+            .expect("read real target")
+            .count()
+            > 0
+    );
+}
 #[test]
 fn substituted_cache_path_invalidates_age() {
     let fix = TestFixture::new();
@@ -6338,6 +6385,9 @@ fn support_facts_are_computed_once() {
             lease: &fieldbook::StoreLease,
         ) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
             self.inner.read_tree_under(lease)
+        }
+        fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, fieldbook::WorldError> {
+            self.inner.read_file(path)
         }
         fn write_file(
             &self,

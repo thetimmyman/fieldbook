@@ -25,7 +25,7 @@ Shows the data the contractor submits, how the total final price is computed, th
 | Instrument | Codified FAR [@CL-EST-1659] |
 | Codified citation | FAR 52.216-16 [@CL-EST-1659] |
 | RFO citation | RFO FAR 52.216-16 [@CL-EST-0273; @CL-EST-0274; @CL-EST-0275; @CL-EST-0276; @CL-EST-0277; @CL-EST-0278; @CL-EST-0279; @CL-EST-0280; @CL-EST-0281; @CL-EST-0282] |
-| Edition date | Not established. |
+| Edition date | JAN 2022 [@CL-EST-9792] |
 | Text status | Final [@CL-EST-1659] |
 | Applies to | Schedule items the clause identifies as subject to price revision [@CL-EST-1660] |
 
@@ -59,6 +59,7 @@ Who prepares the final cost statement and the cost-to-complete estimate, and how
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the receipt-of-data trigger and the actors for setting the total final price; replaced uncited contrasts with pointers.

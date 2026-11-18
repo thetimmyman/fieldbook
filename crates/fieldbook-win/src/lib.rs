@@ -1,6 +1,7 @@
 //! Windows operating-system facts for Fieldbook: known folders, the logon principal,
 //! group membership, interactive logon counts, folder placement (reparse points, cloud sync
-//! roots and network drives), file or folder writers, and the not-content-indexed flag.
+//! roots and network drives), file or folder writers, the not-content-indexed flag and the
+//! final path of an open file handle.
 //!
 //! Only `fieldbook` (specifically `crates/fieldbook/src/io/win.rs`) may depend on this crate.
 //! All first-party `unsafe` calls live in `src/sys.rs` under `#[cfg(windows)]`.
@@ -152,6 +153,24 @@ pub fn mark_not_indexed(path: &Path) -> Result<(), WinError> {
     #[cfg(not(windows))]
     {
         let _ = path;
+        Err(NOT_WINDOWS)
+    }
+}
+
+/// Return the normalized final path (`\\?\` form) of the object that the open `file` handle
+/// refers to, read from the handle itself through `GetFinalPathNameByHandleW`.
+#[expect(
+    clippy::disallowed_types,
+    reason = "the final path is read from an open file handle, never from a pathname"
+)]
+pub fn final_path(file: &std::fs::File) -> Result<PathBuf, WinError> {
+    #[cfg(windows)]
+    {
+        sys::final_path(file)
+    }
+    #[cfg(not(windows))]
+    {
+        let _ = file;
         Err(NOT_WINDOWS)
     }
 }

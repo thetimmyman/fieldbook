@@ -305,6 +305,8 @@ struct AreaTile {
 #[template(path = "index.html")]
 struct HomeTemplate {
     three_up_html: String,
+    /// The start-prompt button (`set_start_date`); the page script shows its row.
+    start_prompt: &'static str,
     day_one: Vec<DayOneRow>,
     briefs: Vec<BriefRow>,
     binder_href: Option<String>,
@@ -393,6 +395,7 @@ fn area_tiles(view: &LabelledView, planned: &PlannedPaths) -> Vec<AreaTile> {
 pub fn render_main(view: &LabelledView, planned: &PlannedPaths) -> String {
     HomeTemplate {
         three_up_html: render_three_up(OUTPUT_PATH, view, planned, None, "h2"),
+        start_prompt: strings::set_start_date(),
         day_one: day_one_rows(view, planned),
         briefs: brief_rows(view, planned),
         binder_href: href_if_planned(OUTPUT_PATH, crate::day_one::OUTPUT_PATH, planned),

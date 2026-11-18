@@ -2,6 +2,7 @@
 
 use std::fmt;
 
+pub mod index;
 pub mod provenance;
 pub mod request;
 pub mod schema;

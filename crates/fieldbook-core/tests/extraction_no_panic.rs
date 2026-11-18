@@ -121,7 +121,7 @@ fn html_strip_never_panics_on_seeded_inputs() {
     for i in 0..200usize {
         let len = i % 129;
         let bytes = rng.bytes(len);
-        check_html_strip_outcome(extractor.extract(&bytes));
+        check_html_strip_outcome(extractor.extract(&bytes, "html"));
     }
 
     const VALID_HTML: &str = "<html><body><p class=\"a>b\" title='x'>caf\u{e9} na\u{ef}ve \u{4e2d}\u{6587} &amp; &#x41; &unknown;</p><script>var s=\"<p>\";</script><!-- note --><div>end</div></body></html>";
@@ -130,12 +130,12 @@ fn html_strip_never_panics_on_seeded_inputs() {
     for idx in 0..valid_bytes.len() {
         let mut flipped = valid_bytes.to_vec();
         flipped[idx] ^= 0xff;
-        check_html_strip_outcome(extractor.extract(&flipped));
+        check_html_strip_outcome(extractor.extract(&flipped, "html"));
 
         let mut deleted = Vec::with_capacity(valid_bytes.len().saturating_sub(1));
         deleted.extend_from_slice(&valid_bytes[..idx]);
         deleted.extend_from_slice(&valid_bytes[idx + 1..]);
-        check_html_strip_outcome(extractor.extract(&deleted));
+        check_html_strip_outcome(extractor.extract(&deleted, "html"));
     }
 
     let hostile_inputs: [&[u8]; 8] = [
@@ -149,14 +149,14 @@ fn html_strip_never_panics_on_seeded_inputs() {
         b"&#99999999999;",
     ];
     for hostile in hostile_inputs {
-        check_html_strip_outcome(extractor.extract(hostile));
+        check_html_strip_outcome(extractor.extract(hostile, "html"));
     }
 
     let run_of_lt = vec![b'<'; 100_000];
-    check_html_strip_outcome(extractor.extract(&run_of_lt));
+    check_html_strip_outcome(extractor.extract(&run_of_lt, "html"));
 
     let repeated_p = "<p".repeat(10_000).into_bytes();
-    check_html_strip_outcome(extractor.extract(&repeated_p));
+    check_html_strip_outcome(extractor.extract(&repeated_p, "html"));
 }
 
 fn check_supplied_outcome(res: Result<Extraction, ExtractError>) {
@@ -209,7 +209,7 @@ fn supplied_text_never_panics_on_seeded_inputs() {
 fn extractor_refusals_match_adapter_contract() {
     let plain = Plain;
     let vectors = extractor_suite::text_vectors();
-    extractor_suite::extractor_contract(&plain, &vectors, &|extraction| {
+    extractor_suite::extractor_contract(&plain, "txt", &vectors, &|extraction| {
         if extraction.method == PLAIN {
             Ok(())
         } else {
@@ -221,7 +221,7 @@ fn extractor_refusals_match_adapter_contract() {
     });
 
     let html_strip = HtmlStrip;
-    extractor_suite::extractor_contract(&html_strip, &vectors, &|extraction| {
+    extractor_suite::extractor_contract(&html_strip, "html", &vectors, &|extraction| {
         if extraction.method == HTML_STRIP {
             Ok(())
         } else {
@@ -236,7 +236,9 @@ fn extractor_refusals_match_adapter_contract() {
 #[test]
 fn plain_and_html_strip_extract_a_valid_sample() {
     let plain = Plain;
-    let extraction = plain.extract(b"x").expect("plain extract should succeed");
+    let extraction = plain
+        .extract(b"x", "txt")
+        .expect("plain extract should succeed");
     assert_eq!(extraction.method, PLAIN);
     assert_eq!(extraction.pages.len(), 1);
     assert_eq!(extraction.pages[0].number, 1);
@@ -244,7 +246,7 @@ fn plain_and_html_strip_extract_a_valid_sample() {
 
     let html_strip = HtmlStrip;
     let html_extraction = html_strip
-        .extract(b"<p>x</p>")
+        .extract(b"<p>x</p>", "html")
         .expect("html_strip extract should succeed");
     assert_eq!(html_extraction.method, HTML_STRIP);
     assert_eq!(html_extraction.pages.len(), 1);

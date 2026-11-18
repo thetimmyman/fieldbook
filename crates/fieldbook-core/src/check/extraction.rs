@@ -513,7 +513,9 @@ mod tests {
         let mut tree = mini_tree_with_originals();
         tree.insert_dir("corpus/sources/text");
         tree.insert_dir("corpus/sources/text/S-0001-v1");
-        let extraction = Plain.extract(MINI_S0001_V1_TXT).expect("plain extraction");
+        let extraction = Plain
+            .extract(MINI_S0001_V1_TXT, "txt")
+            .expect("plain extraction");
         let sha = sha256_hex(MINI_S0001_V1_TXT);
         let record = build_record(&extraction, "plain", "1", &sha, &BTreeMap::new());
         let rendered = record.render();
@@ -545,7 +547,9 @@ mod tests {
         let mut tree = mini_tree_with_originals();
         tree.insert_dir("corpus/sources/text");
         tree.insert_dir("corpus/sources/text/S-0001-v1");
-        let extraction = Plain.extract(MINI_S0001_V1_TXT).expect("plain extraction");
+        let extraction = Plain
+            .extract(MINI_S0001_V1_TXT, "txt")
+            .expect("plain extraction");
         let sha = sha256_hex(MINI_S0001_V1_TXT);
         let record = build_record(&extraction, "plain", "1", &sha, &BTreeMap::new());
         tree.insert_bytes(
@@ -656,7 +660,9 @@ mod tests {
     #[test]
     fn a_stale_thin_pages_is_fb0212() {
         let (mut tree, _, _) = mini_tree_with_extraction();
-        let extraction = Plain.extract(MINI_S0001_V1_TXT).expect("plain extraction");
+        let extraction = Plain
+            .extract(MINI_S0001_V1_TXT, "txt")
+            .expect("plain extraction");
         let sha = sha256_hex(MINI_S0001_V1_TXT);
         let record = build_record(&extraction, "plain", "1", &sha, &BTreeMap::new());
         let rendered = record

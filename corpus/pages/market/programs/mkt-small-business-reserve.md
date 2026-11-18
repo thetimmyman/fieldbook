@@ -24,7 +24,7 @@ Explains what the reserve notice in a solicitation says, what an eligible concer
 | Instrument | Codified FAR [@CL-MKT-1120] |
 | Codified citation | FAR 52.219-31 and FAR 52.219-32 [@CL-MKT-1120; @CL-MKT-1122] |
 | RFO citation | RFO FAR 52.219-31 [@CL-MKT-1181]; FAR 52.219-32: No RFO equivalent [@CL-MKT-1183] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-31: Mar 2020 [@CL-MKT-1181]; FAR 52.219-32: MAR 2020 [@CL-MKT-9437] |
 | Text status | Final [@CL-MKT-1120] |
 | Applies to | Solicitations that contain a reserve, and contracts that were reserved for the identified small business concerns [@CL-MKT-1120; @CL-MKT-1122] |
 
@@ -55,6 +55,7 @@ How a reserve and any direct orders are recorded against the purchasing system a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

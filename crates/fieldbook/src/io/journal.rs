@@ -185,11 +185,30 @@ fn lock_registry() -> &'static Mutex<LockRegistry> {
 
 type InitPauseHook = Arc<dyn Fn(&Path) + Send + Sync>;
 
+/// Stage within `io::atomic` at which a test hook may inspect or perturb the filesystem.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AtomicStage {
+    /// Immediately before `create_dir` creates a missing parent component.
+    BeforeMkdir,
+    /// Immediately after parent directory validation and before opening the temporary file.
+    BeforeTmpOpen,
+    /// Immediately after syncing the temporary file and before renaming it into place.
+    BeforeRename,
+    /// Immediately before unlinking an owned temporary file during error cleanup.
+    BeforeCleanup,
+    /// Unix only: after the cleanup identity check passed and before the unlink call itself;
+    /// models a replacement that lands at the system-call boundary.
+    CleanupUnlink,
+}
+
+type AtomicStageHook = Arc<dyn Fn(AtomicStage, &Path) + Send + Sync>;
+
 #[derive(Default)]
 struct TestHooks {
     init_pause: Option<InitPauseHook>,
     no_state_read_pause: Option<InitPauseHook>,
     write_pause: Vec<(ThreadId, InitPauseHook)>,
+    atomic_stage: Vec<(ThreadId, AtomicStageHook)>,
     lock_timeout: Vec<(ThreadId, Duration)>,
     fail_before_begin_append: Option<ThreadId>,
     fail_after_end_append: Option<ThreadId>,
@@ -236,10 +255,34 @@ pub(crate) fn run_write_pause_hook(path: &Path) {
         g.write_pause
             .iter()
             .find(|(t, _)| *t == tid)
-            .map(|(_, h)| h.clone())
+            .map(|(_, h)| Arc::clone(h))
     });
     if let Some(h) = hook {
         h(path);
+    }
+}
+
+/// Set or clear an atomic-writer stage hook for the current test thread (used by `egress_doors` tests).
+pub fn set_atomic_stage_hook(hook: Option<AtomicStageHook>) {
+    let tid = std::thread::current().id();
+    if let Ok(mut guard) = test_hooks().lock() {
+        guard.atomic_stage.retain(|(t, _)| *t != tid);
+        if let Some(h) = hook {
+            guard.atomic_stage.push((tid, h));
+        }
+    }
+}
+
+pub(crate) fn run_atomic_stage_hook(stage: AtomicStage, path: &Path) {
+    let tid = std::thread::current().id();
+    let hook = test_hooks().lock().ok().and_then(|g| {
+        g.atomic_stage
+            .iter()
+            .find(|(t, _)| *t == tid)
+            .map(|(_, h)| Arc::clone(h))
+    });
+    if let Some(h) = hook {
+        h(stage, path);
     }
 }
 

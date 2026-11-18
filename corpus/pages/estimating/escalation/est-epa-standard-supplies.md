@@ -25,7 +25,7 @@ Explains how the Economic Price Adjustment clause for standard supplies moves a 
 | Instrument | Codified FAR [@CL-EST-0750] |
 | Codified citation | FAR 52.216-2 [@CL-EST-0750] |
 | RFO citation | RFO FAR 52.216-2 [@CL-EST-0003; @CL-EST-0006; @CL-EST-0007] |
-| Edition date | Not established. |
+| Edition date | Nov 2021 [@CL-EST-0003] |
 | Text status | Final [@CL-EST-0750] |
 | Applies to | Schedule line items covered by the contractor's warranty on its applicable established price [@CL-EST-0750] |
 
@@ -56,6 +56,7 @@ That each schedule line item price sits at or below the applicable established p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the increase sentence so the price increase rule keeps the limitations that follow.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

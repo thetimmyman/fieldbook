@@ -58,6 +58,9 @@ pub trait World {
     /// Read the in-memory Corpus [`Tree`] under an already-held [`StoreLease`] without relocking.
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError>;
 
+    /// Read raw bytes from `path` if it exists; return `Ok(None)` when absent.
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError>;
+
     /// Atomically write `bytes` to `path` under an active [`Audited`] token.
     ///
     /// # Examples
@@ -429,6 +432,10 @@ impl World for StateOverrideWorld<'_> {
         io::journal::read_tree_under_lease(self.inner.tree_root(), &self.state_dir, lease)
     }
 
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        self.inner.read_file(path)
+    }
+
     fn write_file(
         &self,
         audited: &Audited,
@@ -674,6 +681,10 @@ mod tests {
 
         fn read_tree_under(&self, _lease: &StoreLease) -> Result<Tree, WorldError> {
             Ok(Tree::new())
+        }
+
+        fn read_file(&self, _path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+            Ok(None)
         }
 
         fn write_file(

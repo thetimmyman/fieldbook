@@ -25,7 +25,7 @@ Shows who takes part in the Test Program, how participants report, how the failu
 | Instrument | Codified DFARS [@CL-MKT-0908] |
 | Codified citation | DFARS 252.219-7004 [@CL-MKT-0908] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-MKT-9421] |
 | Text status | Final [@CL-MKT-0908] |
 | Applies to | Contractors whose comprehensive subcontracting plan is approved under the Test Program, where the clause is prescribed in DFARS 219.708(b)(1)(B) [@CL-MKT-0908; @CL-MKT-0910; @CL-MKT-0947] |
 
@@ -60,6 +60,7 @@ Whether the company has a comprehensive plan, and which entities and contracts i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed statutory citations and Test Program subcontract flowdown conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Material breach actor and final decision actor restated.

@@ -24,7 +24,7 @@ Shows what DoD requires for cost-plus-award-fee contracts: how much award fee mu
 | Instrument | Codified DFARS [@CL-EST-1577] |
 | Codified citation | DFARS 216.405-2, DFARS 216.470 and DFARS 252.216-7004 [@CL-EST-1577; @CL-EST-9222; @CL-EST-1580] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | SEP 2011 [@CL-EST-9787] |
 | Text status | Final [@CL-EST-1577] |
 | Applies to | Cost-plus-award-fee contracts, and contracts that include the award fee reduction or denial clause [@CL-EST-1577; @CL-EST-1580] |
 
@@ -54,6 +54,7 @@ Which award-fee contracts the company holds, how much of each pool is set aside 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

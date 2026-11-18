@@ -24,7 +24,7 @@ Shows how an offeror takes part in a reverse auction under a solicitation, what 
 | Instrument | Codified FAR [@CL-EST-1931] |
 | Codified citation | FAR 52.217-10 [@CL-EST-1931]; FAR 2.101 [@CL-EST-9372] |
 | RFO citation | RFO FAR 52.217-10 [@CL-EST-0555]; RFO FAR 2.101 [@CL-EST-9373] |
-| Edition date | Not established. |
+| Edition date | Aug 2024 [@CL-EST-0555] |
 | Text status | Final [@CL-EST-1931] |
 | Applies to | Solicitations under which the Government intends to conduct a reverse auction to award a contract or blanket purchase agreement [@CL-EST-1932] |
 
@@ -57,6 +57,7 @@ Who confirms, for each auction we enter, that a quote is an agreement to take pa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and glosses; carried the no-identity qualification and the withdrawal wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text; Removed wording the provision does not say and carried the provider and restricted-information qualifications.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of reverse auction.

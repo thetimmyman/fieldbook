@@ -24,7 +24,7 @@ Shows the incentive a contractor can receive for exceeding its subcontracting pl
 | Instrument | Codified FAR [@CL-MKT-1110] |
 | Codified citation | FAR 52.219-10 [@CL-MKT-1110] |
 | RFO citation | RFO FAR 52.219-10 [@CL-MKT-0166] |
-| Edition date | Not established. |
+| Edition date | OCT 2014 [@CL-MKT-9429] |
 | Text status | Final [@CL-MKT-1110] |
 | Applies to | Contracts with the clause, where the contractor has committed to goals in its subcontracting plan [@CL-MKT-1175] |
 
@@ -55,6 +55,7 @@ Whether the purchasing system has been reviewed, and how plan goals and the doll
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: incentive percent sentence carries goal condition and exception.

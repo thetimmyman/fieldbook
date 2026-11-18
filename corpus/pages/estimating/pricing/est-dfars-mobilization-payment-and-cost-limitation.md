@@ -25,7 +25,7 @@ Shows how the two mobilization clauses pay for mobilization and preparatory work
 | Instrument | Codified DFARS [@CL-EST-1754; @CL-EST-1764; @CL-EST-1769] |
 | Codified citation | DFARS 252.236-7003 [@CL-EST-1754; @CL-EST-1783]; DFARS 252.236-7004 [@CL-EST-1764; @CL-EST-1784]; DFARS 252.236-7006 [@CL-EST-1769; @CL-EST-1785] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.236-7003: JAN 1997 [@CL-EST-9775]; DFARS 252.236-7004: DEC 1991 [@CL-EST-9776]; DFARS 252.236-7006: JAN 1997 [@CL-EST-9777] |
 | Text status | Final [@CL-EST-1754; @CL-EST-1764; @CL-EST-1769] |
 | Applies to | Contracts that use the preparatory work clause as prescribed in DFARS 236.570(b)(2) [@CL-EST-1783] or the mobilization and demobilization clause as prescribed in DFARS 236.570(b)(2) [@CL-EST-1784], and solicitations that use the cost limitation provision as prescribed in DFARS 236.570(b)(4) [@CL-EST-1785] |
 
@@ -73,6 +73,7 @@ Which bids need immediate support for mobilization pricing, and who approves the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Offer-rejection alternatives restored to or, mobilization payment conditions and balance stated as in the clauses; meta sentences and contrasts replaced.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the mobilization payment clauses and the cost limitation provision.

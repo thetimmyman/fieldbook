@@ -24,7 +24,7 @@ Shows where cited specifications may be examined when they are not distributed, 
 | Instrument | Codified FAR [@CL-EST-2187; @CL-EST-2188] |
 | Codified citation | FAR 52.211-4 [@CL-EST-2187]; FAR 52.211-7 [@CL-EST-2188] |
 | RFO citation | RFO FAR 52.211-4 and RFO FAR 52.211-7 are each listed as [Reserved] [@CL-EST-0618] [@CL-EST-0619] |
-| Edition date | Not established. |
+| Edition date | FAR 52.211-4: JUN 1988 [@CL-EST-9817]; FAR 52.211-7: NOV 1999 [@CL-EST-9818] |
 | Text status | Final [@CL-EST-2187; @CL-EST-2188] |
 | Applies to | Solicitations that cite specifications not available for distribution, or that include Government-unique standards [@CL-EST-2187; @CL-EST-2188] |
 
@@ -68,6 +68,7 @@ Confirm how the company records which specifications it examined and which alter
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted glosses and contrasts; replaced statements about missing RFO text with the [Reserved] listing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded glosses on the specification-viewing details and the alternative-standard steps to match the quoted wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

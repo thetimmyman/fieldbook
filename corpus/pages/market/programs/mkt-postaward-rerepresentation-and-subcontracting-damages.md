@@ -25,7 +25,7 @@ Shows when a contractor must rerepresent its size and status after award, and ho
 | Instrument | Codified FAR [@CL-MKT-0848] |
 | Codified citation | FAR 52.219-28 and FAR 52.219-16 [@CL-MKT-0848; @CL-MKT-0853] |
 | RFO citation | RFO FAR 52.219-28 [@CL-MKT-0264]; RFO FAR 52.219-16 [@CL-MKT-0295] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-28: JAN 2025 [@CL-MKT-9433]; FAR 52.219-16: SEP 2021 [@CL-MKT-9434] |
 | Text status | Final [@CL-MKT-0848] |
 | Applies to | Contractors that represented a listed small business status before award, for rerepresentation; contracts with a subcontracting plan, for liquidated damages [@CL-MKT-0848; @CL-MKT-0853] |
 
@@ -54,6 +54,7 @@ Which events such as novations, mergers and acquisitions, or long-term option da
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 52.219-28(c)(1)-(4) order rerepresentation cases and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: rerepresentation lead-in, good faith definition is alternatives, paragraph (c) exception scoped.

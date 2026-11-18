@@ -1,0 +1,6 @@
+Synthetic Procurement Notice
+Example Contracting Office — Reference Circular 01
+
+§1 Scope and Effective Terms
+This synthetic notice establishes sample documentation terms for pipeline verification tests.
+All values and publishers named in this document are synthetic test fixtures.

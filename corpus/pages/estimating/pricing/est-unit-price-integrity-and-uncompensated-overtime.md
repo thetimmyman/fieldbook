@@ -25,7 +25,7 @@ Shows how a proposal must distribute costs across supply line items, and what an
 | Instrument | Codified FAR [@CL-EST-1720; @CL-EST-1722] |
 | Codified citation | FAR 52.215-14 and FAR 52.237-10 [@CL-EST-1720; @CL-EST-1722] |
 | RFO citation | RFO FAR 52.215-14 [@CL-EST-0876; @CL-EST-0879; @CL-EST-9098] and RFO FAR 52.237-10 [@CL-EST-0881; @CL-EST-0882; @CL-EST-9100] |
-| Edition date | Not established. |
+| Edition date | FAR 52.215-14: Nov 2021 (basic) [@CL-EST-0876], Oct 1997 (Alternate I) [@CL-EST-0880]; FAR 52.237-10: Mar 2015 [@CL-EST-0881] |
 | Text status | Final [@CL-EST-1720; @CL-EST-1722] |
 | Applies to | Proposals for the negotiation of prices for items of supplies, and proposals with labor hours subject to an adjusted hourly rate [@CL-EST-1693; @CL-EST-1698] |
 
@@ -61,6 +61,7 @@ Who reviews line-item cost distribution in supply proposals, and whether any pro
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'for example' on the equal-distribution rule and cut absence statements and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for integrity of unit prices and identification of uncompensated overtime.

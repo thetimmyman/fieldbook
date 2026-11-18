@@ -24,7 +24,7 @@ Shows how an offeror submits, changes, withdraws and holds open a proposal under
 | Instrument | Codified FAR [@CL-EST-1797] |
 | Codified citation | FAR 52.215-1 [@CL-EST-1797] |
 | RFO citation | RFO FAR 52.215-1 [@CL-EST-0293; @CL-EST-0294; @CL-EST-0295; @CL-EST-0296; @CL-EST-0297; @CL-EST-0298; @CL-EST-0299; @CL-EST-0300; @CL-EST-0315; @CL-EST-0316; @CL-EST-0317; @CL-EST-0318; @CL-EST-0319; @CL-EST-0320; @CL-EST-0321; @CL-EST-0322; @CL-EST-0323; @CL-EST-0324; @CL-EST-0325]; RFO FAR 15.105-2 [@CL-EST-2244; @CL-EST-2245] |
-| Edition date | Not established. |
+| Edition date | NOV 2021 [@CL-EST-9794] |
 | Text status | Final [@CL-EST-1797] |
 | Applies to | Competitive solicitations where the Government intends to award a contract without discussions [@CL-EST-1850] |
 
@@ -55,6 +55,7 @@ Which bids need immediate support and the approval route that must finish before
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast with supporting citations.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried designated-office scope and FAR 15.306(a) clarification cross-reference; replaced contrasts and meta wording with cited statements; added one companion.

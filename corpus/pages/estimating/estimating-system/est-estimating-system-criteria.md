@@ -24,7 +24,7 @@ Shows what an acceptable estimating system must do, when the requirements apply,
 | Instrument | Codified DFARS [@CL-EST-0123] |
 | Codified citation | DFARS 252.215-7002 [@CL-EST-0123] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-EST-9766] |
 | Text status | Final [@CL-EST-0123] |
 | Applies to | The general obligation in paragraph (b) has no award threshold [@CL-EST-0123]; paragraphs (d) and (e) apply to a large business that meets one of two stated conditions [@CL-EST-0259; @CL-EST-0124; @CL-EST-0125] |
 
@@ -51,6 +51,7 @@ Who owns proposal pricing and the estimating system description, and when that d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-ins of the 45-day and payment withholding rules and the full internal review function.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the definition of an acceptable estimating system; stated the second applicability condition as two parts; cited both disclosure acceptability requirements; matched system functions to the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $10 million and $50 million prior-year amounts; cited the clause text for the $10 million to $50 million band and its preceding fiscal year window.

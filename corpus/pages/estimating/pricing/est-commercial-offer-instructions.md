@@ -25,7 +25,7 @@ Shows what an offer on a commercial products and commercial services solicitatio
 | Instrument | Codified FAR [@CL-EST-2261] |
 | Codified citation | FAR 52.212-1 [@CL-EST-2261] |
 | RFO citation | RFO FAR 52.212-1 [@CL-EST-0098; @CL-EST-0137; @CL-EST-0148] |
-| Edition date | Not established. |
+| Edition date | SEP 2023 [@CL-EST-9773] |
 | Text status | Final [@CL-EST-2261] |
 | Applies to | Solicitations that carry the instructions to offerors provision, which is inserted as prescribed in FAR 12.301(b)(1) [@CL-EST-2311] |
 
@@ -93,6 +93,7 @@ Which offers need an approved review record before signature and submission. [@Q
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Shall and must wording restored, conditional late-offer alternatives and list qualifiers matched to the cited text, uncited mapping and framing removed.

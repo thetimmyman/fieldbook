@@ -690,14 +690,16 @@ fn build_in_child() {
 fn csv_copy_has_bom_crlf_and_guard() {
     fixture_view_with(|view| {
         let site = site::render(view, &BuildInfo::default()).unwrap();
+        assert!(
+            !site.files().contains_key("data/claims.csv"),
+            "site must not contain unparted data/claims.csv"
+        );
 
-        for &reg in &Register::ALL {
-            let csv_bytes = csv_copy::render(view, reg);
-
+        let check_csv_bytes = |label: &str, reg: Register, csv_bytes: &[u8]| {
             // 1. Starts with UTF-8 BOM EF BB BF
             assert!(
                 csv_bytes.starts_with(&[0xEF, 0xBB, 0xBF]),
-                "CSV for {reg} must start with UTF-8 BOM"
+                "CSV for {label} must start with UTF-8 BOM"
             );
 
             // 2. Every \n is preceded by \r (CRLF)
@@ -705,7 +707,7 @@ fn csv_copy_has_bom_crlf_and_guard() {
                 if b == b'\n' {
                     assert!(
                         i > 0 && csv_bytes[i - 1] == b'\r',
-                        "Every LF must be preceded by CR in CSV for {reg} at index {i}"
+                        "Every LF must be preceded by CR in CSV for {label} at index {i}"
                     );
                 }
             }
@@ -715,7 +717,7 @@ fn csv_copy_has_bom_crlf_and_guard() {
             let first_line = csv_text
                 .split("\r\n")
                 .next()
-                .unwrap_or_else(|| panic!("first line exists for {reg}"));
+                .unwrap_or_else(|| panic!("first line exists for {label}"));
             let expected_header = reg
                 .columns()
                 .iter()
@@ -724,11 +726,19 @@ fn csv_copy_has_bom_crlf_and_guard() {
                 .join(",");
             assert_eq!(
                 first_line, expected_header,
-                "header line mismatch in CSV for {reg}"
+                "header line mismatch in CSV for {label}"
             );
+        };
+
+        for &reg in &Register::ALL {
+            if reg == Register::Claims {
+                continue;
+            }
+            let csv_bytes = csv_copy::render(view, reg);
+            let out_path = csv_copy::output_path(reg);
+            check_csv_bytes(&out_path, reg, &csv_bytes);
 
             // 4. Site's data/<register>.csv equals csv_copy::render
-            let out_path = csv_copy::output_path(reg);
             let site_csv = site
                 .files()
                 .get(&out_path)
@@ -738,9 +748,26 @@ fn csv_copy_has_bom_crlf_and_guard() {
                 "site file {out_path} must match csv_copy::render exactly"
             );
         }
+
+        let part_csvs = csv_copy::render_claims_parts(view);
+        assert!(
+            !part_csvs.is_empty(),
+            "claims part CSVs must be non-empty on fixture"
+        );
+        for (out_path, csv_bytes) in part_csvs {
+            check_csv_bytes(&out_path, Register::Claims, &csv_bytes);
+            let site_csv = site
+                .files()
+                .get(&out_path)
+                .unwrap_or_else(|| panic!("site must contain {out_path}"));
+            assert_eq!(
+                site_csv, &csv_bytes,
+                "site file {out_path} must match csv_copy::render_claims_parts exactly"
+            );
+        }
     });
 
-    // Synthetic cell check with leading '='
+    // Synthetic cell check with leading '=' on both single-file register and claims part CSV
     fixture_view_with_tree(
         |tree| {
             let sources_bytes = tree
@@ -752,6 +779,16 @@ fn csv_copy_has_bom_crlf_and_guard() {
                 "=synthetic-formula",
             );
             tree.insert_bytes("corpus/registers/sources.csv", modified.into_bytes());
+
+            let claims_bytes = tree
+                .get_bytes("corpus/registers/claims.csv")
+                .expect("claims.csv in fixture tree");
+            let claims_str = std::str::from_utf8(claims_bytes).unwrap();
+            let modified_claims = claims_str.replace(
+                "Synthetic owner-verified fact for fixture tests.",
+                "=synthetic-claim-formula",
+            );
+            tree.insert_bytes("corpus/registers/claims.csv", modified_claims.into_bytes());
         },
         |view| {
             // Note: `load` reports diagnostic FB0403 for the synthetic '=' formula cell,
@@ -774,6 +811,22 @@ fn csv_copy_has_bom_crlf_and_guard() {
                 !s.contains(",=synthetic-formula") && !s.contains("\n=synthetic-formula"),
                 "unguarded =synthetic-formula must not appear at cell start in CSV"
             );
+
+            let claim_parts = csv_copy::render_claims_parts(view);
+            let cmp_part = claim_parts
+                .iter()
+                .find(|(p, _)| p == "data/claims-CMP-1.csv")
+                .expect("data/claims-CMP-1.csv present");
+            let cmp_s = std::str::from_utf8(&cmp_part.1).unwrap();
+            assert!(
+                cmp_s.contains("'=synthetic-claim-formula"),
+                "guarded cell '=synthetic-claim-formula must appear in claims part CSV"
+            );
+            assert!(
+                !cmp_s.contains(",=synthetic-claim-formula")
+                    && !cmp_s.contains("\n=synthetic-claim-formula"),
+                "unguarded =synthetic-claim-formula must not appear at cell start in claims part CSV"
+            );
         },
     );
 
@@ -794,9 +847,27 @@ fn the_six_data_files_are_planned_and_built() {
             "planned_paths must contain {}",
             xlsx::OUTPUT_PATH
         );
+        assert!(
+            !planned.contains("data/claims.csv"),
+            "planned_paths must not contain data/claims.csv"
+        );
         for &reg in &Register::ALL {
+            if reg == Register::Claims {
+                continue;
+            }
             let p = csv_copy::output_path(reg);
             assert!(planned.contains(&p), "planned_paths must contain {p}");
+        }
+        let part_paths: Vec<String> = fieldbook_render::register::claims_parts(view)
+            .into_iter()
+            .map(|p| csv_copy::claims_part_output_path(&p.area_code, p.part))
+            .collect();
+        assert_eq!(
+            part_paths,
+            vec!["data/claims-CMP-1.csv", "data/claims-EST-1.csv"]
+        );
+        for p in &part_paths {
+            assert!(planned.contains(p), "planned_paths must contain {p}");
         }
 
         let site = site::render(view, &BuildInfo::default()).unwrap();
@@ -810,10 +881,11 @@ fn the_six_data_files_are_planned_and_built() {
         let mut expected_data_files = vec![
             xlsx::OUTPUT_PATH,
             "data/sources.csv",
-            "data/claims.csv",
             "data/questions.csv",
             "data/conflicts.csv",
             "data/glossary.csv",
+            "data/claims-CMP-1.csv",
+            "data/claims-EST-1.csv",
         ];
         expected_data_files.sort_unstable();
 
@@ -822,7 +894,7 @@ fn the_six_data_files_are_planned_and_built() {
 
         assert_eq!(
             actual_data_files, expected_data_files,
-            "site files under data/ must be exactly the six planned data files"
+            "site files under data/ must be the workbook, four register copies, and claims part CSVs"
         );
     });
 }

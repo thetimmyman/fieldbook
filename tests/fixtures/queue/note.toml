@@ -1,0 +1,16 @@
+proposal_version = 1
+state = "proposed"
+kind = "note"
+labels = ["public"]
+writer = 0
+
+[note]
+area = "cmp"
+body = "Synthetic note body summarizing example documentation terms."
+title = "Synthetic summary note"
+
+[ai]
+request_labels = ["public"]
+inputs = [{ store = "corpus", id = "S-0001-v1" }]
+calls = [{ seq = 1, adapter = "stub@1", template = "ask@1", output_sha256 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" }]
+dropped = 0

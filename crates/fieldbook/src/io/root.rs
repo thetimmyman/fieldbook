@@ -409,6 +409,10 @@ mod tests {
             Ok(Tree::new())
         }
 
+        fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, Error> {
+            self.disk.read_file(path)
+        }
+
         fn write_file(
             &self,
             audited: &Audited,
