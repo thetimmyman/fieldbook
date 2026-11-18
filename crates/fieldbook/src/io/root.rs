@@ -575,7 +575,18 @@ mod tests {
 
     #[test]
     fn git_context_checks_containment_prefix_ignore_and_sibling() {
-        let tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+        // The first assertion needs a real path outside Git, even when the
+        // runner places its temporary directory inside a checkout.
+        let parent = std::env::temp_dir().canonicalize().expect("temp directory");
+        let tmp = if parent
+            .ancestors()
+            .any(|dir| dir.join(".git").symlink_metadata().is_ok())
+        {
+            tempfile::tempdir_in(std::env::home_dir().expect("home directory"))
+        } else {
+            tempfile::tempdir_in(parent)
+        }
+        .expect("private fixture directory");
         let mut world = TestDiskWorld::new(tmp.path());
         let lease = world.write_lease().unwrap_or_else(|e| panic!("{e}"));
         let mut journal = crate::io::state::open(&world, world.state_dir(), Via::Cli)
