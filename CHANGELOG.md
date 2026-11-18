@@ -9,6 +9,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 - Fixed: a line of context, question or subject text that looks like a block delimiter is escaped in the model prompt, so it cannot open or close a block.
 - Fixed: a `synthetic = true` template contract is refused for a live template id, and the registry-id check also covers the ID cells of the generated ports tables and the template ids.
 - Added: search records each question in the question log.
+- Added: the Day-N chip, "Set your start date" and the today line on the Plan timeline, kept only in the browser.
 - Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).

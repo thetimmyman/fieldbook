@@ -597,6 +597,23 @@ mod home {
     }
 
     #[test]
+    fn day_one_list_offers_start_prompt_hidden_until_script() {
+        let site = built(fixture_tree());
+        let html = page(&site, "index.html");
+        let main = main_of(&html);
+        let button = format!(
+            "<li class=\"tu-item\" id=\"fb:startPrompt\" hidden><button class=\"btn sm\" type=\"button\">{}</button></li>",
+            fieldbook_core::strings::set_start_date()
+        );
+        assert_eq!(main.matches(&button).count(), 1, "{main}");
+        let at = main.find(&button).unwrap();
+        assert!(
+            main[..at].trim_end().ends_with("<ul class=\"tu-list\">"),
+            "the prompt is the first row of the day-one list"
+        );
+    }
+
+    #[test]
     fn flags_are_by_exception() {
         let site = built(fixture_tree());
         for path in ["index.html", "a/cmp.html"] {

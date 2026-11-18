@@ -866,6 +866,7 @@ fn check_edition_file_allowed(
             && matches!(
                 path,
                 "assets/app.js"
+                    | "assets/day.js"
                     | "assets/search.js"
                     | "assets/search-index.js"
                     | "assets/strings.js"
@@ -1029,6 +1030,7 @@ fn check_site_profile_path(path: &str) -> Result<(), AllowlistViolation> {
                 | "changes.html"
                 | "assets/app.css"
                 | "assets/app.js"
+                | "assets/day.js"
                 | "assets/search.js"
                 | "assets/search-index.js"
                 | "assets/strings.js"
