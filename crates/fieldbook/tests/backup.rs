@@ -6386,6 +6386,9 @@ fn support_facts_are_computed_once() {
         ) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
             self.inner.read_tree_under(lease)
         }
+        fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, fieldbook::WorldError> {
+            self.inner.read_file(path)
+        }
         fn write_file(
             &self,
             audited: &fieldbook::io::journal::Audited,

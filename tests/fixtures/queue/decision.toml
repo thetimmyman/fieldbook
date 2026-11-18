@@ -1,0 +1,10 @@
+proposal_version = 1
+state = "proposed"
+kind = "decision"
+labels = ["public"]
+writer = 0
+
+[decision]
+option = "opt-a"
+summary = "Select synthetic option A."
+topic = "Synthetic threshold interpretation"

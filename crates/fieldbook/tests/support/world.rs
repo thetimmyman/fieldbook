@@ -354,6 +354,10 @@ impl World for TestWorld {
         fieldbook::io::journal::read_tree_under_lease(self.tree_root(), &self.state_dir, lease)
     }
 
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        self.inner.read_file(path)
+    }
+
     fn write_file(
         &self,
         audited: &Audited,
@@ -545,6 +549,10 @@ impl<W: World + ?Sized> World for ForwardingWorld<'_, W> {
 
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
         self.inner.read_tree_under(lease)
+    }
+
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        self.inner.read_file(path)
     }
 
     fn write_file(

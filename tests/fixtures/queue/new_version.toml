@@ -1,0 +1,50 @@
+proposal_version = 1
+state = "proposed"
+kind = "new_version"
+labels = ["public"]
+writer = 0
+
+[candidate]
+file = "synthetic_notice.txt"
+sha256 = "89418a780df335fdd9b07e3e24271f8485ac83bc488a562d582ea13e9f88fc2a"
+bytes = 285
+
+[extraction]
+adapter = "plain@1"
+method = "plain"
+pages = 1
+thin_pages = []
+
+[source_choice]
+kind = "existing"
+id = "S-0001"
+
+[row.title]
+value = "Synthetic Procurement Notice Revised"
+by = "rules@1"
+because = 'p.1: "Synthetic Procurement Notice"'
+rule = { id = "title-phrase-01", kind = "phrase" }
+
+[row.publisher]
+value = "Example Contracting Office"
+by = "rules@1"
+because = 'p.1: "Example Contracting Office"'
+rule = { id = "pub-01", kind = "publisher" }
+
+[row.source_kind]
+value = "synthetic_fixture"
+by = "person"
+because = ""
+
+[row.licence]
+value = "Synthetic CC0-1.0"
+by = "person"
+because = ""
+
+[row.volatility]
+value = "V2"
+by = "person"
+because = ""
+
+[links]
+version_of = ["S-0001"]
