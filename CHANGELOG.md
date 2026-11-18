@@ -18,6 +18,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 - Fixed: backup records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest.
 - Changed: a printed page's footer shows the page id, not its route.
 - Changed: backup holds one file in memory at a time.
+- Changed: publisher links on source pages have an underline, a taller target and a smaller external-link icon.
 - Added: source pages link to the official location and to each cited section.
 - Added: the status command.
 - Changed: `cargo xtask extract` proposes a locator only for a label that looks like a section number, so a line that opens with `Section` or `§` and continues in prose proposes nothing.
