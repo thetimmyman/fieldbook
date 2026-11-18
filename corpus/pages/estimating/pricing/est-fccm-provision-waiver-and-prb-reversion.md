@@ -25,7 +25,7 @@ Shows when facilities capital cost of money is allowable on a contemplated contr
 | Instrument | Codified FAR [@CL-EST-1814] |
 | Codified citation | FAR 52.215-16, FAR 52.215-17 and FAR 52.215-18 [@CL-EST-1814; @CL-EST-1816; @CL-EST-1817] |
 | RFO citation | RFO FAR 52.215-16 [@CL-EST-0199], RFO FAR 52.215-17 [@CL-EST-0248] and RFO FAR 52.215-18 [@CL-EST-0249] |
-| Edition date | Not established. |
+| Edition date | FAR 52.215-16: Jun 2003 [@CL-EST-0199]; FAR 52.215-17: Oct 1997 [@CL-EST-0248]; FAR 52.215-18: JUL 2005 [@CL-EST-9791] |
 | Text status | Final [@CL-EST-1814] |
 | Applies to | Prospective Contractors who propose the cost, and contracts that carry the waiver clause or the postretirement benefits clause [@CL-EST-1814; @CL-EST-1815; @CL-EST-1817] |
 
@@ -60,6 +60,7 @@ Who owns proposal pricing and so decides whether facilities capital cost of mone
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the allowability criteria and the plan termination case, cited the clause title, restated the deviation as it reads, and cut uncited sequencing and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 31.205-6(o)(5) reference to the refund sentence and restored shall for the RFO subcontract flowdown.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of facilities capital cost of money.

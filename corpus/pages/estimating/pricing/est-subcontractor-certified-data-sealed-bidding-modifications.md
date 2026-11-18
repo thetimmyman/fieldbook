@@ -25,7 +25,7 @@ Shows when a Contractor must require certified cost or pricing data and a certif
 | Instrument | Codified FAR [@CL-EST-2175] |
 | Codified citation | FAR 52.214-28 [@CL-EST-2175] |
 | RFO citation | RFO FAR 52.214-28 [@CL-EST-0800; @CL-EST-0801] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-EST-9820] |
 | Text status | Final [@CL-EST-2175] |
 | Applies to | Modifications expected to exceed the certified data threshold on the date of execution [@CL-EST-2175; @CL-EST-2231] |
 
@@ -79,6 +79,7 @@ Confirm which subcontracts under modified sealed bidding contracts crossed the t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut absence statements, inferences and unquoted contrasts and removed next-sentence pointers.

@@ -24,7 +24,7 @@ Shows the terms that the simplified acquisitions clause for other than commercia
 | Instrument | Codified FAR [@CL-EST-2280] |
 | Codified citation | FAR 52.213-4 [@CL-EST-2280]; FAR 2.101 [@CL-EST-9315; @CL-EST-9316] |
 | RFO citation | RFO FAR 52.213-4 [@CL-EST-0590]; RFO FAR 2.101 [@CL-EST-9364; @CL-EST-9365] |
-| Edition date | Not established. |
+| Edition date | MAR 2026 [@CL-EST-9816] |
 | Text status | Final [@CL-EST-2280] |
 | Applies to | Contracts that contain the clause titled for simplified acquisitions other than commercial products and commercial services, which is inserted as prescribed in FAR 13.302-5(d) [@CL-EST-2350] |
 
@@ -90,6 +90,7 @@ Who confirms, for each executed order, which incorporated clauses and thresholds
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and absence statements, removed meta wording, and restored qualifiers on conditional clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (a)(2) lead-in companion and restored the convenience-termination qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

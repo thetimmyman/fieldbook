@@ -25,7 +25,7 @@ Shows what an offeror agrees to do when the Contracting Officer notifies it that
 | Instrument | Codified DFARS [@CL-EST-0351] |
 | Codified citation | DFARS 252.215-7008 [@CL-EST-0351] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-EST-9798] |
 | Text status | Final [@CL-EST-0351] |
 | Applies to | The provision as prescribed at DFARS 215.408(3) [@CL-EST-0351] |
 
@@ -54,6 +54,7 @@ Determining certified cost or pricing data requirements and approval routing whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (c) of 252.215-7010 qualifier to the duty to certify; reworded a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Made the two agreements joined by and, and removed only-where wording.

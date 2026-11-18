@@ -25,7 +25,7 @@ Shows the best-efforts duty, who is eligible, how eligibility is relied on and c
 | Instrument | Codified DFARS [@CL-MKT-0938] |
 | Codified citation | DFARS 252.226-7001 [@CL-MKT-0938] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-MKT-9418] |
 | Text status | Final [@CL-MKT-0938] |
 | Applies to | Contracts with the clause, prescribed in DFARS 226.104, and subcontracts exceeding a stated dollar amount through the flowdown paragraph [@CL-MKT-0938; @CL-MKT-0953; @CL-MKT-0943] |
 
@@ -58,6 +58,7 @@ Which subcontractors the company counts as Indian organizations, Indian-owned ec
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored best efforts wording and removed inference and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Good faith and Secretary of the Interior determination restored, cited to a companion.

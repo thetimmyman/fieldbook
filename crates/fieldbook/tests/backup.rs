@@ -2881,6 +2881,53 @@ fn one_off_verification_survives_reopen() {
     assert_eq!(age, Some(0));
 }
 
+#[cfg(unix)]
+#[test]
+fn one_off_backup_accepts_a_symlinked_target() {
+    let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_mini = repo.join("tests/fixtures/corpus-mini");
+    let state_mini = repo.join("tests/fixtures/state-mini");
+
+    let tree_dir = support::temp_copy(&corpus_mini);
+    let state_dir = support::temp_copy(&state_mini);
+    let real_target = tempfile::tempdir().expect("real target");
+    let link_parent = tempfile::tempdir().expect("link parent");
+    let link = link_parent.path().join("target-link");
+    std::os::unix::fs::symlink(real_target.path(), &link).expect("symlink");
+
+    let settings_path = state_dir.path().join("settings.toml");
+    std::fs::write(&settings_path, "role = \"lead\"\n").expect("write settings");
+
+    let world = TestWorld::with_state(tree_dir.path(), state_dir.path());
+    let tree = fieldbook::io::read_tree(tree_dir.path()).expect("read corpus-mini tree");
+    let cat = fieldbook_core::manifest::SupportCatalogue::from_public_source(
+        &tree,
+        "1111111111111111111111111111111111111111",
+    )
+    .expect("catalogue from corpus-mini");
+    let (_, cat_sha) = cat.to_toml_bytes_and_sha256();
+    world.set_support_catalogue(cat, cat_sha);
+
+    let out = fieldbook::run(
+        &[
+            "backup".to_string(),
+            "--to".to_string(),
+            link.display().to_string(),
+        ],
+        &world,
+    );
+    assert_eq!(
+        out.code, 0,
+        "backup into a symlinked target: {}",
+        out.stderr
+    );
+    assert!(
+        std::fs::read_dir(real_target.path())
+            .expect("read real target")
+            .count()
+            > 0
+    );
+}
 #[test]
 fn substituted_cache_path_invalidates_age() {
     let fix = TestFixture::new();
@@ -6339,6 +6386,9 @@ fn support_facts_are_computed_once() {
         ) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
             self.inner.read_tree_under(lease)
         }
+        fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, fieldbook::WorldError> {
+            self.inner.read_file(path)
+        }
         fn write_file(
             &self,
             audited: &fieldbook::io::journal::Audited,
@@ -6413,6 +6463,9 @@ fn support_facts_are_computed_once() {
             today: CivilDate,
         ) -> Result<fieldbook_core::status::StateSummary, fieldbook::WorldError> {
             self.inner.read_state_summary(today)
+        }
+        fn store_id(&self) -> &'static str {
+            self.inner.store_id()
         }
     }
 
@@ -7158,4 +7211,163 @@ fn backup_of_a_checkout_without_corpus_is_refused() {
         assert!(out.stderr.contains(&msg), "{}", out.stderr);
         assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
     }
+}
+
+// --- The question log (`ask-log`) -----------------------------------------------------------
+
+/// Points the fixture's settings at a target that copies only the question log (and the journal).
+fn asked_only_target(fix: &TestFixture) -> BackupOptions {
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"asked-only\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [\"asked\"]\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(fix.state_dir().join("settings.toml"), settings_text).expect("write settings");
+    BackupOptions {
+        target: Some("asked-only".to_string()),
+        to: None,
+        dry_run: false,
+    }
+}
+
+/// Records one question resting on the source version `S-0001-v1` through the real logger.
+fn log_a_question_on_s0001(fix: &TestFixture) {
+    log_a_question_on(fix, "S-0001-v1");
+}
+
+/// Records one question resting on the Corpus item `input` through the real logger.
+fn log_a_question_on(fix: &TestFixture, input: &str) {
+    let journal =
+        fieldbook::io::state::open(&fix.world, fix.state_dir(), Via::Cli).expect("journal opens");
+    let logged = fieldbook::asked::log_question(
+        &fix.world,
+        &journal,
+        &fieldbook::io::state::AskedSettings::default(),
+        &floor_a_effective(),
+        fieldbook_core::asked::Via::Search,
+        &LabelSet::owner_supplied(),
+        &[fieldbook_core::labels::ItemRef::new(
+            fieldbook_core::labels::StoreId::Corpus,
+            input,
+        )],
+        "synthetic cost rule",
+        &fieldbook::asked::Hits {
+            count: 1,
+            top_ids: vec![input.to_owned()],
+            fingerprint: "ab".repeat(32),
+        },
+        fieldbook::asked::Cited::NotChecked,
+    );
+    assert!(logged.id.is_some(), "{:?}", logged.warning);
+    assert!(fix.state_dir().join("asked/asked.csv").is_file());
+}
+
+#[test]
+fn backup_keeps_asked_inputs() {
+    let fix = TestFixture::new();
+    log_a_question_on_s0001(&fix);
+    let options = asked_only_target(&fix);
+    let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
+    assert_eq!(outcome.code, 0, "{}{}", outcome.stdout, outcome.stderr);
+    let snap = fix.target_path().join("fieldbook-backup-0001");
+    let sums = std::fs::read_to_string(snap.join("SHA256SUMS")).expect("read sums");
+    assert!(sums.contains("asked/asked.csv"), "{sums}");
+}
+
+#[test]
+fn backup_rechecks_asked_inputs() {
+    let fix = TestFixture::new();
+    log_a_question_on_s0001(&fix);
+    let saved = std::fs::read(fix.state_dir().join("asked/asked.csv")).expect("read log");
+
+    // Relabel only the source the row rests on; the row itself is unchanged.
+    let sources = fix.tree_root().join("corpus/registers/sources.csv");
+    let text = std::fs::read_to_string(&sources).expect("read sources");
+    let relabelled = text.replacen(
+        ",V2,public,Synthetic fixture source for automated tests.",
+        ",V2,public|np-0007,Synthetic fixture source for automated tests.",
+        1,
+    );
+    assert_ne!(relabelled, text, "the S-0001 row is relabelled");
+    std::fs::write(&sources, relabelled).expect("write sources");
+
+    let options = asked_only_target(&fix);
+    let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
+    assert_eq!(
+        std::fs::read(fix.state_dir().join("asked/asked.csv")).expect("read log"),
+        saved
+    );
+    assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
+    let journal =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+    let refuse = journal
+        .lines()
+        .rev()
+        .find(|line| line.contains("\"kind\":\"refuse\""))
+        .expect("a refuse event");
+    assert!(refuse.contains("np-0007"), "{refuse}");
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn backup_rechecks_asked_fragment_inputs_through_their_base_item() {
+    let fix = TestFixture::new();
+    log_a_question_on(&fix, "cmp-review-steps#the-rule");
+    let options = asked_only_target(&fix);
+
+    // Restrict only the parent page in the Corpus ledger; the row names a section of it.
+    std::fs::write(
+        fix.tree_root().join("corpus/labels.csv"),
+        "seq,item_id,kind,labels,origin\n1,cmp-review-steps,add,np-0007,person\n",
+    )
+    .expect("write corpus ledger");
+
+    let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
+    assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
+    let journal =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+    let refuse = journal
+        .lines()
+        .rev()
+        .find(|line| line.contains("\"kind\":\"refuse\""))
+        .expect("a refuse event");
+    assert!(refuse.contains("np-0007"), "{refuse}");
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+}
+
+#[test]
+fn backup_refuses_asked_missing_inputs() {
+    let fix = TestFixture::new();
+    log_a_question_on_s0001(&fix);
+    let path = fix.state_dir().join("asked/asked.csv");
+    let text = std::fs::read_to_string(&path).expect("read log");
+    // Delete the `inputs` column: its header and its one cell.
+    let dropped: String = text
+        .lines()
+        .map(|line| {
+            if line.starts_with("id,") {
+                line.replacen(",inputs,", ",", 1)
+            } else {
+                let start = line.find(",\"[").expect("an inputs cell");
+                let end = line[start + 1..].find("]\",").expect("its end") + start + 1;
+                format!("{}{}", &line[..start], &line[end + 2..])
+            }
+        })
+        .map(|line| format!("{line}\n"))
+        .collect();
+    assert!(!dropped.contains("store ="), "{dropped}");
+    std::fs::write(&path, dropped).expect("write log");
+
+    let options = asked_only_target(&fix);
+    let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
+    assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
+    assert!(outcome.stderr.contains("FB0901"), "{}", outcome.stderr);
+    assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+    let journal =
+        std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+    let refuse = journal
+        .lines()
+        .rev()
+        .find(|line| line.contains("\"kind\":\"refuse\""))
+        .expect("a refuse event");
+    assert!(refuse.contains("unlabelled"), "{refuse}");
 }

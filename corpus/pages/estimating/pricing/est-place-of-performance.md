@@ -24,7 +24,7 @@ Shows what an offeror states about where the work will be performed, and what de
 | Instrument | Codified FAR [@CL-EST-1926] |
 | Codified citation | FAR 52.215-6 [@CL-EST-1926] |
 | RFO citation | RFO FAR 52.215-6 [@CL-EST-0427; @CL-EST-0428; @CL-EST-0429] |
-| Edition date | Not established. |
+| Edition date | OCT 1997 [@CL-EST-9802] |
 | Text status | Final [@CL-EST-1926] |
 | Applies to | Solicitations that include the place of performance provision, which is inserted unless the Government specifies the place of performance [@CL-EST-1399] |
 
@@ -56,6 +56,7 @@ Who confirms, for each response, whether work will run from another plant and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim for the codified 'this solicitation' wording; cut two uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

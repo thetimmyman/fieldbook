@@ -25,7 +25,7 @@ Shows what the offeror must state about fixed hourly rates, by labor category an
 | Instrument | Codified FAR [@CL-EST-1683; @CL-EST-1684] |
 | Codified citation | FAR 52.216-29 and FAR 52.216-30 [@CL-EST-1683; @CL-EST-1684] |
 | RFO citation | RFO FAR 52.216-29 [@CL-EST-0818; @CL-EST-9096] and RFO FAR 52.216-30 [@CL-EST-0819; @CL-EST-0821; @CL-EST-9097] |
-| Edition date | Not established. |
+| Edition date | FAR 52.216-29: Nov 2021 [@CL-EST-0818]; FAR 52.216-30: Nov 2021 [@CL-EST-0819] |
 | Text status | Final [@CL-EST-1683; @CL-EST-1684] |
 | Applies to | The provision titled Other Than Commercial Acquisition With Adequate Price Competition for the first, and Without Adequate Price Competition for the second, each inserted as prescribed [@CL-EST-1683; @CL-EST-1684] |
 
@@ -61,6 +61,7 @@ Who owns the proposal rate build-up by labor category and source, and where it i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded unquoted characterizations and removed meta wording; used the quoted modal for the uncompensated-overtime rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Described the paragraph (b) difference between the two proposal provisions and aligned the uncompensated-overtime sentence with its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

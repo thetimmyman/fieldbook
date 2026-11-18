@@ -77,6 +77,8 @@ RtlVirtualUnwind
 # existing Windows storage attribute update (fieldbook-win)
 SetFileAttributesW
 SetFileInformationByHandle
+# staged@1 replay reads through World::read_file (std File::read_to_end size hint)
+SetFilePointerEx
 SetFileTime
 SetLastError
 SetThreadStackGuarantee

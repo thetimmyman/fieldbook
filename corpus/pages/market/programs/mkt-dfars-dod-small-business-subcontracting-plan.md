@@ -25,7 +25,7 @@ Shows what the DoD subcontracting plan clause adds to the FAR plan clause, how r
 | Instrument | Codified DFARS [@CL-MKT-0896] |
 | Codified citation | DFARS 252.219-7003 [@CL-MKT-0896] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2019 [@CL-MKT-9417] |
 | Text status | Final [@CL-MKT-0896] |
 | Applies to | Contracts in which the basic clause or one of its alternates is prescribed, together with the FAR plan clause [@CL-MKT-0946; @CL-MKT-0904; @CL-MKT-0906] |
 
@@ -58,6 +58,7 @@ Which contracts carry the basic clause or an alternate, and who files and accept
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast wording and stated the Test Program condition in full.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD small business subcontracting plan clause.

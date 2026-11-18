@@ -337,7 +337,25 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         };
     };
 
-    let target_path = target_cfg.path.clone();
+    // The owner may spell the declared target through a link or a junction. Resolve it once, here,
+    // before the export token is issued: the destination, every transfer target and every write then
+    // names the resolved folder, so a link or junction in the target cannot be swapped between the
+    // token and the write. The policy row names the resolved folder, as its paths are matched on
+    // whole components with links and junctions resolved.
+    let target_spelled = target_cfg.path.clone();
+    let target_path = match crate::io::root::resolve_outside_path(&target_spelled) {
+        Ok(resolved) => resolved,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!(
+                    "cannot resolve backup target {}: {err}\n",
+                    target_spelled.display()
+                ),
+                code: EXIT_USAGE,
+            };
+        }
+    };
     let target_str = target_path.to_string_lossy().into_owned();
 
     // 2. Refuse a target inside the Corpus or state folder (FB0812)
@@ -428,7 +446,9 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
     let mut notices = String::new();
 
     // 5. Target place check
-    let facts = world.place(&target_path);
+    // The place test reads the folder as the owner spells it: a target reached through a link, a
+    // junction or a sync root is a declared-target finding, and resolving it first would hide it.
+    let facts = world.place(&target_spelled);
     let declared = eff.state().policy().is_some_and(|p| {
         p.destinations().iter().any(|d| {
             d.kind == DestKind::Backup
@@ -528,7 +548,11 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
                 };
             }
         };
-        let cf = classify_file(&support_facts, model.as_ref(), eff, file_rel, &bytes);
+        let cf = if file_rel == QUESTION_LOG {
+            question_log_file(model.as_ref(), eff, file_rel, &bytes)
+        } else {
+            classify_file(&support_facts, model.as_ref(), eff, file_rel, &bytes)
+        };
         copied_files.push(cf);
         recorded_files.push((file_rel.clone(), sha256_hex(&bytes), bytes.len() as u64));
     }
@@ -1104,6 +1128,29 @@ fn is_inside_or_equal(target: &Path, root: &Path) -> bool {
     } else {
         target.starts_with(root)
     }
+}
+
+/// The question log's path in the backup layout (`ask-log`).
+const QUESTION_LOG: &str = "state/asked/asked.csv";
+
+/// The question log as a copied file: each row's own labels, the markings in its question and
+/// the current labels of its inputs in `model`; `unlabelled` when the log does not parse or an
+/// input cannot be resolved.
+fn question_log_file(
+    model: Option<&Model>,
+    eff: &EffectivePolicy,
+    path: &str,
+    bytes: &[u8],
+) -> CopiedFile {
+    let graph = model.map(fieldbook_core::asked::InputGraph::new);
+    let labels = fieldbook_core::backup::labels::question_log_labels(
+        bytes,
+        graph
+            .as_ref()
+            .map(|graph| graph as &dyn fieldbook_core::labels::LabelGraph),
+        &eff.marking_rules(),
+    );
+    CopiedFile::new(path, BackupFileKind::QuestionLogLine, labels)
 }
 
 fn load_model_if_available(

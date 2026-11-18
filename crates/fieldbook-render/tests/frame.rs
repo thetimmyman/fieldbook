@@ -1043,6 +1043,29 @@ mod frame {
     }
 
     #[test]
+    fn built_pages_hold_no_day_chip_and_no_start_date() {
+        let (_model, view) = build_public_view();
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+        for (path, bytes) in site.files() {
+            if path.ends_with(".html") {
+                let html = std::str::from_utf8(bytes).unwrap();
+                assert!(
+                    !html.contains("fb:dayBtn"),
+                    "{path}: the chip is added by script"
+                );
+                assert!(
+                    !html.contains("tl-now"),
+                    "{path}: the line is added by script"
+                );
+                assert!(
+                    !html.contains("fieldbook.start"),
+                    "{path}: a build injects no start date"
+                );
+            }
+        }
+    }
+
+    #[test]
     fn navigation_counts_use_the_filtered_view() {
         // 1. Permitted-only tree with known public pages and register rows.
         let mut permitted_tree = base_tree();

@@ -25,7 +25,7 @@ Shows when a short solicitation may be cancelled and reissued after a single off
 | Instrument | Codified DFARS [@CL-EST-1739; @CL-EST-1772] |
 | Codified citation | DFARS 252.215-7007 [@CL-EST-1739; @CL-EST-1778]; DFARS 252.215-7006 [@CL-EST-1772; @CL-EST-1779] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.215-7007: JUN 2012 [@CL-EST-9783]; DFARS 252.215-7006: MAR 2022 [@CL-EST-9784] |
 | Text status | Final [@CL-EST-1739; @CL-EST-1772] |
 | Applies to | Solicitations that use the notice provision as prescribed at DFARS 215.371-6 [@CL-EST-1778], and contracts that include the Selected Reserve clause as prescribed in DFARS 215.370-3 [@CL-EST-1779] where the offer stated an intent to use Selected Reserve members [@CL-EST-1772] |
 
@@ -54,6 +54,7 @@ Which expected solicitations may give fewer than the usual response time, and wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statutory citation so each sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Rewrote how-it-works and Selected Reserve sentences to state the provisions directly instead of characterizing them.

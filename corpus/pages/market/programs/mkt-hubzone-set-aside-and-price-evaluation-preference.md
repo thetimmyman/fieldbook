@@ -24,7 +24,7 @@ Gives the clause text of the two HUBZone notices: who may offer when a contract 
 | Instrument | Codified FAR [@CL-MKT-0984] |
 | Codified citation | FAR 52.219-3; FAR 52.219-4 [@CL-MKT-0984; @CL-MKT-0985] |
 | RFO citation | RFO FAR 52.219-3; RFO FAR 52.219-4 [@CL-MKT-0143; @CL-MKT-0160] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-3: OCT 2022 [@CL-MKT-9427]; FAR 52.219-4: OCT 2022 [@CL-MKT-9428] |
 | Text status | Final [@CL-MKT-0984] |
 | Applies to | The cases the set-aside clause lists, and offers evaluated under the preference clause [@CL-MKT-0982; @CL-MKT-1032; @CL-MKT-0985] |
 
@@ -57,6 +57,7 @@ Which contracts in the finance remit could be offered as HUBZone work, and who s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed multiple-award applicability cross-references and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: codified clause wording cited to its own claim.

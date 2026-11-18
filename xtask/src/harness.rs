@@ -903,6 +903,28 @@ const SHORTCUT_PAGES: [(&str, &[&str]); 2] = [
     ("storage-throws", &["storage_throwing_page_still_works"]),
 ];
 
+/// The page of the Day-N cases (`views-and-day-n-2`).
+const DAYN_TEMPLATE: &str = include_str!("../harness/dayn.html");
+/// The Day-N cases.
+const DAYN_CASES_JS: &str = include_str!("../harness/dayn.js");
+/// The cases the Day-N page must report as passing.
+const DAYN_PAGES: [&str; 14] = [
+    "chip_hidden_without_a_date",
+    "chip_shows_day_n_of_90",
+    "chip_opens_a_labelled_date_field",
+    "esc_returns_focus_to_the_chip_that_opened_it",
+    "esc_returns_focus_to_the_start_prompt_that_opened_it",
+    "changing_the_date_saves_it_shows_the_chip_and_marks_the_prompt",
+    "invalid_stored_date_is_ignored",
+    "typing_a_date_saves_nothing_until_enter",
+    "a_date_picker_change_saves_at_once",
+    "close_and_the_backdrop_save_nothing",
+    "saving_returns_focus_to_the_opener_or_its_fallback",
+    "plan_header_and_line_follow_the_date",
+    "plan_line_is_absent_after_day_90_and_the_header_says_day_n_of_90",
+    "storage_throwing_keeps_the_page_working_and_shows_the_not_remembered_toast",
+];
+
 /// The template of the narrow page (`narrow-width-check`): `@FRAME@` is filled in.
 const NARROW_TEMPLATE: &str = include_str!("../harness/narrow.html");
 /// The cases the narrow page runs.
@@ -1125,6 +1147,35 @@ pub(crate) fn prepare_shortcut_pages(harness: &Path) -> Result<Vec<CasePage>, St
     Ok(pages)
 }
 
+/// Writes the Day-N page under `<harness>/dayn/dayn.html`: the site's `strings.js` and `day.js`
+/// beside `dayn.js`, the self-test and `hold.js`.
+pub(crate) fn prepare_dayn_page(harness: &Path) -> Result<CasePage, String> {
+    let dir = harness.join("dayn");
+    if dir.exists() {
+        fs::remove_dir_all(&dir)
+            .map_err(|error| format!("cannot clear {}: {error}", dir.display()))?;
+    }
+    write_file(
+        &dir.join("assets/strings.js"),
+        fieldbook_core::strings::js().as_bytes(),
+    )?;
+    write_file(
+        &dir.join(fieldbook_render::site::DAY_JS_PATH),
+        fieldbook_render::site::DAY_JS.as_bytes(),
+    )?;
+    write_file(&dir.join("dayn.js"), DAYN_CASES_JS.as_bytes())?;
+    write_file(&dir.join(SELFTEST_NAME), SELFTEST_JS.as_bytes())?;
+    write_file(&dir.join("hold.js"), SEARCH_HOLD_JS.as_bytes())?;
+    let path = dir.join("dayn.html");
+    let html = inject_script(DAYN_TEMPLATE, &selftest_src(&path, &dir)?)?;
+    write_file(&path, html.as_bytes())?;
+    Ok(CasePage {
+        mode: "dayn",
+        path,
+        required: DAYN_PAGES.iter().map(|id| (*id).to_owned()).collect(),
+    })
+}
+
 /// The relative path from `<harness>/narrow/` to `<copy>/narrow-frame.html`.
 fn narrow_frame_src(copy: &Path, harness: &Path) -> Result<String, String> {
     if copy.parent() == Some(harness) {
@@ -1285,6 +1336,7 @@ fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) 
     let folder = match group {
         "search" => "search",
         "narrow" => "narrow",
+        "dayn" => "dayn",
         _ => "shortcuts",
     };
     for page in pages {
@@ -1707,6 +1759,16 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
         &work,
         "shortcut",
         &shortcut_pages,
+    ));
+
+    // The Day-N page (`views-and-day-n-2`): the chip, the start-date dialog and the today line
+    // through the site's day.js, with the clock and the stored date injected.
+    let dayn_page = prepare_dayn_page(&harness)?;
+    failures.extend(run_case_pages(
+        &browser.path,
+        &work,
+        "dayn",
+        std::slice::from_ref(&dayn_page),
     ));
 
     let pages = prepare_copy(&edition, &copy)?;
@@ -2555,6 +2617,30 @@ mod tests {
             failures.iter().any(|f| f.contains("no shortcut case ran")),
             "{failures:?}"
         );
+    }
+
+    #[test]
+    fn dayn_page_loads_the_site_day_js_and_requires_every_named_case() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let page = prepare_dayn_page(&harness).unwrap();
+        assert_eq!(page.path, harness.join("dayn/dayn.html"));
+        let root = page.path.parent().unwrap();
+        assert_eq!(
+            fs::read_to_string(root.join("assets/day.js")).unwrap(),
+            fieldbook_render::site::DAY_JS
+        );
+        assert_eq!(
+            fs::read_to_string(root.join("assets/strings.js")).unwrap(),
+            fieldbook_core::strings::js()
+        );
+        assert_eq!(page.required, ids(&DAYN_PAGES));
+        for id in DAYN_PAGES {
+            assert!(
+                DAYN_CASES_JS.contains(&format!("guarded('{id}'")),
+                "{id} has no case in dayn.js"
+            );
+        }
     }
 
     #[test]

@@ -25,7 +25,7 @@ Shows when the Government can reduce the price of a modification because certifi
 | Instrument | Codified FAR [@CL-EST-1806] |
 | Codified citation | FAR 52.215-11 and FAR 52.215-13 [@CL-EST-1806; @CL-EST-1812] |
 | RFO citation | RFO FAR 52.215-11 [@CL-EST-0433]; RFO FAR 52.215-13 [@CL-EST-0457] |
-| Edition date | Not established. |
+| Edition date | FAR 52.215-11: JUN 2020 [@CL-EST-9806]; FAR 52.215-13: JUN 2020 [@CL-EST-9807] |
 | Text status | Final [@CL-EST-1806] |
 | Applies to | Modifications whose pricing adjustment is expected to exceed the certified data threshold on the date of execution [@CL-EST-1806; @CL-EST-1857] |
 
@@ -59,6 +59,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added second reduction ground, contingencies, inflation references and timing wording; cut uncited contrasts.

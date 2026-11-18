@@ -51,6 +51,8 @@ pub enum ExtractError {
         /// Process exit status code.
         status: i32,
     },
+    /// Required extraction data (such as a staging folder) was not found.
+    Missing(&'static str),
 }
 
 impl fmt::Display for ExtractError {
@@ -65,6 +67,7 @@ impl fmt::Display for ExtractError {
             }
             Self::ToolMissing(name) => write!(f, "{name} is not installed"),
             Self::ToolFailed { status } => write!(f, "the tool exited with status {status}"),
+            Self::Missing(what) => write!(f, "missing {what}"),
         }
     }
 }
@@ -93,8 +96,10 @@ pub struct Extraction {
 pub trait Extractor {
     /// The unique adapter identifier (e.g. `plain@1`).
     fn id(&self) -> &'static str;
+    /// Whether this extractor accepts a file with lowercased extension `ext` and header bytes `head`.
+    fn accepts(&self, ext: &str, head: &[u8]) -> bool;
     /// Extract text pages from original bytes.
-    fn extract(&self, bytes: &[u8]) -> Result<Extraction, ExtractError>;
+    fn extract(&self, bytes: &[u8], ext: &str) -> Result<Extraction, ExtractError>;
 }
 
 /// Plain-text extractor for UTF-8 text formats.
@@ -106,7 +111,11 @@ impl Extractor for Plain {
         methods::PLAIN_ID
     }
 
-    fn extract(&self, bytes: &[u8]) -> Result<Extraction, ExtractError> {
+    fn accepts(&self, ext: &str, _head: &[u8]) -> bool {
+        matches!(ext.to_ascii_lowercase().as_str(), "txt" | "md" | "markdown")
+    }
+
+    fn extract(&self, bytes: &[u8], _ext: &str) -> Result<Extraction, ExtractError> {
         crate::versions::plain_v1::extract(bytes)
     }
 }
@@ -120,7 +129,14 @@ impl Extractor for HtmlStrip {
         methods::HTML_STRIP_ID
     }
 
-    fn extract(&self, bytes: &[u8]) -> Result<Extraction, ExtractError> {
+    fn accepts(&self, ext: &str, _head: &[u8]) -> bool {
+        matches!(
+            ext.to_ascii_lowercase().as_str(),
+            "html" | "htm" | "xhtml" | "svg"
+        )
+    }
+
+    fn extract(&self, bytes: &[u8], _ext: &str) -> Result<Extraction, ExtractError> {
         crate::versions::html_strip_v1::extract(bytes)
     }
 }
@@ -128,15 +144,12 @@ impl Extractor for HtmlStrip {
 static PLAIN: Plain = Plain;
 static HTML_STRIP: HtmlStrip = HtmlStrip;
 
-/// Select an extractor by file extension.
+/// Select an extractor by file extension and header bytes.
 ///
 /// The extension is compared in lowercase without a leading dot.
-pub fn select(ext: &str, _head: &[u8]) -> Option<&'static dyn Extractor> {
-    match ext.to_ascii_lowercase().as_str() {
-        "txt" | "md" | "markdown" => Some(&PLAIN),
-        "html" | "htm" | "xhtml" | "svg" => Some(&HTML_STRIP),
-        _ => None,
-    }
+pub fn select(ext: &str, head: &[u8]) -> Option<&'static dyn Extractor> {
+    let extractors: [&'static dyn Extractor; 2] = [&PLAIN, &HTML_STRIP];
+    extractors.into_iter().find(|e| e.accepts(ext, head))
 }
 
 /// Formats a page number into its canonical stem (`p0001`).
@@ -970,6 +983,23 @@ impl ExtractionToml {
         })
     }
 
+    /// Whether the `[locators]` table obeys the `FB0212` locator rules that
+    /// `check::extraction` enforces: every locator names pages within
+    /// `1..=page_count`, and no two labels share a section anchor.
+    #[must_use]
+    pub fn locators_are_valid(&self) -> bool {
+        let in_bounds = self
+            .locators
+            .values()
+            .all(|loc| loc.first != 0 && loc.last <= self.page_count);
+        let mut anchors = std::collections::BTreeSet::new();
+        in_bounds
+            && self
+                .locators
+                .keys()
+                .all(|label| anchors.insert(section_anchor(label)))
+    }
+
     /// Render this record as canonical `extraction.toml` text.
     pub fn render(&self) -> String {
         let mut out = String::new();
@@ -1344,7 +1374,7 @@ mod tests {
     fn plain_copies_text_unchanged() {
         let original = "Hello synthetic world\nLine 2";
         let ext = Plain
-            .extract(original.as_bytes())
+            .extract(original.as_bytes(), "txt")
             .expect("plain extraction");
         assert_eq!(ext.method, "plain");
         assert_eq!(ext.pages.len(), 1);
@@ -1355,13 +1385,13 @@ mod tests {
     #[test]
     fn plain_refuses_invalid_utf8() {
         let bad = [0xff, 0xfe, 0xfd];
-        let err = Plain.extract(&bad).expect_err("should refuse");
+        let err = Plain.extract(&bad, "txt").expect_err("should refuse");
         assert_eq!(err, ExtractError::NotText);
     }
 
     #[test]
     fn plain_empty_input_is_one_thin_page() {
-        let ext = Plain.extract(b"").expect("empty is valid");
+        let ext = Plain.extract(b"", "txt").expect("empty is valid");
         assert_eq!(ext.method, "plain");
         assert_eq!(ext.pages.len(), 1);
         assert_eq!(ext.pages[0].number, 1);
@@ -1374,7 +1404,7 @@ mod tests {
         let oversize_len = usize::try_from(MAX_ORIGINAL_BYTES + 1).expect("fits usize");
         let oversize_bad_utf8 = vec![0xff; oversize_len];
         let err = Plain
-            .extract(&oversize_bad_utf8)
+            .extract(&oversize_bad_utf8, "txt")
             .expect_err("must be too large");
         assert_eq!(
             err,
@@ -1386,7 +1416,7 @@ mod tests {
         let exact_len = usize::try_from(MAX_ORIGINAL_BYTES).expect("fits usize");
         let exact_ascii = vec![b'a'; exact_len];
         let ext = Plain
-            .extract(&exact_ascii)
+            .extract(&exact_ascii, "txt")
             .expect("exact size should succeed");
         assert_eq!(ext.pages.len(), 1);
         assert_eq!(ext.pages[0].text.len(), exact_len);
@@ -1395,7 +1425,7 @@ mod tests {
     #[test]
     fn html_with_no_text_is_one_empty_page() {
         let html = b"<html><head><style>x</style></head><body><!-- comment --></body></html>";
-        let ext = HtmlStrip.extract(html).expect("html extraction");
+        let ext = HtmlStrip.extract(html, "html").expect("html extraction");
         assert_eq!(ext.method, "html-strip");
         assert_eq!(ext.pages.len(), 1);
         assert_eq!(ext.pages[0].text, "");
@@ -1413,7 +1443,7 @@ mod tests {
             "&#99999999999;",
         ];
         for input in cases {
-            let res = HtmlStrip.extract(input.as_bytes());
+            let res = HtmlStrip.extract(input.as_bytes(), "html");
             assert!(res.is_ok(), "failed on input: {input:?}");
         }
     }
@@ -1422,7 +1452,7 @@ mod tests {
     fn html_entities_and_blocks() {
         let html = "<p>Synthetic &amp; &lt; &gt; &quot; &apos; foo&nbsp;bar</p>\
                     <p>Decimal: &#169; Hex: &#x20AC; Invalid: &#99999999999;</p>";
-        let ext = HtmlStrip.extract(html.as_bytes()).expect("extract");
+        let ext = HtmlStrip.extract(html.as_bytes(), "html").expect("extract");
         assert_eq!(
             ext.pages[0].text,
             "Synthetic & < > \" ' foo bar\n\nDecimal: © Hex: € Invalid: &#99999999999;\n"
@@ -1434,7 +1464,9 @@ mod tests {
         let doc = "<html><head><script src=\"a.js\"/></head><body>\
                    <p>This synthetic paragraph contains well over forty characters for testing extraction.</p>\
                    </body></html>";
-        let ext = HtmlStrip.extract(doc.as_bytes()).expect("extract xhtml");
+        let ext = HtmlStrip
+            .extract(doc.as_bytes(), "xhtml")
+            .expect("extract xhtml");
         let para =
             "This synthetic paragraph contains well over forty characters for testing extraction.";
         assert!(ext.pages[0].text.contains(para));
@@ -1450,7 +1482,9 @@ mod tests {
                    <script>var x = 1;</script>\
                    <p>Third synthetic paragraph.</p>\
                    </body></html>";
-        let ext = HtmlStrip.extract(doc.as_bytes()).expect("extract html");
+        let ext = HtmlStrip
+            .extract(doc.as_bytes(), "html")
+            .expect("extract html");
         assert!(ext.pages[0].text.contains("First synthetic paragraph."));
         assert!(ext.pages[0].text.contains("Third synthetic paragraph."));
         assert!(!ext.pages[0].text.contains("var x"));
@@ -1459,7 +1493,9 @@ mod tests {
     #[test]
     fn html_strip_keeps_svg_text_after_a_self_closing_style() {
         let doc = "<svg><style/><text>Synthetic SVG text content</text></svg>";
-        let ext = HtmlStrip.extract(doc.as_bytes()).expect("extract svg");
+        let ext = HtmlStrip
+            .extract(doc.as_bytes(), "svg")
+            .expect("extract svg");
         assert!(ext.pages[0].text.contains("Synthetic SVG text content"));
     }
 
@@ -1526,7 +1562,7 @@ mod tests {
         let sample_expected =
             include_str!("../../../tests/fixtures/extract/html-strip/sample.expected.txt");
         let ext = HtmlStrip
-            .extract(sample_html.as_bytes())
+            .extract(sample_html.as_bytes(), "html")
             .expect("extract sample.html");
         assert_eq!(ext.pages[0].text, sample_expected);
     }

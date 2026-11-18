@@ -144,6 +144,10 @@ impl World for FaultyWorld {
         Ok(tree)
     }
 
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        self.inner.read_file(path)
+    }
+
     fn write_file(
         &self,
         audited: &Audited,

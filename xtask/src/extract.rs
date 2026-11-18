@@ -96,7 +96,11 @@ impl Extractor for PdftotextLayout {
         PDFTOTEXT_LAYOUT_ID
     }
 
-    fn extract(&self, bytes: &[u8]) -> Result<Extraction, ExtractError> {
+    fn accepts(&self, ext: &str, _head: &[u8]) -> bool {
+        ext.eq_ignore_ascii_case("pdf")
+    }
+
+    fn extract(&self, bytes: &[u8], _ext: &str) -> Result<Extraction, ExtractError> {
         let len = u64::try_from(bytes.len()).unwrap_or(u64::MAX);
         if len > MAX_ORIGINAL_BYTES {
             return Err(ExtractError::TooLarge { bytes: len });
@@ -278,10 +282,11 @@ enum OneOutcome {
     ToolMissing(String),
 }
 
-fn extract_one(
+fn extract_one_with(
     root: &Path,
     id: &str,
     settings: &Settings,
+    override_extractor: Option<&dyn Extractor>,
     out: &mut Vec<String>,
     err: &mut Vec<String>,
 ) -> OneOutcome {
@@ -327,8 +332,9 @@ fn extract_one(
     let head_len = 512.min(bytes.len());
     let head = bytes.get(..head_len).unwrap_or(&[]);
 
-    let (extractor, is_pdf): (&dyn Extractor, bool) = if let Some(extor) = select(&lower_ext, head)
-    {
+    let (extractor, is_pdf): (&dyn Extractor, bool) = if let Some(extor) = override_extractor {
+        (extor, false)
+    } else if let Some(extor) = select(&lower_ext, head) {
         (extor, false)
     } else if lower_ext == "pdf" {
         (&settings.pdf, true)
@@ -340,11 +346,11 @@ fn extract_one(
         return OneOutcome::Failure;
     };
 
-    let extraction = match extractor.extract(&bytes) {
+    let extraction = match extractor.extract(&bytes, &lower_ext) {
         Ok(e) => e,
         Err(ExtractError::ToolMissing(name)) => return OneOutcome::ToolMissing(name),
         Err(e) => {
-            err.push(format!("{}: {e}", orig.file_name));
+            err.push(format!("{}: {}: {e}", extractor.id(), orig.file_name));
             return OneOutcome::Failure;
         }
     };
@@ -413,14 +419,25 @@ fn extract_one(
     OneOutcome::Success
 }
 
-/// Extract text and record metadata for a list of source versions.
-pub fn run(root: &Path, versions: &[&str], settings: &Settings) -> Outcome {
+fn run_inner(
+    root: &Path,
+    versions: &[&str],
+    settings: &Settings,
+    override_extractor: Option<&dyn Extractor>,
+) -> Outcome {
     let mut out = Vec::new();
     let mut err = Vec::new();
     let mut has_failure = false;
 
     for version in versions {
-        match extract_one(root, version, settings, &mut out, &mut err) {
+        match extract_one_with(
+            root,
+            version,
+            settings,
+            override_extractor,
+            &mut out,
+            &mut err,
+        ) {
             OneOutcome::Success => {}
             OneOutcome::Failure => {
                 has_failure = true;
@@ -434,6 +451,11 @@ pub fn run(root: &Path, versions: &[&str], settings: &Settings) -> Outcome {
 
     let exit = if has_failure { 1 } else { 0 };
     Outcome { exit, out, err }
+}
+
+/// Extract text and record metadata for a list of source versions.
+pub fn run(root: &Path, versions: &[&str], settings: &Settings) -> Outcome {
+    run_inner(root, versions, settings, None)
 }
 
 /// Attach supplied text to a stored original version.
@@ -849,7 +871,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
     fn a_missing_tool_is_exit_3() {
         let extractor = PdftotextLayout::with_program("fieldbook-no-such-program");
         assert_eq!(
-            extractor.extract(b"%PDF-1.4"),
+            extractor.extract(b"%PDF-1.4", "pdf"),
             Err(ExtractError::ToolMissing(
                 "fieldbook-no-such-program".to_owned()
             ))
@@ -876,7 +898,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
     fn a_failing_tool_names_the_status() {
         let extractor = PdftotextLayout::with_program("false");
         assert_eq!(
-            extractor.extract(b"%PDF-1.4"),
+            extractor.extract(b"%PDF-1.4", "pdf"),
             Err(ExtractError::ToolFailed { status: 1 })
         );
 
@@ -1343,6 +1365,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
     fn extractor_contract_plain() {
         super::extractor_suite::extractor_contract(
             &fieldbook_core::extraction::Plain,
+            "txt",
             &super::extractor_suite::text_vectors(),
             &|e| {
                 if e.method == PLAIN {
@@ -1358,6 +1381,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
     fn extractor_contract_html_strip() {
         super::extractor_suite::extractor_contract(
             &fieldbook_core::extraction::HtmlStrip,
+            "html",
             &super::extractor_suite::text_vectors(),
             &|e| {
                 if e.method == HTML_STRIP {
@@ -1377,7 +1401,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
             input: b"%PDF-1.4".to_vec(),
             expect: super::extractor_suite::Expect::Refused("ToolMissing"),
         }];
-        super::extractor_suite::extractor_contract(&extractor, &vectors, &|_| {
+        super::extractor_suite::extractor_contract(&extractor, "pdf", &vectors, &|_| {
             Err("validator should not be called".to_owned())
         });
     }
@@ -1391,7 +1415,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
             input: b"%PDF-1.4".to_vec(),
             expect: super::extractor_suite::Expect::Refused("ToolFailed"),
         }];
-        super::extractor_suite::extractor_contract(&extractor, &vectors, &|_| {
+        super::extractor_suite::extractor_contract(&extractor, "pdf", &vectors, &|_| {
             Err("validator should not be called".to_owned())
         });
     }
@@ -1428,7 +1452,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
                 },
             },
         ];
-        super::extractor_suite::extractor_contract(&extractor, &vectors, &|e| {
+        super::extractor_suite::extractor_contract(&extractor, "pdf", &vectors, &|e| {
             if e.method == PDFTOTEXT_LAYOUT {
                 Ok(())
             } else {
@@ -1464,7 +1488,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
             },
         }];
 
-        super::extractor_suite::extractor_contract(&extractor, &vectors, &|e| {
+        super::extractor_suite::extractor_contract(&extractor, "pdf", &vectors, &|e| {
             if e.method == expect.method {
                 Ok(())
             } else {
@@ -1472,7 +1496,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
             }
         });
 
-        let extraction = extractor.extract(input_bytes).expect("extract");
+        let extraction = extractor.extract(input_bytes, "pdf").expect("extract");
         assert_eq!(extraction.method, expect.method);
         assert_eq!(extraction.pages.len(), expect.pages);
         assert_eq!(
@@ -1488,7 +1512,7 @@ Synthetic section text for the extraction tests, long enough that no page is thi
         for i in 0..20 {
             let len = usize::try_from(rng.next_u64() % 257).unwrap_or(0);
             let bytes = rng.bytes(len);
-            let res = extractor.extract(&bytes);
+            let res = extractor.extract(&bytes, "pdf");
             assert_eq!(
                 res,
                 Err(ExtractError::ToolMissing(
@@ -1497,5 +1521,46 @@ Synthetic section text for the extraction tests, long enough that no page is thi
                 "iteration {i} failed"
             );
         }
+    }
+
+    #[test]
+    fn missing_error_prints_one_line_naming_extractor_writes_no_folder_and_exits_1() {
+        struct MissingExtractor;
+        impl Extractor for MissingExtractor {
+            fn id(&self) -> &'static str {
+                "missing-test@1"
+            }
+            fn accepts(&self, _ext: &str, _head: &[u8]) -> bool {
+                true
+            }
+            fn extract(&self, _bytes: &[u8], _ext: &str) -> Result<Extraction, ExtractError> {
+                Err(ExtractError::Missing("staging folder"))
+            }
+        }
+
+        let dir = corpus_with("S-0001-v1", "txt", &long_text());
+        let outcome = run_inner(
+            dir.path(),
+            &["S-0001-v1"],
+            &settings(),
+            Some(&MissingExtractor),
+        );
+        assert_eq!(outcome.exit, 1);
+        assert!(outcome.out.is_empty());
+        assert_eq!(outcome.err.len(), 1);
+        assert!(
+            outcome.err[0].contains("missing-test@1"),
+            "error line must name extractor: {}",
+            outcome.err[0]
+        );
+        assert!(
+            outcome.err[0].contains("missing staging folder"),
+            "error line must explain missing dependency: {}",
+            outcome.err[0]
+        );
+        assert!(
+            !text_dir(dir.path(), "S-0001-v1").exists(),
+            "must write no folder when extractor returns ExtractError::Missing"
+        );
     }
 }

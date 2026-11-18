@@ -25,7 +25,7 @@ Covers what a sealed bidder must fill in and sign, how erasures, price discrepan
 | Instrument | Codified FAR [@CL-EST-1987] |
 | Codified citation | FAR 52.214-12 [@CL-EST-1987]; FAR 52.214-18 [@CL-EST-1995] |
 | RFO citation | RFO FAR 52.214-12 [@CL-EST-0037; @CL-EST-0038]; RFO FAR 52.214-18 [@CL-EST-0046; @CL-EST-0047] |
-| Edition date | Not established. |
+| Edition date | FAR 52.214-12: Apr 1984 [@CL-EST-0037]; FAR 52.214-18: Apr 1984 [@CL-EST-0046] |
 | Text status | Final [@CL-EST-1987] |
 | Applies to | Sealed bids under the general preparation provision [@CL-EST-2096] and, for construction, the construction preparation provision [@CL-EST-2100] |
 
@@ -72,6 +72,7 @@ Confirm who signs bids, who initials changes, and what evidence of agent authori
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Unit-price correction, all-items disqualification and definition wording aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified lead-in that states the per-item duty as bidders shall.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of signature or signed.

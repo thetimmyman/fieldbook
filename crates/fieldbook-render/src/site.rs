@@ -26,6 +26,10 @@ pub const APP_CSS: &str = APP_CSS_TEXT;
 pub const APP_CSS_PATH: &str = "assets/app.css";
 /// `assets/app.js`, which the harness also loads into its shortcut pages.
 pub const APP_JS: &str = include_str!("../assets/app.js");
+/// `assets/day.js`, the Day-N chip, start-date dialog and today line; loaded after `app.js`.
+pub const DAY_JS: &str = include_str!("../assets/day.js");
+/// The path of [`DAY_JS`] relative to an edition root.
+pub const DAY_JS_PATH: &str = "assets/day.js";
 
 /// Error returned when rendering a static edition [`Site`].
 #[derive(Debug)]
@@ -178,6 +182,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     let mut paths = vec![
         APP_CSS_PATH.to_owned(),
         "assets/app.js".to_owned(),
+        DAY_JS_PATH.to_owned(),
         search_index::OUTPUT_PATH.to_owned(),
         search_page::SCRIPT_PATH.to_owned(),
         "assets/strings.js".to_owned(),
@@ -194,14 +199,22 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         edition::OUTPUT_PATH.to_owned(),
     ]);
     paths.extend(area::page_paths(view));
+    paths.extend(area::view_page_paths(view));
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
     paths.push(xlsx::OUTPUT_PATH.to_owned());
     paths.extend(templates_xlsx::planned_paths(view));
     for reg in Register::ALL {
-        paths.push(csv_copy::output_path(reg));
+        if reg != Register::Claims {
+            paths.push(csv_copy::output_path(reg));
+        }
     }
+    paths.extend(
+        register::claims_parts(view)
+            .into_iter()
+            .map(|p| csv_copy::claims_part_output_path(&p.area_code, p.part)),
+    );
     paths.extend(register::claims_part_paths(view));
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
@@ -232,6 +245,10 @@ pub fn render_with_previous(
     if let Some(corpus) = view.corpus() {
         for def in &corpus.area {
             let html = area::render_page(def, view, ctx, &navigation, &planned);
+            site.insert(&area::page_path(&def.code), html.into_bytes());
+        }
+        for def in &corpus.view {
+            let html = area::render_view_page(def, view, ctx, &navigation, &planned);
             site.insert(&area::page_path(&def.code), html.into_bytes());
         }
     }
@@ -298,12 +315,18 @@ pub fn render_with_previous(
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
     site.insert("assets/app.js", APP_JS.as_bytes().to_vec());
+    site.insert(DAY_JS_PATH, DAY_JS.as_bytes().to_vec());
     site.insert(xlsx::OUTPUT_PATH, xlsx::render(view, info.workbook_epoch)?);
     for (path, bytes) in templates_xlsx::render_all(view, info.workbook_epoch)? {
         site.insert(&path, bytes);
     }
     for reg in Register::ALL {
-        site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
+        if reg != Register::Claims {
+            site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));
+        }
+    }
+    for (path, bytes) in csv_copy::render_claims_parts(view) {
+        site.insert(&path, bytes);
     }
     debug_assert_eq!(
         site.files().keys().map(String::as_str).collect::<Vec<_>>(),

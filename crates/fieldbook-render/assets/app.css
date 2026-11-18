@@ -1724,6 +1724,7 @@ kbd {
 }
 
 .tl-axis-row {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-1-5);
@@ -1734,6 +1735,28 @@ kbd {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: var(--space-2);
   font-size: var(--text-xs);
+}
+
+.day-chip[hidden],
+.tu-item[hidden],
+.tl-now[hidden] {
+  display: none;
+}
+
+.tl-now {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: var(--border-w) dashed var(--color-accent);
+  pointer-events: none;
+}
+
+/* The today line sits above the track and below the text (HANDOFF.md 5,
+   PlanTimeline): the track stays unpositioned so the absolutely positioned
+   line paints over its bars, and only the window labels are raised. */
+.tl90 .thirds {
+  position: relative;
+  z-index: var(--z-raised);
 }
 
 .tl-track {
@@ -1763,7 +1786,8 @@ kbd {
   margin-bottom: var(--space-2);
 }
 
-.case-head h3 {
+.case-head h3,
+.case-head h4 {
   margin: 0;
 }
 
@@ -1957,6 +1981,16 @@ th[aria-sort="descending"] .sort-arrow::after {
 @media (max-width: 1279px) {
   .reader {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .day-chip {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tu-item[data-day] {
+    display: none;
   }
 }
 
@@ -2728,6 +2762,10 @@ svg .bar1.tot {
   margin: var(--space-0-5) 0 0;
   max-width: var(--measure);
   color: var(--color-muted);
+}
+
+.ws-head .view-note {
+  font-size: var(--text-sm);
 }
 
 .tabs {
@@ -3779,6 +3817,10 @@ dialog.dlg .note:empty {
 
   .topbar-end {
     display: block;
+  }
+
+  .day-chip {
+    display: none;
   }
 
   .build-date-link {

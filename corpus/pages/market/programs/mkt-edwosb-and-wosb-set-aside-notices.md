@@ -24,7 +24,7 @@ Separates the two women-owned notice clauses: the notice for economically disadv
 | Instrument | Codified FAR [@CL-MKT-1010] |
 | Codified citation | FAR 52.219-29; FAR 52.219-30 [@CL-MKT-1010; @CL-MKT-1072] |
 | RFO citation | RFO FAR 52.219-29; RFO FAR 52.219-30 [@CL-MKT-0102; @CL-MKT-0111] |
-| Edition date | Not established. |
+| Edition date | FAR 52.219-29: OCT 2022 [@CL-MKT-9422]; FAR 52.219-30: OCT 2022 [@CL-MKT-9423] |
 | Text status | Final [@CL-MKT-1010] |
 | Applies to | The cases each clause lists, from EDWOSB and WOSB set-asides and sole-source awards to orders under multiple-award contracts [@CL-MKT-1066; @CL-MKT-1074] |
 
@@ -59,6 +59,7 @@ Which women-owned entities in the finance remit hold a certification and which a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined EDWOSB and WOSB definitions and separated codified and RFO clause citations.

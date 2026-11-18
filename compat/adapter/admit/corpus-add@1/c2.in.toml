@@ -1,0 +1,48 @@
+today = "2026-03-01"
+existing_sha256 = "846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9"
+proposal_toml = """
+proposal_version = 1
+state = "proposed"
+kind = "new_source"
+labels = ["public"]
+writer = 0
+
+[candidate]
+file = "synthetic_notice.txt"
+sha256 = "846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9"
+bytes = 145
+
+[extraction]
+adapter = "staged@1"
+method = "plain"
+pages = 1
+thin_pages = []
+
+[source_choice]
+kind = "new"
+
+[row.title]
+value = "Synthetic Compat Title"
+by = "person"
+because = ""
+
+[row.publisher]
+value = "Synthetic Publisher"
+by = "person"
+because = ""
+
+[row.source_kind]
+value = "synthetic_fixture"
+by = "person"
+because = ""
+
+[row.licence]
+value = "Synthetic CC0-1.0"
+by = "person"
+because = ""
+
+[row.volatility]
+value = "V2"
+by = "person"
+because = ""
+"""

@@ -1845,6 +1845,13 @@ mod build {
                 .map(|tree| self.with_ledger(tree))
         }
 
+        fn read_file(
+            &self,
+            path: &std::path::Path,
+        ) -> Result<Option<Vec<u8>>, fieldbook::WorldError> {
+            self.inner.read_file(path)
+        }
+
         fn write_file(
             &self,
             audited: &fieldbook::Audited,
@@ -1929,6 +1936,10 @@ mod build {
             today: fieldbook_core::CivilDate,
         ) -> Result<fieldbook_core::status::StateSummary, fieldbook::WorldError> {
             self.inner.read_state_summary(today)
+        }
+
+        fn store_id(&self) -> &'static str {
+            self.inner.store_id()
         }
     }
 

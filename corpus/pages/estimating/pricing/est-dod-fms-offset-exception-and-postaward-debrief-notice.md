@@ -25,7 +25,7 @@ Shows what the DoD clause on the exception from certified cost or pricing data f
 | Instrument | Codified DFARS [@CL-EST-1546] |
 | Codified citation | DFARS 252.215-7014 [@CL-EST-1546]; DFARS 252.215-7016 [@CL-EST-1547] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.215-7014: DEC 2022 [@CL-EST-9788]; DFARS 252.215-7016: OCT 2025 [@CL-EST-9789] |
 | Text status | Final [@CL-EST-1546; @CL-EST-1547] |
 | Applies to | Solicitations and contracts that contain 252.215-7010 where the further conditions are met [@CL-EST-1526; @CL-EST-1527]; postaward debriefings for awards valued at 15 million dollars or more [@CL-EST-1547] |
 
@@ -55,6 +55,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-15: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notwithstanding scope of the offset exception; stated the clause conditions together; cut statements about what the clause and provision leave unsaid or are not.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the foreign military sales offset exception and the postaward debriefing notice.

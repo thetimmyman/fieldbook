@@ -11,10 +11,8 @@
         <h2 class="panel-title">Day-one questions</h2>
         <span class="panel-sub mono">{% if day_one.is_empty() %}None recorded{% else %}{{ day_one.len() }}{% endif %}</span>
       </div>
-      {% if day_one.is_empty() %}
-      <p class="muted">None recorded</p>
-      {% else %}
       <ul class="tu-list">
+        <li class="tu-item" id="fb:startPrompt" hidden><button class="btn sm" type="button">{{ start_prompt }}</button></li>
         {% for q in &day_one %}
         <li class="tu-item">
           <span>{{ q.chip_html|safe }} {{ q.question }}</span>
@@ -22,6 +20,8 @@
         </li>
         {% endfor %}
       </ul>
+      {% if day_one.is_empty() %}
+      <p class="muted">None recorded</p>
       {% endif %}
     </section>
 

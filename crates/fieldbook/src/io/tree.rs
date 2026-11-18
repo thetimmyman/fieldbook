@@ -456,6 +456,68 @@ impl World for Disk {
         crate::io::journal::read_tree_coherent(&self.tree_root, &self.state_dir)
     }
 
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        use std::path::Component;
+
+        if path.as_os_str().is_empty() {
+            return Err(WorldError::OutOfScope(path.to_path_buf()));
+        }
+        for comp in path.components() {
+            if matches!(comp, Component::ParentDir) {
+                return Err(WorldError::OutOfScope(path.to_path_buf()));
+            }
+        }
+
+        let candidates = [
+            self.state_dir.as_path(),
+            self.roots.home_state.path(),
+            self.tree_root.as_path(),
+            self.cwd.as_path(),
+        ];
+        let matched_base = candidates
+            .into_iter()
+            .filter(|base| !base.as_os_str().is_empty() && path.starts_with(base))
+            .max_by_key(|base| base.components().count());
+
+        if let Some(base) = matched_base {
+            let Ok(rel) = path.strip_prefix(base) else {
+                return Err(WorldError::OutOfScope(path.to_path_buf()));
+            };
+            let mut parts = Vec::new();
+            for comp in rel.components() {
+                match comp {
+                    Component::CurDir => {}
+                    Component::Normal(part) => parts.push(part),
+                    Component::ParentDir | Component::RootDir | Component::Prefix(_) => {
+                        return Err(WorldError::OutOfScope(path.to_path_buf()));
+                    }
+                }
+            }
+            return read_regular_from_anchor(base, &parts, true, path);
+        }
+
+        let abs = if path.is_absolute() {
+            path.to_path_buf()
+        } else {
+            self.cwd.join(path)
+        };
+        let mut root_anchor = PathBuf::new();
+        let mut parts = Vec::new();
+        for comp in abs.components() {
+            match comp {
+                Component::Prefix(p) => root_anchor.push(p.as_os_str()),
+                Component::RootDir => root_anchor.push(comp.as_os_str()),
+                Component::CurDir => {}
+                Component::ParentDir => return Err(WorldError::OutOfScope(path.to_path_buf())),
+                Component::Normal(part) => parts.push(part),
+            }
+        }
+        if root_anchor.as_os_str().is_empty() {
+            return Err(WorldError::OutOfScope(path.to_path_buf()));
+        }
+        read_regular_from_anchor(&root_anchor, &parts, false, path)
+    }
+
     fn write_lease(&self) -> Result<StoreLease, WorldError> {
         crate::io::journal::acquire_write_lease(&self.tree_root, &self.state_dir)
     }
@@ -554,4 +616,337 @@ impl World for Disk {
     ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
         Disk::read_state_summary(self, today)
     }
+
+    /// Return the `folder@1` Store adapter id: this world writes through a folder store.
+    fn store_id(&self) -> &'static str {
+        "folder@1"
+    }
+}
+
+/// Linux open flags for a read-only open that neither follows a symbolic link in its last
+/// component nor waits on a FIFO or device (values from the kernel UAPI headers; `std` adds
+/// `O_CLOEXEC` itself). Architectures without known values use the refusing reader below.
+#[cfg(all(
+    target_os = "linux",
+    any(
+        target_arch = "x86_64",
+        target_arch = "x86",
+        target_arch = "aarch64",
+        target_arch = "arm",
+        target_arch = "riscv64"
+    )
+))]
+mod linux_open {
+    /// `O_NONBLOCK`: opening a FIFO with no writer returns at once instead of blocking.
+    pub(super) const O_NONBLOCK: i32 = 0o4000;
+    /// `O_NOFOLLOW`: a symbolic link as the last component fails with `ELOOP`.
+    #[cfg(any(target_arch = "aarch64", target_arch = "arm"))]
+    pub(super) const O_NOFOLLOW: i32 = 0o100_000;
+    /// `O_NOFOLLOW`: a symbolic link as the last component fails with `ELOOP`.
+    #[cfg(not(any(target_arch = "aarch64", target_arch = "arm")))]
+    pub(super) const O_NOFOLLOW: i32 = 0o400_000;
+    /// `ELOOP`, the error `O_NOFOLLOW` gives for a symbolic link.
+    pub(super) const ELOOP: i32 = 40;
+}
+
+/// Open `path` read-only with `O_NOFOLLOW | O_NONBLOCK`, so a symbolic link is refused by the
+/// kernel at the open itself and a FIFO or device swapped in cannot block before `fstat`.
+#[cfg(all(
+    target_os = "linux",
+    any(
+        target_arch = "x86_64",
+        target_arch = "x86",
+        target_arch = "aarch64",
+        target_arch = "arm",
+        target_arch = "riscv64"
+    )
+))]
+fn open_no_follow_nonblocking(
+    path: &Path,
+    display_path: &Path,
+) -> Result<Option<std::fs::File>, WorldError> {
+    use std::os::unix::fs::OpenOptionsExt as _;
+
+    match std::fs::File::options()
+        .read(true)
+        .custom_flags(linux_open::O_NONBLOCK | linux_open::O_NOFOLLOW)
+        .open(path)
+    {
+        Ok(f) => Ok(Some(f)),
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => Ok(None),
+        Err(err) if err.raw_os_error() == Some(linux_open::ELOOP) => {
+            Err(WorldError::OutOfScope(display_path.to_path_buf()))
+        }
+        Err(err) => Err(WorldError::new(display_path, err.to_string())),
+    }
+}
+
+/// Read a regular file below `anchor` without following a symbolic link, resolving every
+/// component relative to the directory descriptor held for its parent.
+///
+/// Each step opens `/proc/self/fd/<parent>/<part>`, which the kernel resolves inside the held
+/// directory object (as `openat` does), so renaming or swapping an already-opened ancestor
+/// cannot redirect a later step. Every open is `O_NOFOLLOW | O_NONBLOCK` and is followed by
+/// `fstat` on the opened descriptor; the bytes are read from that descriptor only after its
+/// type and its `/proc/self/fd` containment in the anchor have been checked.
+#[cfg(all(
+    target_os = "linux",
+    any(
+        target_arch = "x86_64",
+        target_arch = "x86",
+        target_arch = "aarch64",
+        target_arch = "arm",
+        target_arch = "riscv64"
+    )
+))]
+fn read_regular_from_anchor(
+    anchor: &Path,
+    parts: &[&std::ffi::OsStr],
+    enforce_within_anchor: bool,
+    display_path: &Path,
+) -> Result<Option<Vec<u8>>, WorldError> {
+    use std::os::fd::AsRawFd as _;
+
+    if parts.is_empty() {
+        return Err(WorldError::new(display_path, "not a regular file"));
+    }
+
+    let Some(anchor_file) = open_no_follow_nonblocking(anchor, display_path)? else {
+        return Ok(None);
+    };
+    let anchor_fstat = anchor_file
+        .metadata()
+        .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+    if !anchor_fstat.file_type().is_dir() {
+        return Err(WorldError::OutOfScope(display_path.to_path_buf()));
+    }
+
+    let mut dir_file = anchor_file
+        .try_clone()
+        .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+
+    for (idx, part) in parts.iter().enumerate() {
+        let step_path =
+            PathBuf::from(format!("/proc/self/fd/{}/", dir_file.as_raw_fd())).join(part);
+        let is_last = idx + 1 == parts.len();
+
+        if is_last {
+            // A cheap refusal of an object that is plainly not a regular file, so devices are
+            // not opened; the decision that counts is the `fstat` of the opened descriptor.
+            match std::fs::symlink_metadata(&step_path) {
+                Ok(m) if m.file_type().is_symlink() => {
+                    return Err(WorldError::OutOfScope(display_path.to_path_buf()));
+                }
+                Ok(m) if !m.file_type().is_file() => {
+                    return Err(WorldError::new(display_path, "not a regular file"));
+                }
+                Ok(_) => {}
+                Err(err) if err.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+                Err(err) => return Err(WorldError::new(display_path, err.to_string())),
+            }
+            let Some(mut leaf_file) = open_no_follow_nonblocking(&step_path, display_path)? else {
+                return Ok(None);
+            };
+            let leaf_fstat = leaf_file
+                .metadata()
+                .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+            if !leaf_fstat.file_type().is_file() {
+                return Err(WorldError::new(display_path, "not a regular file"));
+            }
+            if enforce_within_anchor {
+                let canon_anchor =
+                    std::fs::read_link(format!("/proc/self/fd/{}", anchor_file.as_raw_fd()))
+                        .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+                let canon_leaf =
+                    std::fs::read_link(format!("/proc/self/fd/{}", leaf_file.as_raw_fd()))
+                        .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+                if !canon_leaf.starts_with(&canon_anchor) || canon_leaf == canon_anchor {
+                    return Err(WorldError::OutOfScope(display_path.to_path_buf()));
+                }
+            }
+            let mut buf = Vec::new();
+            leaf_file
+                .read_to_end(&mut buf)
+                .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+            return Ok(Some(buf));
+        }
+
+        let Some(next_dir) = open_no_follow_nonblocking(&step_path, display_path)? else {
+            return Ok(None);
+        };
+        let next_fstat = next_dir
+            .metadata()
+            .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+        if !next_fstat.file_type().is_dir() {
+            return Err(WorldError::new(display_path, "not a directory"));
+        }
+        dir_file = next_dir;
+    }
+
+    Err(WorldError::new(display_path, "not a regular file"))
+}
+
+/// On a Unix without `/proc/self/fd` (or a Linux architecture whose open flags are not listed
+/// above), `std` offers no descriptor-relative open, and a pathname walk can be redirected by
+/// swapping an ancestor that was already checked. Fieldbook runs on Linux and Windows, so the
+/// read refuses here rather than return bytes it cannot prove came from inside the anchor.
+#[cfg(all(
+    unix,
+    not(all(
+        target_os = "linux",
+        any(
+            target_arch = "x86_64",
+            target_arch = "x86",
+            target_arch = "aarch64",
+            target_arch = "arm",
+            target_arch = "riscv64"
+        )
+    ))
+))]
+fn read_regular_from_anchor(
+    anchor: &Path,
+    parts: &[&std::ffi::OsStr],
+    enforce_within_anchor: bool,
+    display_path: &Path,
+) -> Result<Option<Vec<u8>>, WorldError> {
+    let _ = (anchor, parts, enforce_within_anchor);
+    Err(WorldError::new(
+        display_path,
+        "reading a file needs descriptor-relative opens, which this platform does not offer",
+    ))
+}
+
+/// Windows `FILE_SHARE_READ`: other openers may read but not write, rename or delete.
+#[cfg(windows)]
+const WIN_FILE_SHARE_READ: u32 = 0x0000_0001;
+/// Windows `FILE_SHARE_WRITE`.
+#[cfg(windows)]
+const WIN_FILE_SHARE_WRITE: u32 = 0x0000_0002;
+/// Windows `FILE_FLAG_BACKUP_SEMANTICS`, needed to open a directory handle.
+#[cfg(windows)]
+const WIN_FILE_FLAG_BACKUP_SEMANTICS: u32 = 0x0200_0000;
+/// Windows `FILE_FLAG_OPEN_REPARSE_POINT`: open a reparse point itself instead of its target.
+#[cfg(windows)]
+const WIN_FILE_FLAG_OPEN_REPARSE_POINT: u32 = 0x0020_0000;
+/// Windows `FILE_ATTRIBUTE_REPARSE_POINT`.
+#[cfg(windows)]
+const WIN_FILE_ATTRIBUTE_REPARSE_POINT: u32 = 0x0000_0400;
+/// Windows `FILE_ATTRIBUTE_DIRECTORY`.
+#[cfg(windows)]
+const WIN_FILE_ATTRIBUTE_DIRECTORY: u32 = 0x0000_0010;
+
+/// Open `path` on Windows without `FILE_SHARE_DELETE` and with `FILE_FLAG_OPEN_REPARSE_POINT`,
+/// then check the handle's own attributes: a reparse point (junction, symlink, mount) is
+/// refused and the object must be a directory (`want_dir`) or a regular file.
+///
+/// While the handle is held nobody can rename or delete the object. A directory still allows
+/// write sharing so that files can be added to it; the leaf denies it, so its bytes cannot
+/// change while they are read.
+#[cfg(windows)]
+fn win_open_held(
+    path: &Path,
+    want_dir: bool,
+    display_path: &Path,
+) -> Result<Option<std::fs::File>, WorldError> {
+    use std::os::windows::fs::{MetadataExt as _, OpenOptionsExt as _};
+
+    let (share, flags) = if want_dir {
+        (
+            WIN_FILE_SHARE_READ | WIN_FILE_SHARE_WRITE,
+            WIN_FILE_FLAG_OPEN_REPARSE_POINT | WIN_FILE_FLAG_BACKUP_SEMANTICS,
+        )
+    } else {
+        (WIN_FILE_SHARE_READ, WIN_FILE_FLAG_OPEN_REPARSE_POINT)
+    };
+    let file = match std::fs::File::options()
+        .read(true)
+        .share_mode(share)
+        .custom_flags(flags)
+        .open(path)
+    {
+        Ok(f) => f,
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+        Err(err) => return Err(WorldError::new(display_path, err.to_string())),
+    };
+    let meta = file
+        .metadata()
+        .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+    let attrs = meta.file_attributes();
+    if meta.file_type().is_symlink() || attrs & WIN_FILE_ATTRIBUTE_REPARSE_POINT != 0 {
+        return Err(WorldError::OutOfScope(display_path.to_path_buf()));
+    }
+    let is_dir = attrs & WIN_FILE_ATTRIBUTE_DIRECTORY != 0;
+    if want_dir && !is_dir {
+        return Err(WorldError::new(display_path, "not a directory"));
+    }
+    if !want_dir && (is_dir || !meta.file_type().is_file()) {
+        return Err(WorldError::new(display_path, "not a regular file"));
+    }
+    Ok(Some(file))
+}
+
+/// Read a regular file below `anchor` on Windows with every check bound to held handles.
+///
+/// The anchor, each intermediate directory and the leaf are opened in turn by [`win_open_held`]
+/// and stay open (no delete sharing) until the bytes are read. The pathname is then not trusted:
+/// the final path of every handle is read from the handle (`GetFinalPathNameByHandleW`), each
+/// handle must sit directly inside the handle opened before it, and, when
+/// `enforce_within_anchor` is set, the leaf handle's own final path must lie strictly inside the
+/// anchor handle's final path. A swap during an open therefore cannot pass with the handle
+/// pointing elsewhere.
+#[cfg(windows)]
+fn read_regular_from_anchor(
+    anchor: &Path,
+    parts: &[&std::ffi::OsStr],
+    enforce_within_anchor: bool,
+    display_path: &Path,
+) -> Result<Option<Vec<u8>>, WorldError> {
+    if parts.is_empty() {
+        return Err(WorldError::new(display_path, "not a regular file"));
+    }
+
+    let final_of = |file: &std::fs::File| -> Result<PathBuf, WorldError> {
+        crate::io::win::final_path(file)
+            .ok_or_else(|| WorldError::OutOfScope(display_path.to_path_buf()))
+    };
+
+    let Some(anchor_file) = win_open_held(anchor, true, display_path)? else {
+        return Ok(None);
+    };
+    let anchor_final = final_of(&anchor_file)?;
+
+    let mut held: Vec<std::fs::File> = Vec::with_capacity(parts.len());
+    let mut parent_final = anchor_final.clone();
+    let mut cur = anchor.to_path_buf();
+    for (idx, part) in parts.iter().enumerate() {
+        cur.push(part);
+        let is_last = idx + 1 == parts.len();
+        let Some(file) = win_open_held(&cur, !is_last, display_path)? else {
+            return Ok(None);
+        };
+        let file_final = final_of(&file)?;
+        if file_final.parent() != Some(parent_final.as_path()) {
+            return Err(WorldError::OutOfScope(display_path.to_path_buf()));
+        }
+        parent_final = file_final;
+        held.push(file);
+    }
+
+    if enforce_within_anchor
+        && (!parent_final.starts_with(&anchor_final) || parent_final == anchor_final)
+    {
+        return Err(WorldError::OutOfScope(display_path.to_path_buf()));
+    }
+
+    let Some(mut leaf_file) = held.pop() else {
+        return Err(WorldError::new(display_path, "not a regular file"));
+    };
+    let mut buf = Vec::new();
+    leaf_file
+        .read_to_end(&mut buf)
+        .map_err(|err| WorldError::new(display_path, err.to_string()))?;
+    // The anchor and the intermediate directories stay open until the read is complete.
+    drop(held);
+    drop(anchor_file);
+    Ok(Some(buf))
 }

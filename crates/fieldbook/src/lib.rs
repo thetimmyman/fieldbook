@@ -11,6 +11,7 @@
 
 pub mod adapters;
 pub mod add;
+pub mod asked;
 pub mod audit;
 pub mod backup;
 pub mod build;
@@ -55,6 +56,9 @@ pub trait World {
 
     /// Read the in-memory Corpus [`Tree`] under an already-held [`StoreLease`] without relocking.
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError>;
+
+    /// Read raw bytes from `path` if it exists; return `Ok(None)` when absent.
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError>;
 
     /// Atomically write `bytes` to `path` under an active [`Audited`] token.
     fn write_file(
@@ -127,12 +131,12 @@ pub trait World {
     /// Returns [`WorldError`] if the drill workspace cannot be removed.
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError>;
 
-    /// Return the registry id of the Store adapter that this world is.
+    /// Return the registry id of the Store adapter that this world writes through.
     ///
-    /// The default is the folder store that [`io::Disk`] is; test doubles override it.
-    fn store_id(&self) -> &'static str {
-        "folder@1"
-    }
+    /// Every world names its store: `folder@1` for the folder store that [`io::Disk`] is,
+    /// `memory@0` for an in-memory double, or the inner world's id for a double that wraps one.
+    /// There is no default, so a new double cannot silently pass as a folder store.
+    fn store_id(&self) -> &'static str;
 
     /// Return the operation's effective policy (`Floor` until a policy loader overrides it).
     fn effective_policy(&self) -> fieldbook_core::policy::EffectivePolicy {
@@ -379,6 +383,10 @@ impl World for StateOverrideWorld<'_> {
 
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
         io::journal::read_tree_under_lease(self.inner.tree_root(), &self.state_dir, lease)
+    }
+
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        self.inner.read_file(path)
     }
 
     fn write_file(
@@ -628,6 +636,10 @@ mod tests {
             Ok(Tree::new())
         }
 
+        fn read_file(&self, _path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+            Ok(None)
+        }
+
         fn write_file(
             &self,
             _audited: &super::Audited,
@@ -712,6 +724,10 @@ mod tests {
             _today: fieldbook_core::CivilDate,
         ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
             Ok(fieldbook_core::status::StateSummary::default())
+        }
+
+        fn store_id(&self) -> &'static str {
+            "memory@0"
         }
     }
 

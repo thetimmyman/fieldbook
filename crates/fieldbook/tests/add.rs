@@ -449,7 +449,18 @@ fn io_writes_only_through_atomic() {
     entries.sort();
     assert!(!entries.is_empty());
 
-    let forbidden_file_writes = ["fs::write(", "File::create(", "OpenOptions::new()"];
+    // A read-only open builder (`File::options().read(true)`) is allowed anywhere in `io/`;
+    // any write, append, create or truncate flag on a builder is a raw write.
+    let forbidden_file_writes = [
+        "fs::write(",
+        "File::create(",
+        "OpenOptions::new()",
+        ".write(true)",
+        ".append(true)",
+        ".create(true)",
+        ".create_new(true)",
+        ".truncate(true)",
+    ];
     let forbidden_folder_ops = [
         "fs::remove_dir_all(",
         "fs::create_dir(",
@@ -654,6 +665,9 @@ fn held_open_target_is_in_use() {
         ) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
             self.inner.read_tree_under(lease)
         }
+        fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, fieldbook::WorldError> {
+            self.inner.read_file(path)
+        }
         fn write_file(
             &self,
             audited: &fieldbook::Audited,
@@ -730,6 +744,9 @@ fn held_open_target_is_in_use() {
             today: fieldbook_core::CivilDate,
         ) -> Result<fieldbook_core::status::StateSummary, fieldbook::WorldError> {
             self.inner.read_state_summary(today)
+        }
+        fn store_id(&self) -> &'static str {
+            self.inner.store_id()
         }
     }
 

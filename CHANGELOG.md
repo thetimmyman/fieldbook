@@ -5,11 +5,21 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Fixed: search normalisation gives the same text on a second pass: a deleted soft hyphen takes the combining marks after it, and the steps repeat until nothing changes, in the program and in the site's search.
+- Fixed: an export no longer writes through a destination folder that was swapped for a symlink after its token was issued.
+- Changed: the claims copy for Excel is one CSV per claims part, data/claims-<AREA>-<part>.csv, in place of data/claims.csv.
+- Fixed: a line of context, question or subject text that looks like a block delimiter is escaped in the model prompt, so it cannot open or close a block.
+- Fixed: a `synthetic = true` template contract is refused for a live template id, and the registry-id check also covers the ID cells of the generated ports tables and the template ids.
+- Added: search records each question in the question log.
+- Added: the Day-N chip, "Set your start date" and the today line on the Plan timeline, kept only in the browser.
+- Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
+- Changed: every world names its store id, so a test double or a wrapper can no longer report itself as the folder store by default.
+- Added: the Company profile, Competitors and Programs view pages.
 - Fixed: backup records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest.
 - Changed: a printed page's footer shows the page id, not its route.
 - Changed: backup holds one file in memory at a time.
+- Added: source pages link to the official location and to each cited section.
 - Added: the status command.
 - Changed: `cargo xtask extract` proposes a locator only for a label that looks like a section number, so a line that opens with `Section` or `§` and continues in prose proposes nothing.
 - Changed: an extraction of more than 9,999 pages is refused with one message for every extractor, and supplied text that holds a non-public `handling` line is refused before any page is written.

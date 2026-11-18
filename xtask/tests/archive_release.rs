@@ -434,7 +434,6 @@ fn build_synthetic_edition_set(
             );
             for data in [
                 fieldbook_core::strings::PATHS[0],
-                "data/claims.csv",
                 "data/conflicts.csv",
                 "data/glossary.csv",
                 "data/questions.csv",

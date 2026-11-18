@@ -13,7 +13,7 @@
 
   {%- if view.csv_href.is_some() || view.workbook_href.is_some() %}
   <p class="muted data-links">Copy for Excel:
-    {%- if let Some(href) = &view.csv_href %} <a href="{{ href }}">{{ view.file_name }}</a>{% endif %}
+    {%- if let Some(href) = &view.csv_href %} <a href="{{ href }}">{{ view.csv_file_name }}</a>{% endif %}
     {%- if let Some(href) = &view.workbook_href %}{% if view.csv_href.is_some() %} ·{% endif %} <a href="{{ href }}">registers.xlsx</a>{% endif %}</p>
   {%- endif %}
 

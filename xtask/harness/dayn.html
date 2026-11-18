@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'">
+<title>day-n harness</title>
+<!-- The page harness.rs generates from this template for the card views-and-day-n-2. It copies
+     the site's strings.js and day.js under assets/. dayn.js builds the synthetic frame (a top
+     bar with the build-date link, a timeline and the day-one list) again for every case, sets
+     the stored date and the clock, and loads day.js afresh, so each case starts clean. No
+     stylesheet is loaded: the chip's visibility rules are checked in tests/day_n.rs. -->
+<script src="assets/strings.js" defer></script>
+<script src="dayn.js" defer></script>
+</head>
+<body>
+<div id="stage"></div>
+<div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
+<div class="sr-only" id="fb:sr" aria-live="polite"></div>
+<ol id="harness-results"></ol>
+<p id="harness-summary" data-done="false"></p>
+</body>
+</html>
