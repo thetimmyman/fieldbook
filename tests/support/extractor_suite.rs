@@ -43,6 +43,7 @@ pub const fn error_name(error: &ExtractError) -> &'static str {
         ExtractError::TooLarge { .. } => "TooLarge",
         ExtractError::ToolMissing(_) => "ToolMissing",
         ExtractError::ToolFailed { .. } => "ToolFailed",
+        ExtractError::Missing(_) => "Missing",
     }
 }
 
@@ -74,12 +75,13 @@ pub fn text_vectors() -> Vec<Vector> {
 /// - 1 MB of bytes from `Rng::new(1)` is a value or a typed error and never a panic.
 pub fn extractor_contract(
     extractor: &dyn Extractor,
+    ext: &str,
     vectors: &[Vector],
     validate_method: &dyn Fn(&Extraction) -> Result<(), String>,
 ) {
     for vector in vectors {
-        let first = extractor.extract(&vector.input);
-        let second = extractor.extract(&vector.input);
+        let first = extractor.extract(&vector.input, ext);
+        let second = extractor.extract(&vector.input, ext);
         assert_eq!(
             first,
             second,
@@ -107,10 +109,15 @@ pub fn extractor_contract(
                 );
             }
             (Expect::Refused(name), Err(error)) => {
+                let formatted = format!("{}: {error}", extractor.id());
+                assert!(
+                    formatted.starts_with(extractor.id()),
+                    "refusal must name extractor: {formatted}"
+                );
                 assert_eq!(
                     error_name(&error),
                     *name,
-                    "{}: {}: refusal ({error})",
+                    "{}: {}: refusal ({formatted})",
                     extractor.id(),
                     vector.name
                 );
@@ -126,7 +133,7 @@ pub fn extractor_contract(
     }
 
     let big = rng::Rng::new(1).bytes(1_048_576);
-    if let Ok(extraction) = extractor.extract(&big) {
+    if let Ok(extraction) = extractor.extract(&big, ext) {
         assert!(!extraction.pages.is_empty(), "{}: no pages", extractor.id());
         validate_method(&extraction)
             .unwrap_or_else(|reason| panic!("{}: method: {reason}", extractor.id()));

@@ -1,0 +1,9 @@
+proposal_version = 1
+state = "proposed"
+kind = "gap_question"
+labels = ["public"]
+writer = 0
+
+[gap_question]
+area = "cmp"
+question = "Synthetic unanswered verification gap question?"

@@ -14,6 +14,7 @@ expression: html
 <script src="../assets/strings.js" defer></script>
 <script src="../assets/search.js" defer></script>
 <script src="../assets/app.js" defer></script>
+<script src="../assets/day.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#fb:main">Skip to content</a>

@@ -26,6 +26,10 @@ pub const APP_CSS: &str = APP_CSS_TEXT;
 pub const APP_CSS_PATH: &str = "assets/app.css";
 /// `assets/app.js`, which the harness also loads into its shortcut pages.
 pub const APP_JS: &str = include_str!("../assets/app.js");
+/// `assets/day.js`, the Day-N chip, start-date dialog and today line; loaded after `app.js`.
+pub const DAY_JS: &str = include_str!("../assets/day.js");
+/// The path of [`DAY_JS`] relative to an edition root.
+pub const DAY_JS_PATH: &str = "assets/day.js";
 
 /// Error returned when rendering a static edition [`Site`].
 #[derive(Debug)]
@@ -178,6 +182,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     let mut paths = vec![
         APP_CSS_PATH.to_owned(),
         "assets/app.js".to_owned(),
+        DAY_JS_PATH.to_owned(),
         search_index::OUTPUT_PATH.to_owned(),
         search_page::SCRIPT_PATH.to_owned(),
         "assets/strings.js".to_owned(),
@@ -310,6 +315,7 @@ pub fn render_with_previous(
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
     site.insert("assets/app.js", APP_JS.as_bytes().to_vec());
+    site.insert(DAY_JS_PATH, DAY_JS.as_bytes().to_vec());
     site.insert(xlsx::OUTPUT_PATH, xlsx::render(view, info.workbook_epoch)?);
     for (path, bytes) in templates_xlsx::render_all(view, info.workbook_epoch)? {
         site.insert(&path, bytes);

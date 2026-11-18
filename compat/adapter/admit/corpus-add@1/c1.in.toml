@@ -1,0 +1,68 @@
+today = "2026-03-01"
+proposal_toml = """
+proposal_version = 1
+state = "proposed"
+kind = "new_source"
+labels = ["public"]
+writer = 0
+
+[candidate]
+file = "synthetic_notice.txt"
+sha256 = "846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9"
+bytes = 145
+
+[extraction]
+adapter = "staged@1"
+method = "plain"
+pages = 1
+thin_pages = []
+
+[source_choice]
+kind = "new"
+
+[row.title]
+value = "Synthetic Compat Title"
+by = "person"
+because = ""
+
+[row.publisher]
+value = "Synthetic Publisher"
+by = "person"
+because = ""
+
+[row.source_kind]
+value = "synthetic_fixture"
+by = "person"
+because = ""
+
+[row.licence]
+value = "Synthetic CC0-1.0"
+by = "person"
+because = ""
+
+[row.volatility]
+value = "V2"
+by = "person"
+because = ""
+"""
+
+[verified]
+original_hex = "53796e74686574696320636f6d70617420696e707574206e6f7469636520666f722064657465726d696e6973746963207265706c617920766572696669636174696f6e206163726f73732072656c65617365732e0a4c696e652074776f206b656570732074686520706167652077656c6c2061626f766520746865207468696e2d70616765207468726573686f6c642e0a"
+extraction_toml = """
+tool = "plain"
+tool_version = "1"
+method = "plain"
+page_count = 1
+thin_pages = []
+original_sha256 = "846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9"
+[pages]
+p0001 = "846d682f7aea282534bda2f661d3c36d41e80c4b823ca0fddc127dd9c7e54bd9"
+[locators]
+"1" = 1
+"""
+
+[verified.pages]
+p0001 = """
+Synthetic compat input notice for deterministic replay verification across releases.
+Line two keeps the page well above the thin-page threshold.
+"""

@@ -5,8 +5,8 @@
 use std::path::Path;
 
 use fieldbook_win::{
-    Folder, WinError, in_group, interactive_logons, known_folder, mark_not_indexed, place,
-    principal, writers,
+    Folder, WinError, final_path, in_group, interactive_logons, known_folder, mark_not_indexed,
+    place, principal, writers,
 };
 
 #[test]
@@ -24,4 +24,10 @@ fn every_function_is_an_error_off_windows() {
     assert_eq!(place(here), Err(want));
     assert_eq!(writers(here), Err(want));
     assert_eq!(mark_not_indexed(here), Err(want));
+    #[expect(
+        clippy::disallowed_types,
+        reason = "an open handle is the input of final_path"
+    )]
+    let file = std::fs::File::open(here).expect("open the current folder");
+    assert_eq!(final_path(&file), Err(want));
 }

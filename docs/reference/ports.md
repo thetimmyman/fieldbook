@@ -9,6 +9,7 @@ Generated from `fieldbook::adapters::registry::ADAPTERS` and `fieldbook_core::po
 | `plain@1` | yes | built | silent | `fieldbook-core` | none | labelled | - | `tests/fixtures/ports/extractor/plain@1/` | `extractor_contract` |
 | `html-strip@1` | no | built | silent | `fieldbook-core` | none | labelled | - | `tests/fixtures/ports/extractor/html-strip@1/` | `extractor_contract` |
 | `pdftotext-layout@1` | no | built | silent | `xtask` | process | public | - | `tests/fixtures/ports/extractor/pdftotext-layout@1/` | `extractor_contract` |
+| `staged@1` | no | built | silent | `fieldbook` | files | public | - | `tests/fixtures/ports/extractor/staged@1/` | `extractor_contract` |
 
 ### extractor plain@1
 
@@ -21,6 +22,20 @@ Contract test `contract_extractor_html_strip_1`; model calls: no.
 ### extractor pdftotext-layout@1
 
 Contract test `contract_extractor_pdftotext_layout_1`; model calls: no.
+
+### extractor staged@1
+
+Contract test `contract_extractor_staged_1`; model calls: no.
+
+## admit
+
+| ID | Default | State | Build | Crate | Needs | Sees | Settings keys | Fixtures | Suite |
+|---|---|---|---|---|---|---|---|---|---|
+| `corpus-add@1` | yes | built | silent | `fieldbook-core` | none | public | - | `tests/fixtures/ports/admit/corpus-add@1/` | `admit_suite` |
+
+### admit corpus-add@1
+
+Contract test `contract_admit_corpus_add_1`; model calls: no.
 
 ## backup
 
