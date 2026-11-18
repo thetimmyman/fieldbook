@@ -83,3 +83,7 @@ Stop and ask the owner before: a Corpus format change after the freeze; a CI per
 
 ## Reporting
 First line: the one decision the owner must make, or "none". Then what changed, the cards you set to Blocked and why, and the pull requests you merged.
+
+## Agent quick start
+
+Run `scripts/agent-bootstrap.sh` in a fresh checkout to install the pinned tools and enable the project hooks. Use `--check` for the tool doctor or `--verify` to run setup and `just check`.
