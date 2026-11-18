@@ -2113,6 +2113,27 @@ th[aria-sort="descending"] .sort-arrow::after {
 }
 
 /* LocatorView (`HANDOFF.md` section 5). */
+.ext-link {
+  display: inline-block;
+  max-width: 100%;
+  min-height: var(--target-min);
+  overflow-wrap: anywhere;
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--border-w);
+  text-underline-offset: var(--space-0-5);
+}
+
+.ext-link:hover {
+  text-decoration-thickness: var(--border-w-strong);
+}
+
+.ext-link > .ic {
+  width: var(--text-sm);
+  height: var(--text-sm);
+  margin-inline-start: var(--space-0-5);
+  vertical-align: middle;
+}
+
 .locator-view {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
