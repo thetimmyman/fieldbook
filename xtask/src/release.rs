@@ -11,7 +11,9 @@ use std::path::{Path, PathBuf};
 use fieldbook_core::ids::{EditionId, ToolRelease};
 
 use crate::compat::parse_baselines;
-use crate::edition_release::{DeliveryKind, collect_release_evidence, validate_edition_tag};
+use crate::edition_release::{
+    DeliveryKind, ReleaseIdentity, collect_release_evidence, validate_edition_tag,
+};
 use crate::proc;
 
 const USAGE_RELEASE: &str = "usage: cargo xtask release X.Y.Z";
@@ -806,6 +808,7 @@ pub fn release_check(root: &Path, args: &ReleaseCheckArgs) -> Result<bool, Strin
             &bound,
             &base_bytes,
             mode_bytes_opt,
+            &ReleaseIdentity::new(&args.tag, &tag_commit),
             &evidence_dir,
         ) {
             return check_refuse("evidence", &e);

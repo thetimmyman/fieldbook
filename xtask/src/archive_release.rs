@@ -18,9 +18,9 @@ use crate::allowlist::{AllowlistProfile, parse_sha256sums, verify_staged_trees};
 use crate::compat::{parse_baselines, parse_published};
 use crate::edition::{REQUIRED_FILES, parse_summary};
 use crate::edition_release::{
-    ArchiveManifest, DeliveryKind, ReleaseStream, VerifiedEditionArtifacts,
+    ArchiveManifest, DeliveryKind, RELEASE_IDENTITY_FILE, ReleaseStream, VerifiedEditionArtifacts,
     parse_edition_release_mode, read_non_symlink_file, register_archive_provider,
-    verify_edition_artifact_set,
+    verify_archived_identity, verify_edition_artifact_set,
 };
 use crate::proc;
 use crate::zipdet::read_and_verify_deterministic_zip;
@@ -103,7 +103,7 @@ fn verify_site_pair_and_evidence(
     }
 
     // 3. Evidence set exact: release-baseline.toml, compat/published.toml, bound files,
-    // and optional edition-release.toml.
+    // release-identity.toml and optional edition-release.toml.
     let published_bytes = read_non_symlink_file(archive_dir, "evidence/compat/published.toml")?;
     let published = parse_published(
         std::str::from_utf8(&published_bytes)
@@ -115,6 +115,7 @@ fn verify_site_pair_and_evidence(
         bound.iter().map(|(p, _)| format!("evidence/{p}")).collect();
     expected_evidence.insert("evidence/compat/published.toml".to_owned());
     expected_evidence.insert("evidence/release-baseline.toml".to_owned());
+    expected_evidence.insert(format!("evidence/{RELEASE_IDENTITY_FILE}"));
 
     let actual_evidence: BTreeSet<String> = manifest
         .files
@@ -169,6 +170,14 @@ fn verify_site_pair_and_evidence(
             manifest.baseline_sha256
         ));
     }
+
+    // The tag check's identity names this pair and this archive.
+    verify_archived_identity(
+        archive_dir,
+        &artifacts.ed_tag,
+        &artifacts.ed_info.commit,
+        manifest,
+    )?;
 
     // 4. Browser evidence: network-silence-summary.txt inside edition zip.
     let ed_zip = read_non_symlink_file(archive_dir, &artifacts.ed_zip_name)?;
