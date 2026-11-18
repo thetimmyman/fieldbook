@@ -1751,8 +1751,10 @@ kbd {
   pointer-events: none;
 }
 
-.tl90 .thirds,
-.tl-track {
+/* The today line sits above the track and below the text (HANDOFF.md 5,
+   PlanTimeline): the track stays unpositioned so the absolutely positioned
+   line paints over its bars, and only the window labels are raised. */
+.tl90 .thirds {
   position: relative;
   z-index: var(--z-raised);
 }
