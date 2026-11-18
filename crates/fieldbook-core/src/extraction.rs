@@ -983,6 +983,23 @@ impl ExtractionToml {
         })
     }
 
+    /// Whether the `[locators]` table obeys the `FB0212` locator rules that
+    /// `check::extraction` enforces: every locator names pages within
+    /// `1..=page_count`, and no two labels share a section anchor.
+    #[must_use]
+    pub fn locators_are_valid(&self) -> bool {
+        let in_bounds = self
+            .locators
+            .values()
+            .all(|loc| loc.first != 0 && loc.last <= self.page_count);
+        let mut anchors = std::collections::BTreeSet::new();
+        in_bounds
+            && self
+                .locators
+                .keys()
+                .all(|label| anchors.insert(section_anchor(label)))
+    }
+
     /// Render this record as canonical `extraction.toml` text.
     pub fn render(&self) -> String {
         let mut out = String::new();

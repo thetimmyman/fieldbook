@@ -444,8 +444,8 @@ impl VerifiedExtraction {
     ///
     /// # Errors
     ///
-    /// Returns [`ExtractError::Missing`] if any hash, count, thin-page set, or method schema
-    /// constraint fails.
+    /// Returns [`ExtractError::Missing`] if any hash, count, thin-page set, locator, or method
+    /// schema constraint fails.
     pub fn verify(
         expected_original_sha256: &str,
         extraction_toml_bytes: &[u8],
@@ -493,6 +493,11 @@ impl VerifiedExtraction {
         }
 
         if thin_page_numbers(&pages) != record.thin_pages {
+            return Err(ExtractError::Missing("matching staging folder"));
+        }
+        // Same locator rules as the FB0212 check, so staged metadata that
+        // verifies here cannot produce a Corpus that check rejects.
+        if !record.locators_are_valid() {
             return Err(ExtractError::Missing("matching staging folder"));
         }
 

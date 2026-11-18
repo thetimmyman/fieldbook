@@ -1630,3 +1630,37 @@ fn candidate_file_rejects_windows_prefixes_rooted_and_unc_paths() {
         );
     }
 }
+
+#[test]
+fn verified_extraction_rejects_locators_the_extraction_checker_rejects() {
+    use fieldbook_core::extraction::{ExtractError, LocatorPages};
+    use fieldbook_core::hash::sha256_hex;
+
+    let (raw_bytes, verified) = load_state_intake_verified();
+    let orig_sha = sha256_hex(&raw_bytes);
+    let refused = |locators: &[(&str, u32, u32)]| {
+        let mut record = verified.record().clone();
+        for &(label, first, last) in locators {
+            record
+                .locators
+                .insert(label.to_owned(), LocatorPages { first, last });
+        }
+        VerifiedExtraction::verify(
+            &orig_sha,
+            record.render().as_bytes(),
+            verified.page_bytes().clone(),
+        )
+    };
+
+    // In range, distinct anchors: still verifies.
+    assert!(refused(&[("(e)(1)", 1, 1)]).is_ok());
+    // FB0212 cases: a page past the one-page extraction, and two labels sharing an anchor.
+    assert_eq!(
+        refused(&[("(e)(1)", 1, 2)]),
+        Err(ExtractError::Missing("matching staging folder"))
+    );
+    assert_eq!(
+        refused(&[("(e)(1)", 1, 1), ("e 1", 1, 1)]),
+        Err(ExtractError::Missing("matching staging folder"))
+    );
+}
