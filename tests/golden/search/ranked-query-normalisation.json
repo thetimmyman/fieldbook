@@ -100,6 +100,36 @@
       "query": "caf\u00e9",
       "expect": ["norm-b"],
       "note": "A precomposed query keeps its accent and matches only the unit that holds it"
+    },
+    {
+      "id": "rk-41",
+      "query": "cafe\u00ad\u00ad\u0301",
+      "expect": ["norm-a", "norm-c"],
+      "note": "Repeated soft hyphens are deleted and the acute after the last goes with it, so the token is cafe"
+    },
+    {
+      "id": "rk-42",
+      "query": "cafe\u00ad\u0301\u0316\u0308",
+      "expect": ["norm-a", "norm-c"],
+      "note": "Every combining mark in the run after a soft hyphen is deleted with it, so the token is cafe"
+    },
+    {
+      "id": "rk-43",
+      "query": "caf\u00ade\u0301",
+      "expect": ["norm-b"],
+      "note": "The soft hyphen is followed by a letter, so only the hyphen goes and the acute after e composes to the accented word"
+    },
+    {
+      "id": "rk-44",
+      "query": "cafe\u0301",
+      "expect": ["norm-b"],
+      "note": "A combining acute not preceded by a soft hyphen is kept and composes to the accented word"
+    },
+    {
+      "id": "rk-45",
+      "query": "CAFE\u00ad\u0301",
+      "expect": ["norm-a", "norm-c"],
+      "note": "Lowercasing does not bring back the acute deleted with the soft hyphen"
     }
   ]
 }

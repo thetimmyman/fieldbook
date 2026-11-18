@@ -78,9 +78,7 @@ pub fn is_exact_class(doc: &DocEntry, s: &str) -> bool {
 /// match count.
 #[must_use]
 pub fn query(index: &Index, raw_query: &str, limit: usize) -> Results {
-    // Normalisation runs once. `normalise` is not idempotent (deleting U+00AD can leave a base
-    // letter and a combining mark adjacent, which a second NFKC would compose), and the index
-    // side normalises once, so the tokens come from the raw query and only `s` is derived here.
+    // The tokens come from the raw query, as on the index side, and `s` is derived here.
     let norm_q = normalise(raw_query);
     let s = norm_q.trim();
     let tokens = query_tokens(raw_query);
@@ -206,11 +204,12 @@ mod tests {
     }
 
     #[test]
-    fn the_query_is_normalised_once_because_normalise_is_not_idempotent() {
-        // Deleting the soft hyphen leaves `e` beside a combining acute. A second NFKC would
-        // compose them, so a query that normalised twice would look for the composed word.
+    fn a_soft_hyphen_takes_its_combining_mark_so_a_second_pass_finds_the_same_word() {
+        // The soft hyphen is deleted with the combining acute after it, so the query is `cafe`
+        // on every pass and never the composed word.
         let raw = "cafe\u{ad}\u{301}";
-        assert_ne!(normalise(&normalise(raw)), normalise(raw));
+        assert_eq!(normalise(raw), "cafe");
+        assert_eq!(normalise(&normalise(raw)), normalise(raw));
 
         let index = Index::build(
             vec![

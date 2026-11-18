@@ -49,12 +49,14 @@ The tokenizer has two sides that share one lexer. The index side turns text into
 
 ### Normalisation
 
-Applied in this order to every string, on both sides:
+One pass applies these steps in this order, on both sides:
 
 1. Unicode NFKC.
-2. Lowercase (full Unicode case mapping; `str::to_lowercase` in Rust, `toLowerCase()` in JavaScript). NFKC is not applied again.
+2. Lowercase (full Unicode case mapping; `str::to_lowercase` in Rust, `toLowerCase()` in JavaScript).
 3. Fold U+2010 to U+2015 and U+2212 to `-` (U+002D). NFKC has already turned U+2011 into U+2010 and the fullwidth and small hyphen-minus forms into `-`.
-4. Delete U+00AD (soft hyphen).
+4. Delete each U+00AD (soft hyphen) together with the run of combining marks (Unicode general category M: Mn, Mc and Me) that immediately follows it. A soft hyphen that follows another soft hyphen or a deleted mark takes the marks after it too. Any other mark is kept: `cafe` U+0301 becomes `café`, while `cafe` U+00AD U+0301 becomes `cafe`. In Rust the mark test is `unicode_normalization::char::is_combining_mark`; in JavaScript it is `/\u00ad\p{M}*/gu`.
+
+Passes repeat until one leaves the text unchanged, and that text is the result. So normalising a normalised string changes nothing: the lowercase of step 2 can leave text that NFKC composes or reorders (`J` U+030C becomes U+01F0, and U+0130 U+0316 becomes `i` U+0316 U+0307), and the marks deleted in step 4 can never be left beside a letter for a later NFKC to compose.
 
 Nothing else is folded. Accents are kept (`é` stays `é`). There are no stop words, no stemming and no spelling correction.
 
