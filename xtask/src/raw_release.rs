@@ -17,9 +17,10 @@ use crate::allowlist::{AllowlistProfile, verify_staged_trees};
 use crate::compat::{parse_baselines, parse_published};
 use crate::edition_raw::require_clean_tree;
 use crate::edition_release::{
-    ArchiveManifest, DeliveryKind, ReleaseStream, ValidatedEditionTag, collect_all_rel_files,
-    collect_release_evidence, parse_edition_release_mode, read_non_symlink_file,
-    register_archive_provider, validate_edition_tag, verify_edition_artifact_set,
+    ArchiveManifest, DeliveryKind, RELEASE_IDENTITY_FILE, ReleaseIdentity, ReleaseStream,
+    ValidatedEditionTag, collect_all_rel_files, collect_release_evidence,
+    parse_edition_release_mode, read_non_symlink_file, register_archive_provider,
+    validate_edition_tag, verify_archived_identity, verify_edition_artifact_set,
 };
 use crate::proc;
 use crate::zipdet::read_and_verify_deterministic_zip;
@@ -183,6 +184,7 @@ pub fn raw_archive_provider(
     ] {
         expected_evidence.insert(fixed.to_owned());
     }
+    expected_evidence.insert(format!("evidence/{RELEASE_IDENTITY_FILE}"));
     let actual_evidence: BTreeSet<String> = manifest
         .files
         .iter()
@@ -203,6 +205,12 @@ pub fn raw_archive_provider(
     .map_err(|e| format!("evidence/release-baseline.toml is not UTF-8: {e}"))?
     .to_owned();
     parse_baselines(&baseline_text)?;
+    verify_archived_identity(
+        archive_dir,
+        &artifacts.ed_tag,
+        &artifacts.ed_info.commit,
+        manifest,
+    )?;
 
     // The clean reports travel inside the edition zip.
     let ed_zip = read_non_symlink_file(archive_dir, &artifacts.ed_zip_name)?;
@@ -325,7 +333,8 @@ pub type CompatVerifier<'a> = &'a dyn Fn(&Path, &Path) -> Result<bool, String>;
 /// 3. `--base` is byte-identical to the committed `release-baseline.toml`, and the compatibility
 ///    verifier accepts it.
 /// 4. The committed mode and baseline descriptors, the published manifest and every bound blob
-///    are copied, hash-checked, into a new `--evidence-out` folder.
+///    are copied, hash-checked, into a new `--evidence-out` folder, with `release-identity.toml`
+///    naming the tag and its commit.
 pub fn raw_edition_check(
     root: &Path,
     args: &RawCheckArgs,
@@ -393,6 +402,7 @@ pub fn raw_edition_check(
         &bound,
         &base_bytes,
         Some(&mode_bytes),
+        &ReleaseIdentity::new(&args.tag, &validated.commit),
         &args.evidence_out,
     )?;
     Ok(validated)
@@ -478,9 +488,9 @@ mod tests {
         CONTACT, Scripted, clean_repo, commit_all, dir_listing, git, package, write,
     };
     use crate::edition_release::{
-        ArchiveArgs, ArchiveFileEntry, ArchiveManifest, DeliveryKind, ReleaseStream,
-        advance_baselines_from_archive, archive_release, collect_all_rel_files,
-        register_archive_provider, serialize_baselines, verify_archive,
+        ArchiveArgs, ArchiveFileEntry, ArchiveManifest, DeliveryKind, RELEASE_IDENTITY_FILE,
+        ReleaseIdentity, ReleaseStream, advance_baselines_from_archive, archive_release,
+        collect_all_rel_files, register_archive_provider, serialize_baselines, verify_archive,
     };
     use crate::proc;
     use crate::zipdet::{read_and_verify_deterministic_zip, write_deterministic_zip_bytes};
@@ -823,11 +833,18 @@ mod tests {
             "compat/published.toml".to_owned(),
             "edition-release.toml".to_owned(),
             "release-baseline.toml".to_owned(),
+            "release-identity.toml".to_owned(),
         ]);
         expected.sort();
         assert_eq!(files.keys().cloned().collect::<Vec<_>>(), expected);
         assert_eq!(files["edition-release.toml"], mode("001", "raw").as_bytes());
         assert_eq!(files["release-baseline.toml"], EMPTY_BASE.as_bytes());
+        assert_eq!(
+            files["release-identity.toml"],
+            ReleaseIdentity::new("edition-001", &head(root))
+                .to_toml()
+                .as_bytes()
+        );
 
         // A changed bound blob refuses before any evidence is written.
         let some = expected
@@ -936,6 +953,7 @@ mod tests {
             "corpus-support.sha256",
             "evidence/edition-release.toml",
             "evidence/release-baseline.toml",
+            "evidence/release-identity.toml",
             "evidence/compat/published.toml",
         ] {
             assert!(paths.contains(&needed), "{needed} in {paths:?}");
@@ -1160,6 +1178,40 @@ mod tests {
         )
         .expect("edit");
         assert!(archive(&wrong, &evidence, &base_of(root), &archives).is_err());
+
+        // Evidence whose identity names another tag or another commit is refused by
+        // archive-release itself, before the Raw provider runs.
+        for (name, tag, commit) in [
+            ("tag", "edition-002".to_owned(), head(root)),
+            ("commit", "edition-001".to_owned(), "0".repeat(40)),
+        ] {
+            let other = work.path().join(format!("ev-identity-{name}"));
+            copy_tree(&evidence, &other);
+            fs::write(
+                other.join(RELEASE_IDENTITY_FILE),
+                ReleaseIdentity::new(&tag, &commit).to_toml(),
+            )
+            .expect("edit identity");
+            let err = archive(&out, &other, &base_of(root), &archives)
+                .expect_err("another identity is refused");
+            assert!(
+                err.contains("differs from the paired edition"),
+                "{name}: {err}"
+            );
+        }
+
+        // Evidence without the tag check's identity is refused, and nothing is archived.
+        let bare = work.path().join("ev-no-identity");
+        copy_tree(&evidence, &bare);
+        fs::remove_file(bare.join(RELEASE_IDENTITY_FILE)).expect("rm identity");
+        let err = archive(&out, &bare, &base_of(root), &archives)
+            .expect_err("missing identity is refused");
+        assert!(err.contains("needs the tag check's identity"), "{err}");
+        assert!(
+            !archives.exists()
+                || dir_listing(&archives).iter().all(|n| n.starts_with('.'))
+                || dir_listing(&archives).is_empty()
+        );
 
         // A mismatched mode descriptor (another kind) is refused.
         let site = work.path().join("ev-site");
@@ -1638,6 +1690,45 @@ mod tests {
             let err = verify_archive(&copy, &restore(name, work.path()), None)
                 .expect_err(&format!("{name} must be refused"));
             assert!(err.contains(expected), "{name}: {err}");
+        }
+    }
+
+    #[test]
+    fn the_raw_provider_refuses_a_retained_identity_of_another_tag_or_commit() {
+        register_raw_provider().expect("raw provider");
+        let repo = lab();
+        let root = repo.path();
+        let work = TempDir::new().expect("work");
+        let archives = work.path().join("archives");
+        let (out, evidence) = deliver(root, work.path(), "edition-001");
+        let (arch, _, _) = archive(&out, &evidence, &base_of(root), &archives).expect("archive");
+        let rel = format!("evidence/{RELEASE_IDENTITY_FILE}");
+        assert_eq!(
+            fs::read(arch.join(&rel)).expect("identity"),
+            ReleaseIdentity::new("edition-001", &head(root))
+                .to_toml()
+                .as_bytes()
+        );
+
+        for (name, tag, commit) in [
+            ("tag", "edition-002".to_owned(), head(root)),
+            ("commit", "edition-001".to_owned(), "0".repeat(40)),
+        ] {
+            let copy = work.path().join(format!("copy-identity-{name}"));
+            relisted(&arch, &copy, |d| {
+                write(
+                    d,
+                    &rel,
+                    ReleaseIdentity::new(&tag, &commit).to_toml().as_bytes(),
+                );
+            });
+            let err = verify_archive(
+                &copy,
+                &restore(&format!("identity-{name}"), work.path()),
+                None,
+            )
+            .expect_err("another identity is refused");
+            assert!(err.contains("not the archived pair"), "{name}: {err}");
         }
     }
 
