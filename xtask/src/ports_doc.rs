@@ -157,9 +157,9 @@ mod tests {
     use super::*;
 
     #[test]
-    fn ports_doc_lists_six_rows_and_the_ask_template() {
+    fn ports_doc_lists_registered_rows_and_the_ask_template() {
         let body = render_ports_section("").expect("render");
-        assert_eq!(ADAPTERS.len(), 6);
+        assert_eq!(ADAPTERS.len(), 8);
         for r in ADAPTERS {
             assert!(
                 body.contains(&format!("### {} {}\n", r.port.as_str(), r.id)),

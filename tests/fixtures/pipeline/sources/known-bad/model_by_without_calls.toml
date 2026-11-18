@@ -1,0 +1,16 @@
+# expect: parse
+proposal_version = 1
+state = "proposed"
+kind = "new_source"
+labels = ["public"]
+writer = 0
+
+[candidate]
+file = "synthetic_notice.txt"
+sha256 = "89418a780df335fdd9b07e3e24271f8485ac83bc488a562d582ea13e9f88fc2a"
+bytes = 285
+
+[row.title]
+value = "Synthetic Notice"
+by = "model:stub@1:synth-model"
+because = "model guess without provenance call"

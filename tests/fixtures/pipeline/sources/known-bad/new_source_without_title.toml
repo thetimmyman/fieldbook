@@ -1,0 +1,31 @@
+# expect: admit MissingField
+proposal_version = 1
+state = "proposed"
+kind = "new_source"
+labels = ["public"]
+writer = 0
+
+[candidate]
+file = "synthetic_notice.txt"
+sha256 = "89418a780df335fdd9b07e3e24271f8485ac83bc488a562d582ea13e9f88fc2a"
+bytes = 285
+
+[row.publisher]
+value = "Example Contracting Office"
+by = "person"
+because = ""
+
+[row.source_kind]
+value = "synthetic_fixture"
+by = "person"
+because = ""
+
+[row.licence]
+value = "Synthetic CC0-1.0"
+by = "person"
+because = ""
+
+[row.volatility]
+value = "V2"
+by = "person"
+because = ""

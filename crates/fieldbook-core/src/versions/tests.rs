@@ -44,7 +44,7 @@ fn plain_v1_matches_the_current_extractor() -> Result<(), Box<dyn Error>> {
 
     let current = Plain;
     for (label, case) in cases {
-        let expected = current.extract(case);
+        let expected = current.extract(case, "txt");
         let actual = plain_v1::extract(case);
         assert_eq!(
             actual, expected,
@@ -74,7 +74,7 @@ fn html_strip_v1_matches_the_current_extractor() -> Result<(), Box<dyn Error>> {
 
     let current = HtmlStrip;
     for (label, case) in cases {
-        let expected = current.extract(case);
+        let expected = current.extract(case, "html");
         let actual = html_strip_v1::extract(case);
         assert_eq!(
             actual, expected,

@@ -4,6 +4,58 @@ case_set_sha256 = "749cd0ca62154bdb58fcdc04735a5714a32321cfd8b6d6bed86a0baca916a
 
 [[binding]]
 kind = "adapter"
+port = "admit"
+id = "corpus-add@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/admit/corpus-add@1/contract.toml"
+sha256 = "150b7c4e9e813083ed019ef8bef26ee17aa357c2a401bf5365e78ef5d79b6e75"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/admit/corpus-add@1/c1.out.txt"
+sha256 = "39c86495553b5d742850ab1f04b6baecd7894ad658c58f4bf6a1e5623a291ffe"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/admit/corpus-add@1/c2.out.txt"
+sha256 = "a1c6f3903b82b9e610c49872125efe629533ffdd93714ac0eed5a22f4e6ab6e1"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/admit/corpus-add@1/c3.out.txt"
+sha256 = "a63138decb9b087e17f32a27b92fb26e7963e28cf0176cb8b8918c876c38e8f0"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/versions/corpus_add_v1.rs"
+sha256 = "e790f02de6d5968999efc3b33924399446ae318eb0ca2d41e437fa7a5a88f229"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/admit/corpus-add@1/c1.in.toml"
+sha256 = "aeab2cf3bdb7e06cc247f9f9b83cc62ee16c484b599361ab977ca3cccffb185d"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/admit/corpus-add@1/c2.in.toml"
+sha256 = "813253fc1261a4ec62ef91015b084f88875758d246f694f14a08421b83bfb686"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/admit/corpus-add@1/c3.in.toml"
+sha256 = "f4dbe9409b40aee2062b80f8e04d59eead12bf892d340fa9b84c810283400400"
+
+[[binding]]
+kind = "adapter"
 port = "authz"
 id = "policy-readers@1"
 runner = "adapter"
@@ -261,6 +313,58 @@ role = "input"
 case = "c3"
 path = "compat/adapter/extractor/plain@1/c3.in.toml"
 sha256 = "539a2b9b1e9710de108c04f83912dc69258d88b4330fb0fc434adc6d3c78d89a"
+
+[[binding]]
+kind = "adapter"
+port = "extractor"
+id = "staged@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/extractor/staged@1/contract.toml"
+sha256 = "1bc1a100630a1a968fec7c01b8208bafa8b6d2dd2fd3f1217870cbab1d7482e5"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/extractor/staged@1/c1.out.txt"
+sha256 = "8e3ef6d95b2bcdb04b0670bc2aa21b419058bf2939c6cc6ee39e930a38a0786d"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/extractor/staged@1/c2.out.txt"
+sha256 = "938db60c504aaba35255aac38d59d6fe97cc1bcc25e6c4a53de5ffa7e4d82185"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/extractor/staged@1/c3.out.txt"
+sha256 = "6a89e760f1b8fff9c495bfef5d3c85e1a4d375262d862ee84be6e1aee9345c87"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook/src/io/versions/staged_v1.rs"
+sha256 = "2dce4d8696451b93993c31943f6a8680b025055c58d75f71df644895530d9002"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/extractor/staged@1/c1.in.toml"
+sha256 = "bd2a296bd305272b5110fa8c3493ad902b031452ce2434fa1ff2b375afa058b9"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/extractor/staged@1/c2.in.toml"
+sha256 = "601dec5c51d3181341eebc90c24fc644058bbcb0df23949e4f79fbde4e30f087"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/extractor/staged@1/c3.in.toml"
+sha256 = "929e9c5115e762ec60f715d3081ebcd0e37b107846d50eb235403adee441cda9"
 
 [[binding]]
 kind = "adapter"

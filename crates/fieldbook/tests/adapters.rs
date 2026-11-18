@@ -17,19 +17,31 @@ mod extractor_suite;
 // Included here so that the registered suites need no line in `support/mod.rs`.
 #[path = "support/authz_suite.rs"]
 mod authz_suite;
+#[expect(
+    clippy::duplicate_mod,
+    reason = "shared seeded test RNG is included per integration test binary"
+)]
+#[path = "../../../tests/support/rng.rs"]
+mod rng;
 #[path = "support/store_suite.rs"]
 mod store_suite;
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 
+use fieldbook::adapters::extract_io::Staged;
 use fieldbook::adapters::registry::{ADAPTERS, Caps, Port, Row, State};
 use fieldbook::io::Disk;
 use fieldbook_core::audit::{Actor, Principal, Role, Sha256, Via};
 use fieldbook_core::authz::{Act, Authz, AuthzDecision, PolicyReaders, Scope};
 use fieldbook_core::extraction::methods::{METHODS, Method};
-use fieldbook_core::extraction::{Extractor, HtmlStrip, Plain, thin_page_numbers};
+use fieldbook_core::extraction::{
+    ExtractError, Extraction, Extractor, HtmlStrip, PageText, Plain, build_record,
+    thin_page_numbers,
+};
+use fieldbook_core::hash::sha256_hex;
 use fieldbook_core::labels::StoreId;
+use fieldbook_core::pipeline::VerifiedMethodMetadata;
 use fieldbook_core::policy::Policy;
 
 struct FolderTargetFactory;
@@ -101,13 +113,13 @@ fn contract_extractor_plain_1() {
     .expect("positive pages");
 
     let extractor = Plain;
-    let extraction = extractor.extract(&input).expect("extract plain");
+    let extraction = extractor.extract(&input, "txt").expect("extract plain");
     assert_eq!(extraction.method, expected_method);
     assert_eq!(extraction.pages.len(), expected_pages);
     assert_eq!(thin_page_numbers(&extraction.pages), Vec::<u32>::new());
 
     let vectors = extractor_suite::text_vectors();
-    extractor_suite::extractor_contract(&extractor, &vectors, &|ext| {
+    extractor_suite::extractor_contract(&extractor, "txt", &vectors, &|ext| {
         if ext.method == fieldbook_core::extraction::methods::PLAIN {
             Ok(())
         } else {
@@ -142,13 +154,15 @@ fn contract_extractor_html_strip_1() {
     .expect("positive pages");
 
     let extractor = HtmlStrip;
-    let extraction = extractor.extract(&input).expect("extract html-strip");
+    let extraction = extractor
+        .extract(&input, "html")
+        .expect("extract html-strip");
     assert_eq!(extraction.method, expected_method);
     assert_eq!(extraction.pages.len(), expected_pages);
     assert_eq!(thin_page_numbers(&extraction.pages), Vec::<u32>::new());
 
     let vectors = extractor_suite::text_vectors();
-    extractor_suite::extractor_contract(&extractor, &vectors, &|ext| {
+    extractor_suite::extractor_contract(&extractor, "html", &vectors, &|ext| {
         if ext.method == fieldbook_core::extraction::methods::HTML_STRIP {
             Ok(())
         } else {
@@ -159,6 +173,611 @@ fn contract_extractor_html_strip_1() {
             ))
         }
     });
+}
+
+fn copy_state_intake_into(root: &Path) -> PathBuf {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let src_state = repo_root.join("tests/fixtures/state-intake");
+    let dst_state = root.join("state");
+    fn copy_dir(from: &Path, to: &Path) {
+        std::fs::create_dir_all(to).expect("create_dir_all");
+        for entry in std::fs::read_dir(from).expect("read_dir") {
+            let entry = entry.expect("dir entry");
+            let path = entry.path();
+            let target = to.join(entry.file_name());
+            if path.is_dir() {
+                copy_dir(&path, &target);
+            } else {
+                std::fs::copy(&path, &target).expect("copy file");
+            }
+        }
+    }
+    copy_dir(&src_state, &dst_state);
+    dst_state
+}
+
+#[test]
+fn contract_extractor_staged_1() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let fix_dir = repo_root.join("tests/fixtures/ports/extractor/staged@1");
+    let input = std::fs::read(fix_dir.join("input.txt")).expect("read input.txt");
+    let expect_toml =
+        std::fs::read_to_string(fix_dir.join("expect.toml")).expect("read expect.toml");
+    let expect: toml::Table = toml::from_str(&expect_toml).expect("parse expect.toml");
+    let expected_method = expect
+        .get("method")
+        .and_then(toml::Value::as_str)
+        .expect("method");
+    let expected_pages = usize::try_from(
+        expect
+            .get("pages")
+            .and_then(toml::Value::as_integer)
+            .expect("pages"),
+    )
+    .expect("positive pages");
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let extractor = Staged::new(&world);
+    assert_eq!(extractor.id(), "staged@1");
+
+    let extraction = extractor.extract(&input, "txt").expect("replay staged");
+    assert_eq!(extraction.method, expected_method);
+    assert_eq!(extraction.pages.len(), expected_pages);
+    assert_eq!(thin_page_numbers(&extraction.pages), Vec::<u32>::new());
+
+    // Populate staged entries for all valid contract text vectors in this isolated TempDir,
+    // and expect `Missing` for any vector without a staged folder.
+    let mut vectors = extractor_suite::text_vectors();
+    for vec in &mut vectors {
+        if let Ok(ext) = Plain.extract(&vec.input, "txt") {
+            let sha = sha256_hex(&vec.input);
+            let record = build_record(&ext, "plain", "1", &sha, &BTreeMap::new());
+            let dir = state_dir.join("staging").join(&sha);
+            std::fs::create_dir_all(&dir).expect("create staging dir");
+            std::fs::write(dir.join("extraction.toml"), record.render()).expect("write toml");
+            for page in &ext.pages {
+                let stem = fieldbook_core::extraction::page_stem(page.number);
+                std::fs::write(dir.join(format!("{stem}.txt")), page.text.as_bytes())
+                    .expect("write page");
+            }
+        } else {
+            vec.expect = extractor_suite::Expect::Refused("Missing");
+        }
+    }
+    extractor_suite::extractor_contract(&extractor, "txt", &vectors, &|ext| {
+        if ext.method == fieldbook_core::extraction::methods::PLAIN {
+            Ok(())
+        } else {
+            Err(format!("unexpected method {}", ext.method))
+        }
+    });
+
+    // Unknown bytes without a staging folder return ExtractError::Missing("staging folder").
+    assert_eq!(
+        extractor.extract(b"unstaged content", "txt"),
+        Err(ExtractError::Missing("staging folder"))
+    );
+}
+
+#[test]
+fn staged_rejects_a_changed_page() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    // Mutate one byte in staged p0001.txt.
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let page_path = state_dir.join("staging").join(&orig_sha).join("p0001.txt");
+    let mut page_bytes = std::fs::read(&page_path).expect("read p0001.txt");
+    page_bytes[0] ^= 0x01;
+    std::fs::write(&page_path, &page_bytes).expect("write mutated page");
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let extractor = Staged::new(&world);
+    let err = extractor
+        .extract(&input, "txt")
+        .expect_err("changed page must fail");
+    assert_eq!(err, ExtractError::Missing("matching staging folder"));
+    let line = format!("{}: {err}", extractor.id());
+    assert!(
+        line.starts_with("staged@1"),
+        "printed refusal line must start with `staged@1`: {line}"
+    );
+
+    // Restoring p0001.txt succeeds, while mutating original input returns Missing("staging folder").
+    let mut mutated_input = input;
+    mutated_input[0] ^= 0x01;
+    assert_eq!(
+        extractor.extract(&mutated_input, "txt"),
+        Err(ExtractError::Missing("staging folder"))
+    );
+}
+
+#[test]
+fn staged_replays_known_and_preserves_unsupported_metadata_as_unavailable() {
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let orig_bytes = b"%PDF-1.4\nsynthetic fixture payload\n";
+    let orig_sha = sha256_hex(orig_bytes);
+    let staging_dir = state_dir.join("staging").join(&orig_sha);
+    std::fs::create_dir_all(&staging_dir).expect("create staging dir");
+
+    let long_page =
+        "Synthetic extracted PDF body text long enough to avoid being flagged thin in tests.\n"
+            .to_owned();
+    let p1_sha = sha256_hex(long_page.as_bytes());
+    std::fs::write(staging_dir.join("p0001.txt"), long_page.as_bytes()).expect("write p0001");
+
+    // 1. Known method (`pdftotext-layout`) preserves validated tool metadata without re-running PDF tool.
+    let known_ext = Extraction {
+        method: fieldbook_core::extraction::methods::PDFTOTEXT_LAYOUT,
+        pages: vec![PageText {
+            number: 1,
+            text: long_page.clone(),
+        }],
+    };
+    let record = build_record(
+        &known_ext,
+        "pdftotext",
+        "24.02.0",
+        &orig_sha,
+        &BTreeMap::new(),
+    );
+    std::fs::write(staging_dir.join("extraction.toml"), record.render()).expect("write known toml");
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let staged = Staged::new(&world);
+    let verified = staged
+        .verify(orig_bytes)
+        .expect("verify known pdftotext-layout");
+    assert_eq!(
+        verified.extraction().method,
+        fieldbook_core::extraction::methods::PDFTOTEXT_LAYOUT
+    );
+    assert_eq!(verified.tool(), "pdftotext");
+    assert_eq!(verified.tool_version(), "24.02.0");
+    assert!(matches!(
+        verified.method_metadata(),
+        VerifiedMethodMetadata::Known { .. }
+    ));
+
+    // 2. Unsupported method preserves metadata as Unavailable rather than silently inventing Known fields.
+    let _ = p1_sha;
+    let unsupported_toml = record.render().replace(
+        "method = \"pdftotext-layout\"",
+        "method = \"future-ocr-engine\"",
+    );
+    std::fs::write(staging_dir.join("extraction.toml"), &unsupported_toml)
+        .expect("write unsupported toml");
+    let verified_unsup = staged
+        .verify(orig_bytes)
+        .expect("verify unsupported staging preserves hash-checked pages");
+    assert_eq!(verified_unsup.extraction().method, "unsupported");
+    assert_eq!(
+        verified_unsup.method_metadata(),
+        &VerifiedMethodMetadata::Unavailable {
+            method: "future-ocr-engine".to_owned(),
+            reason: "unsupported extraction method",
+        }
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn staged_refuses_a_symlinked_page_file() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let page_path = state_dir.join("staging").join(&orig_sha).join("p0001.txt");
+    let outside_target = tmp.path().join("outside_page.txt");
+    let page_bytes = std::fs::read(&page_path).expect("read p0001.txt");
+    std::fs::write(&outside_target, &page_bytes).expect("write outside file");
+    std::fs::remove_file(&page_path).expect("remove original p0001.txt");
+    std::os::unix::fs::symlink(&outside_target, &page_path).expect("plant symlink");
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let extractor = Staged::new(&world);
+    assert_eq!(
+        extractor.extract(&input, "txt"),
+        Err(ExtractError::Missing("staging folder"))
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn staged_refuses_symlinked_staging_ancestors() {
+    use fieldbook::World as _;
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    // 1. Symlink at `<state>/staging` pointing outside `<state>`.
+    let tmp1 = tempfile::tempdir().expect("create tempdir 1");
+    let state1 = copy_state_intake_into(tmp1.path());
+    let outside_staging = tmp1.path().join("outside_staging");
+    std::fs::rename(state1.join("staging"), &outside_staging).expect("move staging outside");
+    std::os::unix::fs::symlink(&outside_staging, state1.join("staging"))
+        .expect("symlink staging dir");
+    let world1 = support::world::TestWorld::with_state(tmp1.path(), &state1);
+    assert_eq!(
+        Staged::new(&world1).extract(&input, "txt"),
+        Err(ExtractError::Missing("staging folder")),
+        "symlinked `<state>/staging` directory must be refused"
+    );
+
+    // 2. Symlink at `<state>/staging/<sha256>` pointing outside `staging`.
+    let tmp2 = tempfile::tempdir().expect("create tempdir 2");
+    let state2 = copy_state_intake_into(tmp2.path());
+    let sha_dir = state2.join("staging").join(&orig_sha);
+    let outside_sha = tmp2.path().join("outside_sha");
+    std::fs::rename(&sha_dir, &outside_sha).expect("move <sha256> outside");
+    std::os::unix::fs::symlink(&outside_sha, &sha_dir).expect("symlink <sha256> dir");
+    let world2 = support::world::TestWorld::with_state(tmp2.path(), &state2);
+    assert_eq!(
+        Staged::new(&world2).extract(&input, "txt"),
+        Err(ExtractError::Missing("staging folder")),
+        "symlinked `<state>/staging/<sha256>` directory must be refused"
+    );
+
+    // 3. `..` traversal component in `World::read_file` must be refused even when target exists.
+    let escape_file = tmp2.path().join("escape_probe.txt");
+    std::fs::write(&escape_file, b"outside secret\n").expect("write escape file");
+    let dotdot_path = state2
+        .join("staging")
+        .join("..")
+        .join("..")
+        .join("escape_probe.txt");
+    assert!(
+        world2.read_file(&dotdot_path).is_err(),
+        "`..` traversal in Disk::read_file must be refused"
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn disk_read_file_refuses_concurrent_file_and_ancestor_symlink_swaps() {
+    use fieldbook::{World as _, WorldError};
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let real_staging = state_dir.join("staging_real");
+    let active_staging = state_dir.join("staging");
+    let outside_dir = tmp.path().join("outside_secret_dir");
+    std::fs::create_dir_all(real_staging.join("sub")).expect("create real_staging");
+    std::fs::create_dir_all(outside_dir.join("sub")).expect("create outside_dir");
+
+    let legit_bytes = b"legitimate staged page bytes\n";
+    let secret_bytes = b"OUTSIDE SECRET BYTES MUST NEVER BE READ\n";
+    std::fs::write(real_staging.join("sub/p0001.txt"), legit_bytes).expect("write legit page");
+    std::fs::write(outside_dir.join("sub/p0001.txt"), secret_bytes).expect("write outside page");
+    let outside_leaf = tmp.path().join("outside_leaf.txt");
+    std::fs::write(&outside_leaf, secret_bytes).expect("write outside leaf");
+
+    // Seed initial valid directory tree under `<state>/staging/sub/p0001.txt`.
+    std::fs::create_dir_all(active_staging.join("sub")).expect("create active_staging");
+    std::fs::write(active_staging.join("sub/p0001.txt"), legit_bytes).expect("seed active page");
+
+    let stop = Arc::new(AtomicBool::new(false));
+    let swaps = Arc::new(AtomicUsize::new(0));
+    let active_clone = active_staging.clone();
+    let real_clone = real_staging.clone();
+    let outside_dir_clone = outside_dir.clone();
+    let outside_leaf_clone = outside_leaf.clone();
+    let stop_clone = Arc::clone(&stop);
+    let swaps_clone = Arc::clone(&swaps);
+
+    let swapper = std::thread::spawn(move || {
+        let backup_dir = active_clone.with_file_name("staging_bak");
+        let leaf_path = active_clone.join("sub/p0001.txt");
+        let leaf_tmp = active_clone.join("sub/.swap_leaf");
+        while !stop_clone.load(Ordering::Relaxed) {
+            // 1. Atomic leaf file <-> symlink swap inside `sub/`.
+            let _ = std::fs::remove_file(&leaf_tmp);
+            if std::os::unix::fs::symlink(&outside_leaf_clone, &leaf_tmp).is_ok() {
+                let _ = std::fs::rename(&leaf_tmp, &leaf_path);
+                swaps_clone.fetch_add(1, Ordering::Relaxed);
+            }
+            let _ = std::fs::remove_file(&leaf_tmp);
+            if std::fs::write(&leaf_tmp, legit_bytes).is_ok() {
+                let _ = std::fs::rename(&leaf_tmp, &leaf_path);
+            }
+
+            // 2. Ancestor directory `<state>/staging` <-> outside symlink swap.
+            let _ = std::fs::remove_dir_all(&backup_dir);
+            if std::fs::rename(&active_clone, &backup_dir).is_ok() {
+                let _ = std::os::unix::fs::symlink(&outside_dir_clone, &active_clone);
+                swaps_clone.fetch_add(1, Ordering::Relaxed);
+                let _ = std::fs::remove_file(&active_clone);
+                let _ = std::fs::rename(&backup_dir, &active_clone);
+            } else {
+                // Ensure `active_clone` stays restored if interrupted mid-step.
+                let _ = std::fs::remove_file(&active_clone);
+                if !active_clone.exists() {
+                    let _ = std::fs::create_dir_all(active_clone.join("sub"));
+                    let _ = std::fs::copy(
+                        real_clone.join("sub/p0001.txt"),
+                        active_clone.join("sub/p0001.txt"),
+                    );
+                }
+            }
+        }
+    });
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let target = active_staging.join("sub/p0001.txt");
+    let mut refused = 0usize;
+    let mut ok_reads = 0usize;
+    let mut iter = 0usize;
+    while iter < 1500 || swaps.load(Ordering::Relaxed) < 10 {
+        iter += 1;
+        match world.read_file(&target) {
+            Ok(Some(bytes)) => {
+                assert_ne!(
+                    bytes.as_slice(),
+                    secret_bytes,
+                    "TOCTOU escape: Disk::read_file read bytes from outside `<state>`!"
+                );
+                assert_eq!(bytes.as_slice(), legit_bytes);
+                ok_reads += 1;
+            }
+            Ok(None) => {}
+            Err(WorldError::OutOfScope(_)) => {
+                refused += 1;
+            }
+            Err(WorldError::Io { .. }) => {
+                // Concurrent rename between directory open and child lookup can yield ENOTDIR.
+                refused += 1;
+            }
+            Err(other) => panic!("unexpected WorldError variant: {other:?}"),
+        }
+        if iter >= 20_000 {
+            break;
+        }
+    }
+
+    stop.store(true, Ordering::Relaxed);
+    swapper.join().expect("join swapper thread");
+    assert!(
+        swaps.load(Ordering::Relaxed) > 0,
+        "swapper thread must perform concurrent swaps"
+    );
+    assert!(
+        refused > 0 || ok_reads > 0,
+        "concurrent reader must observe live reads/refusals"
+    );
+}
+
+/// A leaf swapped between a regular file and a FIFO while `Disk::read_file` runs must never block
+/// the reader: the leaf is opened with `O_NONBLOCK | O_NOFOLLOW` and rejected by `fstat` before any
+/// byte is read. A blocking open waits forever on a FIFO with no writer, so the watchdog fails.
+#[cfg(target_os = "linux")]
+#[test]
+fn disk_read_file_never_blocks_on_a_leaf_swapped_to_a_fifo() {
+    use fieldbook::{World as _, WorldError};
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+    use std::time::Duration;
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let sub = state_dir.join("staging/sub");
+    std::fs::create_dir_all(&sub).expect("create staging/sub");
+    let legit_bytes = b"legitimate staged page bytes\n";
+    let leaf = sub.join("p0001.txt");
+    let parked_file = sub.join(".parked_file");
+    let parked_fifo = sub.join(".parked_fifo");
+    std::fs::write(&leaf, legit_bytes).expect("write leaf");
+    let made = std::process::Command::new("mkfifo")
+        .arg(&parked_fifo)
+        .status()
+        .expect("run mkfifo");
+    assert!(made.success(), "mkfifo must create the FIFO");
+
+    let stop = Arc::new(AtomicBool::new(false));
+    let swaps = Arc::new(AtomicUsize::new(0));
+    let swapper = {
+        let (stop, swaps) = (Arc::clone(&stop), Arc::clone(&swaps));
+        let (leaf, parked_file, parked_fifo) =
+            (leaf.clone(), parked_file.clone(), parked_fifo.clone());
+        std::thread::spawn(move || {
+            while !stop.load(Ordering::Relaxed) {
+                // Regular file out, FIFO in; then back again. Renames keep both inodes.
+                if std::fs::rename(&leaf, &parked_file).is_ok() {
+                    if std::fs::rename(&parked_fifo, &leaf).is_ok() {
+                        swaps.fetch_add(1, Ordering::Relaxed);
+                        let _ = std::fs::rename(&leaf, &parked_fifo);
+                    }
+                    let _ = std::fs::rename(&parked_file, &leaf);
+                }
+            }
+        })
+    };
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let (done_tx, done_rx) = std::sync::mpsc::channel();
+    let reader = {
+        let swaps = Arc::clone(&swaps);
+        let target = leaf.clone();
+        std::thread::spawn(move || {
+            let mut iter = 0usize;
+            while iter < 100_000 || swaps.load(Ordering::Relaxed) < 200 {
+                iter += 1;
+                match world.read_file(&target) {
+                    Ok(Some(bytes)) => assert_eq!(bytes.as_slice(), legit_bytes),
+                    Ok(None) | Err(WorldError::Io { .. }) => {}
+                    Err(other) => panic!("unexpected WorldError variant: {other:?}"),
+                }
+                if iter >= 500_000 {
+                    break;
+                }
+            }
+            let _ = done_tx.send(iter);
+        })
+    };
+
+    let outcome = done_rx.recv_timeout(Duration::from_secs(60));
+    stop.store(true, Ordering::Relaxed);
+    swapper.join().expect("join swapper thread");
+    let iters =
+        outcome.expect("Disk::read_file blocked: a leaf swapped to a FIFO was opened blocking");
+    reader.join().expect("join reader thread");
+    assert!(iters > 0);
+    assert!(
+        swaps.load(Ordering::Relaxed) > 0,
+        "the swapper must put the FIFO in place while the reader runs"
+    );
+}
+
+/// Where no descriptor-relative open exists, `Disk::read_file` refuses instead of walking pathnames.
+#[cfg(all(unix, not(target_os = "linux")))]
+#[test]
+fn disk_read_file_refuses_without_descriptor_relative_opens() {
+    use fieldbook::World as _;
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    std::fs::create_dir_all(state_dir.join("staging")).expect("create staging");
+    let leaf = state_dir.join("staging/p0001.txt");
+    std::fs::write(&leaf, b"page\n").expect("write leaf");
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    assert!(world.read_file(&leaf).is_err());
+}
+
+/// Windows: `<state>/staging` swapped by rename between the real folder and a junction to an
+/// outside folder must never yield the outside bytes, and a junction in place is refused. The
+/// checks are bound to the held handles (final path of each handle, no delete sharing), not to
+/// the pathname. Junctions need no privilege; the test is skipped where `mklink /J` fails.
+#[cfg(windows)]
+#[test]
+fn disk_read_file_refuses_junction_swaps_by_handle() {
+    use fieldbook::{World as _, WorldError};
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicBool, Ordering};
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = tmp.path().join("state");
+    let staging = state_dir.join("staging");
+    let parked_real = state_dir.join("staging_real");
+    let parked_link = state_dir.join("staging_link");
+    let outside = tmp.path().join("outside");
+    std::fs::create_dir_all(staging.join("sub")).expect("create staging/sub");
+    std::fs::create_dir_all(outside.join("sub")).expect("create outside/sub");
+    let legit_bytes = b"legitimate staged page bytes\n";
+    let secret_bytes = b"OUTSIDE SECRET BYTES MUST NEVER BE READ\n";
+    std::fs::write(staging.join("sub/p0001.txt"), legit_bytes).expect("write legit page");
+    std::fs::write(outside.join("sub/p0001.txt"), secret_bytes).expect("write outside page");
+    let made = std::process::Command::new("cmd.exe")
+        .args(["/C", "mklink", "/J"])
+        .arg(&parked_link)
+        .arg(&outside)
+        .status();
+    if !made.is_ok_and(|s| s.success()) {
+        println!("skipped: mklink /J is not available");
+        return;
+    }
+
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let target = staging.join("sub/p0001.txt");
+
+    // A junction standing at `<state>/staging` is refused outright.
+    std::fs::rename(&staging, &parked_real).expect("park the real staging folder");
+    std::fs::rename(&parked_link, &staging).expect("put the junction in place");
+    assert!(
+        world.read_file(&target).is_err(),
+        "a junction at `<state>/staging` must be refused"
+    );
+    std::fs::rename(&staging, &parked_link).expect("park the junction");
+    std::fs::rename(&parked_real, &staging).expect("restore the real staging folder");
+
+    let stop = Arc::new(AtomicBool::new(false));
+    let swapper = {
+        let stop = Arc::clone(&stop);
+        let (staging, parked_real, parked_link) =
+            (staging.clone(), parked_real.clone(), parked_link.clone());
+        std::thread::spawn(move || {
+            while !stop.load(Ordering::Relaxed) {
+                if std::fs::rename(&staging, &parked_real).is_ok() {
+                    if std::fs::rename(&parked_link, &staging).is_ok() {
+                        let _ = std::fs::rename(&staging, &parked_link);
+                    }
+                    let _ = std::fs::rename(&parked_real, &staging);
+                }
+            }
+        })
+    };
+
+    for _ in 0..5_000 {
+        match world.read_file(&target) {
+            Ok(Some(bytes)) => {
+                assert_ne!(
+                    bytes.as_slice(),
+                    secret_bytes,
+                    "TOCTOU escape: Disk::read_file read bytes through a junction swap"
+                );
+                assert_eq!(bytes.as_slice(), legit_bytes);
+            }
+            Ok(None) | Err(WorldError::OutOfScope(_) | WorldError::Io { .. }) => {}
+            Err(other) => panic!("unexpected WorldError variant: {other:?}"),
+        }
+    }
+    stop.store(true, Ordering::Relaxed);
+    swapper.join().expect("join swapper thread");
+}
+
+#[test]
+fn random_and_mutated_bytes_never_panic() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let input = std::fs::read(repo_root.join("tests/fixtures/ports/extractor/staged@1/input.txt"))
+        .expect("read input.txt");
+    let orig_sha = sha256_hex(&input);
+
+    let tmp = tempfile::tempdir().expect("create tempdir");
+    let state_dir = copy_state_intake_into(tmp.path());
+    let toml_path = state_dir
+        .join("staging")
+        .join(&orig_sha)
+        .join("extraction.toml");
+    let orig_toml = std::fs::read(&toml_path).expect("read extraction.toml");
+    let world = support::world::TestWorld::with_state(tmp.path(), &state_dir);
+    let staged = Staged::new(&world);
+
+    let mut rng = rng::Rng::new(1);
+    for idx in 0..200 {
+        let len = match idx {
+            0 => 0,
+            1 => 2048,
+            _ => usize::try_from(rng.next_u64() % 2049).expect("len fits usize"),
+        };
+        let bytes = rng.bytes(len);
+        let _ = staged.extract(&bytes, "txt");
+        let text = String::from_utf8_lossy(&bytes);
+        std::fs::write(&toml_path, text.as_bytes()).expect("write random toml");
+        let _ = staged.extract(&input, "txt");
+    }
+    std::fs::write(&toml_path, &orig_toml).expect("restore extraction.toml");
+
+    for pos in 0..orig_toml.len() {
+        let mut flipped = orig_toml.clone();
+        flipped[pos] ^= 0x01;
+        std::fs::write(&toml_path, &flipped).expect("write flipped");
+        let _ = staged.extract(&input, "txt");
+
+        let mut deleted = orig_toml.clone();
+        deleted.remove(pos);
+        std::fs::write(&toml_path, &deleted).expect("write deleted");
+        let _ = staged.extract(&input, "txt");
+    }
 }
 
 #[test]
@@ -483,6 +1102,12 @@ fn scan_impls_in_file(
 
         let port = match trait_name {
             "Extractor" => Port::Extractor,
+            "Admit" => {
+                if type_name == "BorrowedAdmit" {
+                    continue;
+                }
+                Port::Admit
+            }
             "Authz" => Port::Authz,
             "BackupTarget" => Port::Backup,
             "World" => {
@@ -653,6 +1278,8 @@ pub fn registry_drift(
             let contract_fn = format!("fn {}(", row.contract_name());
             let test_file = if row.krate == "xtask" {
                 repo.join("xtask/src/extract.rs")
+            } else if row.port == Port::Admit && row.krate == "fieldbook-core" {
+                repo.join("crates/fieldbook-core/tests/pipeline.rs")
             } else {
                 repo.join("crates/fieldbook/tests/adapters.rs")
             };
@@ -953,5 +1580,31 @@ fn methods_fails_on_unregistered_extractor() {
     assert!(
         err.contains("unregistered@1"),
         "error must name unregistered extractor: {err}"
+    );
+}
+
+#[test]
+fn methods_fails_on_unmatched_extractor_adapter() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let corpus_format_md =
+        std::fs::read_to_string(repo_root.join("docs/reference/corpus-format.md"))
+            .expect("read corpus-format.md");
+
+    let mut custom_rows = ADAPTERS.to_vec();
+    let staged_row = custom_rows
+        .iter_mut()
+        .find(|r| r.id == "staged@1")
+        .expect("staged@1 row must exist in ADAPTERS");
+    staged_row.id = "other-replay@1";
+
+    let res = check_methods_match_extractors(METHODS, &custom_rows, &repo_root, &corpus_format_md);
+    assert!(
+        res.is_err(),
+        "non-staged@1 Extractor row without producer METHODS entry must fail"
+    );
+    let err = res.unwrap_err();
+    assert!(
+        err.contains("other-replay@1"),
+        "error must name unmatched extractor adapter: {err}"
     );
 }
