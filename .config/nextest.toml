@@ -1,0 +1,3 @@
+[[profile.default.overrides]]
+filter = 'package(fieldbook) & binary(audit) & test(=append_p95)'
+success-output = "immediate"
