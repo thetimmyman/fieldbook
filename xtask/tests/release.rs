@@ -956,7 +956,14 @@ fn release_yml_is_read_only_and_pinned() {
         "          FIELDBOOK_SECURITY_CONTACT: ${{ secrets.FIELDBOOK_SECURITY_CONTACT }}\n",
         "        run: cargo xtask edition\n",
     );
-    assert!(job(&workflow_text, "edition").contains(packaging_step));
+    let edition_job = job(&workflow_text, "edition");
+    let (_, following) = edition_job
+        .split_once(packaging_step)
+        .expect("the edition job must bind the reporting route on its packaging step");
+    assert!(
+        following.is_empty() || following.starts_with("      - "),
+        "the packaging command must end before the next workflow step"
+    );
     let other_steps = workflow_text.replacen(packaging_step, "", 1);
     for line in other_steps
         .lines()
