@@ -3916,29 +3916,84 @@ dialog.dlg .note:empty {
     display: none;
   }
 
-  /* A brief is one sheet: its footnotes run in two columns, one claim statement each, and the
-     quoted text stays on the source page. Every status word and locator still prints. */
+  /* Compact brief sheets and their footnotes. */
+  .sheet {
+    font-size: var(--text-xs);
+    line-height: var(--leading-tight);
+  }
+
+  .sheet .part {
+    margin: var(--space-0-5) 0;
+  }
+
+  .sheet .part h2,
+  .sheet .part h3 {
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
+    margin: var(--space-0-5) 0;
+    padding-bottom: 0;
+  }
+
+  .sheet .part p,
+  .sheet .part ul,
+  .sheet .part ol {
+    margin-block: var(--space-0-5);
+  }
+
+  .sheet .part li {
+    margin-bottom: var(--space-0-5);
+  }
+
+  .sheet .cite-n {
+    display: inline;
+    font-size: var(--text-2xs);
+    line-height: var(--leading-none);
+    border: 0;
+    padding: 0;
+    vertical-align: super;
+  }
+
   .sheet .sources-list {
+    display: block;
     columns: 2;
     column-gap: var(--space-4);
-    display: block;
   }
 
   .sheet .source-row {
-    grid-template-columns: var(--space-4) minmax(0, 1fr);
-    gap: var(--space-1);
-    margin-bottom: var(--space-1);
+    display: block;
+    margin: 0 0 var(--space-0-5);
+    padding: 0;
+    font-size: var(--text-2xs);
+    line-height: var(--leading-none);
+    overflow-wrap: anywhere;
   }
 
-  .sheet .source-quote {
-    display: none;
-  }
-
-  .sheet .source-row,
+  .sheet .source-num,
+  .sheet .source-body,
+  .sheet .source-chips,
   .sheet .source-stmt,
   .sheet .source-meta {
-    font-size: var(--text-2xs);
-    line-height: var(--leading-snug);
+    display: inline;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .sheet .source-chips > * {
+    display: inline;
+    border: 0;
+    padding: 0;
+    background: none;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: normal;
+  }
+
+  .sheet .source-chips .ic,
+  .sheet .source-body:has(.claim-mark) .source-stmt,
+  .sheet .source-quote,
+  .binder-head {
+    display: none;
   }
 
   .source-row {
