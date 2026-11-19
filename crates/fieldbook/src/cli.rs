@@ -57,6 +57,8 @@ pub struct Cli {
 pub enum Commands {
     /// Check the Corpus and print findings.
     Check(CheckArgs),
+    /// Normalize registers and page bodies under `corpus/`.
+    Fmt(FmtArgs),
     /// Build the static site and workbooks into an edition directory.
     Build(BuildArgs),
     /// Add a source or source version to the Corpus.
@@ -75,6 +77,14 @@ pub enum Commands {
     Backup(BackupArgs),
     /// Restore a backup snapshot into a new folder or run the restore drill.
     Restore(RestoreArgs),
+}
+
+/// Arguments for `fieldbook fmt`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct FmtArgs {
+    /// List each file that would change and exit 1 without writing.
+    #[arg(long)]
+    pub check: bool,
 }
 
 /// Arguments for `fieldbook verify`.

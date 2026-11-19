@@ -24,6 +24,14 @@ Check the Corpus and print findings
 | `--json` | - | - | Print the report as a JSON object |
 | `<PATHS>` | `PATHS` | - | Optional paths (relative to the working directory) to filter diagnostics |
 
+### `fieldbook fmt`
+
+Normalize registers and page bodies under `corpus/`
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `--check` | - | - | List each file that would change and exit 1 without writing |
+
 ### `fieldbook build`
 
 Build the static site and workbooks into an edition directory

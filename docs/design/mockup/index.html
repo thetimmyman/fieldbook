@@ -491,6 +491,15 @@ main{container-type:inline-size}
   table[data-print-records] td[data-wide]{grid-column:1/-1}
   .toolbar :is(.seg,.filter){display:none!important}
   .sheet{border:0;box-shadow:none}
+  .print-brief-sample{max-width:none;padding:0;font-size:var(--text-xs);line-height:var(--leading-tight)}
+  .print-brief-sample .part{margin:var(--space-0-5) 0}
+  .print-brief-sample .part h2{font-size:var(--text-sm);line-height:var(--leading-tight);margin:var(--space-0-5) 0;padding-bottom:0;letter-spacing:normal;text-transform:none;color:var(--color-fg)}
+  .print-brief-sample .part p,.print-brief-sample .part ul{margin-block:var(--space-0-5)}
+  .print-brief-sample .part ul{font-size:inherit;line-height:inherit}
+  .print-brief-sample .part li{margin-bottom:var(--space-0-5)}
+  .print-brief-sample .cite-n{display:inline;font-size:var(--text-2xs);line-height:var(--leading-none);border:0;padding:0;background:none;vertical-align:super}
+  .print-brief-sample .sources-list{list-style:none;columns:2;column-gap:var(--space-4);margin:0;padding:0;font-size:var(--text-2xs);line-height:var(--leading-none)}
+  .print-brief-sample .source-row{break-inside:avoid;overflow-wrap:anywhere;padding:0}
   /* A chart prints its values open; the screen keeps its own collapse (the script opens these only while printing). */
   details[data-chart-values]:not([open])>:not(summary){display:block!important}
   details[data-chart-values]:not([open])>summary::before{transform:rotate(45deg)}
@@ -1870,6 +1879,36 @@ V.brief=()=>`<div class="page-w"><div class="h-page"><div><div class="eyebrow">B
   <div class="fn"><sup>1</sup> Owner debrief, unaudited · as of Day 0. <sup>2</sup> Army and DoD award notices, S-0412 v1 · as of 2025-08-20. Figures in this brief come from the library, never from a model.</div>
  </div></div>`;
 
+const PRINT_BRIEF_ROWS=28;
+function briefPrintSpecimen(unreleased){
+ const refs=Array.from({length:PRINT_BRIEF_ROWS},(_,i)=>{
+  const n=i+1;
+  return {n,claim:n===PRINT_BRIEF_ROWS?'':'CL-FND-'+String(9000+n),source:'S-'+String(9000+n)+'-v1',
+   locator:n%3===0?'§ 4.'+n:'p. '+(n+10),status:n%2===0?'Supported':'Unchecked'};
+ });
+ const groups=[
+  'Compare each estimate with the source that sets its basis and period.',
+  'Confirm that every input has a retained version and a locator a reader can find.',
+  'Review unchecked inputs with the owner before using the total in a decision.',
+  'Record changes to scope, timing and assumptions against the previous estimate.'
+ ];
+ const banner=unreleased?`<div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 14 of 28 claims are AI-drafted; 14 of 28 are unchecked. Each page shows its review date; none is flagged as overdue.</div></div>`:'';
+ return `${banner}<article class="sheet print-brief-sample">
+  <h1>Estimate review brief</h1><p class="meta">Synthetic specimen · 28 citations</p>
+  <section class="part"><h2>Question</h2><p>Which assumptions need confirmation before the estimate is used?</p></section>
+  <section class="part"><h2>Recommendation</h2><p>Review sources and mark any unresolved assumption explicitly.</p></section>
+  <section class="part"><h2>Evidence</h2><ul>${groups.map((sentence,i)=>`<li>${sentence} ${refs.slice(i*7,i*7+7).map(ref=>`<sup class="cite-n">${ref.n}</sup>`).join(' ')}</li>`).join('')}</ul></section>
+  <section class="part"><h2>Unknowns</h2><p>The approved baseline is not established.</p></section>
+  <section class="part"><h2>Next action</h2><p>Confirm the baseline at the next review and retain the decision with its sources.</p></section>
+  <section class="part"><h2>Sources</h2><ol class="sources-list" aria-label="Sources cited on this page">
+  ${refs.map(ref=>{
+   const source=`<span class="mono">${ref.source} ${ref.locator}</span>`;
+   const evidence=ref.claim?`<span class="mono">${ref.claim}</span> ${ref.status} ${source} ${ref.status==='Unchecked'?'Never verified':'Verified 2000-01-01'}`:`${source} Estimate basis · As of 2000-01-01`;
+   return `<li class="source-row"><b>${ref.n}.</b> ${evidence}</li>`;
+  }).join('')}
+  </ol></section></article>`;
+}
+
 const changesSpec=k=>{const ids=n=>Array.from({length:n},(_,i)=>`<span class="chip id">CL-CMP-${String(41+i).padStart(4,'0')}</span>`).join(' ');
  const notes=`<section class="panel"><div class="panel-h"><h2>Edition notes</h2></div><div class="panel-b"><h3 class="mono">edition-003</h3><p><b>Added</b> Four claims on overhead rates.</p><p><b>Changed</b> One source moved to a new version.</p><p><b>Verified</b> Cite-check passed on every page.</p><h3 class="mono">edition-002</h3><p><b>Added</b> The Changes page.</p><details class="fold"><summary><b>1 more</b> <span class="meta">older editions</span></summary><div class="fold-b"><h3 class="mono">edition-001</h3><p><b>Added</b> The day-one Corpus.</p></div></details></div></section>`;
  const rows=[['Pages',2,0],['Source versions',1,0],['Claims',4,k==='hidden'?0:1],['Questions',0,0],['Conflicts',0,0],['Terms',0,0]];
@@ -2865,7 +2904,7 @@ const TITLES={today:'Today',browse:'Browse library',learn:'Learn path',claims:'C
 /* The print footer names the selected sample edition, the page as the build names it, and the check line (section 12).
    The edition is illustrative here; a real build takes it from edition.toml. */
 const PRINT_EDITION='edition-007 · sample';
-function printPageId(h){return h.startsWith('page-')?h.slice(5):h.startsWith('brief')?'brief-prg-lead':h}
+function printPageId(h){return h.startsWith('page-')?h.slice(5):h.startsWith('brief-print-')?'brief-print-sample':h.startsWith('brief')?'brief-prg-lead':h}
 const SECTIONS=[['today','Today','#today','home'],['assistant','Assistant','#assistant','chat'],['work','Work','#bids','briefcase'],['plan','Plan','#plan','target'],['areas','Areas','#areas','grid'],['library','Library','#browse','book']];
 const QUEUE_SAMPLE=[{id:'P-0001',kind:'New source',state:'Waiting',why:'Original and extraction match'},{id:'P-0002',kind:'New version',state:'Stale',why:'Propose it again.'},{id:'P-0003',kind:'Note',state:'Refused',why:'Unverified origin · FB0917'},{id:'P-0006',kind:'New source',state:'Accepted',why:'Recorded acceptance'}];
 V.queue=()=>`<div class="page-w"><div class="h-page"><div><h1>Proposal queue</h1><p>Review here. Accept or reject in the terminal.</p></div></div><section class="panel"><div class="panel-h"><h2>Waiting, then completed</h2></div><div class="panel-b"><div class="table-wrap"><table><caption>Proposals · synthetic sample</caption><thead><tr><th>Proposal</th><th>Kind</th><th>State</th><th>Pre-check</th></tr></thead><tbody>${QUEUE_SAMPLE.map(p=>`<tr><td><a href="#queue/${p.id}">${p.id}</a></td><td>${p.kind}</td><td><span class="chip ${p.state==='Refused'?'bad':p.state==='Stale'?'warn':''}">${p.state}</span></td><td>${p.why}</td></tr>`).join('')}</tbody></table></div>${QUEUE_SAMPLE.length?'':'<p>No proposals waiting.</p>'}</div></section></div>`;
@@ -2914,6 +2953,7 @@ function route(){
   if(id)state.th=id;html=V.assistant();crumb=[[null,'Assistant']];nav='assistant';title='Assistant'}
  else if(h.startsWith('decision-')){const id=h.slice(9);html=V.decision(id);const d=D.decisions.find(x=>x.id.toLowerCase()===id);crumb=[['#decisions','Decisions'],[null,d?d.id:'Unknown']];nav='decisions';title=d&&d.id+' · '+d.title}
  else if(h.startsWith('competitor-')){const id=h.slice(11);html=V.competitor(id);const k=D.competitors.find(x=>x.id===id);crumb=[['#area-cpt','Competitors'],[null,k?k.name:'Unknown']];nav='area-cpt';title=k&&k.name}
+ else if(h==='brief-print-unreleased'||h==='brief-print-edition'){html=briefPrintSpecimen(h==='brief-print-unreleased');crumb=[['#templates','Briefs & templates'],[null,'Estimate review brief']];nav='templates';title='Brief print specimen'}
  else if(h.startsWith('brief')){html=V.brief();crumb=[['#templates','Briefs & templates'],[null,'Program-finance lead']];nav='templates';title='Brief'}
  else if(h.startsWith('conflicts-')){html=V.conflicts();crumb=[['#conflicts','Conflicts'],[null,h.slice(10)]];nav='conflicts';title='Conflict '+h.slice(10);focusId='xc-'+h.slice(10)}
  else if(/^(bids|estimates|projects)\//.test(h)){const [k,id]=h.split('/');const [fn,list]={bids:['bid',D.bids],estimates:['estimate',D.estimates],projects:['project',D.projects]}[k];const it=list.find(x=>x.id===id);html=V[fn](id);crumb=[['#'+k,TITLES[k]],[null,it?it.id:'Unknown']];nav=k;title=it&&it.id+' · '+it.title}
@@ -2928,7 +2968,8 @@ function route(){
  const cur=$(`[data-nav="${nav}"]`);if(cur)cur.setAttribute('aria-current','page');
  $$('#sections a').forEach(a=>a.dataset.sec===sec?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));showSec(sec);paint();
  document.title=(title?title+' · ':'')+'Fieldbook';
- $('#printFoot').textContent='Fieldbook · '+PRINT_EDITION+' · '+printPageId(h)+' · Check the current edition';
+ const printEdition=h==='brief-print-unreleased'?'unreleased build':PRINT_EDITION;
+ $('#printFoot').textContent='Fieldbook · '+printEdition+' · '+printPageId(h)+' · Check the current edition';
  closeNav();
  if(!route.first){$('#main').focus({preventScroll:true});window.scrollTo(0,0)}route.first=false;
  say('Opened '+(title||'page'));
