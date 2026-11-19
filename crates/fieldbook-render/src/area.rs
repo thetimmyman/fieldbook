@@ -1,14 +1,16 @@
 //! Area pages `a/<area>.html`, one per `[[area]]` of `corpus.toml` (`build-home-and-areas`).
 //!
-//! **Responsibility.** `WorkspaceHeader`, then every section of the default workspace in HANDOFF
-//! order under an in-page jump list. A section whose object has not landed shows `Unavailable`
-//! with the release that brings it; a landed section with no rows shows its empty-state line.
-//! Every count, link and line comes from the permitted [`LabelledView`]. The Overview holds the
-//! area's charts (`build-charts`), each a ChartPanel or an `Unavailable` panel.
+//! **Responsibility.** `WorkspaceHeader`, then every built section of the default workspace in
+//! HANDOFF order under an in-page jump list. A section whose object has not landed takes no place
+//! in that order and has no jump link: its landing line, with the release that brings it, sits in
+//! one closed "Not built yet" disclosure after the last built section. A landed section with no
+//! rows is built and shows its empty-state line. Every count, link and line comes from the
+//! permitted [`LabelledView`]. The Overview holds the area's charts (`build-charts`), each a
+//! ChartPanel or an `Unavailable` panel.
 //!
 //! A view page `a/<code>.html`, one per `[[view]]` (`views-and-day-n`), uses the same template:
 //! its sections are the design's for that view, each list holds only the pages of the view's
-//! filter, and a table the Corpus has no data for is an `Unavailable` panel, never rows.
+//! filter, and a table the Corpus has no data for is a landing line in the disclosure, never rows.
 
 use askama::Template;
 use std::collections::BTreeSet;
@@ -29,9 +31,8 @@ use crate::links::{
     escape_html, href_if_planned, render_page_link, render_question_chip, render_source_id_chip,
 };
 use crate::meta::RenderContext;
-use crate::nav::{Navigation, SectionId};
+use crate::nav::{Navigation, SectionId, format_not_available};
 use crate::site::PlannedPaths;
-use crate::source::render_unavailable;
 use crate::svg::{coverage_bar, coverage_legend};
 
 /// The output path of the area with `code`.
@@ -62,11 +63,11 @@ const LATER: &str = "a later release";
 const HISTORY_EMPTY: &str =
     "<p class=\"muted\">Nothing recorded yet. History fills as pages and registers change.</p>";
 
-/// What one workspace section holds.
+/// What one built workspace section holds.
 enum Body {
     /// The area Overview: three-up row, charts and claim coverage.
     Overview,
-    /// A pre-rendered panel or line (`Unavailable`, or an empty-state line).
+    /// A pre-rendered empty-state line.
     Html(String),
     /// The template pages, or the `Unavailable` template list when there are none.
     Templates,
@@ -80,7 +81,7 @@ enum Body {
     Profiles,
 }
 
-/// One `<section class="ws-section">` and its jump link.
+/// One built `<section class="ws-section">` and its jump link.
 struct Section {
     id: &'static str,
     label: &'static str,
@@ -88,28 +89,60 @@ struct Section {
     body: Body,
 }
 
-impl Section {
-    const fn new(id: &'static str, label: &'static str, body: Body) -> Self {
-        Self {
+/// A section whose object has not landed: its id and tab label, and its landing line ("<Thing> is
+/// not available until <release or trigger>."). It has no place in the section sequence and no
+/// jump link; the "Not built yet" disclosure holds it.
+struct Unbuilt {
+    id: &'static str,
+    label: &'static str,
+    line: String,
+}
+
+/// One entry of a workspace in table order: a section that is built, or one that is not.
+enum Entry {
+    Built(Section),
+    Unbuilt(Unbuilt),
+}
+
+impl Entry {
+    const fn built(id: &'static str, label: &'static str, body: Body) -> Self {
+        Self::Built(Section {
             id,
             label,
             count: None,
             body,
-        }
+        })
     }
 
     fn counted(id: &'static str, label: &'static str, rows: usize, body: Body) -> Self {
-        Self {
+        Self::Built(Section {
             id,
             label,
             count: (rows > 0).then_some(rows),
             body,
-        }
+        })
     }
 
-    fn unavailable(id: &'static str, label: &'static str, thing: &str, until: &str) -> Self {
-        Self::new(id, label, Body::Html(render_unavailable(thing, until)))
+    fn unbuilt(id: &'static str, label: &'static str, thing: &str, until: &str) -> Self {
+        Self::Unbuilt(Unbuilt {
+            id,
+            label,
+            line: format_not_available(thing, until),
+        })
     }
+}
+
+/// Splits a workspace into its built sections and its unbuilt ones, each in table order.
+fn split(entries: Vec<Entry>) -> (Vec<Section>, Vec<Unbuilt>) {
+    let mut built = Vec::new();
+    let mut unbuilt = Vec::new();
+    for entry in entries {
+        match entry {
+            Entry::Built(section) => built.push(section),
+            Entry::Unbuilt(section) => unbuilt.push(section),
+        }
+    }
+    (built, unbuilt)
 }
 
 struct SourceView {
@@ -142,13 +175,13 @@ struct AreaTemplate {
     summary: Option<String>,
     note: Option<String>,
     sections: Vec<Section>,
+    unbuilt: Vec<Unbuilt>,
     three_up_html: String,
     charts_html: String,
     bar_html: String,
     coverage: String,
     legend_html: String,
     templates: Vec<PageRow>,
-    templates_html: String,
     caption: String,
     pages: Vec<PageRow>,
     sources_href: Option<String>,
@@ -279,12 +312,12 @@ fn question_view(
 }
 
 /// The Processes, Procedures, Module and History sections, the same on an area and a view.
-fn processes() -> Section {
-    Section::unavailable("processes", "Processes", "The process list", "Release 3")
+fn processes() -> Entry {
+    Entry::unbuilt("processes", "Processes", "The process list", "Release 3")
 }
 
-fn procedures() -> Section {
-    Section::unavailable(
+fn procedures() -> Entry {
+    Entry::unbuilt(
         "procedures",
         "Procedures",
         "The procedure list",
@@ -292,12 +325,22 @@ fn procedures() -> Section {
     )
 }
 
-fn module() -> Section {
-    Section::unavailable("module", "Module", "The module card", "Release 3")
+fn module() -> Entry {
+    Entry::unbuilt("module", "Module", "The module card", "Release 3")
 }
 
-fn history() -> Section {
-    Section::new("history", "History", Body::Html(HISTORY_EMPTY.to_owned()))
+fn history() -> Entry {
+    Entry::built("history", "History", Body::Html(HISTORY_EMPTY.to_owned()))
+}
+
+/// The Templates section: built when the workspace holds `rows` template pages, unbuilt until the
+/// template list lands (E1) when it holds none.
+fn templates_entry(rows: usize) -> Entry {
+    if rows == 0 {
+        Entry::unbuilt("templates", "Templates", "The template list", "E1")
+    } else {
+        Entry::counted("templates", "Templates", rows, Body::Templates)
+    }
 }
 
 fn render_main(area: &AreaDef, view: &LabelledView, planned: &PlannedPaths) -> String {
@@ -318,16 +361,16 @@ fn render_main(area: &AreaDef, view: &LabelledView, planned: &PlannedPaths) -> S
         })
         .map(|q| question_view(q, &from_path, planned))
         .collect();
-    let sections = vec![
-        Section::new("overview", "Overview", Body::Overview),
+    let (sections, unbuilt) = split(vec![
+        Entry::built("overview", "Overview", Body::Overview),
         processes(),
         procedures(),
-        Section::counted("templates", "Templates", templates.len(), Body::Templates),
+        templates_entry(templates.len()),
         module(),
-        Section::counted("library-pages", "Library pages", pages.len(), Body::Library),
+        Entry::counted("library-pages", "Library pages", pages.len(), Body::Library),
         history(),
-        Section::counted("questions", "Questions", questions.len(), Body::Questions),
-    ];
+        Entry::counted("questions", "Questions", questions.len(), Body::Questions),
+    ]);
     let code = area.code.to_ascii_uppercase();
     AreaTemplate {
         eyebrow: format!("{code} · workspace"),
@@ -336,6 +379,7 @@ fn render_main(area: &AreaDef, view: &LabelledView, planned: &PlannedPaths) -> S
         summary: Some(area.summary.clone()),
         note: None,
         sections,
+        unbuilt,
         three_up_html: render_three_up(&from_path, view, planned, Some(&area.code), "h3"),
         charts_html: area_charts(&area.code),
         bar_html: coverage_bar(&counts),
@@ -346,7 +390,6 @@ fn render_main(area: &AreaDef, view: &LabelledView, planned: &PlannedPaths) -> S
             coverage_legend(Some(&counts))
         },
         templates,
-        templates_html: render_unavailable("The template list", "E1"),
         caption: format!("Pages in {} by subarea and stage", area.name),
         pages,
         sources_href: href_if_planned(&from_path, "sources.html", planned),
@@ -395,16 +438,15 @@ fn render_view_main(def: &ViewDef, view: &LabelledView, planned: &PlannedPaths) 
         .collect();
     let sources = cited_sources(view, &own, &from_path, planned);
 
-    let templates_section =
-        Section::counted("templates", "Templates", templates.len(), Body::Templates);
-    let library = Section::counted("library-pages", "Library pages", pages.len(), Body::Library);
+    let templates_section = templates_entry(templates.len());
+    let library = Entry::counted("library-pages", "Library pages", pages.len(), Body::Library);
     let questions_section =
-        Section::counted("questions", "Questions", questions.len(), Body::Questions);
+        Entry::counted("questions", "Questions", questions.len(), Body::Questions);
     let code = def.code.to_ascii_uppercase();
-    let sections = match code.as_str() {
+    let entries = match code.as_str() {
         "CPY" => vec![
-            Section::unavailable("background", "Background", "The company background", LATER),
-            Section::unavailable(
+            Entry::unbuilt("background", "Background", "The company background", LATER),
+            Entry::unbuilt(
                 "organization",
                 "Organization",
                 "The organization chart",
@@ -413,18 +455,18 @@ fn render_view_main(def: &ViewDef, view: &LabelledView, planned: &PlannedPaths) 
             processes(),
             procedures(),
             templates_section,
-            Section::unavailable("systems", "Systems", "The systems list", LATER),
+            Entry::unbuilt("systems", "Systems", "The systems list", LATER),
             history(),
             questions_section,
         ],
         "CPT" => vec![
-            Section::unavailable("compare", "Compare", "The comparison matrix", LATER),
-            Section::counted("profiles", "Profiles", profiles.len(), Body::Profiles),
-            Section::unavailable("moves", "Moves", "The moves list", LATER),
-            Section::unavailable("watch-process", "Watch process", "The watch process", LATER),
+            Entry::unbuilt("compare", "Compare", "The comparison matrix", LATER),
+            Entry::counted("profiles", "Profiles", profiles.len(), Body::Profiles),
+            Entry::unbuilt("moves", "Moves", "The moves list", LATER),
+            Entry::unbuilt("watch-process", "Watch process", "The watch process", LATER),
             templates_section,
             library,
-            Section::counted("sources", strings::parts()[6], sources.len(), Body::Sources),
+            Entry::counted("sources", strings::parts()[6], sources.len(), Body::Sources),
             questions_section,
         ],
         _ => {
@@ -434,7 +476,7 @@ fn render_view_main(def: &ViewDef, view: &LabelledView, planned: &PlannedPaths) 
                 "The overview table"
             };
             vec![
-                Section::unavailable("overview", "Overview", table, LATER),
+                Entry::unbuilt("overview", "Overview", table, LATER),
                 processes(),
                 procedures(),
                 templates_section,
@@ -445,6 +487,7 @@ fn render_view_main(def: &ViewDef, view: &LabelledView, planned: &PlannedPaths) 
             ]
         }
     };
+    let (sections, unbuilt) = split(entries);
     let area_code = def.filter.area.to_ascii_uppercase();
     AreaTemplate {
         eyebrow: format!("View over {area_code}"),
@@ -456,13 +499,13 @@ fn render_view_main(def: &ViewDef, view: &LabelledView, planned: &PlannedPaths) 
             def.filter.subarea
         )),
         sections,
+        unbuilt,
         three_up_html: String::new(),
         charts_html: String::new(),
         bar_html: String::new(),
         coverage: String::new(),
         legend_html: String::new(),
         templates,
-        templates_html: render_unavailable("The template list", "E1"),
         caption: format!("Pages in {} by stage", def.name),
         pages,
         sources_href: href_if_planned(&from_path, "sources.html", planned),
@@ -540,4 +583,88 @@ pub fn render_view_page(
         nav,
         planned,
     )
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// The workspace template over `entries`: no header text, panels or rows of its own.
+    fn render_entries(entries: Vec<Entry>) -> String {
+        let (sections, unbuilt) = split(entries);
+        AreaTemplate {
+            code: "TST".to_owned(),
+            eyebrow: String::new(),
+            name: "Synthetic".to_owned(),
+            summary: None,
+            note: None,
+            sections,
+            unbuilt,
+            three_up_html: String::new(),
+            charts_html: String::new(),
+            bar_html: String::new(),
+            coverage: String::new(),
+            legend_html: String::new(),
+            templates: Vec::new(),
+            caption: String::new(),
+            pages: Vec::new(),
+            sources_href: None,
+            learn_href: None,
+            questions: Vec::new(),
+            sources: Vec::new(),
+            profiles: Vec::new(),
+        }
+        .render()
+        .unwrap_or_else(|e| unreachable!("area.html is infallible: {e}"))
+    }
+
+    fn table(processes: Entry) -> Vec<Entry> {
+        vec![
+            Entry::built("overview", "Overview", Body::Overview),
+            processes,
+            history(),
+            Entry::counted("questions", "Questions", 0, Body::Questions),
+        ]
+    }
+
+    fn section_ids(html: &str) -> Vec<&str> {
+        html.split("<section class=\"ws-section\" id=\"")
+            .skip(1)
+            .map(|chunk| chunk.split('"').next().unwrap_or_default())
+            .collect()
+    }
+
+    #[test]
+    fn a_workspace_with_nothing_unbuilt_has_no_disclosure_and_no_jump_entry() {
+        let landed = Entry::built(
+            "processes",
+            "Processes",
+            Body::Html("<p>Rows.</p>".to_owned()),
+        );
+        let html = render_entries(table(landed));
+        assert!(!html.contains("not-built"), "{html}");
+        assert!(!html.contains("Not built yet"), "{html}");
+        assert!(!html.contains("<details"), "{html}");
+        assert_eq!(html.matches("<a href=\"#").count(), 4, "{html}");
+    }
+
+    #[test]
+    fn a_section_that_lands_returns_to_its_place_in_the_table_order() {
+        let unbuilt = Entry::unbuilt("processes", "Processes", "The process list", "Release 3");
+        let before = render_entries(table(unbuilt));
+        assert_eq!(section_ids(&before), ["overview", "history", "questions"]);
+        assert!(before.contains("<p class=\"ws-sub\" id=\"processes\">Processes</p>"));
+
+        let landed = Entry::built(
+            "processes",
+            "Processes",
+            Body::Html("<p>Rows.</p>".to_owned()),
+        );
+        let after = render_entries(table(landed));
+        assert_eq!(
+            section_ids(&after),
+            ["overview", "processes", "history", "questions"]
+        );
+        assert!(!after.contains("ws-sub"), "{after}");
+    }
 }
