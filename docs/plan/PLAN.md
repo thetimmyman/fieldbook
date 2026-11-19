@@ -266,6 +266,9 @@ The edition as a usable reference for the owner without company data: search tha
 - claims-csv-parts: the claims copy for Excel as one CSV per claims part, `data/claims-<AREA>-<part>.csv`, so no edition file grows with the claim count (owner review)
 - design-claims-copy-paths: a design revision after `claims-csv-parts` for the HANDOFF Paths row, the mockup sentence "Every build writes data/claims.csv", the `data/<register>.csv` wording of `PATHS`, and any per-part CSV links in the claims index (owner review)
 - scope-through-squash: `cargo xtask scope` names the way through for a path changed after the card's deleting commit, and the cards README says where the declaration is read and that the check runs on pull requests only
+- design-workspace-opening: design revision 26: the empty Changes to review line says what was observed from the check state of the claims, and unbuilt workspace sections fold into one closed Not built yet disclosure (owner review)
+- changes-empty-by-check: the empty Changes to review line follows the check state of the claims in scope
+- workspace-unbuilt-fold: unbuilt workspace sections fold into one closed "Not built yet" disclosure on the area and view pages
 
 ## P4
 

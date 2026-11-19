@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 25) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 26) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 25
+## Current revision 26
+
+The workspace opening. An empty Changes to review panel says what was observed, from the check state of the claims in its scope, and says "Nothing upstream has moved." only when every one has been checked (`changes-empty-by-check`). A workspace section whose object has not landed leaves the section order and the jump list and sits in one closed "Not built yet" disclosure after the built sections, the sidebar's form since revision 22, so an area's library pages open in the first screen (`workspace-unbuilt-fold`). One layout family changed, the workspace section sequence, with one study recorded in section 13 of `HANDOFF.md`. The mockup adds both as specimens on [the workspace specimen](mockup/index.html#workspace/unbuilt), reached from the states gallery. No token or component geometry is added, and MANIFEST.txt lists the new hashes.
+
+## Revision 25 (historical)
 
 The brief print layout keeps the Sources numbers, verification and complete locators on the same Letter sheet as the brief, including the unreleased-build banner. The implementation card is `binder-brief-one-sheet`. The mockup has a 28-citation synthetic specimen in two states, [with the banner](mockup/index.html#brief-print-unreleased) and [as an edition](mockup/index.html#brief-print-edition). Browser print shows the two-column footnotes in both.
 
