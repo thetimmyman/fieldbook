@@ -1353,6 +1353,25 @@ fn verify_100000_events() {
     );
 }
 
+const APPEND_SAMPLES: usize = 100;
+
+fn append_percentile(samples: &mut [Duration; APPEND_SAMPLES]) -> Duration {
+    samples.sort_unstable();
+    // The nearest-rank 95th percentile counts the first sample as rank one.
+    samples[(samples.len() * 95).div_ceil(100) - 1]
+}
+
+#[test]
+fn append_percentile_counts_slow_writes_at_the_boundary() {
+    let fast = Duration::from_millis(10);
+    let slow = Duration::from_millis(250);
+    for (slow_count, expected) in [(5, fast), (6, slow)] {
+        let mut samples = [fast; APPEND_SAMPLES];
+        samples[..slow_count].fill(slow);
+        assert_eq!(append_percentile(&mut samples), expected);
+    }
+}
+
 #[test]
 fn append_p95() {
     let tmp = if cfg!(unix) && Path::new("/dev/shm").is_dir() {
@@ -1365,8 +1384,8 @@ fn append_p95() {
     let world = TestWorld::new(tmp.path());
     let journal = state::open(&world, &state_dir, Via::Cli).expect("open");
 
-    let mut samples = Vec::with_capacity(20);
-    for _ in 0..20 {
+    let mut samples = [Duration::ZERO; APPEND_SAMPLES];
+    for sample in &mut samples {
         let start = Instant::now();
         journal
             .refuse(
@@ -1376,13 +1395,13 @@ fn append_p95() {
                 &RefuseAbout::default(),
             )
             .expect("append refuse");
-        samples.push(start.elapsed());
+        *sample = start.elapsed();
     }
-    samples.sort();
-    let p95 = samples[(samples.len() * 95 / 100).min(samples.len() - 1)];
+    let p95 = append_percentile(&mut samples);
     println!(
-        "append_p95: {:.2} ms (target <= 20.0 ms)",
-        p95.as_secs_f64() * 1000.0
+        "append_p95: {:.2} ms (target <= 20.0 ms), sorted samples (microseconds): {:?}",
+        p95.as_secs_f64() * 1000.0,
+        samples.map(|d| d.as_micros())
     );
     assert!(
         p95 <= Duration::from_millis(200),
