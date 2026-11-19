@@ -129,7 +129,7 @@ After the run succeeds, post the tag and the run id as a comment on the card's w
 
 Before local packaging, set `FIELDBOOK_SECURITY_CONTACT` in the invoking environment to the owner-provided contact route; never put the value in a committed file. The owner provisions the same-named repository secret for CI packaging callers. Missing or blank values fail IN-01; tests supply synthetic text. This input also applies to raw editions and intake packaging.
 
-`release.yml` binds no secret: its "Package the edition" step needs the same text in `FIELDBOOK_SECURITY_CONTACT`, and the owner adds that `env:` entry to the step before the first Site edition tag (a repository secret is an owner decision, and the workflow token stays read-only). Until then `cargo xtask edition` stops at IN-01 and the `edition` job fails closed.
+The Site edition job in `release.yml` passes the same-named repository secret to its “Package the edition” step. Before tagging the first Site edition, the owner provisions the reporting route agreed with IT. A missing or blank value stops packaging at IN-01.
 
 Editions follow the cadence in ADR 0001 (D-17): when content changes, no more often than every two weeks until E1, then as the transfer channel allows.
 

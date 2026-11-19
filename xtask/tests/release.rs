@@ -949,14 +949,24 @@ fn release_yml_is_read_only_and_pinned() {
         }
     }
 
-    // No secrets. anywhere in non-comment lines
-    for (i, line) in workflow_text.lines().enumerate() {
-        if !line.trim_start().starts_with('#') {
-            assert!(
-                !line.contains("secrets."),
-                "line {i} contains secrets.: {line}"
-            );
-        }
+    // Only the trusted Site packaging step receives the contact route.
+    let packaging_step = concat!(
+        "      - name: Package the edition\n",
+        "        env:\n",
+        "          FIELDBOOK_SECURITY_CONTACT: ${{ secrets.FIELDBOOK_SECURITY_CONTACT }}\n",
+        "        run: cargo xtask edition\n",
+    );
+    assert!(job(&workflow_text, "edition").contains(packaging_step));
+    let other_steps = workflow_text.replacen(packaging_step, "", 1);
+    for line in other_steps
+        .lines()
+        .filter(|l| !l.trim_start().starts_with('#'))
+    {
+        let lower = line.to_ascii_lowercase();
+        assert!(
+            !lower.contains("secrets") && !lower.contains("fieldbook_security_contact"),
+            "unexpected contact or secret reference outside the packaging step"
+        );
     }
 
     // Every non-comment uses: line is owner/repo@<40 lowercase hex> # v<version>
