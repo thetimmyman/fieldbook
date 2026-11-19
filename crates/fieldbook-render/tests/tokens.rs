@@ -525,6 +525,34 @@ mod tokens {
     use super::*;
 
     #[test]
+    fn publisher_link_uses_locator_view_tokens() {
+        let blocks = parse_css_blocks(APP_CSS);
+        for (selector, property, value) in [
+            (".ext-link", "min-height", "var(--target-min)"),
+            (".ext-link", "text-decoration-line", "underline"),
+            (".ext-link", "text-decoration-thickness", "var(--border-w)"),
+            (".ext-link", "text-underline-offset", "var(--space-0-5)"),
+            (
+                ".ext-link:hover",
+                "text-decoration-thickness",
+                "var(--border-w-strong)",
+            ),
+            (".ext-link > .ic", "width", "var(--text-sm)"),
+            (".ext-link > .ic", "height", "var(--text-sm)"),
+        ] {
+            assert!(
+                blocks.iter().any(|block| block.media.is_none()
+                    && block.selector == selector
+                    && block
+                        .declarations
+                        .iter()
+                        .any(|(p, v)| p == property && v == value)),
+                "{selector} must set {property} to {value}"
+            );
+        }
+    }
+
+    #[test]
     fn values_match_handoff() {
         let handoff = parse_handoff_tables(HANDOFF_MD);
         let blocks = parse_css_blocks(APP_CSS);
