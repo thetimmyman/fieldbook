@@ -189,7 +189,7 @@ mod views {
             .find(&marker)
             .unwrap_or_else(|| panic!("section {id} must exist"));
         let rest = &html[start + marker.len()..];
-        rest.find("<section class=\"ws-section\"")
+        rest.find("<section class=\"ws-section")
             .map_or(rest, |end| &rest[..end])
     }
 
@@ -276,6 +276,14 @@ mod views {
         assert!(!est_main.contains("View over"));
     }
 
+    /// The ids of the sections folded into the "Not built yet" disclosure of `main`, in order.
+    fn folded_ids(main: &str) -> Vec<&str> {
+        main.split("<p class=\"ws-sub\" id=\"")
+            .skip(1)
+            .map(|chunk| chunk.split('"').next().unwrap())
+            .collect()
+    }
+
     #[test]
     fn view_sections_follow_the_design_order() {
         let site = built(mkt_tree());
@@ -288,12 +296,37 @@ mod views {
         ] {
             let html = page(&site, path);
             let main = main_of(&html);
-            let ids: Vec<&str> = sections.iter().map(|(id, _)| *id).collect();
-            assert_eq!(section_ids(main), ids, "{path} sections");
+            let table: Vec<&str> = sections.iter().map(|(id, _)| *id).collect();
+            // The built sections keep the design order, and the unbuilt ones fold in that order.
+            let built = section_ids(main);
+            let folded = folded_ids(main);
+            for (group, ids) in [("built", &built), ("folded", &folded)] {
+                let in_order: Vec<&str> = table
+                    .iter()
+                    .copied()
+                    .filter(|id| ids.contains(id))
+                    .collect();
+                assert_eq!(**ids, in_order, "{path} {group} sections");
+            }
+            assert_eq!(
+                built.len() + folded.len(),
+                table.len(),
+                "{path}: every section of the design is built or folded once"
+            );
+            for id in &table {
+                assert_ne!(
+                    built.contains(id),
+                    folded.contains(id),
+                    "{path}: {id} is built or folded, not both"
+                );
+            }
             let jump_start = main.find("<nav class=\"tabs\"").unwrap();
             let jump = &main[jump_start..main[jump_start..].find("</nav>").unwrap() + jump_start];
             let mut last = 0;
             for (id, label) in sections {
+                if !built.contains(&id) {
+                    continue;
+                }
                 assert!(
                     section(main, id).contains(&format!("<h2>{label}</h2>")),
                     "{path} section {id} is headed {label}"
@@ -306,8 +339,8 @@ mod views {
             }
             assert_eq!(
                 jump.matches("<a href=\"#").count(),
-                sections.len(),
-                "{path}"
+                built.len() + 1,
+                "{path}: the built sections and the Not built yet link"
             );
         }
     }
@@ -420,34 +453,40 @@ mod views {
             ("a/cpy.html", "systems", "The systems list"),
         ] {
             let html = page(&site, path);
-            let sec = section(main_of(&html), id);
+            let main = main_of(&html);
+            // The landing line sits in the disclosure, under its old id, and holds no table.
+            let at = main
+                .find(&format!("<p class=\"ws-sub\" id=\"{id}\">"))
+                .unwrap_or_else(|| panic!("{path}#{id} must be listed in the disclosure"));
+            let line = &main[at..];
+            let line = &line[..line.find("</section>").unwrap()];
             assert!(
-                sec.contains(&format!("{thing} {later}")),
-                "{path}#{id}: {sec}"
+                line.contains(&format!("<p class=\"ws-line\">{thing} {later}</p>")),
+                "{path}#{id}: {line}"
+            );
+            assert!(!main.contains(&format!("<section class=\"ws-section\" id=\"{id}\">")));
+            assert!(
+                !main.contains("<section class=\"unavailable\""),
+                "{path}#{id}"
             );
             assert!(
-                sec.contains("<section class=\"unavailable\""),
-                "{path}#{id}: {sec}"
-            );
-            assert!(
-                !sec.contains("<table"),
+                !line.contains("<table"),
                 "{path}#{id} holds no made-up table"
             );
-            assert!(!sec.contains("<tr"), "{path}#{id} holds no made-up row");
+            assert!(!line.contains("<tr"), "{path}#{id} holds no made-up row");
         }
         for path in ["a/prc.html", "a/pgm.html", "a/cpy.html", "a/cpt.html"] {
             let html = page(&site, path);
             let main = main_of(&html);
             for id in ["processes", "procedures", "module", "history"] {
-                if !section_ids(main).contains(&id) {
-                    continue;
+                if section_ids(main).contains(&id) {
+                    let sec = section(main, id);
+                    assert!(!sec.contains("<table"), "{path}#{id}");
+                    assert!(sec.contains("Nothing recorded yet."), "{path}#{id}: {sec}");
+                } else if let Some(at) = main.find(&format!("<p class=\"ws-sub\" id=\"{id}\">")) {
+                    // The Company profile has no Module section; the others fold it.
+                    assert!(main[at..].contains("is not available until"), "{path}#{id}");
                 }
-                let sec = section(main, id);
-                assert!(!sec.contains("<table"), "{path}#{id}");
-                assert!(
-                    sec.contains("is not available until") || sec.contains("Nothing recorded yet."),
-                    "{path}#{id}: {sec}"
-                );
             }
             for unbuilt in [
                 "programs-table",
@@ -508,6 +547,285 @@ mod views {
                 !html.contains("<script>"),
                 "{path} must have no inline script"
             );
+        }
+    }
+    /// Unbuilt workspace sections fold into one closed "Not built yet" disclosure after the last
+    /// built section, on the area pages and the view pages alike.
+    mod unbuilt_fold {
+        use super::{built, main_of, mkt_tree, page, section, section_ids};
+
+        /// An unbuilt section: its id, tab label and landing line.
+        type Unbuilt = (&'static str, &'static str, &'static str);
+
+        const PROCESSES: Unbuilt = (
+            "processes",
+            "Processes",
+            "The process list is not available until Release 3.",
+        );
+        const PROCEDURES: Unbuilt = (
+            "procedures",
+            "Procedures",
+            "The procedure list is not available until Release 3.",
+        );
+        const TEMPLATES: Unbuilt = (
+            "templates",
+            "Templates",
+            "The template list is not available until E1.",
+        );
+        const MODULE: Unbuilt = (
+            "module",
+            "Module",
+            "The module card is not available until Release 3.",
+        );
+        const OVERVIEW_TABLE: Unbuilt = (
+            "overview",
+            "Overview",
+            "The overview table is not available until a later release.",
+        );
+        const PROGRAMS_TABLE: Unbuilt = (
+            "overview",
+            "Overview",
+            "The programs table is not available until a later release.",
+        );
+        const BACKGROUND: Unbuilt = (
+            "background",
+            "Background",
+            "The company background is not available until a later release.",
+        );
+        const ORGANIZATION: Unbuilt = (
+            "organization",
+            "Organization",
+            "The organization chart is not available until a later release.",
+        );
+        const SYSTEMS: Unbuilt = (
+            "systems",
+            "Systems",
+            "The systems list is not available until a later release.",
+        );
+        const COMPARE: Unbuilt = (
+            "compare",
+            "Compare",
+            "The comparison matrix is not available until a later release.",
+        );
+        const MOVES: Unbuilt = (
+            "moves",
+            "Moves",
+            "The moves list is not available until a later release.",
+        );
+        const WATCH: Unbuilt = (
+            "watch-process",
+            "Watch process",
+            "The watch process is not available until a later release.",
+        );
+
+        /// Per workspace page: the built section ids and the unbuilt sections, each in the table
+        /// order of HANDOFF section 2. The fixture's est area and Pricing view hold a template
+        /// page, so their Templates section is built; no other page here does.
+        fn workspaces() -> Vec<(&'static str, Vec<&'static str>, Vec<Unbuilt>)> {
+            vec![
+                (
+                    "a/est.html",
+                    vec![
+                        "overview",
+                        "templates",
+                        "library-pages",
+                        "history",
+                        "questions",
+                    ],
+                    vec![PROCESSES, PROCEDURES, MODULE],
+                ),
+                (
+                    "a/mkt.html",
+                    vec!["overview", "library-pages", "history", "questions"],
+                    vec![PROCESSES, PROCEDURES, TEMPLATES, MODULE],
+                ),
+                (
+                    "a/prc.html",
+                    vec!["templates", "library-pages", "history", "questions"],
+                    vec![OVERVIEW_TABLE, PROCESSES, PROCEDURES, MODULE],
+                ),
+                (
+                    "a/pgm.html",
+                    vec!["library-pages", "history", "questions"],
+                    vec![PROGRAMS_TABLE, PROCESSES, PROCEDURES, TEMPLATES, MODULE],
+                ),
+                (
+                    "a/cpy.html",
+                    vec!["history", "questions"],
+                    vec![
+                        BACKGROUND,
+                        ORGANIZATION,
+                        PROCESSES,
+                        PROCEDURES,
+                        TEMPLATES,
+                        SYSTEMS,
+                    ],
+                ),
+                (
+                    "a/cpt.html",
+                    vec!["profiles", "library-pages", "sources", "questions"],
+                    vec![COMPARE, MOVES, WATCH, TEMPLATES],
+                ),
+            ]
+        }
+
+        const DISCLOSURE: &str = "<section class=\"ws-section ws-unbuilt\" id=\"not-built\" aria-label=\"Not built yet\">";
+
+        /// The jump list, "On this page".
+        fn jump_list(main: &str) -> &str {
+            let start = main.find("<nav class=\"tabs\"").unwrap();
+            &main[start..main[start..].find("</nav>").unwrap() + start]
+        }
+
+        /// The "Not built yet" section of `main`, one tag per line trimmed and joined.
+        fn disclosure(main: &str) -> String {
+            let start = main
+                .find(DISCLOSURE)
+                .unwrap_or_else(|| panic!("the page must carry the Not built yet section"));
+            let rest = &main[start..];
+            rest[..rest.find("</section>").unwrap() + "</section>".len()]
+                .lines()
+                .map(str::trim)
+                .collect()
+        }
+
+        #[test]
+        fn unbuilt_sections_leave_the_sequence_and_the_jump_list() {
+            let site = built(mkt_tree());
+            for (path, built_ids, unbuilt) in workspaces() {
+                let html = page(&site, path);
+                let main = main_of(&html);
+                assert_eq!(section_ids(main), built_ids, "{path}: the built sections");
+                let jump = jump_list(main);
+                let mut last = 0;
+                for id in &built_ids {
+                    let at = jump
+                        .find(&format!("<a href=\"#{id}\">"))
+                        .unwrap_or_else(|| panic!("{path}: the jump list lacks {id}"));
+                    assert!(at > last, "{path}: jump link {id} is out of order");
+                    last = at;
+                }
+                for (id, _, _) in &unbuilt {
+                    assert!(
+                        !jump.contains(&format!("href=\"#{id}\"")),
+                        "{path}: the jump list links the unbuilt section {id}: {jump}"
+                    );
+                }
+                let count = unbuilt.len();
+                let link = format!(
+                    "<a href=\"#not-built\">Not built yet <span class=\"count\">{count}</span></a>"
+                );
+                assert!(
+                    jump.find(&link).is_some_and(|at| at > last),
+                    "{path}: the jump list must end with {link}: {jump}"
+                );
+                assert_eq!(
+                    jump.matches("<a href=\"#").count(),
+                    built_ids.len() + 1,
+                    "{path}: {jump}"
+                );
+                assert!(
+                    jump.trim_end()
+                        .trim_end_matches("</nav>")
+                        .trim_end()
+                        .ends_with(&link),
+                    "{path}: the link is the last entry: {jump}"
+                );
+            }
+        }
+
+        #[test]
+        fn the_disclosure_follows_the_last_built_section_closed_with_each_landing_line() {
+            let site = built(mkt_tree());
+            for (path, built_ids, unbuilt) in workspaces() {
+                let html = page(&site, path);
+                let main = main_of(&html);
+                let last_built = main
+                    .find(&format!(
+                        "<section class=\"ws-section\" id=\"{}\">",
+                        built_ids.last().unwrap()
+                    ))
+                    .unwrap();
+                let at = main.find(DISCLOSURE).unwrap_or_else(|| {
+                    panic!("{path}: the page must carry the Not built yet section")
+                });
+                assert!(
+                    at > last_built,
+                    "{path}: the disclosure comes after the last built section"
+                );
+                assert_eq!(main.matches("id=\"not-built\"").count(), 1, "{path}");
+                let body: String = unbuilt
+                    .iter()
+                    .map(|(id, label, line)| {
+                        format!(
+                            "<p class=\"ws-sub\" id=\"{id}\">{label}</p><p class=\"ws-line\">{line}</p>"
+                        )
+                    })
+                    .collect();
+                let expected = format!(
+                    "{DISCLOSURE}<details class=\"fold\"><summary><b>Not built yet</b> <span class=\"meta\">· {}</span></summary><div class=\"fold-b\">{body}</div></details></section>",
+                    unbuilt.len()
+                );
+                assert_eq!(disclosure(main), expected, "{path}");
+                assert!(
+                    !main.contains("<details class=\"fold\" open"),
+                    "{path}: closed by default"
+                );
+            }
+        }
+
+        #[test]
+        fn a_landing_line_is_in_the_disclosure_and_not_in_the_section_sequence() {
+            let site = built(mkt_tree());
+            for (path, built_ids, unbuilt) in workspaces() {
+                let html = page(&site, path);
+                let main = main_of(&html);
+                let fold = disclosure(main);
+                for (id, _, line) in &unbuilt {
+                    assert_eq!(fold.matches(line).count(), 1, "{path}: {line}");
+                    assert_eq!(
+                        main.matches(&format!("id=\"{id}\"")).count(),
+                        1,
+                        "{path}: the old id {id} resolves to one element, inside the disclosure"
+                    );
+                    assert!(fold.contains(&format!("id=\"{id}\"")), "{path}: {id}");
+                }
+                for id in &built_ids {
+                    // The Overview of an area holds its own panels, with their own notes.
+                    if *id != "overview" {
+                        assert!(
+                            !section(main, id).contains("is not available until"),
+                            "{path}: section {id} holds an unavailable note"
+                        );
+                    }
+                }
+            }
+        }
+
+        #[test]
+        fn a_built_empty_section_stays_in_place() {
+            let site = built(mkt_tree());
+            for path in ["a/est.html", "a/mkt.html", "a/cpy.html", "a/prc.html"] {
+                let html = page(&site, path);
+                let history = section(main_of(&html), "history");
+                assert!(
+                    history.contains("Nothing recorded yet."),
+                    "{path}: {history}"
+                );
+            }
+        }
+
+        #[test]
+        fn a_template_page_lands_the_templates_section_in_its_place() {
+            let site = built(mkt_tree());
+            let est = page(&site, "a/est.html");
+            let main = main_of(&est);
+            assert!(section(main, "templates").contains("est-baseline-template.html"));
+            assert!(!disclosure(main).contains("id=\"templates\""));
+            let mkt = page(&site, "a/mkt.html");
+            let main = main_of(&mkt);
+            assert!(!section_ids(main).contains(&"templates"));
+            assert!(disclosure(main).contains("id=\"templates\""));
         }
     }
 }

@@ -102,14 +102,15 @@ mod home {
         &html[start..end]
     }
 
-    /// The text of the `<section id="id">` of an area page, up to the next workspace section.
+    /// The text of the `<section id="id">` of an area page, up to the next workspace section (a built
+    /// one or the "Not built yet" disclosure).
     fn section<'a>(html: &'a str, id: &str) -> &'a str {
         let marker = format!("<section class=\"ws-section\" id=\"{id}\">");
         let start = html
             .find(&marker)
             .unwrap_or_else(|| panic!("section {id} must exist"));
         let rest = &html[start + marker.len()..];
-        rest.find("<section class=\"ws-section\"")
+        rest.find("<section class=\"ws-section")
             .map_or(rest, |end| &rest[..end])
     }
 
@@ -177,7 +178,34 @@ mod home {
             assert!(main.contains(&format!("<h1>{}</h1>", area.name.replace('&', "&#38;"))));
             assert!(main.contains(&area.summary), "{} summary", area.code);
             let mut last = 0;
+            let mut last_folded = 0;
             for id in SECTIONS {
+                // Processes, Procedures and Module have not landed, and only est holds a template
+                // page: those sections fold, in table order, and have no jump link.
+                let folded = ["processes", "procedures", "module"].contains(&id)
+                    || (id == "templates" && area.code != "est");
+                if folded {
+                    let at = main
+                        .find(&format!("<p class=\"ws-sub\" id=\"{id}\">"))
+                        .unwrap_or_else(|| panic!("{} must fold section {id}", area.code));
+                    assert!(
+                        at > last_folded,
+                        "{} folded section {id} is out of order",
+                        area.code
+                    );
+                    last_folded = at;
+                    assert!(
+                        !main.contains(&format!("<section class=\"ws-section\" id=\"{id}\">")),
+                        "{} must not place the unbuilt section {id}",
+                        area.code
+                    );
+                    assert!(
+                        !main.contains(&format!("<a href=\"#{id}\">")),
+                        "{} jump list links the unbuilt section {id}",
+                        area.code
+                    );
+                    continue;
+                }
                 let at = main
                     .find(&format!("<section class=\"ws-section\" id=\"{id}\">"))
                     .unwrap_or_else(|| panic!("{} lacks section {id}", area.code));
@@ -189,6 +217,11 @@ mod home {
                     area.code
                 );
             }
+            assert!(
+                main.find("id=\"not-built\"").unwrap() > last,
+                "{} closes with the disclosure",
+                area.code
+            );
         }
     }
 
@@ -324,11 +357,24 @@ mod home {
                 "The module card is not available until Release 3.",
             ),
         ];
+        let fold = &html[html
+            .find("<section class=\"ws-section ws-unbuilt\" id=\"not-built\"")
+            .unwrap()..];
+        let fold = &fold[..fold.find("</section>").unwrap()];
         for (id, line) in unavailable {
-            let body = section(&html, id);
-            assert!(body.contains("class=\"unavailable\""), "{id}: {body}");
-            assert!(body.contains(line), "{id} must say {line}: {body}");
+            let at = fold
+                .find(&format!("<p class=\"ws-sub\" id=\"{id}\">"))
+                .unwrap_or_else(|| panic!("{id} must be listed in the disclosure: {fold}"));
+            assert!(
+                fold[at..].contains(&format!("<p class=\"ws-line\">{line}</p>")),
+                "{id} must say {line}: {fold}"
+            );
+            assert!(
+                !html.contains(&format!("<section class=\"ws-section\" id=\"{id}\">")),
+                "{id} has no place in the section sequence"
+            );
         }
+        assert!(!fold.contains("class=\"unavailable\""), "{fold}");
         let history = section(&html, "history");
         assert!(
             history.contains("Nothing recorded yet. History fills as pages and registers change."),
