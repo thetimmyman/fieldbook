@@ -19,7 +19,7 @@ use crate::inline::first_sentence_of_purpose;
 use crate::links::{
     claim_href, conflict_href, escape_html, href_if_planned, render_page_link, render_question_chip,
 };
-use crate::meta::RenderContext;
+use crate::meta::{RenderContext, no_changes_line};
 use crate::nav::{Navigation, format_not_available};
 use crate::site::PlannedPaths;
 use crate::source::{is_held, page_path};
@@ -259,6 +259,7 @@ pub(crate) fn render_three_up(
 ) -> String {
     let reuse = reuse_items(from_path, view, planned, area);
     let changes = change_items(from_path, view, planned, area);
+    let claims = coverage_of(view, area);
     let continue_line = format_not_available("Continue working", CONTINUE_UNTIL);
     format!(
         "<div class=\"three-up\">{}{}{}</div>",
@@ -275,7 +276,7 @@ pub(crate) fn render_three_up(
             "Changes to review",
             Some(count_text(changes.len())),
             &changes,
-            "Nothing upstream has moved."
+            &no_changes_line(claims.total(), claims.unchecked)
         ),
     )
 }
