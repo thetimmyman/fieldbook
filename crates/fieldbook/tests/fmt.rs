@@ -781,6 +781,45 @@ fn fmt_recovers_after_last_write_before_journal_end() {
 }
 
 #[test]
+fn recovery_reports_a_new_formatting_change_outside_the_recorded_files() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    let glossary = root.join(REG_GLOSSARY);
+    let original = std::fs::read_to_string(&glossary).expect("read glossary");
+    std::fs::write(&glossary, to_crlf(&original)).expect("dirty glossary");
+    let faulty = FaultyWorld::new(
+        TestWorld::new(root),
+        Fault::FailOnName {
+            name: "glossary.csv",
+            kind: FaultKind::Io,
+        },
+    );
+    assert_eq!(run(&faulty, &["fmt"]).code, 3);
+
+    let page = root.join(PAGE_STEPS);
+    let normal = std::fs::read_to_string(&page).expect("read page");
+    let edited = to_crlf(&normal);
+    std::fs::write(&page, &edited).expect("edit page after interruption");
+    let world = TestWorld::new(root);
+    let recovered = run(&world, &["fmt"]);
+    assert_eq!(recovered.code, 1);
+    assert_eq!(
+        recovered.stdout,
+        format!("formatted {REG_GLOSSARY}\nwould format {PAGE_STEPS}\n")
+    );
+    assert_eq!(std::fs::read_to_string(&page).expect("read page"), edited);
+    assert_eq!(events_of(&world, "write.end").len(), 1);
+    assert!(!root.join(".fieldbook/pending.toml").exists());
+
+    let next = run(&world, &["fmt"]);
+    assert_eq!(next.code, 0);
+    assert_eq!(next.stdout, format!("formatted {PAGE_STEPS}\n"));
+    assert_eq!(std::fs::read_to_string(&page).expect("read page"), normal);
+    assert_eq!(events_of(&world, "write.end").len(), 2);
+    assert_eq!(run(&world, &["fmt", "--check"]).code, 0);
+}
+
+#[test]
 fn fmt_recovery_still_reports_a_fault_outside_the_pending_write() {
     let tmp = temp_copy(&fixture_root());
     let root = tmp.path();

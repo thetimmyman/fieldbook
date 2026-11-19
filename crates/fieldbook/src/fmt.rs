@@ -1,5 +1,7 @@
 //! `fieldbook fmt`: normalize registers and page bodies under `corpus/`.
 
+use std::collections::BTreeSet;
+
 use fieldbook_core::audit::{
     OperationIntent, OperationKey, PendingOperation, Sha256, StoreId, Verb, Via, Word, WriteFile,
     WriteSet, request_sha256,
@@ -190,7 +192,7 @@ fn try_recover_pending(
     match recovery {
         Recovery::None => Ok(None),
         Recovery::Completed { .. } => {
-            let stdout = formatted_lines(items.iter().map(|i| i.path.as_str()));
+            let stdout = path_lines("formatted ", items.iter().map(|i| i.path.as_str()));
             Ok(Some(Outcome {
                 stdout,
                 stderr: String::new(),
@@ -208,7 +210,7 @@ fn try_recover_pending(
             journal
                 .end(audited, Word::new_static("ok"))
                 .map_err(|err| journal_err(&err))?;
-            let stdout = formatted_lines(items.iter().map(|i| i.path.as_str()));
+            let stdout = path_lines("formatted ", items.iter().map(|i| i.path.as_str()));
             Ok(Some(Outcome {
                 stdout,
                 stderr: String::new(),
@@ -236,10 +238,10 @@ fn no_change_outcome(eval: &EvaluatedTree) -> Outcome {
     }
 }
 
-fn formatted_lines<'a>(paths: impl Iterator<Item = &'a str>) -> String {
+fn path_lines<'a>(prefix: &str, paths: impl Iterator<Item = &'a str>) -> String {
     let mut out = String::new();
     for path in paths {
-        out.push_str("formatted ");
+        out.push_str(prefix);
         out.push_str(path);
         out.push('\n');
     }
@@ -261,12 +263,10 @@ pub(crate) fn run(args: &FmtArgs, world: &dyn World) -> Outcome {
                 code: EXIT_OK,
             };
         }
-        let mut stdout = String::new();
-        for file in &eval.changed {
-            stdout.push_str("would format ");
-            stdout.push_str(&file.path);
-            stdout.push('\n');
-        }
+        let stdout = path_lines(
+            "would format ",
+            eval.changed.iter().map(|file| file.path.as_str()),
+        );
         return Outcome {
             stdout,
             stderr: eval.errors,
@@ -307,11 +307,25 @@ pub(crate) fn run(args: &FmtArgs, world: &dyn World) -> Outcome {
             match try_recover_pending(world, &mut journal, &lease, &tree, &key, &req_sha, &pending)
             {
                 Ok(None) => {}
-                // A finished recovery still owes the faults this run already collected from
-                // targets outside the pending write set: report them and exit with findings.
+                // A retry completes only the recorded write set. Report any other work
+                // for the next invocation without adding files to the recovered transaction.
                 Ok(Some(mut outcome)) => {
-                    if !eval.errors.is_empty() {
-                        outcome.stderr.push_str(&eval.errors);
+                    let recorded: BTreeSet<_> = pending
+                        .writes
+                        .files
+                        .iter()
+                        .map(|f| f.path.as_str())
+                        .collect();
+                    let remaining = path_lines(
+                        "would format ",
+                        eval.changed
+                            .iter()
+                            .map(|f| f.path.as_str())
+                            .filter(|path| !recorded.contains(path)),
+                    );
+                    if !remaining.is_empty() || !eval.errors.is_empty() {
+                        outcome.stdout.push_str(&remaining);
+                        outcome.stderr = eval.errors;
                         outcome.code = EXIT_FINDINGS;
                     }
                     return outcome;
@@ -366,7 +380,7 @@ pub(crate) fn run(args: &FmtArgs, world: &dyn World) -> Outcome {
         return journal_err(&err);
     }
 
-    let stdout = formatted_lines(eval.changed.iter().map(|c| c.path.as_str()));
+    let stdout = path_lines("formatted ", eval.changed.iter().map(|c| c.path.as_str()));
     let code = if eval.errors.is_empty() {
         EXIT_OK
     } else {
