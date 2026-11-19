@@ -10,6 +10,9 @@
     {% for s in &sections %}
     <a href="#{{ s.id }}">{{ s.label }}{% if let Some(n) = s.count %} <span class="count">{{ n }}</span>{% endif %}</a>
     {% endfor %}
+    {% if !unbuilt.is_empty() %}
+    <a href="#not-built">Not built yet <span class="count">{{ unbuilt.len() }}</span></a>
+    {% endif %}
   </nav>
   {% for s in &sections %}
 
@@ -30,15 +33,11 @@
     {% when Body::Html with (html) %}
     {{ html|safe }}
     {% when Body::Templates %}
-    {% if templates.is_empty() %}
-    {{ templates_html|safe }}
-    {% else %}
     <ul class="tu-list panel">
       {% for t in &templates %}
       <li class="tu-item">{{ t.link_html|safe }}<span class="meta">{{ t.why }}</span></li>
       {% endfor %}
     </ul>
-    {% endif %}
     {% when Body::Profiles %}
     {% if profiles.is_empty() %}
     <p>No profiles for {{ name }} yet. That means none recorded here, not that none exist.</p>
@@ -116,4 +115,18 @@
     {% endmatch %}
   </section>
   {% endfor %}
+  {% if !unbuilt.is_empty() %}
+
+  <section class="ws-section ws-unbuilt" id="not-built" aria-label="Not built yet">
+    <details class="fold">
+      <summary><b>Not built yet</b> <span class="meta">· {{ unbuilt.len() }}</span></summary>
+      <div class="fold-b">
+        {% for u in &unbuilt %}
+        <p class="ws-sub" id="{{ u.id }}">{{ u.label }}</p>
+        <p class="ws-line">{{ u.line }}</p>
+        {% endfor %}
+      </div>
+    </details>
+  </section>
+  {% endif %}
 </div>

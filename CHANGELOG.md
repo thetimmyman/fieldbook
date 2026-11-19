@@ -4,6 +4,9 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: on an area or view page, the sections whose object has not landed fold into one closed "Not built yet" disclosure after the last built section, and the jump list links it in place of each of them.
+- Changed: an empty Changes to review panel says what was observed (no claims, none checked, some checked, or all checked) in place of "Nothing upstream has moved." over claims nobody has checked.
+- Changed: each of the six briefs prints on one Letter sheet.
 - Changed: the tag checks write `release-identity.toml` (the tag and commit they verified) with the evidence, and `archive-release` and `verify-archive` refuse evidence from another tag or commit. Evidence and archives made before this file existed are refused; repeat the tag run rather than writing an identity by hand.
 - Fixed: an export no longer writes through a destination folder that was swapped for a symlink after its token was issued.
 - Fixed: search normalisation gives the same text on a second pass: a deleted soft hyphen takes the combining marks after it, and the steps repeat until nothing changes, in the program and in the site's search.

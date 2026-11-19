@@ -2109,8 +2109,12 @@ mod build {
         assert!(est.contains("<span class=\"count\">4</span>"), "est pages");
         assert!(est.contains("<tr id=\"est-rate-window-brief\""));
         assert!(
-            est.contains("Nothing upstream has moved."),
-            "no canary change"
+            est.contains("Not established: none of the 3 claims here has been checked yet."),
+            "no canary change, and no claim of est has been checked"
+        );
+        assert!(
+            !est.contains("Nothing upstream has moved."),
+            "an unchecked area states no result"
         );
     }
 
