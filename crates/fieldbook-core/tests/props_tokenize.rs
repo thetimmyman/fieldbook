@@ -82,6 +82,18 @@ fn allowed(c: char) -> bool {
     !nfkc.contains('\u{00ad}') && nfkc == nfkc.to_lowercase()
 }
 
+/// Generates short strings of the pieces that make a single normalisation pass change on a second
+/// one: capitals that compose with a mark only when small, U+0130, soft hyphens and combining
+/// marks of several classes.
+fn awkward_text() -> impl Strategy<Value = String> {
+    let piece = prop_oneof![
+        "[a-zA-Z\u{0130}\u{ff2a}]",
+        "\u{00ad}{1,2}[\u{0300}-\u{036f}\u{0903}\u{20dd}]{0,3}",
+        "[\u{0300}-\u{036f}]{1,2}",
+    ];
+    prop::collection::vec(piece, 0..=8).prop_map(|v| v.concat())
+}
+
 /// Generates strings from `mixed_text()` restricted to characters safe for normalisation idempotence.
 fn restricted_text() -> impl Strategy<Value = String> {
     mixed_text().prop_map(|s| s.chars().filter(|&c| allowed(c)).collect::<String>())
@@ -159,17 +171,11 @@ proptest! {
 proptest! {
     #![proptest_config(config())]
 
-    // `normalise` is not idempotent on arbitrary inputs due to two known counterexample classes:
-    // 1. Class 1 (soft hyphen U+00AD): deletion of U+00AD can bring characters together that a
-    //    second NFKC pass composes (e.g. 'e' U+00AD U+0301 -> 'e' U+0301 -> U+00E9).
-    // 2. Class 2 (lowercasing after NFKC): lowercasing can produce sequences where combining marks
-    //    combine only with the small letter (e.g. 'J' U+030C -> 'j' U+030C -> U+01F0; also 'H' U+0331,
-    //    'T' U+0308, 'W' U+030A, full-width U+FF2A U+030C, and U+0130 followed by a mark).
-    // The follow-up card `search-normalise-idempotent` fixes `normalise` and pins tests for both classes;
-    // until then, inputs are restricted to characters avoiding both classes.
     /// Normalising already-normalised text produces the identical string.
     #[test]
-    fn normalise_is_idempotent(s in prop_oneof![restricted_text(), lexer_shaped_text()]) {
+    fn normalise_is_idempotent(
+        s in prop_oneof![any::<String>(), mixed_text(), awkward_text(), lexer_shaped_text()],
+    ) {
         prop_assert_eq!(normalise(&normalise(&s)), normalise(&s));
     }
 }

@@ -4,7 +4,9 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Changed: the tag checks write `release-identity.toml` (the tag and commit they verified) with the evidence, and `archive-release` and `verify-archive` refuse evidence from another tag or commit. Evidence and archives made before this file existed are refused; repeat the tag run rather than writing an identity by hand.
 - Fixed: an export no longer writes through a destination folder that was swapped for a symlink after its token was issued.
+- Fixed: search normalisation gives the same text on a second pass: a deleted soft hyphen takes the combining marks after it, and the steps repeat until nothing changes, in the program and in the site's search.
 - Changed: the claims copy for Excel is one CSV per claims part, data/claims-<AREA>-<part>.csv, in place of data/claims.csv.
 - Fixed: a line of context, question or subject text that looks like a block delimiter is escaped in the model prompt, so it cannot open or close a block.
 - Fixed: a `synthetic = true` template contract is refused for a live template id, and the registry-id check also covers the ID cells of the generated ports tables and the template ids.
@@ -18,6 +20,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 - Fixed: backup records or reports every journal event, and refuses a missing corpus, an unremovable partial and a snapshot folder that does not match its manifest.
 - Changed: a printed page's footer shows the page id, not its route.
 - Changed: backup holds one file in memory at a time.
+- Changed: publisher links on source pages have an underline, a taller target and a smaller external-link icon.
 - Added: source pages link to the official location and to each cited section.
 - Added: the status command.
 - Changed: `cargo xtask extract` proposes a locator only for a label that looks like a section number, so a line that opens with `Section` or `§` and continues in prose proposes nothing.
