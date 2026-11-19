@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 24) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 25) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 24
+## Current revision 25
+
+The brief print layout keeps the Sources numbers, verification and complete locators on the same Letter sheet as the brief, including the unreleased-build banner. The implementation card is `binder-brief-one-sheet`. The mockup has a 28-citation synthetic specimen in two states, [with the banner](mockup/index.html#brief-print-unreleased) and [as an edition](mockup/index.html#brief-print-edition). Browser print shows the two-column footnotes in both.
+
+## Revision 24 (historical)
 
 Revision 24 freezes four start-date strings (`day-n-strings`), redesigns the start-date control as a dialog holding one labelled date field and Close with no Save, Clear or chip title, adds a Today start prompt that stays below 1280px, and makes the plan's today line follow the day count with no line after Day 90 (`views-and-day-n-2`). It specifies the App map page in full, with Releases in the foundation decision's names and a Labels and stores panel (`app-map`), and the Changes page with its edition notes and its ids-added-and-removed comparison, where a removed id is printed only in its public form and the rest are counted (`changes-page`). Two layout families changed (the App map's lower panels and the Changes page), supported by two studies in section 13 of HANDOFF.md. The mockup bytes changed, no token is added, and MANIFEST.txt lists the new hashes. The implementation cards are `day-n-strings`, `views-and-day-n-2`, `app-map` and `changes-page`. The start-date control of the mockup was checked by keyboard in headless Chromium 157 only; no built page, Edge or screen reader was checked.
 

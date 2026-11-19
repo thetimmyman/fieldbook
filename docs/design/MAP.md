@@ -65,7 +65,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | Fixed template text | The templates; lines a page script shows are shared once (§0) | §0 Fixed template text | The card that builds each component; `core-types-and-strings` if the shared lines join the shared browser string table |
 | Status display (who may raise a status) | Display only; the UI never writes a status | §7 | `guard-statuses` |
 | CSP, no `style=""`, no external URL except publisher links on `s/` pages, FB0604 narrowed by `source-location-links` | Every page | §12 | `build-v0` and `workspace-skeleton`; `build-site-lints` enforces them |
-| Print: footnotes, one-page briefs | Print rules in `assets/app.css` | §12 | `day-one-binder-and-registers-xlsx` |
+| Print: footnotes, one-page briefs (`#brief-print-unreleased`, `#brief-print-edition`) | Print rules in `assets/app.css` | §12, revision 25 | `binder-brief-one-sheet` |
 | Edge from `file://`, cmd and PowerShell command chips | Checks, not pages | §13 Not yet verified | `edge-harness` (headless Edge); `transfer-and-windows-drill` (E1) |
 
 ## Design tokens
