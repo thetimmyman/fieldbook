@@ -53,6 +53,8 @@ HeapAlloc
 HeapFree
 HeapReAlloc
 InitializeSListHead
+# kernel32 CPU-feature query, first seen in the fmt-command Windows debug build; outside the network, process-start and clipboard groups
+IsProcessorFeaturePresent
 IsThreadAFiber
 LoadLibraryA
 LockFileEx

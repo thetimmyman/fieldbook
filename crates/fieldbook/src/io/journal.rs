@@ -741,7 +741,6 @@ pub fn read_tree_coherent(tree_root: &Path, state_dir: &Path) -> Result<Tree, Wo
     let init_marker = state_dir.join(".init");
     let store_lock = state_dir.join("store.lock");
     let pending_path = state_dir.join("pending.toml");
-    let gen_path = state_dir.join("generation");
 
     loop {
         if !state_dir.exists() {
@@ -799,19 +798,27 @@ pub fn read_tree_coherent(tree_root: &Path, state_dir: &Path) -> Result<Tree, Wo
         }
 
         let lease = acquire_read_lease(tree_root, state_dir)?;
-        let tree = crate::io::tree::read_tree(tree_root)?;
-        if gen_path.exists() {
-            let actual_gen = tree.generation_hash();
-            if &actual_gen != lease.generation_hash() {
-                return Err(WorldError::new(
-                    &gen_path,
-                    "store generation does not match committed generation marker",
-                ));
-            }
-        }
-        drop(lease);
-        return Ok(tree);
+        return read_locked_snapshot(tree_root, lease.generation_hash(), || {
+            crate::io::tree::read_tree(tree_root)
+        });
     }
+}
+
+fn read_locked_snapshot(
+    root: &Path,
+    committed: &Sha256,
+    mut read_tree: impl FnMut() -> Result<Tree, WorldError>,
+) -> Result<Tree, WorldError> {
+    let snapshot = read_tree()?;
+    // Journal writers share the lock protocol. Hand edits do not, so verify an
+    // uncommitted snapshot against a second observation under the same lease.
+    if &snapshot.generation_hash() != committed && read_tree()? != snapshot {
+        return Err(WorldError::new(
+            root,
+            "corpus changed while reading a hand-edited generation; retry",
+        ));
+    }
+    Ok(snapshot)
 }
 
 /// Read the [`Tree`] under an already-held [`StoreLease`] without reacquiring `store.lock`
@@ -3666,6 +3673,23 @@ mod tests {
     use fieldbook_core::policy::{EffectivePolicy, FloorKind, OwnerSettings, PolicyState};
 
     use super::*;
+
+    #[test]
+    fn a_hand_edited_snapshot_must_be_stable_across_observations() {
+        let committed = Tree::new().generation_hash();
+        let mut first = Tree::new();
+        first.insert_bytes("corpus/note.md", b"first draft");
+        let mut second = Tree::new();
+        second.insert_bytes("corpus/note.md", b"second draft");
+        let mut observations = [first, second].into_iter();
+        let snapshot = read_locked_snapshot(Path::new("corpus"), &committed, || {
+            Ok(observations.next().expect("at most two tree reads"))
+        });
+        assert!(
+            snapshot.is_err(),
+            "a changing hand edit cannot be certified"
+        );
+    }
 
     fn test_now() -> Now {
         let d = CivilDate::from_ymd(2026, 3, 1).unwrap();
