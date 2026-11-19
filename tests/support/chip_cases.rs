@@ -53,6 +53,14 @@ pub const CASES: &[ChipCase] = &[
         outcome: ChipOutcome::Exit0,
     },
     ChipCase {
+        chip: "fieldbook fmt",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &[],
+        outcome: ChipOutcome::Exit0,
+    },
+    ChipCase {
         chip: "fieldbook search <query>",
         context: ChipContext::Home,
         samples: &[("<query>", "CL-CMP-0001")],
