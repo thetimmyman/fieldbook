@@ -33,7 +33,8 @@ pub use locator::{
     lookup_extension_kind,
 };
 pub use page::{
-    MetaError, MetaErrorKind, PageMeta, Split, SplitError, SplitErrorKind, parse_meta, split,
+    MetaError, MetaErrorKind, PageFormatError, PageMeta, Split, SplitError, SplitErrorKind,
+    parse_meta, split,
 };
 pub use page_types::template;
 pub use questions::QuestionRow;

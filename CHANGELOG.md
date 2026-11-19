@@ -13,6 +13,8 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 - Added: search records each question in the question log.
 - Added: the Day-N chip, "Set your start date" and the today line on the Plan timeline, kept only in the browser.
 - Changed: the day-one binder carries the calc table, the case split and the clause questions of its pages.
+- Added: the fmt command.
+- Changed: `check`, `search`, `status` and `fmt --check` read a Corpus edited by hand after a journaled write, where they refused it with exit 3.
 - Added: changes.html, the edition's changes and the ids added since an earlier edition (build --since).
 - Added: map.html, the App map (layers, workspaces, the AI layer as text).
 - Changed: every world names its store id, so a test double or a wrapper can no longer report itself as the folder store by default.
