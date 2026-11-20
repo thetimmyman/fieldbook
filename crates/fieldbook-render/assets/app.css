@@ -465,7 +465,8 @@ a:hover {
   border-top: var(--border-w) solid var(--color-border);
 }
 
-.nav-more > summary {
+.nav-more > summary,
+.ws-unbuilt .fold > summary {
   list-style: none;
   cursor: pointer;
   display: flex;
@@ -478,11 +479,13 @@ a:hover {
   color: var(--color-muted);
 }
 
-.nav-more > summary::-webkit-details-marker {
+.nav-more > summary::-webkit-details-marker,
+.ws-unbuilt .fold > summary::-webkit-details-marker {
   display: none;
 }
 
-.nav-more > summary::before {
+.nav-more > summary::before,
+.ws-unbuilt .fold > summary::before {
   content: "";
   flex: none;
   width: 7px;
@@ -494,20 +497,24 @@ a:hover {
   transition: transform var(--dur-fast);
 }
 
-.nav-more[open] > summary::before {
+.nav-more[open] > summary::before,
+.ws-unbuilt .fold[open] > summary::before {
   transform: rotate(45deg);
 }
 
-.nav-more > summary b {
+.nav-more > summary b,
+.ws-unbuilt .fold > summary b {
   color: var(--color-fg);
   font-weight: var(--weight-semibold);
 }
 
-.nav-more > summary:hover b {
+.nav-more > summary:hover b,
+.ws-unbuilt .fold > summary:hover b {
   text-decoration: underline;
 }
 
-.nav-more > summary:focus-visible {
+.nav-more > summary:focus-visible,
+.ws-unbuilt .fold > summary:focus-visible {
   outline: var(--focus-w) solid var(--color-focus);
   outline-offset: var(--focus-offset);
   border-radius: var(--radius-sm);
@@ -2392,6 +2399,39 @@ th[aria-sort="descending"] .sort-arrow::after {
   margin: 0 0 var(--space-3);
 }
 
+/* The "Not built yet" disclosure closing a workspace: the sidebar's Fold, in the page. */
+.ws-unbuilt .fold {
+  margin-top: 0;
+}
+
+.ws-unbuilt .fold-b {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-0-5) 0 var(--space-2-5) var(--space-5);
+}
+
+.ws-sub {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--color-muted);
+  scroll-margin-top: var(--topbar-h);
+}
+
+.ws-sub:first-child {
+  margin-top: 0;
+}
+
+.ws-line {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-muted);
+}
+
 .area-index {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -3916,29 +3956,84 @@ dialog.dlg .note:empty {
     display: none;
   }
 
-  /* A brief is one sheet: its footnotes run in two columns, one claim statement each, and the
-     quoted text stays on the source page. Every status word and locator still prints. */
+  /* Compact brief sheets and their footnotes. */
+  .sheet {
+    font-size: var(--text-xs);
+    line-height: var(--leading-tight);
+  }
+
+  .sheet .part {
+    margin: var(--space-0-5) 0;
+  }
+
+  .sheet .part h2,
+  .sheet .part h3 {
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
+    margin: var(--space-0-5) 0;
+    padding-bottom: 0;
+  }
+
+  .sheet .part p,
+  .sheet .part ul,
+  .sheet .part ol {
+    margin-block: var(--space-0-5);
+  }
+
+  .sheet .part li {
+    margin-bottom: var(--space-0-5);
+  }
+
+  .sheet .cite-n {
+    display: inline;
+    font-size: var(--text-2xs);
+    line-height: var(--leading-none);
+    border: 0;
+    padding: 0;
+    vertical-align: super;
+  }
+
   .sheet .sources-list {
+    display: block;
     columns: 2;
     column-gap: var(--space-4);
-    display: block;
   }
 
   .sheet .source-row {
-    grid-template-columns: var(--space-4) minmax(0, 1fr);
-    gap: var(--space-1);
-    margin-bottom: var(--space-1);
+    display: block;
+    margin: 0 0 var(--space-0-5);
+    padding: 0;
+    font-size: var(--text-2xs);
+    line-height: var(--leading-none);
+    overflow-wrap: anywhere;
   }
 
-  .sheet .source-quote {
-    display: none;
-  }
-
-  .sheet .source-row,
+  .sheet .source-num,
+  .sheet .source-body,
+  .sheet .source-chips,
   .sheet .source-stmt,
   .sheet .source-meta {
-    font-size: var(--text-2xs);
-    line-height: var(--leading-snug);
+    display: inline;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .sheet .source-chips > * {
+    display: inline;
+    border: 0;
+    padding: 0;
+    background: none;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: normal;
+  }
+
+  .sheet .source-chips .ic,
+  .sheet .source-body:has(.claim-mark) .source-stmt,
+  .sheet .source-quote,
+  .binder-head {
+    display: none;
   }
 
   .source-row {

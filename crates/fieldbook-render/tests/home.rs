@@ -102,14 +102,15 @@ mod home {
         &html[start..end]
     }
 
-    /// The text of the `<section id="id">` of an area page, up to the next workspace section.
+    /// The text of the `<section id="id">` of an area page, up to the next workspace section (a built
+    /// one or the "Not built yet" disclosure).
     fn section<'a>(html: &'a str, id: &str) -> &'a str {
         let marker = format!("<section class=\"ws-section\" id=\"{id}\">");
         let start = html
             .find(&marker)
             .unwrap_or_else(|| panic!("section {id} must exist"));
         let rest = &html[start + marker.len()..];
-        rest.find("<section class=\"ws-section\"")
+        rest.find("<section class=\"ws-section")
             .map_or(rest, |end| &rest[..end])
     }
 
@@ -177,7 +178,34 @@ mod home {
             assert!(main.contains(&format!("<h1>{}</h1>", area.name.replace('&', "&#38;"))));
             assert!(main.contains(&area.summary), "{} summary", area.code);
             let mut last = 0;
+            let mut last_folded = 0;
             for id in SECTIONS {
+                // Processes, Procedures and Module have not landed, and only est holds a template
+                // page: those sections fold, in table order, and have no jump link.
+                let folded = ["processes", "procedures", "module"].contains(&id)
+                    || (id == "templates" && area.code != "est");
+                if folded {
+                    let at = main
+                        .find(&format!("<p class=\"ws-sub\" id=\"{id}\">"))
+                        .unwrap_or_else(|| panic!("{} must fold section {id}", area.code));
+                    assert!(
+                        at > last_folded,
+                        "{} folded section {id} is out of order",
+                        area.code
+                    );
+                    last_folded = at;
+                    assert!(
+                        !main.contains(&format!("<section class=\"ws-section\" id=\"{id}\">")),
+                        "{} must not place the unbuilt section {id}",
+                        area.code
+                    );
+                    assert!(
+                        !main.contains(&format!("<a href=\"#{id}\">")),
+                        "{} jump list links the unbuilt section {id}",
+                        area.code
+                    );
+                    continue;
+                }
                 let at = main
                     .find(&format!("<section class=\"ws-section\" id=\"{id}\">"))
                     .unwrap_or_else(|| panic!("{} lacks section {id}", area.code));
@@ -189,6 +217,11 @@ mod home {
                     area.code
                 );
             }
+            assert!(
+                main.find("id=\"not-built\"").unwrap() > last,
+                "{} closes with the disclosure",
+                area.code
+            );
         }
     }
 
@@ -324,11 +357,24 @@ mod home {
                 "The module card is not available until Release 3.",
             ),
         ];
+        let fold = &html[html
+            .find("<section class=\"ws-section ws-unbuilt\" id=\"not-built\"")
+            .unwrap()..];
+        let fold = &fold[..fold.find("</section>").unwrap()];
         for (id, line) in unavailable {
-            let body = section(&html, id);
-            assert!(body.contains("class=\"unavailable\""), "{id}: {body}");
-            assert!(body.contains(line), "{id} must say {line}: {body}");
+            let at = fold
+                .find(&format!("<p class=\"ws-sub\" id=\"{id}\">"))
+                .unwrap_or_else(|| panic!("{id} must be listed in the disclosure: {fold}"));
+            assert!(
+                fold[at..].contains(&format!("<p class=\"ws-line\">{line}</p>")),
+                "{id} must say {line}: {fold}"
+            );
+            assert!(
+                !html.contains(&format!("<section class=\"ws-section\" id=\"{id}\">")),
+                "{id} has no place in the section sequence"
+            );
         }
+        assert!(!fold.contains("class=\"unavailable\""), "{fold}");
         let history = section(&html, "history");
         assert!(
             history.contains("Nothing recorded yet. History fills as pages and registers change."),
@@ -349,7 +395,8 @@ mod home {
         );
         let overview = section(&html, "overview");
         assert!(overview.contains("Nothing approved or proven here yet."));
-        assert!(overview.contains("Nothing upstream has moved."));
+        assert!(overview.contains("No claims here yet."));
+        assert!(!overview.contains("Nothing upstream has moved."));
         assert!(overview.contains("Continue working is not available until"));
         assert!(overview.contains("aria-label=\"No claims\""));
     }
@@ -397,7 +444,11 @@ mod home {
 
     /// `fixture_tree` with the lifecycle of one version in `sources.csv` set to quarantined.
     fn with_quarantined(marker: &str) -> Tree {
-        let mut tree = fixture_tree();
+        quarantined(fixture_tree(), marker)
+    }
+
+    /// `tree` with the lifecycle of one version in `sources.csv` set to quarantined.
+    fn quarantined(mut tree: Tree, marker: &str) -> Tree {
         let path = "corpus/registers/sources.csv";
         let sources = String::from_utf8(tree.get_bytes(path).unwrap().to_vec()).unwrap();
         let edited: Vec<String> = sources
@@ -650,6 +701,237 @@ mod home {
             if path.ends_with(".html") {
                 let text = String::from_utf8_lossy(bytes);
                 assert!(!text.contains("ADR 0001"), "{path}");
+            }
+        }
+    }
+    /// The empty line of Changes to review is chosen by what was observed (the check state of the
+    /// claims in scope), not by the absence of changes alone.
+    mod empty_changes {
+        use super::{NEW_AREA, Tree, built, fixture_tree, page, quarantined, tree_with};
+
+        /// The `Changes to review` panel of a built page, header and body.
+        fn changes_panel(html: &str) -> &str {
+            let marker = "<section class=\"panel\" aria-labelledby=\"tu-changes-to-review\">";
+            let start = html
+                .find(marker)
+                .unwrap_or_else(|| panic!("the page must carry the Changes to review panel"));
+            let rest = &html[start..];
+            &rest[..rest.find("</section>").unwrap() + "</section>".len()]
+        }
+
+        const NONE_RECORDED: &str = "<span class=\"panel-sub mono\">None recorded</span>";
+
+        fn line(text: &str) -> String {
+            format!("<p class=\"muted\">{text}</p>")
+        }
+
+        /// The M&A area (empty in `fixture_tree`) holding `supported` checked and `unchecked`
+        /// unchecked claims, built.
+        fn mna_with(supported: usize, unchecked: usize) -> String {
+            let site = built(tree_with(|toml, claims| {
+                let row = claims
+                    .lines()
+                    .find(|l| l.starts_with("CL-CMP-0002,"))
+                    .unwrap();
+                let mut out = claims.to_owned();
+                for n in 0..supported + unchecked {
+                    let state = if n < supported {
+                        "primary_source_supported"
+                    } else {
+                        "unchecked"
+                    };
+                    let copy = row
+                        .replace("CL-CMP-0002", &format!("CL-MNA-{:04}", n + 1))
+                        .replacen(",cmp,", ",mna,", 1)
+                        .replace(",unchecked,", &format!(",{state},"));
+                    out.push_str(&copy);
+                    out.push('\n');
+                }
+                (format!("{toml}{NEW_AREA}"), out)
+            }));
+            page(&site, "a/mna.html")
+        }
+
+        /// Today with no change to list (no open conflict, no superseded source in use), whose
+        /// claims register is `claims_edit` of the fixture's.
+        fn quiet_today(claims_edit: impl Fn(&str) -> String) -> String {
+            let mut tree: Tree =
+                tree_with(|toml, claims| (format!("{toml}{NEW_AREA}"), claims_edit(claims)));
+            let header = String::from_utf8(
+                tree.get_bytes("corpus/registers/conflicts.csv")
+                    .unwrap()
+                    .to_vec(),
+            )
+            .unwrap()
+            .lines()
+            .next()
+            .unwrap()
+            .to_owned();
+            tree.insert_bytes("corpus/registers/conflicts.csv", format!("{header}\n"));
+            let site = built(quarantined(tree, "S-0002,1,"));
+            page(&site, "index.html")
+        }
+
+        #[test]
+        fn an_area_without_claims_says_there_are_none() {
+            let html = mna_with(0, 0);
+            let panel = changes_panel(&html);
+            assert!(panel.contains(&line("No claims here yet.")), "{panel}");
+            assert!(panel.contains(NONE_RECORDED), "{panel}");
+            assert!(!panel.contains("Nothing upstream has moved."), "{panel}");
+        }
+
+        #[test]
+        fn an_area_with_no_checked_claim_is_not_established() {
+            for (unchecked, expected) in [
+                (
+                    1,
+                    "Not established: the claim here has not been checked yet.",
+                ),
+                (
+                    3,
+                    "Not established: none of the 3 claims here has been checked yet.",
+                ),
+            ] {
+                let html = mna_with(0, unchecked);
+                let panel = changes_panel(&html);
+                assert!(panel.contains(&line(expected)), "{unchecked}: {panel}");
+                assert!(panel.contains(NONE_RECORDED), "{panel}");
+                assert!(!panel.contains("Nothing upstream has moved."), "{panel}");
+            }
+        }
+
+        #[test]
+        fn a_fixture_area_with_only_unchecked_claims_is_not_established() {
+            // est holds three claims, none checked, and nothing upstream of it has moved.
+            let html = page(&built(fixture_tree()), "a/est.html");
+            let panel = changes_panel(&html);
+            assert!(
+                panel.contains(&line(
+                    "Not established: none of the 3 claims here has been checked yet."
+                )),
+                "{panel}"
+            );
+        }
+
+        #[test]
+        fn an_area_with_some_checked_claims_gives_both_counts() {
+            for (supported, unchecked, expected) in [
+                (
+                    2,
+                    3,
+                    "None of the 2 checked claims here has moved; 3 are unchecked.",
+                ),
+                (
+                    1,
+                    3,
+                    "The one checked claim here has not moved; 3 are unchecked.",
+                ),
+                (
+                    2,
+                    1,
+                    "None of the 2 checked claims here has moved; 1 is unchecked.",
+                ),
+                (
+                    1,
+                    1,
+                    "The one checked claim here has not moved; 1 is unchecked.",
+                ),
+            ] {
+                let html = mna_with(supported, unchecked);
+                let panel = changes_panel(&html);
+                assert!(
+                    panel.contains(&line(expected)),
+                    "{supported} checked, {unchecked} unchecked: {panel}"
+                );
+                assert!(panel.contains(NONE_RECORDED), "{panel}");
+                assert!(!panel.contains("Nothing upstream has moved."), "{panel}");
+            }
+        }
+
+        #[test]
+        fn an_area_with_every_claim_checked_keeps_the_nothing_moved_line() {
+            for supported in [1, 2] {
+                let html = mna_with(supported, 0);
+                let panel = changes_panel(&html);
+                assert!(
+                    panel.contains(&line("Nothing upstream has moved.")),
+                    "{supported}: {panel}"
+                );
+                assert!(panel.contains(NONE_RECORDED), "{panel}");
+                assert!(!panel.contains("Not established"), "{panel}");
+            }
+        }
+
+        #[test]
+        fn counts_use_the_thousands_separator_of_the_build_banner() {
+            let html = mna_with(0, 1_200);
+            assert!(
+                changes_panel(&html).contains(&line(
+                    "Not established: none of the 1,200 claims here has been checked yet."
+                )),
+                "{}",
+                changes_panel(&html)
+            );
+            let html = mna_with(1, 1_200);
+            assert!(
+                changes_panel(&html).contains(&line(
+                    "The one checked claim here has not moved; 1,200 are unchecked."
+                )),
+                "{}",
+                changes_panel(&html)
+            );
+        }
+
+        #[test]
+        fn today_counts_every_claim_in_the_permitted_view() {
+            // No claims at all.
+            let html = quiet_today(|claims| claims.lines().next().unwrap().to_owned() + "\n");
+            assert!(
+                changes_panel(&html).contains(&line("No claims here yet.")),
+                "{}",
+                changes_panel(&html)
+            );
+            // Five claims, none checked.
+            let html =
+                quiet_today(|claims| claims.replace(",primary_source_supported,", ",unchecked,"));
+            assert!(
+                changes_panel(&html).contains(&line(
+                    "Not established: none of the 5 claims here has been checked yet."
+                )),
+                "{}",
+                changes_panel(&html)
+            );
+            // The fixture: one of five checked.
+            let html = quiet_today(str::to_owned);
+            assert!(
+                changes_panel(&html).contains(&line(
+                    "The one checked claim here has not moved; 4 are unchecked."
+                )),
+                "{}",
+                changes_panel(&html)
+            );
+            // Every claim checked.
+            let html =
+                quiet_today(|claims| claims.replace(",unchecked,", ",primary_source_supported,"));
+            assert!(
+                changes_panel(&html).contains(&line("Nothing upstream has moved.")),
+                "{}",
+                changes_panel(&html)
+            );
+        }
+
+        #[test]
+        fn a_filled_panel_is_unchanged() {
+            let site = built(fixture_tree());
+            for (path, item) in [("index.html", "XC-01"), ("a/cmp.html", "XC-01")] {
+                let html = page(&site, path);
+                let panel = changes_panel(&html);
+                assert!(panel.contains(item), "{path}: {panel}");
+                assert!(!panel.contains("<p class=\"muted\">"), "{path}: {panel}");
+                assert!(!panel.contains("Not established"), "{path}: {panel}");
+                assert!(!panel.contains("checked claim"), "{path}: {panel}");
+                assert!(!panel.contains(NONE_RECORDED), "{path}: {panel}");
             }
         }
     }

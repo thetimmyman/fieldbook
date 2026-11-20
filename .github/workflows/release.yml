@@ -5,11 +5,8 @@
 # Workflow runs upload workflow artifacts only; no release page is created.
 # Runs on pull_request or workflow_dispatch are trial builds; nothing is published.
 #
-# OWNER ITEM, deliberately not done here: the edition job's packaging step needs the
-# security-contact text in the environment variable FIELDBOOK_SECURITY_CONTACT (control IN-01).
-# A repository secret binding is an owner-only decision so this file binds none. Until the
-# owner adds an `env:` entry to the "Package the edition" step, `cargo xtask edition` refuses
-# with IN-01 and the edition job fails closed.
+# Site editions receive the owner-provisioned security reporting route only while packaging.
+# Missing or blank contact text fails the IN-01 check.
 name: release
 
 on:
@@ -78,6 +75,8 @@ jobs:
         with:
           tool: just@1.58.0
       - name: Package the edition
+        env:
+          FIELDBOOK_SECURITY_CONTACT: ${{ secrets.FIELDBOOK_SECURITY_CONTACT }}
         run: cargo xtask edition
       - name: Log the size of each zip in whole megabytes
         run: for f in out/dist/*.zip; do echo "$f $(( $(stat -c %s "$f") / 1048576 )) MB"; done

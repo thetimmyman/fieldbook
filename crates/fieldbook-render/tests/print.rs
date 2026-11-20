@@ -257,6 +257,91 @@ mod print {
         assert!(!css.contains("file:"));
     }
 
+    fn final_print_rules() -> &'static str {
+        include_str!("../assets/app.css")
+            .rsplit_once("@media print {")
+            .unwrap_or_else(|| panic!("last @media print block"))
+            .1
+    }
+
+    #[test]
+    fn brief_one_sheet_rules_keep_status_words_and_locators() {
+        let statement_selector = ".sheet .source-body:has(.claim-mark) .source-stmt";
+        let mut hidden_statement = false;
+        for (selectors, declarations) in final_print_rules()
+            .split('}')
+            .filter_map(|rule| rule.split_once('{'))
+        {
+            let hidden = declarations.split(';').any(|declaration| {
+                declaration
+                    .split_once(':')
+                    .is_some_and(|(property, value)| {
+                        property.trim() == "display"
+                            && value
+                                .trim()
+                                .split('!')
+                                .next()
+                                .is_some_and(|v| v.trim() == "none")
+                    })
+            });
+            if !hidden {
+                continue;
+            }
+            for selector in selectors.split(',') {
+                let selector = selector
+                    .rsplit_once("*/")
+                    .map_or(selector, |(_, selector)| selector)
+                    .trim();
+                match selector.split_whitespace().last() {
+                    Some(".source-chips" | ".chip" | ".cite" | ".loc" | ".claim-mark") => {
+                        panic!("print must keep the status words and locators: {selector}");
+                    }
+                    Some(".source-stmt") => {
+                        assert_eq!(selector, statement_selector);
+                        hidden_statement = true;
+                    }
+                    _ => {}
+                }
+            }
+        }
+        assert!(
+            hidden_statement,
+            "brief footnotes omit repeated claim statements"
+        );
+    }
+
+    #[test]
+    fn one_sheet_rules_are_under_sheet() {
+        let (_, rules) = final_print_rules()
+            .split_once("/* Compact brief sheets and their footnotes. */")
+            .expect("brief sheet print rules");
+        let (rules, _) = rules
+            .split_once("\n  .source-row {")
+            .expect("ordinary print source rows follow the brief rules");
+        for (selectors, declarations) in rules.split('}').filter_map(|rule| rule.split_once('{')) {
+            for selector in selectors.split(',').map(str::trim) {
+                assert!(
+                    selector == ".sheet"
+                        || selector.starts_with(".sheet ")
+                        || selector == ".binder-head",
+                    "brief print rule affects other pages: {selector}"
+                );
+            }
+            for token in
+                declarations.split(|c: char| !c.is_ascii_alphanumeric() && c != '.' && c != '-')
+            {
+                for unit in ["px", "rem"] {
+                    assert!(
+                        !token
+                            .strip_suffix(unit)
+                            .is_some_and(|number| number.parse::<f32>().is_ok()),
+                        "brief print lengths must use tokens: {token}"
+                    );
+                }
+            }
+        }
+    }
+
     #[test]
     fn footer_has_edition_and_page_id() {
         let (_model, view) = fixture_view();

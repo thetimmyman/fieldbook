@@ -84,6 +84,42 @@ impl BuildStatus {
     }
 }
 
+/// The line of an empty Changes to review panel, from the `total` claims in scope and the
+/// `unchecked` among them. It says what was observed: "Nothing upstream has moved." only when
+/// every claim in scope has been checked, so a panel over unchecked claims never reports a result
+/// nobody observed. A claim is checked when its `verification` is any value but `unchecked`.
+#[must_use]
+pub(crate) fn no_changes_line(total: usize, unchecked: usize) -> String {
+    let checked = total.saturating_sub(unchecked);
+    if total == 0 {
+        "No claims here yet.".to_owned()
+    } else if checked == 0 && total == 1 {
+        "Not established: the claim here has not been checked yet.".to_owned()
+    } else if checked == 0 {
+        format!(
+            "Not established: none of the {} claims here has been checked yet.",
+            format_comma_separated(total)
+        )
+    } else if unchecked == 0 {
+        "Nothing upstream has moved.".to_owned()
+    } else {
+        let moved = if checked == 1 {
+            "The one checked claim here has not moved".to_owned()
+        } else {
+            format!(
+                "None of the {} checked claims here has moved",
+                format_comma_separated(checked)
+            )
+        };
+        let left = if unchecked == 1 {
+            "1 is".to_owned()
+        } else {
+            format!("{} are", format_comma_separated(unchecked))
+        };
+        format!("{moved}; {left} unchecked.")
+    }
+}
+
 fn format_comma_separated(n: usize) -> String {
     let s = n.to_string();
     let bytes = s.as_bytes();

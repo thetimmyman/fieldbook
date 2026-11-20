@@ -11,6 +11,7 @@ use std::fmt;
 
 use serde::de::{self, Deserializer, MapAccess, SeqAccess, Visitor};
 use serde::{Deserialize, Serialize, Serializer};
+use unicode_normalization::{UnicodeNormalization, is_nfc};
 
 use crate::date::{CivilDate, Volatility};
 use crate::ids::{AreaCode, ClaimId, ConflictId, PageId, QuestionId, TermId};
@@ -1129,6 +1130,135 @@ pub fn parse_meta(input: &str) -> Result<PageMeta, MetaError> {
     }
 }
 
+/// Error returned by [`normalize`] when a page file cannot be normalized without
+/// rewriting its front matter or repairing invalid UTF-8 or front-matter syntax.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PageFormatError {
+    line: u32,
+    col: u32,
+    message: String,
+}
+
+impl PageFormatError {
+    /// Returns the 1-based line number of the fault (always `>= 1`).
+    #[must_use]
+    pub const fn line(&self) -> u32 {
+        self.line
+    }
+
+    /// Returns the 1-based code-point column number of the fault (always `>= 1`).
+    #[must_use]
+    pub const fn col(&self) -> u32 {
+        self.col
+    }
+
+    /// Returns the diagnostic message describing the fault.
+    #[must_use]
+    pub fn message(&self) -> &str {
+        &self.message
+    }
+}
+
+impl fmt::Display for PageFormatError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}:{}: {}", self.line, self.col, self.message)
+    }
+}
+
+impl std::error::Error for PageFormatError {}
+
+/// Normalizes a Corpus page file (`bytes`) according to the File rules while leaving
+/// front matter unreserialized:
+///
+/// - Strips a leading UTF-8 byte-order mark and converts `\r\n` / `\r` line endings
+///   to `\n` across the whole file.
+/// - Validates the `+++` fences and front matter, reporting any front-matter fault
+///   other than a byte-order mark or line ending (including non-NFC text or trailing
+///   whitespace inside front matter) without modifying the text.
+/// - Normalizes the Markdown body to Unicode NFC, trims trailing spaces and tabs on
+///   every body line, and ensures the file ends with a single `\n`.
+///
+/// # Errors
+///
+/// Returns [`PageFormatError`] if `bytes` is not valid UTF-8, the fences or front
+/// matter fail validation, front matter contains non-NFC text or trailing whitespace,
+/// or the page body is empty.
+pub fn normalize(bytes: &[u8]) -> Result<String, PageFormatError> {
+    let Ok(raw_text) = std::str::from_utf8(bytes) else {
+        return Err(PageFormatError {
+            line: 1,
+            col: 1,
+            message: "file is not valid UTF-8".to_owned(),
+        });
+    };
+
+    let without_bom = raw_text.strip_prefix('\u{feff}').unwrap_or(raw_text);
+    let lf_text = if without_bom.contains('\r') {
+        without_bom.replace("\r\n", "\n").replace('\r', "\n")
+    } else {
+        without_bom.to_owned()
+    };
+
+    let sp = split(&lf_text).map_err(|err| {
+        let msg = match err.kind() {
+            SplitErrorKind::MissingOpeningFence => "missing opening +++ fence on line 1",
+            SplitErrorKind::MissingClosingFence => "missing closing +++ fence",
+            SplitErrorKind::MissingBlankLine => "missing blank line after closing +++ fence",
+        };
+        PageFormatError {
+            line: err.line(),
+            col: err.col(),
+            message: msg.to_owned(),
+        }
+    })?;
+
+    if !sp.front_matter.is_empty() {
+        for (idx, line_str) in sp.front_matter.split('\n').enumerate() {
+            let line_no = u32::try_from(idx).unwrap_or(u32::MAX).saturating_add(2);
+            if !is_nfc(line_str) {
+                return Err(PageFormatError {
+                    line: line_no,
+                    col: 1,
+                    message: "front matter line is not in Unicode NFC normal form".to_owned(),
+                });
+            }
+            if line_str.ends_with(' ') || line_str.ends_with('\t') {
+                let col = u32::try_from(line_str.chars().count()).unwrap_or(1).max(1);
+                return Err(PageFormatError {
+                    line: line_no,
+                    col,
+                    message: "front matter line has trailing whitespace".to_owned(),
+                });
+            }
+        }
+    }
+
+    parse_meta(&sp.front_matter).map_err(|err| PageFormatError {
+        line: err.line(),
+        col: err.col(),
+        message: err.message().to_owned(),
+    })?;
+
+    let nfc_body: String = sp.body.nfc().collect();
+    let mut lines: Vec<&str> = nfc_body
+        .split('\n')
+        .map(|l| l.trim_end_matches([' ', '\t']))
+        .collect();
+    while lines.last().is_some_and(|l| l.is_empty()) {
+        lines.pop();
+    }
+    if lines.is_empty() {
+        return Err(PageFormatError {
+            line: sp.body_line(),
+            col: 1,
+            message: "page body is empty".to_owned(),
+        });
+    }
+
+    let norm_body = format!("{}\n", lines.join("\n"));
+    Ok(format!("+++\n{}\n+++\n\n{norm_body}", sp.front_matter))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -1347,5 +1477,40 @@ claims = [\"CL-CMP-0001\"]
         assert!(serialized.contains("review_by = 2026-01-01"));
         let reparsed = parse_meta(&serialized).expect("serialized PageMeta must re-parse");
         assert_eq!(reparsed, meta);
+    }
+
+    #[test]
+    fn normalize_fixes_body_and_preserves_front_matter_verbatim() {
+        let page_with_comment =
+            SYNTHETIC_PAGE.replacen("+++\n", "+++\n# synthetic comment kept verbatim\n", 1);
+        let (fm_part, body_part) = page_with_comment
+            .split_once("\n+++\n\n")
+            .expect("split synthetic page");
+        let dirty_body_only = format!(
+            "\u{feff}{}\r\n+++\r\n\r\n{}\r\n\r\n",
+            fm_part.replace('\n', "\r\n"),
+            body_part
+                .replace('\n', "  \t\r\n")
+                .replace(crate::strings::empty_part(), "Cafe\u{0301} prose.")
+        );
+        let normalized = normalize(dirty_body_only.as_bytes()).expect("normalize valid page");
+        assert!(normalized.contains("# synthetic comment kept verbatim\n"));
+        assert!(normalized.contains("Caf\u{00e9} prose."));
+        assert!(!normalized.starts_with('\u{feff}'));
+        assert!(!normalized.contains('\r'));
+        assert!(normalized.ends_with('\n') && !normalized.ends_with("\n\n"));
+
+        // Front-matter faults other than BOM / CRLF are refused without rewriting.
+        let bad_trailing_fm =
+            page_with_comment.replacen("status = \"draft\"\n", "status = \"draft\" \n", 1);
+        assert!(normalize(bad_trailing_fm.as_bytes()).is_err());
+
+        let bad_nfd_fm = page_with_comment.replacen(
+            "title = \"Payment withholding for business-system deficiencies\"",
+            "title = \"Payment cafe\u{0301} withholding\"",
+            1,
+        );
+        assert!(normalize(bad_nfd_fm.as_bytes()).is_err());
+        assert!(normalize(b"\xff\xfe").is_err());
     }
 }

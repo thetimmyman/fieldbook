@@ -8,10 +8,10 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 
 | Mockup route or component | AD-12 output | HANDOFF | Card |
 |---|---|---|---|
-| `#today`: Hero, Composer, Starter, ThreeUp (ReuseItem, ChangeItem), NextUpRow, AreaIndex / AreaTile | `index.html` | §2 Routes, §5 | `build-home-and-areas`. Continue working fills as work objects land: `decision-package`, then R2 or later. The composer and starters open a thread on the Assistant page: `assistant-page` |
+| `#today`: Hero, Composer, Starter, ThreeUp (ReuseItem, ChangeItem), NextUpRow, AreaIndex / AreaTile | `index.html` | §2 Routes, §5 | `build-home-and-areas`. Continue working fills as work objects land: `decision-package`, then R2 or later. The composer and starters open a thread on the Assistant page: `assistant-page`. The empty Changes to review line follows the claims' check state: `changes-empty-by-check` (revision 26 change 1) |
 | `#browse`: AreaIndex, CoverageBar per area | `index.html#areas` (canonical Today frame) | §2 Routes, §5 Charts | `build-home-and-areas` |
 | `#areas`: the 13 areas and 3 views with their module ladders | `index.html#areas` (canonical Today frame) | §2 Routes | `build-home-and-areas` |
-| `#area-<code>`, `#area-<code>/<tab>`: WorkspaceHeader / Tabs, ThreeUp, CoverageBar | `a/<area>.html`, one section per tab, an empty-state line where there is no data | §2 Area workspaces, §5 | `build-home-and-areas` for the 13 areas; `views-and-day-n` for CPY, CPT and PGM |
+| `#area-<code>`, `#area-<code>/<tab>`: WorkspaceHeader / Tabs, ThreeUp, CoverageBar | `a/<area>.html`, one section per tab, an empty-state line where there is no data | §2 Area workspaces, §5 | `build-home-and-areas` for the 13 areas; `views-and-day-n` for CPY, CPT and PGM; `workspace-unbuilt-fold` for the Not built yet disclosure (revision 26 change 2) |
 | ProcessDetails (area Processes and Procedures) | A section of `a/<area>.html` | §2 Work and workspace object types, §5 | later (Release 3) |
 | Timeline (area History) | A section of `a/<area>.html` | §5 | later (history is not an object) |
 | Charts: ChartPanel, LineChart, BarList, ChartFoot, TableFold, Unavailable (EST and RTE overviews) | Inline SVG in `a/<area>.html`, written by the build; no chart script, no `style=""` | §5 Charts, §12 | `build-charts`; `calc-cases` supplies CALC-02. The escalation chart (S-0371) shows Unavailable until the Corpus has a format for series data (an ADR 0002 amendment, owner gate 1). Bid and rate history stay Unavailable until R2 |
@@ -65,7 +65,8 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | Fixed template text | The templates; lines a page script shows are shared once (§0) | §0 Fixed template text | The card that builds each component; `core-types-and-strings` if the shared lines join the shared browser string table |
 | Status display (who may raise a status) | Display only; the UI never writes a status | §7 | `guard-statuses` |
 | CSP, no `style=""`, no external URL except publisher links on `s/` pages, FB0604 narrowed by `source-location-links` | Every page | §12 | `build-v0` and `workspace-skeleton`; `build-site-lints` enforces them |
-| Print: footnotes, one-page briefs | Print rules in `assets/app.css` | §12 | `day-one-binder-and-registers-xlsx` |
+| Print: footnotes, one-page briefs (`#brief-print-unreleased`, `#brief-print-edition`) | Print rules in `assets/app.css` | §12, revision 25 | `binder-brief-one-sheet` |
+| Workspace opening (`#workspace/unbuilt`, a states-gallery specimen): the Not built yet disclosure and the four Changes to review lines | `a/<area>.html` and `index.html` | §2 Area workspaces, §0 Fixed template text, revision 26 | `workspace-unbuilt-fold` (change 2); `changes-empty-by-check` (change 1) |
 | Edge from `file://`, cmd and PowerShell command chips | Checks, not pages | §13 Not yet verified | `edge-harness` (headless Edge); `transfer-and-windows-drill` (E1) |
 
 ## Design tokens

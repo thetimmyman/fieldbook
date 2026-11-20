@@ -491,6 +491,15 @@ main{container-type:inline-size}
   table[data-print-records] td[data-wide]{grid-column:1/-1}
   .toolbar :is(.seg,.filter){display:none!important}
   .sheet{border:0;box-shadow:none}
+  .print-brief-sample{max-width:none;padding:0;font-size:var(--text-xs);line-height:var(--leading-tight)}
+  .print-brief-sample .part{margin:var(--space-0-5) 0}
+  .print-brief-sample .part h2{font-size:var(--text-sm);line-height:var(--leading-tight);margin:var(--space-0-5) 0;padding-bottom:0;letter-spacing:normal;text-transform:none;color:var(--color-fg)}
+  .print-brief-sample .part p,.print-brief-sample .part ul{margin-block:var(--space-0-5)}
+  .print-brief-sample .part ul{font-size:inherit;line-height:inherit}
+  .print-brief-sample .part li{margin-bottom:var(--space-0-5)}
+  .print-brief-sample .cite-n{display:inline;font-size:var(--text-2xs);line-height:var(--leading-none);border:0;padding:0;background:none;vertical-align:super}
+  .print-brief-sample .sources-list{list-style:none;columns:2;column-gap:var(--space-4);margin:0;padding:0;font-size:var(--text-2xs);line-height:var(--leading-none)}
+  .print-brief-sample .source-row{break-inside:avoid;overflow-wrap:anywhere;padding:0}
   /* A chart prints its values open; the screen keeps its own collapse (the script opens these only while printing). */
   details[data-chart-values]:not([open])>:not(summary){display:block!important}
   details[data-chart-values]:not([open])>summary::before{transform:rotate(45deg)}
@@ -816,6 +825,24 @@ dl{margin:0}
 .spec-narrow .sec-switch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-1)}
 .spec-narrow .sec-switch button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-0-5);min-height:48px;padding:var(--space-1-5) var(--space-1);border:var(--border-w) solid var(--color-border);border-radius:var(--radius-md);background:transparent;color:var(--color-fg);font-size:var(--text-xs);font-weight:var(--weight-medium)}
 .spec-narrow .sec-switch button[aria-pressed="true"]{background:var(--color-accent-soft);border-color:var(--color-accent);color:var(--color-accent);font-weight:var(--weight-semibold)}
+/* rev 26: a workspace page folds the sections whose object has not landed into one closed "Not built yet" disclosure.
+   .ws-sub copies the sidebar's .nav-sub look; .ws-line is the landing line. The .ws-spec rules only frame the specimens. */
+.ws-section{margin:var(--space-6) 0 0}
+.ws-section,.ws-sub{scroll-margin-top:calc(var(--topbar-h) + var(--space-5))}
+.ws-sub{margin:var(--space-2) 0 var(--space-0-5);font-size:var(--text-xs);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-muted)}
+.ws-sub:first-child{margin-top:0}
+.ws-line{margin:0;font-size:var(--text-sm);line-height:var(--leading-snug);color:var(--color-muted)}
+.ws-unbuilt .fold{margin-top:0}
+.ws-unbuilt .fold-b{gap:0}
+.ws-stack{display:grid;gap:var(--space-4)}
+.ws-spec{container-type:inline-size;border:var(--border-w) solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-bg);padding:var(--space-4)}
+.ws-spec.narrow{max-width:375px}
+.ws-spec .ws-head h3{font-size:var(--text-xl);font-weight:var(--weight-semibold);line-height:var(--leading-tight)}
+.ws-spec .ws-section>h3{margin:0 0 var(--space-2);font-size:var(--text-lg);font-weight:var(--weight-semibold);line-height:var(--leading-tight)}
+.ws-spec .ws-section>.note{margin:0}
+.ws-spec .three-up{margin:0}
+.ws-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:var(--space-4);margin-top:var(--space-3)}
+@container (max-width:767px){.ws-spec .hide-sm{display:none}.ws-spec .ws-head .actions{margin-left:0}}
 .build-date-link{display:inline-flex;align-items:center;min-height:var(--target-min);text-decoration:none}
 .build-date-link:focus-visible{outline:var(--focus-w) solid var(--color-focus);outline-offset:var(--focus-offset);border-radius:var(--radius-pill)}
 .ext-link{color:var(--color-accent);text-decoration:underline;text-decoration-thickness:var(--border-w);text-underline-offset:var(--space-0-5);display:inline-flex;align-items:center;gap:var(--space-1);min-height:var(--target-min)}
@@ -1870,6 +1897,36 @@ V.brief=()=>`<div class="page-w"><div class="h-page"><div><div class="eyebrow">B
   <div class="fn"><sup>1</sup> Owner debrief, unaudited · as of Day 0. <sup>2</sup> Army and DoD award notices, S-0412 v1 · as of 2025-08-20. Figures in this brief come from the library, never from a model.</div>
  </div></div>`;
 
+const PRINT_BRIEF_ROWS=28;
+function briefPrintSpecimen(unreleased){
+ const refs=Array.from({length:PRINT_BRIEF_ROWS},(_,i)=>{
+  const n=i+1;
+  return {n,claim:n===PRINT_BRIEF_ROWS?'':'CL-FND-'+String(9000+n),source:'S-'+String(9000+n)+'-v1',
+   locator:n%3===0?'§ 4.'+n:'p. '+(n+10),status:n%2===0?'Supported':'Unchecked'};
+ });
+ const groups=[
+  'Compare each estimate with the source that sets its basis and period.',
+  'Confirm that every input has a retained version and a locator a reader can find.',
+  'Review unchecked inputs with the owner before using the total in a decision.',
+  'Record changes to scope, timing and assumptions against the previous estimate.'
+ ];
+ const banner=unreleased?`<div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 14 of 28 claims are AI-drafted; 14 of 28 are unchecked. Each page shows its review date; none is flagged as overdue.</div></div>`:'';
+ return `${banner}<article class="sheet print-brief-sample">
+  <h1>Estimate review brief</h1><p class="meta">Synthetic specimen · 28 citations</p>
+  <section class="part"><h2>Question</h2><p>Which assumptions need confirmation before the estimate is used?</p></section>
+  <section class="part"><h2>Recommendation</h2><p>Review sources and mark any unresolved assumption explicitly.</p></section>
+  <section class="part"><h2>Evidence</h2><ul>${groups.map((sentence,i)=>`<li>${sentence} ${refs.slice(i*7,i*7+7).map(ref=>`<sup class="cite-n">${ref.n}</sup>`).join(' ')}</li>`).join('')}</ul></section>
+  <section class="part"><h2>Unknowns</h2><p>The approved baseline is not established.</p></section>
+  <section class="part"><h2>Next action</h2><p>Confirm the baseline at the next review and retain the decision with its sources.</p></section>
+  <section class="part"><h2>Sources</h2><ol class="sources-list" aria-label="Sources cited on this page">
+  ${refs.map(ref=>{
+   const source=`<span class="mono">${ref.source} ${ref.locator}</span>`;
+   const evidence=ref.claim?`<span class="mono">${ref.claim}</span> ${ref.status} ${source} ${ref.status==='Unchecked'?'Never verified':'Verified 2000-01-01'}`:`${source} Estimate basis · As of 2000-01-01`;
+   return `<li class="source-row"><b>${ref.n}.</b> ${evidence}</li>`;
+  }).join('')}
+  </ol></section></article>`;
+}
+
 const changesSpec=k=>{const ids=n=>Array.from({length:n},(_,i)=>`<span class="chip id">CL-CMP-${String(41+i).padStart(4,'0')}</span>`).join(' ');
  const notes=`<section class="panel"><div class="panel-h"><h2>Edition notes</h2></div><div class="panel-b"><h3 class="mono">edition-003</h3><p><b>Added</b> Four claims on overhead rates.</p><p><b>Changed</b> One source moved to a new version.</p><p><b>Verified</b> Cite-check passed on every page.</p><h3 class="mono">edition-002</h3><p><b>Added</b> The Changes page.</p><details class="fold"><summary><b>1 more</b> <span class="meta">older editions</span></summary><div class="fold-b"><h3 class="mono">edition-001</h3><p><b>Added</b> The day-one Corpus.</p></div></details></div></section>`;
  const rows=[['Pages',2,0],['Source versions',1,0],['Claims',4,k==='hidden'?0:1],['Questions',0,0],['Conflicts',0,0],['Terms',0,0]];
@@ -1885,6 +1942,7 @@ V.states=()=>`<div class="page-w"><div class="h-page"><div><h1>States gallery</h
   ${stateCard('Page · review overdue (released edition)','Shown only on a released edition (hidden at build, shown by app.js when the viewer\'s date is past review_by)',`<div class="banner warn" style="margin:0">${icon('alert')}<div><b>Review was due 2026-10-01.</b> Three load-bearing claims have not been re-checked since the source changed. The page stays readable.</div></div>${cmd('fieldbook verify CL-EST-0004 --on 2026-10-23','Record the re-check')}`)}
   ${stateCard('Build status · unreleased','No overdue banner is written on pages of an unreleased build',`<div class="banner-stack"><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 980 of 1,000 claims are AI-drafted; 940 of 1,000 are unchecked. 52 of 1,000 have been checked and found supported. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> 1,000 of 1,000 claims are AI-drafted; 1,000 of 1,000 are unchecked. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div><div class="banner warn" role="status">${icon('alert')}<div><b>This is an unreleased build, not an edition.</b> No claims recorded. Each page shows its review date; none is flagged as overdue. <a href="#claims">See the claims register.</a></div></div></div>`)}
   ${stateCard('Frame · unbuilt sections','Build with omitted sections (Today, Areas, Library built)',`<p class="note">Unbuilt tabs are omitted from the top bar and section switch; unbuilt items sit in a closed “Not built yet” disclosure in the sidebar.</p><div class="chips"><a class="btn sm" href="#frame/unbuilt">Open unbuilt navigation specimen</a></div>`)}
+  ${stateCard('Workspace · unbuilt sections and the Changes line','Build workspace page with its unbuilt sections folded',`<p class="note">Sections whose object has not landed leave the jump list and sit in one closed “Not built yet” disclosure after the last built section, and an empty Changes to review panel says what was observed.</p><div class="chips"><a class="btn sm" href="#workspace/unbuilt">Open unbuilt workspace specimen</a></div>`)}
   ${stateCard('Rail · related and linked-from lists','Filled, capped with an overflow fold, and empty',`<div class="rail-spec">${relatedList('Related',Object.keys({...D.pages,...D.pageStubs}).slice(0,3),'No related pages listed.','related')}${relatedList('Linked from',Object.keys({...D.pages,...D.pageStubs}).slice(0,13),'No page links here.','linked-from')}${relatedList('Related',[],'No related pages listed.','related')}${relatedList('Linked from',[],'No page links here.','linked-from')}</div>`)}
   ${stateCard('Sources · back-references','Static specimen with one marker and three markers',`<ol class="cite-list"><li id="cite-spec-1"><button class="claim-mark ok" data-claim="CL-CMP-0012" aria-label="Claim CL-CMP-0012: primary source supported" title="CL-CMP-0012 · primary source supported">${icon('check')}<span>CMP-0012</span></button> Withholding is 5% per system with a material weakness, 10% in total, reducible to 2% with an accepted corrective action plan. <span class="meta">Cites S-0107-v1, (e)(1)</span><div class="cite-back"><a href="#cite-ref-1-1" aria-label="Back to the citation in the text"><span aria-hidden="true">↑</span> Back to text</a></div></li><li id="cite-spec-2"><button class="cite" data-cite="S-0107-v1, (e)(1)">S-0107-v1, (e)(1)</button> DFARS 252.242-7005 Contractor Business Systems<div class="cite-back"><span>Back to text:</span> <a href="#cite-ref-2-1" aria-label="Back to citation a of 3 in the text">a</a> <a href="#cite-ref-2-2" aria-label="Back to citation b of 3 in the text">b</a> <a href="#cite-ref-2-3" aria-label="Back to citation c of 3 in the text">c</a></div></li></ol>`)}
   ${stateCard('Company calibration · folded','Closed by default on public views, open in company view',`<details class="fold company-fold"><summary><b>Company questions</b> <span class="meta">2 to settle with company data</span></summary><p>Not established. Two questions settle whether this page applies:</p><ul><li>Is any company contract CAS-covered? <a href="#questions" class="cite neutral" data-pv="q:Q-027">Q-027</a></li><li>Does the company claim nontraditional defense contractor status? <a href="#questions" class="cite neutral" data-pv="q:Q-028">Q-028</a></li></ul><p>Until both are answered, this page stays pending company confirmation.</p></details><details class="fold company-fold" open><summary><b>Company questions</b> <span class="meta">2 to settle with company data</span></summary><p>Not established. Two questions settle whether this page applies:</p><ul><li>Is any company contract CAS-covered? <a href="#questions" class="cite neutral" data-pv="q:Q-027">Q-027</a></li><li>Does the company claim nontraditional defense contractor status? <a href="#questions" class="cite neutral" data-pv="q:Q-028">Q-028</a></li></ul><p>Until both are answered, this page stays pending company confirmation.</p></details>`)}
@@ -2343,14 +2401,16 @@ const forArea=(x,c)=>!c||x.area==='*'||x.area===c||(x.also||[]).includes(c);
 function contToday(){const b=D.bids.find(x=>x.id==='BID-003'),d=D.decisions[0],p=D.projects.find(x=>x.id==='PRJ-01');
  return [[`#bids/${b.id}`,`${b.id} · ${b.title}`,`Bid · next: ${b.next}`,b.due],[`#decision-${d.id.toLowerCase()}`,`${d.id} · ${d.title}`,`Decision · v${d.ver} draft · ${d.fig}`,d.due],[`#projects/${p.id}`,`${p.id} · ${p.title}`,`Project · next: ${p.next}`,'WD+3']]}
 /* Continue working · Ready to reuse · Changes to review. Three items each; the rest fold out in place. */
-function threeUp(c){
- const k=c?c.toLowerCase():'all', cont=c?workFor(c):contToday(), reuse=D.reuse.filter(x=>forArea(x,c)), chg=D.changes.filter(x=>forArea(x,c));
+function threeUp(c,o={}){
+ const k=(c?c.toLowerCase():'all')+(o.sfx?'-'+o.sfx:''), cont=c?workFor(c):contToday(), reuse=D.reuse.filter(x=>forArea(x,c)), chg=D.changes.filter(x=>forArea(x,c));
+ /* rev 26: an empty Changes to review panel says what was observed, from the claims in scope (positions: supported, unchecked, contradicted, stale, unresolved). */
+ const cl=(c?[areaBy(c)]:D.areas).map(a=>a.claims), m=cl.reduce((t,a)=>t+a.reduce((s,n)=>s+n,0),0), u=cl.reduce((t,a)=>t+a[1],0);
  const more=(l,f)=>l.length>3?`<details class="fold"><summary><b>${l.length-3} more</b></summary><div class="tu-list">${l.slice(3).map(f).join('')}</div></details>`:'';
- const col=(id,t,n,list,f,none)=>`<section class="panel" aria-labelledby="${id}"><div class="panel-h"><h2 id="${id}">${t}</h2><span class="meta">${n||'None'}</span></div><div class="panel-b">${list.length?`<div class="tu-list">${list.slice(0,3).map(f).join('')}</div>${more(list,f)}`:`<p class="note">${none}</p>`}</div></section>`;
+ const col=(id,t,n,list,f,none,zero)=>`<section class="panel" aria-labelledby="${id}"><div class="panel-h"><h2 id="${id}">${t}</h2><span class="meta">${n||zero||'None'}</span></div><div class="panel-b">${list.length?`<div class="tu-list">${list.slice(0,3).map(f).join('')}</div>${more(list,f)}`:`<p class="note">${none}</p>`}</div></section>`;
  const fC=([h,l,sub,due])=>`<div class="tu-item"><a href="${h}">${esc(l)}</a><span class="meta">${esc(sub)}</span>${due?`<span class="chips"><span class="chip warn">${icon('clock')}${esc(due)}</span></span>`:''}</div>`;
  const fR=x=>`<div class="tu-item"><a href="${x.href}">${esc(x.title)}</a><span class="meta">${esc(x.why)}</span><span class="chips"><span class="chip ${x.ok?'ok':''}">${x.ok?icon('check'):''}${esc(x.state)}</span></span></div>`;
  const fX=x=>`<div class="tu-item chg"><div><span class="k">${esc(x.kind)}</span><b>${esc(x.title||`${x.claim} was last checked ${ageText(claimBy(x.claim).verified_on)}`)}</b><span class="meta">${esc(x.why)}</span></div><a class="btn sm" href="${x.href}">${x.act}</a></div>`;
- return `<div class="three-up">${col('tuC-'+k,'Continue working',cont.length,cont,fC,'Nothing in flight in this area.')}${col('tuR-'+k,'Ready to reuse',reuse.length,reuse,fR,'Nothing approved or proven here yet.')}${col('tuX-'+k,'Changes to review',chg.length,chg,fX,'Nothing upstream has moved.')}</div>`}
+ return `<div class="three-up">${col('tuC-'+k,'Continue working',cont.length,cont,fC,'Nothing in flight in this area.')}${col('tuR-'+k,'Ready to reuse',reuse.length,reuse,fR,'Nothing approved or proven here yet.')}${col('tuX-'+k,'Changes to review',chg.length,chg,fX,changesLine(m,u),'None recorded')}</div>`}
 
 const dot=(x,y)=>`<line class="ring" x1="${x}" y1="${y}" x2="${x}" y2="${y}"/><line class="dot" x1="${x}" y1="${y}" x2="${x}" y2="${y}"/>`;
 const chartFoot=(src,asOf,ogs)=>`<div class="chart-foot">${src||''}<span class="meta">As of ${asOf}</span>${ogs}</div>`;
@@ -2865,7 +2925,7 @@ const TITLES={today:'Today',browse:'Browse library',learn:'Learn path',claims:'C
 /* The print footer names the selected sample edition, the page as the build names it, and the check line (section 12).
    The edition is illustrative here; a real build takes it from edition.toml. */
 const PRINT_EDITION='edition-007 · sample';
-function printPageId(h){return h.startsWith('page-')?h.slice(5):h.startsWith('brief')?'brief-prg-lead':h}
+function printPageId(h){return h.startsWith('page-')?h.slice(5):h.startsWith('brief-print-')?'brief-print-sample':h.startsWith('brief')?'brief-prg-lead':h}
 const SECTIONS=[['today','Today','#today','home'],['assistant','Assistant','#assistant','chat'],['work','Work','#bids','briefcase'],['plan','Plan','#plan','target'],['areas','Areas','#areas','grid'],['library','Library','#browse','book']];
 const QUEUE_SAMPLE=[{id:'P-0001',kind:'New source',state:'Waiting',why:'Original and extraction match'},{id:'P-0002',kind:'New version',state:'Stale',why:'Propose it again.'},{id:'P-0003',kind:'Note',state:'Refused',why:'Unverified origin · FB0917'},{id:'P-0006',kind:'New source',state:'Accepted',why:'Recorded acceptance'}];
 V.queue=()=>`<div class="page-w"><div class="h-page"><div><h1>Proposal queue</h1><p>Review here. Accept or reject in the terminal.</p></div></div><section class="panel"><div class="panel-h"><h2>Waiting, then completed</h2></div><div class="panel-b"><div class="table-wrap"><table><caption>Proposals · synthetic sample</caption><thead><tr><th>Proposal</th><th>Kind</th><th>State</th><th>Pre-check</th></tr></thead><tbody>${QUEUE_SAMPLE.map(p=>`<tr><td><a href="#queue/${p.id}">${p.id}</a></td><td>${p.kind}</td><td><span class="chip ${p.state==='Refused'?'bad':p.state==='Stale'?'warn':''}">${p.state}</span></td><td>${p.why}</td></tr>`).join('')}</tbody></table></div>${QUEUE_SAMPLE.length?'':'<p>No proposals waiting.</p>'}</div></section></div>`;
@@ -2886,6 +2946,34 @@ function unbuiltSpecimen(isOpen){
  return `<div class="frame-spec"><header class="topbar"><button class="btn ghost icon-btn menu-btn" aria-label="Open navigation"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button><nav class="sections" aria-label="Sections"><a href="#today" data-sec="today">Today</a><a href="#areas" data-sec="areas">Areas</a><a href="#browse" data-sec="library" aria-current="true">Library</a></nav><div class="grow"></div><button class="searchbox" aria-label="Search the library"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span>Clause, term, page, decision or id…</span><kbd>Ctrl K</kbd></button><button class="chip solid day-chip">Day</button><a class="build-date-link" href="#about" aria-label="Build date: 2026-10-24. Open about page."><span class="chip">2026-10-24</span></a><span class="build-chip" title="This build reads the public library only. Company data is not connected."><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Public data only</span><span class="proto-flag">Prototype</span><button class="btn ghost icon-btn" aria-label="Switch theme"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></button><button class="btn primary ask-btn"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><span class="lbl">Ask</span><kbd>.</kbd></button></header><div class="frame-spec-inner"><aside class="sidebar" aria-label="Navigation"><div class="brand"><div class="brand-mark" aria-hidden="true">F</div><div><b>Fieldbook</b><small>Finance role workbench</small></div></div><div class="nav-group" data-sec="library"><div class="nav-label">Library</div><nav class="nav" aria-label="Library"><a href="#browse" data-nav="browse"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Browse</a><a href="#claims" data-nav="claims"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Claims<span class="count">186</span></a><a href="#questions" data-nav="questions"><svg class="i" aria-hidden="true"><use href="#i-q"/></svg>Questions<span class="count">24</span></a><a href="#conflicts" data-nav="conflicts"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg>Conflicts<span class="count">4</span></a><a href="#glossary" data-nav="glossary"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Glossary<span class="count">150</span></a><a href="#sources" data-nav="sources"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg>Sources<span class="count">11</span></a><a href="#feeds" data-nav="feeds"><svg class="i" aria-hidden="true"><use href="#i-feed"/></svg>Feeds<span class="count">10</span></a></nav></div><details class="fold nav-more"${isOpen?' open':''}><summary><b>Not built yet</b> <span class="meta">· 8</span></summary><div class="fold-b"><div class="nav-sub" role="presentation">Assistant</div><p class="nav-line">Assistant is not available until Release 2.</p><div class="nav-sub" role="presentation">Work</div><p class="nav-line">Work is not available until the ORG overlay, Release 2 or later.</p><p class="nav-line">Bids is not available until the ORG overlay, Release 2 or later.</p><p class="nav-line">Estimates are not available until Release 2.</p><p class="nav-line"><code>ORG</code> Projects are not available until the ORG overlay, Release 2 or later.</p><p class="nav-line">Decisions are not available until Release 2.</p><div class="nav-sub" role="presentation">Plan</div><p class="nav-line">Plan is not available until Release 2.</p><p class="nav-line">Cycles are not available until the cycle register joins the content format.</p></div></details><div class="side-foot"><p class="build-note"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><span><b>Public data only.</b> Company data is not connected.</span></p><button class="btn ghost sm keys-link" type="button">Keyboard shortcuts <kbd>?</kbd></button><p class="byline">A personal working tool. Not an official company product.</p></div></aside><div class="main-spec"><div class="h-page"><div><div class="eyebrow">Specimen · Library</div><h2>Browse library</h2><p>Only three sections are built in this build view: Today, Areas, Library.</p></div></div></div></div></div>`;
 }
 V.frameUnbuilt=()=>`<div class="page-w"><div class="h-page"><div><div class="eyebrow">Frame · synthetic view</div><h1>Frame · unbuilt sections</h1><p>Specimens of an app build with only three sections built (Today, Areas, Library). Dead tabs are omitted from top bar and section switch; unbuilt items sit in the "Not built yet" disclosure.</p></div></div><nav class="chips" aria-label="Frame states"><a class="btn sm" href="#frame/public">Public edition</a><a class="btn sm" href="#frame/company">Company storage</a><a class="btn sm" href="#frame/company-marked">Local marked view</a><a class="btn sm" href="#frame/unbuilt" aria-current="page">Unbuilt sections</a></nav><section class="panel"><div class="panel-h"><h2>Closed (default)</h2></div><div class="panel-b">${unbuiltSpecimen(false)}</div></section><section class="panel"><div class="panel-h"><h2>Open</h2></div><div class="panel-b">${unbuiltSpecimen(true)}</div></section><section class="panel"><div class="panel-h"><h2>Narrow (below 960px) section switch</h2></div><div class="panel-b"><p class="note">Below 960px, the section switch shows only the 3 built options (Today, Areas, Library):</p><div class="spec-narrow"><div class="sec-switch" role="group" aria-label="Sections"><button type="button" data-secpick="today" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Today</button><button type="button" data-secpick="areas" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Areas</button><button type="button" data-secpick="library" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Library</button></div></div></div></section></div>`;
+/* rev 26: the workspace page in a build where the process, procedure, template and module objects have not landed.
+   A section whose object has not landed is not placed and has no jump link; one closed disclosure after the last built
+   section holds each section's old id and its landing line. A built but empty section (History here) stays in place.
+   Only the first specimen carries the real ids; the others take a suffix so the page keeps unique ids. */
+const WS_UNBUILT=[['processes','Processes','The process list is not available until Release 3.'],['procedures','Procedures','The procedure list is not available until Release 3.'],['templates','Templates','The template list is not available until E1.'],['module','Module','The module card is not available until Release 3.']];
+/* The empty Changes to review line says what was observed. M claims in scope, U unchecked, C = M - U checked. */
+function changesLine(m,u){const c=m-u;
+ if(!m)return 'No claims here yet.';
+ if(!c)return m===1?'Not established: the claim here has not been checked yet.':`Not established: none of the ${fmtN(m)} claims here has been checked yet.`;
+ if(c===m)return 'Nothing upstream has moved.';
+ return `${c===1?'The one checked claim here has not moved':`None of the ${fmtN(c)} checked claims here has moved`}; ${u===1?'1 is':fmtN(u)+' are'} unchecked.`}
+function changesEmptyPanel(id,line){return `<section class="panel" aria-labelledby="${id}"><div class="panel-h"><h2 id="${id}">Changes to review</h2><span class="meta">None recorded</span></div><div class="panel-b"><p class="note">${line}</p></div></section>`}
+function workspaceSpecimen({open=false,narrow=false,sfx=''}={}){
+ const a=areaBy('CLS'),id=n=>sfx?`${n}-${sfx}`:n;
+ const built=[['overview','Overview'],['knowledge','Library pages'],['history','History'],['questions','Questions']];
+ const sec=(k,body)=>`<section class="ws-section" id="${id(k)}" aria-labelledby="${id(k)}-h"><h3 id="${id(k)}-h">${built.find(b=>b[0]===k)[1]}</h3>${body}</section>`;
+ return `<div class="ws-spec${narrow?' narrow':''}"><div class="ws-head"><div><div class="eyebrow">${a.code} · workspace · stage ${a.stage}</div><h3>${esc(a.name)}</h3><p>${esc(a.desc)}.</p></div><div class="actions"><button class="btn primary" data-ask-scope="${a.code}">${icon('spark')}Ask about ${esc(a.name)}</button></div></div>
+ <nav class="tabs" aria-label="On this page">${built.map(([k,l])=>`<a href="#${id(k)}" data-toc="${id(k)}">${l}</a>`).join('')}<a href="#${id('not-built')}" data-toc="${id('not-built')}">Not built yet<span class="count">${WS_UNBUILT.length}</span></a></nav>
+ ${sec('overview',threeUp(a.code,{sfx}))}
+ ${sec('knowledge',wsBody(a,'knowledge'))}
+ ${sec('history','<p class="note">Nothing recorded yet. History fills as pages and registers change.</p>')}
+ ${sec('questions',wsBody(a,'questions'))}
+ <section class="ws-section ws-unbuilt" id="${id('not-built')}" aria-label="Not built yet"><details class="fold"${open?' open':''}><summary><b>Not built yet</b> <span class="meta">· ${WS_UNBUILT.length}</span></summary><div class="fold-b">${WS_UNBUILT.map(([k,l,line])=>`<p class="ws-sub" id="${id(k)}">${l}</p><p class="ws-line">${line}</p>`).join('')}</div></details></section></div>`}
+V.workspaceUnbuilt=()=>`<div class="page-w"><div class="h-page"><div><div class="eyebrow">Workspace · synthetic view</div><h1>Workspace · unbuilt sections</h1><p>Specimens of an area workspace in a build where the process, procedure, template and module objects have not landed. Those sections leave the page and the jump list; one closed “Not built yet” disclosure after the last built section holds their landing lines. History is built but empty, so it stays in place.</p></div></div><div class="ws-stack">
+ <section class="panel"><div class="panel-h"><h2>Closed (default)</h2></div><div class="panel-b">${workspaceSpecimen()}</div></section>
+ <section class="panel"><div class="panel-h"><h2>Open</h2></div><div class="panel-b">${workspaceSpecimen({open:true,sfx:'open'})}</div></section>
+ <section class="panel"><div class="panel-h"><h2>Narrow (375px)</h2></div><div class="panel-b"><p class="note">At phone width the disclosure stays full width, the lines wrap and the jump list scrolls inside its own row.</p>${workspaceSpecimen({narrow:true,sfx:'narrow'})}</div></section>
+ <section class="panel"><div class="panel-h"><h2>Changes to review · empty lines</h2></div><div class="panel-b"><p class="note">With no change recorded the panel says what was observed, from how many of the claims in scope have been checked. The count stays “None recorded”. The line never says verified.</p><div class="ws-cases">${[['No claim checked',29040,29040],['Some checked',29040,29028],['All checked',12,0],['No claims',0,0]].map(([l,m,u],i)=>`<div><p class="ws-sub">${l}</p>${changesEmptyPanel('chgE-'+i,changesLine(m,u))}</div>`).join('')}</div></div></section></div></div>`;
 function paintFrameContext(kind){
  const company=kind!=='public',labels=kind==='company-marked'?'marked':'np-0007';
  const chip=document.getElementById('frameChip'),foot=document.getElementById('frameFoot');
@@ -2901,6 +2989,7 @@ function route(){
  const h=(location.hash||'#today').slice(1)||'today';
  let html,crumb=[],nav=h,title,focusId;
  if(h==='frame/unbuilt'||h==='frameUnbuilt'){html=V.frameUnbuilt();nav='states';title='Frame · unbuilt sections'}
+ else if(h==='workspace/unbuilt'||h==='workspaceUnbuilt'){html=V.workspaceUnbuilt();nav='states';title='Workspace · unbuilt sections'}
  else if(h.startsWith('frame/')){const kind=h.split('/')[1];html=V.frame(kind);nav='states';title='Frame states'}
  else if(h==='areas'||h==='browse'){html=V.today();nav='today';title='Today';focusId='areas'}
  else if(h.startsWith('source/')||h.startsWith('s/')){const id=h.split('/')[1]||'S-0107';html=V.sources();nav='sources';title='Sources';setTimeout(()=>openSource(id),0)}
@@ -2914,6 +3003,7 @@ function route(){
   if(id)state.th=id;html=V.assistant();crumb=[[null,'Assistant']];nav='assistant';title='Assistant'}
  else if(h.startsWith('decision-')){const id=h.slice(9);html=V.decision(id);const d=D.decisions.find(x=>x.id.toLowerCase()===id);crumb=[['#decisions','Decisions'],[null,d?d.id:'Unknown']];nav='decisions';title=d&&d.id+' · '+d.title}
  else if(h.startsWith('competitor-')){const id=h.slice(11);html=V.competitor(id);const k=D.competitors.find(x=>x.id===id);crumb=[['#area-cpt','Competitors'],[null,k?k.name:'Unknown']];nav='area-cpt';title=k&&k.name}
+ else if(h==='brief-print-unreleased'||h==='brief-print-edition'){html=briefPrintSpecimen(h==='brief-print-unreleased');crumb=[['#templates','Briefs & templates'],[null,'Estimate review brief']];nav='templates';title='Brief print specimen'}
  else if(h.startsWith('brief')){html=V.brief();crumb=[['#templates','Briefs & templates'],[null,'Program-finance lead']];nav='templates';title='Brief'}
  else if(h.startsWith('conflicts-')){html=V.conflicts();crumb=[['#conflicts','Conflicts'],[null,h.slice(10)]];nav='conflicts';title='Conflict '+h.slice(10);focusId='xc-'+h.slice(10)}
  else if(/^(bids|estimates|projects)\//.test(h)){const [k,id]=h.split('/');const [fn,list]={bids:['bid',D.bids],estimates:['estimate',D.estimates],projects:['project',D.projects]}[k];const it=list.find(x=>x.id===id);html=V[fn](id);crumb=[['#'+k,TITLES[k]],[null,it?it.id:'Unknown']];nav=k;title=it&&it.id+' · '+it.title}
@@ -2928,7 +3018,8 @@ function route(){
  const cur=$(`[data-nav="${nav}"]`);if(cur)cur.setAttribute('aria-current','page');
  $$('#sections a').forEach(a=>a.dataset.sec===sec?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));showSec(sec);paint();
  document.title=(title?title+' · ':'')+'Fieldbook';
- $('#printFoot').textContent='Fieldbook · '+PRINT_EDITION+' · '+printPageId(h)+' · Check the current edition';
+ const printEdition=h==='brief-print-unreleased'?'unreleased build':PRINT_EDITION;
+ $('#printFoot').textContent='Fieldbook · '+printEdition+' · '+printPageId(h)+' · Check the current edition';
  closeNav();
  if(!route.first){$('#main').focus({preventScroll:true});window.scrollTo(0,0)}route.first=false;
  say('Opened '+(title||'page'));
@@ -3303,7 +3394,7 @@ function readerJump(link){
  if(!target)return say('That section is not on this page.');
  target.scrollIntoView({block:'start'});
  $$('[data-toc]').forEach(l=>l.classList.toggle('on',l===link));
- say(target.textContent+' section');
+ say((target.getAttribute('aria-label')||(target.querySelector('h1,h2,h3,h4')||target).textContent)+' section');
 }
 
 /* Small dialogs: keyboard shortcuts (?) and the start date behind the Day chip. */
