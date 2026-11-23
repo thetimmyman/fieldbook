@@ -25,7 +25,7 @@ Shows when war-hazard benefit costs are allowable, what the Government reimburse
 | Instrument | Codified DFARS [@CL-SUP-1411] |
 | Codified citation | DFARS 252.228-7000 and 252.228-7003 [@CL-SUP-1411; @CL-SUP-1414] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-SUP-9866] |
 | Text status | Final [@CL-SUP-1411] |
 | Applies to | Employee war-hazard benefits under the Workers' Compensation and War-Hazard Insurance clause, and detention benefits paid to a captured person [@CL-SUP-1411; @CL-SUP-1414] |
 
@@ -53,5 +53,6 @@ Which employees work outside the United States under covered contracts, and what
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all three allowability conditions, funds availability and detention amounts as cited.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for war-hazard losses and capture and detention.

@@ -24,7 +24,7 @@ Explains the authority and permits that an offeror or contractor must hold under
 | Instrument | Codified FAR [@CL-SUP-2193] |
 | Codified citation | FAR 52.247-2, FAR 52.247-3 and FAR 52.247-4 [@CL-SUP-2191; @CL-SUP-2193; @CL-SUP-2201] |
 | RFO citation | RFO FAR 52.247-2 [@CL-SUP-0643; @CL-SUP-0644; @CL-SUP-0645; @CL-SUP-0646; @CL-SUP-0647]; No RFO equivalent for FAR 52.247-3 or FAR 52.247-4, which are marked [Reserved] [@CL-SUP-0648; @CL-SUP-0649] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-2: JAN 1997 [@CL-SUP-9837]; FAR 52.247-3: FEB 2006 [@CL-SUP-9838]; FAR 52.247-4: APR 1984 [@CL-SUP-9839] |
 | Text status | Final [@CL-SUP-2191; @CL-SUP-2193; @CL-SUP-2201] |
 | Applies to | The permits clause as prescribed in FAR 47.207-1(a) [@CL-SUP-2241]; the relocation capability clause in solicitations and contracts for transportation or transportation-related services when a Federal office is relocated, to ensure that offerors are capable of performing interstate or intrastate moving contracts involving the relocation of Federal offices [@CL-SUP-2202]; the inspection provision in solicitations for transportation or transportation-related services when it is desired for offerors to inspect the shipping, receiving, or other sites to ensure realistic bids [@CL-SUP-2247] |
 
@@ -72,6 +72,7 @@ Confirm which authority and permit documents the company holds for each transpor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for the interstate move lead-in and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the Commercial Zone provision to the facilities rule it qualifies and cited its However lead-in.

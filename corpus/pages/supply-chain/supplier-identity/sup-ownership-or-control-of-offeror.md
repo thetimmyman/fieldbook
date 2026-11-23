@@ -25,7 +25,7 @@ Shows what an offeror must say about its immediate owner and highest-level owner
 | Instrument | Codified FAR [@CL-SUP-0562] |
 | Codified citation | FAR 52.204-17 [@CL-SUP-0562] |
 | RFO citation | RFO FAR 52.204-7 [@CL-SUP-3730; @CL-SUP-3731; @CL-SUP-3733], as RFO FAR part 52 lists FAR 52.204-17 as [Reserved] [@CL-SUP-3729] |
-| Edition date | Not established. |
+| Edition date | AUG 2020 [@CL-SUP-9957] |
 | Text status | Final [@CL-SUP-0562] |
 | Applies to | Offerors, where the provision is used as prescribed in FAR 4.1804(b) [@CL-SUP-0695] |
 
@@ -59,6 +59,7 @@ Confirm how immediate and highest-level owner names and CAGE codes are gathered 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added not-using-a-doing-business-as-name parenthetical for legal names and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored one-or-more wording for indicators of control and the paragraphs a joint venture response covers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

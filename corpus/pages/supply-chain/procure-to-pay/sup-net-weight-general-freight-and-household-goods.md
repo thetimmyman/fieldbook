@@ -24,7 +24,7 @@ Shows how net weight is found, which weight certificates the contractor must att
 | Instrument | Codified FAR [@CL-SUP-2216] |
 | Codified citation | FAR 52.247-10 and FAR 52.247-11 [@CL-SUP-2216; @CL-SUP-2218] |
 | RFO citation | RFO FAR 52.247-10 [@CL-SUP-0472; @CL-SUP-0473; @CL-SUP-0474] and RFO FAR 52.247-11 [@CL-SUP-0475; @CL-SUP-0476; @CL-SUP-0477; @CL-SUP-0478; @CL-SUP-0479; @CL-SUP-0480] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-10: APR 1984 [@CL-SUP-9820]; FAR 52.247-11: APR 1984 [@CL-SUP-9821] |
 | Text status | Final [@CL-SUP-2216; @CL-SUP-2218] |
 | Applies to | The general freight clause where the weight of shipments of freight other than household goods or office furniture is not known at the time of shipment and the contractor is responsible for determining the net weight [@CL-SUP-2215]; the household goods and office furniture clause in contracts for transportation or transportation-related services when movements of Government employees' household goods or relocations of Government offices are involved [@CL-SUP-2254] |
 
@@ -58,6 +58,7 @@ Confirm how the company reconciles the weight shown on the shipping document wit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned net, tare, and gross weight wording and citations with the clause quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the part-load sentences to say they come from the household goods and office furniture clause.

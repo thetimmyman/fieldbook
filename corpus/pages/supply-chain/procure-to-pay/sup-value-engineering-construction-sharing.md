@@ -25,7 +25,7 @@ Shows how instant contract savings and collateral savings are worked out and sha
 | Instrument | Codified FAR [@CL-SUP-3131] |
 | Codified citation | FAR 52.248-3 and its Alternate I [@CL-SUP-3131; @CL-SUP-3223] |
 | RFO citation | RFO FAR 52.248-3 and its Alternate I [@CL-SUP-2648; @CL-SUP-2654] |
-| Edition date | Not established. |
+| Edition date | Oct 2025 (basic) [@CL-SUP-2649]; Apr 1984 (Alternate I) [@CL-SUP-2654] |
 | Text status | Final [@CL-SUP-3131] |
 | Applies to | Contracts that include the construction value engineering clause, basic or with Alternate I [@CL-SUP-3131; @CL-SUP-3223] |
 
@@ -69,6 +69,7 @@ Who computes the instant and collateral savings figures, how the company works o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned savings-sharing summaries with the cited quotes and removed meta commentary and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated "only" in the calibration prompt.

@@ -25,7 +25,7 @@ Shows what the contractor must send after each ocean shipment, the representatio
 | Instrument | Codified DFARS [@CL-SUP-1396] |
 | Codified citation | DFARS 252.247-7023(f) to (h) and (j) [@CL-SUP-1396; @CL-SUP-1771; @CL-SUP-1397; @CL-SUP-1399; @CL-SUP-1401] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | OCT 2024 [@CL-SUP-9861] |
 | Text status | Final [@CL-SUP-1396] |
 | Applies to | Shipments covered by the clause, and for the final-invoice representation, contracts above the simplified acquisition threshold [@CL-SUP-1396; @CL-SUP-1397] |
 
@@ -55,6 +55,7 @@ Who assembles the bills of lading and the final-invoice representation, and how 
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the flowdown trigger and example consequences as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the representation alternatives and the bill of lading sentence to match the clause.

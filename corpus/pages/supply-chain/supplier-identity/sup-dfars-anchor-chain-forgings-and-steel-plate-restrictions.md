@@ -25,7 +25,7 @@ Shows where welded shipboard anchor and mooring chain, listed forging items, and
 | Instrument | Codified DFARS [@CL-SUP-1474; @CL-SUP-1479; @CL-SUP-1483] |
 | Codified citation | DFARS 252.225-7019 [@CL-SUP-1474]; DFARS 252.225-7025 [@CL-SUP-1479]; DFARS 252.225-7030 [@CL-SUP-1483] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7019: MAY 2024 [@CL-SUP-9902]; DFARS 252.225-7025: DEC 2009 [@CL-SUP-9903]; DFARS 252.225-7030: DEC 2006 [@CL-SUP-9904] |
 | Text status | Final [@CL-SUP-1474] |
 | Applies to | Welded shipboard anchor and mooring chain, forging items, and steel plate delivered under contracts with the matching clause [@CL-SUP-1474; @CL-SUP-1479; @CL-SUP-1483] |
 
@@ -58,6 +58,7 @@ Which executed contracts carry each clause, and whether subcontracts for covered
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited absence and contrast statements; cited the two-part chain test; aligned the plate end-product wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: the two chain requirements stated as both applying.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the restrictions on anchor and mooring chain, forgings and steel plate.

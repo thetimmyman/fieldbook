@@ -25,7 +25,7 @@ Explains the share of ocean cargo that must move on privately owned United State
 | Instrument | Codified FAR [@CL-SUP-2027] |
 | Codified citation | FAR 52.247-64 [@CL-SUP-2027] |
 | RFO citation | RFO FAR 52.247-64 [@CL-SUP-0724; @CL-SUP-0725; @CL-SUP-0726; @CL-SUP-0727; @CL-SUP-0728; @CL-SUP-0729; @CL-SUP-0730; @CL-SUP-0731; @CL-SUP-0732; @CL-SUP-0733; @CL-SUP-0734; @CL-SUP-0735; @CL-SUP-0736; @CL-SUP-0737; @CL-SUP-0738; @CL-SUP-0739; @CL-SUP-0740; @CL-SUP-0741; @CL-SUP-0742; @CL-SUP-0743]; RFO FAR 52.247-64 Alternate I [@CL-SUP-0744; @CL-SUP-0745; @CL-SUP-0746; @CL-SUP-0747; @CL-SUP-0748]; RFO FAR 52.247-64 Alternate II [@CL-SUP-0749; @CL-SUP-0808; @CL-SUP-0809] |
-| Edition date | Not established. |
+| Edition date | Nov 2021 [@CL-SUP-9210] |
 | Text status | Final [@CL-SUP-2027] |
 | Applies to | Equipment, materials or commodities that may be transported by ocean vessel and are acquired for a United States Government agency account, furnished to or for the account of a foreign nation in the cases the clause lists, or acquired with advance of funds, loans or guaranties made by or on behalf of the United States [@CL-SUP-2151; @CL-SUP-2152; @CL-SUP-2182] |
 
@@ -61,6 +61,7 @@ Which ocean shipments fall under the clause and who collects the rated on-board 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for paragraph (a) and Alternate I(a) and removed uncited contrasts and meta wording.

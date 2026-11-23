@@ -25,7 +25,7 @@ Shows which supplies the sea transport clause covers, what notice the contractor
 | Instrument | Codified DFARS [@CL-SUP-1389] |
 | Codified citation | DFARS 252.247-7023(a), (b), (c), (d), (e) and (i) [@CL-SUP-1388; @CL-SUP-1437; @CL-SUP-1389; @CL-SUP-1393; @CL-SUP-1395; @CL-SUP-1440] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | OCT 2024 [@CL-SUP-9862] |
 | Text status | Final [@CL-SUP-1389] |
 | Applies to | Supplies as the clause defines them, transported by sea under the contract [@CL-SUP-1388; @CL-SUP-1389] |
 
@@ -63,6 +63,7 @@ Which contracts carry this clause, whether any supplies will move by sea, and wh
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the last waiver-request content item, stated the reasons as alternatives and removed commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the U.S. military and statute wording and the alternatives in the commercial product kinds.

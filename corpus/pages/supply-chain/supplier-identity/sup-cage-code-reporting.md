@@ -25,7 +25,7 @@ Shows when an offeror must give its CAGE code, how codes are obtained, and the c
 | Instrument | Codified FAR and codified DFARS [@CL-SUP-0566; @CL-SUP-4119] |
 | Codified citation | FAR 52.204-16 [@CL-SUP-0566]; DFARS 204.1870 [@CL-SUP-4119]; FAR 2.101 [@CL-SUP-9611; @CL-SUP-9612; @CL-SUP-9613] |
 | RFO citation | RFO FAR 52.204-90(d) [@CL-SUP-3615; @CL-SUP-3616]; RFO FAR 52.204-91 [@CL-SUP-3618; @CL-SUP-3619]; RFO FAR 52.204-7(b)(3) [@CL-SUP-3620; @CL-SUP-3621]; RFO FAR 52.240-92(e) [@CL-SUP-3624; @CL-SUP-3625]; RFO FAR 52.204-16 is reserved [@CL-SUP-3614]; RFO FAR 2.101 [@CL-SUP-9614; @CL-SUP-9615; @CL-SUP-9616] |
-| Edition date | Not established. |
+| Edition date | AUG 2020 [@CL-SUP-9893] |
 | Text status | Final [@CL-SUP-0566] |
 | Applies to | Offerors, where the provision is used as prescribed in FAR 4.1804(a) [@CL-SUP-0699] |
 
@@ -57,6 +57,7 @@ Confirm how CAGE codes for each location and for subcontractors are kept and che
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the master-file qualifier to the NATO CAGE alternative and the and/or wording for owner codes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the provisions that require an owner code.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the CAGE code definition.

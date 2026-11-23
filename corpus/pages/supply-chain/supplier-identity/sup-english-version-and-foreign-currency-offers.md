@@ -24,7 +24,7 @@ Explains which language controls when a contract term and its translation disagr
 | Instrument | Codified FAR [@CL-SUP-2807; @CL-SUP-2808] |
 | Codified citation | FAR 52.225-14 [@CL-SUP-2807]; FAR 52.225-17 [@CL-SUP-2808] |
 | RFO citation | RFO FAR 52.225-14 [@CL-SUP-3649]; RFO FAR 52.225-17 [@CL-SUP-3650] |
-| Edition date | Not established. |
+| Edition date | FAR 52.225-14: Feb 2000 [@CL-SUP-3649]; FAR 52.225-17: Feb 2000 [@CL-SUP-3650] |
 | Text status | Final [@CL-SUP-2807; @CL-SUP-2808] |
 | Applies to | Contracts that include the English version clause [@CL-SUP-2807]; solicitations that include the foreign currency provision when offers arrive in more than one currency [@CL-SUP-2808] |
 
@@ -66,6 +66,7 @@ Which rate source the solicitation inserts, and whether the company's translated
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited negative commentary and meta wording on the RFO text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

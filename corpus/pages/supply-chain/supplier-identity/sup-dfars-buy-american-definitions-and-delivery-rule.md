@@ -25,7 +25,7 @@ Shows what the DoD Buy American and Balance of Payments Program clause counts as
 | Instrument | Codified DFARS [@CL-SUP-1311] |
 | Codified citation | DFARS 252.225-7001 [@CL-SUP-1311] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-SUP-9910] |
 | Text status | Final [@CL-SUP-1311] |
 | Applies to | All line items in the contract, unless otherwise specified [@CL-SUP-1313] |
 
@@ -58,6 +58,7 @@ Which line items of each executed contract carry this clause or one of its alter
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the qualifying country conditions and cost-of-components qualifier; cited the alternates framing; removed uncited contrasts.

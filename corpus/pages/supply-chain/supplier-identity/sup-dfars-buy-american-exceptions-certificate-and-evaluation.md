@@ -25,7 +25,7 @@ Shows the exceptions to the Buy American and Balance of Payments Program compone
 | Instrument | Codified DFARS [@CL-SUP-1314; @CL-SUP-1318] |
 | Codified citation | DFARS 252.225-7001 and DFARS 252.225-7000 [@CL-SUP-1314; @CL-SUP-1318] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7001: FEB 2024 [@CL-SUP-9911]; DFARS 252.225-7000: FEB 2024 [@CL-SUP-9912] |
 | Text status | Final [@CL-SUP-1314] |
 | Applies to | Line items subject to the Buy American and Balance of Payments Program basic clause of the solicitation [@CL-SUP-1319] |
 
@@ -60,5 +60,6 @@ Which solicitations and contracts include the certificate provision and the clau
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the exception listing and alternates; added the Alternate I replacement wording; removed meta wording and uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American and Balance of Payments Program clause, exceptions, certificate and evaluation of offers.

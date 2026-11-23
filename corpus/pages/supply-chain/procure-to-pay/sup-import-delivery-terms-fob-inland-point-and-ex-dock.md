@@ -25,7 +25,7 @@ Sets out the two import delivery terms, where delivery happens in each, the duti
 | Instrument | Codified FAR [@CL-SUP-2343] |
 | Codified citation | FAR 52.247-39 and FAR 52.247-40 [@CL-SUP-2343; @CL-SUP-2346] |
 | RFO citation | RFO FAR 52.247-39 [@CL-SUP-0401]; RFO part 52 lists 52.247-40 as reserved [@CL-SUP-0407] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-39: Apr 1984 [@CL-SUP-0401]; FAR 52.247-40: APR 1984 [@CL-SUP-9819] |
 | Text status | Final [@CL-SUP-2343] |
 | Applies to | Solicitations and contracts when the delivery term is f.o.b. inland point, country of importation [@CL-SUP-2349]; or ex dock, pier, or warehouse, port of importation [@CL-SUP-2350] |
 
@@ -60,6 +60,7 @@ Confirm which import delivery term each order carries, the delivery point specif
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the prescription sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor duty lead-ins, loss responsibility and RFO paragraph to the clause text.

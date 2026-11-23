@@ -24,7 +24,7 @@ Shows the Government's right to inspect and test a freight carrier's services, f
 | Instrument | Codified FAR [@CL-SUP-2465] |
 | Codified citation | FAR 52.246-14 [@CL-SUP-2465] |
 | RFO citation | RFO FAR 52.246-14 [@CL-SUP-0417] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-SUP-0417] |
 | Text status | Final [@CL-SUP-2465] |
 | Applies to | Solicitations and contracts for freight transportation services by rail, motor, domestic freight forwarder and domestic water carriers, except the services the clause excludes [@CL-SUP-2465; @CL-SUP-2466; @CL-SUP-2531] |
 
@@ -55,6 +55,7 @@ Whether each freight service the company performs or buys sits inside the carrie
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Spelled out the statute reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the how-it-works, never-confuse and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

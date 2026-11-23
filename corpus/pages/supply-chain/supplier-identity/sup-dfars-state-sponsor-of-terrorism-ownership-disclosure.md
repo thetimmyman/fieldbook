@@ -25,7 +25,7 @@ Shows what an offeror represents and discloses about ownership or control by the
 | Instrument | Codified DFARS [@CL-SUP-1501] |
 | Codified citation | DFARS 252.225-7050 [@CL-SUP-1501] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-SUP-9944] |
 | Text status | Final [@CL-SUP-1501] |
 | Applies to | Offerors, under solicitations with the provision [@CL-SUP-1502] |
 
@@ -59,6 +59,7 @@ Which executed contracts and offers carry the provision, and who prepares the ow
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (c) party list and beneficial interest definition quote, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: listed positions and the five significant-interest tests described as alternatives.

@@ -25,7 +25,7 @@ Shows which sources the contractor must buy from for Government use, what it mus
 | Instrument | Codified FAR [@CL-SUP-2944] |
 | Codified citation | FAR 52.208-9 [@CL-SUP-2944] |
 | RFO citation | RFO FAR 52.208-9 [@CL-SUP-0141] |
-| Edition date | Not established. |
+| Edition date | MAY 2014 [@CL-SUP-9803] |
 | Text status | Final [@CL-SUP-2944] |
 | Applies to | Contracts where the schedule names mandatory sources for supplies or services provided for Government use [@CL-SUP-2946] |
 
@@ -64,6 +64,7 @@ Whether each Government-use purchase is checked against the mandatory sources in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Cited both AbilityOne central nonprofit agency contact claims under FAR 52.208-9(c).
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contract-specific and contrast wording the quotes do not state.

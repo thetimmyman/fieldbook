@@ -24,7 +24,7 @@ Shows how a solicitation handles evaluation when the delivery destinations are t
 | Instrument | Codified FAR [@CL-SUP-2436; @CL-SUP-2438; @CL-SUP-2440] |
 | Codified citation | FAR 52.247-49, FAR 52.247-50 and FAR 52.247-62 [@CL-SUP-2436; @CL-SUP-2438; @CL-SUP-2440] |
 | RFO citation | No RFO equivalent [@CL-SUP-0170; @CL-SUP-0171; @CL-SUP-0172] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-49: APR 1984 [@CL-SUP-9805]; FAR 52.247-50: APR 1984 [@CL-SUP-9806]; FAR 52.247-62: APR 1984 [@CL-SUP-9807] |
 | Text status | Final [@CL-SUP-2436; @CL-SUP-2438; @CL-SUP-2440] |
 | Applies to | Solicitations with tentative destinations [@CL-SUP-2436], solicitations with unknown exact destinations [@CL-SUP-2438], and solicitations and contracts with known requirements and destinations but unpredetermined quantities per destination [@CL-SUP-2440] |
 
@@ -67,6 +67,7 @@ Which of the three situations a solicitation uses and who confirms that its clau
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned evaluation and RFO wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for destination unknown, no evaluation of transportation costs, and specific quantities unknown.

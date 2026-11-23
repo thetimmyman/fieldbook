@@ -25,7 +25,7 @@ Shows what the offeror represents under the overseas construction and overseas a
 | Instrument | Codified DFARS [@CL-SUP-1811; @CL-SUP-1813] |
 | Codified citation | DFARS 252.236-7010 [@CL-SUP-1811; @CL-SUP-1844]; DFARS 252.236-7011 [@CL-SUP-1813] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.236-7010: JAN 1997 [@CL-SUP-9933]; DFARS 252.236-7011: JAN 1997 [@CL-SUP-9934] |
 | Text status | Final [@CL-SUP-1811; @CL-SUP-1813] |
 | Applies to | Solicitations that include either provision [@CL-SUP-1812; @CL-SUP-1814]; the construction provision is prescribed in DFARS 236.570(c)(1) [@CL-SUP-1844] |
 
@@ -56,6 +56,7 @@ Whether the solicitation includes either provision, and who confirms the clause 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the full tax filing condition; aligned contrasts and prescription wording with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: US firm conditions cited to the quote joining them with and.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the overseas construction and architect-engineer restrictions to United States firms.

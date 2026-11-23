@@ -25,7 +25,7 @@ Shows how defective supplies and services are corrected under the inspection cla
 | Instrument | Codified FAR [@CL-SUP-1096] |
 | Codified citation | FAR 52.246-6 [@CL-SUP-1096] |
 | RFO citation | RFO FAR 52.246-6 [@CL-SUP-3258] |
-| Edition date | Not established. |
+| Edition date | May 2001 [@CL-SUP-3258] |
 | Text status | Final [@CL-SUP-1096] |
 | Applies to | Contracts that include the Inspection—Time-and-Material and Labor-Hour clause [@CL-SUP-1096]; the clause is directed for solicitations and contracts when a time-and-material contract or a labor-hour contract is contemplated [@CL-SUP-1134] |
 
@@ -60,6 +60,7 @@ Which acceptance and invoicing terms drive the cash forecast on time-and-materia
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for alternative cause in paragraph (h); removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added notwithstanding lead-in; second cause not RFO-only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

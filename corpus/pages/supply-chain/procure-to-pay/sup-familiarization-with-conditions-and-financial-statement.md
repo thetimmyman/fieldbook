@@ -24,7 +24,7 @@ Shows the two offeror duties that sit beside price in a transportation solicitat
 | Instrument | Codified FAR [@CL-SUP-2204] |
 | Codified citation | FAR 52.247-5 and FAR 52.247-6 [@CL-SUP-2204; @CL-SUP-2206] |
 | RFO citation | RFO FAR 52.247-5 [@CL-SUP-0238; @CL-SUP-0239; @CL-SUP-0244]. No RFO equivalent for FAR 52.247-6: the RFO text lists it as [Reserved] [@CL-SUP-0245] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-5: Apr 1984 [@CL-SUP-0238]; FAR 52.247-6: APR 1984 [@CL-SUP-9811] |
 | Text status | Final [@CL-SUP-2204; @CL-SUP-2206] |
 | Applies to | The familiarization clause in solicitations and contracts for transportation or transportation-related services, to ensure that offerors become familiar with the conditions under which and where the services will be performed [@CL-SUP-2203]; the financial statement provision in solicitations for transportation or transportation-related services, to ensure that offerors are prepared to furnish financial statements [@CL-SUP-2250] |
 
@@ -57,6 +57,7 @@ Confirm that the company can produce a current certified financial statement on 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned estimating duty and RFO wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on transportation permits and site inspection.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

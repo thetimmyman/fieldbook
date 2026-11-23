@@ -25,7 +25,7 @@ Shows which end products may be delivered under the DoD trade agreements clause,
 | Instrument | Codified DFARS [@CL-SUP-1346] |
 | Codified citation | DFARS 252.225-7021 and DFARS 252.225-7020 [@CL-SUP-1346; @CL-SUP-1350] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7021: FEB 2024 [@CL-SUP-9945]; DFARS 252.225-7020: NOV 2014 [@CL-SUP-9946] |
 | Text status | Final [@CL-SUP-1346] |
 | Applies to | Deliveries of end products under a contract with the Trade Agreements clause [@CL-SUP-1346] |
 
@@ -55,5 +55,6 @@ Which executed contracts carry this clause or its alternate, and which certifica
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added substantial-transformation completion and paragraph (c)(1) certification quote, and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD trade agreements clause and certificate.

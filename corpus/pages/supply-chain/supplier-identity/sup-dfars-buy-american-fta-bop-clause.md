@@ -25,7 +25,7 @@ Shows the key definitions in the basic DoD Buy American, Free Trade Agreements a
 | Instrument | Codified DFARS [@CL-SUP-1861] |
 | Codified citation | DFARS 252.225-7036 [@CL-SUP-1861] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-SUP-9915] |
 | Text status | Final [@CL-SUP-1861] |
 | Applies to | All items in the Schedule, unless otherwise specified [@CL-SUP-1902] |
 
@@ -66,6 +66,7 @@ Which items on each executed contract carry the basic clause, which percentage a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the delivery lead-in.

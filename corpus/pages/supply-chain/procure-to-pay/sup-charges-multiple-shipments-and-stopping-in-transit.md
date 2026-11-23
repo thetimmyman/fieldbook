@@ -24,7 +24,7 @@ Explains the ceiling on charges and how the rate is computed for several shipmen
 | Instrument | Codified FAR [@CL-SUP-2237] |
 | Codified citation | FAR 52.247-17, FAR 52.247-18 and FAR 52.247-19 [@CL-SUP-2237; @CL-SUP-2238; @CL-SUP-2240] |
 | RFO citation | RFO FAR 52.247-17 [@CL-SUP-0026; @CL-SUP-0027]; RFO FAR 52.247-18 [@CL-SUP-0028; @CL-SUP-0029]; RFO FAR 52.247-19 [@CL-SUP-0030; @CL-SUP-0031; @CL-SUP-0032] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-17: Apr 1984 [@CL-SUP-0027]; FAR 52.247-18: Apr 1984 [@CL-SUP-0029]; FAR 52.247-19: Apr 1984 [@CL-SUP-0031] |
 | Text status | Final [@CL-SUP-2237; @CL-SUP-2238; @CL-SUP-2240] |
 | Applies to | The charges clause in solicitations and contracts for transportation or transportation-related services [@CL-SUP-2236]; the multiple shipments clause when multiple shipments are tendered at one time from one origin to two or more consignees at the same destination [@CL-SUP-2239]; the stopping in transit clause when they are tendered at one time to two or more consignees along the route between origin and last destination [@CL-SUP-2269] |
 
@@ -61,6 +61,7 @@ Confirm how the company prices each transportation award against its lowest publ
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned aggregate-weight and intermediate-charge wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

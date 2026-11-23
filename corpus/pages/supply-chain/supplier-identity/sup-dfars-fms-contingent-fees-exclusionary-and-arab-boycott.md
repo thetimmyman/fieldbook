@@ -25,7 +25,7 @@ Shows which contingent fees are unallowable on foreign military sales, the duty 
 | Instrument | Codified DFARS [@CL-SUP-1724] |
 | Codified citation | DFARS 252.225-7027 [@CL-SUP-1724], DFARS 252.225-7028 [@CL-SUP-1728] and DFARS 252.225-7031 [@CL-SUP-1730] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7027: APR 2003 [@CL-SUP-9920]; DFARS 252.225-7028: APR 2003 [@CL-SUP-9921]; DFARS 252.225-7031: JUN 2005 [@CL-SUP-9922] |
 | Text status | Final [@CL-SUP-1724] |
 | Applies to | Foreign military sale contracts with the contingent fees clause where DFARS 225.7307(a) prescribes it [@CL-SUP-1768; @CL-SUP-1726], contracts with the exclusionary policies clause [@CL-SUP-1728], and solicitations with the boycott provision for foreign person offerors [@CL-SUP-1730] |
 
@@ -56,6 +56,7 @@ Which foreign military sale contracts carry the clause and whether any contingen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.

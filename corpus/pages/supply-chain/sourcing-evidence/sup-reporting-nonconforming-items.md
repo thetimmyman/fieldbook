@@ -24,7 +24,7 @@ Shows what a contractor must screen and report under the reporting nonconforming
 | Instrument | Codified FAR [@CL-SUP-1187] |
 | Codified citation | FAR 52.246-26 [@CL-SUP-1187; @CL-SUP-1188; @CL-SUP-1189; @CL-SUP-1190; @CL-SUP-1191; @CL-SUP-0286; @CL-SUP-1192; @CL-SUP-1193; @CL-SUP-0289; @CL-SUP-1194; @CL-SUP-1206; @CL-SUP-1207; @CL-SUP-1208; @CL-SUP-1209; @CL-SUP-0287; @CL-SUP-0288; @CL-SUP-1210; @CL-SUP-9786; @CL-SUP-1211; @CL-SUP-0290] |
 | RFO citation | RFO FAR 52.246-26 [@CL-SUP-3464; @CL-SUP-3465; @CL-SUP-3466; @CL-SUP-3467; @CL-SUP-3468; @CL-SUP-3469; @CL-SUP-3470; @CL-SUP-3471; @CL-SUP-3472; @CL-SUP-3473; @CL-SUP-9332; @CL-SUP-9333; @CL-SUP-3474; @CL-SUP-3475; @CL-SUP-3476; @CL-SUP-9334; @CL-SUP-3477; @CL-SUP-9335; @CL-SUP-3478] |
-| Edition date | Not established. |
+| Edition date | Aug 2024 [@CL-SUP-3478] |
 | Text status | Final [@CL-SUP-1187] |
 | Applies to | Contracts that include the clause [@CL-SUP-1187] |
 
@@ -58,6 +58,7 @@ Which contracts carry the clause, who screens GIDEP reports and files the notice
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added codified companions for GIDEP reporting and flowdown, separated RFO and codified citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Electronic parts item completed; no RFO-only wording.

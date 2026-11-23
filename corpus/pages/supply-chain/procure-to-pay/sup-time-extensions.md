@@ -25,7 +25,7 @@ Shows how a change order grants time for a contract change and how that extensio
 | Instrument | Codified FAR [@CL-SUP-2575] |
 | Codified citation | FAR 52.211-13 [@CL-SUP-2575] |
 | RFO citation | RFO FAR 52.211-13 [@CL-SUP-0635; @CL-SUP-0636; @CL-SUP-0637] |
-| Edition date | Not established. |
+| Edition date | SEP 2000 [@CL-SUP-9833] |
 | Text status | Final [@CL-SUP-2575] |
 | Applies to | Not established. |
 
@@ -57,6 +57,7 @@ Confirm which change orders carry a time extension and whether the liquidated da
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and meta wording and aligned modality with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed "daily amount", which the clause does not state.

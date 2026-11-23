@@ -25,7 +25,7 @@ Shows how a contractor marks Government-assigned serial numbers on major end ite
 | Instrument | Codified DFARS [@CL-SUP-1647; @CL-SUP-1648] |
 | Codified citation | DFARS 252.211-7008 [@CL-SUP-1647]; DFARS 252.211-7002 [@CL-SUP-1648] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.211-7008: SEP 2010 [@CL-SUP-9868]; DFARS 252.211-7002: DEC 1991 [@CL-SUP-9869] |
 | Text status | Final [@CL-SUP-1647; @CL-SUP-1648] |
 | Applies to | Contracts that use the serial numbers clause as prescribed in section 211.274-5(b) of the Defense Federal Acquisition Regulation Supplement [@CL-SUP-1647], for the major end items specified by line item in the Schedule [@CL-SUP-1554]; solicitations that use the examination provision as prescribed in section 211.204(c) [@CL-SUP-1648] and cite documents available only for examination [@CL-SUP-1557] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry the serial numbers clause and which Schedule line
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied clause pointer, identifier wording and examination provision to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the vehicle wording of the major end item list.

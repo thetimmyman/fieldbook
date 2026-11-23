@@ -25,7 +25,7 @@ Shows which photovoltaic devices must be domestic, U.S.-made or qualifying, the 
 | Instrument | Codified DFARS [@CL-SUP-1466; @CL-SUP-1469] |
 | Codified citation | DFARS 252.225-7017 [@CL-SUP-1466] and DFARS 252.225-7018 [@CL-SUP-1469] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7017: MAR 2024 [@CL-SUP-9935]; DFARS 252.225-7018: MAR 2024 [@CL-SUP-9936] |
 | Text status | Final [@CL-SUP-1466] |
 | Applies to | Contracts with the clause, and offers with the certificate provision, by estimated value of the photovoltaic devices [@CL-SUP-1466; @CL-SUP-1469] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry the clause, and what estimated value of photovolt
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Merged the band exceptions with their alternatives and conditions; removed absence and meta sentences; replaced contrasts with pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: exception lists worded as alternatives joined by or.

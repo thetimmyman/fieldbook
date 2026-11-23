@@ -25,7 +25,7 @@ Shows what the delivery ticket clause requires and how the contractor's liabilit
 | Instrument | Codified DFARS [@CL-SUP-1639] |
 | Codified citation | DFARS 252.237-7016, 252.237-7014 and 252.237-7015 [@CL-SUP-1639; @CL-SUP-1642; @CL-SUP-1644] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | NOV 2014 [@CL-SUP-9859] |
 | Text status | Final [@CL-SUP-1639] |
 | Applies to | Contracts that include the basic delivery tickets clause or the clause printed as Alternate I or Alternate II, and the matching count-of-articles or weight-of-articles loss or damage clause [@CL-SUP-1639; @CL-SUP-1692; @CL-SUP-1693; @CL-SUP-1642; @CL-SUP-1644] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry these clauses, which version of the ticket clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the alternate clauses and weight-loss rules without commentary on the printed text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for laundry and dry cleaning delivery tickets and loss or damage by count of articles or by weight.

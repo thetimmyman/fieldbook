@@ -25,7 +25,7 @@ Shows which clauses a prime contractor must put in subcontracts for commercial p
 | Instrument | Codified FAR [@CL-SUP-0550] |
 | Codified citation | FAR 44.402 and FAR 52.244-6 [@CL-SUP-0550; @CL-SUP-0555]; FAR 44.400 [@CL-SUP-9466]; FAR 44.401 [@CL-SUP-9467; @CL-SUP-9468] |
 | RFO citation | RFO FAR 52.244-6 [@CL-SUP-3806; @CL-SUP-3807; @CL-SUP-3808; @CL-SUP-9421; @CL-SUP-9422]; RFO FAR 2.101 [@CL-SUP-9619; @CL-SUP-9620; @CL-SUP-9630; @CL-SUP-9636; @CL-SUP-9638; @CL-SUP-9640] |
-| Edition date | Not established. |
+| Edition date | OCT 2025 [@CL-SUP-9878] |
 | Text status | Final [@CL-SUP-0550] |
 | Applies to | Subcontracts for commercial products or commercial services, under the clause inserted as prescribed in FAR 44.403 [@CL-SUP-0685; @CL-SUP-0550] |
 
@@ -63,6 +63,7 @@ Confirm how commercial item determinations are made and recorded and which claus
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added CO-responsibility sentence; first-of-two policy wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Worked example now separates the codified permission from the RFO text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the commercial product definition.

@@ -25,7 +25,7 @@ Shows what the contracting officer must review in the Federal Awardee Performanc
 | Instrument | Codified FAR [@CL-SUP-0900; @CL-SUP-0907] |
 | Codified citation | FAR 9.104-6, FAR 9.104-7 and FAR 52.209-9 [@CL-SUP-0900; @CL-SUP-0905; @CL-SUP-0907] |
 | RFO citation | RFO FAR 52.209-9 [@CL-SUP-3809; @CL-SUP-3810; @CL-SUP-3811; @CL-SUP-3812; @CL-SUP-3813; @CL-SUP-3814] |
-| Edition date | Not established. |
+| Edition date | OCT 2018 [@CL-SUP-9949] |
 | Text status | Final [@CL-SUP-0900; @CL-SUP-0907] |
 | Applies to | Contracts above the simplified acquisition threshold for the review; solicitations and contracts as each provision or clause states [@CL-SUP-0900; @CL-SUP-0904; @CL-SUP-0905; @CL-SUP-0906] |
 
@@ -62,6 +62,7 @@ Confirm who owns the semi-annual FAPIIS update and the posting of mitigating fac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for FAPIIS availability, mitigating-factor example, 52.209-7 cross-reference, and 52.209-9(b)(2) exceptions, and removed uncited commentary.

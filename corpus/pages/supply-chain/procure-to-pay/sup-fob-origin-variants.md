@@ -24,7 +24,7 @@ Shows how the contractor's facility, freight allowed and freight prepaid variant
 | Instrument | Codified FAR [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
 | Codified citation | FAR 52.247-30 to 52.247-32 [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
 | RFO citation | RFO FAR 52.247-30, RFO FAR 52.247-31 and RFO FAR 52.247-32 [@CL-SUP-0324; @CL-SUP-0325; @CL-SUP-0326] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-30: Feb 2006 [@CL-SUP-0324]; FAR 52.247-31: Feb 2006 [@CL-SUP-0325]; FAR 52.247-32: Feb 2006 [@CL-SUP-0326] |
 | Text status | Final [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
 | Applies to | Contracts containing one of the three f.o.b. origin variant clauses [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
 
@@ -69,6 +69,7 @@ Confirm which variant each contract carries and how freight is recovered or dedu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited comparison sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the delivery alternatives, line-haul qualifier, contractor duties and RFO paragraph.

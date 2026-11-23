@@ -24,7 +24,7 @@ Shows how a standard or streamlined competition notice frames the choice between
 | Instrument | Codified FAR [@CL-SUP-2949] |
 | Codified citation | FAR 52.207-1, FAR 52.207-2 and FAR 52.207-3 [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953] |
 | RFO citation | No RFO equivalent [@CL-SUP-0114; @CL-SUP-0115; @CL-SUP-0116] |
-| Edition date | Not established. |
+| Edition date | FAR 52.207-1: MAY 2006 [@CL-SUP-9800]; FAR 52.207-2: MAY 2006 [@CL-SUP-9801]; FAR 52.207-3: MAY 2006 [@CL-SUP-9802] |
 | Text status | Final [@CL-SUP-2949] |
 | Applies to | Solicitations that are part of a standard or streamlined competition, and contracts carrying the right of first refusal clause [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953] |
 
@@ -70,6 +70,7 @@ Who checks whether an award came from a competition and where the displaced-pers
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the quote for the streamlined competition statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

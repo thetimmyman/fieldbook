@@ -25,7 +25,7 @@ Shows which construction material the Contractor may use under the basic Balance
 | Instrument | Codified DFARS [@CL-SUP-1885] |
 | Codified citation | DFARS 252.225-7045 [@CL-SUP-1885] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-SUP-9909] |
 | Text status | Final [@CL-SUP-1885] |
 | Applies to | Contracts with the basic trade agreements construction material clause, which waives the Balance of Payments Program restrictions for designated country construction materials [@CL-SUP-1885] |
 
@@ -64,6 +64,7 @@ Which construction contracts carry this clause or an alternate, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the manufactured-in-the-United-States condition and iron and steel scope; restored cost-of-components qualifiers; removed meta wording and uncited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: exceptions and domestic definition described as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Balance of Payments Program construction material under trade agreements basic clause.

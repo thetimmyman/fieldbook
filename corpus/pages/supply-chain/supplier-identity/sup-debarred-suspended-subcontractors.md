@@ -25,7 +25,7 @@ Shows when a contractor may not subcontract with a debarred, suspended or propos
 | Instrument | Codified FAR [@CL-SUP-0558] |
 | Codified citation | FAR 52.209-6 [@CL-SUP-0558]; FAR 2.101 [@CL-SUP-9581; @CL-SUP-9582; @CL-SUP-9583] |
 | RFO citation | RFO FAR 52.209-6 [@CL-SUP-3638; @CL-SUP-3639] |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-SUP-9895] |
 | Text status | Final [@CL-SUP-0558] |
 | Applies to | Contracts with the clause inserted as prescribed in FAR 9.409, other than for subcontracts for commercially available off-the-shelf items [@CL-SUP-0689; @CL-SUP-0690] |
 
@@ -58,6 +58,7 @@ Confirm how exclusion screening and written disclosures are checked before a sub
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the systems-and-procedures wording and the example with their quotes.

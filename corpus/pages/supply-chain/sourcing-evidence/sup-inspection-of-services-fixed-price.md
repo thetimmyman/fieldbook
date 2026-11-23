@@ -25,7 +25,7 @@ Shows how the services inspection clause for fixed-price contracts requires an i
 | Instrument | Codified FAR [@CL-SUP-1083] |
 | Codified citation | FAR 52.246-4 [@CL-SUP-1083] |
 | RFO citation | RFO FAR 52.246-4 [@CL-SUP-3237] |
-| Edition date | Not established. |
+| Edition date | Aug 1996 [@CL-SUP-3237] |
 | Text status | Final [@CL-SUP-1083] |
 | Applies to | Contracts that include the Inspection of Services—Fixed-Price clause [@CL-SUP-1083]; the clause is directed for solicitations and contracts for services, or supplies that involve the furnishing of services, when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-SUP-1132], and the contracting officer may insert it when the contract amount is expected to be at or below that threshold and inclusion is in the Government's interest [@CL-SUP-9777] |
 
@@ -56,6 +56,7 @@ Which acceptance and invoicing terms govern services deliverables under the exec
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned fixed-price services inspection, remedy, and class deviation wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added optional use at or below threshold; fixed cost wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

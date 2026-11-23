@@ -25,7 +25,7 @@ Explains which construction materials the contractor may use under the Buy Ameri
 | Instrument | Codified FAR [@CL-SUP-2791] |
 | Codified citation | FAR 52.225-11 [@CL-SUP-2791]; Alternate I [@CL-SUP-2864]; Alternate II [@CL-SUP-2865] |
 | RFO citation | RFO FAR 52.225-11 [@CL-SUP-3588; @CL-SUP-3589; @CL-SUP-3590; @CL-SUP-3591; @CL-SUP-3592; @CL-SUP-3593; @CL-SUP-3594; @CL-SUP-3595; @CL-SUP-3596; @CL-SUP-3597; @CL-SUP-3598; @CL-SUP-3599; @CL-SUP-3600; @CL-SUP-3601; @CL-SUP-3602; @CL-SUP-3603; @CL-SUP-3604; @CL-SUP-3605; @CL-SUP-3606; @CL-SUP-3607]; Alternate I [@CL-SUP-3608; @CL-SUP-3609; @CL-SUP-3610]; Alternate II [@CL-SUP-3611] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 (codified) [@CL-SUP-9891]; Oct 2022 (Alternate II) [@CL-SUP-3611] |
 | Text status | Final [@CL-SUP-2791] |
 | Applies to | Acquisitions for which the Contracting Officer has determined that the WTO GPA and the Free Trade Agreements apply [@CL-SUP-2792]; under Alternate I, the WTO GPA and all the Free Trade Agreements except the Bahrain FTA, the United States-Mexico-Canada Agreement and the Oman FTA [@CL-SUP-3082] |
 
@@ -116,6 +116,7 @@ How the company evidences component cost and country of origin for each construc
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the public-interest ground claim again.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.

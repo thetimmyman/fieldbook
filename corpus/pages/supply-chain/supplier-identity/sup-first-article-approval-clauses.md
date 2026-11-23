@@ -24,7 +24,7 @@ Shows the notice steps, the effect of approval or disapproval and the cost rules
 | Instrument | Codified FAR [@CL-SUP-1028; @CL-SUP-1030] |
 | Codified citation | FAR 52.209-3 [@CL-SUP-1028; @CL-SUP-1029; @CL-SUP-1031; @CL-SUP-1032; @CL-SUP-1033; @CL-SUP-1541; @CL-SUP-1457; @CL-SUP-1035; @CL-SUP-1036; @CL-SUP-1066; @CL-SUP-1067; @CL-SUP-1068; @CL-SUP-1376; @CL-SUP-1075] and FAR 52.209-4 [@CL-SUP-1030; @CL-SUP-1034; @CL-SUP-1542; @CL-SUP-1456] |
 | RFO citation | RFO FAR 52.209-3 [@CL-SUP-3653; @CL-SUP-3654]; RFO FAR 52.209-4 [@CL-SUP-3667; @CL-SUP-3668] |
-| Edition date | Not established. |
+| Edition date | FAR 52.209-3: SEP 1989 [@CL-SUP-9950]; FAR 52.209-4: SEP 1989 [@CL-SUP-9951] |
 | Text status | Final [@CL-SUP-1028] |
 | Applies to | Contracts that include the contractor-testing or government-testing first article clause [@CL-SUP-1028; @CL-SUP-1030] |
 
@@ -56,6 +56,7 @@ Which contracts carry a first article requirement and how early material spend i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added conditional-approval, disapproval-reason, and waiver-request sentences from FAR 52.209-3 and removed uncited meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
