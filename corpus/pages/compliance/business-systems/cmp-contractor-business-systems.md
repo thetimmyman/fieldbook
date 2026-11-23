@@ -47,7 +47,7 @@ A contractor subject to full coverage under the Cost Accounting Standards has a 
 
 ## Never confuse
 
-Each business system in the definition of contractor business systems is included if the contract includes the specified clause for that system [@CL-CMP-1200; @CL-CMP-1201; @CL-CMP-1202], and the clause sets the material weakness definition, the 30-day response requirement and the 45-day corrective action or corrective action plan requirement [@CL-CMP-0902; @CL-CMP-0903; @CL-CMP-0904]. Acceptable contractor business systems are contractor business systems that comply with the terms and conditions of the applicable business system clauses listed in the definition of contractor business systems in the clause [@CL-CMP-1204]. See [Accounting system criteria](cmp-accounting-system-criteria.md) for one of them.
+Coverage is clause by clause, not all or nothing: each business system in the definition of contractor business systems is included if the contract includes the specified clause for that system [@CL-CMP-1200; @CL-CMP-1201; @CL-CMP-1202], and the clause sets the material weakness definition, the 30-day response requirement and the 45-day corrective action or corrective action plan requirement [@CL-CMP-0902; @CL-CMP-0903; @CL-CMP-0904]. Acceptable contractor business systems are not merely present systems: they are contractor business systems that comply with the terms and conditions of the applicable business system clauses listed in the definition of contractor business systems in the clause [@CL-CMP-1204]. See [Accounting system criteria](cmp-accounting-system-criteria.md) for one of them.
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Determining the current approval status of each contractor business system, moni
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the title 41 chapter 15 reference and the final-determination notice-to-withhold sentence, named each system clause in the definition, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: 45-day condition uses the source term, a final determination with a notice to withhold payments.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

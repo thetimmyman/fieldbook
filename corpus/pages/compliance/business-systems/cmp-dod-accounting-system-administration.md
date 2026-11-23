@@ -45,7 +45,7 @@ A final determination lists two material weaknesses in a labor distribution syst
 
 ## Never confuse
 
-An acceptable accounting system is a system that complies with the system criteria in paragraph (c) of the clause to provide reasonable assurance that applicable laws and regulations are complied with, the accounting system and cost data are reliable, risk of misallocations and mischarges is minimized, and contract allocations and charges are consistent with billing procedures [@CL-CMP-0977; @CL-CMP-0978]. A material weakness is a deficiency or combination of deficiencies in the internal control over information in contractor business systems, such that there is a reasonable possibility that a material misstatement of such information will not be prevented, or detected and corrected, on a timely basis [@CL-CMP-0980]. A reasonable possibility exists when the likelihood of an event occurring is probable, or more than remote but less than likely (section 806 of Public Law 116-283) [@CL-CMP-0981]. The Contracting Officer's final determination concerns remaining material weaknesses, the adequacy of any proposed or completed corrective action, and system disapproval, if the Contracting Officer determines that one or more material weaknesses remain [@CL-CMP-0161; @CL-CMP-0991].
+An acceptable system and a material weakness sit at opposite ends: an acceptable accounting system is a system that complies with the system criteria in paragraph (c) of the clause to provide reasonable assurance that applicable laws and regulations are complied with, the accounting system and cost data are reliable, risk of misallocations and mischarges is minimized, and contract allocations and charges are consistent with billing procedures [@CL-CMP-0977; @CL-CMP-0978], while a material weakness is a deficiency or combination of deficiencies in the internal control over information in contractor business systems, such that there is a reasonable possibility that a material misstatement of such information will not be prevented, or detected and corrected, on a timely basis [@CL-CMP-0980]. A reasonable possibility exists when the likelihood of an event occurring is probable, or more than remote but less than likely (section 806 of Public Law 116-283) [@CL-CMP-0981]. The Contracting Officer's final determination concerns remaining material weaknesses, the adequacy of any proposed or completed corrective action, and system disapproval, if the Contracting Officer determines that one or more material weaknesses remain [@CL-CMP-0161; @CL-CMP-0991].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ The current government status of each accounting system: approved, disapproved, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the final-determination evaluation lead-in and the 45-day final-determination condition, completed the initial-determination detail sentence, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Accounting system definition keeps its reporting purpose.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

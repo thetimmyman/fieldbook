@@ -45,7 +45,7 @@ A contractor had 55,000,000 of qualifying sales last year, so it is above the re
 
 ## Never confuse
 
-The $40 million review trigger is based on qualifying sales to the Government during the contractor's preceding fiscal year, defined as sales for which certified cost or pricing data were required under section 3702 of title 10 of the United States Code, as implemented in FAR 15.403, or that are contracts priced on other than a firm-fixed-price or fixed-price with economic price adjustment basis [@CL-CMP-2225; @CL-CMP-2226]. Under paragraph (c)(2)(ii)(A), the contracting officer promptly makes an initial written determination on any material weaknesses and notifies the contractor in writing, while under paragraph (c)(3)(i), the ACO makes a final determination and notifies the contractor that the contractor's MMAS is acceptable and approved and no deficiencies remain, or that material weaknesses remain [@CL-CMP-2227; @CL-CMP-0188; @CL-CMP-2229]. For what the system must do, see [Material Management and Accounting System clause](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md). For the withhold caps, see [Business-system payment withholds](cmp-business-system-withholds.md).
+The $40 million review trigger is based on qualifying sales to the Government during the contractor's preceding fiscal year, defined as sales for which certified cost or pricing data were required under section 3702 of title 10 of the United States Code, as implemented in FAR 15.403, or that are contracts priced on other than a firm-fixed-price or fixed-price with economic price adjustment basis [@CL-CMP-2225; @CL-CMP-2226]. The initial and final determinations differ: under paragraph (c)(2)(ii)(A), the contracting officer promptly makes an initial written determination on any material weaknesses and notifies the contractor in writing, while under paragraph (c)(3)(i), the ACO makes a final determination and notifies the contractor that the contractor's MMAS is acceptable and approved and no deficiencies remain, or that material weaknesses remain [@CL-CMP-2227; @CL-CMP-0188; @CL-CMP-2229]. For what the system must do, see [Material Management and Accounting System clause](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md). For the withhold caps, see [Business-system payment withholds](cmp-business-system-withholds.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether the company's sales put it above the review threshold, and the Governmen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the risk assessment basis in paragraph (a)(2) and the initial determination notice and description requirements in paragraph (c)(2)(ii)(A), and removed meta-wording and unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the subpart's contract scope and the exclusion of small businesses, educational institutions and nonprofit organizations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for material management and accounting system review procedures.

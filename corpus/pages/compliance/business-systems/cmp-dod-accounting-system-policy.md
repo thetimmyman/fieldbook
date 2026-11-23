@@ -51,7 +51,7 @@ An audit reports 3 material weaknesses and the contracting officer issues an ini
 
 ## Never confuse
 
-In evaluating the acceptability of a contractor's accounting system, the contracting officer determines whether the contractor's accounting system complies with the system criteria for an acceptable accounting system as prescribed in the clause at DFARS 252.242-7006, Accounting System Administration, and makes a final determination to approve or disapprove the system [@CL-CMP-0702; @CL-CMP-0183; @CL-CMP-1173; @CL-CMP-1174]. Where material weaknesses remain after the final determination, the contracting officer withholds payments in accordance with the clause at DFARS 252.242-7005, Contractor Business Systems, if the clause is included in the contract [@CL-CMP-0705].
+The two DFARS clauses have different jobs: in evaluating the acceptability of a contractor's accounting system, the contracting officer determines whether the contractor's accounting system complies with the system criteria for an acceptable accounting system as prescribed in the clause at DFARS 252.242-7006, Accounting System Administration, and makes a final determination to approve or disapprove the system [@CL-CMP-0702; @CL-CMP-0183; @CL-CMP-1173; @CL-CMP-1174], while where material weaknesses remain after the final determination, the contracting officer withholds payments in accordance with the clause at DFARS 252.242-7005, Contractor Business Systems, if the clause is included in the contract [@CL-CMP-0705].
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Whether each contract carries the Accounting System Administration clause, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the system-criteria clause reference in paragraph (c), the initial-determination notice and description requirements, and the remaining-weaknesses notice requirements, and removed unquoted contrast phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD accounting system policy.
