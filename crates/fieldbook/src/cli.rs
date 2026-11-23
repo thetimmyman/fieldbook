@@ -47,6 +47,16 @@ pub struct Cli {
     #[arg(long = "state", value_name = "PATH", global = true)]
     pub state: Option<PathBuf>,
 
+    /// Hidden test-hook override for the policy file path (`#[cfg(feature = "test-hooks")]`).
+    #[cfg(feature = "test-hooks")]
+    #[arg(long = "policy", value_name = "FILE", global = true, hide = true)]
+    pub policy: Option<PathBuf>,
+
+    /// Hidden test-hook override for the machine `ProgramData` directory (`#[cfg(feature = "test-hooks")]`).
+    #[cfg(feature = "test-hooks")]
+    #[arg(long = "program-data", value_name = "DIR", global = true, hide = true)]
+    pub program_data: Option<PathBuf>,
+
     /// Subcommand to run.
     #[command(subcommand)]
     pub command: Commands,
@@ -77,6 +87,8 @@ pub enum Commands {
     Backup(BackupArgs),
     /// Restore a backup snapshot into a new folder or run the restore drill.
     Restore(RestoreArgs),
+    /// Show the active company policy or validate a draft policy file.
+    Policy(PolicyArgs),
 }
 
 /// Arguments for `fieldbook fmt`.
@@ -471,4 +483,41 @@ pub struct RestoreArgs {
     /// Read the snapshot from this folder instead of a settings target.
     #[arg(long, value_name = "DIR")]
     pub from: Option<PathBuf>,
+}
+
+/// Arguments for `fieldbook policy`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct PolicyArgs {
+    /// Policy subcommand (`show` or `check`).
+    #[command(subcommand)]
+    pub command: PolicySubcommand,
+}
+
+/// Subcommands under `fieldbook policy`.
+#[derive(Debug, Clone, PartialEq, Eq, Subcommand)]
+pub enum PolicySubcommand {
+    /// Print the active policy state, rules, destination rows, and effective table.
+    Show(PolicyShowArgs),
+    /// Validate a draft policy file with no side effects.
+    Check(PolicyCheckArgs),
+}
+
+/// Arguments for `fieldbook policy show`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct PolicyShowArgs {
+    /// Print the policy report as a JSON object.
+    #[arg(long)]
+    pub json: bool,
+}
+
+/// Arguments for `fieldbook policy check`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct PolicyCheckArgs {
+    /// Path to the draft policy file to validate.
+    #[arg(value_name = "FILE")]
+    pub file: PathBuf,
+
+    /// Print the validation result as a JSON object.
+    #[arg(long)]
+    pub json: bool,
 }

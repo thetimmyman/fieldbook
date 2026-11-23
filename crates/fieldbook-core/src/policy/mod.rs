@@ -6,8 +6,12 @@
 pub mod floor;
 pub mod merge;
 pub mod parse;
+pub mod place;
 pub mod schema;
+pub mod seen;
+pub mod show;
 pub mod state;
+pub mod writers;
 
 pub use floor::{FLOOR_HASH_TEXT, FloorKind, policy_hash};
 pub use merge::{
@@ -19,4 +23,11 @@ pub use parse::{
     PolicyLabel, PolicySource, PolicySourceMap, PolicySourceRule, canonical_path_components,
     path_matches_prefix,
 };
+pub use place::{Flags, LaptopFolders, PlaceWhy, Placement, Source, flags_allowed, place};
+pub use seen::{
+    FileFact, FileObservation, OVER_LIMIT_PREFIX_BYTES, ObservationDigest, Resolved, Seen,
+    closed_observation_hash, resolve,
+};
+pub use show::{PolicyShowText, policy_line, policy_line_from, show, show_at};
 pub use state::{ClosedWhy, PolicyState};
+pub use writers::{Writer, WriterFacts, WriterWhy, writer_check};

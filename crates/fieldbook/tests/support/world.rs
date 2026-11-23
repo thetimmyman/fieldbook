@@ -41,6 +41,9 @@ pub struct TestWorld {
     maintenance: Mutex<Option<String>>,
     state_summary: Mutex<Option<fieldbook_core::status::StateSummary>>,
     effective_policy: Mutex<Option<fieldbook_core::policy::EffectivePolicy>>,
+    program_data: Mutex<Option<PathBuf>>,
+    writers: Mutex<BTreeMap<PathBuf, fieldbook_core::policy::WriterFacts>>,
+    default_writers: Mutex<Option<fieldbook_core::policy::WriterFacts>>,
 }
 
 /// How long a blocking `read_line` or `wait_for_prompts` waits before giving up.
@@ -99,6 +102,9 @@ impl TestWorld {
             maintenance: Mutex::new(None),
             state_summary: Mutex::new(None),
             effective_policy: Mutex::new(None),
+            program_data: Mutex::new(None),
+            writers: Mutex::new(BTreeMap::new()),
+            default_writers: Mutex::new(None),
         }
     }
 
@@ -130,6 +136,9 @@ impl TestWorld {
             maintenance: Mutex::new(None),
             state_summary: Mutex::new(None),
             effective_policy: Mutex::new(None),
+            program_data: Mutex::new(None),
+            writers: Mutex::new(BTreeMap::new()),
+            default_writers: Mutex::new(None),
         }
     }
 
@@ -287,6 +296,30 @@ impl TestWorld {
     pub fn set_effective_policy(&self, policy: fieldbook_core::policy::EffectivePolicy) {
         if let Ok(mut g) = self.effective_policy.lock() {
             *g = Some(policy);
+        }
+    }
+
+    /// Override the machine `ProgramData` folder returned by [`World::program_data`].
+    pub fn set_program_data(&self, path: impl Into<PathBuf>) {
+        if let Ok(mut g) = self.program_data.lock() {
+            *g = Some(path.into());
+        }
+    }
+
+    /// Set a direct policy file path for this test world (`PolicySource::discover`).
+    pub fn set_policy_path(&self, path: impl Into<PathBuf>) {
+        if let Ok(mut g) = self.program_data.lock() {
+            *g = Some(path.into());
+        }
+    }
+
+    /// Override the [`WriterFacts`] returned by [`World::writers`] for `path` (or for all paths).
+    pub fn set_writers(&self, path: &Path, facts: fieldbook_core::policy::WriterFacts) {
+        if let Ok(mut map) = self.writers.lock() {
+            map.insert(path.to_path_buf(), facts.clone());
+        }
+        if let Ok(mut def) = self.default_writers.lock() {
+            *def = Some(facts);
         }
     }
 
@@ -500,6 +533,28 @@ impl World for TestWorld {
         fieldbook_core::policy::EffectivePolicy::floor(self.has_company_store())
     }
 
+    fn program_data(&self) -> Option<PathBuf> {
+        self.program_data.lock().ok().and_then(|g| g.clone())
+    }
+
+    fn writers(&self, path: &Path) -> fieldbook_core::policy::WriterFacts {
+        if let Ok(map) = self.writers.lock()
+            && let Some(facts) = map.get(path)
+        {
+            return facts.clone();
+        }
+        if let Ok(def) = self.default_writers.lock()
+            && let Some(facts) = def.as_ref()
+        {
+            return facts.clone();
+        }
+        self.inner.writers(path)
+    }
+
+    fn exists(&self, path: &Path) -> bool {
+        self.inner.exists(path)
+    }
+
     fn read_maintenance(&self) -> Result<String, WorldError> {
         if let Ok(g) = self.maintenance.lock()
             && let Some(text) = g.as_ref()
@@ -637,6 +692,18 @@ impl<W: World + ?Sized> World for ForwardingWorld<'_, W> {
     /// Report the store id of the world this double wraps: a wrapper holds no store of its own.
     fn store_id(&self) -> &'static str {
         self.inner.store_id()
+    }
+
+    fn program_data(&self) -> Option<PathBuf> {
+        self.inner.program_data()
+    }
+
+    fn writers(&self, path: &Path) -> fieldbook_core::policy::WriterFacts {
+        self.inner.writers(path)
+    }
+
+    fn exists(&self, path: &Path) -> bool {
+        self.inner.exists(path)
     }
 
     fn read_state_summary(

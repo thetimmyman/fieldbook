@@ -119,6 +119,13 @@ Restore a backup snapshot into a new folder or run the restore drill
 | `--target` | `ID` | - | Backup target identifier in settings.toml |
 | `--from` | `DIR` | - | Read the snapshot from this folder instead of a settings target |
 
+### `fieldbook policy`
+
+Show the active company policy or validate a draft policy file
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+
 ## Exit codes
 
 | Code | Meaning |
@@ -385,6 +392,248 @@ Restore a backup snapshot into a new folder or run the restore drill
       "help": "Fix corpus/corpus.toml (or store.toml in a company store) so it is valid TOML at a supported schema_version with well-formed areas and views."
     }
   ]
+}
+```
+
+### `policy-show`
+
+```json
+{
+  "report_version": 1,
+  "verb": "policy show",
+  "state": "floor",
+  "path": null,
+  "hash": "4727fa3d5f222e1f9cc57a61475885429d9bfde29b756c08f9f0fb2e59ca57c3",
+  "writer_check": "ok",
+  "revision": 0,
+  "recorded": null,
+  "labels": [],
+  "stores": [
+    {
+      "id": "corpus",
+      "holds": [
+        "public"
+      ],
+      "default": [
+        "public"
+      ],
+      "hold": false
+    },
+    {
+      "id": "overlay",
+      "holds": [
+        "public",
+        "unlabelled"
+      ],
+      "default": [
+        "unlabelled"
+      ],
+      "hold": false
+    },
+    {
+      "id": "working",
+      "holds": [
+        "public",
+        "unlabelled"
+      ],
+      "default": [
+        "unlabelled"
+      ],
+      "hold": false
+    },
+    {
+      "id": "state",
+      "holds": [
+        "owner-supplied",
+        "public",
+        "unlabelled"
+      ],
+      "default": [
+        "unlabelled"
+      ],
+      "hold": false
+    }
+  ],
+  "destinations": [
+    {
+      "kind": "handoff",
+      "allow": [
+        "owner-supplied",
+        "public"
+      ],
+      "built_in": false,
+      "advisory": true
+    },
+    {
+      "kind": "model",
+      "allow": [
+        "public"
+      ],
+      "built_in": false,
+      "advisory": false
+    },
+    {
+      "kind": "mcp",
+      "allow": [
+        "public"
+      ],
+      "built_in": false,
+      "advisory": false
+    },
+    {
+      "kind": "bridge",
+      "allow": [
+        "public"
+      ],
+      "built_in": false,
+      "advisory": false
+    },
+    {
+      "kind": "print",
+      "allow": [
+        "public"
+      ],
+      "built_in": false,
+      "advisory": true
+    },
+    {
+      "kind": "clipboard",
+      "allow": [
+        "public"
+      ],
+      "built_in": false,
+      "advisory": true
+    },
+    {
+      "kind": "export",
+      "allow": [
+        "owner-supplied",
+        "public"
+      ],
+      "built_in": false,
+      "advisory": false
+    },
+    {
+      "kind": "backup",
+      "allow": [
+        "owner-supplied",
+        "public"
+      ],
+      "built_in": false,
+      "advisory": false
+    },
+    {
+      "kind": "audit",
+      "allow": [
+        "public"
+      ],
+      "built_in": true,
+      "advisory": false
+    },
+    {
+      "kind": "git",
+      "allow": [
+        "public"
+      ],
+      "built_in": true,
+      "advisory": false
+    },
+    {
+      "kind": "edition",
+      "allow": [
+        "public"
+      ],
+      "built_in": true,
+      "advisory": false
+    }
+  ],
+  "effective": [
+    {
+      "kind": "handoff",
+      "allow": [
+        "owner-supplied",
+        "public"
+      ],
+      "cuts": []
+    },
+    {
+      "kind": "model",
+      "allow": [
+        "public"
+      ],
+      "cuts": [
+        {
+          "label": "owner-supplied",
+          "by": "policy"
+        }
+      ]
+    },
+    {
+      "kind": "mcp",
+      "allow": [
+        "public"
+      ],
+      "cuts": [
+        {
+          "label": "owner-supplied",
+          "by": "policy"
+        }
+      ]
+    },
+    {
+      "kind": "bridge",
+      "allow": [
+        "public"
+      ],
+      "cuts": [
+        {
+          "label": "owner-supplied",
+          "by": "policy"
+        }
+      ]
+    },
+    {
+      "kind": "print",
+      "allow": [
+        "public"
+      ],
+      "cuts": [
+        {
+          "label": "owner-supplied",
+          "by": "policy"
+        }
+      ]
+    },
+    {
+      "kind": "clipboard",
+      "allow": [
+        "public"
+      ],
+      "cuts": [
+        {
+          "label": "owner-supplied",
+          "by": "policy"
+        }
+      ]
+    },
+    {
+      "kind": "export",
+      "allow": [
+        "owner-supplied",
+        "public"
+      ],
+      "cuts": []
+    },
+    {
+      "kind": "backup",
+      "allow": [
+        "owner-supplied",
+        "public"
+      ],
+      "cuts": []
+    }
+  ],
+  "exit": 0
 }
 ```
 

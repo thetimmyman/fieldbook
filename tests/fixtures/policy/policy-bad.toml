@@ -1,0 +1,16 @@
+# Synthetic invalid policy fixture for policy-load (FB0413).
+
+policy_schema = 1
+revision = 4
+unknown_top_key = true
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms under an NDA (fixture)"
+banner = "NP-0007: restricted to the named counterparty"
+restricted = true
+
+[[destination]]
+kind = "handoff"
+allow = ["public", "unlabelled"]
+expires = 2099-12-31

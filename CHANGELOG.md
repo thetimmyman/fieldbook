@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the company policy is read from the machine-level file; policy show and policy check; the Closed state; policy.change events.
 - Changed: on an area or view page, the sections whose object has not landed fold into one closed "Not built yet" disclosure after the last built section, and the jump list links it in place of each of them.
 - Changed: an empty Changes to review panel says what was observed (no claims, none checked, some checked, or all checked) in place of "Nothing upstream has moved." over claims nobody has checked.
 - Changed: each of the six briefs prints on one Letter sheet.

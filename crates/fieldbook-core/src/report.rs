@@ -601,3 +601,136 @@ pub struct LastBackupReport {
     /// Verification timestamp in ISO 8601 UTC.
     pub verified_utc: String,
 }
+
+/// Recorded revision and 12-hex hash prefix in [`PolicyShow`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyShowRecorded {
+    /// Highest recorded policy revision.
+    pub revision: u64,
+    /// First 12 lowercase hex digits of the recorded policy SHA-256 hash.
+    pub hash: String,
+}
+
+/// One defined label entry in [`PolicyShow`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyShowLabel {
+    /// Opaque label id.
+    pub id: String,
+    /// Human-readable label title.
+    pub title: String,
+    /// Optional banner text.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub banner: Option<String>,
+    /// Whether holding this label requires store `readers`.
+    pub restricted: bool,
+}
+
+/// One store rule entry in [`PolicyShow`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyShowStore {
+    /// Store identifier (`corpus`, `overlay`, `working`, `state`).
+    pub id: String,
+    /// Permitted label ids.
+    pub holds: Vec<String>,
+    /// Default label ids.
+    pub default: Vec<String>,
+    /// Optional OS reader group.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub readers: Option<String>,
+    /// Optional OS changer group.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub changers: Option<String>,
+    /// Whether the store is on hold.
+    pub hold: bool,
+}
+
+/// One destination row in [`PolicyShow`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyShowDestination {
+    /// Destination kind.
+    pub kind: String,
+    /// Endpoint name (`model` / `handoff`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    /// Endpoint URL (`model`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    /// Allowed label ids.
+    pub allow: Vec<String>,
+    /// Optional expiry date (`YYYY-MM-DD`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub expires: Option<String>,
+    /// Whether `expires` has passed relative to today.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub expired: Option<bool>,
+    /// Maximum call retention days (`model`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub keep_calls_days_max: Option<u32>,
+    /// Change or approval reference (`ref`).
+    #[serde(rename = "ref", skip_serializing_if = "Option::is_none")]
+    pub reference: Option<String>,
+    /// Approved MCP client hashes (`mcp`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub clients: Option<Vec<String>>,
+    /// Approved path prefixes (`export` / `backup`).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub paths: Option<Vec<String>>,
+    /// True when this is a fixed built-in destination row (`audit`, `git`, `edition`).
+    pub built_in: bool,
+    /// True when this destination kind is advisory (`handoff`, `print`, `clipboard`).
+    pub advisory: bool,
+}
+
+/// One label cut explanation entry in [`PolicyShowEffective`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyShowCut {
+    /// Excluded label id.
+    pub label: String,
+    /// Side that cut the label (`"policy"` or `"owner"`).
+    pub by: String,
+}
+
+/// Effective narrowed allow set and cut attribution for one destination row in [`PolicyShow`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyShowEffective {
+    /// Destination kind.
+    pub kind: String,
+    /// Optional endpoint name.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    /// Effective allowed label ids after owner narrowing.
+    pub allow: Vec<String>,
+    /// Labels excluded from the effective allow set and which side excluded each.
+    pub cuts: Vec<PolicyShowCut>,
+}
+
+/// The `--json` report produced by `fieldbook policy show` (`policy-load` step 7).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyShow {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Always `"policy show"`.
+    pub verb: String,
+    /// Policy state (`"floor"`, `"loaded"`, or `"closed"`).
+    pub state: String,
+    /// Policy file path (`None` when no source is configured).
+    pub path: Option<String>,
+    /// 64-character lowercase hex SHA-256 policy or observation hash.
+    pub hash: String,
+    /// Writer check outcome (`"ok"` or failure reason).
+    pub writer_check: String,
+    /// Policy revision (`0` for `floor` and `closed`).
+    pub revision: u64,
+    /// Highest recorded revision and 12-hex hash prefix from `state/policy-seen.toml`.
+    pub recorded: Option<PolicyShowRecorded>,
+    /// Defined company labels.
+    pub labels: Vec<PolicyShowLabel>,
+    /// Store rules.
+    pub stores: Vec<PolicyShowStore>,
+    /// Policy and built-in destination rows.
+    pub destinations: Vec<PolicyShowDestination>,
+    /// Effective destination allow sets and cut explanations.
+    pub effective: Vec<PolicyShowEffective>,
+    /// Process exit code (`0` for `floor` and `loaded`, `1` for `closed`).
+    pub exit: u8,
+}

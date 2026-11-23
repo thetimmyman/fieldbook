@@ -7,6 +7,10 @@ rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 
+[features]
+default = []
+test-hooks = []
+
 [dependencies]
 fieldbook-calc = { path = "../fieldbook-calc" }
 fieldbook-core = { path = "../fieldbook-core" }

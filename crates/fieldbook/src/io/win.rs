@@ -93,6 +93,59 @@ pub fn place(path: &Path) -> PlaceFacts {
     facts(fieldbook_win::place(path))
 }
 
+#[cfg(windows)]
+fn map_writer_kinds(kinds: Option<Vec<WriterKind>>) -> Vec<fieldbook_core::policy::Writer> {
+    use fieldbook_core::policy::Writer;
+    match kinds {
+        Some(list) if !list.is_empty() => list
+            .into_iter()
+            .map(|k| match k {
+                WriterKind::Administrators => Writer::Administrators,
+                WriterKind::System => Writer::System,
+                WriterKind::Other => Writer::Other,
+                WriterKind::Unknown => Writer::Unknown,
+            })
+            .collect(),
+        _ => vec![Writer::Unknown],
+    }
+}
+
+#[cfg(not(windows))]
+fn unix_writers_for(path: &Path) -> Vec<fieldbook_core::policy::Writer> {
+    use fieldbook_core::policy::Writer;
+    use std::os::unix::fs::PermissionsExt as _;
+    let Ok(meta) = std::fs::metadata(path) else {
+        return vec![Writer::Administrators];
+    };
+    let mode = meta.permissions().mode();
+    if (mode & 0o002) != 0 {
+        vec![Writer::Administrators, Writer::Other]
+    } else {
+        vec![Writer::Administrators]
+    }
+}
+
+/// Query policy writer facts for `path` and its parent folder (`policy-load` step 2).
+#[must_use]
+pub fn policy_writers(path: &Path) -> fieldbook_core::policy::WriterFacts {
+    let folder_path = match path.parent() {
+        Some(p) if !p.as_os_str().is_empty() => p,
+        _ => Path::new("."),
+    };
+    #[cfg(windows)]
+    {
+        let file = map_writer_kinds(writers(path));
+        let folder = map_writer_kinds(writers(folder_path));
+        fieldbook_core::policy::WriterFacts { file, folder }
+    }
+    #[cfg(not(windows))]
+    {
+        let file = unix_writers_for(path);
+        let folder = unix_writers_for(folder_path);
+        fieldbook_core::policy::WriterFacts { file, folder }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     #[cfg(not(windows))]

@@ -34,7 +34,6 @@ use crate::io::state::read_asked_settings;
 use crate::{Outcome, World};
 use fieldbook_core::audit::Via as JournalVia;
 use fieldbook_core::labels::{ItemRef, LabelSet, StoreId};
-use fieldbook_core::policy::EffectivePolicy;
 
 /// How many results an ordinary query shows in the unit list.
 pub const DEFAULT_LIMIT: usize = 10;
@@ -161,7 +160,7 @@ fn view_top_ids(index: &Index, view: &PageView<'_>) -> Vec<String> {
 /// Records the question `text` with its result `hits`; the warning line when it was not recorded.
 /// A bare id, and a question whose own labels the State store cannot keep, open no state.
 fn record(world: &dyn World, text: &str, hits: &Hits) -> Option<String> {
-    let policy = EffectivePolicy::floor(false);
+    let policy = world.effective_policy();
     let labels = LabelSet::owner_supplied();
     match crate::asked::precheck(world, &policy, &labels, text)? {
         Ok(()) => {}

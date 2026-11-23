@@ -10,11 +10,12 @@ use fieldbook_core::check::Tree;
 
 use crate::World;
 use crate::io::journal::Journal;
+use crate::policy::{PolicyCtx, resolve};
 
 /// Execution context supplied to every deterministic verb.
 ///
 /// Holds references to the [`World`], an idle [`Journal`] handle between
-/// operations, and the in-memory Corpus [`Tree`].
+/// operations, the in-memory Corpus [`Tree`], and the resolved [`PolicyCtx`].
 pub struct Ctx<'a> {
     /// World environment seam for filesystem, clock, and process boundaries.
     pub io: &'a dyn World,
@@ -22,16 +23,37 @@ pub struct Ctx<'a> {
     pub journal: Journal<'a>,
     /// In-memory Corpus tree.
     pub corpus: &'a Tree,
+    /// Resolved policy context for this run.
+    pub policy: PolicyCtx,
 }
 
 impl<'a> Ctx<'a> {
     /// Construct a new deterministic verb execution context.
     #[must_use]
-    pub const fn new(io: &'a dyn World, journal: Journal<'a>, corpus: &'a Tree) -> Self {
+    pub fn new(io: &'a dyn World, journal: Journal<'a>, corpus: &'a Tree) -> Self {
+        let policy =
+            resolve(io, io.state_dir(), io.tree_root(), false).unwrap_or_else(|_| unreachable!());
         Self {
             io,
             journal,
             corpus,
+            policy,
+        }
+    }
+
+    /// Construct a deterministic verb execution context with an explicit [`PolicyCtx`].
+    #[must_use]
+    pub const fn with_policy(
+        io: &'a dyn World,
+        journal: Journal<'a>,
+        corpus: &'a Tree,
+        policy: PolicyCtx,
+    ) -> Self {
+        Self {
+            io,
+            journal,
+            corpus,
+            policy,
         }
     }
 }
