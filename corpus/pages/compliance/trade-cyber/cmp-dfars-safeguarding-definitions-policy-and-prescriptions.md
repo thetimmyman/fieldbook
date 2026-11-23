@@ -45,7 +45,7 @@ A buyer issues a solicitation for 500 custom parts and the solicitation is not s
 
 ## Never confuse
 
-The two provisions, 252.204-7008 and 252.204-7019, are directed for all solicitations, with the stated exception for solicitations solely for COTS items [@CL-CMP-3246; @CL-CMP-3248], while the two clauses, 252.204-7012 and 252.204-7020, are directed for all solicitations and contracts, with the stated exception for COTS-only acquisitions [@CL-CMP-3247; @CL-CMP-3249]. For the CMMC Program, see the [program scope and phases](cmp-cmmc-program-scope-and-phases.md) card. The assessment provision and clause are on the [DoD assessment notice and requirements](cmp-nist-sp-800-171-dod-assessment-requirements.md) card.
+The two provisions differ from the two clauses in reach: the two provisions, 252.204-7008 and 252.204-7019, are directed for all solicitations, with the stated exception for solicitations solely for COTS items [@CL-CMP-3246; @CL-CMP-3248], while the two clauses, 252.204-7012 and 252.204-7020, are directed for all solicitations and contracts, with the stated exception for COTS-only acquisitions [@CL-CMP-3247; @CL-CMP-3249]. For the CMMC Program, see the [program scope and phases](cmp-cmmc-program-scope-and-phases.md) card. The assessment provision and clause are on the [DoD assessment notice and requirements](cmp-nist-sp-800-171-dod-assessment-requirements.md) card.
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which solicitations and contracts carry each provision and clause, and who confi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited generalisations and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS safeguarding covered defense information and cyber incident reporting.

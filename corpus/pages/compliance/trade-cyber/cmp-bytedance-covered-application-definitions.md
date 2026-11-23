@@ -68,7 +68,7 @@ The third is a workstation that the contract requires the contractor to use and 
 
 ## Never confuse
 
-A covered application with information technology. The covered application is the named social networking service TikTok or any successor application or service developed or provided by ByteDance Limited or an entity owned by ByteDance Limited [@CL-CMP-8478], while information technology includes computers, ancillary equipment, peripheral equipment, software, firmware and similar procedures, services and related resources [@CL-CMP-8482; @CL-CMP-8483].
+The covered application is not the information technology: the covered application is the named social networking service TikTok or any successor application or service developed or provided by ByteDance Limited or an entity owned by ByteDance Limited [@CL-CMP-8478], while information technology includes computers, ancillary equipment, peripheral equipment, software, firmware and similar procedures, services and related resources [@CL-CMP-8482; @CL-CMP-8483].
 
 Limb 2 with limb 3: limb 2 lists what information technology includes, while limb 3 excludes equipment acquired by a Federal contractor incidental to a Federal contract [@CL-CMP-8482; @CL-CMP-8484].
 
@@ -79,5 +79,6 @@ Which storage, transfer and assistant tools IT approves for company data, which 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed statements about what the definitions do not say.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered-application definitions.

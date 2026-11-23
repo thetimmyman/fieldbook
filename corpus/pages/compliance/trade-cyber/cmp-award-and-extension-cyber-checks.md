@@ -62,7 +62,7 @@ A solicitation requires a Level 2 (C3PAO) status and sets no assessment age shor
 
 ## Never confuse
 
-Under DFARS 204.7303 the contracting officer verifies that the summary level score of a current NIST SP 800-171 DoD Assessment is posted in SPRS [@CL-CMP-7230; @CL-CMP-7231]. Under DFARS 204.7503 the contracting officer checks SPRS for a current CMMC status at the level the solicitation requires, or higher, for each CMMC UID the offeror provides [@CL-CMP-7235].
+The two award checks differ: under DFARS 204.7303 the contracting officer verifies that the summary level score of a current NIST SP 800-171 DoD Assessment is posted in SPRS [@CL-CMP-7230; @CL-CMP-7231], while under DFARS 204.7503 the contracting officer checks SPRS for a current CMMC status at the level the solicitation requires, or higher, for each CMMC UID the offeror provides [@CL-CMP-7235].
 
 CMMC levels 2 and 3 can be in a conditional level for award, while CMMC level 1 requires a final CMMC level for award [@CL-CMP-7240]. The assessment requirements card explains how an assessment is used in an offer; see [the assessment requirements card](../trade-cyber/cmp-nist-sp-800-171-dod-assessment-requirements.md).
 
@@ -73,6 +73,7 @@ Which information systems are in scope, what assessment score and CMMC UID is po
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must wording, definition of current, and cited the two checks.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word from the option check summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award, option and extension checks on NIST SP 800-171 assessments and CMMC status.

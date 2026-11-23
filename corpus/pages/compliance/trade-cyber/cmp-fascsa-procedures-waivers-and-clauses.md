@@ -46,7 +46,7 @@ An offeror discloses that a product in its offer is covered by an applicable ord
 
 ## Never confuse
 
-The contracting officer shall insert the provision at 52.204-29, Federal Acquisition Supply Chain Security Act Orders—Representation and Disclosures, in all solicitations, except for Federal Supply Schedules, Governmentwide acquisition contracts, and multi-agency contracts [@CL-CMP-2980]. The clause at 52.204-30, Federal Acquisition Supply Chain Security Act Orders—Prohibition, shall be inserted in solicitations and contracts if the conditions specified at 4.2304(a)(1) apply, with the same exception [@CL-CMP-2981]. In all Federal Supply Schedules, Governmentwide acquisition contracts, and multi-agency contracts where FASCSA orders are applied at the order level, the contracting officer shall insert the clause at 52.204-28 [@CL-CMP-2979].
+The provision and the clauses differ in reach: the contracting officer shall insert the provision at 52.204-29, Federal Acquisition Supply Chain Security Act Orders—Representation and Disclosures, in all solicitations, except for Federal Supply Schedules, Governmentwide acquisition contracts, and multi-agency contracts [@CL-CMP-2980], while the clause at 52.204-30, Federal Acquisition Supply Chain Security Act Orders—Prohibition, shall be inserted in solicitations and contracts if the conditions specified at 4.2304(a)(1) apply, with the same exception [@CL-CMP-2981]. In all Federal Supply Schedules, Governmentwide acquisition contracts, and multi-agency contracts where FASCSA orders are applied at the order level, the contracting officer shall insert the clause at 52.204-28 [@CL-CMP-2979].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which FASCSA orders and waivers apply to each solicitation and contract the comp
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added 4.2304(f) procedures pointer and update condition; replaced characterisations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Marked omitted qualifiers on the waiver decision and update sentences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FASCSA procedures, waivers and clauses.

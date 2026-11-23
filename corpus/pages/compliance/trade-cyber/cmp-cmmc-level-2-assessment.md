@@ -44,7 +44,7 @@ A contractor completes a Level 2 self-assessment at month 0, and the result is a
 
 ## Never confuse
 
-The 180-day closeout limit runs from the status date of the Conditional status [@CL-CMP-2071], and the three-year cycle also counts from the status date of the Conditional status [@CL-CMP-2069]. For a Conditional Level 2 (Self) status the OSA must perform a POA&M closeout self-assessment [@CL-CMP-2071], and for a Conditional Level 2 (C3PAO) status the OSC must undergo a POA&M closeout certification assessment from a C3PAO [@CL-CMP-2076]. A Final Level 2 (C3PAO) status for the information systems within the Level 3 assessment scope is a prerequisite to undergo a Level 3 certification assessment [@CL-CMP-2078], as the [Level 3 assessment](cmp-cmmc-level-3-assessment.md) card explains.
+The 180-day closeout limit runs from the status date of the Conditional status [@CL-CMP-2071], and the three-year cycle also counts from the status date of the Conditional status [@CL-CMP-2069]. The Self and C3PAO closeouts differ in who assesses: for a Conditional Level 2 (Self) status the OSA must perform a POA&M closeout self-assessment [@CL-CMP-2071], while for a Conditional Level 2 (C3PAO) status the OSC must undergo a POA&M closeout certification assessment from a C3PAO [@CL-CMP-2076]. A Final Level 2 (C3PAO) status for the information systems within the Level 3 assessment scope is a prerequisite to undergo a Level 3 certification assessment [@CL-CMP-2078], as the [Level 3 assessment](cmp-cmmc-level-3-assessment.md) card explains.
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which POA&M items and closeout dates are open, and who owns each response. [@Q-0
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched deadline, route and prerequisite wording to the cited text; removed uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the maintain-compliance lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Level 2 assessment and certification.

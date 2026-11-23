@@ -45,7 +45,7 @@ A contractor finds that a component used as a substantial or essential component
 
 ## Never confuse
 
-The offeror's additional representation states that the offeror will or will not provide covered defense telecommunications equipment or services as a part of its offered products or services to DoD in the performance of any award resulting from the solicitation [@CL-CMP-2857]. The contractor shall not provide to the Government any equipment, system, or service to carry out covered missions that uses covered defense telecommunications equipment or services as a substantial or essential component of any system, or as critical technology as part of any system, unless the covered defense telecommunication equipment or services are covered by a waiver described in DFARS 204.2104 [@CL-CMP-2858; @CL-CMP-2859]. A contractor that identifies such equipment or services during contract performance shall report the information in paragraph (d)(2) of the clause [@CL-CMP-2860; @CL-CMP-8050].
+The representation and the prohibition are different instruments: the offeror's additional representation states that the offeror will or will not provide covered defense telecommunications equipment or services as a part of its offered products or services to DoD in the performance of any award resulting from the solicitation [@CL-CMP-2857], while the contractor shall not provide to the Government any equipment, system, or service to carry out covered missions that uses covered defense telecommunications equipment or services as a substantial or essential component of any system, or as critical technology as part of any system, unless the covered defense telecommunication equipment or services are covered by a waiver described in DFARS 204.2104 [@CL-CMP-2858; @CL-CMP-2859]. A contractor that identifies such equipment or services during contract performance shall report the information in paragraph (d)(2) of the clause [@CL-CMP-2860; @CL-CMP-8050].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which products and services in the bill of materials could use covered equipment
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: restated representation condition; removed contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Marked the three-day report items as a partial list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the reporting sentence so the duty keeps what the contractor must report.

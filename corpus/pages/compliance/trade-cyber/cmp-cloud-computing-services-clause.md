@@ -49,7 +49,7 @@ A contractor's offer says it does not expect to use cloud services. After award 
 
 ## Never confuse
 
-The clause requirements apply when cloud computing is used to provide information technology services in the performance of the contract [@CL-CMP-3989]. For the general safeguarding clause for covered defense information, see [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md). Limits on how incident information may be used are on [Cyber incident information and litigation support limits](cmp-cyber-incident-information-and-litigation-support-limits.md). The clause limits access, use and disclosure of Government data [@CL-CMP-3995] and limits the use of Government-related data to managing the operational environment that supports the Government data, unless the Contracting Officer gives prior written approval [@CL-CMP-3996]. For supply chain duties see [Supply chain risk and telecommunications security equipment](cmp-supply-chain-risk-and-telecommunications-security-equipment.md), and for the CMMC level notice see [CMMC level notice and protection against compromising emanations](cmp-cmmc-notice-and-compromising-emanations.md).
+The clause requirements apply when cloud computing is used to provide information technology services in the performance of the contract [@CL-CMP-3989]. For the general safeguarding clause for covered defense information, see [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md). Limits on how incident information may be used are on [Cyber incident information and litigation support limits](cmp-cyber-incident-information-and-litigation-support-limits.md). Government data and Government-related data carry different limits: the clause limits access, use and disclosure of Government data [@CL-CMP-3995], while it limits the use of Government-related data to managing the operational environment that supports the Government data, unless the Contracting Officer gives prior written approval [@CL-CMP-3996]. For supply chain duties see [Supply chain risk and telecommunications security equipment](cmp-supply-chain-risk-and-telecommunications-security-equipment.md), and for the CMMC level notice see [CMMC level notice and protection against compromising emanations](cmp-cmmc-notice-and-compromising-emanations.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which contracts use cloud services for DoD information, what each cloud provider
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the representation provision to the offer condition and cited the contrast section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened two summaries to match the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cloud computing services.

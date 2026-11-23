@@ -44,7 +44,7 @@ An office with the code AB1234 signs a contract in fiscal year 2027. Positions o
 
 ## Never confuse
 
-The PIID identifies the solicitation or contract action [@CL-CMP-2986]. A supplementary PIID is numbered in addition to the PIID, for an amendment to a solicitation or for a modification [@CL-CMP-2991; @CL-CMP-2992].
+A supplementary PIID is not a second PIID: the PIID identifies the solicitation or contract action [@CL-CMP-2986], while a supplementary PIID is numbered in addition to the PIID, for an amendment to a solicitation or for a modification [@CL-CMP-2991; @CL-CMP-2992].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How the company's contract records store the PIID and each supplementary number 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added sequencing phrase to PIID description and removed meta prose.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the do-not-use direction on special characters.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement instrument identifiers.
