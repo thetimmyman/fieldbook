@@ -44,7 +44,7 @@ A contractor that has a Disclosure Statement changes the practice used to alloca
 
 ## Never confuse
 
-The Disclosure Statement discloses the contractor's cost accounting practices as required by 48 CFR 9903.202-1 through 9903.202-5 [@CL-CMP-0607]. The consistency requirement is that the contractor follows its cost accounting practices consistently in accumulating and reporting contract performance cost data concerning the contract [@CL-CMP-0608].
+Disclosing practices and following them consistently are different duties: the Disclosure Statement discloses the contractor's cost accounting practices as required by 48 CFR 9903.202-1 through 9903.202-5 [@CL-CMP-0607], and the consistency requirement is that the contractor follows its cost accounting practices consistently in accumulating and reporting contract performance cost data concerning the contract [@CL-CMP-0608].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether each business unit has full CAS coverage, modified coverage, or neither,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the RFO clause paragraphs only to RFO claims and kept the shall wording for protection and class deviation use.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the clause scope, consistency and prospective-change sentences as the quotes say them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Disclosure Statement sentence so the amendment duty applies only if the statement is affected, as the clause prints.

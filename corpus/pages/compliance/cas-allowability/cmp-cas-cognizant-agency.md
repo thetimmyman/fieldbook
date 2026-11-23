@@ -49,7 +49,7 @@ A contractor holds CAS-covered work with three agencies across two business unit
 
 ## Never confuse
 
-The cognizant Federal agency is the agency responsible for a particular contractor organization or location [@CL-CMP-1765]. When multiple CAS-covered contracts or more than one Federal agency are involved, agencies should discourage Contracting Officers from individually administering CAS on a contract-by-contract basis [@CL-CMP-1767].
+Cognizant-agency administration differs from contract-by-contract administration: the cognizant Federal agency is the agency responsible for a particular contractor organization or location [@CL-CMP-1765], and when multiple CAS-covered contracts or more than one Federal agency are involved, agencies should discourage Contracting Officers from individually administering CAS on a contract-by-contract basis [@CL-CMP-1767].
 
 The clause that assigns administration to the cognizant Federal agency official is set out in [Administration of cost accounting standards](../cas-allowability/cmp-administration-of-cost-accounting-standards.md), and the wider split of oversight duties in [Oversight roles](../audit-retention/cmp-oversight-roles.md).
 
@@ -60,6 +60,7 @@ Which agency is cognizant for each business unit, and whether the coverage and D
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and an uncited contrast; restated as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second assurance in the coordination sentence and the usually qualifier in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the agency policies sentence so the delegation of contracting authority keeps its limit to individuals authorized to administer the contracts.

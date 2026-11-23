@@ -45,7 +45,7 @@ A contractor finds suspect counterfeit parts in a delivered assembly and spends 
 
 ## Never confuse
 
-The costs of counterfeit electronic parts and suspect counterfeit electronic parts are unallowable unless the listed conditions are met [@CL-CMP-2744]. For the general tests, see [Factors determining cost allowability](../cas-allowability/cmp-allowability-factors.md). The general rule for identifying and excluding unallowable costs from billings, claims and proposals is on [Accounting for unallowable and directly associated costs](../cas-allowability/cmp-accounting-for-unallowable-and-associated-costs.md). For contract duties on counterfeit items, such as disposition instructions and reporting nonconforming items, see [Price reduction, withholds, rejection notices and counterfeit items](../../operating-model/corrective-action/opm-price-reduction-rejection-notice-and-counterfeit-items.md).
+The cost consequence and the contract duties are different sides of the same parts problem: the costs of counterfeit electronic parts and suspect counterfeit electronic parts are unallowable unless the listed conditions are met [@CL-CMP-2744]. For the general tests, see [Factors determining cost allowability](../cas-allowability/cmp-allowability-factors.md). The general rule for identifying and excluding unallowable costs from billings, claims and proposals is on [Accounting for unallowable and directly associated costs](../cas-allowability/cmp-accounting-for-unallowable-and-associated-costs.md). For contract duties on counterfeit items, such as disposition instructions and reporting nonconforming items, see [Price reduction, withholds, rejection notices and counterfeit items](../../operating-model/corrective-action/opm-price-reduction-rejection-notice-and-counterfeit-items.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Whether the company has a DoD-approved counterfeit-part detection system, buys e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements the quotes do not make and stated the conjunctive conditions as printed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for costs of counterfeit and suspect counterfeit electronic parts.

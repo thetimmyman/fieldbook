@@ -45,7 +45,7 @@ A contractor incurs 100,000 for consulting services under a cost-reimbursement c
 
 ## Never confuse
 
-A cost is allowable only when it complies with all of the listed requirements, the first two being reasonableness and allocability [@CL-CMP-0101; @CL-CMP-8030]. The penalties for unallowable costs are covered in [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md). The applicability of the CAS rules and regulations is determined by the CAS clause, if any, in the contract and the requirements of the standards themselves [@CL-CMP-8032]; see [CAS applicability](cmp-cas-applicability.md).
+Reasonableness and allocability are only the first two of the listed requirements: a cost that is reasonable and allocable is not yet allowable, because it is allowable only when it complies with all of the listed requirements [@CL-CMP-0101; @CL-CMP-8030]. The penalties for unallowable costs are covered in [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md). The applicability of the CAS rules and regulations is determined by the CAS clause, if any, in the contract and the requirements of the standards themselves [@CL-CMP-8032]; see [CAS applicability](cmp-cas-applicability.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How cost allowability rules and supporting record controls are maintained across
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the full allowability list and the records duty in full.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

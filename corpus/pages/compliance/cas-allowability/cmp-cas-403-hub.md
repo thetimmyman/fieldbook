@@ -38,7 +38,7 @@ A home office incurs 10,000,000 of expenses in a year across two segments, X and
 
 ## Never confuse
 
-CAS 403 governs the allocation of home office expenses to segments based on beneficial or causal relationships and explicitly stops short of reallocating those expenses to contracts [@CL-EST-2495; @CL-EST-2499], whereas CAS 410 governs how a business unit groups its general and administrative expenses into a separate indirect pool and allocates them only to final cost objectives using a cost input base representing total activity [@CL-CMP-0213; @CL-CMP-0214]. Any home office expenses received by an individual segment are subsequent segment-level allocations governed by CAS 410 rules [@CL-CMP-7887].
+CAS 403 governs the allocation of home office expenses to segments based on beneficial or causal relationships and explicitly stops short of reallocating those expenses to contracts [@CL-EST-2495; @CL-EST-2499], unlike CAS 410, which governs how a business unit groups its general and administrative expenses into a separate indirect pool and allocates them only to final cost objectives using a cost input base representing total activity [@CL-CMP-0213; @CL-CMP-0214]. Any home office expenses received by an individual segment are subsequent segment-level allocations governed by CAS 410 rules [@CL-CMP-7887].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

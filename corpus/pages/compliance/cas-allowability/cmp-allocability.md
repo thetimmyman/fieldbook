@@ -45,7 +45,7 @@ A company incurs 50,000 for executive leadership and corporate compliance functi
 
 ## Never confuse
 
-Allocability assigns costs on the basis of relative benefits received or other equitable relationship; allowability requires a cost to comply with all of the following requirements: reasonableness, allocability, standards promulgated by the CAS Board if applicable (otherwise generally accepted accounting principles and practices appropriate to the circumstances), the terms of the contract, and any limitations set forth in the subpart [@CL-CMP-0101; @CL-CMP-8030]. The applicability of the CAS rules and regulations is determined by the CAS clause, if any, in the contract and the requirements of the standards themselves [@CL-CMP-8032]; see [CAS applicability](cmp-cas-applicability.md). The codified text states the relative-benefits test as its own opening sentence [@CL-CMP-0105], whereas the RFO text lists it as paragraph (a) and moves the other conditions to (b), (c) and (d), so the paragraph letters differ between the two texts [@CL-CMP-9930; @CL-CMP-9931].
+Allocability differs from allowability: allocability assigns costs on the basis of relative benefits received or other equitable relationship, while allowability requires a cost to comply with all of the following requirements: reasonableness, allocability, standards promulgated by the CAS Board if applicable (otherwise generally accepted accounting principles and practices appropriate to the circumstances), the terms of the contract, and any limitations set forth in the subpart [@CL-CMP-0101; @CL-CMP-8030]. The applicability of the CAS rules and regulations is determined by the CAS clause, if any, in the contract and the requirements of the standards themselves [@CL-CMP-8032]; see [CAS applicability](cmp-cas-applicability.md). The codified text states the relative-benefits test as its own opening sentence [@CL-CMP-0105], whereas the RFO text lists it as paragraph (a) and moves the other conditions to (b), (c) and (d), so the paragraph letters differ between the two texts [@CL-CMP-9930; @CL-CMP-9931].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How allocation bases, indirect cost pools and causal relationships are documente
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the benefits-both alternative and the full allowability list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for allocability.

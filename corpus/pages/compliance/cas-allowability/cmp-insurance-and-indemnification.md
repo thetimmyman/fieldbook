@@ -48,7 +48,7 @@ A contractor buys business liability insurance for a commercial premium of 100,0
 
 ## Never confuse
 
-Actual losses are unallowable unless expressly provided for in the contract, except losses incurred under the nominal deductible provisions of purchased insurance in keeping with sound business practice, and minor losses in the ordinary course of business that are not covered by insurance (such as spoilage, breakage, and disappearance of small hand tools) [@CL-CMP-0503; @CL-CMP-0828]. Self-insurance charges for risks of catastrophic losses are unallowable [@CL-CMP-7068], and so is the cost of insurance to protect the contractor against the costs of correcting its own defects in materials and workmanship [@CL-CMP-0844]. The codified text states the defect-insurance prohibition and the fortuitous-loss allowance in one paragraph, (e)(3) [@CL-CMP-0844], while the RFO text puts them in separate paragraphs (e)(3) and (e)(4) [@CL-CMP-9433; @CL-CMP-9434].
+Actual losses are unallowable unless expressly provided for in the contract, except losses incurred under the nominal deductible provisions of purchased insurance in keeping with sound business practice, and minor losses in the ordinary course of business that are not covered by insurance (such as spoilage, breakage, and disappearance of small hand tools) [@CL-CMP-0503; @CL-CMP-0828]. Purchased insurance and self-insurance are treated differently: self-insurance charges for risks of catastrophic losses are unallowable [@CL-CMP-7068], and where purchased insurance is available, a self-insurance charge plus administration expenses above the cost of comparable purchased insurance plus its associated administration expenses is unallowable [@CL-CMP-0502]; and so is the cost of insurance to protect the contractor against the costs of correcting its own defects in materials and workmanship [@CL-CMP-0844]. The codified text states the defect-insurance prohibition and the fortuitous-loss allowance in one paragraph, (e)(3) [@CL-CMP-0844], while the RFO text puts them in separate paragraphs (e)(3) and (e)(4) [@CL-CMP-9433; @CL-CMP-9434].
 
 The clause on indemnification and medical liability insurance for health care services is covered in [Indemnification and medical liability insurance](../regulatory-framework/cmp-medical-liability-indemnity-and-insurance.md).
 
@@ -59,6 +59,7 @@ How unallowable insurance charges and unapproved self-insurance reserves are exc
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited indemnification paragraph; cut uncited comparisons and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the catastrophic loss self-insurance rule to the codified text.

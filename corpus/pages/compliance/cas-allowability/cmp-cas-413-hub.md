@@ -38,7 +38,7 @@ A contractor calculates a composite pension cost of 10,000,000 across two segmen
 
 ## Never confuse
 
-CAS 413 provides guidance for adjusting pension cost by measuring actuarial gains and losses and assigning them to cost accounting periods, and establishes the bases on which pension cost is allocated to segments of an organization [@CL-EST-2918; @CL-EST-2919; @CL-CMP-0564], whereas CAS 412 provides guidance for determining and measuring the components of pension cost and establishes the basis on which pension costs are assigned to cost accounting periods [@CL-EST-2914; @CL-EST-2915]. CAS 412 identifies the core components of pension cost, such as normal cost and amortization of unfunded actuarial liability, and governs period assignability for the plan as a whole [@CL-CMP-0557; @CL-CMP-0561], while CAS 413 governs the subsequent allocation of pension cost to individual segments, the asset valuation corridor, and mandatory cost adjustments upon a segment closing, plan termination or benefit curtailment [@CL-CMP-0564; @CL-CMP-3412; @CL-MNA-0392].
+CAS 413 provides guidance for adjusting pension cost by measuring actuarial gains and losses and assigning them to cost accounting periods, and establishes the bases on which pension cost is allocated to segments of an organization [@CL-EST-2918; @CL-EST-2919; @CL-CMP-0564], unlike CAS 412, which provides guidance for determining and measuring the components of pension cost and establishes the basis on which pension costs are assigned to cost accounting periods [@CL-EST-2914; @CL-EST-2915]. CAS 412 identifies the core components of pension cost, such as normal cost and amortization of unfunded actuarial liability, and governs period assignability for the plan as a whole [@CL-CMP-0557; @CL-CMP-0561], while CAS 413 governs the subsequent allocation of pension cost to individual segments, the asset valuation corridor, and mandatory cost adjustments upon a segment closing, plan termination or benefit curtailment [@CL-CMP-0564; @CL-CMP-3412; @CL-MNA-0392].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.
