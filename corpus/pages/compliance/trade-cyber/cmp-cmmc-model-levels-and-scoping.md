@@ -44,7 +44,7 @@ A contractor keeps CUI on a file server. A separate lab network is physically an
 
 ## Never confuse
 
-The safeguarding requirements and security requirements for Levels 1, 2 and 3 are specified in the model section [@CL-CMP-2059], and the CMMC Assessment Scope is the set of all assets in the OSA's environment that will be assessed against CMMC security requirements [@CL-CMP-2060]. DoD Program Managers or requiring activities are responsible for selecting the CMMC Status that will apply for a particular procurement or contract [@CL-CMP-2054]. An OSA information system that processes, stores, or transmits FCI is in the Level 1 scope [@CL-CMP-2061], while CUI Assets are one Level 2 in-scope category [@CL-CMP-2062].
+The safeguarding requirements and security requirements for Levels 1, 2 and 3 are specified in the model section [@CL-CMP-2059], and the CMMC Assessment Scope is the set of all assets in the OSA's environment that will be assessed against CMMC security requirements [@CL-CMP-2060]. DoD Program Managers or requiring activities are responsible for selecting the CMMC Status that will apply for a particular procurement or contract [@CL-CMP-2054]. An OSA information system that processes, stores, or transmits FCI is in the Level 1 scope [@CL-CMP-2061], unlike CUI Assets, which are one Level 2 in-scope category [@CL-CMP-2062].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which systems, storage tools, transfer tools and assistant tools process, store 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the in-scope category rule and replaced uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added only from the Level 1 scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC model levels and scoping.

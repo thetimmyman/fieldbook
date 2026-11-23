@@ -45,7 +45,7 @@ A grant of 500,000 funds a research effort that ends up costing 540,000. The 40,
 
 ## Never confuse
 
-For the independent research and development and bid and proposal cost principle, see [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md).
+Sponsored research and development differs from the independent effort of 31.205-18: research and development, as used in this subsection, means the type of technical effort described in 31.205-18 but sponsored by a grant or required in the performance of a contract [@CL-CMP-8379]. For the independent research and development and bid and proposal cost principle, see [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether sponsored and contract-required research effort is tracked against its o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated research and development definition and excess rule from the quotes; added subsection-scope companion; RFO-only paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Removed statements about the independent research and development principle and about where an overrun stays, which the section does not make.

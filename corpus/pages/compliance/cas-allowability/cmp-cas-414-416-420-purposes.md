@@ -47,7 +47,7 @@ A contractor to which these standards apply holds facilities capital, pays insur
 
 ## Never confuse
 
-CAS 414 addresses the cost of capital committed to facilities [@CL-CMP-8690], CAS 416 addresses insurance costs [@CL-CMP-8692], and CAS 420 addresses independent research and development costs and bid and proposal costs [@CL-CMP-8694]. The detailed cards are [Facilities capital cost of money](../cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md), [Insurance](../cas-allowability/cmp-cas-416-insurance.md) and [IR&D and B&P allocation](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
+The three standards differ in subject: CAS 414 addresses the cost of capital committed to facilities [@CL-CMP-8690], CAS 416 addresses insurance costs [@CL-CMP-8692], and CAS 420 addresses independent research and development costs and bid and proposal costs [@CL-CMP-8694]. The detailed cards are [Facilities capital cost of money](../cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md), [Insurance](../cas-allowability/cmp-cas-416-insurance.md) and [IR&D and B&P allocation](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How independent research and development and bid and proposal projects are opene
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated how-it-works and Never confuse from the purpose sentences and removed uncited negatives and commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Insurance purpose sentence now says the criteria should increase the probability of uniform allocation, not that it is the expected result.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the will and should wording.

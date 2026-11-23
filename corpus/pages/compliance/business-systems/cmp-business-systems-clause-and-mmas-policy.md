@@ -51,7 +51,7 @@ For the first contract, the contractor is not a small business, an educational i
 
 ## Never confuse
 
-The clause at DFARS 252.242-7005 is used in solicitations and contracts, other than in contracts with educational institutions, Federally Funded Research and Development Centers, or University Affiliated Research Centers operated by educational institutions, when the resulting contract will be a covered contract as defined in DFARS 242.7000(a) and the solicitation or contract includes any of the listed clauses [@CL-CMP-7262; @CL-CMP-7263], while DFARS 242.7202 states DoD policy for its contractors to have an MMAS that conforms to the standards in paragraph (d) of the clause at DFARS 252.242-7004 [@CL-CMP-7264]. The cognizant contracting officer, in consultation with the auditor and functional specialist, if appropriate, determines the acceptability of the contractor's MMAS and approves or disapproves the system [@CL-CMP-7265].
+The business systems clause and the MMAS policy are different instruments: the clause at DFARS 252.242-7005 is used in solicitations and contracts, other than in contracts with educational institutions, Federally Funded Research and Development Centers, or University Affiliated Research Centers operated by educational institutions, when the resulting contract will be a covered contract as defined in DFARS 242.7000(a) and the solicitation or contract includes any of the listed clauses [@CL-CMP-7262; @CL-CMP-7263], while DFARS 242.7202 states DoD policy for its contractors to have an MMAS that conforms to the standards in paragraph (d) of the clause at DFARS 252.242-7004 [@CL-CMP-7264]. The cognizant contracting officer, in consultation with the auditor and functional specialist, if appropriate, determines the acceptability of the contractor's MMAS and approves or disapproves the system [@CL-CMP-7265].
 
 In evaluating the acceptability of the contractor's MMAS, the contracting officer, in consultation with the auditor and functional specialist, if appropriate, determines whether the contractor's MMAS complies with the system criteria for an acceptable MMAS as prescribed in the clause at DFARS 252.242-7004 [@CL-CMP-0170; @CL-CMP-7266]. The clause card for the material management and accounting system is [Material management and accounting system clause](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md), and the review steps are on [MMAS review procedures](cmp-mmas-review-procedures.md).
 
@@ -62,6 +62,7 @@ Which contracts include the business systems clause and which listed clauses, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the title 41 chapter 15 reference, the subpart lead-in and under-the-contract scope, and the acceptability evaluation lead-in, and removed meta-wording and unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the only when limit on the MMAS subpart scope and the in evaluating acceptability lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

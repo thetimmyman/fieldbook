@@ -45,7 +45,7 @@ A contractor makes 50 parts for a defense contract. One part is a defense articl
 
 ## Never confuse
 
-The export-controlled items clause requires the contractor to comply with all applicable laws and regulations regarding export-controlled items [@CL-CMP-4017]. For exports by Approved Community members under the defense trade cooperation treaties, see [Exports by approved community members in response to a solicitation](cmp-approved-community-exports-in-response-to-solicitation.md) and [Exports by approved community members in performance of the contract](cmp-approved-community-exports-in-performance.md).
+The clause duty and the treaty exports are different routes: the export-controlled items clause requires the contractor to comply with all applicable laws and regulations regarding export-controlled items [@CL-CMP-4017], while exports by Approved Community members run under the defense trade cooperation treaties — see [Exports by approved community members in response to a solicitation](cmp-approved-community-exports-in-response-to-solicitation.md) and [Exports by approved community members in performance of the contract](cmp-approved-community-exports-in-performance.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which contracts involve export-controlled items, which entities are registered w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added no-change paragraph; removed absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for export-controlled items.

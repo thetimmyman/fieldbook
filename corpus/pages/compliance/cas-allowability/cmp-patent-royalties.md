@@ -47,7 +47,7 @@ The company pays a 40,000 royalty on a patent needed to build the contract produ
 
 ## Never confuse
 
-For patent costs, see [Patent costs](cmp-patent-costs.md). FAR 31.205-37(a) covers both royalties on a patent and amortization of the cost of purchasing a patent or patent rights [@CL-CMP-0857]. For advance agreements, see [Advance agreements](../cas-allowability/cmp-advance-agreements.md). Codified FAR 31.205-37(d) says to see 31.109 regarding advance agreements [@CL-CMP-1404]. In the RFO text, 31.110 is titled Advance agreements [@CL-CMP-9485].
+Royalties sit in their own section, apart from patent costs: for patent costs, see [Patent costs](cmp-patent-costs.md); FAR 31.205-37(a) covers both royalties on a patent and amortization of the cost of purchasing a patent or patent rights [@CL-CMP-0857]. For advance agreements, see [Advance agreements](../cas-allowability/cmp-advance-agreements.md). Codified FAR 31.205-37(d) says to see 31.109 regarding advance agreements [@CL-CMP-1404]. In the RFO text, 31.110 is titled Advance agreements [@CL-CMP-9485].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether each royalty the company pays was bargained at arm's length and whether 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the RFO former-owner limit claim on the citation row.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated patent royalty text from the quotes; cut uncited definitions and an absence claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Presented the four patent exceptions and three arm's-length examples as alternatives.

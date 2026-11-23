@@ -45,7 +45,7 @@ An environmental agency assesses a 75,000 civil penalty against a contractor for
 
 ## Never confuse
 
-The fines-and-penalties rule covers costs of fines and penalties resulting from violations of, or failure of the contractor to comply with, Federal, State, local, or foreign laws and regulations [@CL-CMP-0306]. The mischarging rule covers costs incurred in connection with, or related to, the mischarging of costs on Government contracts that are caused by, or result from, alteration or destruction of records, or other false or improper charging or recording of costs [@CL-CMP-0307]; such costs include costs to measure the magnitude of the improper charging and to remedy or correct the mischarging [@CL-CMP-0308]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
+The two rules cover different wrongs: the fines-and-penalties rule covers costs of fines and penalties resulting from violations of, or failure of the contractor to comply with, Federal, State, local, or foreign laws and regulations [@CL-CMP-0306], while the mischarging rule covers costs incurred in connection with, or related to, the mischarging of costs on Government contracts that are caused by, or result from, alteration or destruction of records, or other false or improper charging or recording of costs [@CL-CMP-0307]; such costs include costs to measure the magnitude of the improper charging and to remedy or correct the mischarging [@CL-CMP-0308]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How regulatory penalties and improper mischarging investigation or reconstructio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the fines and mischarging rules in the quotes' own terms.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'of the contractor' and the mischarging condition, and limited the corrective-cost wording to what the quotes say.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

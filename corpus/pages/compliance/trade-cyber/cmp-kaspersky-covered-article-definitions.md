@@ -62,9 +62,9 @@ Product 3 is not developed or provided by a covered entity, includes nothing so 
 
 ## Never confuse
 
-Kaspersky Lab covered entity means Kaspersky Lab, its successors, entities in a control relationship with it, and entities of which it has a majority ownership [@CL-CMP-8475; @CL-CMP-8476]. Kaspersky Lab covered article means hardware, software, or a service described in the three limbs of the definition [@CL-CMP-8472; @CL-CMP-8473; @CL-CMP-8474].
+The covered entity and the covered article are different terms: Kaspersky Lab covered entity means Kaspersky Lab, its successors, entities in a control relationship with it, and entities of which it has a majority ownership [@CL-CMP-8475; @CL-CMP-8476], while Kaspersky Lab covered article means hardware, software, or a service described in the three limbs of the definition [@CL-CMP-8472; @CL-CMP-8473; @CL-CMP-8474].
 
-The second covered-article limb covers an item that includes any hardware, software, or service developed or provided in whole or in part by a covered entity [@CL-CMP-8473]. The third covers an item that contains components using any hardware or software developed in whole or in part by a covered entity [@CL-CMP-8474].
+The second and third limbs differ: the second covered-article limb covers an item that includes any hardware, software, or service developed or provided in whole or in part by a covered entity [@CL-CMP-8473], while the third covers an item that contains components using any hardware or software developed in whole or in part by a covered entity [@CL-CMP-8474].
 
 ## Company calibration
 
@@ -73,5 +73,6 @@ Which storage, transfer and assistant tools IT approves for company data, which 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed absence statements; replaced contrast sentences with cited definitions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Kaspersky Lab covered-article definitions.

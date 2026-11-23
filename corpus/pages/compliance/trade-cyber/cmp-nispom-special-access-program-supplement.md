@@ -46,7 +46,7 @@ Answer: the company must accept the contract security measures before it negotia
 
 ## Never confuse
 
-The security requirements prescribed in the supplement exceed baseline standards for the rule and must be applied, as applicable, through specific contract requirements [@CL-CMP-3490]. For CNWDI and COMSEC, see [NISPOM CNWDI and COMSEC](cmp-nispom-cnwdi-and-comsec.md), and for baseline marking rules, see [NISPOM marking requirements](cmp-nispom-marking-requirements.md). Where a CSA-created program may require security measures that exceed the standards of the supplement, the CSA-imposed higher standards specifically detailed in the contract or conveyed through other applicable directives will be binding on USG and contractor participants [@CL-CMP-3491].
+The supplement exceeds the baseline rather than matching it: the security requirements prescribed in the supplement exceed baseline standards for the rule and must be applied, as applicable, through specific contract requirements [@CL-CMP-3490]. For CNWDI and COMSEC, see [NISPOM CNWDI and COMSEC](cmp-nispom-cnwdi-and-comsec.md), and for baseline marking rules, see [NISPOM marking requirements](cmp-nispom-marking-requirements.md). Where a CSA-created program may require security measures that exceed the standards of the supplement, the CSA-imposed higher standards specifically detailed in the contract or conveyed through other applicable directives will be binding on USG and contractor participants [@CL-CMP-3491].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts carry SAP or other supplement requirements, and whether the comp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and aligned SAP supplement prose with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added area accreditation to the acceptance prerequisite.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for NISPOM special access program requirements.

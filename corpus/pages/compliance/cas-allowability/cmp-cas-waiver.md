@@ -57,7 +57,7 @@ A business unit that is primarily a commercial seller seeks relief on a subcontr
 
 The commercial-item waiver is a waiver that the head of an executive agency may grant for a contract or subcontract with a value of less than $100 million, if that official determines, in writing, that the business unit is primarily engaged in the sale of commercial items and would not otherwise be subject to the Cost Accounting Standards [@CL-CMP-1758; @CL-CMP-1759].
 
-The categories of contracts and subcontracts that are exempt from all CAS requirements are listed in the coverage rules [@CL-CMP-8116], described in [CAS applicability](../cas-allowability/cmp-cas-applicability.md); a waiver under this section is a decision about a contract or subcontract [@CL-CMP-1758; @CL-CMP-1760].
+The categories of contracts and subcontracts that are exempt from all CAS requirements are listed in the coverage rules [@CL-CMP-8116], described in [CAS applicability](../cas-allowability/cmp-cas-applicability.md); a waiver under this section differs from those exemption categories: it is a decision about a contract or subcontract [@CL-CMP-1758; @CL-CMP-1760].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Whether each business unit's coverage type and Disclosure Statement position are
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-05: Dated the $100 million waiver value to the Board's regulation and 2026-10-01, and added the earlier value and the rule's statement that the increase implements a statutory change, each with a citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited Board waiver scope and request contents; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for waiver of the Cost Accounting Standards for an individual contract or subcontract.

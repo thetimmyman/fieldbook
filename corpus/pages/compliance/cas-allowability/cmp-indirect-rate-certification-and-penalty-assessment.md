@@ -47,7 +47,7 @@ A contractor files a final indirect cost settlement proposal and a 30,000 cost i
 
 ## Never confuse
 
-Certification of the indirect cost rates proposed for final payment purposes is addressed in FAR 31.110(a) [@CL-CMP-7506], and penalties for unallowable costs included in final indirect cost settlement proposals in FAR 31.110(b) [@CL-CMP-7507]. The certification procedure is in [certificate of indirect costs](../../indirect-rates/rate-lifecycle/rte-certificate-of-indirect-costs.md), and the penalty side is worked through in [penalties for unallowable costs](../cas-allowability/cmp-unallowable-cost-penalty.md) and [assessment, interest and waiver](../audit-retention/cmp-expressly-unallowable-penalty-assessment-and-waiver.md). Codified FAR 31.110(b) says to see 42.709 for administrative procedures regarding the penalty assessment provisions and the related contract clause prescription [@CL-CMP-7507], and RFO FAR 31.109(b) says to see 42.703-2 and 42.709 [@CL-CMP-9669]. Codified FAR 31.110 is the certification section [@CL-CMP-7506]; in the RFO text the certification section is 31.109 [@CL-CMP-9668] and 31.110 is titled Advance agreements [@CL-CMP-9647].
+Certification and penalty are different subsections: certification of the indirect cost rates proposed for final payment purposes is addressed in FAR 31.110(a) [@CL-CMP-7506], and penalties for unallowable costs included in final indirect cost settlement proposals in FAR 31.110(b) [@CL-CMP-7507]. The certification procedure is in [certificate of indirect costs](../../indirect-rates/rate-lifecycle/rte-certificate-of-indirect-costs.md), and the penalty side is worked through in [penalties for unallowable costs](../cas-allowability/cmp-unallowable-cost-penalty.md) and [assessment, interest and waiver](../audit-retention/cmp-expressly-unallowable-penalty-assessment-and-waiver.md). Codified FAR 31.110(b) says to see 42.709 for administrative procedures regarding the penalty assessment provisions and the related contract clause prescription [@CL-CMP-7507], and RFO FAR 31.109(b) says to see 42.703-2 and 42.709 [@CL-CMP-9669]. Codified FAR 31.110 is the certification section [@CL-CMP-7506]; in the RFO text the certification section is 31.109 [@CL-CMP-9668] and 31.110 is titled Advance agreements [@CL-CMP-9647].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who signs the indirect rate certification and how unallowable costs are screened
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited absence and discretion claims with the quoted cross-references.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

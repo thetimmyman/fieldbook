@@ -43,7 +43,7 @@ Two segments share a composite pension cost of 8 million, and none of the condit
 
 ## Never confuse
 
-For defined-benefit pension plans other than those accounted for under the pay-as-you-go cost method, the components of pension cost for a cost accounting period include an adjustment for any actuarial gains and losses [@CL-CMP-8038; @CL-CMP-0557]; the annual calculation and assignment of those gains and losses is covered here [@CL-CMP-0562]. A separate calculation of pension costs for a segment is required when the conditions set forth in 9904.413-50(c)(2) or (3) are present, and when those conditions are not present allocations may be made by a composite pension cost and an allocation base [@CL-CMP-0565; @CL-CMP-0833].
+For defined-benefit pension plans other than those accounted for under the pay-as-you-go cost method, the components of pension cost for a cost accounting period include an adjustment for any actuarial gains and losses [@CL-CMP-8038; @CL-CMP-0557]; the annual calculation and assignment of those gains and losses is covered here [@CL-CMP-0562]. A segment's own calculation and the composite alternative differ in when they apply: a separate calculation of pension costs for a segment is required when the conditions set forth in 9904.413-50(c)(2) or (3) are present, and when those conditions are not present allocations may be made by a composite pension cost and an allocation base [@CL-CMP-0565; @CL-CMP-0833].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Whether each segment with plan participants is measured separately or through a 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited conditions for separate segment calculation and the assignable cost cap lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the prepayment credits component of the assignable cost ceiling.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension cost adjustment and allocation.

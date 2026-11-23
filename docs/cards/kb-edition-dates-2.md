@@ -28,7 +28,7 @@ In the remaining areas (`sup`, `rte`, `prg`, `fpa`, `ctf`, `cmp`, `cls`, `mna`, 
 
 ## Preconditions
 
-- Cards merged: `kb-never-confuse-pass`, `kb-never-confuse-pass-2`, `kb-never-confuse-pass-3`, `kb-never-confuse-pass-4`, `kb-never-confuse-pass-5` (all edit pages across every area), `kb-edition-dates` (Part 1 covers `fnd`, `mkt`, and `est`).
+- Cards merged: `kb-never-confuse-pass`, `kb-never-confuse-pass-2`, `kb-never-confuse-pass-3`, `kb-never-confuse-pass-4`, `kb-never-confuse-pass-5`, `kb-never-confuse-pass-6` (all edit pages across every area), `kb-edition-dates` (Part 1 covers `fnd`, `mkt`, and `est`).
 
 ## Steps
 

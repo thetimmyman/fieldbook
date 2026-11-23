@@ -38,7 +38,7 @@ A contractor's disclosed practice capitalizes any tangible asset costing 5,000 o
 
 ## Never confuse
 
-Although the Board's final rule rescinded most provisions of both CAS 404 and CAS 409 and removed and reserved subparts 9904.404 and 9904.409 [@CL-CMP-1500; @CL-CMP-1505; @CL-CMP-1506], for CAS 409 the Board retained the specific requirements of CAS 409-50(e)(5), 409-50(j)(1) and 409-50(j)(4) [@CL-CMP-1503]. Furthermore, contractor changes related to depreciation costs under the CAS 409 rescission are evaluated under 9903.201-6(b)(2) [@CL-CMP-1510], whereas changes in capitalization of acquisition costs under the CAS 404 rescission are evaluated under 9903.201-6(a) [@CL-CMP-1509]. While subpart 9904.404 is shown as reserved in codified text [@CL-CMP-1522], related capital asset standards such as CAS 414 for facilities capital cost of money remain active and require facilities capital to be measured and allocated to contracts [@CL-CMP-0567; @CL-CMP-0758; @CL-CMP-0759].
+Although the Board's final rule rescinded most provisions of both CAS 404 and CAS 409 and removed and reserved subparts 9904.404 and 9904.409 [@CL-CMP-1500; @CL-CMP-1505; @CL-CMP-1506], for CAS 409 the Board retained the specific requirements of CAS 409-50(e)(5), 409-50(j)(1) and 409-50(j)(4) [@CL-CMP-1503]. Furthermore, contractor changes related to depreciation costs under the CAS 409 rescission are evaluated under 9903.201-6(b)(2) [@CL-CMP-1510], unlike changes in capitalization of acquisition costs under the CAS 404 rescission, which are evaluated under 9903.201-6(a) [@CL-CMP-1509]. While subpart 9904.404 is shown as reserved in codified text [@CL-CMP-1522], related capital asset standards such as CAS 414 for facilities capital cost of money remain active and require facilities capital to be measured and allocated to contracts [@CL-CMP-0567; @CL-CMP-0758; @CL-CMP-0759].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

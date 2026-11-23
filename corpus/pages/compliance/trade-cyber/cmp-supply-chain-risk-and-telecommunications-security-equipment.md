@@ -45,7 +45,7 @@ A contractor buys 200 network devices for a defense program from a distributor. 
 
 ## Never confuse
 
-For the prohibition on covered telecommunications equipment, see [Prohibition on covered defense telecommunications equipment or services](cmp-covered-defense-telecommunications-equipment-prohibition.md). The telecommunications security clause requires the contractor to secure telecommunications systems using Government-approved equipment, devices, techniques, or services [@CL-CMP-4003; @CL-CMP-4004], while the supply chain risk clause requires the contractor to mitigate supply chain risk in the provision of supplies and services to the Government [@CL-CMP-4000]. For cloud computing services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
+For the prohibition on covered telecommunications equipment, see [Prohibition on covered defense telecommunications equipment or services](cmp-covered-defense-telecommunications-equipment-prohibition.md). The two clauses differ: the telecommunications security clause requires the contractor to secure telecommunications systems using Government-approved equipment, devices, techniques, or services [@CL-CMP-4003; @CL-CMP-4004], while the supply chain risk clause requires the contractor to mitigate supply chain risk in the provision of supplies and services to the Government [@CL-CMP-4000]. For cloud computing services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which contracts carry either clause, which suppliers and equipment sources sit i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added subcontracts paragraph scope and cited clause contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Clarified that the equipment list is a fill-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the compatibility sentence so the rule keeps the other offices with which the contractor must communicate.

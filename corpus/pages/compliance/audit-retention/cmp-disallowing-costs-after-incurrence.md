@@ -47,7 +47,7 @@ During performance the contracting officer spots a cost it considers unallowable
 
 ## Never confuse
 
-Cost-reimbursement contracts, the cost-reimbursement portion of fixed-price contracts, letter contracts that provide for reimbursement of costs, and time-and-material and labor-hour contracts provide for disallowing costs during the course of performance after the costs have been incurred [@CL-CMP-0654]. For penalties on unallowable costs in final indirect cost rate proposals, see [Penalties for unallowable costs](../cas-allowability/cmp-unallowable-cost-penalty.md).
+Disallowing a cost during performance differs from the unallowable-cost penalties: cost-reimbursement contracts, the cost-reimbursement portion of fixed-price contracts, letter contracts that provide for reimbursement of costs, and time-and-material and labor-hour contracts provide for disallowing costs during the course of performance after the costs have been incurred [@CL-CMP-0654]. For penalties on unallowable costs in final indirect cost rate proposals, see [Penalties for unallowable costs](../cas-allowability/cmp-unallowable-cost-penalty.md).
 
 Under the codified text, cost-reimbursement contracts, the cost-reimbursement portion of fixed-price contracts, letter contracts that provide for reimbursement of costs, and time-and-material and labor-hour contracts provide for disallowing costs during the course of performance after the costs have been incurred [@CL-CMP-0654], while under the RFO text, RFO FAR 42.603 states that the contracting officer must apply the procedures in that section when disallowing costs which the contractor has already incurred [@CL-CMP-0037] and RFO FAR 42.601(a) lists cost-reimbursement contracts, the cost-reimbursement portion of any fixed-price contract, fixed-price incentive contracts, letter contracts that provide for reimbursement of costs, and time-and-material and labor-hour contracts [@CL-CMP-0042; @CL-CMP-0043].
 
@@ -58,6 +58,7 @@ How unallowable costs are kept out of rate and billing pools and who owns the re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Cited FAR 42.705 rather than FAR subpart 42.7 on the indirect-cost decision official.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the disagreement lead-ins under FAR 42.801(f) and 42.803(b)(3), cited all sentences in How it works, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the disagreement condition to the notice-response and deduction-dispute sentences and the costs-claimed-but-not-reimbursable scope.

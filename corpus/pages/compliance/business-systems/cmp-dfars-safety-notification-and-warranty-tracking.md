@@ -45,7 +45,7 @@ A contractor receives credible information on a Tuesday morning that a bracket d
 
 ## Never confuse
 
-Under DFARS 252.246-7003, the Contractor notifies the Administrative Contracting Officer and the Procuring Contracting Officer after discovering or acquiring credible information concerning nonconformances and deficiencies described in paragraph (b), while under DFARS 252.246-7006, the Contractor provides the information required by the attachment entitled Warranty Tracking Information on each contract line item number, subline item number, or exhibit line item number for warranted items no later than the time of award [@CL-CMP-3878; @CL-CMP-3881]. See [Service and warranty costs](../cas-allowability/cmp-service-and-warranty-costs.md) and [Warranty contract clauses](../../supply-chain/sourcing-evidence/sup-warranty-contract-clauses.md).
+The two clauses differ in timing: under DFARS 252.246-7003, the Contractor notifies the Administrative Contracting Officer and the Procuring Contracting Officer after discovering or acquiring credible information concerning nonconformances and deficiencies described in paragraph (b), while under DFARS 252.246-7006, the Contractor provides the information required by the attachment entitled Warranty Tracking Information on each contract line item number, subline item number, or exhibit line item number for warranted items no later than the time of award [@CL-CMP-3878; @CL-CMP-3881]. See [Service and warranty costs](../cas-allowability/cmp-service-and-warranty-costs.md) and [Warranty contract clauses](../../supply-chain/sourcing-evidence/sup-warranty-contract-clauses.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which contracts carry either clause and who files the safety notices and the war
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the 5-working-day written notification items and the subcontract flowdown categories, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Notification list stated as two required items; subcontract list as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS safety issue notification and warranty tracking of serialized items.
