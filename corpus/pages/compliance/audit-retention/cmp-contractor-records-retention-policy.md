@@ -67,7 +67,7 @@ A cost contract receives final payment at the end of year 1, and no clause, spec
 
 ## Never confuse
 
-Except as stated in FAR 4.703(b), contractors must make available records and other supporting evidence to satisfy contract negotiation, administration, and audit requirements of the contracting agencies and the Comptroller General for 3 years after final payment or, for certain records, the period specified in FAR 4.705 through 4.705-3, whichever of these periods expires first [@CL-CMP-2417; @CL-CMP-8206; @CL-CMP-2418]. For the Audit and Records, Negotiation clause and agency contract file storage and disposal, see [Audit and Records, Negotiation clause](cmp-audit-and-records-negotiation.md) and [Storage, handling and disposal of contract files](cmp-contract-file-storage-and-disposal.md).
+The default period differs from the special ones: except as stated in FAR 4.703(b), contractors must make available records and other supporting evidence to satisfy contract negotiation, administration, and audit requirements of the contracting agencies and the Comptroller General for 3 years after final payment or, for certain records, the period specified in FAR 4.705 through 4.705-3, whichever of these periods expires first [@CL-CMP-2417; @CL-CMP-8206; @CL-CMP-2418]. For the Audit and Records, Negotiation clause and agency contract file storage and disposal, see [Audit and Records, Negotiation clause](cmp-audit-and-records-negotiation.md) and [Storage, handling and disposal of contract files](cmp-contract-file-storage-and-disposal.md).
 
 ## Company calibration
 
@@ -76,6 +76,7 @@ Which contract clauses set a longer retention period, which years are still open
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-03: Aligned the property records bullet to the FAR 45.101 and 52.245-1 cross-reference in the cited quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for statutory applicability and imaging requirements, restored full record descriptions in the retention bullets, and removed uncited sentences.
