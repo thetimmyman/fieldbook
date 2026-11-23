@@ -44,9 +44,7 @@ A planned contract has a base price of 6 million and priced options of 2 million
 
 ## Never confuse
 
-Unless otherwise specified, a specific dollar threshold for the purpose of applicability is the final anticipated dollar value of the action, including the dollar value of all options [@CL-CMP-2010]. A new certification requirement may be included in the FAR chapter if it is specifically imposed by statute, or if written justification is provided to the Administrator for Federal Procurement Policy by the Federal Acquisition Regulatory Council and the Administrator approves its inclusion in writing [@CL-CMP-2008; @CL-CMP-2009].
-
-The simplified acquisition and micro-purchase thresholds are covered in [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md), the inflation adjustment of thresholds in [Inflation adjustment of acquisition-related dollar thresholds](cmp-inflation-adjustment-of-thresholds.md), and the publication of significant FAR revisions for public comment in [Publication of significant FAR revisions for public comment](cmp-significant-far-revisions-public-comment.md).
+A new certification needs statutory imposition rather than agency preference alone: unless otherwise specified, a specific dollar threshold for the purpose of applicability is the final anticipated dollar value of the action, including the dollar value of all options [@CL-CMP-2010]; a new certification requirement may be included in the FAR chapter if it is specifically imposed by statute, or if written justification is provided to the Administrator for Federal Procurement Policy by the Federal Acquisition Regulatory Council and the Administrator approves its inclusion in writing [@CL-CMP-2008; @CL-CMP-2009]. The simplified acquisition and micro-purchase thresholds are covered in [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md), the inflation adjustment of thresholds in [Inflation adjustment of acquisition-related dollar thresholds](cmp-inflation-adjustment-of-thresholds.md), and the publication of significant FAR revisions for public comment in [Publication of significant FAR revisions for public comment](cmp-significant-far-revisions-public-comment.md).
 
 ## Company calibration
 
@@ -56,6 +54,7 @@ Which executed contracts carry thresholds measured on a value that includes opti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated certification conditions and FAR change timing with actors; removed contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on thresholds and FAR revisions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for new certification requirements and FAR conventions.

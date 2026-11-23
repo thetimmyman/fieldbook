@@ -47,7 +47,7 @@ A license pays royalties yearly. Royalties accrue during a year ending on a set 
 
 ## Never confuse
 
-For the royalty disclosure an offeror makes in an offer, see [Royalty information in offers](cmp-royalty-information-provision.md), and for whether a royalty cost is allowable, see [Royalties and other costs for use of patents](../cas-allowability/cmp-patent-royalties.md). For the refund of royalties, see [Patent indemnity and refund of royalties](cmp-patent-indemnity-and-refund-of-royalties.md).
+The readjustment clause is not the reporting clause: the readjustment clause applies if any license, under substantially the same patents and authorizing substantially the same acts as the contract, has been or shall hereafter be granted within the United States on royalty terms more favorable to the licensee than those in the contract [@CL-CMP-3959], while under the reporting clause a report in writing is to be delivered to the Contractor, subject to military security regulations, on or before the sixtieth day following the end of each yearly period during which royalties have accrued [@CL-CMP-3961]. For the royalty disclosure an offeror makes in an offer, see [Royalty information in offers](cmp-royalty-information-provision.md), and for whether a royalty cost is allowable, see [Royalties and other costs for use of patents](../cas-allowability/cmp-patent-royalties.md). For the refund of royalties, see [Patent indemnity and refund of royalties](cmp-patent-indemnity-and-refund-of-royalties.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which executed licenses, releases and assignments carry these clauses, and who p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named report deliverer and stated the yearly payment limit; cut meta sentences and uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent license and release contracts, readjustment of payments, and reporting and payment of royalties.

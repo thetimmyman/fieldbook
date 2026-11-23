@@ -49,7 +49,7 @@ Offeror A deletes paragraph (a)(2) from the certificate and attaches a signed st
 
 ## Never confuse
 
-Deleting or modifying paragraph (a)(1) or (3) or paragraph (b) of the certificate requires the contracting officer to reject the bid or proposal, while deleting or modifying paragraph (a)(2) requires a signed statement of the circumstances of the disclosure and a written determination by the chief of the contracting office [@CL-CMP-6831; @CL-CMP-6832; @CL-CMP-6833]. A rejection under paragraph (b)(1) or (2), and a certificate suspected of being false, both require the contracting officer to report the situation to the Attorney General [@CL-CMP-6834]. The provision and its companion clause sit in [Independent price determination and contingent fee clauses](../regulatory-framework/cmp-independent-price-and-contingent-fee-clauses.md), and the antitrust patterns that prompt reports are in [Antitrust red flags and reporting](../regulatory-framework/cmp-antitrust-red-flags-and-reporting.md).
+Deleting or modifying paragraph (a)(1) or (3) or paragraph (b) of the certificate is not treated like deleting or modifying paragraph (a)(2): the first requires the contracting officer to reject the bid or proposal [@CL-CMP-6831], while the second requires a signed statement of the circumstances of the disclosure and a written determination by the chief of the contracting office [@CL-CMP-6832; @CL-CMP-6833]. A rejection under paragraph (b)(1) or (2), and a certificate suspected of being false, both require the contracting officer to report the situation to the Attorney General [@CL-CMP-6834]. The provision and its companion clause sit in [Independent price determination and contingent fee clauses](../regulatory-framework/cmp-independent-price-and-contingent-fee-clauses.md), and the antitrust patterns that prompt reports are in [Antitrust red flags and reporting](../regulatory-framework/cmp-antitrust-red-flags-and-reporting.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which of the company's offers carry the certificate, who signs for each business
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the conjunctive bridge claim for FAR 3.103-2(a)(2)(i)-(ii) and the lead-in claim for FAR 3.103-3, removed citations from the worked example, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on further certificates with work-order proposals.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluating the Certificate of Independent Price Determination.

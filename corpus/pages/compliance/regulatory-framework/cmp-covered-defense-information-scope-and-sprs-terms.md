@@ -55,11 +55,7 @@ An evaluator compares a proposed price of 120 with historical prices paid of abo
 
 ## Never confuse
 
-The safeguarding requirements attach to covered defense information that resides in or transits through covered contractor information systems, and other requirements for unclassified information stay in place [@CL-CMP-7960; @CL-CMP-7962].
-
-The safeguarding subpart's scope is at DFARS 204.7300 [@CL-CMP-7960], and the risk terms are defined as used in the subpart that holds DFARS 204.7601 [@CL-CMP-8442].
-
-The safeguarding requirements are covered in [Covered contractor information system safeguarding](cmp-covered-contractor-information-system-safeguarding.md).
+The safeguarding requirements attach to covered defense information that resides in or transits through covered contractor information systems rather than displacing other requirements: other requirements for unclassified information stay in place [@CL-CMP-7960; @CL-CMP-7962]. The safeguarding subpart's scope is at DFARS 204.7300 [@CL-CMP-7960], and the risk terms are defined as used in the subpart that holds DFARS 204.7601 [@CL-CMP-8442]. The safeguarding requirements are covered in [Covered contractor information system safeguarding](cmp-covered-contractor-information-system-safeguarding.md).
 
 ## Company calibration
 
@@ -69,5 +65,6 @@ Which subcontracts require safeguarding of covered defense information, and wher
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: scope wording, definitions, example and contrasts tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for safeguarding scope and the supplier risk definitions.

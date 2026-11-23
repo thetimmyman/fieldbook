@@ -45,7 +45,7 @@ An offeror names one plant as the place of performance for its explosives work. 
 
 ## Never confuse
 
-The Offeror identifies the place of performance of all ammunition and explosives work covered by the Safety Precautions for Ammunition and Explosives clause [@CL-CMP-4513]. Under the safety precautions clause, when a proposed subcontract represents a change in the place of performance, the Contractor must request approval in accordance with this clause [@CL-CMP-4551]. See [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md).
+The place-of-performance identification is not the approval of a later change: the Offeror identifies the place of performance of all ammunition and explosives work covered by the Safety Precautions for Ammunition and Explosives clause [@CL-CMP-4513], while under the safety precautions clause, when a proposed subcontract represents a change in the place of performance, the Contractor must request approval in accordance with this clause [@CL-CMP-4551]. See [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which contracts carry the clause, and where the company names and tracks the pla
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited contrast and carried the offer and approval conditions into the summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for change in place of performance for ammunition and explosives.

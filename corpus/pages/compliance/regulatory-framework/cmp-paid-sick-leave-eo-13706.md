@@ -62,9 +62,7 @@ A contract is performed partly in the United States and partly abroad, so the cl
 
 ## Never confuse
 
-The clause sets a floor of 1 hour of paid sick leave for every 30 hours worked [@CL-CMP-5910] and requires the contractor to comply with the accrual, use and other requirements in the incorporated regulations [@CL-CMP-6400]. Paid sick leave under the clause is in addition to the contractor's obligations under the Service Contract Labor Standards and Wage Rate Requirements (Construction) statutes, and it earns no credit toward the prevailing wage or fringe benefit obligations under those Acts [@CL-CMP-6584; @CL-CMP-6410].
-
-The codified withholding paragraph says the Contracting Officer "will" withhold from the contractor, while RFO FAR 52.222-62(e) says the Contracting Officer "must" withhold [@CL-CMP-6404] [@CL-CMP-1740].
+The paid sick leave floor differs from the prevailing-wage obligations: the clause sets a floor of 1 hour of paid sick leave for every 30 hours worked [@CL-CMP-5910] and requires the contractor to comply with the accrual, use and other requirements in the incorporated regulations [@CL-CMP-6400]. Paid sick leave under the clause is in addition to the contractor's obligations under the Service Contract Labor Standards and Wage Rate Requirements (Construction) statutes, and it earns no credit toward the prevailing wage or fringe benefit obligations under those Acts [@CL-CMP-6584; @CL-CMP-6410]. The codified withholding paragraph says the Contracting Officer "will" withhold from the contractor, while RFO FAR 52.222-62(e) says the Contracting Officer "must" withhold [@CL-CMP-6404] [@CL-CMP-1740].
 
 ## Company calibration
 
@@ -74,6 +72,7 @@ Which payroll and timekeeping systems hold covered hours and accrued leave, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Merged employee definition alternatives, restored qualifiers, removed inferences and absence statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the family-equivalent qualifier and the chosen-assumption condition.

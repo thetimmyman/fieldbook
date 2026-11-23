@@ -47,7 +47,7 @@ An offeror is controlled directly by a holding entity, which is in turn controll
 
 ## Never confuse
 
-The subpart says the unique entity identifier is a different identifier and points to 4.605 and to the provisions at 52.204-6 and 52.204-7 for it [@CL-CMP-8318]. The highest-level owner is the entity that owns or controls an immediate owner of the offeror, and an immediate owner is an entity, other than the offeror, that has direct control of the offeror [@CL-CMP-8319; @CL-CMP-8321].
+The CAGE code is not the unique entity identifier: the subpart says the unique entity identifier is a different identifier and points to 4.605 and to the provisions at 52.204-6 and 52.204-7 for it [@CL-CMP-8318]. The two ownership terms differ as well: the highest-level owner is the entity that owns or controls an immediate owner of the offeror [@CL-CMP-8319], while an immediate owner is an entity, other than the offeror, that has direct control of the offeror [@CL-CMP-8321].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which legal entities own or control each company entity that offers on contracts
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: uncited scope and contrast clauses replaced with cited definitions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the commercial and Government entity code subpart scope and definitions, including highest-level owner and immediate owner.

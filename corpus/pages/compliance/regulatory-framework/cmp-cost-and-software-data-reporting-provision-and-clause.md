@@ -51,7 +51,7 @@ A fourth program is valued at 30,000,000 dollars, within the range for the alter
 
 ## Never confuse
 
-The provision at 252.234-7003 is the Notice of Cost and Software Data Reporting System, and the clause at 252.234-7004 is Cost and Software Data Reporting [@CL-CMP-7867]. The basic provision is used when the solicitation includes the basic clause, and the alternate I provision when it includes the alternate I clause [@CL-CMP-7868; @CL-CMP-7869]. The reporting content itself is covered in [Cost and software data reporting](../business-systems/cmp-dfars-cost-and-software-data-reporting.md), and commercial treatment of weapon systems is covered in [Weapon system commerciality and CSDR](cmp-weapon-system-commerciality-and-csdr.md).
+The provision is not the clause: the provision at 252.234-7003 is the Notice of Cost and Software Data Reporting System, and the clause at 252.234-7004 is Cost and Software Data Reporting [@CL-CMP-7867]. The basic provision is used when the solicitation includes the basic clause, and the alternate I provision when it includes the alternate I clause [@CL-CMP-7868; @CL-CMP-7869]. The reporting content itself is covered in [Cost and software data reporting](../business-systems/cmp-dfars-cost-and-software-data-reporting.md), and commercial treatment of weapon systems is covered in [Weapon system commerciality and CSDR](cmp-weapon-system-commerciality-and-csdr.md).
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ Which solicitations include a major defense acquisition program, what each progr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: clause prescription wording, example and contrasts tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost and software data reporting provision and clause prescription.

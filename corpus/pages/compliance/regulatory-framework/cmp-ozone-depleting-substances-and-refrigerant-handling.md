@@ -52,15 +52,7 @@ A contractor services 20 rooftop units under a contract that does not specify ot
 
 ## Never confuse
 
-The labeling duty in FAR 52.223-11(b) applies to products that contain or are manufactured with ozone-depleting substances [@CL-CMP-5197]. Under FAR 52.223-12(c), unless otherwise specified in the contract, the Contractor shall reduce the use, release, or emissions of high global warming potential hydrofluorocarbons under the contract [@CL-CMP-5202].
-
-An ozone-depleting substance is any substance the Environmental Protection Agency designates in 40 CFR part 82 as Class I or Class II [@CL-CMP-5296]. High global warming potential hydrofluorocarbons are any hydrofluorocarbons in a particular end use for which EPA's alternatives program has identified other acceptable alternatives that have lower global warming potential [@CL-CMP-5200].
-
-The reduction duty applies unless otherwise specified in the contract [@CL-CMP-5202], and the use of reclaimed hydrofluorocarbons to service and repair refrigeration and air conditioning equipment is to be done where feasible [@CL-CMP-5205].
-
-The codified equipment clause requires the contractor, unless the contract specifies otherwise, to reduce the use, release or emissions of high global warming potential hydrofluorocarbons by the listed routes, but RFO FAR 52.223-12 is a single sentence on Clean Air Act sections 608 and 609 [@CL-CMP-5202] [@CL-CMP-1694].
-
-The clauses on aerosols and foams that use high global warming potential hydrofluorocarbons are covered in [Aerosols and foams with high global warming potential hydrofluorocarbons](cmp-aerosols-and-foams-hydrofluorocarbon-reduction.md).
+The labeling duty differs from the reduction duty: the labeling duty in FAR 52.223-11(b) applies to products that contain or are manufactured with ozone-depleting substances [@CL-CMP-5197], while under FAR 52.223-12(c), unless otherwise specified in the contract, the Contractor shall reduce the use, release, or emissions of high global warming potential hydrofluorocarbons under the contract [@CL-CMP-5202]. An ozone-depleting substance is any substance the Environmental Protection Agency designates in 40 CFR part 82 as Class I or Class II [@CL-CMP-5296]. High global warming potential hydrofluorocarbons are any hydrofluorocarbons in a particular end use for which EPA's alternatives program has identified other acceptable alternatives that have lower global warming potential [@CL-CMP-5200]. The reduction duty applies unless otherwise specified in the contract [@CL-CMP-5202], and the use of reclaimed hydrofluorocarbons to service and repair refrigeration and air conditioning equipment is to be done where feasible [@CL-CMP-5205]. The codified equipment clause requires the contractor, unless the contract specifies otherwise, to reduce the use, release or emissions of high global warming potential hydrofluorocarbons by the listed routes, but RFO FAR 52.223-12 is a single sentence on Clean Air Act sections 608 and 609 [@CL-CMP-5202] [@CL-CMP-1694]. The clauses on aerosols and foams that use high global warming potential hydrofluorocarbons are covered in [Aerosols and foams with high global warming potential hydrofluorocarbons](cmp-aerosols-and-foams-hydrofluorocarbon-reduction.md).
 
 ## Company calibration
 
@@ -70,6 +62,7 @@ Whether the company tracks which supplied products contain or are manufactured w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated labeling, reduction list and contrasts as cited text; RFO wording aligned.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on aerosols and foams with hydrofluorocarbons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

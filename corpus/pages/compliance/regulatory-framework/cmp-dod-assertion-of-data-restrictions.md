@@ -51,7 +51,7 @@ An offeror proposes to deliver a software tool and a design report. It lists the
 
 ## Never confuse
 
-Under the clause, a contractor and its subcontractors or suppliers may only assert restrictions on the Government's rights to use, modify, reproduce, release, perform, display, or disclose technical data to be delivered under the contract by marking the deliverable data subject to restriction [@CL-CMP-3809]; see [DoD rights in technical data: markings](cmp-dod-technical-data-markings.md). Validation of restrictions is covered in [validation for technical data](cmp-dod-technical-data-restriction-validation.md) and [validation for computer software](cmp-dod-software-restriction-validation.md). The FAR representation about limited rights data and restricted computer software is covered in [Representation of limited rights data and restricted computer software](cmp-representation-limited-rights-data-and-restricted-software.md).
+Restrictions come only by marking rather than by assertion alone: under the clause, a contractor and its subcontractors or suppliers may only assert restrictions on the Government's rights to use, modify, reproduce, release, perform, display, or disclose technical data to be delivered under the contract by marking the deliverable data subject to restriction [@CL-CMP-3809]; see [DoD rights in technical data: markings](cmp-dod-technical-data-markings.md). Validation of restrictions is covered in [validation for technical data](cmp-dod-technical-data-restriction-validation.md) and [validation for computer software](cmp-dod-software-restriction-validation.md). The FAR representation about limited rights data and restricted computer software is covered in [Representation of limited rights data and restricted computer software](cmp-representation-limited-rights-data-and-restricted-software.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Who prepares and signs the assertion list for each offer, and where the funding 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording, kept the provision scope and recast the confusion paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: added release and disclosure restrictions to the offer identification rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identification and assertion of restrictions on technical data and software.

@@ -46,7 +46,7 @@ A contractor submits and maintains its representations and certifications in SAM
 
 ## Never confuse
 
-Representations and certifications submitted and maintained via SAM establish a common source of information for procurement offices across the Government and are incorporated by reference in the awarded contract [@CL-CMP-8295; @CL-CMP-8297; @CL-CMP-8298], whereas the reporting subpart implements the statutory requirement for contractors to report subcontract award data and the total compensation of the five most highly compensated executives of the contractor and subcontractor [@CL-CMP-8299; @CL-CMP-8300].
+The representations subpart is not the reporting subpart: representations and certifications submitted and maintained via SAM establish a common source of information for procurement offices across the Government and are incorporated by reference in the awarded contract [@CL-CMP-8295; @CL-CMP-8297; @CL-CMP-8298], whereas the reporting subpart implements the statutory requirement for contractors to report subcontract award data and the total compensation of the five most highly compensated executives of the contractor and subcontractor [@CL-CMP-8299; @CL-CMP-8300].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which executed contracts incorporate the company's representations by reference,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited negative commentary and stated the exact website and scope provisions from the cited quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the annual representations and certifications subpart and the executive compensation and first-tier subcontract reporting subpart.

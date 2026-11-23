@@ -46,9 +46,7 @@ An offeror completes both representations [@CL-CMP-3558; @CL-CMP-3559]. It answe
 
 ## Never confuse
 
-In the representation provision the offeror states whether it will provide, and whether it uses, covered telecommunications equipment or services [@CL-CMP-3558; @CL-CMP-3559]. Under the prohibition clause, the first report is due within one business day from the date of such identification or notification, and further mitigation information within 10 business days of submitting the first [@CL-CMP-3561; @CL-CMP-3562]. Other prohibition clauses have their own report deadlines, covered in [Kaspersky and ByteDance prohibitions: what is barred, reported and flowed down](cmp-kaspersky-and-bytedance-prohibitions.md) and [FASCSA order clauses: representation, search and reporting](cmp-fascsa-order-representation-search-and-reporting.md).
-
-The reporting deadlines differ between the texts: the codified clause sets one business day and 10 business days [@CL-CMP-3561; @CL-CMP-3562], and the RFO clause sets 72 hours for the report and 72 hours after discovering new information for a subsequent report [@CL-CMP-1049; @CL-CMP-9226; @CL-CMP-9227].
+The representation provision is not the reporting clause: in the representation provision the offeror states whether it will provide, and whether it uses, covered telecommunications equipment or services [@CL-CMP-3558; @CL-CMP-3559], while under the prohibition clause the first report is due within one business day from the date of such identification or notification, and further mitigation information within 10 business days of submitting the first [@CL-CMP-3561; @CL-CMP-3562]. Other prohibition clauses have their own report deadlines, covered in [Kaspersky and ByteDance prohibitions: what is barred, reported and flowed down](cmp-kaspersky-and-bytedance-prohibitions.md) and [FASCSA order clauses: representation, search and reporting](cmp-fascsa-order-representation-search-and-reporting.md). The reporting deadlines differ between the texts: the codified clause sets one business day and 10 business days [@CL-CMP-3561; @CL-CMP-3562], and the RFO clause sets 72 hours for the report and 72 hours after discovering new information for a subsequent report [@CL-CMP-1049; @CL-CMP-9226; @CL-CMP-9227].
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Which equipment, systems and services the company provides or uses could be cove
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: report trigger, disclosure wording, example and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the covered telecommunications representation and prohibition clauses.

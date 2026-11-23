@@ -47,7 +47,7 @@ A construction contractor develops structural drawings under the contract. The d
 
 ## Never confuse
 
-For licenses in technical data, see [Technical data rights categories](cmp-dod-technical-data-rights-categories.md) and [Rights in data, general](cmp-rights-in-data-general-definitions-and-allocation.md). For shop drawings delivered under the contract, the Government may duplicate, use and disclose them in any manner and for any purpose [@CL-CMP-4281]. The existing works and unlimited rights clauses are in [Rights in data for existing works and Government unlimited rights](cmp-dfars-existing-works-and-unlimited-rights-in-data.md).
+Designs that become Government property are not the same as the license in shop drawings: under the property clause, all designs, drawings, specifications, notes and other works developed in the performance of the contract become the sole property of the Government and may be used on any other design or construction without additional compensation to the Contractor [@CL-CMP-4278], while under the Rights in Shop Drawings clause the Government may duplicate, use and disclose shop drawings delivered under the contract in any manner and for any purpose [@CL-CMP-4281]. For licenses in technical data, see [Technical data rights categories](cmp-dod-technical-data-rights-categories.md) and [Rights in data, general](cmp-rights-in-data-general-definitions-and-allocation.md). The existing works and unlimited rights clauses are in [Rights in data for existing works and Government unlimited rights](cmp-dfars-existing-works-and-unlimited-rights-in-data.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which construction and design contracts carry these clauses, and who reports res
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added shop drawing second item, prescriptions and performance scope; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for drawings as Government property, shop drawings and restricted designs.

@@ -60,11 +60,7 @@ The same solicitation carries an alteration that revises the instruction on how 
 
 ## Never confuse
 
-Provisions and clauses incorporated by reference have the same force and effect as if they were given in full text [@CL-CMP-5998; @CL-CMP-5999].
-
-The alterations provision is inserted to revise or supplement other parts of the solicitation that apply to the solicitation phase only, except for any provision authorized for use with a deviation [@CL-CMP-6004]. The marking of deviations, and the alterations that apply after award, are on [Alterations in a contract and authorized deviations in provisions and clauses](cmp-contract-alterations-and-authorized-deviations.md). Representations and certifications that are incorporated by reference are on [Incorporation of representations and certifications, and law for a breach claim](cmp-reps-and-certs-incorporation-and-breach-law.md).
-
-The alterations provision states that portions of the solicitation are altered as follows [@CL-CMP-6700], and RFO FAR 52.252-3 prints three blank lines after that statement [@CL-CMP-1341].
+Incorporation by reference is not an omission: provisions and clauses incorporated by reference have the same force and effect as if they were given in full text [@CL-CMP-5998; @CL-CMP-5999]. The alterations provision differs, being inserted to revise or supplement other parts of the solicitation that apply to the solicitation phase only, except for any provision authorized for use with a deviation [@CL-CMP-6004]. The marking of deviations, and the alterations that apply after award, are on [Alterations in a contract and authorized deviations in provisions and clauses](cmp-contract-alterations-and-authorized-deviations.md). Representations and certifications that are incorporated by reference are on [Incorporation of representations and certifications, and law for a breach claim](cmp-reps-and-certs-incorporation-and-breach-law.md). The alterations provision states that portions of the solicitation are altered as follows [@CL-CMP-6700], and RFO FAR 52.252-3 prints three blank lines after that statement [@CL-CMP-1341].
 
 ## Company calibration
 
@@ -74,6 +70,7 @@ Who checks each offer against the provisions listed by reference, where the comp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording, unsupported contrasts and the unquoted ends-at statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for provisions and clauses incorporated by reference and alterations in a solicitation.

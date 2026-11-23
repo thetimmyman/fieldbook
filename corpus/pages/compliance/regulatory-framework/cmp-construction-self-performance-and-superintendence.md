@@ -59,7 +59,7 @@ The contractor is a corporation, so work performance is under the full-time resi
 
 ## Never confuse
 
-The percentage applies to work performed on the site with the contractor's own organization [@CL-CMP-4854]. Superintendence is the duty to directly superintend the work or assign and have on the work a competent superintendent [@CL-CMP-4856]. The organization chart shows the general executive and administrative organization, the personnel and their duties [@CL-CMP-4857], and the superintendent must be satisfactory to the contracting officer [@CL-CMP-4856]. Resident direction comes from the contractor, principal partners or senior officers, and if the contracting officer approves, the contractor may be represented by a specific person or persons holding other positions [@CL-CMP-4859; @CL-CMP-4860]. Construction labor standards disputes are covered in [Construction labor standards disputes](cmp-construction-labor-disputes-and-contract-clauses.md). The codified text prints the percentage clause and the resident direction duty at FAR 52.236-1 and FAR 52.236-19 [@CL-CMP-4854; @CL-CMP-4858], while the RFO text prints both sections as reserved [@CL-CMP-0847; @CL-CMP-0848]. The RFO superintendence sentence begins "During performance of this contract" [@CL-CMP-0846], where the codified sentence begins "At all times during performance of this contract" [@CL-CMP-4856].
+The percentage is about who performs the work, not who directs it: the percentage applies to work performed on the site with the contractor's own organization [@CL-CMP-4854], while superintendence is the duty to directly superintend the work or assign and have on the work a competent superintendent [@CL-CMP-4856], and resident direction comes from the contractor, principal partners or senior officers, and if the contracting officer approves, the contractor may be represented by a specific person or persons holding other positions [@CL-CMP-4859; @CL-CMP-4860]. The organization chart shows the general executive and administrative organization, the personnel and their duties [@CL-CMP-4857], and the superintendent must be satisfactory to the contracting officer [@CL-CMP-4856]. Construction labor standards disputes are covered in [Construction labor standards disputes](cmp-construction-labor-disputes-and-contract-clauses.md). The codified text prints the percentage clause and the resident direction duty at FAR 52.236-1 and FAR 52.236-19 [@CL-CMP-4854; @CL-CMP-4858], while the RFO text prints both sections as reserved [@CL-CMP-0847; @CL-CMP-0848]. The RFO superintendence sentence begins "During performance of this contract" [@CL-CMP-0846], where the codified sentence begins "At all times during performance of this contract" [@CL-CMP-4856].
 
 ## Company calibration
 
@@ -69,6 +69,7 @@ Which construction contracts carry these clauses, what percentage each states, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: performance, superintendence and worked example wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction work performed by the contractor, superintendence and organization of the work.

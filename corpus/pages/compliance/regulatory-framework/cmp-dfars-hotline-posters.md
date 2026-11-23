@@ -49,7 +49,7 @@ Answer: both sites display the DoD poster in common work areas, and the DHS post
 
 ## Never confuse
 
-For the FAR hotline poster clause, see [the FAR hotline poster clause card](cmp-hotline-poster-clause.md). For ethics and disclosure duties, see [the contractor code of business ethics card](cmp-contractor-code-of-business-ethics.md).
+The DoD hotline poster clause is not the FAR hotline poster clause: for the FAR hotline poster clause, see [the FAR hotline poster clause card](cmp-hotline-poster-clause.md). The DoD clause requires the Contractor to display prominently the DoD fraud, waste, and abuse hotline poster prepared by the DoD Office of the Inspector General, in effect at time of contract award, in common work areas within business segments performing work under DoD contracts [@CL-CMP-4078]. For ethics and disclosure duties, see [the contractor code of business ethics card](cmp-contractor-code-of-business-ethics.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which contracts carry the DFARS poster clause, and which sites and subcontracts 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added to contractor personnel; stated foreign language and subcontract exception directly; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the security-concerns condition for publicizing the program another way.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for display of hotline posters.

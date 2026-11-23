@@ -44,7 +44,7 @@ A sealed bid is due to open on a set date. A modification to a general wage dete
 
 ## Never confuse
 
-Expiration and modification are different events. A project wage determination is effective for 180 calendar days from its date [@CL-CMP-3013], and its expiry is handled by requesting a new determination or an extension [@CL-CMP-3017; @CL-CMP-3018; @CL-CMP-3019]. In sealed bidding, a modification to an existing determination is judged by when the agency receives it or it is published, measured against the date of bid opening [@CL-CMP-3020]. A notice from the Department of Labor that a solicitation carries the wrong determination is handled separately, on [Improper wage determinations before award, option-period wage determinations and Department of Labor construction regulations](cmp-improper-wage-determinations-and-option-wage-pricing.md). The ordinary request rules are on [Construction wage determinations: general and project types and how each is requested](cmp-construction-wage-determination-types-and-requests.md). Revised wage determinations on service contracts follow another rule, covered on [Service Contract Labor Standards: revised wage determinations and additional classes of service employees](cmp-scls-revised-wage-determinations-and-conformance.md).
+Expiration and modification are not the same event: a project wage determination is effective for 180 calendar days from its date [@CL-CMP-3013], and its expiry is handled by requesting a new determination or an extension [@CL-CMP-3017; @CL-CMP-3018; @CL-CMP-3019]. In sealed bidding, a modification to an existing determination is judged by when the agency receives it or it is published, measured against the date of bid opening [@CL-CMP-3020]. A notice from the Department of Labor that a solicitation carries the wrong determination is handled separately, on [Improper wage determinations before award, option-period wage determinations and Department of Labor construction regulations](cmp-improper-wage-determinations-and-option-wage-pricing.md). The ordinary request rules are on [Construction wage determinations: general and project types and how each is requested](cmp-construction-wage-determination-types-and-requests.md). Revised wage determinations on service contracts follow another rule, covered on [Service Contract Labor Standards: revised wage determinations and additional classes of service employees](cmp-scls-revised-wage-determinations-and-conformance.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who watches the wage determinations on a bid and when the company reopens its pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the sealed bidding scope to the modification timing sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the sealed-bidding request for a new determination so the request keeps its timing limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for expiration and modification of construction wage determinations.

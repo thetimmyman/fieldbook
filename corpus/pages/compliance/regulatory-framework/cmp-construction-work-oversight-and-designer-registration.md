@@ -50,11 +50,7 @@ Separately, the Contracting Officer decides to hold a preconstruction conference
 
 ## Never confuse
 
-Registered architects or engineers shall prepare or review and approve the design [@CL-CMP-4928], and under the oversight clause the extent and character of the work is subject to the general supervision, direction, control and approval of the Contracting Officer [@CL-CMP-4924]. The cost-reimbursement construction clause reads "general supervision, direction, control, and approval" [@CL-CMP-4924], and the architect-engineer clause reads "general oversight, supervision, direction, control, and approval" [@CL-CMP-4926]. If the Contracting Officer decides to conduct a preconstruction conference, the successful offeror will be notified and will be required to attend [@CL-CMP-4929].
-
-The codified FAR 52.236-26 is the Preconstruction Conference clause [@CL-CMP-5123], but the RFO text prints section 52.236-26 as reserved [@CL-CMP-0995].
-
-The clauses on design within funding limitations and architect-engineer responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limits-and-ae-responsibility.md), and the preconstruction conference and site visit provisions are covered in [Preconstruction conference, site visit and preparation of construction proposals](cmp-construction-preconstruction-conference-and-site-visit.md).
+Preparation of the design is not the same as oversight of the work: registered architects or engineers shall prepare or review and approve the design [@CL-CMP-4928], while under the oversight clause the extent and character of the work is subject to the general supervision, direction, control and approval of the Contracting Officer [@CL-CMP-4924]. The two oversight clauses also differ in wording: the cost-reimbursement construction clause reads "general supervision, direction, control, and approval" [@CL-CMP-4924], and the architect-engineer clause reads "general oversight, supervision, direction, control, and approval" [@CL-CMP-4926]. If the Contracting Officer decides to conduct a preconstruction conference, the successful offeror will be notified and will be required to attend [@CL-CMP-4929]. The codified FAR 52.236-26 is the Preconstruction Conference clause [@CL-CMP-5123], but the RFO text prints section 52.236-26 as reserved [@CL-CMP-0995]. The clauses on design within funding limitations and architect-engineer responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limits-and-ae-responsibility.md), and the preconstruction conference and site visit provisions are covered in [Preconstruction conference, site visit and preparation of construction proposals](cmp-construction-preconstruction-conference-and-site-visit.md).
 
 ## Company calibration
 
@@ -64,6 +60,7 @@ Which cost-reimbursement construction contracts and design contracts sit in the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO prescription comparison, worked example and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on design funding limitations and the preconstruction conference.

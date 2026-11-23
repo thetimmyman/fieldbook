@@ -47,9 +47,7 @@ A defense contractor runs an independent research and development project on a f
 
 ## Never confuse
 
-Under DFARS 242.771-2, defense contractors are encouraged to engage in independent research and development projects [@CL-CMP-8770]. The cognizant administrative contracting officer or corporate administrative contracting officer shall determine cost allowability of independent research and development costs and bid and proposal costs as set forth in 231.205-18 and FAR 31.205-18 [@CL-CMP-2244].
-
-The third provision named in the scope is headed Defense Contract Audit Agency: annual report [@CL-CMP-8769]. DFARS 242.771-3(b)(1) provides that the Defense Contract Audit Agency shall, for the DoD-wide bid and proposal program, submit an annual report to the Principal Director, Defense Pricing, Contracting, and Acquisition Policy [@CL-CMP-2245].
+Encouragement is not allowability: under DFARS 242.771-2, defense contractors are encouraged to engage in independent research and development projects [@CL-CMP-8770], while the cognizant administrative contracting officer or corporate administrative contracting officer shall determine cost allowability of independent research and development costs and bid and proposal costs as set forth in 231.205-18 and FAR 31.205-18 [@CL-CMP-2244]. The third provision named in the scope is headed Defense Contract Audit Agency: annual report [@CL-CMP-8769]. DFARS 242.771-3(b)(1) provides that the Defense Contract Audit Agency shall, for the DoD-wide bid and proposal program, submit an annual report to the Principal Director, Defense Pricing, Contracting, and Acquisition Policy [@CL-CMP-2245].
 
 ## Company calibration
 
@@ -59,6 +57,7 @@ Which business units and segments run independent research and development proje
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta statements and unsupported contrasts; attributed implements wording to the scope section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced semicolons in a list so the claim covers it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal cost policy.

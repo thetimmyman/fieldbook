@@ -45,7 +45,7 @@ A contractor delivers a simulation program and its user's manual. The program wa
 
 ## Never confuse
 
-Under this clause the Government shall have restricted rights in other than commercial computer software developed exclusively at private expense [@CL-CMP-3782]. Under the technical data clause, subject to listed exceptions, the Government shall have limited rights in technical data pertaining to items, components, or processes developed exclusively at private expense and marked with the limited rights legend [@CL-CMP-3772], and the license rights it lists are in technical data other than computer software documentation [@CL-CMP-3768]. For commercial software, see [Commercial computer software license clause](cmp-commercial-computer-software-license.md). For technical data, see [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md). For validation of restrictions asserted on software, see [DoD validation of asserted restrictions on computer software](cmp-dod-software-restriction-validation.md), and for the offer-time list, see the card for [identification and assertion of restrictions](cmp-dod-assertion-of-data-restrictions.md).
+Restricted rights in software are not limited rights in technical data: under this clause the Government shall have restricted rights in other than commercial computer software developed exclusively at private expense [@CL-CMP-3782], while under the technical data clause, subject to listed exceptions, the Government shall have limited rights in technical data pertaining to items, components, or processes developed exclusively at private expense and marked with the limited rights legend [@CL-CMP-3772], and the license rights it lists are in technical data other than computer software documentation [@CL-CMP-3768]. For commercial software, see [Commercial computer software license clause](cmp-commercial-computer-software-license.md). For technical data, see [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md). For validation of restrictions asserted on software, see [DoD validation of asserted restrictions on computer software](cmp-dod-software-restriction-validation.md), and for the offer-time list, see the card for [identification and assertion of restrictions](cmp-dod-assertion-of-data-restrictions.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which executed contracts carry this clause, and who confirms whether each delive
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta and uncited comparison sentences; restated rights categories and technical data contrasts as cited statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD rights in noncommercial computer software and documentation.

@@ -51,11 +51,7 @@ A manufacturer is on a qualified manufacturers list because its products were ex
 
 ## Never confuse
 
-A qualified bidders list or qualified manufacturers list is a list of bidders or manufacturers that satisfied applicable qualification requirements [@CL-CMP-7986; @CL-CMP-7987], whereas first article testing and approval ensures that the contractor can furnish a product that conforms to all contract requirements for acceptance [@CL-CMP-7988].
-
-A qualified bidders list includes bidders who have had their products examined and tested and who have satisfied all applicable qualification requirements for that product or have otherwise satisfied all applicable qualification requirements [@CL-CMP-7986], whereas a qualified manufacturers list is a list of manufacturers who have had their products examined and tested and who have satisfied all applicable qualification requirements for that product [@CL-CMP-7987].
-
-See [Qualification requirements](../../supply-chain/sourcing-evidence/sup-qualification-requirements.md) and [First article testing and approval](../../industrialization/ramp/ind-first-article-testing-and-approval.md).
+A qualification list is not first article testing: a qualified bidders list or qualified manufacturers list is a list of bidders or manufacturers that satisfied applicable qualification requirements [@CL-CMP-7986; @CL-CMP-7987], whereas first article testing and approval ensures that the contractor can furnish a product that conforms to all contract requirements for acceptance [@CL-CMP-7988]. A qualified bidders list includes bidders who have had their products examined and tested and who have satisfied all applicable qualification requirements for that product or have otherwise satisfied all applicable qualification requirements [@CL-CMP-7986], whereas a qualified manufacturers list is a list of manufacturers who have had their products examined and tested and who have satisfied all applicable qualification requirements for that product [@CL-CMP-7987]. See [Qualification requirements](../../supply-chain/sourcing-evidence/sup-qualification-requirements.md) and [First article testing and approval](../../industrialization/ramp/ind-first-article-testing-and-approval.md).
 
 ## Company calibration
 
@@ -65,5 +61,6 @@ Which products the company supplies only from a qualification list, and who appr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and aligned list definitions and first article testing considerations with the cited quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for qualification lists and first article testing.

@@ -57,7 +57,7 @@ A solicitation that includes the System for Award Management provision is outsid
 
 ## Never confuse
 
-The two reporting categories catch different actions. The first keys off a contract awarded before January 1, 1989 and a modification that adds $50,000 or more and is entered into on or after April 1, 1990, while the second covers certain contracts and modifications over $25,000 entered into on or after January 1, 1989 [@CL-CMP-7561; @CL-CMP-7562]. Furnishing the number to the agency is also separate from the agency's own reporting duty, which sits with the heads of executive agencies [@CL-CMP-7558; @CL-CMP-7560].
+The two reporting categories are not the same trigger: the first keys off a contract awarded before January 1, 1989 and a modification that adds $50,000 or more and is entered into on or after April 1, 1990, while the second covers certain contracts and modifications over $25,000 entered into on or after January 1, 1989 [@CL-CMP-7561; @CL-CMP-7562]. Furnishing the number to the agency is also separate from the agency's own reporting duty, which sits with the heads of executive agencies [@CL-CMP-7558; @CL-CMP-7560].
 
 ## Company calibration
 
@@ -67,6 +67,7 @@ Which contract actions in the finance remit carry a reportable change, and who c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope, the common parent definition and the defense supplement's use of FPDS.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the payment office's duty to submit reports to the Internal Revenue Service.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxpayer identification number information and reporting contract information to the internal revenue service.
