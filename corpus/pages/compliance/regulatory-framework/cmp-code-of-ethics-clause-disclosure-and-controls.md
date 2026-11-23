@@ -47,7 +47,7 @@ A company holds a 10 million contract with a 12 month performance period that is
 
 ## Never confuse
 
-The insertion rule for the clause is covered in [Contractor code of business ethics and conduct](cmp-contractor-code-of-business-ethics.md). The control system items include an internal reporting mechanism, such as a hotline, which allows for anonymity or confidentiality [@CL-CMP-2633]. The hotline poster display clause is covered in [Display of hotline poster clause](cmp-hotline-poster-clause.md).
+The insertion rule for the clause is covered in [Contractor code of business ethics and conduct](cmp-contractor-code-of-business-ethics.md), and the hotline poster display clause is covered in [Display of hotline poster clause](cmp-hotline-poster-clause.md). A hotline is not the whole control system: the control system items include an internal reporting mechanism, such as a hotline, which allows for anonymity or confidentiality [@CL-CMP-2633].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which contracts carry the clause, which were won as a small business concern or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: timely disclosure item cited; uncited inferences and contrasts replaced.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Contractor Code of Business Ethics and Conduct clause.

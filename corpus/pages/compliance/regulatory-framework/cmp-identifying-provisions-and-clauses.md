@@ -54,9 +54,7 @@ A third clause comes from a Z Acquisition Regulation that is not published in th
 
 ## Never confuse
 
-The "(DEVIATION)" marker is inserted after the date where a FAR provision or clause is used with an authorized deviation [@CL-CMP-8858].
-
-A supplemental provision or clause is identified by number, title, date and name of the regulation [@CL-CMP-8860], and a text developed for an individual acquisition is identified by title, date and the name of the agency or suborganization that developed it [@CL-CMP-8862].
+A deviation marker is not a new identifier: the "(DEVIATION)" marker is inserted after the date where a FAR provision or clause is used with an authorized deviation [@CL-CMP-8858]. A supplemental provision or clause differs, being identified by number, title, date and name of the regulation [@CL-CMP-8860], and a text developed for an individual acquisition is identified by title, date and the name of the agency or suborganization that developed it [@CL-CMP-8862].
 
 ## Company calibration
 
@@ -66,6 +64,7 @@ Which executed contracts and modifications the company holds, and who confirms t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the deviation identification rule and example premises, cited chapter-number rule fully, removed meta statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identifying provisions and clauses.

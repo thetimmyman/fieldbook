@@ -57,7 +57,7 @@ A non-Spanish Contractor receives the Notice to Proceed on day 10 and plans to b
 
 ## Never confuse
 
-The Contractor shall retain the records in accordance with the Audit and Records clause [@CL-CMP-4467]; for negotiated contracts see [Audit and Records, Negotiation clause](../audit-retention/cmp-audit-and-records-negotiation.md), and for the default clauses for fixed-price contracts see [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md). For whether insurance cost is allowable, see [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md). For the duty to follow local labor law in general, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md); for the Italian permit, see [Permit from the Italian Inspectorate of Labor](cmp-dfars-italian-labor-permit.md); for Spanish tax exemptions, see [Spain tax exemptions and the matching representation](../../contract-finance/billing-payment/ctf-dfars-spain-tax-exemptions-and-representation.md).
+The social security duty is a compliance duty rather than a records duty in itself: the Contractor shall comply with all Spanish Government social security laws and regulations [@CL-CMP-4433], and the Contractor shall retain the records in accordance with the Audit and Records clause [@CL-CMP-4467]; for negotiated contracts see [Audit and Records, Negotiation clause](../audit-retention/cmp-audit-and-records-negotiation.md), and for the default clauses for fixed-price contracts see [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md). For whether insurance cost is allowable, see [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md). For the duty to follow local labor law in general, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md); for the Italian permit, see [Permit from the Italian Inspectorate of Labor](cmp-dfars-italian-labor-permit.md); for Spanish tax exemptions, see [Spain tax exemptions and the matching representation](../../contract-finance/billing-payment/ctf-dfars-spain-tax-exemptions-and-representation.md).
 
 ## Company calibration
 
@@ -67,5 +67,6 @@ Which executed contracts carry either Spanish clause, and whether the Contractor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced characterizations and uncited contrasts with cited statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Spanish social security laws and Spanish laws and insurance.

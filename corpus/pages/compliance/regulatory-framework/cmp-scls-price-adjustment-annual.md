@@ -49,7 +49,7 @@ A contract pays a technician 25.00 an hour. A wage determination applied by oper
 
 ## Never confuse
 
-The clause for multiple year and option contracts adds a third cause, the wage determination applicable on the anniversary date or at the beginning of a renewal option period [@CL-CMP-4807]. It is on [price adjustment for multiple year and option contracts](cmp-scls-price-adjustment-multiple-year-and-option.md). Wage determination revisions and conformance are on [revised wage determinations and conformance](cmp-scls-revised-wage-determinations-and-conformance.md).
+The annual clause is not the multiple-year clause: the clause for multiple year and option contracts adds a third cause, the wage determination applicable on the anniversary date or at the beginning of a renewal option period [@CL-CMP-4807]. It is on [price adjustment for multiple year and option contracts](cmp-scls-price-adjustment-multiple-year-and-option.md). Wage determination revisions and conformance are on [revised wage determinations and conformance](cmp-scls-revised-wage-determinations-and-conformance.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which contracts carry the clause and who confirms the wage determination that ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's "shall be modified in writing".
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

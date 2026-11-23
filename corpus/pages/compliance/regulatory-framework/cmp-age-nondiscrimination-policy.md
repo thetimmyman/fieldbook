@@ -57,9 +57,7 @@ Separately, the contractor declines to advance an employee because of age and re
 
 ## Never confuse
 
-Paragraph (a) covers employment, advancement, discharge, and the terms, conditions, or privileges of employment [@CL-CMP-8074]. Paragraph (b) covers maximum age limits in solicitations or advertisements for employees to work on Government contracts [@CL-CMP-8074; @CL-CMP-8077]. Only paragraph (b) names persons acting on a contractor's behalf [@CL-CMP-8077].
-
-The two exceptions use different words: paragraph (a) says "except upon the basis of" and paragraph (b) says "unless the specified maximum age limit is based upon" [@CL-CMP-8075; @CL-CMP-8078].
+Paragraph (a) covers employment, advancement, discharge, and the terms, conditions, or privileges of employment [@CL-CMP-8074], unlike paragraph (b), which covers maximum age limits in solicitations or advertisements for employees to work on Government contracts [@CL-CMP-8074; @CL-CMP-8077], and only paragraph (b) names persons acting on a contractor's behalf [@CL-CMP-8077]. The two exceptions also differ in wording: paragraph (a) says "except upon the basis of" and paragraph (b) says "unless the specified maximum age limit is based upon" [@CL-CMP-8075; @CL-CMP-8078].
 
 ## Company calibration
 
@@ -68,6 +66,7 @@ Whether any employing entity or worksite inside the finance remit states age lim
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example, removed meta commentary on unstated elements, and cited paragraph (a) in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how agencies handle complaints about compliance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the age nondiscrimination policy.

@@ -45,7 +45,7 @@ A firm is the apparently successful offeror for an audit services contract. Befo
 
 ## Never confuse
 
-The provision is about responsibility before award, and the clause is about performance after award [@CL-CMP-4346; @CL-CMP-4348]. To be determined responsible, an audit services offeror must meet the general standards of responsibility and the three listed criteria [@CL-CMP-4346], and the apparently successful offeror must also give evidence of licensing before award [@CL-CMP-4347]. How the Government requests audits of a contractor is covered on [Contract audit services](../../estimating/pricing/est-contract-audit-services.md). The disclosure of disciplinary proceedings is a separate pair of texts, covered on [Preaward and postaward transparency for firms supporting Department of Defense audits](cmp-audit-support-transparency-requirements.md).
+The provision is about responsibility before award rather than performance after award, which is the clause's subject [@CL-CMP-4346; @CL-CMP-4348]: to be determined responsible, an audit services offeror must meet the general standards of responsibility and the three listed criteria [@CL-CMP-4346], and the apparently successful offeror must also give evidence of licensing before award [@CL-CMP-4347]. How the Government requests audits of a contractor is covered on [Contract audit services](../../estimating/pricing/est-contract-audit-services.md). The disclosure of disciplinary proceedings is a separate pair of texts, covered on [Preaward and postaward transparency for firms supporting Department of Defense audits](cmp-audit-support-transparency-requirements.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Whether the company offers audit services to the Department of Defense, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special standards of responsibility and compliance with audit standards.

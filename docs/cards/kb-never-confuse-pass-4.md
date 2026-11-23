@@ -18,7 +18,8 @@ Every Never confuse part in the areas this part covers, the remaining areas afte
 
 ## Scope
 
-- Files: `corpus/pages/` (the Never confuse part and the Change note of each page this part rewrites), `corpus/registers/claims.csv` (appended rows only).
+- Files: `corpus/pages/` (the Never confuse part and the Change note of each page this part rewrites), `corpus/registers/claims.csv` (appended rows only), `docs/cards/kb-never-confuse-pass-5.md`.
+- Registration lines: `docs/plan/PLAN.md` (adds `kb-never-confuse-pass-5`), `docs/cards/kb-edition-dates-2.md` (adds `kb-never-confuse-pass-5` to `Cards merged`).
 - Docs to update: none.
 
 ## Out of scope

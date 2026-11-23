@@ -57,9 +57,7 @@ An employee is convicted on 3 March and tells the employer in writing on 6 March
 
 ## Never confuse
 
-The employee's notice to the employer is due no later than 5 days after the conviction [@CL-CMP-5437]. The contractor's notice to the Contracting Officer is due within 10 days after receiving notice under subdivision (b)(4)(ii), from an employee or otherwise receiving actual notice of the conviction [@CL-CMP-5438], and the contractor's action is due within 30 days after receiving notice under subdivision (b)(4)(ii) of a conviction [@CL-CMP-5439].
-
-The DFARS clause on a drug-free work force is covered in [Drug-free work force (DFARS clause)](cmp-dfars-drug-free-work-force.md).
+The employee's notice to the employer differs from the contractor's notices: the employee's notice to the employer is due no later than 5 days after the conviction [@CL-CMP-5437]; the contractor's notice to the Contracting Officer is due within 10 days after receiving notice under subdivision (b)(4)(ii), from an employee or otherwise receiving actual notice of the conviction [@CL-CMP-5438], and the contractor's action is due within 30 days after receiving notice under subdivision (b)(4)(ii) of a conviction [@CL-CMP-5439]. The DFARS clause on a drug-free work force is covered in [Drug-free work force (DFARS clause)](cmp-dfars-drug-free-work-force.md).
 
 ## Company calibration
 
@@ -69,6 +67,7 @@ How a conviction notice reaches the contracting officer and who owns the awarene
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned statement publication, subdivision (b)(4)(ii) notice references and the statutory citation in the controlled substance definition with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated timing as alternatives by contract duration, limited the covered-employee sentence to the definition of directly engaged, restated the RFO provisions on their own claims, replaced the contrast paragraph with cited timing statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the DFARS drug-free work force clause.

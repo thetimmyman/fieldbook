@@ -49,7 +49,7 @@ A buy review lists three competing interests: a lower unit price, a shorter lead
 
 ## Never confuse
 
-The framework for the System includes the Guiding Principles and also the supporting policies and procedures in the FAR [@CL-CMP-8381]. The acquisition team is defined to identify participants from the customer to the contractor [@CL-CMP-8384]. For the performance standards and early industry communication, see [Guiding principles and communication with industry](cmp-guiding-principles-and-industry-communication.md).
+The Guiding Principles are not the whole framework: the framework for the System includes the Guiding Principles and also the supporting policies and procedures in the FAR [@CL-CMP-8381]. The acquisition team is defined to identify participants from the customer to the contractor [@CL-CMP-8384]. For the performance standards and early industry communication, see [Guiding principles and communication with industry](cmp-guiding-principles-and-industry-communication.md).
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Whether the company's reviews treat every participant, from the customer through
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut unsupported absence statements and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Guiding Principles and the acquisition team.

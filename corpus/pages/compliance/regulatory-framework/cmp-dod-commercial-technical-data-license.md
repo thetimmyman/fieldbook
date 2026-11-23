@@ -47,7 +47,7 @@ A commercial pump was developed entirely with the supplier's own funds, and the 
 
 ## Never confuse
 
-For the noncommercial technical data clause [@CL-CMP-3759], see the card for [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md) and the card for [markings](cmp-dod-technical-data-markings.md). For commercial computer software, see [Commercial computer software license clause](cmp-commercial-computer-software-license.md).
+The commercial license covers data developed exclusively at private expense rather than all data: the clause governs the technical data pertaining to any portion of a commercial product or commercial service that was developed exclusively at private expense [@CL-CMP-3783]. For the noncommercial technical data clause [@CL-CMP-3759], see the card for [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md) and the card for [markings](cmp-dod-technical-data-markings.md). For commercial computer software, see [Commercial computer software license clause](cmp-commercial-computer-software-license.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which products on executed contracts qualify as commercial products or services,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the actor lead-in of paragraph (e) for release from liability.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated listed categories as any of; replaced uncited explanation, contrast and misattributed cross-reference with cited statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD technical data for commercial products and services.

@@ -57,7 +57,7 @@ The official knowingly failed to comply with 3.104-3, so the official is subject
 
 ## Never confuse
 
-Criminal and civil penalties, and administrative remedies, may apply to conduct that violates chapter 21 of title 41 of the United States Code [@CL-CMP-7641]. Paragraph (a) names penalties and administrative action [@CL-CMP-7642], and paragraph (b) names criminal, civil, or administrative penalties [@CL-CMP-7643]. Paragraph (c) names agency administrative actions under 5 CFR 2635.604(d) if the official's disqualification interferes substantially with the individual's ability to perform assigned duties [@CL-CMP-7644; @CL-CMP-7645].
+The administrative action differs from the criminal and civil penalties: criminal and civil penalties, and administrative remedies, may apply to conduct that violates chapter 21 of title 41 of the United States Code [@CL-CMP-7641]; paragraph (a) names penalties and administrative action [@CL-CMP-7642], and paragraph (b) names criminal, civil, or administrative penalties [@CL-CMP-7643]. Paragraph (c) names agency administrative actions under 5 CFR 2635.604(d) if the official's disqualification interferes substantially with the individual's ability to perform assigned duties [@CL-CMP-7644; @CL-CMP-7645].
 
 ## Company calibration
 
@@ -67,6 +67,7 @@ The company must confirm which procurement integrity control findings, correctiv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the resumption conditions and participation scope for the official; cut uncited negatives, characterizations and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement integrity penalties and remedies.

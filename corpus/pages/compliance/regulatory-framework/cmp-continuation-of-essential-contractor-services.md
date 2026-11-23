@@ -45,9 +45,7 @@ A contract lists a base-support service as essential [@CL-CMP-4314]. The contrac
 
 ## Never confuse
 
-Contractor personnel supporting deployed forces are covered in [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md). The cost notice is due within ninety days after continued performance has been directed by the contracting officer, or within any additional period that the contracting officer approves in writing [@CL-CMP-4319].
-
-The solicitation provision, covered in [Notice of continuation of essential services and services at installations being closed](cmp-essential-services-notice-and-closing-installations.md), says the offeror shall provide with its offer a written plan describing how it will continue to perform the essential contractor services during periods of crisis [@CL-CMP-4323]. The clause says the Mission-Essential Contractor Services Plan submitted by the Contractor is incorporated in the contract [@CL-CMP-4315].
+The plan offered with the proposal is not the plan in the contract: the solicitation provision, covered in [Notice of continuation of essential services and services at installations being closed](cmp-essential-services-notice-and-closing-installations.md), says the offeror shall provide with its offer a written plan describing how it will continue to perform the essential contractor services during periods of crisis [@CL-CMP-4323], while the clause says the Mission-Essential Contractor Services Plan submitted by the Contractor is incorporated in the contract [@CL-CMP-4315]. Contractor personnel supporting deployed forces are covered in [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md). The cost notice is due within ninety days after continued performance has been directed by the contracting officer, or within any additional period that the contracting officer approves in writing [@CL-CMP-4319].
 
 ## Company calibration
 
@@ -57,6 +55,7 @@ Which contracts carry the clause, which services sit in the essential-services a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: worked example and contrast wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the crisis notice sentence so the duty keeps the timing and the best-efforts cooperation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for continuation of essential contractor services.

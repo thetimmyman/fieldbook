@@ -45,7 +45,7 @@ A contractor awards a subcontract on day 0 for the development of a listed item 
 
 ## Never confuse
 
-The manual under this clause is DoD Manual 5100.76, Physical Security of Sensitive Conventional Arms, Ammunition, and Explosives [@CL-CMP-4527]. For the Contractor's duty to comply with DoD Manual 4145.26, DoD Contractors' Safety Manual for Ammunition and Explosives [@CL-CMP-4500], see [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md). The requirements of DoD Manual 5100.76 apply to the listed AA&E items provided to the Contractor as Government-furnished property under the contract [@CL-CMP-4528]; for the general property duties, see the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
+The physical security manual is not the safety manual: the manual under this clause is DoD Manual 5100.76, Physical Security of Sensitive Conventional Arms, Ammunition, and Explosives [@CL-CMP-4527]. For the Contractor's duty to comply with DoD Manual 4145.26, DoD Contractors' Safety Manual for Ammunition and Explosives [@CL-CMP-4500], see [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md). The requirements of DoD Manual 5100.76 apply to the listed AA&E items provided to the Contractor as Government-furnished property under the contract [@CL-CMP-4528]; for the general property duties, see the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which contracts carry the clause, which AA&E items are listed on each, and which
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced meta wording in applies-to row; replaced contrast sentences with cited statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for safeguarding sensitive conventional arms, ammunition and explosives.

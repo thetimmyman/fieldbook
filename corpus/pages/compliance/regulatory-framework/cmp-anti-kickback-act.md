@@ -43,7 +43,7 @@ A prime contractor pays a subcontractor 500,000 under a subcontract, and 20,000 
 
 ## Never confuse
 
-The procedures requirement belongs to the contractor and is to be included in each prime contract exceeding $200,000, other than for commercial products or commercial services [@CL-CMP-2044]. The contracting officer may offset the amount of a kickback against monies owed to the prime contractor under the prime contract to which it relates [@CL-CMP-2041], and may direct a prime contractor to withhold the amount of any kickback which was or may be offset from sums owed to a subcontractor [@CL-CMP-2042]. The reporting duty applies to any possible violation once the prime contractor or subcontractor has reasonable grounds to believe it may have occurred [@CL-CMP-2047].
+Recovery runs against monies owed under the prime contract rather than against the subcontractor directly: the contracting officer may offset the amount of a kickback against monies owed to the prime contractor under the prime contract to which it relates [@CL-CMP-2041], and may direct a prime contractor to withhold the amount of any kickback which was or may be offset from sums owed to a subcontractor [@CL-CMP-2042]. The procedures requirement belongs to the contractor and is to be included in each prime contract exceeding $200,000, other than for commercial products or commercial services [@CL-CMP-2044]. The reporting duty applies to any possible violation once the prime contractor or subcontractor has reasonable grounds to believe it may have occurred [@CL-CMP-2047].
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which contracts carry the Anti-Kickback Procedures clause, and who owns kickback
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: corrected the offset and withholding actor wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Anti-Kickback Act and the Anti-Kickback Procedures clause.

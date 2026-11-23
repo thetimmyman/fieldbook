@@ -49,7 +49,7 @@ A commercial products contract includes the clause. The contractor's compliance 
 
 ## Never confuse
 
-Paragraph (a) lists the FAR clauses incorporated in the contract by reference [@CL-CMP-9039], while paragraph (b) covers the FAR clauses that the Contracting Officer has indicated as being incorporated in the contract by reference [@CL-CMP-9045]. RFO FAR 52.212-5 is [Reserved] [@CL-CMP-0644], while the paragraph (a) list is in codified FAR 52.212-5 [@CL-CMP-9039].
+The paragraph (a) list is not the paragraph (b) list: paragraph (a) lists the FAR clauses incorporated in the contract by reference [@CL-CMP-9039], while paragraph (b) covers the FAR clauses that the Contracting Officer has indicated as being incorporated in the contract by reference [@CL-CMP-9045]. RFO FAR 52.212-5 is [Reserved] [@CL-CMP-0644], while the paragraph (a) list is in codified FAR 52.212-5 [@CL-CMP-9039].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ The company must confirm that its contract register records these by-reference c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: uncited inferences and contrasts replaced with cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -45,9 +45,7 @@ Assume a contractor has 40 staff on a help desk, and 12 of them perform informat
 
 ## Never confuse
 
-For the mitigation clause, see [Supply chain risk and telecommunications security equipment](../trade-cyber/cmp-supply-chain-risk-and-telecommunications-security-equipment.md). For the safeguarding of contractor information systems, see [Basic safeguarding clause controls](cmp-basic-safeguarding-clause-controls.md).
-
-The FAR clause on privacy training for contractor employees is covered in [Privacy training for contractor employees](cmp-privacy-training.md).
+The information assurance training clause is not the supply chain risk notice: the training clause requires the contractor to ensure that personnel accessing information systems have the proper and current information assurance certification to perform information assurance functions [@CL-CMP-4602], while the notice provision lets the Government, to manage supply chain risk, use the authorities provided by the statute the provision cites and consider public and non-public information, including all-source intelligence, relating to an offeror and its supply chain [@CL-CMP-4606]. For the mitigation clause, see [Supply chain risk and telecommunications security equipment](../trade-cyber/cmp-supply-chain-risk-and-telecommunications-security-equipment.md). For the safeguarding of contractor information systems, see [Basic safeguarding clause controls](cmp-basic-safeguarding-clause-controls.md). The FAR clause on privacy training for contractor employees is covered in [Privacy training for contractor employees](cmp-privacy-training.md).
 
 ## Company calibration
 
@@ -57,6 +55,7 @@ Which contracts carry the training clause or the notice provision, and who track
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added certification lead-in, statute and no review wording; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on privacy training.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for information assurance training and the supply chain risk notice.

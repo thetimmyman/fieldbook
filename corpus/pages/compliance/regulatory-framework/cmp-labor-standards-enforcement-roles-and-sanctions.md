@@ -55,11 +55,7 @@ The Secretary proposes to terminate the contract. The agency head gives written 
 
 ## Never confuse
 
-The Secretary may conduct compliance evaluations or investigate complaints to determine if any of the requirements of the clause at FAR 52.222-40 have been violated [@CL-CMP-6807]. The Secretary's bar on termination, suspension and debarment applies where the agency head has provided written objections that include a statement of reasons and a finding that the contractor's performance is essential to the agency's mission, and continues to object [@CL-CMP-6810; @CL-CMP-6990].
-
-FAR 22.1600 prescribes policies and procedures to implement Executive Order 13496 [@CL-CMP-6985]. FAR 22.803 makes the Secretary of Labor responsible for administration and enforcement of prescribed parts of Executive Order 11246 [@CL-CMP-6804].
-
-If the applicability of Executive Order 11246 and implementing regulations is questioned, the contracting officer shall forward the matter to the Deputy Assistant Secretary, through agency channels, for resolution [@CL-CMP-6806].
+The E.O. 11246 enforcement differs from the E.O. 13496 employee-rights subpart: the Secretary may conduct compliance evaluations or investigate complaints to determine if any of the requirements of the clause at FAR 52.222-40 have been violated [@CL-CMP-6807]; the Secretary's bar on termination, suspension and debarment applies where the agency head has provided written objections that include a statement of reasons and a finding that the contractor's performance is essential to the agency's mission, and continues to object [@CL-CMP-6810; @CL-CMP-6990]. FAR 22.1600 prescribes policies and procedures to implement Executive Order 13496 [@CL-CMP-6985]. FAR 22.803 makes the Secretary of Labor responsible for administration and enforcement of prescribed parts of Executive Order 11246 [@CL-CMP-6804]. If the applicability of Executive Order 11246 and implementing regulations is questioned, the contracting officer shall forward the matter to the Deputy Assistant Secretary, through agency channels, for resolution [@CL-CMP-6806].
 
 ## Company calibration
 
@@ -69,6 +65,7 @@ Who owns a response to a Department of Labor or OFCCP inquiry, and which open fi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated applicability routing, insertion rule and agency head objection with cited text; cut contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Department of Labor enforcement roles and sanctions.

@@ -52,7 +52,7 @@ A contractor's representative gives a Government buyer a gift that costs the con
 
 ## Never confuse
 
-The clause reaches a gratuity (e.g., an entertainment or gift) offered or given to an officer, official, or employee of the Government and intended, by the gratuity, to obtain a contract or favorable treatment under a contract, and termination follows a determination made after notice and hearing [@CL-CMP-5554; @CL-CMP-5555; @CL-CMP-5556].
+The clause reaches a gratuity given to obtain business rather than any gift to any Government employee: it reaches a gratuity (e.g., an entertainment or gift) offered or given to an officer, official, or employee of the Government and intended, by the gratuity, to obtain a contract or favorable treatment under a contract, and termination follows a determination made after notice and hearing [@CL-CMP-5554; @CL-CMP-5555; @CL-CMP-5556].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm how gifts and hospitality are logged and who reviews them against the cl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the RFO clause wording from codified claims; cut an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart applicability and the clause prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

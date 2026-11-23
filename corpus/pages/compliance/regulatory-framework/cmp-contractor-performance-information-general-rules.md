@@ -46,9 +46,7 @@ A contract worth 3,000,000 contains the small business subcontracting plan claus
 
 ## Never confuse
 
-Past performance evaluations are covered in [Past performance evaluations](../../operating-model/cadence/opm-past-performance-evaluations.md). The clause prescription says when the payments clause is inserted [@CL-CMP-2599], and the clause sets a notice from the contractor to the contracting officer [@CL-CMP-2668]. Subcontractor nonpayment assertions and information requests are covered in [Subcontractor nonpayment assertions and information requests](../../supply-chain/procure-to-pay/sup-subcontractor-nonpayment-and-information-requests.md).
-
-The codified section describes past performance information as relevant for future source selection purposes [@CL-CMP-2596], while RFO FAR 42.1101(a) says it is relevant information for future purposes [@CL-CMP-6878].
+Past performance evaluations are covered in [Past performance evaluations](../../operating-model/cadence/opm-past-performance-evaluations.md). The clause prescription says when the payments clause is inserted [@CL-CMP-2599], and the clause sets a notice from the contractor to the contracting officer [@CL-CMP-2668]; the clause is not the evaluation of past performance itself. Subcontractor nonpayment assertions and information requests are covered in [Subcontractor nonpayment assertions and information requests](../../supply-chain/procure-to-pay/sup-subcontractor-nonpayment-and-information-requests.md). The codified section describes past performance information as relevant for future source selection purposes [@CL-CMP-2596], while RFO FAR 42.1101(a) says it is relevant information for future purposes [@CL-CMP-6878].
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Which executed contracts contain the small business subcontracting plan clause a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: payments notice, example and contrast wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 42 and part 52 citations and how DoD's class deviations apply them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor performance information and the small business payments clause prescription.

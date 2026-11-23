@@ -49,7 +49,7 @@ Answer: the prime fits the description of a lead system integrator with system r
 
 ## Never confuse
 
-The provision asks the offeror to represent facts at the offer stage, and the clause binds the Contractor during performance [@CL-CMP-4108; @CL-CMP-4111]. A lead system integrator with system responsibility is defined by its expected share of the work [@CL-CMP-4113]. The clause defines a lead system integrator without system responsibility as a prime contractor under a contract for the procurement of services, the primary purpose of which is to perform acquisition functions closely associated with inherently governmental functions [@CL-CMP-4134].
+The representation of intent differs from the financial-interest bar during performance: the provision asks the offeror to represent facts at the offer stage, and the clause binds the Contractor during performance [@CL-CMP-4108; @CL-CMP-4111]. A lead system integrator with system responsibility is defined by its expected share of the work [@CL-CMP-4113]. The clause defines a lead system integrator without system responsibility as a prime contractor under a contract for the procurement of services, the primary purpose of which is to perform acquisition functions closely associated with inherently governmental functions [@CL-CMP-4134].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether any current or planned contract makes the company a lead system integrat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added scope and remedial measures to the financial interest clause and recast a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added services described in the solicitation to the financial interest representation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for lead system integrator limits and prohibited financial interests.

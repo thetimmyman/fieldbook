@@ -47,9 +47,7 @@ A civilian agency asks a DoD office to perform an audit, and the work is worth 4
 
 ## Never confuse
 
-Agencies shall avoid duplicate audits, reviews, inspections and examinations of contractors or subcontractors by more than one agency, through the use of interagency agreements [@CL-CMP-2550]. For interagency acquisitions, see [Interagency acquisitions](../../contract-finance/funding/ctf-interagency-acquisitions.md). The roles of the offices that perform the services are on [Oversight roles](../audit-retention/cmp-oversight-roles.md).
-
-The section number 42.002 is interagency agreements in the codified text [@CL-CMP-2550] but the cognizant Federal agency in the RFO text [@CL-CMP-0007], and the RFO section on interagency agreements is numbered 42.001 [@CL-CMP-0123].
+The interagency-agreement duty is about avoiding duplicate reviews rather than about sharing work: agencies shall avoid duplicate audits, reviews, inspections and examinations of contractors or subcontractors by more than one agency, through the use of interagency agreements [@CL-CMP-2550]. For interagency acquisitions, see [Interagency acquisitions](../../contract-finance/funding/ctf-interagency-acquisitions.md). The roles of the offices that perform the services are on [Oversight roles](../audit-retention/cmp-oversight-roles.md). The section number 42.002 is interagency agreements in the codified text [@CL-CMP-2550] but the cognizant Federal agency in the RFO text [@CL-CMP-0007], and the RFO section on interagency agreements is numbered 42.001 [@CL-CMP-0123].
 
 ## Company calibration
 
@@ -59,6 +57,7 @@ Which executed contracts rely on a servicing agency for administration or audit,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the central control point team and request-only rule; removed meta wording and unsupported contrast.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for interagency agreements for contract administration and audit.

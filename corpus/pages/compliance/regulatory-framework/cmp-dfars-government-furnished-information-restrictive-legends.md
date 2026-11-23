@@ -47,7 +47,7 @@ A contractor receives Government-furnished technical data marked with a limited 
 
 ## Never confuse
 
-For the Government's rights in data the contractor delivers, see [Rights in data, general: definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md) and [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). For the rights clause for SBIR and STTR data, see [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md).
+Government-furnished information is data received rather than data delivered: the clause addresses technical data or computer software provided to the Contractor as Government-furnished information under the contract [@CL-CMP-3978], and the Contractor shall use, modify, reproduce, perform, or display technical data received from the Government with limited rights legends, computer software received with restricted rights legends, or SBIR/STTR technical data or computer software received with SBIR/STTR data rights legends [@CL-CMP-3942]. For the Government's rights in data the contractor delivers, see [Rights in data, general: definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md) and [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). For the rights clause for SBIR and STTR data, see [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which executed contracts carry this clause, who receives Government-furnished in
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: restrictive legends: restored the SBIR/STTR data protection period limit in the summary.

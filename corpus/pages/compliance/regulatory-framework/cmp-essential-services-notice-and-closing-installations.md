@@ -45,9 +45,7 @@ An offeror bids on a base-support contract with a list of essential services. It
 
 ## Never confuse
 
-The notice provision applies at the offer stage and asks for a plan with the offer [@CL-CMP-4323]. The contract clause covered on [Continuation of essential contractor services](cmp-continuation-of-essential-contractor-services.md) incorporates the contractor's submitted plan into the contract [@CL-CMP-4315]. For deployed-forces duties, which are a separate clause, see [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
-
-The installation-closure clause provides that professional employees shall be used by the local government to provide services under the contract to the extent that professionals are available in the area under the jurisdiction of that government [@CL-CMP-4327].
+The offer-stage notice is not the contract clause: the notice provision applies at the offer stage and asks for a plan with the offer [@CL-CMP-4323], while the contract clause covered on [Continuation of essential contractor services](cmp-continuation-of-essential-contractor-services.md) incorporates the contractor's submitted plan into the contract [@CL-CMP-4315]. For deployed-forces duties, which are a separate clause, see [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md). The installation-closure clause differs again: it provides that professional employees shall be used by the local government to provide services under the contract to the extent that professionals are available in the area under the jurisdiction of that government [@CL-CMP-4327].
 
 ## Company calibration
 
@@ -57,5 +55,6 @@ Which solicitations and contracts carry these texts, and who owns the offer-stag
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrast and single-rule wording about the installation-closure clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the essential-services notice and services at installations being closed.

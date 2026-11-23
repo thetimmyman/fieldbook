@@ -44,7 +44,7 @@ A site employs twelve laborers and four carpenters on a building financed in par
 
 ## Never confuse
 
-The contractor must keep a copy of the applicable wage determination posted at the site of the work [@CL-CMP-6736], and the contracting officer furnishes Form WH-1321 for posting with the wage rates [@CL-CMP-6737]. Each contractor and subcontractor furnishes weekly a statement of compliance with respect to the wages paid each employee during the preceding week [@CL-CMP-6734]. The clause itself, apprentices and trainees are covered on [Apprentices, trainees and the Copeland Act](../regulatory-framework/cmp-apprentices-trainees-and-copeland-act.md).
+The posting duty is not the weekly statement: the contractor must keep a copy of the applicable wage determination posted at the site of the work [@CL-CMP-6736], and the contracting officer furnishes Form WH-1321 for posting with the wage rates [@CL-CMP-6737], while each contractor and subcontractor furnishes weekly a statement of compliance with respect to the wages paid each employee during the preceding week [@CL-CMP-6734]. The clause itself, apprentices and trainees are covered on [Apprentices, trainees and the Copeland Act](../regulatory-framework/cmp-apprentices-trainees-and-copeland-act.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Confirm where each site keeps the determination and the poster, which Government
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated who posts what and cut an uncited contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Copeland Act compliance and posting of wage determinations.
