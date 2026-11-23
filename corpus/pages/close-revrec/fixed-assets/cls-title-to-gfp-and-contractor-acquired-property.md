@@ -45,7 +45,7 @@ A fixed-price contract has no financing provisions and no special title terms. T
 
 ## Never confuse
 
-The Government retains title to all Government-furnished property until properly disposed of, as authorized by law or regulation, whereas under fixed-price type contracts without financing provisions or other specific title-passage requirements, the contractor retains title to all property acquired by the contractor for use on the contract except for property identified as a deliverable end item [@CL-CLS-0712; @CL-CLS-0714]. For title under progress payments, see [Government title to progress payment inventory](../inventory-wip/cls-government-title-progress-payment-inventory.md). For title and risk of loss under performance-based payments, see [Performance-based payments title and risk of loss](../../contract-finance/financing/ctf-pbp-title-and-risk-of-loss.md).
+Government-furnished property, unlike contractor-acquired property, stays with the Government until disposal: the Government retains title to all Government-furnished property until properly disposed of, as authorized by law or regulation, whereas under fixed-price type contracts without financing provisions or other specific title-passage requirements, the contractor retains title to all property acquired by the contractor for use on the contract except for property identified as a deliverable end item [@CL-CLS-0712; @CL-CLS-0714]. For title under progress payments, see [Government title to progress payment inventory](../inventory-wip/cls-government-title-progress-payment-inventory.md). For title and risk of loss under performance-based payments, see [Performance-based payments title and risk of loss](../../contract-finance/financing/ctf-pbp-title-and-risk-of-loss.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who keeps the title records for Government-furnished and contractor-acquired pro
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the contractor-acquisition qualifier on fixed-price title and cited the Never confuse contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the financing-provisions title rule to property acquired or fabricated by the contractor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for title to Government-furnished and contractor-acquired property.

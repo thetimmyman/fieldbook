@@ -47,7 +47,7 @@ A contractor incurs direct costs of 400,000 and indirect costs of 80,000 prepari
 
 ## Never confuse
 
-The use of business judgment, as distinguished from strict accounting principles, is the heart of a settlement [@CL-CLS-0501], while the cost principles and procedures in the applicable subpart of part 31 shall, subject to the general principles in 49.201, be used in asserting, negotiating, or determining costs relevant to termination settlements under contracts with other than educational institutions and be a guide for the negotiation of settlements under contracts for experimental, developmental, or research work with educational institutions (but see 31.104) [@CL-CLS-0504; @CL-CLS-0432]. For the allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For contract change accounting, see [Change order accounting](cls-change-order-accounting.md). For the termination clause that sets proposal deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+Business judgment rather than strict accounting principles alone is the heart of a settlement: the use of business judgment, as distinguished from strict accounting principles, is the heart of a settlement [@CL-CLS-0501], while the cost principles and procedures in the applicable subpart of part 31 shall, subject to the general principles in 49.201, be used in asserting, negotiating, or determining costs relevant to termination settlements under contracts with other than educational institutions and be a guide for the negotiation of settlements under contracts for experimental, developmental, or research work with educational institutions (but see 31.104) [@CL-CLS-0504; @CL-CLS-0432]. For the allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For contract change accounting, see [Change order accounting](cls-change-order-accounting.md). For the termination clause that sets proposal deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who reviews termination settlement judgments and the close adjustments that foll
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.113(b) educational-institution cost-principles guide and codified citations in table.
 - COMPATIBLE_EXTENSION, 2026-10-31: applies-to row scope separated by section.

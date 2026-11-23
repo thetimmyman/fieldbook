@@ -43,7 +43,7 @@ A contractor delivers 100 pumps and the contracting officer conditionally accept
 
 ## Never confuse
 
-When supplies or services are accepted with critical or major nonconformances as authorized in FAR 46.407(c), the contracting officer must modify the contract to provide for an equitable price reduction or other consideration [@CL-OPM-0070], whereas in the case of conditional acceptance, amounts withheld from payments generally should be at least sufficient to cover the estimated cost and related profit to correct deficiencies and complete unfinished work, and the contracting officer must document in the contract file the basis for the amounts withheld [@CL-OPM-0071; @CL-OPM-0122]. Under FAR 46.407(h), the contracting officer shall provide disposition instructions for counterfeit or suspect counterfeit items in accordance with agency policy, and agency policy may require the contracting officer to direct the contractor to retain such items for investigative or evidentiary purposes [@CL-OPM-0074], while FAR 46.317(a) prescribes when the contracting officer shall insert the clause at FAR 52.246-26, Reporting Nonconforming Items, in solicitations and contracts, except as provided in FAR 46.317(b) [@CL-OPM-0075].
+A price reduction and a conditional acceptance are not the same remedy: when supplies or services are accepted with critical or major nonconformances as authorized in FAR 46.407(c), the contracting officer must modify the contract to provide for an equitable price reduction or other consideration [@CL-OPM-0070], whereas in the case of conditional acceptance, amounts withheld from payments generally should be at least sufficient to cover the estimated cost and related profit to correct deficiencies and complete unfinished work, and the contracting officer must document in the contract file the basis for the amounts withheld [@CL-OPM-0071; @CL-OPM-0122]. Under FAR 46.407(h), the contracting officer shall provide disposition instructions for counterfeit or suspect counterfeit items in accordance with agency policy, and agency policy may require the contracting officer to direct the contractor to retain such items for investigative or evidentiary purposes [@CL-OPM-0074], while FAR 46.317(a) prescribes when the contracting officer shall insert the clause at FAR 52.246-26, Reporting Nonconforming Items, in solicitations and contracts, except as provided in FAR 46.317(b) [@CL-OPM-0075].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Which quality and contracts roles own price-reduction proposals, withhold tracki
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the remaining sentences of FAR 46.407(f) and full FAR 46.317 qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the clause paragraph that may be modified.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for price reduction, withholds, rejection notices and counterfeit items.

@@ -48,7 +48,7 @@ A site engineer gives a verbal direction that the Contractor regards as a change
 
 ## Never confuse
 
-Change order accounting is on [Change order accounting](cls-change-order-accounting.md). The changes clause for construction contracts is on [Changes clause for construction contracts](cls-changes-construction.md).
+A contractor's notice under this clause is not a change order: change order accounting is on [Change order accounting](cls-change-order-accounting.md), and the changes clause for construction contracts is on [Changes clause for construction contracts](cls-changes-construction.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Who confirms which contracts carry the notification of changes clause, and where
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: notification of changes: response alternatives, adjustment condition and RFO wording tied to RFO claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: added whether changed or not changed by such conduct.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the continued performance exception.

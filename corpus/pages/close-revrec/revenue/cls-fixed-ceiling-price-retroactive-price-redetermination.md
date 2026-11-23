@@ -49,7 +49,7 @@ A contractor performs a research and development study under a fixed-ceiling-pri
 
 ## Never confuse
 
-This contract type provides for retroactive price redetermination within the ceiling after completion of the contract [@CL-CLS-0556], and the contracting officer should make clear before award that the contractor's management effectiveness and ingenuity will be considered in retroactively redetermining the price [@CL-CLS-0678]. Cost-reimbursement types of contracts provide for payment of allowable incurred costs, to the extent prescribed in the contract [@CL-CLS-0567]. For the prospective type, see [Fixed-price contracts with prospective price redetermination](cls-fixed-price-prospective-price-redetermination.md). For cost-reimbursement contracts, see [Cost-reimbursement contracts](cls-cost-reimbursement-contracts.md). For payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md).
+Retroactive redetermination happens after performance rather than during it: this contract type provides for retroactive price redetermination within the ceiling after completion of the contract [@CL-CLS-0556], and the contracting officer should make clear before award that the contractor's management effectiveness and ingenuity will be considered in retroactively redetermining the price [@CL-CLS-0678]. Cost-reimbursement types of contracts provide for payment of allowable incurred costs, to the extent prescribed in the contract [@CL-CLS-0567]. For the prospective type, see [Fixed-price contracts with prospective price redetermination](cls-fixed-price-prospective-price-redetermination.md). For cost-reimbursement contracts, see [Cost-reimbursement contracts](cls-cost-reimbursement-contracts.md). For payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Who reviews unbilled amounts, billing price variances, and retroactive redetermi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: fixed-ceiling-price retroactive redetermination: uncited contrast reworded.
 - COMPATIBLE_EXTENSION, 2026-10-31: second appropriateness condition and approver stated as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-ceiling-price contracts with retroactive price redetermination.

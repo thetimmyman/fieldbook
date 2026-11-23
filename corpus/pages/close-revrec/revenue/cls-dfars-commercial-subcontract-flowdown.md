@@ -47,7 +47,7 @@ A prime contractor buys a commercial item from a supplier. One DFARS clause says
 
 ## Never confuse
 
-The Contractor shall not include the terms of any FAR or DFARS clause in subcontracts for commercial products or commercial services at any tier unless an exception applies [@CL-CLS-1170; @CL-CLS-1171]. The Contractor shall include the terms of this clause, including paragraph (c), in subcontracts awarded under the contract, including subcontracts for the acquisition of commercial products or commercial services [@CL-CLS-1173]. The wider rules for subcontracts for commercial products and commercial services are on [Subcontracts for commercial products and commercial services](../../supply-chain/sourcing-evidence/sup-subcontracts-commercial-products-and-services.md). Flowdown of the small business subcontracting plan clause is a separate matter on [Subcontracting plan clause: master and commercial plans, reporting and flowdown](../../market/programs/mkt-subcontracting-plan-master-commercial-reporting-flowdown.md), and the FAR and DFARS structure is on [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md).
+The flowdown of this clause is broader than the general rule instead of narrower: the Contractor shall not include the terms of any FAR or DFARS clause in subcontracts for commercial products or commercial services at any tier unless an exception applies [@CL-CLS-1170; @CL-CLS-1171], yet the Contractor shall include the terms of this clause, including paragraph (c), in subcontracts awarded under the contract, including subcontracts for the acquisition of commercial products or commercial services [@CL-CLS-1173]. The wider rules for subcontracts for commercial products and commercial services are on [Subcontracts for commercial products and commercial services](../../supply-chain/sourcing-evidence/sup-subcontracts-commercial-products-and-services.md). Flowdown of the small business subcontracting plan clause is a separate matter on [Subcontracting plan clause: master and commercial plans, reporting and flowdown](../../market/programs/mkt-subcontracting-plan-master-commercial-reporting-flowdown.md), and the FAR and DFARS structure is on [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed contracts carry the clause, and who confirms which DFARS clauses 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: commercial subcontract flowdown: paragraph (c) wording, uncited inference and gap statements removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: wrote the two exceptions as alternatives and dropped most.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS section that prescribes the commercial subcontracts clause.

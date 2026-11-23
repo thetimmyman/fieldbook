@@ -56,7 +56,7 @@ Under paragraph (a), the filing describes the suit by court, date instituted, pa
 
 ## Never confuse
 
-Paragraph (a) requires furnishing the information in paragraphs (a)(1) through (a)(5) if material to a security holder's decision whether to sell, tender or hold the securities sought in the tender offer [@CL-MNA-0329], and paragraph (a)(1) excludes any agreement, arrangement or understanding disclosed under any other sections of Regulation M-A (§§ 229.1000 through 229.1016) [@CL-MNA-0330; @CL-MNA-0331]. Under the Instruction to paragraph (a)(1), in an issuer tender offer, the filing must disclose any material agreement, arrangement, understanding or relationship between the offeror and any of its executive officers, directors, controlling persons or subsidiaries [@CL-MNA-0332], whereas paragraph (b) requires the information required by Item 402(t)(2) and (3) and in the tabular format set forth in Item 402(t)(1) with respect to each named executive officer (1) of the subject company in a Rule 13e-3 transaction, or (2) of the issuer whose securities are the subject of a third-party tender offer [@CL-MNA-1093; @CL-MNA-1094].
+Paragraph (a)'s general items and the instruction's issuer-offer items are not the same list: paragraph (a) requires furnishing the information in paragraphs (a)(1) through (a)(5) if material to a security holder's decision whether to sell, tender or hold the securities sought in the tender offer [@CL-MNA-0329], and paragraph (a)(1) excludes any agreement, arrangement or understanding disclosed under any other sections of Regulation M-A (§§ 229.1000 through 229.1016) [@CL-MNA-0330; @CL-MNA-0331]. Under the Instruction to paragraph (a)(1), in an issuer tender offer, the filing must disclose any material agreement, arrangement, understanding or relationship between the offeror and any of its executive officers, directors, controlling persons or subsidiaries [@CL-MNA-0332], whereas paragraph (b) requires the information required by Item 402(t)(2) and (3) and in the tabular format set forth in Item 402(t)(1) with respect to each named executive officer (1) of the subject company in a Rule 13e-3 transaction, or (2) of the issuer whose securities are the subject of a third-party tender offer [@CL-MNA-1093; @CL-MNA-1094].
 
 ## Company calibration
 
@@ -65,6 +65,7 @@ Which agreements, approvals, proceedings and residual facts the diligence record
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned Item 1011(a), (b), and Instructions 1 and 2 with 17 CFR 229.1011 quotes and removed meta phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: definitions of foreign private issuer and emerging growth company added.

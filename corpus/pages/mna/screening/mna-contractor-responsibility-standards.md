@@ -45,7 +45,7 @@ Answer: that is the kind of commitment or explicit arrangement that is acceptabl
 
 ## Never confuse
 
-In determining a concern's size under 13 CFR 121.103(a)(6), SBA counts the receipts, employees, or other measure of size of the concern whose size is at issue and all of its domestic and foreign affiliates, regardless of whether the affiliates are organized for profit [@CL-MNA-0505]. Under FAR 9.104-3(c)(1), affiliated concerns are normally considered separate entities in determining whether the concern that is to perform the contract meets the applicable standards for responsibility [@CL-MNA-0552], and the contracting officer shall consider the affiliate's past performance and integrity when they may adversely affect the prospective contractor's responsibility [@CL-MNA-0545].
+Size determinations and responsibility determinations are not alike in how they treat affiliates: in determining a concern's size under 13 CFR 121.103(a)(6), SBA counts the receipts, employees, or other measure of size of the concern whose size is at issue and all of its domestic and foreign affiliates, regardless of whether the affiliates are organized for profit [@CL-MNA-0505], while under FAR 9.104-3(c)(1), affiliated concerns are normally considered separate entities in determining whether the concern that is to perform the contract meets the applicable standards for responsibility [@CL-MNA-0552], and the contracting officer shall consider the affiliate's past performance and integrity when they may adversely affect the prospective contractor's responsibility [@CL-MNA-0545].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which legal entities, including affiliates, would be the prospective contractor,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added conjunctive responsibility standards (b) and (d)-(g) and FAR 9.104-3(b) performance factors.
 - COMPATIBLE_EXTENSION, 2026-10-31: listed standards stated as a list, not a single requirement.

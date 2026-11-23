@@ -45,7 +45,7 @@ A contractor runs an IR&D program costing 400,000, of which 100,000 is allocated
 
 ## Never confuse
 
-This card covers the conditions under which the contracting officer may authorize a contractor to use the property on an IR&D program [@CL-IND-0027; @CL-IND-0028; @CL-IND-0029], and the allowability and allocation of IR&D cost are on [IR&D and B&P costs](../../compliance/cas-allowability/cmp-ird-and-bp-costs.md) and [IR&D and B&P project and pool techniques](../../indirect-rates/pools-bases/rte-ird-bp-project-and-pool-techniques.md).
+Using Government property on IR&D is a permission question rather than an allowability question: this card covers the conditions under which the contracting officer may authorize a contractor to use the property on an IR&D program [@CL-IND-0027; @CL-IND-0028; @CL-IND-0029], and the allowability and allocation of IR&D cost are on [IR&D and B&P costs](../../compliance/cas-allowability/cmp-ird-and-bp-costs.md) and [IR&D and B&P project and pool techniques](../../indirect-rates/pools-bases/rte-ird-bp-project-and-pool-techniques.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether any advance agreement covers IR&D or the use of Government property on i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all three FAR 45.303 conditions conjunctively with lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Authorization condition cites all three items.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government property on independent research and development.

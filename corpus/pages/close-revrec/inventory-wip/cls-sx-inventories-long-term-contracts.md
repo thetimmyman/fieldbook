@@ -45,7 +45,7 @@ A registrant carries inventory of 500, made up of 200 finished goods, 250 contra
 
 ## Never confuse
 
-The progress payment note item requires stating the amount of progress payments netted against inventory at the date of the balance sheet [@CL-CLS-0836]. For title, risk of loss and transfers under the Progress Payments clause, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md). If any general and administrative costs are charged to inventory, a note to the financial statements states the aggregate amount of those costs incurred in each period and the actual or estimated amount remaining in inventory at the date of each balance sheet [@CL-CLS-0830].
+The progress-payment note and the G&A note are not the same disclosure: the progress payment note item requires stating the amount of progress payments netted against inventory at the date of the balance sheet [@CL-CLS-0836], while if any general and administrative costs are charged to inventory, a note to the financial statements states the aggregate amount of those costs incurred in each period and the actual or estimated amount remaining in inventory at the date of each balance sheet [@CL-CLS-0830]. For title, risk of loss and transfers under the Progress Payments clause, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How inventory reserves, excess production cost and the netting of progress payme
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and full qualifiers in § 210.5-02.6, and removed meta wording and uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: joined the section numbers to the claim that follows.
 - COMPATIBLE_EXTENSION, 2026-10-31: named both kinds of long-term contract and the scope of the definition.

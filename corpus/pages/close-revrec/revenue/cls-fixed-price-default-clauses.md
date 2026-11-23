@@ -47,7 +47,7 @@ Assume an illustrative threshold of 250,000. A fixed-price construction contract
 
 ## Never confuse
 
-The effects of a termination for default are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md), the convenience clauses are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md), and a convenience termination is settled as shown on [Termination for Convenience of the Government (Fixed-Price): settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md). Where a surety completes a defaulted construction contract, a separate takeover agreement may apply, and [Surety-takeover agreements](cls-surety-takeover-agreements.md) covers it. The notices that precede a default termination are on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md).
+Default and convenience are not the same route: the effects of a termination for default are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md), the convenience clauses are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md), and a convenience termination is settled as shown on [Termination for Convenience of the Government (Fixed-Price): settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md). Where a surety completes a defaulted construction contract, a separate takeover agreement may apply, and [Surety-takeover agreements](cls-surety-takeover-agreements.md) covers it. The notices that precede a default termination are on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which default clause each open fixed-price contract carries, checked against its
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: fixed-price default clauses: uncited absence statement and contrast removed, research and development exception worded as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternates II and III stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for default clauses for fixed-price contracts.

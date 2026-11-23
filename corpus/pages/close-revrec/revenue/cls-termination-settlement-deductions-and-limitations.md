@@ -47,7 +47,7 @@ A fixed-price contract has a total price of 1,000,000. Before termination the co
 
 ## Never confuse
 
-An accepted and delivered end item is invoiced in the usual manner and left out of the settlement proposal, whereas an accepted end item that is not to be delivered goes into the proposal at the contract price [@CL-CLS-0518; @CL-CLS-0519]. The price limit on the settlement is measured before disposal or other credits and excludes settlement costs [@CL-CLS-0520]. For inspection and acceptance rules, see [Inspection of supplies: fixed-price](cls-inspection-of-supplies-fixed-price.md). For title transfer and payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md). For what the proposal itself must itemize and deduct, see [Termination settlement proposals](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the clause that sets settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+A delivered end item and a nondelivered end item are not settled the same way: an accepted and delivered end item is invoiced in the usual manner and left out of the settlement proposal, whereas an accepted end item that is not to be delivered goes into the proposal at the contract price [@CL-CLS-0518; @CL-CLS-0519]. The price limit on the settlement is measured before disposal or other credits and excludes settlement costs [@CL-CLS-0520]. For inspection and acceptance rules, see [Inspection of supplies: fixed-price](cls-inspection-of-supplies-fixed-price.md). For title transfer and payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md). For what the proposal itself must itemize and deduct, see [Termination settlement proposals](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the clause that sets settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who tracks completed end items, retention credits, and the contract price ceilin
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.204(c) deduction, FAR 49.205(b) construction work-in-place rule, and exact subpart scope wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: added under part 45 to the lost-inventory deduction.

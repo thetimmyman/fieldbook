@@ -85,7 +85,7 @@ The answer is that the laptops are equipment, the fasteners are material, the so
 
 ## Never confuse
 
-Equipment means a tangible item that is functionally complete for its intended purpose, durable, nonexpendable, and needed for the performance of a contract, not intended for sale, and not ordinarily losing its identity or becoming a component part of another article when put into use, and does not include material, real property, special test equipment or special tooling [@CL-CLS-0338; @CL-CLS-0339], whereas material means property that may be consumed or expended during the performance of a contract, component parts of a higher assembly, or items that lose their individual identity through incorporation into an end-item, and does not include equipment, special tooling, special test equipment or real property [@CL-CLS-0349; @CL-CLS-0350].
+Equipment and material are not the same class of property: equipment means a tangible item that is functionally complete for its intended purpose, durable, nonexpendable, and needed for the performance of a contract, not intended for sale, and not ordinarily losing its identity or becoming a component part of another article when put into use, and does not include material, real property, special test equipment or special tooling [@CL-CLS-0338; @CL-CLS-0339], whereas material means property that may be consumed or expended during the performance of a contract, component parts of a higher assembly, or items that lose their individual identity through incorporation into an end-item, and does not include equipment, special tooling, special test equipment or real property [@CL-CLS-0349; @CL-CLS-0350].
 
 Government-furnished property means property in the possession of, or directly acquired by, the Government and subsequently furnished to the contractor for performance of a contract, and also includes contractor-acquired property if the contractor-acquired property is a deliverable under a cost contract when accepted by the Government for continued use under the contract [@CL-CLS-0340; @CL-CLS-0342], whereas contractor-acquired property means property acquired, fabricated, or otherwise provided by the contractor for performing a contract and to which the Government has title [@CL-CLS-0329].
 
@@ -98,6 +98,7 @@ Which of the company's property records use these defined terms unaltered, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 2.101 table citation, separated RFO and codified citations, removed worked-example citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the or-lists in loss, exclusions and sensitive-property examples as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of special tooling.

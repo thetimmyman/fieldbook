@@ -53,7 +53,7 @@ An initial determination lists 4 material weaknesses. The contractor replies wit
 
 An acceptable property management system is a property system that complies with the system criteria in paragraph (c) of the clause, under which the Contractor's property management system shall be in accordance with paragraphs (b) and (f) of the contract clause at Federal Acquisition Regulation 52.245-1 [@CL-CLS-0108; @CL-CLS-0103].
 
-The Contractor shall respond within 30 days to a written initial determination from the Contracting Officer that identifies material weaknesses in the Contractor's property management system [@CL-CLS-0104], whereas if the Contractor receives the Contracting Officer's final determination of material weaknesses, the Contractor shall, within 45 days of receipt of the final determination, either correct the material weaknesses or submit an acceptable corrective action plan showing milestones and actions to eliminate the material weaknesses [@CL-CLS-1582; @CL-CLS-0105].
+An initial determination of material weaknesses is not a final one: the Contractor shall respond within 30 days to a written initial determination from the Contracting Officer that identifies material weaknesses in the Contractor's property management system [@CL-CLS-0104], whereas if the Contractor receives the Contracting Officer's final determination of material weaknesses, the Contractor shall, within 45 days of receipt of the final determination, either correct the material weaknesses or submit an acceptable corrective action plan showing milestones and actions to eliminate the material weaknesses [@CL-CLS-1582; @CL-CLS-0105].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Who owns the property title and inventory records, and how physical and accounti
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and clause qualifiers, and replaced uncited Never confuse commentary with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the 45-day lead-in and the contracting officer as the actor on determinations and withholding.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that failure to maintain an acceptable property management system may result in disapproval of the system and withholding of payments.
