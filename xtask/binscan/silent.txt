@@ -2,6 +2,8 @@ AddVectoredExceptionHandler
 # existing Windows storage sync-root safety query (fieldbook-win)
 CfGetSyncRootInfoByPath
 CloseHandle
+# Windows known-folder path release (fieldbook-win)
+CoTaskMemFree
 CreateDirectoryW
 CreateFileW
 CreateMutexA
@@ -17,6 +19,8 @@ FlsFree
 FlsSetValue
 FlushFileBuffers
 FormatMessageW
+# Windows policy DACL ACE lookup (fieldbook-win)
+GetAce
 GetCommandLineW
 GetConsoleMode
 GetConsoleOutputCP
@@ -41,6 +45,8 @@ GetModuleFileNameW
 GetModuleHandleA
 GetModuleHandleExW
 GetModuleHandleW
+# Windows policy owner and DACL query (fieldbook-win)
+GetNamedSecurityInfoW
 GetProcAddress
 GetProcessHeap
 GetStdHandle
@@ -56,7 +62,12 @@ InitializeSListHead
 # kernel32 CPU-feature query, first seen in the fmt-command Windows debug build; outside the network, process-start and clipboard groups
 IsProcessorFeaturePresent
 IsThreadAFiber
+# Windows policy writer SID validation and well-known SID checks (fieldbook-win)
+IsValidSid
+IsWellKnownSid
 LoadLibraryA
+# Windows policy security-descriptor release (fieldbook-win)
+LocalFree
 LockFileEx
 LookupAccountSidW
 MoveFileExW
@@ -76,6 +87,8 @@ RtlCaptureContext
 RtlLookupFunctionEntry
 RtlNtStatusToDosError
 RtlVirtualUnwind
+# Windows machine ProgramData known-folder lookup (fieldbook-win)
+SHGetKnownFolderPath
 # existing Windows storage attribute update (fieldbook-win)
 SetFileAttributesW
 SetFileInformationByHandle
