@@ -102,4 +102,28 @@ Contract test `contract_store_folder_1`; model calls: no.
 | ID | Purpose | Parts | Schema |
 |---|---|---|---|
 | `ask@1` | ask | rules, history, context, question | none |
+
+## Settings keys
+
+| Table | Key | Type | Default | Adapter |
+|---|---|---|---|---|
+| [model] | order | list of strings | ["handoff"] | - |
+| [model] | retries | integer (1..=10) | 2 | - |
+| [model] | max_calls_per_run | integer (>= 1) | 100 | - |
+| [model] | max_out_tokens | integer (>= 1) | 1500 | - |
+| [model] | keep_calls | boolean | true | - |
+| [model] | keep_days | integer (>= 0) | 30 | - |
+| [model] | proxy | "env" or "none" | "env" | - |
+| [model.handoff] | allow | list of label ids | none (no narrowing) | handoff@1 |
+| [model.handoff] | assistant_label | string | none | handoff@1 |
+| [model.endpoint.<name>] | adapter | string (Model adapter id) | required | - |
+| [model.endpoint.<name>] | base_url | string (URL with host) | required | - |
+| [model.endpoint.<name>] | model | string (ModelId) | required | - |
+| [model.endpoint.<name>] | allow | list of label ids | none (accepts nothing) | - |
+| [model.endpoint.<name>] | timeout_s | integer (1..=600) | 60 | - |
+| [model.endpoint.<name>] | key_env | string (env var name) | none | - |
+| [model.endpoint.<name>] | auth | "bearer" or "api-key" | "bearer" | - |
+| [search] | semantic | boolean | false | semantic@1 |
+| [mcp] | allow | list of label ids | none (no narrowing) | - |
+| [chat] | idle_minutes | integer (1..=1440) | 30 | - |
 <!-- /generated:ports -->

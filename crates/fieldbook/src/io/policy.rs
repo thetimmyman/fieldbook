@@ -374,11 +374,18 @@ pub fn write_seen(
     Ok(())
 }
 
-/// Returns the owner's narrowing settings (`OwnerSettings::unset()` in `policy-load`; replaced by
-/// `Settings::owner()` in `ai-config-and-keys`).
+/// Returns the owner's narrowing settings from `<state>/settings.toml` (`Settings::owner()`).
 #[must_use]
-pub fn owner_settings(_world: &dyn World) -> OwnerSettings {
-    OwnerSettings::unset()
+pub fn owner_settings(world: &dyn World) -> OwnerSettings {
+    let text = crate::io::ai_settings::read_settings_text(world.state_dir())
+        .ok()
+        .flatten();
+    match text {
+        None => crate::settings::Settings::default().owner(),
+        Some(raw) => crate::settings::Settings::parse(&raw, crate::adapters::registry::ADAPTERS)
+            .map(|settings| settings.owner())
+            .unwrap_or_default(),
+    }
 }
 
 /// Returns `true` when `overlay/store.toml` exists in the folder beside `state` (found with

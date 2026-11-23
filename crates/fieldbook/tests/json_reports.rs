@@ -34,6 +34,7 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("search", generate_search_report),
     ("search-pages", generate_search_pages_report),
     ("policy-show", generate_policy_show_report),
+    ("ai-status", generate_ai_status_report),
 ];
 
 fn repo_root() -> PathBuf {
@@ -201,6 +202,20 @@ fn generate_policy_show_report() -> String {
     assert_eq!(
         outcome.code, 0,
         "policy show --json failed: {}",
+        outcome.stderr
+    );
+    outcome.stdout
+}
+
+fn generate_ai_status_report() -> String {
+    let root = repo_root();
+    let state_ai = root.join("tests/fixtures/state-ai");
+    let world = TestWorld::with_state(&root.join("tests/fixtures/corpus-mini"), &state_ai);
+    let args = vec!["ai".to_owned(), "status".to_owned(), "--json".to_owned()];
+    let outcome = fieldbook::run(&args, &world);
+    assert_eq!(
+        outcome.code, 0,
+        "ai status --json failed: {}",
         outcome.stderr
     );
     outcome.stdout

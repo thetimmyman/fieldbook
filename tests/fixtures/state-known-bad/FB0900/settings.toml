@@ -1,0 +1,5 @@
+# Synthetic known-bad fixture for FB0900: secret-looking key name in [model].
+role = "lead"
+
+[model]
+api_key = "synthetic-placeholder"

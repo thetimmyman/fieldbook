@@ -6,6 +6,7 @@ use crate::audit::chain::RawEventObject;
 use crate::check::{Diagnostic, Report};
 use crate::date::CivilDate;
 use crate::labels::{LabelId, LabelSet, StoreId};
+use crate::ports::AdapterStatus;
 use crate::search::{DocEntry, Hit, Index, PageRow, Results, ShownRows, query_tokens};
 
 /// Schema version of every `--json` report (`AD-17`).
@@ -732,5 +733,18 @@ pub struct PolicyShow {
     /// Effective destination allow sets and cut explanations.
     pub effective: Vec<PolicyShowEffective>,
     /// Process exit code (`0` for `floor` and `loaded`, `1` for `closed`).
+    pub exit: u8,
+}
+
+/// The `--json` report produced by `fieldbook ai status` (`ai-config-and-keys` step 6).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct AiStatus {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Policy state (`"floor"`, `"loaded"`, or `"closed"`).
+    pub policy: String,
+    /// Status entries for model and other port adapters.
+    pub adapters: Vec<AdapterStatus>,
+    /// Process exit code (`0`).
     pub exit: u8,
 }

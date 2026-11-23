@@ -2,12 +2,16 @@
 
 use std::fmt;
 
+use serde::{Deserialize, Serialize};
+
+pub mod chat;
 pub mod index;
 pub mod provenance;
 pub mod request;
 pub mod schema;
 pub mod templates;
 
+pub use chat::{AdapterStatus, ConnState, KeyState, LastCall};
 pub use provenance::{
     Fb0917, HandoffId, HandoffIdError, HandoffTicket, ProvenanceRef, verify_provenance,
 };
@@ -92,7 +96,7 @@ impl fmt::Display for Port {
 }
 
 /// Capabilities declared by an adapter row.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Caps {
     /// Whether the adapter requires network access.
     pub network: bool,

@@ -89,6 +89,8 @@ pub enum Commands {
     Restore(RestoreArgs),
     /// Show the active company policy or validate a draft policy file.
     Policy(PolicyArgs),
+    /// Inspect AI settings, adapter readiness, policy allow sets and key state.
+    Ai(AiArgs),
 }
 
 /// Arguments for `fieldbook fmt`.
@@ -518,6 +520,29 @@ pub struct PolicyCheckArgs {
     pub file: PathBuf,
 
     /// Print the validation result as a JSON object.
+    #[arg(long)]
+    pub json: bool,
+}
+
+/// Arguments for `fieldbook ai`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct AiArgs {
+    /// AI subcommand (`status`).
+    #[command(subcommand)]
+    pub command: AiSubcommand,
+}
+
+/// Subcommands under `fieldbook ai`.
+#[derive(Debug, Clone, PartialEq, Eq, Subcommand)]
+pub enum AiSubcommand {
+    /// Show AI settings, configured adapters, policy allow sets and key state.
+    Status(AiStatusArgs),
+}
+
+/// Arguments for `fieldbook ai status`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct AiStatusArgs {
+    /// Print the AI status report as a JSON object.
     #[arg(long)]
     pub json: bool,
 }

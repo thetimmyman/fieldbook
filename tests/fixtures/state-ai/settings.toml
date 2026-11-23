@@ -1,0 +1,24 @@
+# Synthetic AI settings fixture for tests (no real keys or endpoints).
+role = "lead"
+
+[model]
+order = ["handoff"]
+retries = 2
+max_calls_per_run = 100
+max_out_tokens = 1500
+keep_calls = true
+keep_days = 30
+proxy = "env"
+
+[model.handoff]
+allow = ["public", "owner-supplied"]
+assistant_label = "Synthetic Assistant"
+
+[search]
+semantic = false
+
+[mcp]
+allow = ["public"]
+
+[chat]
+idle_minutes = 30
