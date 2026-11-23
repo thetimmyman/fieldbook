@@ -1,0 +1,20 @@
+[[rule]]
+id = "reg-text"
+when = { phrase = "Synthetic Regulation Text" }
+set = { field = "source_kind", value = "primary_law" }
+example = "Synthetic Regulation Text, part one. Made up for tests."
+expect = { field = "source_kind", value = "primary_law", quote = "Synthetic Regulation Text" }
+
+[[rule]]
+id = "fixture-agency"
+when = { publisher = "Synthetic Standards Board" }
+set = { field = "publisher", value = "Synthetic Standards Board" }
+example = "Issued by the Synthetic Standards Board for fixture tests."
+expect = { field = "publisher", value = "Synthetic Standards Board", quote = "Synthetic Standards Board" }
+
+[[rule]]
+id = "fixture-licence"
+when = { phrase = "CC0-1.0" }
+set = { field = "licence", value = "Synthetic CC0-1.0" }
+example = "Released under CC0-1.0 for the fixture."
+expect = { field = "licence", value = "Synthetic CC0-1.0", quote = "CC0-1.0" }

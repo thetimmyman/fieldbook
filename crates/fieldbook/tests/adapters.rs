@@ -1280,6 +1280,8 @@ pub fn registry_drift(
                 repo.join("xtask/src/extract.rs")
             } else if row.port == Port::Admit && row.krate == "fieldbook-core" {
                 repo.join("crates/fieldbook-core/tests/pipeline.rs")
+            } else if row.port == Port::Classifier && row.krate == "fieldbook-core" {
+                repo.join("crates/fieldbook-core/tests/contract_rules.rs")
             } else {
                 repo.join("crates/fieldbook/tests/adapters.rs")
             };

@@ -10,6 +10,7 @@ pub mod corpus_add_v1;
 pub mod html_strip_v1;
 pub mod plain_v1;
 pub mod policy_readers_v1;
+pub mod rules_v1;
 
 #[cfg(test)]
 mod tests;
