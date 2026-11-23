@@ -18,6 +18,7 @@ In the remaining areas (`rte`, `prg`, `fpa`, `ctf`, `cmp`, `cls`, `mna`, `opm`, 
 ## Scope
 
 - Files: `corpus/pages/` (the Edition date row and the Change note of each page this part fills), `corpus/registers/claims.csv` (appended rows only).
+- Registration lines: `docs/plan/PLAN.md` (the line registering `kb-edition-dates-4` after this card) and `docs/cards/kb-edition-dates-4.md` (the card file that line names), from step 5.
 - Docs to update: none.
 
 ## Out of scope
