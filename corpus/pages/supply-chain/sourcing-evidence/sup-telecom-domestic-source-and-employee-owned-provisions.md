@@ -25,7 +25,7 @@ Shows what the offeror represents in the covered defense telecommunications prov
 | Instrument | Codified DFARS [@CL-SUP-1653; @CL-SUP-1654; @CL-SUP-1655] |
 | Codified citation | DFARS 252.204-7016 [@CL-SUP-1653; @CL-SUP-1584; @CL-SUP-1585; @CL-SUP-1586]; DFARS 252.206-7000 [@CL-SUP-1654; @CL-SUP-1587]; DFARS 252.270-7000 and 252.270-7002 [@CL-SUP-1655; @CL-SUP-1588; @CL-SUP-1589; @CL-SUP-1665] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7016: DEC 2019 [@CL-SUP-9879]; DFARS 252.206-7000: AUG 2023 [@CL-SUP-9880] |
 | Text status | Final [@CL-SUP-1653; @CL-SUP-1654; @CL-SUP-1655] |
 | Applies to | Solicitations that use each provision as prescribed in section 204.2105(a) [@CL-SUP-1653], section 206.302-3-70 [@CL-SUP-1654] and section 270.105(a) [@CL-SUP-1655] of the Defense Federal Acquisition Regulation Supplement |
 
@@ -57,6 +57,7 @@ Which solicitations carry each provision and what the company's current represen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned provision titles, cross-referenced clause numbers, and modals with quotes and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Review step no longer implied as a precondition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the covered telecommunications representation, domestic source restriction and employee-owned business representation.

@@ -24,7 +24,7 @@ Shows what happens if a contractor becomes an inverted domestic corporation, and
 | Instrument | Codified FAR [@CL-SUP-1037; @CL-SUP-1040] |
 | Codified citation | FAR 52.209-10 [@CL-SUP-1037; @CL-SUP-1038; @CL-SUP-1039; @CL-SUP-1069; @CL-SUP-1538], FAR 52.209-11 [@CL-SUP-1040; @CL-SUP-1041; @CL-SUP-1042; @CL-SUP-1070; @CL-SUP-1071] and FAR 9.108-4 [@CL-SUP-9479] |
 | RFO citation | RFO FAR 52.209-10 [@CL-SUP-3673; @CL-SUP-3675]; RFO FAR 52.209-11 [@CL-SUP-3676; @CL-SUP-3679] |
-| Edition date | Not established. |
+| Edition date | FAR 52.209-10: NOV 2015 [@CL-SUP-9952]; FAR 52.209-11: FEB 2016 [@CL-SUP-9953] |
 | Text status | Final [@CL-SUP-1037] |
 | Applies to | Contractors that become inverted domestic corporations during performance, for the clause, and offerors, for the provision [@CL-SUP-1037; @CL-SUP-1041] |
 
@@ -56,6 +56,7 @@ How changes in ownership and corporate form are detected and reported. [@Q-021]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the two-differences statement to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the codified FAR waiver section for the inverted domestic corporation prohibition.

@@ -24,7 +24,7 @@ Shows what an offeror certifies about debarment, convictions, taxes and default 
 | Instrument | Codified FAR [@CL-SUP-1013; @CL-SUP-1018] |
 | Codified citation | FAR 52.209-5 [@CL-SUP-1013; @CL-SUP-1017; @CL-SUP-1059] and FAR 52.209-7 [@CL-SUP-1018; @CL-SUP-1019; @CL-SUP-1062] |
 | RFO citation | RFO FAR 52.209-5 [@CL-SUP-3767]; RFO FAR 52.209-7 [@CL-SUP-3775] |
-| Edition date | Not established. |
+| Edition date | FAR 52.209-5: AUG 2020 [@CL-SUP-9960]; FAR 52.209-7: OCT 2018 [@CL-SUP-9961] |
 | Text status | Final [@CL-SUP-1013] |
 | Applies to | Offerors, for the certification and information provisions [@CL-SUP-1013; @CL-SUP-1018] |
 
@@ -55,6 +55,7 @@ Which principals and which contracts feed these certifications and the system en
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and RFO meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the judicial appeal condition to when a tax liability is finally determined.

@@ -25,7 +25,7 @@ Shows what the Government pays for a leased vehicle, when rent stops, what condi
 | Instrument | Codified FAR [@CL-SUP-2929] |
 | Codified citation | FAR 52.208-4, FAR 52.208-5 and FAR 52.208-6 [@CL-SUP-2929; @CL-SUP-2934; @CL-SUP-2936] |
 | RFO citation | RFO FAR 52.208-4, 52.208-5 and 52.208-6 [Reserved] [@CL-SUP-2830; @CL-SUP-2901; @CL-SUP-2902] |
-| Edition date | Not established. |
+| Edition date | FAR 52.208-4: APR 1984 [@CL-SUP-9851]; FAR 52.208-5: APR 1984 [@CL-SUP-9852]; FAR 52.208-6: APR 1984 [@CL-SUP-9853] |
 | Text status | Final [@CL-SUP-2929] |
 | Applies to | Solicitations and contracts for leasing motor vehicles, unless the vehicles are leased in foreign countries, under each of the three clauses [@CL-SUP-2937; @CL-SUP-2978; @CL-SUP-2979] |
 
@@ -71,6 +71,7 @@ Whether any vehicle lease runs on a Government contract, who tracks delivery, co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned lease payment, condition and marking summaries with the cited quotes and removed meta wording.

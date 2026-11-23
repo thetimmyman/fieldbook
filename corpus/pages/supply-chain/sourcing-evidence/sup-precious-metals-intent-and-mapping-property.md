@@ -25,7 +25,7 @@ Shows what an offeror must state about precious metals that the Government may f
 | Instrument | Codified DFARS [@CL-SUP-1649; @CL-SUP-1650] |
 | Codified citation | DFARS 252.208-7000 [@CL-SUP-1649]; DFARS 252.245-7000 [@CL-SUP-1650] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.208-7000: DEC 1991 [@CL-SUP-9876]; DFARS 252.245-7000: APR 2012 [@CL-SUP-9877] |
 | Text status | Final [@CL-SUP-1649; @CL-SUP-1650] |
 | Applies to | Contracts that use DFARS 252.208-7000 as prescribed in DFARS 208.7305(a) [@CL-SUP-1649]; contracts that use DFARS 252.245-7000 as prescribed in DFARS 245.107(2) [@CL-SUP-1650] |
 
@@ -56,6 +56,7 @@ Which contracts require the company to state precious metals and which pass the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned precious metals flowdown and mapping property wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed metal types added.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government-furnished precious metals and mapping, charting, and geodesy property.

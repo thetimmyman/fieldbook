@@ -25,7 +25,7 @@ Shows how a prime contractor passes accelerated payments from the Government on 
 | Instrument | Codified FAR [@CL-SUP-0570] |
 | Codified citation | FAR 52.232-40, FAR 32.009-1 and FAR 32.009-2 [@CL-SUP-0570; @CL-SUP-0575; @CL-SUP-0706; @CL-SUP-0707; @CL-SUP-4110]; FAR 2.101 [@CL-SUP-9569]; DFARS 232.009-1 [@CL-SUP-0574] |
 | RFO citation | RFO FAR 52.232-40 [@CL-SUP-0001; @CL-SUP-0002; @CL-SUP-0003; @CL-SUP-0004; @CL-SUP-0005], RFO FAR 32.009-1 [@CL-SUP-4103; @CL-SUP-4104; @CL-SUP-4105; @CL-SUP-4106; @CL-SUP-4107; @CL-SUP-4108] and RFO FAR 32.009-2 [@CL-SUP-4109]; RFO FAR 2.101 [@CL-SUP-9606] |
-| Edition date | Not established. |
+| Edition date | Mar 2023 [@CL-SUP-0001] |
 | Text status | Final [@CL-SUP-0570] |
 | Applies to | Contracts with the clause inserted as prescribed in FAR 32.009-2 [@CL-SUP-0704; @CL-SUP-4110] |
 
@@ -58,6 +58,7 @@ Confirm how disbursements are scheduled so accelerated receipts reach small busi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Spelled out the statute reference.

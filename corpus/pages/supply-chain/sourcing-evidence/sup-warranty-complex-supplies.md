@@ -24,7 +24,7 @@ Shows the warranty a contractor gives for complex supplies, the notice rule, who
 | Instrument | Codified FAR [@CL-SUP-1157] |
 | Codified citation | FAR 52.246-18 [@CL-SUP-1157; @CL-SUP-0387; @CL-SUP-1158; @CL-SUP-1159; @CL-SUP-1160; @CL-SUP-1161; @CL-SUP-1162; @CL-SUP-0428; @CL-SUP-1163; @CL-SUP-1164; @CL-SUP-0429; @CL-SUP-0430; @CL-SUP-1217; @CL-SUP-1218; @CL-SUP-1219]; FAR 52.246-17 [@CL-SUP-1154; @CL-SUP-0434; @CL-SUP-1155] |
 | RFO citation | RFO FAR 52.246-18 [@CL-SUP-3479; @CL-SUP-3480; @CL-SUP-3481; @CL-SUP-3482; @CL-SUP-3483; @CL-SUP-3484; @CL-SUP-3485; @CL-SUP-3486; @CL-SUP-9336; @CL-SUP-3487; @CL-SUP-3488; @CL-SUP-9337; @CL-SUP-9338; @CL-SUP-3489] |
-| Edition date | Not established. |
+| Edition date | FAR 52.246-18: MAY 2001 [@CL-SUP-9881]; FAR 52.246-17: JUN 2003 [@CL-SUP-9882] |
 | Text status | Final [@CL-SUP-1157] |
 | Applies to | Supplies furnished under a contract that includes the clause [@CL-SUP-1157] |
 
@@ -56,6 +56,7 @@ Whether each contract carries this clause, what its warranty, notice, recommenda
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added codified companions for warranty period examples, second remedy option, and corrective-action recommendation and direction timing, separated RFO and codified citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Remedy alternatives and notice timing wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

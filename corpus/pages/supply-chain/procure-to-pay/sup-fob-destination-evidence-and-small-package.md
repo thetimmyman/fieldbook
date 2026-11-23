@@ -24,7 +24,7 @@ Shows what evidence of shipment the contractor keeps under f.o.b. destination an
 | Instrument | Codified FAR [@CL-SUP-1986; @CL-SUP-1991] |
 | Codified citation | FAR 52.247-48 and 52.247-65 [@CL-SUP-1986; @CL-SUP-1991] |
 | RFO citation | RFO FAR 52.247-48 [@CL-SUP-0246; @CL-SUP-0247; @CL-SUP-0248; @CL-SUP-0249; @CL-SUP-0250]. No RFO equivalent for FAR 52.247-65: the RFO text lists it as [Reserved] [@CL-SUP-0251] |
-| Edition date | Not established. |
+| Edition date | Feb 1999 [@CL-SUP-0246] |
 | Text status | Final [@CL-SUP-1986; @CL-SUP-1991] |
 | Applies to | Contracts containing the evidence of shipment clause or the prepaid small package clause [@CL-SUP-1986; @CL-SUP-1991] |
 
@@ -57,6 +57,7 @@ Confirm who holds the shipment documents for each f.o.b. destination contract an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned RFO and evidence-retention wording with the quotes.

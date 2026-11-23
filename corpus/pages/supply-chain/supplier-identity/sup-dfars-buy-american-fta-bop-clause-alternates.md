@@ -25,7 +25,7 @@ Shows how Alternates I to XI of the basic clause differ from it: which country g
 | Instrument | Codified DFARS [@CL-SUP-1871] |
 | Codified citation | DFARS 252.225-7036, Alternates I to XI [@CL-SUP-1871; @CL-SUP-1909] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-SUP-9914] |
 | Text status | Final [@CL-SUP-1871] |
 | Applies to | Contracts that use an alternate together with the matching alternate certificate provision [@CL-SUP-1872; @CL-SUP-1874; @CL-SUP-1876] |
 
@@ -58,6 +58,7 @@ Which alternate, if any, each executed contract carries, and which matching cert
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the delivery wording with the quotes; removed uncited contrasts and meta wording; limited the prescription cross-reference to the alternates cited.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the alternates of the Buy American, Free Trade Agreements and Balance of Payments Program clause.

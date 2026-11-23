@@ -25,7 +25,7 @@ Shows what the critical safety items clause counts as an aviation or ship critic
 | Instrument | Codified DFARS [@CL-SUP-1646] |
 | Codified citation | DFARS 252.209-7010 [@CL-SUP-1646] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 2011 [@CL-SUP-9854] |
 | Text status | Final [@CL-SUP-1646] |
 | Applies to | Contracts that use the clause as prescribed in section 209.270-5 of the Defense Federal Acquisition Regulation Supplement [@CL-SUP-1646], for the items the clause designates as aviation or ship critical safety items [@CL-SUP-1550] |
 
@@ -56,6 +56,7 @@ Which items on each executed contract are designated critical safety items, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and made the example match the identification paragraph.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for critical safety items.

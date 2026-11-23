@@ -23,7 +23,7 @@ Contrasts how a change in rates or terms and conditions of utility service takes
 | Instrument | Codified FAR [@CL-SUP-2678] |
 | Codified citation | FAR 52.241-7 and 52.241-8 [@CL-SUP-2678; @CL-SUP-2684] |
 | RFO citation | RFO FAR 52.241-7 and 52.241-8 [@CL-SUP-2398; @CL-SUP-2404] |
-| Edition date | Not established. |
+| Edition date | FEB 1995 [@CL-SUP-9844] |
 | Text status | Final [@CL-SUP-2678] |
 | Applies to | Contracts where the clauses are inserted as prescribed, the first to the extent a regulatory body regulates the service and the second to the extent it does not [@CL-SUP-2743; @CL-SUP-2746; @CL-SUP-2678; @CL-SUP-2684] |
 
@@ -75,6 +75,7 @@ Confirm, for each site, whether a regulatory body regulates the rate, who receiv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned regulated and unregulated rate-change summaries with the cited quotes and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated "only" about effective dates.

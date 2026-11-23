@@ -25,7 +25,7 @@ Shows what makes a construction value engineering change proposal, what it must 
 | Instrument | Codified FAR [@CL-SUP-3122] |
 | Codified citation | FAR 52.248-3 [@CL-SUP-3122] |
 | RFO citation | RFO FAR 52.248-3 [@CL-SUP-2648] |
-| Edition date | Not established. |
+| Edition date | Oct 2025 (basic) [@CL-SUP-2648]; Apr 1984 (Alternate I) [@CL-SUP-2654] |
 | Text status | Final [@CL-SUP-3122] |
 | Applies to | Contracts that include the construction value engineering clause, basic or with Alternate I [@CL-SUP-3122; @CL-SUP-3223] |
 
@@ -77,6 +77,7 @@ Which subcontracts and work packages could generate proposals, who decides to su
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned submission and acceptance summaries with the cited quotes and removed meta cross-reference comparisons and uncited contrasts.

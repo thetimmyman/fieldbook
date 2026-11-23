@@ -25,7 +25,7 @@ Explains how a transportation solicitation uses estimated shipment quantities or
 | Instrument | Codified FAR [@CL-SUP-2301] |
 | Codified citation | FAR 52.247-20 and FAR 52.247-21 [@CL-SUP-2301; @CL-SUP-2302] |
 | RFO citation | RFO FAR 52.247-21 [@CL-SUP-0198; @CL-SUP-0199; @CL-SUP-0200; @CL-SUP-0210; @CL-SUP-0211; @CL-SUP-0212]. No RFO equivalent for FAR 52.247-20: the RFO text lists it as [Reserved] [@CL-SUP-0197] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-20: APR 1984 [@CL-SUP-9809]; FAR 52.247-21: Apr 1984 [@CL-SUP-0198] |
 | Text status | Final [@CL-SUP-2301] |
 | Applies to | The estimates provision in solicitations for transportation or transportation-related services when quantities or weights between each origin and destination are not known [@CL-SUP-2351]; the liability clause in solicitations and contracts for transportation or transportation-related services [@CL-SUP-2302] |
 
@@ -60,6 +60,7 @@ Confirm which awards carry the estimates provision and the liability clause, whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned liability, estimates and RFO wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an indemnifier the clause text does not name.

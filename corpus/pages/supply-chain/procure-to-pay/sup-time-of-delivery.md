@@ -25,7 +25,7 @@ Shows how the time of delivery clause states the required delivery schedule, how
 | Instrument | Codified FAR [@CL-SUP-2541] |
 | Codified citation | FAR 52.211-8 [@CL-SUP-2541] |
 | RFO citation | No RFO equivalent; RFO FAR 52.211-8 is marked [Reserved] [@CL-SUP-0638] |
-| Edition date | Not established. |
+| Edition date | JUN 1997 [@CL-SUP-9834] |
 | Text status | Final [@CL-SUP-2541] |
 | Applies to | Not established. |
 
@@ -71,6 +71,7 @@ Confirm, for each delivery schedule in force, which date the periods run from an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added third-column heading citations, Alternate II assumption details, and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the mail and electronic delay alternatives and Alternate I headings as alternatives; limited the blanks sentence to the stated insertions.

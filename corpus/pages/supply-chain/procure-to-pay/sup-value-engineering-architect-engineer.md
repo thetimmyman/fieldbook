@@ -25,7 +25,7 @@ Shows the value engineering duties of an architect-engineer contractor, what it 
 | Instrument | Codified FAR [@CL-SUP-3113] |
 | Codified citation | FAR 52.248-2 [@CL-SUP-3113] |
 | RFO citation | RFO FAR 52.248-2 [@CL-SUP-2644] |
-| Edition date | Not established. |
+| Edition date | Mar 1990 [@CL-SUP-2644] |
 | Text status | Final [@CL-SUP-3113] |
 | Applies to | Contracts that include the architect-engineer value engineering clause [@CL-SUP-3113] |
 
@@ -72,6 +72,7 @@ Which architect-engineer contracts carry this clause, who approves the value eng
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned summary and comparison sentences with the cited quotes and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the definition of architect-engineer services as "means" with all three paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the architect-engineer services definition.

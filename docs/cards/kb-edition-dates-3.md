@@ -1,4 +1,4 @@
-# kb-edition-dates-2
+# kb-edition-dates-3
 
 - **Runs where:** home, CI Linux
 - **Schema impact:** none
@@ -6,11 +6,11 @@
 
 ## Outcome
 
-In the remaining areas (`sup`, `rte`, `prg`, `fpa`, `ctf`, `cmp`, `cls`, `mna`, `opm`, `ind`; as many pages as fit in about 600 changed lines in `corpus/corpus.toml` order), the Edition date row of each clause card's rule table gives the clause's edition with a citation, or `Not established.` only where no source version in the register states it; `kb-edition-dates-3` and on carry any later areas that do not fit.
+In the remaining areas (`rte`, `prg`, `fpa`, `ctf`, `cmp`, `cls`, `mna`, `opm`, `ind`; as many pages as fit in about 600 changed lines in `corpus/corpus.toml` order), the Edition date row of each clause card's rule table gives the clause's edition with a citation, or `Not established.` only where no source version in the register states it; `kb-edition-dates-4` and on carry any later areas that do not fit.
 
 ## Why
 
-- Continuation of `kb-edition-dates`. Part 1 covered `fnd` (0 clause cards), `mkt` (27 clause cards), and `est` (62 clause cards), leaving the remaining ten areas (`sup`, `rte`, `prg`, `fpa`, `ctf`, `cmp`, `cls`, `mna`, `opm`, `ind`) within the ~600-line card size budget.
+- Continuation of `kb-edition-dates` and `kb-edition-dates-2`. Part 1 covered `fnd` (0 clause cards), `mkt` (27 clause cards), and `est` (62 clause cards); Part 2 covered `sup` (154 clause cards). This part starts at `rte`.
 - A date in a page cites a claim ([corpus/AGENTS.md](../../corpus/AGENTS.md#claims-quotes-and-citations)). Where a cited claim of the page already carries `edition_date`, the row cites it. Otherwise the card drafts a new claim at entry values whose statement gives the edition, at the clause heading locator, with the heading quoted exactly.
 - Size: as many whole areas per part, with their claims, as fit in about 600 changed lines ([Size and splitting](README.md#size-and-splitting)).
 - Design: none.
@@ -28,15 +28,15 @@ In the remaining areas (`sup`, `rte`, `prg`, `fpa`, `ctf`, `cmp`, `cls`, `mna`, 
 
 ## Preconditions
 
-- Cards merged: `kb-never-confuse-pass`, `kb-never-confuse-pass-2`, `kb-never-confuse-pass-3`, `kb-never-confuse-pass-4`, `kb-never-confuse-pass-5`, `kb-never-confuse-pass-6` (all edit pages across every area), `kb-edition-dates` (Part 1 covers `fnd`, `mkt`, and `est`).
+- Cards merged: `kb-never-confuse-pass`, `kb-never-confuse-pass-2`, `kb-never-confuse-pass-3`, `kb-never-confuse-pass-4`, `kb-never-confuse-pass-5`, `kb-never-confuse-pass-6` (all edit pages across every area), `kb-edition-dates` (Part 1 covers `fnd`, `mkt`, and `est`), `kb-edition-dates-2` (Part 2 covers `sup`).
 
 ## Steps
 
-1. With a script that is not committed, list for each page with the empty row in `sup` onward the clause it cards, whether a cited claim has `edition_date`, and the heading text of the clause in its original. Put the counts per area in the pull request.
+1. With a script that is not committed, list for each page with the empty row in `rte` onward the clause it cards, whether a cited claim has `edition_date`, and the heading text of the clause in its original. Put the counts per area in the pull request.
 2. Fill the rows that a cited claim covers.
 3. For the rest, draft one claim per clause: `kind` `fact`, `edition_date` set, locator at the clause heading, the heading quoted exactly, entry values. Cite it in the row.
 4. Add a Change note line to each page.
-5. Stop at about 600 changed lines. If further areas remain, write `docs/cards/kb-edition-dates-3.md`, add its line to PLAN.md after this one, and say so in the pull request.
+5. Stop at about 600 changed lines. If further areas remain, write `docs/cards/kb-edition-dates-4.md`, add its line to PLAN.md after this one, and say so in the pull request.
 6. Run `fieldbook check --strict`.
 
 ## Acceptance

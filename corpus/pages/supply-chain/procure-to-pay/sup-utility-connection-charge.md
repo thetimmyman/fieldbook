@@ -24,7 +24,7 @@ Shows how the connection charge for new utility connection facilities is compute
 | Instrument | Codified FAR [@CL-SUP-2689] |
 | Codified citation | FAR 52.241-9 [@CL-SUP-2689] |
 | RFO citation | RFO FAR 52.241-9 and its Alternate I [@CL-SUP-0833; @CL-SUP-0844] |
-| Edition date | Not established. |
+| Edition date | FEB 1995 [@CL-SUP-9841] |
 | Text status | Final [@CL-SUP-2689] |
 | Applies to | Contracts where the clause is inserted as prescribed [@CL-SUP-2767] |
 
@@ -85,6 +85,7 @@ Confirm whether a new site carries a connection charge, how the credit percentag
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the installment lead-in, added the nonrefundable service charge citation, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added "by means of those facilities" to the other-customer trigger.

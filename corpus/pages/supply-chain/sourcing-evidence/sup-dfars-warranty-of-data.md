@@ -25,7 +25,7 @@ Shows what a contractor warrants about delivered technical data, how long the wa
 | Instrument | Codified DFARS [@CL-SUP-1381] |
 | Codified citation | DFARS 252.246-7001 [@CL-SUP-1381; @CL-SUP-1382] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 2014 [@CL-SUP-9867] |
 | Text status | Final [@CL-SUP-1381] |
 | Applies to | Technical data delivered under a contract that includes the clause [@CL-SUP-1381] |
 
@@ -57,6 +57,7 @@ Which data line items carry this clause, which alternate the contract uses, and 
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated warranty period, remedies and alternates damages with their lead-ins.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the acceptance lead-in, the equipment subcontractor limit and the Alternate II exception, and said who decides on price adjustment.

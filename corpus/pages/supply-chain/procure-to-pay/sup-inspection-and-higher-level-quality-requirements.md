@@ -25,7 +25,7 @@ Shows who inspects under the contractor inspection clause, what the Government m
 | Instrument | Codified FAR [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
 | Codified citation | FAR 52.246-1, FAR 52.246-9 and FAR 52.246-11 [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
 | RFO citation | RFO FAR 52.246-1 [@CL-SUP-0408]; RFO FAR 52.246-9 [@CL-SUP-0410]; RFO FAR 52.246-11 [@CL-SUP-0412] |
-| Edition date | Not established. |
+| Edition date | FAR 52.246-1: Apr 1984 [@CL-SUP-0408]; FAR 52.246-9: Apr 1984 [@CL-SUP-0410]; FAR 52.246-11: Dec 2014 [@CL-SUP-0412] |
 | Text status | Final [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
 | Applies to | Contracts that include one or more of the three clauses, each rule below applying where its own clause is included [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
 
@@ -62,6 +62,7 @@ Which quality standard is written into each contract and purchase order, and whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the shall wording, alternatives and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the two subcontract kinds as alternatives.

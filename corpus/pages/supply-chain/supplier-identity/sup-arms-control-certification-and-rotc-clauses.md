@@ -24,7 +24,7 @@ Shows what an offeror certifies about arms control determinations, when the cert
 | Instrument | Codified FAR [@CL-SUP-1043; @CL-SUP-1047] |
 | Codified citation | FAR 52.209-13 [@CL-SUP-1043; @CL-SUP-1044; @CL-SUP-1458; @CL-SUP-1459; @CL-SUP-1045; @CL-SUP-1460; @CL-SUP-1536; @CL-SUP-1046; @CL-SUP-1073; @CL-SUP-1543] and FAR 52.209-14 [@CL-SUP-1047; @CL-SUP-1048; @CL-SUP-1049; @CL-SUP-1050; @CL-SUP-1074] |
 | RFO citation | RFO FAR 52.209-13 [@CL-SUP-3541; @CL-SUP-3542; @CL-SUP-3543; @CL-SUP-3544; @CL-SUP-3545; @CL-SUP-3546; @CL-SUP-3547] and RFO FAR 52.209-14 [@CL-SUP-3548; @CL-SUP-3549; @CL-SUP-3550; @CL-SUP-3551] |
-| Edition date | Not established. |
+| Edition date | FAR 52.209-13: NOV 2021 [@CL-SUP-9885]; FAR 52.209-14: NOV 2021 [@CL-SUP-9886] |
 | Text status | Final [@CL-SUP-1043] |
 | Applies to | Offerors, for the certification, other than for the excluded acquisitions, and institutions of higher education, for the clause [@CL-SUP-1043; @CL-SUP-1047] |
 
@@ -55,6 +55,7 @@ Which owned or controlled entities have activity in the countries named in the a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the either-(1)-or-(2) choice, the joining of the two certification items and the report-review procedures; aligned the example.
 - COMPATIBLE_EXTENSION, 2026-10-31: listed ROTC and recruiting actions described as alternatives.

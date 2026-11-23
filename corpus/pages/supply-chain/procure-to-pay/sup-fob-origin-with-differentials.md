@@ -25,7 +25,7 @@ Sets out how an f.o.b. origin delivery term works with priced differentials for 
 | Instrument | Codified FAR [@CL-SUP-2324] |
 | Codified citation | FAR 52.247-33 [@CL-SUP-2324] |
 | RFO citation | RFO FAR 52.247-33 [@CL-SUP-0343; @CL-SUP-0360] |
-| Edition date | Not established. |
+| Edition date | Feb 2006 [@CL-SUP-0343] |
 | Text status | Final [@CL-SUP-2324] |
 | Applies to | Contracts containing the F.o.b. Origin, With Differentials clause [@CL-SUP-2324] |
 
@@ -66,6 +66,7 @@ Confirm which awards carry this clause, the differential rates filled in for eac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Placed citations to satisfy the figure gate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor duty lead-ins, differential invoice wording and RFO paragraph.

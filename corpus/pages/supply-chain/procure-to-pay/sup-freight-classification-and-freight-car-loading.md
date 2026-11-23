@@ -24,7 +24,7 @@ Shows what an offeror describes about the freight classification of its supplies
 | Instrument | Codified FAR [@CL-SUP-2450; @CL-SUP-2454] |
 | Codified citation | FAR 52.247-53 and FAR 52.247-58 [@CL-SUP-2450; @CL-SUP-2454] |
 | RFO citation | RFO FAR 52.247-53 [@CL-SUP-0368]; RFO FAR 52.247-58 [@CL-SUP-0373] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-53: Apr 1984 [@CL-SUP-0368]; FAR 52.247-58: Apr 1984 [@CL-SUP-0373] |
 | Text status | Final [@CL-SUP-2450; @CL-SUP-2454] |
 | Applies to | Solicitations for supplies new to the supply system, nonstandard or modified, and solicitations and contracts where supplies may be shipped in carload lots by rail [@CL-SUP-2450; @CL-SUP-2454] |
 
@@ -63,6 +63,7 @@ Whether the description the company bids with matches the classification the Gov
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the blank, loading duty and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

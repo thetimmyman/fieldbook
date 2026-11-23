@@ -25,7 +25,7 @@ Shows what must be manufactured in the United States or its outlying areas under
 | Instrument | Codified DFARS [@CL-SUP-1780; @CL-SUP-1782] |
 | Codified citation | DFARS 252.225-7006 [@CL-SUP-1780; @CL-SUP-1781; @CL-SUP-1838]; DFARS 252.225-7011 [@CL-SUP-1782] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7006: DEC 2022 [@CL-SUP-9900]; DFARS 252.225-7011: JUN 2005 [@CL-SUP-9901] |
 | Text status | Final [@CL-SUP-1780; @CL-SUP-1782] |
 | Applies to | Contracts that require delivery of American flags, or that deliver supercomputers [@CL-SUP-1780; @CL-SUP-1782] |
 
@@ -56,6 +56,7 @@ Whether any executed contract delivers flags or supercomputers, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and uncited contrasts; cited the prescribing section and the flag exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Placed the flag-manufacture citation before the Berry Amendment reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the flag requirement is stated to be consistent with the Berry Amendment requirements.
