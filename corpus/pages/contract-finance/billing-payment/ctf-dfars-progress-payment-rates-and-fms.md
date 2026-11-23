@@ -47,7 +47,7 @@ Answer: the two requests stay separate and each is calculated only from its own 
 
 ## Never confuse
 
-If the Contractor is a small business concern, the Progress Payments clause is modified to change each mention of the progress payment rate and liquidations rate to 90 percent, excepting paragraph (k), Limitations on Undefinitized Contract Actions [@CL-CTF-1810]. If the contract includes FMS requirements, the Contractor shall submit separate progress payment requests for the FMS and U.S. line items in the contract [@CL-CTF-1811].
+The 90 percent rate change differs from the FMS request rule in what each touches rather than matching it: if the Contractor is a small business concern, the Progress Payments clause is modified to change each mention of the progress payment rate and liquidations rate to 90 percent, excepting paragraph (k), Limitations on Undefinitized Contract Actions [@CL-CTF-1810], while the FMS rule instead leaves the rates alone and requires separate progress payment requests for the FMS and U.S. line items in the contract [@CL-CTF-1811].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which progress payment rate applies to the company and whether any contract carr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated the FMS duties as all required.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed added only on small business rate change.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD progress payment rates and progress payments for foreign military sales acquisitions.

@@ -47,7 +47,7 @@ A contractor licenses a patent to Department A. Department B later asks in writi
 
 ## Never confuse
 
-For the license grant, term and termination clauses are in [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md), and for the running royalty grant, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For clauses on readjusting payments and royalty reporting, see [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md), and for the contractor's patent indemnity, see [Patent indemnity and refund of royalties](cmp-patent-indemnity-and-refund-of-royalties.md).
+The non-estoppel reservation is not a waiver: the Government reserves the right at any time to contest the enforceability, validity, scope of, or title to any patent or patent application licensed, without waiving or forfeiting any right under the contract [@CL-CMP-4267]. For the license grant, term and termination clauses are in [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md), and for the running royalty grant, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For clauses on readjusting payments and royalty reporting, see [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md), and for the contractor's patent indemnity, see [Patent indemnity and refund of royalties](cmp-patent-indemnity-and-refund-of-royalties.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which executed patent releases and licenses carry these clauses, and which agenc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: release of past infringement: dropped wording implying an invention must fall under both numbered items.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated release items as joined by and; cut uncited contrasts and characterizations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for non-estoppel, release of past infringement and license to other Government agencies.

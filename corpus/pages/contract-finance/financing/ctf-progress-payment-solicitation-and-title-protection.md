@@ -51,7 +51,7 @@ An invitation for bids includes a Progress Payments clause, so the contracting o
 
 ## Never confuse
 
-The Progress Payments clause gives the Government title to the described property [@CL-CTF-3191], and the administrative contracting officer may ordinarily rely on the contractor's certification, absent reason to believe otherwise [@CL-CTF-3097]. The existence of any such encumbrance is a violation of the contractor's obligations under the contract [@CL-CTF-3193]. The [progress payment solicitation notices](../billing-payment/ctf-progress-payment-solicitation-notices.md) card covers the notices in detail.
+The Progress Payments clause gives the Government title to the described property [@CL-CTF-3191], and the administrative contracting officer may ordinarily rely on the contractor's certification, absent reason to believe otherwise [@CL-CTF-3097]; the existence of any such encumbrance, rather than the title itself, is a violation of the contractor's obligations under the contract [@CL-CTF-3193]. The [progress payment solicitation notices](../billing-payment/ctf-progress-payment-solicitation-notices.md) card covers the notices in detail.
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which contracts receive progress payments, at what liquidation rate, and how tit
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed codified citations from RFO sentence and cut uncited label and drafting commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Insert provisions and title-protection duties worded with their conditions as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.502 preaward matters scope.

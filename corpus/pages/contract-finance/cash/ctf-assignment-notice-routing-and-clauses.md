@@ -53,7 +53,7 @@ A solicitation for a supply contract is expected to be worth 20,000, which is ab
 
 ## Never confuse
 
-The contracting officer shall insert the clause at FAR 52.232-23, Assignment of Claims, in solicitations and contracts expected to exceed the micro-purchase threshold, unless the contract will prohibit the assignment of claims (see FAR 32.803(b)) [@CL-CTF-3377]. The contracting officer shall insert the clause at FAR 52.232-24, Prohibition of Assignment of Claims, in solicitations and contracts for which a determination has been made under agency regulations that the prohibition of assignment of claims is in the Government's interest [@CL-CTF-3380]. See [Assignment of claims](ctf-assignment-of-claims.md), [Assignment procedure and debt installments](ctf-assignment-procedure-and-debt-installments.md), [Interest and assignment of claims clauses](../billing-payment/ctf-interest-and-assignment-of-claims-clauses.md) and [Withholding limit, extras and assignment prohibition](../billing-payment/ctf-withholding-limit-extras-and-assignment-prohibition.md).
+The two clauses take opposite sides on assignability rather than overlapping: the contracting officer shall insert the clause at FAR 52.232-23, Assignment of Claims, in solicitations and contracts expected to exceed the micro-purchase threshold, unless the contract will prohibit the assignment of claims (see FAR 32.803(b)) [@CL-CTF-3377], whereas the contracting officer shall insert the clause at FAR 52.232-24, Prohibition of Assignment of Claims, in solicitations and contracts for which a determination has been made under agency regulations that the prohibition of assignment of claims is in the Government's interest [@CL-CTF-3380]. See [Assignment of claims](ctf-assignment-of-claims.md), [Assignment procedure and debt installments](ctf-assignment-procedure-and-debt-installments.md), [Interest and assignment of claims clauses](../billing-payment/ctf-interest-and-assignment-of-claims-clauses.md) and [Withholding limit, extras and assignment prohibition](../billing-payment/ctf-withholding-limit-extras-and-assignment-prohibition.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm whether each contract carries the assignment clause or its alternate, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added unmatured-liability continuation for FAR 32.803(e) and aligned routing and prescription wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for assignment notice routing and clause prescriptions.

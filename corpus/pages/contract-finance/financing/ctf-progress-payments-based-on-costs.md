@@ -57,9 +57,9 @@ A contractor that is not a small business concern asks for progress payments at 
 
 ## Never confuse
 
-Customary progress payments are those made under the general guidance in FAR Subpart 32.5 using the customary progress payment rate, the cost base, and frequency of payment established in the Progress Payments clause and either the ordinary or alternate liquidation method [@CL-CTF-3548; @CL-CTF-3549], whereas any other progress payments are considered unusual and may be used only in exceptional cases when authorized in accordance with FAR 32.501-2 [@CL-CTF-3612].
+Customary progress payments are those made under the general guidance in FAR Subpart 32.5 using the customary progress payment rate, the cost base, and frequency of payment established in the Progress Payments clause and either the ordinary or alternate liquidation method [@CL-CTF-3548; @CL-CTF-3549], whereas any other progress payments differ in kind rather than in size: they are considered unusual and may be used only in exceptional cases when authorized in accordance with FAR 32.501-2 [@CL-CTF-3612].
 
-Protective terms may be used in addition to the Progress Payments clause if the contracting officer considers it necessary for protection of the Government's interest [@CL-CTF-3550], while the actions listed in FAR 32.502-2 require the approval of the contract finance office or other offices designated under agency procedures [@CL-CTF-3553], and unusual progress payments require that the contractor's request be approved by the head of the contracting activity or a designee [@CL-CTF-1051].
+Protective terms differ from the listed finance-office actions rather than falling under them: protective terms may be used in addition to the Progress Payments clause if the contracting officer considers it necessary for protection of the Government's interest [@CL-CTF-3550], while the actions listed in FAR 32.502-2 require the approval of the contract finance office or other offices designated under agency procedures rather than the contracting officer alone [@CL-CTF-3553], and unusual progress payments instead require that the contractor's request be approved by the head of the contracting activity or a designee [@CL-CTF-1051].
 
 ## Company calibration
 
@@ -68,6 +68,7 @@ Which rate, cost base and liquidation method apply to each contract, and whether
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and contrast wording in How it works and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Unusual-payment conditions stated as all applying, protective-term and approval wording aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

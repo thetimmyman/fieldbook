@@ -46,7 +46,7 @@ A contract ends and all items are accepted. Two years later the Contracting Offi
 
 ## Never confuse
 
-Nothing in the Additional Data Requirements clause requires the Contractor to deliver data whose withholding is authorized by the [Rights in Data—General clause](cmp-rights-in-data-general-definitions-and-allocation.md) or other equivalent clause of the contract [@CL-CMP-3706]. The withholding rules are on [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). Under the Special Works clause, except as provided in the copyright paragraph, the Government has unlimited rights in all delivered data and all first-produced data [@CL-CMP-3708].
+An order for additional data is not a duty to deliver withheld data: nothing in the Additional Data Requirements clause requires the Contractor to deliver data whose withholding is authorized by the [Rights in Data—General clause](cmp-rights-in-data-general-definitions-and-allocation.md) or other equivalent clause of the contract [@CL-CMP-3706]. The withholding rules are on [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). Under the Special Works clause, except as provided in the copyright paragraph, the Government has unlimited rights in all delivered data and all first-produced data [@CL-CMP-3708].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed contracts carry the ordering clause or the special works clause, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the full copyright assignment sentence and tightened the ordering and compensation wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the special works sentence to keep the exception for the copyright paragraph, as the clause prints.

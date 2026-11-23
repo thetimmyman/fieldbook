@@ -46,7 +46,7 @@ An agency plans a building project in a county with no applicable general determ
 
 ## Never confuse
 
-A project wage determination is issued at an agency's specific request and is used only when no general determination applies [@CL-CMP-3013], and it is effective for 180 calendar days from its date [@CL-CMP-3013], while a general determination has no expiration date [@CL-CMP-3106]. Which work and contracts need a determination at all is on [Construction wage rate requirements: definitions and which contracts are covered](cmp-construction-wage-definitions-and-applicability.md). Service contract wage determinations follow a separate regime, covered on [Service Contract Labor Standards: obtaining wage determinations and successor pay under a collective bargaining agreement](cmp-scls-wage-determinations-and-successorship.md).
+A project wage determination is not a general determination: it is issued at an agency's specific request and is used only when no general determination applies [@CL-CMP-3013], and it is effective for 180 calendar days from its date [@CL-CMP-3013], while a general determination has no expiration date [@CL-CMP-3106]. Which work and contracts need a determination at all is on [Construction wage rate requirements: definitions and which contracts are covered](cmp-construction-wage-definitions-and-applicability.md). Service contract wage determinations follow a separate regime, covered on [Service Contract Labor Standards: obtaining wage determinations and successor pay under a collective bargaining agreement](cmp-scls-wage-determinations-and-successorship.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who prices a construction proposal from the determination attached to the solici
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the request rules to their conditions and cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added whom wage determinations cover and the rate schedules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for general and project construction wage determinations and how they are requested.

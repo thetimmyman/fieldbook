@@ -49,9 +49,7 @@ The contracting officer on a 3,000,000 supply contract decides that a postaward 
 
 ## Never confuse
 
-The conference arrangements are the responsibility of the contracting officer who decides a conference is needed [@CL-CMP-7799; @CL-CMP-7800], and when the contracting office initiates it, they may be made by that office or, at its request, by the contract administration office [@CL-CMP-7802]. The chairperson shall prepare and sign the report and furnish copies of it [@CL-CMP-7803; @CL-CMP-7805].
-
-Codified FAR 42.503-1 makes the contracting officer who decides that a conference is needed responsible for its arrangements [@CL-CMP-7799; @CL-CMP-7800], while RFO FAR 42.302(a)(3) lists conducting post-award orientation conferences among the functions the contracting officer normally delegates to a CAO [@CL-CMP-0026; @CL-CMP-0091]. The section number 42.401 is contract correspondence in the codified text [@CL-CMP-7796] but the assignment of a corporate administrative contracting officer in the RFO text [@CL-CMP-0093].
+The conference arrangements are the responsibility of the contracting officer who decides a conference is needed [@CL-CMP-7799; @CL-CMP-7800], and when the contracting office initiates it, they may be made by that office or, at its request, by the contract administration office [@CL-CMP-7802]. The chairperson shall prepare and sign the report and furnish copies of it [@CL-CMP-7803; @CL-CMP-7805]. The codified text differs from the RFO text here: codified FAR 42.503-1 makes the contracting officer who decides that a conference is needed responsible for its arrangements [@CL-CMP-7799; @CL-CMP-7800], while RFO FAR 42.302(a)(3) lists conducting post-award orientation conferences among the functions the contracting officer normally delegates to a CAO [@CL-CMP-0026; @CL-CMP-0091]. The section number 42.401 is contract correspondence in the codified text [@CL-CMP-7796] but the assignment of a corporate administrative contracting officer in the RFO text [@CL-CMP-0093].
 
 ## Company calibration
 
@@ -61,6 +59,7 @@ Who chairs a postaward conference, and where the signed report and its action du
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: example, absence notes and meta wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract correspondence and the postaward conference.

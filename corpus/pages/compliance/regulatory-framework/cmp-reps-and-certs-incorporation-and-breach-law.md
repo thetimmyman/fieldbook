@@ -44,7 +44,7 @@ A contractor files its representations and certifications electronically in the 
 
 ## Never confuse
 
-FAR 52.233-4 states that United States law will apply to resolve any claim of breach of the contract [@CL-CMP-5965], while FAR 52.204-19 incorporates the Contractor's representations and certifications, including those completed electronically via SAM, by reference into the contract [@CL-CMP-5964].
+The incorporation clause is not the law clause: FAR 52.233-4 states that United States law will apply to resolve any claim of breach of the contract [@CL-CMP-5965], while FAR 52.204-19 incorporates the Contractor's representations and certifications, including those completed electronically via SAM, by reference into the contract [@CL-CMP-5964].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which entity's representations and certifications are completed electronically f
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified citations and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incorporation of representations and certifications and the law for a breach claim.

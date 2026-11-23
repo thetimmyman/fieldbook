@@ -51,9 +51,7 @@ On a different contract, the prime contractor holds a conference with a subcontr
 
 ## Never confuse
 
-A postaward letter is written orientation to the contractor that may replace a conference [@CL-CMP-7806]. A subcontractor conference is a meeting the prime contractor generally runs [@CL-CMP-7809], and the Government attends without privity of contract with the subcontractors [@CL-CMP-7812].
-
-The section numbers 42.504 and 42.505 are postaward letters and postaward subcontractor conferences in the codified text [@CL-CMP-7806; @CL-CMP-7809] but billing rates and final indirect cost rates in the RFO text [@CL-CMP-0132; @CL-CMP-0133].
+A postaward letter is written orientation to the contractor that may replace a conference rather than supplement it [@CL-CMP-7806]. A subcontractor conference is a meeting the prime contractor generally runs [@CL-CMP-7809], and the Government attends without privity of contract with the subcontractors [@CL-CMP-7812]. The section numbers 42.504 and 42.505 are postaward letters and postaward subcontractor conferences in the codified text [@CL-CMP-7806; @CL-CMP-7809] but billing rates and final indirect cost rates in the RFO text [@CL-CMP-0132; @CL-CMP-0133].
 
 ## Company calibration
 
@@ -63,6 +61,7 @@ Which subcontractor conferences Government representatives attend, and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Contract-modification rule now keeps its limit to changes resulting from the postaward conference.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward letters and postaward subcontractor conferences.

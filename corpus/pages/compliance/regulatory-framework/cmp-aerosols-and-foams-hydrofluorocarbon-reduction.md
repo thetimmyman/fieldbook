@@ -54,15 +54,7 @@ A contractor uses an aerosol solvent whose propellant is a high global warming p
 
 ## Never confuse
 
-The duty is to reduce use, release or emissions when feasible, unless the contract specifies otherwise [@CL-CMP-5207; @CL-CMP-5211].
-
-In determining feasibility the aerosols clause requires consideration of environmental, technical and economic factors, including emission rates, safety, technical performance and commercial availability at a reasonable cost, and the foams clause requires consideration of the same kinds of factor [@CL-CMP-5208; @CL-CMP-5209; @CL-CMP-5212; @CL-CMP-5307].
-
-The foams clause adds refrigerant blends containing hydrofluorocarbons, and the aerosols clause covers aerosol propellants or solvents [@CL-CMP-5211; @CL-CMP-5207].
-
-The codified FAR 52.223-20 and FAR 52.223-21 hold the aerosols and foams duties to reduce when feasible, while the RFO text prints both section numbers as reserved [@CL-CMP-5207; @CL-CMP-5211; @CL-CMP-0349; @CL-CMP-0350].
-
-The clauses on ozone-depleting substances and refrigerant handling are covered in [Ozone-depleting substances and refrigerant handling](cmp-ozone-depleting-substances-and-refrigerant-handling.md).
+The two clauses are not the same duty: the aerosols clause covers aerosol propellants or solvents, and the foams clause adds refrigerant blends containing hydrofluorocarbons [@CL-CMP-5211; @CL-CMP-5207]. Under both, the duty is to reduce use, release or emissions when feasible, unless the contract specifies otherwise [@CL-CMP-5207; @CL-CMP-5211]; in determining feasibility the aerosols clause requires consideration of environmental, technical and economic factors, including emission rates, safety, technical performance and commercial availability at a reasonable cost, and the foams clause requires consideration of the same kinds of factor [@CL-CMP-5208; @CL-CMP-5209; @CL-CMP-5212; @CL-CMP-5307]. The codified FAR 52.223-20 and FAR 52.223-21 hold the aerosols and foams duties to reduce when feasible, while the RFO text prints both section numbers as reserved [@CL-CMP-5207; @CL-CMP-5211; @CL-CMP-0349; @CL-CMP-0350]. The clauses on ozone-depleting substances and refrigerant handling are covered in [Ozone-depleting substances and refrigerant handling](cmp-ozone-depleting-substances-and-refrigerant-handling.md).
 
 ## Company calibration
 
@@ -72,6 +64,7 @@ Whether product and process records show which aerosols and foams use high globa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrast wording.

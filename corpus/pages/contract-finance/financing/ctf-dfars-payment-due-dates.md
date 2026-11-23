@@ -55,9 +55,7 @@ A 5-day constructive acceptance period would be shorter than the cited 7 days, s
 
 ## Never confuse
 
-The contracting officer may specify a longer period because the period specified in the contract is not reasonable or practical [@CL-CTF-3807]. In most cases, Government acceptance or approval can occur within the 7-day constructive acceptance period [@CL-CTF-3805], and Government payment of construction progress payments can be made within the 14-day period [@CL-CTF-3806].
-
-The 7-day constructive acceptance period relates to Government acceptance or approval [@CL-CTF-3805], while the 14-day period relates to Government payment of construction progress payments [@CL-CTF-3806]. Due dates are on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md).
+The contracting officer may specify a longer period than the usual ones rather than a shorter one, because the period specified in the contract is not reasonable or practical [@CL-CTF-3807]; in most cases, Government acceptance or approval can occur within the 7-day constructive acceptance period [@CL-CTF-3805], and Government payment of construction progress payments can be made within the 14-day period [@CL-CTF-3806]. The 7-day constructive acceptance period relates to Government acceptance or approval rather than to payment, while the 14-day period relates to Government payment of construction progress payments [@CL-CTF-3805; @CL-CTF-3806]. Due dates are on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md).
 
 ## Company calibration
 
@@ -66,5 +64,6 @@ Which acceptance and payment offices are involved, what acceptance period each c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned payment period and coordination wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD rules for determining payment due dates.

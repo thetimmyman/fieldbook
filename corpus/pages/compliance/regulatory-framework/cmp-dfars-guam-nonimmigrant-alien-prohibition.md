@@ -45,7 +45,7 @@ A contract with the Guam clause needs 10 workers for a task. Four hold a visa un
 
 ## Never confuse
 
-For the residency clause, see [Restrictions on employment of personnel](cmp-dfars-restrictions-on-employment-of-personnel.md).
+The prohibition is a visa-status bar rather than a general employment bar: the work required by the contract shall not be performed by any alien who is issued a visa or otherwise provided nonimmigrant status under Section 101(a)(15)(H)(ii) of the Immigration and Nationality Act [@CL-CMP-4420], and the prohibition does not apply to work performed by lawfully admitted citizens of the freely associated states of the Republic of the Marshall Islands, the Federated States of Micronesia, or the Republic of Palau [@CL-CMP-4421]. For the residency clause, see [Restrictions on employment of personnel](cmp-dfars-restrictions-on-employment-of-personnel.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which executed contracts include the Guam clause, and who confirms it. [@Q-004]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated rule as cited facts; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on nonimmigrant aliens on Guam.

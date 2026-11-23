@@ -59,11 +59,7 @@ If the contract is for services along a major route of supply to a zone of activ
 
 ## Never confuse
 
-The prohibition applies to an entity identified as excluded in the System for Award Management, specifically for this subpart, on the basis of involvement in activities that violate arms control treaties or agreements with the United States [@CL-CMP-7973; @CL-CMP-7974].
-
-The provision is to be included in each solicitation that exceeds the simplified acquisition threshold, other than solicitations for the acquisition of commercial products or commercial services [@CL-CMP-7977; @CL-CMP-7978], while the prohibition is stated for any contract for the procurement of products or services with an entity identified as excluded [@CL-CMP-7973].
-
-See [SAM exclusion records and effect of listing](../../supply-chain/supplier-identity/sup-sam-exclusion-records-and-effect-of-listing.md) and [Arms control certification and campus access clauses](../../supply-chain/supplier-identity/sup-arms-control-certification-and-rotc-clauses.md).
+The prohibition is not the provision: the provision is to be included in each solicitation that exceeds the simplified acquisition threshold, other than solicitations for the acquisition of commercial products or commercial services [@CL-CMP-7977; @CL-CMP-7978], while the prohibition is stated for any contract for the procurement of products or services with an entity identified as excluded [@CL-CMP-7973]. The prohibition applies to an entity identified as excluded in the System for Award Management, specifically for this subpart, on the basis of involvement in activities that violate arms control treaties or agreements with the United States [@CL-CMP-7973; @CL-CMP-7974]. See [SAM exclusion records and effect of listing](../../supply-chain/supplier-identity/sup-sam-exclusion-records-and-effect-of-listing.md) and [Arms control certification and campus access clauses](../../supply-chain/supplier-identity/sup-arms-control-certification-and-rotc-clauses.md).
 
 ## Company calibration
 
@@ -73,5 +69,6 @@ Which company entities are checked in the System for Award Management before an 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed an uncited inference and the word only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the arms control exclusion award prohibition.

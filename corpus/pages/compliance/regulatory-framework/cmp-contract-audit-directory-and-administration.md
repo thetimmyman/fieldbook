@@ -49,7 +49,7 @@ A contract worth 4,000,000 is assigned to a contract administration office, and 
 
 ## Never confuse
 
-The cognizant audit office, which holds audit cognizance over the contractor, appears in the directory [@CL-CMP-7790]; the contract administration office performs the listed functions on an assigned contract [@CL-CMP-7793].
+Audit cognizance and contract administration are not the same office: the cognizant audit office, which holds audit cognizance over the contractor, appears in the directory [@CL-CMP-7790]; the contract administration office performs the listed functions on an assigned contract [@CL-CMP-7793].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which contracts are assigned to which contract administration office, and which 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.000 scope of part 42.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.

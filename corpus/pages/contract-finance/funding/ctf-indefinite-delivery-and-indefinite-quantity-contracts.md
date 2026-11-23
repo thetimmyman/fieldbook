@@ -45,7 +45,7 @@ An indefinite-quantity contract for spare parts states a minimum of 100 units an
 
 ## Never confuse
 
-An indefinite-quantity contract must require the Government to order and the contractor to furnish at least a stated minimum quantity [@CL-CTF-1209], whereas a requirements contract provides for filling all actual purchase requirements of designated Government activities for supplies or services during a specified contract period from one contractor [@CL-CTF-1215]; see [Requirements contracts](ctf-requirements-contracts.md). Funding limits are on [Contract funding: incremental funding policy](ctf-incremental-funding-policy.md) and [Limitation of Funds clause](ctf-limitation-of-funds.md). The clauses that go into a solicitation for each type are on [Indefinite-delivery solicitation provisions and clauses](ctf-indefinite-delivery-solicitation-clauses.md), and how the contract type is chosen is on [Negotiating and selecting contract type](ctf-contract-type-negotiation-and-selection.md). The effect of contract type on billing and risk is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md).
+An indefinite-quantity contract differs from a requirements contract in what the Government must order rather than in form: an indefinite-quantity contract must require the Government to order and the contractor to furnish at least a stated minimum quantity [@CL-CTF-1209], whereas a requirements contract instead provides for filling all actual purchase requirements of designated Government activities for supplies or services during a specified contract period from one contractor [@CL-CTF-1215]; see [Requirements contracts](ctf-requirements-contracts.md). Funding limits are on [Contract funding: incremental funding policy](ctf-incremental-funding-policy.md) and [Limitation of Funds clause](ctf-limitation-of-funds.md). The clauses that go into a solicitation for each type are on [Indefinite-delivery solicitation provisions and clauses](ctf-indefinite-delivery-solicitation-clauses.md), and how the contract type is chosen is on [Negotiating and selecting contract type](ctf-contract-type-negotiation-and-selection.md). The effect of contract type on billing and risk is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which indefinite-quantity awards the company holds, their stated minimums and ma
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 16.504(c)(2)(i)(A)-(C), FAR 16.504(c)(1)(ii)(B)(2)-(6), and FAR 16.504(c)(1)(ii)(D)(1)-(2), included Subpart 6.3 in (D)(3), and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the multiple-award preference sentence so the rule keeps that the awards are made under a single solicitation to two or more sources.

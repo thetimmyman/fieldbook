@@ -54,7 +54,7 @@ An employee works 90 hours on a covered contract in a month. The answer: unless 
 
 ## Never confuse
 
-Under the minimum wage enforcement provisions, contracting officers shall withhold payment at the direction of the Administrator [@CL-CMP-2391]. Under the paid sick leave remedies, the contracting officer acts upon his or her own action or upon written request of the Administrator of the Wage and Hour Division [@CL-CMP-2491]. For withholding under the construction wage and overtime rules, see [withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md).
+The minimum wage enforcement differs from the paid sick leave enforcement in who triggers it: under the minimum wage enforcement provisions, contracting officers shall withhold payment at the direction of the Administrator [@CL-CMP-2391], while under the paid sick leave remedies, the contracting officer acts upon his or her own action or upon written request of the Administrator of the Wage and Hour Division [@CL-CMP-2491]. For withholding under the construction wage and overtime rules, see [withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md).
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Which covered contracts carry these requirements, and who tracks each new annual
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the unpaid-wage notice step and the paid sick leave alternatives; fixed the withholding wording and cut uncited explanations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the clause prescriptions for minimum wages and paid sick leave.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

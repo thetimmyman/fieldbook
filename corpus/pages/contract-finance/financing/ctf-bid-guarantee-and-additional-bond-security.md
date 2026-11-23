@@ -58,7 +58,7 @@ On a contract for which a payment bond has been furnished to the Government unde
 
 ## Never confuse
 
-The bidder shall furnish a bid guarantee in the form of a firm commitment [@CL-CTF-2914; @CL-CTF-2471], and the additional security required under FAR 52.228-2 is security required to protect the Government and persons supplying labor or materials under the contract [@CL-CTF-2476]. For surety takeover after a default termination, see [Surety-takeover agreements after a default termination](../../close-revrec/revenue/cls-surety-takeover-agreements.md). The default clauses are on [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
+A bid guarantee differs from additional bond security in when each operates rather than in both being security: the bidder shall furnish a bid guarantee in the form of a firm commitment [@CL-CTF-2914; @CL-CTF-2471] at bidding, which the Contracting Officer returns to unsuccessful bidders as soon as practicable after bids are opened [@CL-CTF-2472], while the additional security required under FAR 52.228-2 is security required to protect the Government and persons supplying labor or materials under the contract [@CL-CTF-2476] during performance. For surety takeover after a default termination, see [Surety-takeover agreements after a default termination](../../close-revrec/revenue/cls-surety-takeover-agreements.md). The default clauses are on [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
 
 ## Company calibration
 
@@ -67,6 +67,7 @@ Which solicitations and contracts carry these clauses, with the guarantee percen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the bid guarantee and additional bond security wording with the cited paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Bid guarantee forms are examples; additional-security events are alternatives, any one of which applies.

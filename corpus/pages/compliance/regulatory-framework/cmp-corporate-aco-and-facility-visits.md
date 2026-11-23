@@ -51,9 +51,7 @@ A contractor has plants in two states, each with a resident administrative contr
 
 ## Never confuse
 
-Government personnel planning to visit a contractor's facility shall provide prior notification to the cognizant CAO [@CL-CMP-2213]. The related cognizant Federal agency role is covered in [Cognizant Federal agency](../cas-allowability/cmp-cas-cognizant-agency.md). The wider set of oversight roles is covered in [Oversight roles](../audit-retention/cmp-oversight-roles.md).
-
-The section number 42.402 is visits to contractors' facilities in the codified text [@CL-CMP-2213] but the assignment and location of a CACO in the RFO text [@CL-CMP-0096]. A decision to start or end a CACO assignment should be based on such factors as the benefits of coordination and liaison at the corporate level and the volume of Government sales under codified FAR 42.602(b) [@CL-CMP-2210], while RFO FAR 42.402(b) says agencies must base such decisions on those factors [@CL-CMP-0099].
+A facility visit is not a CACO assignment: Government personnel planning to visit a contractor's facility shall provide prior notification to the cognizant CAO [@CL-CMP-2213]. The related cognizant Federal agency role is covered in [Cognizant Federal agency](../cas-allowability/cmp-cas-cognizant-agency.md). The wider set of oversight roles is covered in [Oversight roles](../audit-retention/cmp-oversight-roles.md). The section number 42.402 is visits to contractors' facilities in the codified text [@CL-CMP-2213] but the assignment and location of a CACO in the RFO text [@CL-CMP-0096]. A decision to start or end a CACO assignment should be based on such factors as the benefits of coordination and liaison at the corporate level and the volume of Government sales under codified FAR 42.602(b) [@CL-CMP-2210], while RFO FAR 42.402(b) says agencies must base such decisions on those factors [@CL-CMP-0099].
 
 ## Company calibration
 
@@ -63,6 +61,7 @@ Which Government visits, reviews and requests are open, and who owns each respon
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: visit determination, assignment wording, example and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for corporate administrative contracting officer assignment and Government visits to contractor facilities.

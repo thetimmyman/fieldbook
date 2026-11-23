@@ -47,7 +47,7 @@ A demolition contract leaves a net amount of 90,000 due to the Government. Under
 
 ## Never confuse
 
-In solicitations and contracts for dismantling, demolition, or removal of improvements where the contractor is to receive title to dismantled or demolished property and a net amount of compensation is due to the Government, the payment clause is inserted unless the contracting officer determines that it would be advantageous to the Government for the contractor to pay in increments and for the Government to transfer title to the contractor for increments of property only upon receipt of those payments, in which case the incremental payment clause is inserted [@CL-CTF-3048; @CL-CTF-1697; @CL-CTF-9273; @CL-CTF-3049; @CL-CTF-1724]. For simple interest on amounts that become payable by the contractor to the Government under a contract that contains the Interest clause, see [Interest on amounts due the Government and the assignment of claims clause](ctf-interest-and-assignment-of-claims-clauses.md) [@CL-CTF-1671; @CL-CTF-1672].
+The payment clause and the incremental payment clause differ in whether title moves in increments rather than in whether the Government is owed money: in solicitations and contracts for dismantling, demolition, or removal of improvements where the contractor is to receive title to dismantled or demolished property and a net amount of compensation is due to the Government, the payment clause is inserted unless the contracting officer determines that it would be advantageous to the Government for the contractor to pay in increments and for the Government to transfer title to the contractor for increments of property only upon receipt of those payments, in which case the incremental payment clause is inserted [@CL-CTF-3048; @CL-CTF-1697; @CL-CTF-9273; @CL-CTF-3049; @CL-CTF-1724]. For simple interest on amounts that become payable by the contractor to the Government under a contract that contains the Interest clause, see [Interest on amounts due the Government and the assignment of claims clause](ctf-interest-and-assignment-of-claims-clauses.md) [@CL-CTF-1671; @CL-CTF-1672].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm which demolition or removal contracts carry these clauses and who tracks
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prescription lead-ins and initial-payment sentence for the incremental clause, separated RFO citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the prescription exception to include the transfer of title only upon receipt of payments.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

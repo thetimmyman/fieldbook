@@ -46,9 +46,7 @@ An offeror searches SAM for FASCSA orders before it bids and reviews the solicit
 
 ## Never confuse
 
-The offeror shall search for the phrase FASCSA order in SAM [@CL-CMP-3572], and the contractor shall review SAM at least once every three months, or as advised by the Contracting Officer, during contract performance [@CL-CMP-3573]. The offeror's representation covers a covered article or source prohibited by an applicable FASCSA order in effect on the date the solicitation was issued [@CL-CMP-3571]. The first information is due within 3 business days from the date of identification or notification [@CL-CMP-3574], and further information within 10 business days of submitting it [@CL-CMP-3575].
-
-The codified clause sets two reporting periods, 3 business days and 10 business days [@CL-CMP-3574; @CL-CMP-3575], while the RFO clause sets 72 hours for its reports [@CL-CMP-1244; @CL-CMP-1301].
+The offer-stage search is not the performance-stage review: the offeror shall search for the phrase FASCSA order in SAM [@CL-CMP-3572], while the contractor shall review SAM at least once every three months, or as advised by the Contracting Officer, during contract performance [@CL-CMP-3573]. The offeror's representation covers a covered article or source prohibited by an applicable FASCSA order in effect on the date the solicitation was issued [@CL-CMP-3571]. The first information is due within 3 business days from the date of identification or notification [@CL-CMP-3574], and further information within 10 business days of submitting it [@CL-CMP-3575]. The codified clause sets two reporting periods, 3 business days and 10 business days [@CL-CMP-3574; @CL-CMP-3575], unlike the RFO clause, which sets 72 hours for its reports [@CL-CMP-1244; @CL-CMP-1301].
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Which FASCSA orders apply to each company contract, who runs the periodic review
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the representation continuation, the review and report qualifiers and the order-level scope of the third clause, and removed unsupported wording.

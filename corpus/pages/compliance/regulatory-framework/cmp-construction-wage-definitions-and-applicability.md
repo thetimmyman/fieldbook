@@ -47,7 +47,7 @@ A supply contract worth 800,000 includes installing heavy generators at a federa
 
 ## Never confuse
 
-Construction wage rates and service contract wage rates are different regimes. This card covers the Construction Wage Rate Requirements statute, while the service contract rules are on [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). The money rules for withholding and suspension are on [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md), and the clauses that carry these requirements into a contract are listed on [Construction labor standards disputes and the contract clauses and provision to insert](cmp-construction-labor-disputes-and-contract-clauses.md). Wages as defined here are more than the basic cash rate, because irrevocable fringe contributions count too [@CL-CMP-3007].
+Construction wage rates and service contract wage rates are different regimes: this card covers the Construction Wage Rate Requirements statute, while the service contract rules are on [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). The money rules for withholding and suspension are on [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md), and the clauses that carry these requirements into a contract are listed on [Construction labor standards disputes and the contract clauses and provision to insert](cmp-construction-labor-disputes-and-contract-clauses.md). Wages as defined here are not the basic cash rate alone: the definition includes the basic hourly rate of pay and any contribution irrevocably made by a contractor or subcontractor to a trustee or third person under a bona fide fringe benefit fund, plan, or program [@CL-CMP-3007].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which contracts carry construction work at a Federal site, and who prices the pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the construction labor standards subpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the substantial-amount condition so the condition keeps the meaning of substantial.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction wage rate definitions and applicability.

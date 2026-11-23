@@ -49,7 +49,7 @@ A contractor sends a request for an invoice payment of 900,000 under a task orde
 
 ## Never confuse
 
-A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of this chapter [@CL-CTF-3844].
+A payment request differs from a receiving report in kind rather than in name: a payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843], while a receiving report is not a request but the data prepared in the manner and to the extent required by appendix F of this chapter [@CL-CTF-3844].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether the company's systems for submitting payment requests and receiving repo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed meta wording, negatives and mixed-source comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of receiving report.

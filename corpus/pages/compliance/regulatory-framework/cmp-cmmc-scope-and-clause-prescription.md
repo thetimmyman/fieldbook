@@ -65,11 +65,7 @@ Assume the requirements at 32 CFR 170.5(d) are not met for a third solicitation,
 
 ## Never confuse
 
-The certification subpart prescribes policies and procedures for including the CMMC level requirements in DoD contracts [@CL-CMP-7940]. The safeguarding subpart applies to contracts and subcontracts requiring contractors and subcontractors to safeguard covered defense information that resides in or transits through covered contractor information systems by applying specified network security requirements [@CL-CMP-7960], and it also requires reporting of cyber incidents [@CL-CMP-7961].
-
-Until November 9, 2028 the trigger is a determination that the contractor is required to have a specific CMMC level [@CL-CMP-7945]; on or after November 10, 2028 it is a determination that the contractor is required to use contractor information systems in the performance of the contract, task order, or delivery order to process, store, or transmit FCI or CUI [@CL-CMP-7947].
-
-See [Safeguarding covered defense information](../trade-cyber/cmp-safeguarding-covered-defense-information.md) and [Contractor compliance with CMMC level requirements](../trade-cyber/cmp-cmmc-level-compliance-clause.md).
+The certification subpart is not the safeguarding subpart: the certification subpart prescribes policies and procedures for including the CMMC level requirements in DoD contracts [@CL-CMP-7940], while the safeguarding subpart applies to contracts and subcontracts requiring contractors and subcontractors to safeguard covered defense information that resides in or transits through covered contractor information systems by applying specified network security requirements [@CL-CMP-7960], and it also requires reporting of cyber incidents [@CL-CMP-7961]. The trigger differs by phase: until November 9, 2028 it is a determination that the contractor is required to have a specific CMMC level [@CL-CMP-7945]; on or after November 10, 2028 it is a determination that the contractor is required to use contractor information systems in the performance of the contract, task order, or delivery order to process, store, or transmit FCI or CUI [@CL-CMP-7947]. See [Safeguarding covered defense information](../trade-cyber/cmp-safeguarding-covered-defense-information.md) and [Contractor compliance with CMMC level requirements](../trade-cyber/cmp-cmmc-level-compliance-clause.md).
 
 ## Company calibration
 
@@ -79,5 +75,6 @@ Which of the company's defense orders carry the certification clause, and who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: unsupported contrasts and inferences replaced with cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for certification subpart scope and clause prescription.

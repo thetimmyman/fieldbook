@@ -47,13 +47,7 @@ It also writes the notice requirement into every subcontract, including a small 
 
 ## Never confuse
 
-This clause requires a written notice to employees [@CL-CMP-4191]. The display of hotline posters is covered on [DFARS display of hotline posters](cmp-dfars-hotline-posters.md).
-
-The deployed-forces clause makes the Contractor ensure its employees supporting the U.S. Armed Forces are aware of their rights, such as to hold their own identity or immigration documents [@CL-CMP-4160]. It also requires the Contractor to post these rights in employee work spaces in English and in any foreign language spoken by a significant portion of the workforce [@CL-CMP-4208]. That clause is covered on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
-
-Restrictions on mandatory arbitration agreements are covered on [Restrictions on mandatory arbitration agreements](cmp-mandatory-arbitration-restrictions.md).
-
-The clause names the office of the Inspector General referenced in paragraphs (c) and (d) of the FAR code of business ethics clause [@CL-CMP-4193].
+The written notice to employees is not a poster display and not the deployed-forces duties: this clause requires a written notice to employees [@CL-CMP-4191]. The display of hotline posters is covered on [DFARS display of hotline posters](cmp-dfars-hotline-posters.md). The deployed-forces clause makes the Contractor ensure its employees supporting the U.S. Armed Forces are aware of their rights, such as to hold their own identity or immigration documents [@CL-CMP-4160], and it also requires the Contractor to post these rights in employee work spaces in English and in any foreign language spoken by a significant portion of the workforce [@CL-CMP-4208]; that clause is covered on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md). Restrictions on mandatory arbitration agreements are covered on [Restrictions on mandatory arbitration agreements](cmp-mandatory-arbitration-restrictions.md). The clause names the office of the Inspector General referenced in paragraphs (c) and (d) of the FAR code of business ethics clause [@CL-CMP-4193].
 
 ## Company calibration
 
@@ -62,6 +56,7 @@ Which workforce languages need the written notice, and who owns disclosures to t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and recast contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: whistleblower rights notice: posting duty wording as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

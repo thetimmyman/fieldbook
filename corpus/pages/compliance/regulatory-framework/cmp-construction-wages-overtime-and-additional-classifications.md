@@ -45,7 +45,7 @@ A worker's base rate in the wage determination is 20 an hour, but the contractor
 
 ## Never confuse
 
-Additional classes of service employees under the service contract rules are covered in [Service Contract Labor Standards: revised wage determinations and additional classes of service employees](cmp-scls-revised-wage-determinations-and-conformance.md). The overtime rule with its liquidated damages is covered in [Contract Work Hours and Safety Standards overtime](../../operating-model/talent/opm-contract-work-hours-overtime.md). The definition of wages is covered in [Construction wage rate requirements: definitions and which contracts are covered](cmp-construction-wage-definitions-and-applicability.md), and weekly payroll records are covered in [Construction payrolls and statements of compliance, and labor standards investigations](cmp-construction-payrolls-statements-and-investigations.md).
+The wage computation and the overtime computation are not the same base: in computing wages paid to a laborer or mechanic, the contractor may include only listed items, the first being amounts paid in cash or deducted from payments under the conditions in 29 CFR 3.5 [@CL-CMP-3030], while in computing required overtime payments the contractor shall use the basic hourly rate in the wage determination, or the basic hourly rate actually paid by the contractor if higher [@CL-CMP-3031]. Additional classes of service employees under the service contract rules are covered in [Service Contract Labor Standards: revised wage determinations and additional classes of service employees](cmp-scls-revised-wage-determinations-and-conformance.md). The overtime rule with its liquidated damages is covered in [Contract Work Hours and Safety Standards overtime](../../operating-model/talent/opm-contract-work-hours-overtime.md). The definition of wages is covered in [Construction wage rate requirements: definitions and which contracts are covered](cmp-construction-wage-definitions-and-applicability.md), and weekly payroll records are covered in [Construction payrolls and statements of compliance, and labor standards investigations](cmp-construction-payrolls-statements-and-investigations.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Who submits and tracks requests for additional classifications to the Department
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: classification lead-in, worked example and pointers tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction wages, overtime and additional classifications.
