@@ -47,7 +47,7 @@ A cost-plus-fixed-fee contract is expected to exceed the threshold and no listed
 
 ## Never confuse
 
-Under FAR 22.103-4(b), approval by the designated official of use and total dollar amount of overtime is required before inclusion of an amount in paragraph (a) of the clause at FAR 52.222-2, Payment for Overtime Premiums [@CL-OPM-0083], whereas under FAR 22.103-4(c), contracting officer approval of payment of overtime premiums is required for time-and-materials and labor-hour contracts [@CL-OPM-0084], and under FAR 22.103-4(d), no approvals are required for paying overtime premiums under other types of contracts [@CL-OPM-0085].
+The two approvals are not given by the same official: under FAR 22.103-4(b), approval by the designated official of use and total dollar amount of overtime is required before inclusion of an amount in paragraph (a) of the clause at FAR 52.222-2, Payment for Overtime Premiums [@CL-OPM-0083], whereas under FAR 22.103-4(c), contracting officer approval of payment of overtime premiums is required for time-and-materials and labor-hour contracts [@CL-OPM-0084], and under FAR 22.103-4(d), no approvals are required for paying overtime premiums under other types of contracts [@CL-OPM-0085].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who approves overtime requests, and where approved dollar amounts and the clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Aligned FAR 22.103-4(f) request routing and approval steps with CL-CMP-6469, CL-CMP-6470, and CL-CMP-6471.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.103-2 and 22.103-4(a) and (f) rules and separated codified and RFO FAR 2.101 citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named paragraph (a) of the overtime premiums clause.
