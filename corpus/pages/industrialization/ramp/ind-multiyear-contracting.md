@@ -47,7 +47,7 @@ A DoD agency wants to buy a seal kit over four program years. The head of the ag
 
 ## Never confuse
 
-For DoD, NASA, and the Coast Guard, the savings condition is that the use of such a contract will result in significant savings of the total estimated costs of carrying out the program through annual contracts [@CL-IND-0102], and the funding condition is that there is a reasonable expectation that, throughout the contemplated contract period, the head of the agency will request funding for the contract at a level to avoid contract cancellation [@CL-IND-0105]. If funds are not appropriated to support the succeeding years' requirements, the agency must cancel the contract [@CL-IND-0410].
+Two conditions must both hold rather than one: for DoD, NASA, and the Coast Guard, the savings condition is that the use of such a contract will result in significant savings of the total estimated costs of carrying out the program through annual contracts [@CL-IND-0102], and the funding condition is that there is a reasonable expectation that, throughout the contemplated contract period, the head of the agency will request funding for the contract at a level to avoid contract cancellation [@CL-IND-0105]. If funds are not appropriated to support the succeeding years' requirements, the agency must cancel the contract [@CL-IND-0410].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which supplier commitments and lead times would have to hold across several prog
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 17.105-1(a)(2) second determination, full FAR 17.105-1(b) condition details, and FAR 17.105-1(d) cancellation requirement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting.

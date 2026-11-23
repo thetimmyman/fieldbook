@@ -57,7 +57,7 @@ A second company runs a pipeline project. It sends its request to the Department
 
 ## Never confuse
 
-Under 15 CFR 700.55, a person submits a written request for a determination that the request supports a program that is necessary or appropriate to promote the national defense (an "approved program") [@CL-IND-0270]. Under 15 CFR 700.51(b)(2), priority rating authority may be used only to support approved programs [@CL-IND-0244]. See [the rating authority card](ind-dpas-priority-rating-authority-requests.md).
+The determination and the rating authority are not the same permission: under 15 CFR 700.55, a person submits a written request for a determination that the request supports a program that is necessary or appropriate to promote the national defense (an "approved program") [@CL-IND-0270], while under 15 CFR 700.51(b)(2), priority rating authority may be used only to support approved programs [@CL-IND-0244]. See [the rating authority card](ind-dpas-priority-rating-authority-requests.md).
 
 Each category names its own office, so a request for one category should go to the office that its paragraph names [@CL-IND-0271; @CL-IND-0273; @CL-IND-0275].
 
@@ -68,6 +68,7 @@ Which program office owns the determination request and who is responsible for t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced literal telephone and fax numbers in paragraphs (a) through (c) with references to the contact numbers, email addresses and websites listed in 15 CFR 700.55.
