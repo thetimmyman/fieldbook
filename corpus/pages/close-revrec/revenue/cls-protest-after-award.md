@@ -24,7 +24,7 @@ Shows the stop-work order the Contracting Officer may issue after a protest, wha
 | Instrument | Codified FAR [@CL-CLS-1111] |
 | Codified citation | FAR 52.233-3 [@CL-CLS-1111] |
 | RFO citation | RFO FAR 52.233-3 [@CL-CLS-0147] |
-| Edition date | Not established. |
+| Edition date | AUG 1996 [@CL-CLS-1630] |
 | Text status | Final [@CL-CLS-1111] |
 | Applies to | Contracts containing the Protest After Award clause [@CL-CLS-1111] |
 
@@ -61,6 +61,7 @@ Who tells the company's finance team that a protest stop-work order has arrived,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: protest after award: uncited absence statements and contrasts removed, RFO paragraph cites RFO claims only.
 - COMPATIBLE_EXTENSION, 2026-10-31: adjustment conditions stated as both required.

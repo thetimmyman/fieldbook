@@ -25,7 +25,7 @@ Shows what an offeror must show about its earned value management system (EVMS) 
 | Instrument | Codified FAR [@CL-PRG-0901; @CL-PRG-0902] |
 | Codified citation | FAR 52.234-2 and 52.234-3 [@CL-PRG-0901; @CL-PRG-0902] |
 | RFO citation | No RFO equivalent [@CL-PRG-0015; @CL-PRG-0016] |
-| Edition date | Not established. |
+| Edition date | FAR 52.234-2: NOV 2016 [@CL-PRG-9166]; FAR 52.234-3: NOV 2016 [@CL-PRG-9167] |
 | Text status | Final [@CL-PRG-0901; @CL-PRG-0902] |
 | Applies to | Solicitations where the FAR prescribes the provision [@CL-PRG-0901; @CL-PRG-0902] |
 
@@ -56,6 +56,7 @@ Which solicitations carried a preaward or postaward notice, and whether the prop
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for all plan elements and assistance duty; removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored paragraph (a) condition and shall.

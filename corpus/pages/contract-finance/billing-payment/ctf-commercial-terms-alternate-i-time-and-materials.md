@@ -25,7 +25,7 @@ Shows the paragraphs that Alternate I of the commercial products and services te
 | Instrument | Codified FAR [@CL-CTF-2668] |
 | Codified citation | FAR 52.212-4 Alternate I, paragraphs (a), (e), (i), (l) and (m) [@CL-CTF-2668; @CL-CTF-2669; @CL-CTF-2719; @CL-CTF-2697; @CL-CTF-2706; @CL-CTF-2710; @CL-CTF-2714; @CL-CTF-2862; @CL-CTF-2687; @CL-CTF-2691] |
 | RFO citation | RFO FAR 52.212-4 Alternate I, paragraphs (a), (b), (i), (l) and (m) [@CL-CTF-0017; @CL-CTF-0018; @CL-CTF-0029; @CL-CTF-0031; @CL-CTF-0037; @CL-CTF-0048; @CL-CTF-0050] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CTF-9642] |
 | Text status | Final [@CL-CTF-2668] |
 | Applies to | Time-and-materials or labor-hour contracts that use Alternate I of the commercial products and services terms clause, as to the paragraphs quoted [@CL-CTF-2668] |
 
@@ -88,6 +88,7 @@ Confirm which executed time-and-materials or labor-hour contracts carry Alternat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored conditions, alternatives and exceptions; cut uncited contrasts.

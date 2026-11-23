@@ -25,7 +25,7 @@ Shows when title passes to the Government, how and when the contractor is paid u
 | Instrument | Codified DFARS [@CL-CTF-1955; @CL-CTF-1956] |
 | Codified citation | DFARS 252.217-7006, DFARS 252.217-7007 and DFARS 252.217-7014 [@CL-CTF-1955; @CL-CTF-1956; @CL-CTF-1961] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7006: DEC 1991 [@CL-CTF-9680]; DFARS 252.217-7007: DEC 1991 [@CL-CTF-9681]; DFARS 252.217-7014: DEC 1991 [@CL-CTF-9682] |
 | Text status | Final [@CL-CTF-1955] |
 | Applies to | Job orders under a ship repair Master Agreement that includes the Title, Payments and Discharge of Liens clauses [@CL-CTF-1955; @CL-CTF-1956; @CL-CTF-1961] |
 
@@ -54,6 +54,7 @@ Which financing, acceptance and invoicing terms the job orders carry, including 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored final payment conditions in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated payments, lien and default-transfer rules with lead-ins; cut uncited contrasts.

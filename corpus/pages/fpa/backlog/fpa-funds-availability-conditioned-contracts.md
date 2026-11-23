@@ -25,7 +25,7 @@ Shows when the contracting officer may initiate a contract action before funds o
 | Instrument | Codified FAR [@CL-FPA-0052] |
 | Codified citation | FAR 32.703-2; FAR 32.706-1; FAR 52.232-18; FAR 52.232-19 [@CL-FPA-0052; @CL-FPA-0057; @CL-FPA-0353; @CL-FPA-0354; @CL-FPA-0058; @CL-FPA-0059; @CL-FPA-0061] |
 | RFO citation | RFO FAR 32.703-2; RFO FAR 32.706-1 [@CL-FPA-0274; @CL-FPA-0275; @CL-FPA-0276; @CL-FPA-0277; @CL-FPA-0278; @CL-FPA-0279; @CL-FPA-0280; @CL-FPA-0281; @CL-FPA-0282]; RFO FAR 52.232-18 and 52.232-19 [@CL-FPA-1023; @CL-FPA-1024; @CL-FPA-1025; @CL-FPA-1026; @CL-FPA-1027] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-18: Apr 1984 [@CL-FPA-1023]; FAR 52.232-19: Apr 1984 [@CL-FPA-1025] |
 | Text status | Final [@CL-FPA-0052] |
 | Applies to | Contract actions initiated before funds of the new fiscal year are available, one-year indefinite-quantity or requirements contracts for services funded by annual appropriations that extend beyond the initial fiscal year, and contracts conditioned upon the availability of funds [@CL-FPA-0052; @CL-FPA-0055; @CL-FPA-0056; @CL-FPA-0057; @CL-FPA-0353; @CL-FPA-0354; @CL-FPA-0058] |
 
@@ -58,6 +58,7 @@ Which contracts carry either availability clause, and who confirms and records t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 32.706-1(b) and 52.232-19 companions, separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Comparison sentences now carry the insertion conditions for both availability clauses.

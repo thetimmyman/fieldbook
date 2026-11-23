@@ -25,7 +25,7 @@ Shows what a contractor must report when a foreign government taxes exempt commo
 | Instrument | Codified DFARS [@CL-CTF-1895] |
 | Codified citation | DFARS 252.229-7011 and 252.229-7014 [@CL-CTF-1895; @CL-CTF-1899] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.229-7011: SEP 2005 [@CL-CTF-9654]; DFARS 252.229-7014: OCT 2022 [@CL-CTF-9655] |
 | Text status | Final [@CL-CTF-1895] |
 | Applies to | Contracts that include the foreign tax reporting clause [@CL-CTF-1925] or the full exemption clause [@CL-CTF-1899] |
 
@@ -54,5 +54,6 @@ Which contracts carry these clauses, who tells the foreign government and the Co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts; restated the change-in-circumstances and 5000C tax rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reporting of foreign taxes under United States assistance programs and full exemption from the two-percent excise tax on certain foreign procurements.

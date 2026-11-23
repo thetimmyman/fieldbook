@@ -24,7 +24,7 @@ Shows how the Federal, State, and Local Taxes clause puts applicable taxes insid
 | Instrument | Codified FAR [@CL-CTF-0427] |
 | Codified citation | FAR 52.229-3 [@CL-CTF-0427] |
 | RFO citation | RFO FAR 52.229-3 [@CL-CTF-0242] |
-| Edition date | Not established. |
+| Edition date | FEB 2013 [@CL-CTF-9694] |
 | Text status | Final [@CL-CTF-0427] |
 | Applies to | Contracts that include the Federal, State, and Local Taxes clause [@CL-CTF-0427] |
 
@@ -65,6 +65,7 @@ Which tax changes the company would push through the contract price, and how the
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the warranty condition as a proviso; cut commentary and uncited negative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the price-inclusion rule where the taxes-in-the-price statements rested on a definition or exception alone.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

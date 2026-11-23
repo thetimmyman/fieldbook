@@ -25,7 +25,7 @@ Shows how the clause at DFARS 252.232-7007, Limitation of Government's Obligatio
 | Instrument | Codified DFARS clause [@CL-FPA-0081] |
 | Codified citation | DFARS 252.232-7007 [@CL-FPA-0081] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | APR 2014 [@CL-FPA-1330] |
 | Text status | Final [@CL-FPA-0081] |
 | Applies to | Incrementally funded contract line items identified in paragraph (a) of the clause [@CL-FPA-0080; @CL-FPA-1241] |
 
@@ -54,6 +54,7 @@ Which contract line items are incrementally funded, where the allotment schedule
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added DFARS 252.232-7007(c) subsequent-period notification companions, restored full quote scope, and removed meta wording and uncited contrasts.

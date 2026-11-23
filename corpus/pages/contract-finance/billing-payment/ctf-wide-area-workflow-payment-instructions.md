@@ -25,7 +25,7 @@ Shows how the clause directs a contractor to submit payment requests and receivi
 | Instrument | Codified DFARS [@CL-CTF-0451] |
 | Codified citation | DFARS 252.232-7006 [@CL-CTF-0451] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CTF-9709] |
 | Text status | Final [@CL-CTF-0451] |
 | Applies to | The clause as prescribed in DFARS 232.7004(b) [@CL-CTF-0451] |
 
@@ -54,6 +54,7 @@ Confirming who holds the electronic business point of contact in the System for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for DFARS 252.232-7006(c)(2) self-registration procedures, included the Invoice 2in1 qualifier in (f)(1)(ii)(B), restored shall modality, and removed uncited lead-ins.

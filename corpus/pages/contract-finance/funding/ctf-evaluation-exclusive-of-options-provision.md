@@ -25,7 +25,7 @@ Shows how offers are evaluated when the solicitation uses the provision that lea
 | Instrument | Codified FAR [@CL-CTF-2295] |
 | Codified citation | FAR 52.217-3 [@CL-CTF-2295] |
 | RFO citation | RFO FAR 52.217-3 [@CL-CTF-1142; @CL-CTF-1143] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CTF-1142] |
 | Text status | Final [@CL-CTF-2295] |
 | Applies to | Solicitations that include an option clause and do not include one of the provisions prescribed in paragraph (b) or (c) of FAR 17.208 [@CL-CTF-2294] |
 
@@ -58,6 +58,7 @@ Confirm which solicitations and contracts carry an option evaluation provision, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation exclusive of options.

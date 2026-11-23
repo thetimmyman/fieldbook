@@ -25,7 +25,7 @@ Gives the invoice due dates, interest penalties and discount-period rules in the
 | Instrument | Codified FAR [@CL-CTF-1663; @CL-CTF-1668] |
 | Codified citation | FAR 52.232-26 [@CL-CTF-1663]; FAR 52.232-8 [@CL-CTF-1668] |
 | RFO citation | RFO FAR 52.232-26 [@CL-CTF-0593; @CL-CTF-0594; @CL-CTF-0595; @CL-CTF-0596; @CL-CTF-0597; @CL-CTF-0598; @CL-CTF-0599; @CL-CTF-0621; @CL-CTF-0622; @CL-CTF-0623; @CL-CTF-9502]; RFO FAR 52.232-8 [@CL-CTF-0624; @CL-CTF-0625; @CL-CTF-0626] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-26: Jan 2017 [@CL-CTF-0593]; FAR 52.232-8: Feb 2002 [@CL-CTF-0624] |
 | Text status | Final [@CL-CTF-1663; @CL-CTF-1668] |
 | Applies to | Contracts that include either clause [@CL-CTF-1663; @CL-CTF-1668] |
 
@@ -60,6 +60,7 @@ Confirm which agreements carry prompt payment discount terms, how invoices are d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored clause qualifiers and 5 CFR part 1315 reference, separated RFO and codified citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the if-applicable, annotation and progress-payment lead-in qualifiers on the prompt payment comparisons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the interest penalty rule.

@@ -25,7 +25,7 @@ Shows when FAR and DFARS clause terms may be included in commercial subcontracts
 | Instrument | Codified DFARS [@CL-CLS-1170] |
 | Codified citation | DFARS 252.244-7000 [@CL-CLS-1169]; DFARS 244.403 [@CL-CLS-1477] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CLS-1617] |
 | Text status | Final [@CL-CLS-1170] |
 | Applies to | Contracts with the clause, prescribed at DFARS 244.403 [@CL-CLS-1169; @CL-CLS-1477] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry the clause, and who confirms which DFARS clauses 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: commercial subcontract flowdown: paragraph (c) wording, uncited inference and gap statements removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: wrote the two exceptions as alternatives and dropped most.

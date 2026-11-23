@@ -25,7 +25,7 @@ Shows the contractor's performance duty, the guarantee on repaired work, and how
 | Instrument | Codified DFARS [@CL-CTF-1967; @CL-CTF-1968; @CL-CTF-1969] |
 | Codified citation | DFARS 252.217-7010, DFARS 252.217-7013 and DFARS 252.217-7028 [@CL-CTF-1967; @CL-CTF-1968; @CL-CTF-1969]; DFARS 217.7701 [@CL-CTF-9281]; DFARS 217.7702 [@CL-CTF-9282] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7010: JUL 2009 [@CL-CTF-9674]; DFARS 252.217-7013: DEC 1991 [@CL-CTF-9675]; DFARS 252.217-7028: DEC 1991 [@CL-CTF-9676] |
 | Text status | Final [@CL-CTF-1967] |
 | Applies to | Job orders under a ship repair Master Agreement that includes the Performance and Guarantees clauses, and contracts that include the over and above work clause [@CL-CTF-1967; @CL-CTF-1968; @CL-CTF-1969] |
 
@@ -66,6 +66,7 @@ Which executed contracts include the over and above work clause, which work-requ
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched guarantee wording to the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated lists, lead-ins and shall wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: over and above procedures actors named.

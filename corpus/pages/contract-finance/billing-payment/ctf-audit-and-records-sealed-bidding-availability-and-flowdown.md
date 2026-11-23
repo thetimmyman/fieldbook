@@ -25,7 +25,7 @@ States how long the materials must stay available under the sealed bidding audit
 | Instrument | Codified FAR [@CL-CTF-2948] |
 | Codified citation | FAR 52.214-26 [@CL-CTF-2948] |
 | RFO citation | RFO FAR 52.214-26 [@CL-CTF-0011; @CL-CTF-0012; @CL-CTF-0013; @CL-CTF-0014; @CL-CTF-0015]; No RFO equivalent for Alternate I, which the RFO section does not print [@CL-CTF-0016] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CTF-9640] |
 | Text status | Final [@CL-CTF-2948] |
 | Applies to | Sealed bidding contracts in which the clause is inserted under its own prescription [@CL-CTF-2948] |
 
@@ -68,6 +68,7 @@ Where modification records are kept, when final payment is recorded, and which s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inferences; added examination actor and exception wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Examination-right sentence now carries its condition and record list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

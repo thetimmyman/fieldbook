@@ -25,7 +25,7 @@ Shows when the emergencies and contingency operations clause governs invoice pay
 | Instrument | Codified DFARS [@CL-CTF-1753] |
 | Codified citation | DFARS 252.232-7011 [@CL-CTF-1753] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAY 2013 [@CL-CTF-9717] |
 | Text status | Final [@CL-CTF-1753] |
 | Applies to | Solicitations and contracts in acquisitions that meet the applicability criteria in the DFARS prompt payment applicability rule [@CL-CTF-1789]; the clause applies until the Contracting Officer notifies otherwise [@CL-CTF-1758] |
 
@@ -56,6 +56,7 @@ Which contracts carry the emergencies and contingency operations clause, and whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Applicability criteria stated as all required, with the first condition as one of three alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected line item wording and payment timing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the contingency operation definition.

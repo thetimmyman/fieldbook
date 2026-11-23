@@ -25,7 +25,7 @@ Specifies the contractor's duties under the Government Property clause for inter
 | Instrument | Codified FAR [@CL-CLS-0581] |
 | Codified citation | FAR 52.245-1 [@CL-CLS-0581] |
 | RFO citation | RFO FAR 52.245-1 [@CL-CLS-0001; @CL-CLS-0002; @CL-CLS-0003; @CL-CLS-0004; @CL-CLS-0005; @CL-CLS-0006; @CL-CLS-0007; @CL-CLS-0008; @CL-CLS-0009] |
-| Edition date | Not established. |
+| Edition date | Sep 2021 [@CL-CLS-0001] |
 | Text status | Final [@CL-CLS-0581] |
 | Applies to | Contracts that include the Government Property clause [@CL-CLS-0581] |
 
@@ -58,6 +58,7 @@ Who owns Government property title records and how physical and accounting balan
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers and shall modals, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the fixture and personal-property continuation of the title-not-affected sentence.

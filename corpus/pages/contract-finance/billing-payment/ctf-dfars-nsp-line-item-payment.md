@@ -25,7 +25,7 @@ Shows when a contractor may invoice an item whose price includes an item marked 
 | Instrument | Codified DFARS [@CL-CTF-1803] |
 | Codified citation | DFARS 252.204-7002 [@CL-CTF-1803] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | APR 2020 [@CL-CTF-9661] |
 | Text status | Final [@CL-CTF-1803] |
 | Applies to | Contracts whose schedule contains a line or subline item identified as not separately priced [@CL-CTF-1803] |
 
@@ -56,5 +56,6 @@ Which contracts carry NSP items and how the invoice timing they cause affects th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, uncited negatives and contrasts; restated the invoice condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payment for line or subline items not separately priced.

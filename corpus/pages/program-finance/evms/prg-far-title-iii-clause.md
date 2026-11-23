@@ -24,7 +24,7 @@ Shows what the contractor must do about Title III industrial resources under the
 | Instrument | Codified FAR [@CL-PRG-0946] |
 | Codified citation | FAR 52.234-1 [@CL-PRG-0946] |
 | RFO citation | RFO FAR 52.234-1 [@CL-PRG-0034; @CL-PRG-0035; @CL-PRG-0036; @CL-PRG-0037] |
-| Edition date | Not established. |
+| Edition date | SEP 2016 [@CL-PRG-9169] |
 | Text status | Final [@CL-PRG-0946] |
 | Applies to | Contracts that include the clause [@CL-PRG-0946] |
 
@@ -55,6 +55,7 @@ Whether any contract has received a Title III testing request or direction, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for Wright Patterson address and paragraph (d) lead-in; separated RFO and codified citations and removed meta-wording.

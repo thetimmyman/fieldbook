@@ -25,7 +25,7 @@ Shows the price basis, the six-month limit on extension and the notice for the o
 | Instrument | Codified FAR [@CL-CTF-2305] |
 | Codified citation | FAR 52.217-8 [@CL-CTF-2305] |
 | RFO citation | RFO FAR 52.217-8 [@CL-CTF-1351; @CL-CTF-1352; @CL-CTF-1353] |
-| Edition date | Not established. |
+| Edition date | Nov 1999 [@CL-CTF-1351] |
 | Text status | Final [@CL-CTF-2305] |
 | Applies to | Contracts that include the option to extend services clause [@CL-CTF-2305] |
 
@@ -56,6 +56,7 @@ Confirm which service contracts carry this clause, the notice period inserted in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for option to extend services.

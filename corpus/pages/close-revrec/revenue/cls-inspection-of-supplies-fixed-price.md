@@ -25,7 +25,7 @@ Explains the effect of Government acceptance under the Inspection of Supplies—
 | Instrument | Codified FAR [@CL-CLS-0204] |
 | Codified citation | FAR 52.246-2 [@CL-CLS-0204] |
 | RFO citation | RFO FAR 52.246-2 [@CL-CLS-0123] |
-| Edition date | Not established. |
+| Edition date | Aug 1996 [@CL-CLS-0097] |
 | Text status | Final [@CL-CLS-0204] |
 | Applies to | Contracts that include the Inspection of Supplies—Fixed-Price clause [@CL-CLS-0204] |
 
@@ -58,6 +58,7 @@ Whether revenue recognition procedures confirm formal acceptance before closing 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: inspection of supplies: RFO paragraph cites RFO claims only, uncited contrast removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: added including the period of manufacture.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

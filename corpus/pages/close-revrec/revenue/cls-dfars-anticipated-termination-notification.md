@@ -25,7 +25,7 @@ Shows who the Contractor must notify, and by when, once the Contracting Officer 
 | Instrument | Codified DFARS [@CL-CLS-1157] |
 | Codified citation | DFARS 252.249-7002 [@CL-CLS-1157] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-CLS-1616] |
 | Text status | Final [@CL-CLS-1157] |
 | Applies to | Contracts with the clause, which DFARS 249.7004 prescribes [@CL-CLS-1157] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry the clause, and who owns the employee and subcont
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: anticipated termination notification: Workforce Innovation and Opportunity Act scope of employee notice, uncited gap statements removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: named the two statutes the clause implements.

@@ -25,7 +25,7 @@ Shows what an offeror must report about predecessors when it is the successor to
 | Instrument | Codified FAR [@CL-MNA-0388] |
 | Codified citation | FAR 52.204-20 [@CL-MNA-0388] |
 | RFO citation | RFO FAR 52.204-20 is reserved, and predecessor information appears in RFO FAR 52.204-7 and RFO FAR 52.204-90 [@CL-MNA-0001; @CL-MNA-0005; @CL-MNA-0008] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-20: AUG 2020 [@CL-MNA-1589]; FAR 52.204-7: NOV 2024 [@CL-MNA-1590] |
 | Text status | Final [@CL-MNA-0388] |
 | Applies to | Offerors, who represent whether they are a successor to a predecessor that held a Federal contract or grant within the last three years [@CL-MNA-0388] |
 
@@ -54,6 +54,7 @@ How the target's predecessors, their CAGE codes and legal names are identified a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0116 on successor liability under FAR 52.204-20(a) and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: successor definition, SAM wording and novation definition corrected.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.

@@ -25,7 +25,7 @@ Shows what the supplemental cost principles clause adds to FAR allowability, and
 | Instrument | Codified DFARS [@CL-CTF-1822] |
 | Codified citation | DFARS 252.231-7000 [@CL-CTF-1822]; DFARS 252.215-7003 [@CL-CTF-1823] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.231-7000: DEC 1991 [@CL-CTF-9686]; DFARS 252.215-7003: JUL 2012 [@CL-CTF-9687] |
 | Text status | Final [@CL-CTF-1822] |
 | Applies to | Contracts where allowability is determined under the FAR cost principles part, for the clause [@CL-CTF-1822]; the provision for the Canadian Commercial Corporation, for the provision [@CL-CTF-1823] |
 
@@ -62,6 +62,7 @@ Which of the company's contracts carry the supplemental cost principles clause o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the add-on and ineligibility wording; cut uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: analysis recipient named.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supplemental cost principles and the data the Canadian Commercial Corporation provides.

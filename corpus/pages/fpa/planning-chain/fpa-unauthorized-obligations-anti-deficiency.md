@@ -25,7 +25,7 @@ Covers the FAR Part 32 rule and clause at FAR 52.232-39, Unenforceability of Una
 | Instrument | Codified FAR [@CL-FPA-0096] |
 | Codified citation | FAR 32.705; FAR 32.706-3; FAR 52.232-39 [@CL-FPA-0370; @CL-FPA-0373; @CL-FPA-0095; @CL-FPA-0096; @CL-FPA-0104; @CL-FPA-0097; @CL-FPA-0098; @CL-FPA-0367; @CL-FPA-0368; @CL-FPA-0099] |
 | RFO citation | RFO FAR 32.705; RFO FAR 32.706-3 [@CL-FPA-0374; @CL-FPA-0289; @CL-FPA-0288; @CL-FPA-0290]; RFO FAR 52.232-39 [@CL-FPA-1028; @CL-FPA-1029; @CL-FPA-1030; @CL-FPA-0369; @CL-FPA-1031; @CL-FPA-1032] |
-| Edition date | Not established. |
+| Edition date | Jun 2013 [@CL-FPA-0369] |
 | Text status | Final [@CL-FPA-0096] |
 | Applies to | All solicitations and contracts [@CL-FPA-0096] |
 
@@ -58,6 +58,7 @@ Which supplier license agreements or terms of service sit under company-delivere
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added full FAR 32.705 and 52.232-39(a)(2)-(3) click-wrap and stricken-clause rules, removed RFO meta-framing, and cited Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Clause-insertion actor restored (contracting officer shall insert); paragraph (a) exception scope fixed; RFO sentences cite RFO claims only; FAR 32.705 sentence says agreements the section describes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'one exception' wording.

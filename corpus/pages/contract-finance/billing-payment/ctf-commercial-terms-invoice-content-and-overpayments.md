@@ -25,7 +25,7 @@ Shows how the commercial terms clause says an invoice is submitted and what it m
 | Instrument | Codified FAR [@CL-CTF-2434] |
 | Codified citation | FAR 52.212-4(g) and (i) [@CL-CTF-2434; @CL-CTF-2457; @CL-CTF-2461; @CL-CTF-2438; @CL-CTF-2467]; FAR 2.101 [@CL-CTF-9423] |
 | RFO citation | RFO FAR 52.212-4(g) [@CL-CTF-0070]; RFO FAR 52.212-4(i)(1) to (i)(5) [@CL-CTF-0071; @CL-CTF-0072; @CL-CTF-0073; @CL-CTF-0074; @CL-CTF-0075; @CL-CTF-0076; @CL-CTF-0077; @CL-CTF-0078; @CL-CTF-0079; @CL-CTF-0080; @CL-CTF-0081; @CL-CTF-0082; @CL-CTF-0083; @CL-CTF-0084; @CL-CTF-0085; @CL-CTF-0086; @CL-CTF-0087; @CL-CTF-0088]; RFO FAR 2.101 [@CL-CTF-9456] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CTF-9645] |
 | Text status | Final [@CL-CTF-2434] |
 | Applies to | Contracts that contain the commercial products and services terms clause, as to the paragraphs quoted [@CL-CTF-2434] |
 
@@ -70,6 +70,7 @@ Confirm how invoices are built from these elements, who resolves rejected invoic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected proper-invoice condition and final-decision alternatives; cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Overpayment trigger now follows the clause wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the Taxpayer Identification Number definition.

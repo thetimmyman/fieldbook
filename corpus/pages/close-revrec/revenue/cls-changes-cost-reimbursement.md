@@ -25,7 +25,7 @@ Shows what the Contracting Officer may change under the cost-reimbursement chang
 | Instrument | Codified FAR [@CL-CLS-1075] |
 | Codified citation | FAR 52.243-2 [@CL-CLS-1075] |
 | RFO citation | RFO FAR 52.243-2 [@CL-CLS-0028] |
-| Edition date | Not established. |
+| Edition date | AUG 1987 [@CL-CLS-1614] |
 | Text status | Final [@CL-CLS-1075] |
 | Applies to | Contracts containing the Changes—Cost-Reimbursement clause [@CL-CLS-1075] |
 
@@ -60,6 +60,7 @@ Where the executed contracts and modifications are kept, and who confirms that t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: cost-reimbursement changes: notwithstanding lead-in, shall, dispute wording, uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the changes clause for cost-reimbursement contracts.

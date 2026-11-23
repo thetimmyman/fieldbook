@@ -24,7 +24,7 @@ Shows what a value engineering change proposal is under the value engineering cl
 | Instrument | Codified FAR [@CL-PRG-0919] |
 | Codified citation | FAR 52.248-1 [@CL-PRG-0919]; FAR 2.101 [@CL-PRG-9084; @CL-PRG-9085] |
 | RFO citation | RFO FAR 52.248-1 [@CL-PRG-0038; @CL-PRG-0041; @CL-PRG-0042; @CL-PRG-0043; @CL-PRG-0044; @CL-PRG-0045; @CL-PRG-0046; @CL-PRG-0047; @CL-PRG-0048], with Alternate I [@CL-PRG-0039; @CL-PRG-0040]; RFO FAR 2.101 [@CL-PRG-9107; @CL-PRG-9108] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-PRG-9170] |
 | Text status | Final [@CL-PRG-0919] |
 | Applies to | Contracts that include the clause [@CL-PRG-0919] |
 
@@ -57,6 +57,7 @@ Which contracts carry the value engineering clause, who prepares and approves ch
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for VECP submission, included develop and prepare verbs and personnel qualifier, separated RFO and codified citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored simultaneous copy and unless-otherwise terms.

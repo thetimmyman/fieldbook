@@ -25,7 +25,7 @@ Shows the contractor's safety and plant protection duties under a ship repair Ma
 | Instrument | Codified DFARS [@CL-CTF-1972; @CL-CTF-1973; @CL-CTF-1975] |
 | Codified citation | DFARS 252.217-7015, DFARS 252.217-7016 and DFARS 252.217-7026 [@CL-CTF-1972; @CL-CTF-1973; @CL-CTF-1975] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7015: DEC 1991 [@CL-CTF-9677]; DFARS 252.217-7016: DEC 1991 [@CL-CTF-9678]; DFARS 252.217-7026: JAN 2023 [@CL-CTF-9679] |
 | Text status | Final [@CL-CTF-1972] |
 | Applies to | Contracts that include the Safety and Health clause or the Plant Protection clause, and solicitations that use the supply-source provision [@CL-CTF-1972; @CL-CTF-1973; @CL-CTF-1975] |
 
@@ -54,6 +54,7 @@ Which executed contracts include the safety, plant protection and supply-source 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the or list, shall wording and Y/N rule; replaced uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: reimbursement scope stated as text, not inference.

@@ -25,7 +25,7 @@ Shows how the payments clause for time-and-materials and labor-hour contracts se
 | Instrument | Codified FAR [@CL-CTF-0401] |
 | Codified citation | FAR 52.232-7 [@CL-CTF-0401] |
 | RFO citation | RFO FAR 52.232-7 [@CL-CTF-0741] |
-| Edition date | Not established. |
+| Edition date | Nov 2021 [@CL-CTF-0741] |
 | Text status | Final [@CL-CTF-0401] |
 | Applies to | Time-and-materials and labor-hour contracts that include the payments clause [@CL-CTF-0401] |
 
@@ -68,6 +68,7 @@ Which labor categories, billing rates and voucher cut-offs the billing-to-collec
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.232-7(a)(3) qualified labor, (e) ceiling price obligation, and (f) completion voucher lead-in (codified and RFO), separated RFO and codified citations, and included prorated fractional hours and 5 CFR part 1315.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer necessary-amount qualifier on the withhold reserve.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the specified-qualification scope, the paragraph (g) release, the contracting officer determination of material costs, the exact profit exception and the 120-day completion voucher limit.

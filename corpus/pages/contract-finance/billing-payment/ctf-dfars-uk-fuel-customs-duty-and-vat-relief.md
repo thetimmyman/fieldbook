@@ -25,7 +25,7 @@ Shows which fuel purchases qualify for relief in the United Kingdom, what the co
 | Instrument | Codified DFARS [@CL-CTF-1887] |
 | Codified citation | DFARS 252.229-7009 and 252.229-7010 [@CL-CTF-1887; @CL-CTF-1891] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.229-7009: JUN 1997 [@CL-CTF-9688]; DFARS 252.229-7010: JUN 1997 [@CL-CTF-9689] |
 | Text status | Final [@CL-CTF-1887] |
 | Applies to | Contracts that include the passenger vehicle fuel relief clause [@CL-CTF-1924] or the fuel customs duty relief clause [@CL-CTF-1891] |
 
@@ -56,5 +56,6 @@ Which contracts rely on fuel relief, who files the application and evidence in t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the agreement and lead-in; cut uncited inferences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for relief from customs duty and value added tax on fuel in the United Kingdom.

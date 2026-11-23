@@ -24,7 +24,7 @@ Shows what workers' compensation coverage the contractor sets up before work, th
 | Instrument | Codified FAR [@CL-CTF-2494] |
 | Codified citation | FAR 52.228-3 and FAR 52.228-4 [@CL-CTF-2494; @CL-CTF-2496] |
 | RFO citation | RFO FAR 52.228-3(a)(1) [@CL-CTF-0884; @CL-CTF-0885]; RFO FAR 52.228-3(a)(2) [@CL-CTF-0886]; RFO FAR 52.228-3(a)(3)-(a)(4) [@CL-CTF-0887]; RFO FAR 52.228-3(c) [@CL-CTF-0888]; RFO FAR 52.228-4(a) [@CL-CTF-0889; @CL-CTF-0890; @CL-CTF-0891]; RFO FAR 52.228-4(b) [@CL-CTF-0892; @CL-CTF-0893; @CL-CTF-0894; @CL-CTF-0895] |
-| Edition date | Not established. |
+| Edition date | FAR 52.228-3: Jul 2014 [@CL-CTF-0885]; FAR 52.228-4: Apr 1984 [@CL-CTF-0889] |
 | Text status | Final [@CL-CTF-2494] |
 | Applies to | Contracts with the Defense Base Act workers' compensation clause or the overseas workers' compensation clause [@CL-CTF-2494; @CL-CTF-2496] |
 
@@ -61,6 +61,7 @@ Which contracts and subcontracts carry the Defense Base Act clause, and who conf
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

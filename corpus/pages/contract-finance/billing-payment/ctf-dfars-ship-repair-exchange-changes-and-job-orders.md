@@ -25,7 +25,7 @@ Shows how job orders are issued and priced under a ship repair Master Agreement,
 | Instrument | Codified DFARS [@CL-CTF-1938; @CL-CTF-1942] |
 | Codified citation | DFARS 252.217-7002, DFARS 252.217-7003 and DFARS 252.217-7004 [@CL-CTF-1937; @CL-CTF-1938; @CL-CTF-1942] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7002: JUN 2012 [@CL-CTF-9669]; DFARS 252.217-7003: DEC 1991 [@CL-CTF-9670]; DFARS 252.217-7004: MAY 2006 [@CL-CTF-9671] |
 | Text status | Final [@CL-CTF-1938] |
 | Applies to | Job orders under a ship repair Master Agreement that includes the Changes clause and the Job Orders and Compensation clause, and solicitations that use the property exchange provision [@CL-CTF-1937; @CL-CTF-1938; @CL-CTF-1942] |
 
@@ -56,6 +56,7 @@ Which executed contracts hold a ship repair Master Agreement, and which job orde
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the payment conditions and change-order details; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: CO determination, any-time wording, removed unstated inference.
