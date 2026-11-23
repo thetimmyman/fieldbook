@@ -996,7 +996,7 @@ fn a_backup_of_a_label_no_row_lists_is_fb0901() {
     let (tmp, corpus, state) = setup_corpus_and_state();
     let target_dir = tmp.path().join("approved-backup-target");
     std::fs::create_dir_all(&target_dir).unwrap();
-    let canon_target = target_dir.canonicalize().unwrap();
+    let canon_target = support::canonical_path(&target_dir);
     let target_posix = canon_target.to_string_lossy().replace('\\', "/");
 
     let custom_policy = BASE_FIXTURE.replace(

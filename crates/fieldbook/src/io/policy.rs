@@ -189,14 +189,14 @@ pub fn canonicalize_nearest(path: &Path, cwd: &Path) -> PathBuf {
 
     // Normalize lexical `.` and `..` components only after trying full canonicalize first.
     if let Ok(canon) = std::fs::canonicalize(&abs) {
-        return canon;
+        return strip_windows_verbatim(canon);
     }
 
     let mut cur = abs.as_path();
     let mut tail: Vec<OsString> = Vec::new();
     loop {
         if let Ok(canon_base) = std::fs::canonicalize(cur) {
-            let mut out = canon_base;
+            let mut out = strip_windows_verbatim(canon_base);
             for part in tail.into_iter().rev() {
                 if part == "." {
                     continue;
@@ -218,6 +218,21 @@ pub fn canonicalize_nearest(path: &Path, cwd: &Path) -> PathBuf {
     }
 
     lexical_clean(&abs)
+}
+
+fn strip_windows_verbatim(path: PathBuf) -> PathBuf {
+    #[cfg(windows)]
+    {
+        if let Some(s) = path.to_str() {
+            if let Some(rest) = s.strip_prefix(r"\\?\UNC\") {
+                return PathBuf::from(format!(r"\\{rest}"));
+            }
+            if let Some(rest) = s.strip_prefix(r"\\?\") {
+                return PathBuf::from(rest);
+            }
+        }
+    }
+    path
 }
 
 fn lexical_clean(path: &Path) -> PathBuf {
