@@ -2,6 +2,16 @@
 <!-- generated:ports -->
 Generated from `fieldbook::adapters::registry::ADAPTERS` and `fieldbook_core::ports::templates::TEMPLATES` by `cargo xtask docs`. Do not edit by hand.
 
+## index
+
+| ID | Default | State | Build | Crate | Needs | Sees | Settings keys | Fixtures | Suite |
+|---|---|---|---|---|---|---|---|---|---|
+| `bm25f@1` | yes | built | silent | `fieldbook-core` | none | public | - | `tests/fixtures/ports/index/bm25f@1/` | `index_suite` |
+
+### index bm25f@1
+
+Contract test `contract_index_bm25f_1`; model calls: no.
+
 ## extractor
 
 | ID | Default | State | Build | Crate | Needs | Sees | Settings keys | Fixtures | Suite |
@@ -26,6 +36,16 @@ Contract test `contract_extractor_pdftotext_layout_1`; model calls: no.
 ### extractor staged@1
 
 Contract test `contract_extractor_staged_1`; model calls: no.
+
+## correlator
+
+| ID | Default | State | Build | Crate | Needs | Sees | Settings keys | Fixtures | Suite |
+|---|---|---|---|---|---|---|---|---|---|
+| `exact-ids+bm25@1` | yes | built | silent | `fieldbook-core` | none | public | - | `tests/fixtures/ports/correlator/exact-ids+bm25@1/` | `correlator_suite` |
+
+### correlator exact-ids+bm25@1
+
+Contract test `contract_correlator_exact_ids_bm25_1`; model calls: no.
 
 ## admit
 

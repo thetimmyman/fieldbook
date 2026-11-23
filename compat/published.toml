@@ -160,6 +160,58 @@ sha256 = "d472710af9d49d751522784376af82cd7b1a2ac607a042b12fc48774477ab953"
 
 [[binding]]
 kind = "adapter"
+port = "correlator"
+id = "exact-ids+bm25@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/correlator/exact-ids+bm25@1/contract.toml"
+sha256 = "c5ec9c372753425205fa6a11401de070edc5dfc1a313dc92a867ecbb52edfd1f"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/correlator/exact-ids+bm25@1/c1.out.txt"
+sha256 = "6f139267329e35e55b5083bcb506505bf49e2bbb7882331f2fb2de88c45f8d74"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/correlator/exact-ids+bm25@1/c2.out.txt"
+sha256 = "8fa923295897a0a4671fccdfa5ade6546e26e1576c34a2fd83225bc74b3b5105"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/correlator/exact-ids+bm25@1/c3.out.txt"
+sha256 = "52439e4d730fce84bbe711a61b05d4d244b5017e10f2958059d6816c60f55a87"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/versions/exact_ids_bm25_v1.rs"
+sha256 = "3fd4c557a259db00f5292f72e297652b1b04fea0929be262f08f8f6f5b46ab94"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/correlator/exact-ids+bm25@1/c1.in.toml"
+sha256 = "39237b52539e3759faae69246701975a378bf527b5c53424d1fe2b6734526255"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/correlator/exact-ids+bm25@1/c2.in.toml"
+sha256 = "ca6d9b35d698eefd2e14c8bc84b64ee5107276797d231f28e12734dad9545c0a"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/correlator/exact-ids+bm25@1/c3.in.toml"
+sha256 = "a043cb9da0ce0b530e8769575a0b3460885cd3af63cc946f0fd33aa430138ae7"
+
+[[binding]]
+kind = "adapter"
 port = "extractor"
 id = "html-strip@1"
 runner = "adapter"
@@ -365,6 +417,58 @@ role = "input"
 case = "c3"
 path = "compat/adapter/extractor/staged@1/c3.in.toml"
 sha256 = "929e9c5115e762ec60f715d3081ebcd0e37b107846d50eb235403adee441cda9"
+
+[[binding]]
+kind = "adapter"
+port = "index"
+id = "bm25f@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/index/bm25f@1/contract.toml"
+sha256 = "1a5afde768d164fae2a1499899c58b9abae80a184948db5d6aca3633aa0ab253"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/index/bm25f@1/c1.out.txt"
+sha256 = "32dcd31c121f6054b58713256592d6738636f7b6899cbc180efa2a3ebe1aab86"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/index/bm25f@1/c2.out.txt"
+sha256 = "facc630cadc32627fefce742ec02058459b1a8b617b485d9b64502a9a1575636"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/index/bm25f@1/c3.out.txt"
+sha256 = "52439e4d730fce84bbe711a61b05d4d244b5017e10f2958059d6816c60f55a87"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/versions/bm25f_v1.rs"
+sha256 = "4dacee62e8e6ed6fef6ea6e1097f2464c7eb06fb7d0f351c851eb656f8a33140"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/index/bm25f@1/c1.in.toml"
+sha256 = "30263812f620f949c68c9a23333907012b768af65563083a4ad7062c3e1d8269"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/index/bm25f@1/c2.in.toml"
+sha256 = "06b0fceda13d6535c2d272c4f8b9cc4502a41c1bd820163778688005b77c2d69"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/index/bm25f@1/c3.in.toml"
+sha256 = "efab3e59b90131eb435d831389af93845d94e8dddbe5ad4c3b473b64c84874ba"
 
 [[binding]]
 kind = "adapter"

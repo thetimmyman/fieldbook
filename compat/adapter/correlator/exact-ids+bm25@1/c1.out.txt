@@ -1,0 +1,4 @@
+ok
+correlator exact-ids+bm25@1
+link version_of S-0001 p.1: "Synthetic Cost Rule, made up for tests" ; p.1: "Synthetic Standards Board"
+link related Q-001 Q-001 (score 2930)

@@ -1,0 +1,4 @@
+ok
+index bm25f@1
+total 1
+hit exact 1220 S-0001-v1

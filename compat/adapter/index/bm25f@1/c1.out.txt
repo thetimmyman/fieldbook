@@ -1,0 +1,4 @@
+ok
+index bm25f@1
+total 1
+hit ranked 1160 Q-001
