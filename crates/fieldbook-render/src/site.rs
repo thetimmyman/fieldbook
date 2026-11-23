@@ -15,8 +15,8 @@ use fieldbook_core::version::SCHEMA_VERSION_MAX;
 use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
 use crate::{
-    about, area, changes, csv_copy, day_one, edition, home, ids, map, nav, register, search_index,
-    search_page, source, templates_xlsx, xlsx,
+    about, area, changes, csv_copy, day_one, decision, edition, home, ids, map, nav, register,
+    search_index, search_page, source, templates_xlsx, xlsx,
 };
 
 const APP_CSS_TEXT: &str = include_str!("../assets/app.css");
@@ -205,6 +205,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     }
     paths.push(xlsx::OUTPUT_PATH.to_owned());
     paths.extend(templates_xlsx::planned_paths(view));
+    paths.push(decision::OUTPUT_PATH.to_owned());
     for reg in Register::ALL {
         if reg != Register::Claims {
             paths.push(csv_copy::output_path(reg));
@@ -320,6 +321,17 @@ pub fn render_with_previous(
     for (path, bytes) in templates_xlsx::render_all(view, info.workbook_epoch)? {
         site.insert(&path, bytes);
     }
+    site.insert(
+        decision::OUTPUT_PATH,
+        decision::render(ctx.edition_info(), info.workbook_epoch).map_err(|e| {
+            xlsx::WorkbookError {
+                register: "decision-package".to_owned(),
+                row: String::new(),
+                column: String::new(),
+                detail: e.to_string(),
+            }
+        })?,
+    );
     for reg in Register::ALL {
         if reg != Register::Claims {
             site.insert(&csv_copy::output_path(reg), csv_copy::render(view, reg));

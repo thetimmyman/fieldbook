@@ -24,7 +24,7 @@
 ## Scope
 
 - Files: `crates/fieldbook-render/src/decision.rs`, `crates/fieldbook-render/tests/decision.rs`, `crates/fieldbook-render/src/home.rs`, `crates/fieldbook-render/templates/index.html`, `xtask/src/edition.rs`, `CHANGELOG.md`.
-- Registration lines: `crates/fieldbook-render/src/lib.rs` (`pub mod decision;`); `crates/fieldbook-render/src/site.rs` (one `site.insert` of `templates/decision-package.xlsx` in `render_with_info` and one `planned_paths` entry, this card's path only); `crates/fieldbook/tests/leak_outputs.rs` (the surface `decision_package`: a row in `BUILT_SINKS` and in `SURFACES`, and the test of step 8).
+- Registration lines: `crates/fieldbook-render/src/lib.rs` (`pub mod decision;`); `crates/fieldbook-render/src/site.rs` (one `site.insert` of `templates/decision-package.xlsx` in `render_with_info` and one `planned_paths` entry, this card's path only); `crates/fieldbook/tests/leak_outputs.rs` (the surface `decision_package`: a row in `BUILT_SINKS` and in `SURFACES`, and the test of step 8); `crates/fieldbook-render/tests/templates_xlsx.rs` (include `templates/decision-package.xlsx` in the `templates/` site-key assertions); `xtask/tests/archive_release.rs` (add `templates/decision-package.xlsx` to the mock site edition list matching `REQUIRED_FILES`); `docs/cards/decision-package-2.md` (replace the link to the closed `decision-package.md` with its slug).
 - Docs to update: `CHANGELOG.md` (`- Added: templates/decision-package.xlsx, a synthetic decision package workbook labelled preview.`). No reference changes: the workbook rules are already in `corpus-format.md`.
 
 ## Out of scope

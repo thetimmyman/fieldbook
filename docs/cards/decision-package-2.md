@@ -10,7 +10,7 @@
 
 ## Why
 
-- The bridge is the TP-06 row of the template table in [HANDOFF.md](../design/HANDOFF.md) ("price change bridge as a sheet in the decision package"), and the mockup's price-change figures are the shape reference. It is split from [decision-package](decision-package.md) at the seam "one sheet more": the first card carries the writer, the calc, the site wiring and the leak surface, and this card adds one sheet and its tests, to keep each card near 400 to 600 changed lines.
+- The bridge is the TP-06 row of the template table in [HANDOFF.md](../design/HANDOFF.md) ("price change bridge as a sheet in the decision package"), and the mockup's price-change figures are the shape reference. It is split from `decision-package` at the seam "one sheet more": the first card carries the writer, the calc, the site wiring and the leak surface, and this card adds one sheet and its tests, to keep each card near 400 to 600 changed lines.
 - It shares `crates/fieldbook-render/src/decision.rs` and `crates/fieldbook-render/tests/decision.rs` with `decision-package`, so it names that card under Cards merged with the shared paths in parentheses. [decide-port](drafts/decide-port.md) and [index-output-ports](drafts/index-output-ports.md) name only `decision-package`: they need the two-function seam and the file, which the first card delivers, and neither needs the bridge sheet.
 - Same rules as the first card: [AD-13](../decisions/0001-foundation.md#ad-13-spreadsheet-outputs) (INDEX/MATCH only, cached values, no `IFERROR` masking, a self-check cell), control XL-02 and DT-01. The origin tags are `strings::ORIGIN_LABELS` (Quoted, Computed, Judgment). No token group.
 - Lead decisions where the repository is silent:
