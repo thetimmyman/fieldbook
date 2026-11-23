@@ -42,7 +42,7 @@ A supplier quote of 12,000 sits below a micro-purchase threshold of 15,000. A se
 
 ## Never confuse
 
-For the threshold for certified cost or pricing data, see [Certified cost or pricing data](../../estimating/pricing/est-certified-cost-or-pricing-data.md). For Cost Accounting Standards thresholds, see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
+The simplified acquisition threshold is not the micro-purchase threshold: the simplified acquisition threshold is $350,000, with higher values for the listed contingency and defense purposes [@CL-FND-0001], while the micro-purchase threshold is $15,000, with the listed exceptions [@CL-FND-0002]. For the threshold for certified cost or pricing data, see [Certified cost or pricing data](../../estimating/pricing/est-certified-cost-or-pricing-data.md). For Cost Accounting Standards thresholds, see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Not established.
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-10: Reworded the purpose to name both thresholds, so that a search for the micro-purchase threshold finds this page.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exceptions to both thresholds with cited amounts; cut uncited procedure inferences and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two acquisition thresholds.
