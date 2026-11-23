@@ -51,9 +51,9 @@ Answer: for this kind of award the listed customary choice is one or the other, 
 
 ## Never confuse
 
-Customary financing is a form that the FAR lists as customary when provided under FAR part 32 and agency regulations [@CL-CTF-1411], while unusual financing is any arrangement that deviates from FAR part 32 [@CL-CTF-1410]. The section on unusual financing defines unusual contract financing as any arrangement that deviates from FAR part 32 [@CL-CTF-1410]. Progress payments and performance-based payments are separate choices; see [Customary progress payment rates (DoD)](ctf-progress-payments.md) and [Performance-based payments](ctf-performance-based-payments.md). For what the Government expects in return for financing, see [Consideration for contract financing and fraud-based reduction or suspension of payments](ctf-financing-consideration-and-fraud-payment-procedures.md).
+Customary financing and unusual financing differ in their relation to FAR part 32 rather than in degree: customary financing is a form that the FAR lists as customary when provided under FAR part 32 and agency regulations [@CL-CTF-1411], while unusual financing is any arrangement that deviates from FAR part 32 [@CL-CTF-1410] rather than one of the listed forms; the section on unusual financing defines unusual contract financing the same way, as any arrangement that deviates from FAR part 32 [@CL-CTF-1410]. Progress payments and performance-based payments are separate choices; see [Customary progress payment rates (DoD)](ctf-progress-payments.md) and [Performance-based payments](ctf-performance-based-payments.md). For what the Government expects in return for financing, see [Consideration for contract financing and fraud-based reduction or suspension of payments](ctf-financing-consideration-and-fraud-payment-procedures.md).
 
-The codified text says to resolve reasonable doubts by including contract financing in the solicitation [@CL-CTF-1407], while the RFO text says to resolve doubts that lack of financing could affect performance by including it [@CL-CTF-4474]. The codified text opens paragraph (d) with "Unless otherwise authorized by agency procedures" [@CL-CTF-1455], while the RFO text opens it with "Unless prohibited by agency procedures", and under the RFO text the contracting officer may provide performance-based payments or customary progress payments if the listed conditions are met, unless agency procedures prohibit it [@CL-CTF-4477].
+The codified text and the RFO text differ in wording rather than in the financing itself: the codified text says to resolve reasonable doubts by including contract financing in the solicitation [@CL-CTF-1407], while the RFO text instead says to resolve doubts that lack of financing could affect performance by including it [@CL-CTF-4474]; the codified text opens paragraph (d) with "Unless otherwise authorized by agency procedures" [@CL-CTF-1455], unlike the RFO text, which opens it with "Unless prohibited by agency procedures", under which the contracting officer may provide performance-based payments or customary progress payments if the listed conditions are met, unless agency procedures prohibit it [@CL-CTF-4477].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which financing form each solicitation names as customary, and whether any propo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 32.104(a)(1) and 32.104(d) conditions and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reasonable-doubt duty, billing delay or financial need alternatives, and unusual financing definition aligned with the text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

@@ -45,7 +45,7 @@ A contractor performs a cost-plus-fixed-fee contract and bills monthly. In June 
 
 ## Never confuse
 
-Under DFARS 252.232-7006(f)(1), the contractor shall submit a cost voucher for cost-type line items (including labor-hour or time-and-materials), a progress payment request for customary progress payments based on costs incurred, a performance based payment request for performance based payments, and a commercial financing request for commercial financing [@CL-CTF-0454; @CL-CTF-0564]. Under DFARS 252.232-7006(f)(4), the contractor shall ensure a payment request includes documentation appropriate to the type of payment request in accordance with the payment clause, contract financing clause, or FAR 52.216-7, Allowable Cost and Payment, as applicable [@CL-CTF-0566]. For payment timing and contract types, see [Prompt payment](ctf-prompt-payment.md) and [Contract types](ctf-contract-types.md).
+The document type differs by the kind of payment rather than being one form for all: under DFARS 252.232-7006(f)(1), the contractor shall submit a cost voucher for cost-type line items (including labor-hour or time-and-materials), a progress payment request for customary progress payments based on costs incurred, a performance based payment request for performance based payments, and a commercial financing request for commercial financing [@CL-CTF-0454; @CL-CTF-0564]. Under DFARS 252.232-7006(f)(4), the contractor shall ensure a payment request includes documentation appropriate to the type of payment request in accordance with the payment clause, contract financing clause, or FAR 52.216-7, Allowable Cost and Payment, as applicable [@CL-CTF-0566]. For payment timing and contract types, see [Prompt payment](ctf-prompt-payment.md) and [Contract types](ctf-contract-types.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirming who holds the electronic business point of contact in the System for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for DFARS 252.232-7006(c)(2) self-registration procedures, included the Invoice 2in1 qualifier in (f)(1)(ii)(B), restored shall modality, and removed uncited lead-ins.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the fixed price line item lead-in for the services sentence.

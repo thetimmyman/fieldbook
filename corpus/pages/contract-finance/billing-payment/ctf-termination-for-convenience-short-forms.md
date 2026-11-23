@@ -55,7 +55,7 @@ A second contract, for removing a small structure, carries the fixed-price short
 
 ## Never confuse
 
-Under FAR 52.249-4, if the contract is terminated, the Government shall be liable only for payment under the payment provisions of the contract for services rendered before the effective date of termination [@CL-CTF-2057], whereas under FAR 52.249-1, if the contract is terminated, the rights, duties, and obligations of the parties, including compensation to the contractor, shall be in accordance with part 49 of the Federal Acquisition Regulation in effect on the date of the contract [@CL-CTF-2052]. The long-form deadlines and settlement caps are on [Termination for Convenience of the Government (Fixed-Price): settlement](ctf-termination-for-convenience-settlement.md), and cost-reimbursement contracts are on [Settlement under the termination clause for cost-reimbursement contracts](ctf-termination-cost-reimbursement-settlement.md). The clause set by contract type is on [Termination for convenience clauses and the contracts they go in](../../close-revrec/revenue/cls-termination-for-convenience-clauses.md).
+The two short forms differ in what the Government owes on termination rather than in name: under FAR 52.249-4, if the contract is terminated, the Government shall be liable only for payment under the payment provisions of the contract for services rendered before the effective date of termination [@CL-CTF-2057], whereas under FAR 52.249-1, if the contract is terminated, the rights, duties, and obligations of the parties, including compensation to the contractor, shall be in accordance with part 49 of the Federal Acquisition Regulation in effect on the date of the contract [@CL-CTF-2052]. The long-form deadlines and settlement caps are on [Termination for Convenience of the Government (Fixed-Price): settlement](ctf-termination-for-convenience-settlement.md), and cost-reimbursement contracts are on [Settlement under the termination clause for cost-reimbursement contracts](ctf-termination-cost-reimbursement-settlement.md). The clause set by contract type is on [Termination for convenience clauses and the contracts they go in](../../close-revrec/revenue/cls-termination-for-convenience-clauses.md).
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Which short form, if either, each fixed-price contract actually carries, and who
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the FAR 52.249-4 prescription lead-in and Alternate I lead-ins to FAR 52.249-1 and RFO FAR 52.249-1, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the short-form exceptions as alternatives and cited the architect-engineer and other-clause alternatives, and restored must for the Alternate I use.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

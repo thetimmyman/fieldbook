@@ -53,7 +53,7 @@ Answer: EFT is not required for that payment.
 
 ## Never confuse
 
-A Governmentwide commercial purchase card charge authorizes the third party that issued the purchase card to make immediate payment to the contractor, and the Government reimburses the third party at a later date [@CL-CTF-1539]. The exceptions for payments received outside the United States and for payments in other than United States currency each carry a cross-reference to 32.1106(b) [@CL-CTF-1533]. For invoice due dates, see [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md), for earliest payment dates, see [Making payments: earliest payment date and partial deliveries](../billing-payment/ctf-making-payments.md), and for DoD electronic submission, see [DoD payment rules: prompt payment applicability, electronic submission and performance-based payment procedures](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md).
+A purchase card payment differs from an ordinary EFT payment rather than sitting outside the EFT rules: a Governmentwide commercial purchase card charge authorizes the third party that issued the purchase card to make immediate payment to the contractor, and the Government reimburses the third party at a later date [@CL-CTF-1539], instead of the Government paying the contractor directly as it does for the contract payments it provides through EFT [@CL-CTF-1532]; for purposes of compliance with section 3332 of title 31 and its implementing regulations, the term electronic funds transfer still includes a Governmentwide commercial purchase card transaction [@CL-CTF-9462]. The exceptions for payments received outside the United States and for payments in other than United States currency each carry a cross-reference to 32.1106(b) [@CL-CTF-1533]. For invoice due dates, see [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md), for earliest payment dates, see [Making payments: earliest payment date and partial deliveries](../billing-payment/ctf-making-payments.md), and for DoD electronic submission, see [DoD payment rules: prompt payment applicability, electronic submission and performance-based payment procedures](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm which contracts are paid by EFT or purchase card and which listed except
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: added payment office fallback; replaced comparisons and meta wording; separated RFO statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Treasury-authorization case reworded to the text; card definition now cited to its own source.

@@ -55,13 +55,13 @@ A letter contract with a value of 2,000,000 is awarded with a target date for de
 
 ## Never confuse
 
-The definitive contract includes all clauses required by the FAR on the date of execution of the letter contract, all clauses required by law on the date of execution of the definitive contract, and any other mutually agreeable clauses, terms, and conditions [@CL-CTF-0412].
+The definitive contract differs from the letter contract rather than repeating it: it includes all clauses required by the FAR on the date of execution of the letter contract, all clauses required by law on the date of execution of the definitive contract, and any other mutually agreeable clauses, terms, and conditions [@CL-CTF-0412].
 
-In any event, the Contractor shall proceed with completion of the contract, subject only to the Limitation of Government Liability clause [@CL-CTF-0416].
+In any event, the Contractor shall proceed with completion of the contract, rather than being free to stop while negotiation is open, subject only to the Limitation of Government Liability clause [@CL-CTF-0416].
 
 Funding ceilings on incrementally funded work are covered in [Limitation of funds](ctf-limitation-of-funds.md).
 
-Under FAR 52.216-25(a), the Contractor agrees to submit a proposal including data other than certified cost or pricing data, and certified cost or pricing data, in accordance with FAR 15.408, Table 15-2 [@CL-CTF-0413]. Under RFO FAR 52.216-25(a), the Contractor agrees to submit a proposal including data other than certified cost or pricing data, and certified cost or pricing data, in accordance with FAR 15.408, Table 15-1 [@CL-CTF-1136]. Under FAR 52.216-25 Alternate I, paragraph (d) is added in letter contracts awarded on the basis of price competition [@CL-CTF-0610], and under RFO FAR 52.216-25 Alternate I, paragraph (d) is added as prescribed in 16.603-4(b)(3) [@CL-CTF-1140].
+The codified and RFO proposal requirements differ in the table they name rather than in the data required: under FAR 52.216-25(a), the Contractor agrees to submit a proposal including data other than certified cost or pricing data, and certified cost or pricing data, in accordance with FAR 15.408, Table 15-2 [@CL-CTF-0413], whereas under RFO FAR 52.216-25(a) the same proposal instead follows FAR 15.408, Table 15-1 [@CL-CTF-1136]. Under FAR 52.216-25 Alternate I, paragraph (d) is added in letter contracts awarded on the basis of price competition [@CL-CTF-0610], unlike the RFO Alternate I, where paragraph (d) is added as prescribed in 16.603-4(b)(3) [@CL-CTF-1140].
 
 ## Company calibration
 
@@ -70,6 +70,7 @@ Whether each letter contract has a target date, a proposal carrying both kinds o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, removed meta-wording, and added citation to the first sentence of How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added contrast about funding ceilings from the duty-to-proceed sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

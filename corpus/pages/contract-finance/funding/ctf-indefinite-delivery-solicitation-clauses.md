@@ -44,7 +44,7 @@ A solicitation contemplates a requirements contract for repair parts. The orderi
 
 ## Never confuse
 
-The provision at 52.216-27, Single or Multiple Awards, is prescribed for solicitations for indefinite-quantity contracts that may result in multiple contract awards [@CL-CTF-1227], while the clauses at 52.216-18, 52.216-19, 52.216-20, 52.216-21, and 52.216-22 are prescribed for solicitations and contracts [@CL-CTF-1222; @CL-CTF-1223; @CL-CTF-1224; @CL-CTF-1225; @CL-CTF-1226]. For 52.216-19, Order Limitations, the prescription directs inserting a clause substantially the same as the clause at 52.216-19 [@CL-CTF-1223]. The contract types themselves are on [Indefinite-delivery and indefinite-quantity contracts](ctf-indefinite-delivery-and-indefinite-quantity-contracts.md) and [Requirements contracts](ctf-requirements-contracts.md). What each contract type means for billing and risk is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md).
+The single-or-multiple-awards provision differs from the five clauses rather than belonging with them: the provision at 52.216-27, Single or Multiple Awards, is prescribed for solicitations for indefinite-quantity contracts that may result in multiple contract awards [@CL-CTF-1227], while the clauses at 52.216-18, 52.216-19, 52.216-20, 52.216-21, and 52.216-22 are prescribed for solicitations and contracts rather than for solicitations alone [@CL-CTF-1222; @CL-CTF-1223; @CL-CTF-1224; @CL-CTF-1225; @CL-CTF-1226]. For 52.216-19, Order Limitations, the prescription directs inserting a clause substantially the same as the clause at 52.216-19 rather than that exact text [@CL-CTF-1223]. The contract types themselves are on [Indefinite-delivery and indefinite-quantity contracts](ctf-indefinite-delivery-and-indefinite-quantity-contracts.md) and [Requirements contracts](ctf-requirements-contracts.md). What each contract type means for billing and risk is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which executed indefinite-delivery contracts carry which of these clauses, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added solicitations and contracts scope to all five clause prescriptions and removed uncited meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an actor the FAR text does not name for the insertion directions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indefinite-delivery solicitation provisions and clauses.

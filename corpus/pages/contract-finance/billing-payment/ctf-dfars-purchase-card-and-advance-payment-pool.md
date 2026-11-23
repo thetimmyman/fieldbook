@@ -49,7 +49,7 @@ On a separate contract with a pool agreement and no letter of credit, the pool p
 
 ## Never confuse
 
-Under the card clause, the contractor agrees to accept the Governmentwide commercial purchase card as the method of payment for orders or calls valued at or below the micro-purchase threshold [@CL-CTF-1818]. Under the advance payment pool clause, payments made in accordance with the clause shall be governed by the terms and conditions of the Advance Payment Pool Agreement [@CL-CTF-1820].
+The card clause and the pool clause differ in what kind of payment each governs rather than in wording: under the card clause, the contractor agrees to accept the Governmentwide commercial purchase card as the method of payment for orders or calls valued at or below the micro-purchase threshold [@CL-CTF-1818], while under the advance payment pool clause, payments made in accordance with the clause shall be governed by the terms and conditions of the Advance Payment Pool Agreement, which is incorporated in the contract by reference rather than printed in it [@CL-CTF-1820].
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Whether any contract requires the card or draws on a pool, and what that does to
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; added the forwarding purpose for the pool check.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mandatory purchase card payment and the advance payment pool.

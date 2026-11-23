@@ -69,7 +69,7 @@ Under the State and Local Taxes clause, the Contractor shows 2,000 of State sale
 
 ## Never confuse
 
-Under FAR 52.229-1, the contract price excludes all State and local taxes levied on or measured by the contract or sales price of the services or completed supplies furnished under the contract, and the Contractor shall state separately on its invoices taxes excluded from the contract price while the Government agrees either to pay the amount of the taxes to the Contractor or provide evidence necessary to sustain an exemption [@CL-CTF-2521; @CL-CTF-2522], whereas under FAR 52.229-4, unless otherwise provided in the contract, the contract price includes all applicable Federal, State, and local taxes and duties (except as provided in subparagraph (b)(2)(i) of the clause) [@CL-CTF-2523]. Under FAR 52.229-4(a), an excepted tax (social security or other employment taxes, net income and franchise taxes, excess profits taxes, capital stock taxes, transportation taxes, unemployment compensation taxes, and property taxes, subject to the exclusions in the clause) is excluded from the definitions of after-imposed tax and after-relieved tax [@CL-CTF-2612; @CL-CTF-2614; @CL-CTF-2616; @CL-CTF-2617].
+The two clauses take opposite sides on price rather than overlapping: under FAR 52.229-1, the contract price excludes all State and local taxes levied on or measured by the contract or sales price of the services or completed supplies furnished under the contract, and the Contractor shall state separately on its invoices taxes excluded from the contract price while the Government agrees either to pay the amount of the taxes to the Contractor or provide evidence necessary to sustain an exemption [@CL-CTF-2521; @CL-CTF-2522], whereas under FAR 52.229-4, unless otherwise provided in the contract, the contract price includes all applicable Federal, State, and local taxes and duties (except as provided in subparagraph (b)(2)(i) of the clause) [@CL-CTF-2523]. Under FAR 52.229-4(a), an excepted tax (social security or other employment taxes, net income and franchise taxes, excess profits taxes, capital stock taxes, transportation taxes, unemployment compensation taxes, and property taxes, subject to the exclusions in the clause) is excluded from the definitions of after-imposed tax and after-relieved tax [@CL-CTF-2612; @CL-CTF-2614; @CL-CTF-2616; @CL-CTF-2617].
 
 For the separate Federal, State, and Local Taxes clause, see [Federal, State, and local taxes](ctf-federal-state-local-taxes.md).
 
@@ -80,6 +80,7 @@ Whether each contract carries the State and Local Taxes clause or the clause wit
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 52.229-4(g) equitable adjustment companion (CL-CTF-3208), restored mandatory shall/must modals across price-adjustment paragraphs, separated RFO and codified citations, and removed uncited sentences and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must wording on separate invoice statement, tax notification and exemption evidence.

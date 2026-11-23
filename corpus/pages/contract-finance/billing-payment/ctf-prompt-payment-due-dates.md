@@ -53,7 +53,7 @@ Answer: the later of day 32 and day 38 is day 38, so a payment made after day 38
 
 ## Never confuse
 
-Constructive Government acceptance on the 7th day after delivery or performance applies for the sole purpose of computing an interest penalty that might be due the contractor (unless there is a disagreement over quantity, quality, or contractor compliance with a contract requirement), and if actual acceptance occurs within the constructive acceptance period, the Government must base the determination of an interest penalty on the actual date of acceptance [@CL-CTF-1339; @CL-CTF-1340; @CL-CTF-1392]. Under FAR 32.904(b), the general invoice payment due date is the later of the 30th day after the designated billing office receives a proper invoice from the contractor (except as provided in paragraph (b)(3)) and the 30th day after Government acceptance of supplies delivered or services performed [@CL-CTF-1337; @CL-CTF-1338], whereas for purposes of computing late payment interest penalties that may apply, the due date for making interim payments on cost-reimbursement contracts for services is 30 days after the date of receipt of a proper invoice [@CL-CTF-1341].
+Constructive Government acceptance on the 7th day after delivery or performance exists for the sole purpose of computing an interest penalty that might be due the contractor (unless there is a disagreement over quantity, quality, or contractor compliance with a contract requirement), rather than as the acceptance date itself: if actual acceptance occurs within the constructive acceptance period, the Government must base the determination of an interest penalty on the actual date of acceptance [@CL-CTF-1339; @CL-CTF-1340; @CL-CTF-1392]. Under FAR 32.904(b), the general invoice payment due date is the later of the 30th day after the designated billing office receives a proper invoice from the contractor (except as provided in paragraph (b)(3)) and the 30th day after Government acceptance of supplies delivered or services performed [@CL-CTF-1337; @CL-CTF-1338], whereas the due date for making interim payments on cost-reimbursement contracts for services, for purposes of computing late payment interest penalties that may apply, is 30 days after the date of receipt of a proper invoice rather than after acceptance [@CL-CTF-1341].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm which acceptance, receipt and invoicing terms drive the cash forecast an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 32.908(a)(2) and (c)(2), separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the 32.903 and clause-paragraph scope of the shorter payment period and the must-base wording for actual acceptance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of proper invoice.

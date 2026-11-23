@@ -45,7 +45,7 @@ A development requirement is valued at about 8 million, and its scope may change
 
 ## Never confuse
 
-Selecting the contract type is generally a matter for negotiation and requires the exercise of sound judgment, and it should be considered together with price negotiation [@CL-CTF-1200]. What each type means for billing, notices and funding is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md), and the conditions for a cost-reimbursement contract are on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md).
+Contract type selection is negotiated together with price rather than separately: selecting the contract type is generally a matter for negotiation and requires the exercise of sound judgment, and it should be considered together with price negotiation [@CL-CTF-1200]. A firm-fixed-price contract suits minimal or predictable risk rather than uncertain work: a firm-fixed-price contract shall be used when the risk involved is minimal or can be predicted with an acceptable degree of certainty [@CL-CTF-1201], and when a reasonable basis for firm pricing does not exist, other contract types should instead be considered [@CL-CTF-1251]. What each type means for billing, notices and funding is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md), and the conditions for a cost-reimbursement contract are on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md).
 
 For the time-and-materials type, see [Time-and-materials contracts: use, ceiling and surveillance](../billing-payment/ctf-time-and-materials-contracts.md), and for the indefinite-delivery types, see [Indefinite-delivery and indefinite-quantity contracts](ctf-indefinite-delivery-and-indefinite-quantity-contracts.md). For when a firm-fixed-price contract suits, see [Firm-fixed-price contracts: risk and suitability](../../estimating/escalation/est-firm-fixed-price-contracts.md). For what makes an accounting system acceptable, see [Contractor accounting system criteria](../../compliance/business-systems/cmp-accounting-system-criteria.md). For the limits of the contracting officer's authority, see [Contracting officer authority and contracting officer's representatives](../../operating-model/decision-rights/opm-contracting-officer-authority-and-cors.md).
 
@@ -56,5 +56,6 @@ Which contracts are fixed-price, cost-type, time-and-materials or incentive, by 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 16.103(d)(1)(iv)(B)-(D) documentation items and removed uncited meta-wording and extrapolations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for negotiating and selecting contract type.

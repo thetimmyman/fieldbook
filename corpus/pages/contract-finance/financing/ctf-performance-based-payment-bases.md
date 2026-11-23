@@ -53,11 +53,11 @@ Separately, an offeror shows 2,000,000 of working capital and is found responsib
 
 ## Never confuse
 
-An offeror's financial condition may be sufficient to make the contractor responsible for award purposes, but may not be adequate security for commercial contract financing [@CL-CTF-3431].
+An offeror's financial condition differs in what it can carry rather than carrying both: it may be sufficient to make the contractor responsible for award purposes, but may not be adequate security for commercial contract financing [@CL-CTF-3431].
 
-FAR Subpart 32.10 provides policy and procedures for performance-based payments under noncommercial purchases pursuant to Subpart 32.1 [@CL-CTF-3445], whereas DFARS 232.202-4(a)(2) addresses whether an offeror's financial condition is adequate security for commercial contract financing [@CL-CTF-3430; @CL-CTF-3431].
+FAR Subpart 32.10 and DFARS 232.202-4(a)(2) differ in the financing each governs rather than overlapping: FAR Subpart 32.10 provides policy and procedures for performance-based payments under noncommercial purchases pursuant to Subpart 32.1 [@CL-CTF-3445], whereas DFARS 232.202-4(a)(2) addresses whether an offeror's financial condition is adequate security for commercial contract financing [@CL-CTF-3430; @CL-CTF-3431].
 
-DFARS 232.072 directs use of its policies and procedures in determining the financial capability of current or prospective contractors [@CL-CTF-3432], and DFARS 232.202-4(a)(2) points to DFARS 232.072-2 and 232.072-3 for guidance on whether an offeror's financial condition is adequate security [@CL-CTF-3430]. Related payment mechanics are on [performance-based payments](ctf-performance-based-payments.md).
+DFARS 232.072 differs from DFARS 232.202-4(a)(2) in role rather than duplicating it: DFARS 232.072 directs use of its policies and procedures in determining the financial capability of current or prospective contractors [@CL-CTF-3432], while DFARS 232.202-4(a)(2) instead points to DFARS 232.072-2 and 232.072-3 for guidance on whether an offeror's financial condition is adequate security [@CL-CTF-3430]. Related payment mechanics are on [performance-based payments](ctf-performance-based-payments.md).
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Which contracts receive performance-based payments and which measure of results 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Guidance pointer names the sections it points to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.1000 scope.

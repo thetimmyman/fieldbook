@@ -47,9 +47,9 @@ A cost-reimbursement research contract with an estimated cost of 5,000,000 is in
 
 ## Never confuse
 
-FAR 32.704 sets out the contracting officer's duties to obtain funding and programming information, notify the contractor in writing, and ensure availability of funds for directed actions [@CL-CTF-0359; @CL-CTF-9561; @CL-CTF-0362]. For the contractor notice mechanisms and thresholds under the individual clauses, see [Limitation of cost](ctf-limitation-of-cost.md) and [Limitation of funds](ctf-limitation-of-funds.md).
+The funding duties and the statutory prohibition differ in what each governs rather than repeating each other: FAR 32.704 sets out the contracting officer's duties to obtain funding and programming information, notify the contractor in writing, and ensure availability of funds for directed actions [@CL-CTF-0359; @CL-CTF-9561; @CL-CTF-0362], while the prohibition instead reaches Government personnel who encourage a contractor to continue work in the absence of funds [@CL-CTF-0364]. For the contractor notice mechanisms and thresholds under the individual clauses, see [Limitation of cost](ctf-limitation-of-cost.md) and [Limitation of funds](ctf-limitation-of-funds.md).
 
-Under FAR 32.704(c), Government personnel encouraging a contractor to continue work in the absence of funds will incur a violation of Revised Statutes section 3679 (title 31, United States Code, section 1341) that may subject the violator to civil or criminal penalties [@CL-CTF-0364]. Under RFO FAR 32.704(c), Government personnel encouraging a contractor to continue work in the absence of funds (title 31, United States Code, section 1341 et seq.) may subject the violator to civil or criminal penalties [@CL-CTF-4526].
+The codified and RFO versions of the prohibition differ in citation rather than in penalty: under FAR 32.704(c), Government personnel encouraging a contractor to continue work in the absence of funds will incur a violation of Revised Statutes section 3679 (title 31, United States Code, section 1341) that may subject the violator to civil or criminal penalties [@CL-CTF-0364], whereas the RFO text instead cites title 31, United States Code, section 1341 et seq. for the same civil or criminal penalties [@CL-CTF-4526].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirming which contracts are incrementally funded, tracking formal agency fund
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 32.704(a)(1)(iv) and RFO FAR 32.704(a)(1)(i), (iii), and (iv), separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified text that states the clause condition.

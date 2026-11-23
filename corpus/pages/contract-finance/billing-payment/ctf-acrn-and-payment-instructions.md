@@ -49,7 +49,7 @@ The answer under the source text: two subline items, each tied to one citation. 
 
 ## Never confuse
 
-The electronic invoice and receiving report instructions in the wide area workflow clause are on [Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md). ACRNs are covered by DFARS 204.7107 [@CL-CTF-1623], and the accounting classification citation on a line item by DFARS 204.7103-1 [@CL-CTF-1583]. Incremental funding is on [Incremental funding policy](../funding/ctf-incremental-funding-policy.md), and how payments are made is on [Making payments](ctf-making-payments.md).
+An ACRN differs from the accounting classification citation on a line item: ACRNs are covered by DFARS 204.7107 [@CL-CTF-1623], and the accounting classification citation on a line item by DFARS 204.7103-1 [@CL-CTF-1583]; traceability of funds is accomplished using ACRNs and AAIs [@CL-CTF-1623], while each line item references a single accounting classification citation except as provided in the paragraph that authorizes multiple citations [@CL-CTF-1583]. The electronic invoice and receiving report instructions in the wide area workflow clause are on [Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md), incremental funding is on [Incremental funding policy](../funding/ctf-incremental-funding-policy.md), and how payments are made is on [Making payments](ctf-making-payments.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ How the company ties each contract line's funding to its own funds tracking, and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited negative and contrast clauses; added the later-assignment qualification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the multiple-citation exception in the summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the separately identified subline items and the lead-in that the accounting-classification situation belongs to.

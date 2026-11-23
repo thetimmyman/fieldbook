@@ -47,7 +47,7 @@ Answer: the Government requires delivery of line item 0003 in the quantity and a
 
 ## Never confuse
 
-This clause works on a numbered line item that the Schedule identifies as an option item [@CL-CTF-2302]. The increased quantity clause instead lets the Government increase the quantity of supplies called for in the Schedule at the unit price specified [@CL-CTF-2299]. See [Option for increased quantity clause](ctf-option-increased-quantity-clause.md).
+This clause works on a numbered line item that the Schedule identifies as an option item [@CL-CTF-2302] rather than on the quantity of supplies generally, unlike the increased quantity clause, which instead lets the Government increase the quantity of supplies called for in the Schedule at the unit price specified [@CL-CTF-2299]. See [Option for increased quantity clause](ctf-option-increased-quantity-clause.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm which contracts carry this clause, which line items are option items and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality for delivery rate, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Line item clause wording now matches may exercise and may increase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
