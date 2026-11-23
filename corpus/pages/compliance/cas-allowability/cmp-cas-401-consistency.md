@@ -43,7 +43,7 @@ A contractor estimates a proposal treating an engineer's time as a direct cost. 
 
 ## Never confuse
 
-The same-purpose Standard requires all costs incurred for the same purpose, in like circumstances, to be either direct costs only or indirect costs only with respect to final cost objectives [@CL-CMP-0204].
+Consistency in estimating, accumulating and reporting costs is not the same-purpose test: the same-purpose Standard requires all costs incurred for the same purpose, in like circumstances, to be either direct costs only or indirect costs only with respect to final cost objectives [@CL-CMP-0204].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Whether each business unit is subject to full CAS coverage, modified coverage or
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated under paragraphs (a) and (b) on the grouping rule in How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the adherence date, grouping and part 99 change rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed figures from uncited sentences.

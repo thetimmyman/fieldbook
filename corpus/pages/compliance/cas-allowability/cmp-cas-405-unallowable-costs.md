@@ -45,7 +45,7 @@ A contractor holds 5,000 of entertainment costs that are expressly unallowable i
 
 ## Never confuse
 
-The standard requires that costs expressly unallowable or mutually agreed to be unallowable be identified and excluded from any billing, claim, or proposal applicable to a Government contract [@CL-CMP-0207]. For the penalties that apply to unallowable costs, see [Unallowable cost penalty](cmp-unallowable-cost-penalty.md).
+Identifying and excluding unallowable costs is not the same as deciding allowability or penalizing them: the standard requires that costs expressly unallowable or mutually agreed to be unallowable be identified and excluded from any billing, claim, or proposal applicable to a Government contract [@CL-CMP-0207]. For the penalties that apply to unallowable costs, see [Unallowable cost penalty](cmp-unallowable-cost-penalty.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How unallowable costs are kept out of rate and billing pools, and who reviews th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: CAS 405: cut an uncited summary sentence before the cited retained-content rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the same-allocability sentence and the acceptable visibility practices with their lead-in, and cut uncited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored applicable to a Government contract and framed segregation in separate accounts as one acceptable alternative practice for visibility.

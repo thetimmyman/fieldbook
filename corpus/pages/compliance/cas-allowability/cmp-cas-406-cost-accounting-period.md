@@ -43,7 +43,7 @@ A contractor accumulates 1,200,000 of overhead and a matching allocation base ov
 
 ## Never confuse
 
-The same cost accounting period is to be used for accumulating costs in an indirect cost pool as for establishing its allocation base, except that the contracting parties may agree to use a different period for establishing an allocation base as provided in 9904.406-50(e) [@CL-CMP-0211].
+The pool's period and the base's period differ only by agreement: the same cost accounting period is to be used for accumulating costs in an indirect cost pool as for establishing its allocation base, except that the contracting parties may agree to use a different period for establishing an allocation base as provided in 9904.406-50(e) [@CL-CMP-0211].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ How the pools, bases and cost accounting periods are defined and reconciled. [@Q
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph pointer, cited the agreed-period conditions and cut uncited definitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the conditions the standard attaches to a different allocation-base period, a partial-period function and an other-than-fiscal annual period.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost accounting period.

@@ -47,7 +47,7 @@ A contractor takes out a commercial line of credit to finance working capital du
 
 Interest on borrowings however represented is unallowable, subject to the 'but see' cross-reference [@CL-CMP-0309; @CL-CMP-0818; @CL-CMP-0310]. Costs of financing and refinancing capital (net worth plus long-term liabilities) are unallowable, subject to the 'but see' cross-reference [@CL-CMP-0309; @CL-CMP-0818; @CL-CMP-0310]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
-Codified FAR 31.205-20 follows its list of unallowable costs with "(but see 31.205-28)" [@CL-CMP-0818]. RFO FAR 31.205-20(a)(4) and (5) each say "(except see 31.205-28)" [@CL-CMP-8553]. The codified provision on interest assessed by State or local taxing authorities cites 31.205-41(a)(3) [@CL-CMP-0310], and RFO paragraph (b) cites 31.205-41(b)(3) [@CL-CMP-8554].
+The two texts differ in cross-reference words only: Codified FAR 31.205-20 follows its list of unallowable costs with "(but see 31.205-28)" [@CL-CMP-0818], while RFO FAR 31.205-20(a)(4) and (5) each say "(except see 31.205-28)" [@CL-CMP-8553]. The codified provision on interest assessed by State or local taxing authorities cites 31.205-41(a)(3) [@CL-CMP-0310], and RFO paragraph (b) cites 31.205-41(b)(3) [@CL-CMP-8554].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How interest on credit facilities, loan financing fees, and debt service charges
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Qualified the loan financing fee in the worked example by the capital-financing rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the codified and RFO financial-cost lists from the quotes; cut uncited comparisons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

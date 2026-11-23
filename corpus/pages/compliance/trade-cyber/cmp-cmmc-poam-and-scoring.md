@@ -46,7 +46,7 @@ Suppose a Level 2 assessment has a maximum score of 110. Two requirements are NO
 
 ## Never confuse
 
-For a Conditional Level 2 status, the minimum ratio, the point-value limit and the list of barred requirements are all conditions that must be met [@CL-CMP-2081; @CL-CMP-2082; @CL-CMP-2083; @CL-CMP-2084]. The closing of a POA&M must be confirmed by a closeout assessment within 180 days of the Conditional status date, and if it is not, the Conditional status for the information system will expire [@CL-CMP-2087]. The Level 3 certification assessment score equals the number of Level 3 requirements assessed as MET [@CL-CMP-2092]. For each Level 2 requirement NOT MET, the associated value is subtracted from the maximum score [@CL-CMP-2088].
+For a Conditional Level 2 status, the minimum ratio, the point-value limit and the list of barred requirements are all conditions that must be met [@CL-CMP-2081; @CL-CMP-2082; @CL-CMP-2083; @CL-CMP-2084]. The closing of a POA&M must be confirmed by a closeout assessment within 180 days of the Conditional status date, and if it is not, the Conditional status for the information system will expire [@CL-CMP-2087]. Level 3 and Level 2 score differently: the Level 3 certification assessment score equals the number of Level 3 requirements assessed as MET [@CL-CMP-2092], while for each Level 2 requirement NOT MET, the associated value is subtracted from the maximum score [@CL-CMP-2088].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which NOT MET requirements sit on a POA&M, who owns each fix and when each close
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed boilerplate and contrasts; restored scoring scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the rest of the barred requirements list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC POA&M conditions and scoring.

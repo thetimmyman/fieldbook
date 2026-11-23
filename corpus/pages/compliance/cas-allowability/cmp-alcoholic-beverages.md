@@ -45,7 +45,7 @@ One dinner invoice shows 2,000 for food and 800 for the bar. The 800 is unallowa
 
 ## Never confuse
 
-For penalties on unallowable costs in final rate proposals, see [Penalties for unallowable costs in final rate proposals](cmp-unallowable-cost-penalty.md).
+The unallowable cost is not the same as the penalty for including it in a proposal: costs of alcoholic beverages are unallowable [@CL-CMP-0371], and the penalty side is separate — for penalties on unallowable costs in final rate proposals, see [Penalties for unallowable costs in final rate proposals](cmp-unallowable-cost-penalty.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How beverage lines are split out of event invoices before those costs reach a po
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited tests, glosses and contrasts; restated the rule as the quote reads.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for alcoholic beverages.

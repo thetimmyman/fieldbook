@@ -48,7 +48,7 @@ A contractor purchases components for 200,000 for a defense contract and receive
 
 ## Never confuse
 
-The codified text numbers the two conditions for allowance at price (e)(1) and (e)(2) [@CL-CMP-0830; @CL-CMP-0831]. The RFO text numbers them (e)(2)(i) and (e)(2)(ii) [@CL-CMP-9464; @CL-CMP-9465].
+The two texts number the same two conditions differently: the codified text numbers the two conditions for allowance at price (e)(1) and (e)(2) [@CL-CMP-0830; @CL-CMP-0831], while the RFO text numbers them (e)(2)(i) and (e)(2)(ii) [@CL-CMP-9464; @CL-CMP-9465].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ How vendor rebates, prompt payment discounts, and interdivisional transfers are 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated material cost text from the quotes; cut uncited explanations and restructuring remarks.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored collateral scope, salvage credit, the both-conditions rule for transfers at price, the demonstration for lost discounts and should for charging actual cost.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

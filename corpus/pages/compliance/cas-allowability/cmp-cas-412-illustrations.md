@@ -55,7 +55,7 @@ Separately, a contractor with a qualified plan funds 90 of 120 assigned cost wit
 
 ## Never confuse
 
-In the second Contractor K illustration the assignable cost limitation is $1.7 million, and the assignable pension cost for the period is limited to $1 million [@CL-CMP-3431; @CL-CMP-3399]. With $700,000 of accumulated prepayment credits, the amount of pension cost assigned to the current period shall not exceed $1,700,000 [@CL-CMP-3432]. With a waiver, the remaining $200,000 shall be accounted for as an assignable cost deficit and assigned to the next five cost accounting periods in accordance with the terms of the waiver [@CL-CMP-3400]; without one, only $800,000 may be allocated to the contractor's intermediate and final cost objectives [@CL-CMP-3401].
+In the second Contractor K illustration the assignable cost limitation is $1.7 million, and the assignable pension cost for the period is limited to $1 million [@CL-CMP-3431; @CL-CMP-3399]. With $700,000 of accumulated prepayment credits, the amount of pension cost assigned to the current period shall not exceed $1,700,000 [@CL-CMP-3432]. A waiver changes the outcome: with a waiver, the remaining $200,000 shall be accounted for as an assignable cost deficit and assigned to the next five cost accounting periods in accordance with the terms of the waiver [@CL-CMP-3400]; without one, only $800,000 may be allocated to the contractor's intermediate and final cost objectives [@CL-CMP-3401].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ How unfunded pension cost is tracked and kept out of rate and billing pools unti
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked-example assignable cost deficit to the excess of computed pension cost over the tax-deductible cap.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the how-it-works and Never confuse comparisons as the illustrations read and corrected the harmonization sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the adjusted-pursuant-to-paragraph (c)(2)(i) qualification to the assignable cost limitation sentence.

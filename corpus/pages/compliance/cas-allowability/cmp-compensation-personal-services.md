@@ -44,7 +44,7 @@ An employee receives a base salary plus a year-end bonus. The company keeps both
 
 ## Never confuse
 
-The total compensation for individual employees or job classes of employees must be reasonable for the work performed; however, specific restrictions on individual compensation elements apply when prescribed [@CL-CMP-0452]. Under the codified text, any compensation which is calculated, or valued, based on changes in the price of corporate securities is unallowable [@CL-CMP-9611]; the RFO text lists the same kind of compensation as the first item of unallowable compensation under its paragraph (h) [@CL-CMP-9612]. The codified current-year rule says to see paragraphs (g), (h), (j), (k), (m), and (o) [@CL-CMP-0451], while the RFO text says to see paragraphs (f), (g), (i), (j), (l), and (n) [@CL-CMP-9939].
+General reasonableness and the specific element restrictions are different layers: the total compensation for individual employees or job classes of employees must be reasonable for the work performed, while specific restrictions on individual compensation elements apply when prescribed [@CL-CMP-0452]. Under the codified text, any compensation which is calculated, or valued, based on changes in the price of corporate securities is unallowable [@CL-CMP-9611]; the RFO text lists the same kind of compensation as the first item of unallowable compensation under its paragraph (h) [@CL-CMP-9612]. The codified current-year rule says to see paragraphs (g), (h), (j), (k), (m), and (o) [@CL-CMP-0451], while the RFO text says to see paragraphs (f), (g), (i), (j), (l), and (n) [@CL-CMP-9939].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether each compensation plan is established and consistent, and whether major 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added regulations under the Internal Revenue Code to the RFO closely held owner compensation sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the established-plan requirement with a companion claim.

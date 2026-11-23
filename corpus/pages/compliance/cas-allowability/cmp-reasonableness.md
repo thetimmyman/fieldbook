@@ -47,7 +47,7 @@ A contractor purchases specialized test gear from an affiliated business unit fo
 
 For the factors that determine cost allowability, see [Factors determining cost allowability](cmp-allowability-factors.md), and for penalties on unallowable costs, see [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md).
 
-The codified text measures reasonableness against a prudent person [@CL-CMP-0103], and the RFO text measures it against a reasonable person [@CL-CMP-8921]. The codified text says that if an initial review of the facts results in a challenge of a specific cost by the contracting officer or the contracting officer's representative, the burden of proof shall be upon the contractor to establish that such cost is reasonable [@CL-CMP-8581]. The RFO text says that if the contracting officer, or the contracting officer's representative, challenges a specific cost, the burden of proof is on the contractor to prove that the cost is reasonable [@CL-CMP-8923]. The codified text says no presumption of reasonableness shall be attached to the incurrence of costs by a contractor [@CL-CMP-0104], and the RFO text says no presumption of reasonableness must be attached to the incurrence of costs [@CL-CMP-8922].
+The two texts measure reasonableness against different persons: the codified text measures reasonableness against a prudent person [@CL-CMP-0103], and the RFO text measures it against a reasonable person [@CL-CMP-8921]. The codified text says that if an initial review of the facts results in a challenge of a specific cost by the contracting officer or the contracting officer's representative, the burden of proof shall be upon the contractor to establish that such cost is reasonable [@CL-CMP-8581]. The RFO text says that if the contracting officer, or the contracting officer's representative, challenges a specific cost, the burden of proof is on the contractor to prove that the cost is reasonable [@CL-CMP-8923]. The codified text says no presumption of reasonableness shall be attached to the incurrence of costs by a contractor [@CL-CMP-0104], and the RFO text says no presumption of reasonableness must be attached to the incurrence of costs [@CL-CMP-8922].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How the burden of proof and justification for significant expenditures are docum
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated reasonableness text from the quotes; added the codified fourth factor; cut uncited explanations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reasonableness.

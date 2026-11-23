@@ -47,7 +47,7 @@ A contractor installs a service center that starts operating partway through its
 
 ## Never confuse
 
-The amortization period for deferred restructuring costs shall not exceed five years [@CL-CMP-2809]. A contractor proposal to expense restructuring costs for a specific event in a current period is also acceptable when the Contracting Officer agrees that the treatment will result in a more equitable assignment of costs in the circumstances [@CL-CMP-2808]. The base rule on the cost accounting period is on [Cost accounting period](../cas-allowability/cmp-cas-406-cost-accounting-period.md). The model-year illustration also covers a technique for prorating home office expenses between model years [@CL-CMP-2805]; illustrations of home office pools and allocation bases are on [Illustrations of home office pools and allocation bases](../cas-allowability/cmp-cas-403-illustrations-and-interpretation.md). In the first illustration the contractor allocates general management expenses on the basis of a total cost input base [@CL-CMP-2887]; illustrations of what counts in that base are on [Illustrations of the general and administrative pool and cost input base](../cas-allowability/cmp-cas-410-illustrations.md).
+The two restructuring techniques differ in timing: the amortization period for deferred restructuring costs shall not exceed five years [@CL-CMP-2809], while a contractor proposal to expense restructuring costs for a specific event in a current period is also acceptable when the Contracting Officer agrees that the treatment will result in a more equitable assignment of costs in the circumstances [@CL-CMP-2808]. The base rule on the cost accounting period is on [Cost accounting period](../cas-allowability/cmp-cas-406-cost-accounting-period.md). The model-year illustration also covers a technique for prorating home office expenses between model years [@CL-CMP-2805]; illustrations of home office pools and allocation bases are on [Illustrations of home office pools and allocation bases](../cas-allowability/cmp-cas-403-illustrations-and-interpretation.md). In the first illustration the contractor allocates general management expenses on the basis of a total cost input base [@CL-CMP-2887]; illustrations of what counts in that base are on [Illustrations of the general and administrative pool and cost input base](../cas-allowability/cmp-cas-410-illustrations.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether the company has restructuring events, whether its practice defers or exp
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the violation and amortization sentences to their quotes and added the paragraph pointer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored for a specific event in the two current-period restructuring sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 406.

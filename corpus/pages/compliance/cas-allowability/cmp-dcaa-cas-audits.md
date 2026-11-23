@@ -53,9 +53,9 @@ A contractor discloses a practice for allocating 40,000 of overhead to programs,
 
 ## Never confuse
 
-A Disclosure Statement compliance audit tests whether the cost accounting practices, as described, comply with CAS and FAR Part 31 [@CL-CMP-1751], while a CAS-specific compliance audit reviews a contractor's estimating, accumulating, and reporting cost accounting practices to see if they match the descriptions of its disclosed practices and comply with a specific applicable Standard [@CL-CMP-1753].
+A Disclosure Statement compliance audit differs from a CAS-specific compliance audit: the Disclosure Statement audit tests whether the cost accounting practices, as described, comply with CAS and FAR Part 31 [@CL-CMP-1751], while a CAS-specific compliance audit reviews a contractor's estimating, accumulating, and reporting cost accounting practices to see if they match the descriptions of its disclosed practices and comply with a specific applicable Standard [@CL-CMP-1753].
 
-Upon finding a material CAS noncompliance in non-CAS audits, the details of the noncompliance are reported in a separate audit report [@CL-CMP-1754], while a cost impact proposal audit audits the contractor's proposed estimate of cost impact to Government contracts due to a contractor's change to a cost accounting practice or material noncompliance with CAS [@CL-CMP-1755].
+Upon finding a material CAS noncompliance in non-CAS audits, the details of the noncompliance are reported in a separate audit report [@CL-CMP-1754], which differs from a cost impact proposal audit, which audits the contractor's proposed estimate of cost impact to Government contracts due to a contractor's change to a cost accounting practice or material noncompliance with CAS [@CL-CMP-1755].
 
 Whether the standards apply at all is a separate question, covered in [CAS applicability](../cas-allowability/cmp-cas-applicability.md). How a practice change and materiality are judged is covered in [Cost accounting practice definitions](../cas-allowability/cmp-cost-accounting-practice-definitions.md) and [Materiality](../cas-allowability/cmp-cas-materiality.md).
 
@@ -66,6 +66,7 @@ Which audit findings, corrective actions and owner responses are open when a com
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed the audit products as the manual lists them and used its wording for what each tests.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'one question each' framing and aligned the noncompliance wording with the quote.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DCAA audits that test Cost Accounting Standards compliance.

@@ -46,7 +46,7 @@ A two-person partnership signs a 600,000 supply contract. Before signing for the
 
 ## Never confuse
 
-For a partnership, the contracting officer shall obtain a list of all partners and ensure that the individual(s) signing for the partnership have authority to bind the partnership [@CL-CMP-2401]; for a corporation, the contracting officer shall ensure that the person signing for the corporation has authority to bind the corporation [@CL-CMP-2402]; and when an agent is to sign the contract, other than as stated in FAR 4.102(a) through (d), the agent's authority to bind the principal must be established by evidence satisfactory to the contracting officer [@CL-CMP-2404]. See [Making payments](../../contract-finance/billing-payment/ctf-making-payments.md) for how payments are made.
+Who may sign differs by entity: for a partnership, the contracting officer shall obtain a list of all partners and ensure that the individual(s) signing for the partnership have authority to bind the partnership [@CL-CMP-2401]; for a corporation, the contracting officer shall ensure that the person signing for the corporation has authority to bind the corporation [@CL-CMP-2402]; and when an agent is to sign the contract, other than as stated in FAR 4.102(a) through (d), the agent's authority to bind the principal must be established by evidence satisfactory to the contracting officer [@CL-CMP-2404]. See [Making payments](../../contract-finance/billing-payment/ctf-making-payments.md) for how payments are made.
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Where the executed contracts, signature pages and TIN annotations are kept, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Removed the unquoted otherwise-known condition on the completed solicitation provision and matched the annotation citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for an individual doing business as a firm, restored shall and exact taxpayer identification routing conditions, and removed meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS rule for contracts that include the System for Award Management provision.

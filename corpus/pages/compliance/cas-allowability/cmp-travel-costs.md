@@ -51,7 +51,7 @@ An employee travels on official business where the standard per diem ceiling for
 
 For penalties on unallowable costs in rate submissions, see [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md).
 
-The codified text says that for airfare above the lowest priced airfare to be allowable the applicable condition must be documented and justified [@CL-CMP-0813], whereas the RFO paragraph (b)(2) says airfare above the lowest priced airfare that meets the paragraph (b)(1) criteria is allowable if documented and justified [@CL-CMP-8944].
+The codified text says that for airfare above the lowest priced airfare to be allowable the applicable condition must be documented and justified [@CL-CMP-0813], unlike the RFO paragraph (b)(2), which says airfare above the lowest priced airfare that meets the paragraph (b)(1) criteria is allowable if documented and justified [@CL-CMP-8944].
 
 For the higher actual-cost amounts, the codified text says in special or unusual situations [@CL-CMP-8583], whereas the RFO text says in unusual situations [@CL-CMP-8934]. The codified text says all of the following conditions must be met [@CL-CMP-8584], whereas the RFO text says the following conditions must be met [@CL-CMP-8935]. The codified text has the written justification approved by an officer of the contractor's organization or designee [@CL-CMP-8585], whereas the RFO text has it approved by an official of the contractor's organization [@CL-CMP-8936].
 
@@ -62,6 +62,7 @@ Whether advance agreements or formal written procedures govern travel per diem a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated travel cost rules from the quotes with paragraph citations; added companions for the per diem lead-in and documentation text; RFO-only paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the allowable-travel, receipt and airfare sentences with their quotes and cited the written-justification claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

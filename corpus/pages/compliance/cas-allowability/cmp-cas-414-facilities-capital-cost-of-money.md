@@ -43,7 +43,7 @@ A segment holds facilities capital of 4 million. A cost of money rate of 5 perce
 
 ## Never confuse
 
-The allocated amount of facilities capital is used as a base to which a cost of money rate is applied [@CL-CMP-0567], and the rate is based on rates determined by the Secretary of the Treasury [@CL-CMP-0568]. The factors are computed for each cost accounting period, and the cost of capital committed to facilities is computed separately for each contract [@CL-CMP-0569].
+The period and the contract are different levels: the allocated amount of facilities capital is used as a base to which a cost of money rate is applied [@CL-CMP-0567], and the rate is based on rates determined by the Secretary of the Treasury [@CL-CMP-0568]. The factors are computed for each cost accounting period, and the cost of capital committed to facilities is computed separately for each contract [@CL-CMP-0569].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Whether facilities capital and the cost of money factors are recorded for each b
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an implied sequence and an uncited characterization, restating both as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the rate and period sentences to say only what the quotes say.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for facilities capital cost of money.

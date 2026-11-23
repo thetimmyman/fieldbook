@@ -57,7 +57,7 @@ A contractor changes how it describes a service center in its Disclosure Stateme
 
 ## Never confuse
 
-The process for changing a cost accounting practice is covered in [practice change proposal and disclosure](../cas-allowability/cmp-cas-practice-change-proposal-disclosure.md).
+Amending the Disclosure Statement is not the same as changing a cost accounting practice: amendments and revisions to Disclosure Statements may be submitted at any time and may be proposed by either the contractor or the Government [@CL-CMP-7542], while the process for changing a cost accounting practice is covered in [practice change proposal and disclosure](../cas-allowability/cmp-cas-practice-change-proposal-disclosure.md).
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Which pools, bases, service centers and intercompany charges the Disclosure Stat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal telephone number in the preambles subsection with a reference to the telephone number given in 48 CFR 9903.307.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed all three codified sections in the citation row and softened the resubmission sentence in the worked example.

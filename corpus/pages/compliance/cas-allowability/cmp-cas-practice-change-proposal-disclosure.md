@@ -45,7 +45,7 @@ A contractor bids a five-year contract. If it wins, it will change how it alloca
 
 ## Never confuse
 
-If the offeror checked yes, the offeror shall prepare the price proposal in response to the solicitation using the changed practice for the period of performance for which the practice will be used [@CL-CMP-5943], and submit a description of the changed cost accounting practice to the Contracting Officer and the Cognizant Federal Agency Official as pricing support for the proposal [@CL-CMP-5944]. Whether the contract is CAS-covered at all is covered on the [CAS applicability card](cmp-cas-applicability.md), and the notices and certificates of the solicitation are on the [CAS notices card](cmp-cas-notices-and-certification.md).
+The changed practice and its description are two different submissions: if the offeror checked yes, the offeror shall prepare the price proposal in response to the solicitation using the changed practice for the period of performance for which the practice will be used [@CL-CMP-5943], and submit a description of the changed cost accounting practice to the Contracting Officer and the Cognizant Federal Agency Official as pricing support for the proposal [@CL-CMP-5944]. Whether the contract is CAS-covered at all is covered on the [CAS applicability card](cmp-cas-applicability.md), and the notices and certificates of the solicitation are on the [CAS notices card](cmp-cas-notices-and-certification.md).
 
 The codified provision is prescribed by FAR 30.201-3(c) [@CL-CMP-6525], and the RFO provision is prescribed by FAR 30.204(c) [@CL-CMP-0272].
 
@@ -56,6 +56,7 @@ Who decides that a bid will change a practice, who confirms the period of perfor
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated the duties as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording for the yes check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -263,6 +263,7 @@ The edition as a usable reference for the owner without company data: search tha
 - kb-never-confuse-pass-3: every Never confuse part in the remaining areas states a contrast, in parts by area
 - kb-never-confuse-pass-4: every Never confuse part in the remaining areas states a contrast, in parts by area
 - kb-never-confuse-pass-5: every Never confuse part in the remaining areas states a contrast, in parts by area
+- kb-never-confuse-pass-6: every Never confuse part in the remaining areas states a contrast, in parts by area
 - kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
 - kb-edition-dates-2: the Edition date row of each clause card cites the clause's edition for the remaining areas after Part 1 (`sup` onward)
 - claims-csv-parts: the claims copy for Excel as one CSV per claims part, `data/claims-<AREA>-<part>.csv`, so no edition file grows with the claim count (owner review)

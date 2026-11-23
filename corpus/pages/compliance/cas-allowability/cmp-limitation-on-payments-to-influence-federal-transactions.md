@@ -51,7 +51,7 @@ A contractor pays its own proposal engineer a salary for time spent drafting the
 
 ## Never confuse
 
-The subpart prescribes policies and procedures implementing section 1352 of title 31 of the United States Code [@CL-CMP-9705]. For the allowability of lobbying and political activity costs and their separation from indirect cost pools, see [Lobbying and political activity costs](cmp-lobbying-and-political-activity-costs.md). For fees for consultants, see [Professional and consultant service costs](cmp-professional-consultant-service-costs.md) and [Contingent fees](../regulatory-framework/cmp-contingent-fees.md).
+The prohibition and the cost-principle treatment are different layers: the subpart prescribes policies and procedures implementing section 1352 of title 31 of the United States Code [@CL-CMP-9705], while the allowability of lobbying and political activity costs and their separation from indirect cost pools are cost-principle questions — see [Lobbying and political activity costs](cmp-lobbying-and-political-activity-costs.md). For fees for consultants, see [Professional and consultant service costs](cmp-professional-consultant-service-costs.md) and [Contingent fees](../regulatory-framework/cmp-contingent-fees.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ How payments to employees and outside consultants near a bid are screened and ke
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the regulation paragraph references in place of section-description wording; added the quoted end of the regularly employed definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exceptions sentence as the prohibition not applying under the listed conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope, the Secretary of Defense exemption, violation reporting, civil penalties and the provision and clause prescriptions.

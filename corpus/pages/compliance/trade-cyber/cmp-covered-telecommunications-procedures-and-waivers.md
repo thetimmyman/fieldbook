@@ -48,7 +48,7 @@ A requirements office asks its agency head for a one-time waiver and submits the
 
 ## Never confuse
 
-Where an offeror selects “does not,” the contracting officer may rely on the “does not” representation unless the contracting officer has reason to question it, in which case the contracting officer shall follow agency procedures [@CL-CMP-2963]. The head of an executive agency may, on a one-time basis, waive the prohibition at 4.2102(a) with respect to a Government entity that requests such a waiver [@CL-CMP-2965], for a period not to extend beyond the dates in paragraph (a)(1) [@CL-CMP-2966]. The Director of National Intelligence may provide a waiver if the Director determines the waiver is in the national security interests of the United States [@CL-CMP-2967].
+Where an offeror selects “does not,” the contracting officer may rely on the “does not” representation unless the contracting officer has reason to question it, in which case the contracting officer shall follow agency procedures [@CL-CMP-2963]. Two different officials may waive: the head of an executive agency may, on a one-time basis, waive the prohibition at 4.2102(a) with respect to a Government entity that requests such a waiver [@CL-CMP-2965], for a period not to extend beyond the dates in paragraph (a)(1) [@CL-CMP-2966], while the Director of National Intelligence may provide a waiver if the Director determines the waiver is in the national security interests of the United States [@CL-CMP-2967].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which waivers the company relies on, who granted each, and when each ends. [@Q-0
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited ODNI and FASC requirements; removed absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered telecommunications procedures and waivers.

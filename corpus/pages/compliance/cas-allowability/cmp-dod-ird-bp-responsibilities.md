@@ -47,7 +47,7 @@ A contractor's B&P cost of 300,000 on a DoD contract is questioned by the audito
 
 ## Never confuse
 
-The cognizant ACO or corporate ACO shall determine cost allowability [@CL-CMP-2244]. DCAA shall submit the annual reports [@CL-CMP-2245; @CL-CMP-2246]. The cost principle and its limits are on [IR&D and B&P costs](cmp-ird-and-bp-costs.md), and the DoD supplement details are on [DoD IR&D and B&P costs](cmp-dod-ird-bp-costs.md).
+The two roles differ: the cognizant ACO or corporate ACO shall determine cost allowability [@CL-CMP-2244], while DCAA shall submit the annual reports [@CL-CMP-2245; @CL-CMP-2246]. The cost principle and its limits are on [IR&D and B&P costs](cmp-ird-and-bp-costs.md), and the DoD supplement details are on [DoD IR&D and B&P costs](cmp-dod-ird-bp-costs.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ How IR&D and B&P projects are opened, charged and reported, and who answers the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the responsibilities with the as-set-forth reference and cut statements the quotes do not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD IR&D and B&P responsibilities.

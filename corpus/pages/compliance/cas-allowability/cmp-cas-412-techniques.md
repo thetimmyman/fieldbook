@@ -55,7 +55,7 @@ A qualified plan has a computed pension cost of 30, an assignable cost limitatio
 
 ## Never confuse
 
-For a qualified defined-benefit plan, the pension cost measured for a cost accounting period is assigned to that period subject to the listed adjustments [@CL-CMP-3389]. Except for nonqualified defined-benefit plans, the costs of a pension plan assigned to a cost accounting period are allocable to the extent that they are funded [@CL-CMP-3395]. When the pension cost equals or exceeds the assignable cost limitation, the amount of pension cost, adjusted pursuant to paragraph (c)(2)(i), shall not exceed the limitation [@CL-CMP-3391].
+Qualified plans and nonqualified plans differ: for a qualified defined-benefit plan, the pension cost measured for a cost accounting period is assigned to that period subject to the listed adjustments [@CL-CMP-3389]; except for nonqualified defined-benefit plans, the costs of a pension plan assigned to a cost accounting period are allocable to the extent that they are funded [@CL-CMP-3395]. When the pension cost equals or exceeds the assignable cost limitation, the amount of pension cost, adjusted pursuant to paragraph (c)(2)(i), shall not exceed the limitation [@CL-CMP-3391].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Which plans are qualified, which nonqualified plans are funded through a funding
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the installment and period lead-in and the fully amortized consequence and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: added that the first two adjustments are applied before the assignable cost deficit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 412 techniques for application.

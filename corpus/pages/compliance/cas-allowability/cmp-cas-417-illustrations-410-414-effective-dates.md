@@ -53,7 +53,7 @@ A contractor with no previous covered contracts receives a covered contract in M
 
 ## Never confuse
 
-The general and administrative standard is effective as of April 17, 1992 [@CL-CMP-3422]. For contractors with no previous contracts subject to it, it shall be applied beginning with the contractor's next full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-CMP-3423]. Contractors with prior CAS-covered contracts with full coverage shall continue its applicability upon receipt of a contract to which it is applicable [@CL-CMP-3422].
+New and continuing contractors start differently: the general and administrative standard is effective as of April 17, 1992 [@CL-CMP-3422]. For contractors with no previous contracts subject to it, it shall be applied beginning with the contractor's next full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-CMP-3423], while contractors with prior CAS-covered contracts with full coverage shall continue its applicability upon receipt of a contract to which it is applicable [@CL-CMP-3422].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which capital projects are under construction and carry cost of money, and where
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited glosses and meta wording; limited applicability to the standard the quotes cover.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the effective date versus applicability point to the general and administrative standard.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption sections of CAS 410 and CAS 417 and the illustrations pointer of CAS 414.

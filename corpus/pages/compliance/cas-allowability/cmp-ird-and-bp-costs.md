@@ -47,7 +47,7 @@ A defense contractor has two product divisions. Division Alpha allocates 8 milli
 
 For indirect rate proposals and penalties on unallowable costs, see [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md) and [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md).
 
-Codified FAR 31.205-18(c) says that, except as provided in paragraphs (d) and (e) of that subsection, or as provided in agency regulations, costs for IR&D and B&P are allowable as indirect expenses on contracts to the extent that those costs are allocable and reasonable [@CL-CMP-0112]. RFO FAR 31.205-18(c) says that, except as provided in paragraphs (d) and (e) of that section, costs for IR&D and B&P are allowable as indirect expenses on contracts if those costs are allocable and reasonable [@CL-CMP-9739].
+The two texts differ in one phrase: Codified FAR 31.205-18(c) says that, except as provided in paragraphs (d) and (e) of that subsection, or as provided in agency regulations, costs for IR&D and B&P are allowable as indirect expenses on contracts to the extent that those costs are allocable and reasonable [@CL-CMP-0112], while RFO FAR 31.205-18(c) says that, except as provided in paragraphs (d) and (e) of that section, costs for IR&D and B&P are allowable as indirect expenses on contracts if those costs are allocable and reasonable [@CL-CMP-9739].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How research and proposal projects are opened, authorized, tracked and reported 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the DoD reporting and RFO allocation text from the quotes; cut uncited explanations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Codified paragraph (c) exceptions and the no-product-divisions fallback now each cite a claim quoting them.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
