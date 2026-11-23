@@ -26,10 +26,12 @@ use fieldbook_core::strings;
 use fieldbook_render::decision::{
     self, ASSUMPTION_DIRECT_MATERIAL, ASSUMPTION_ESCALATION_PCT, ASSUMPTION_GA_PCT,
     ASSUMPTION_LABOUR_HOURS, ASSUMPTION_LABOUR_RATE, ASSUMPTION_OVERHEAD_PCT,
-    ASSUMPTION_PROFIT_PCT, LINE_BURDENED_COST, LINE_CHECK, LINE_GA, LINE_LABOUR, LINE_MATERIAL,
+    ASSUMPTION_PROFIT_PCT, BRIDGE_STEP_LABELS, BRIDGE_TOTAL_CHANGE, BRIDGE_V1_PRICE,
+    BRIDGE_V2_PRICE, LINE_BURDENED_COST, LINE_CHECK, LINE_GA, LINE_LABOUR, LINE_MATERIAL,
     LINE_OVERHEAD, LINE_PROFIT, LINE_PROFIT_ON_COST, LINE_TOTAL_COST_INPUT, LINE_UNIT_PRICE,
-    OUTPUT_PATH, PREVIEW, PREVIEW_LABEL, SHEET_ASSUMPTIONS, SHEET_COST_BUILD, SHEET_README,
-    SHEET_SUMMARY, Version, cost_build, decision_workbook, save_workbook, synthetic_example,
+    OUTPUT_PATH, PREVIEW, PREVIEW_LABEL, SHEET_ASSUMPTIONS, SHEET_COST_BUILD, SHEET_PRICE_BRIDGE,
+    SHEET_README, SHEET_SUMMARY, Version, bridge, cost_build, decision_workbook, save_workbook,
+    synthetic_example,
 };
 use fieldbook_render::home;
 use fieldbook_render::meta::DEFAULT_WORKBOOK_EPOCH;
@@ -1201,8 +1203,8 @@ fn decision_workbook_then_save_workbook_equals_render() {
     let rendered = decision::render(&edition, epoch).unwrap();
     assert_eq!(two_step, rendered);
 
-    // Decide-port seam: appending a fifth sheet between decision_workbook and save_workbook
-    // places it last and leaves the four existing sheets untouched.
+    // Decide-port seam: appending a sheet between decision_workbook and save_workbook
+    // places it last and leaves the five existing sheets untouched.
     let mut wb_plus = decision_workbook(&synthetic_example(), &edition, epoch).unwrap();
     let extra = wb_plus.add_worksheet();
     extra.set_name("AI proposal").unwrap();
@@ -1221,10 +1223,11 @@ fn decision_workbook_then_save_workbook_equals_render() {
             SHEET_SUMMARY,
             SHEET_COST_BUILD,
             SHEET_ASSUMPTIONS,
+            SHEET_PRICE_BRIDGE,
             "AI proposal"
         ]
     );
-    for idx in 0..4 {
+    for idx in 0..5 {
         assert_eq!(
             plus_sheets[idx].cells, base_sheets[idx].cells,
             "sheet `{}` must be unchanged when a sheet is added after decision_workbook",
@@ -1327,4 +1330,610 @@ fn home_links_the_decision_package() {
             "unplanned home page must show the frozen not_available line for `{OUTPUT_PATH}`"
         );
     });
+}
+
+#[test]
+fn bridge_steps_add_to_the_total_change() {
+    let input = synthetic_example();
+    let v1 = cost_build(&input, Version::V1).unwrap();
+    let v2 = cost_build(&input, Version::V2).unwrap();
+    let steps = bridge(&v1, &v2).unwrap();
+
+    let cents = RoundingPolicy::new(2).unwrap();
+    let mut step_sum = Value::Known(Money::usd(Dec::ZERO));
+    for step in steps.iter().filter(|s| s.label != BRIDGE_TOTAL_CHANGE) {
+        step_sum = add(step_sum, step.change.map(Money::usd)).unwrap();
+    }
+    let rounded_step_sum = round_money_at_stage(step_sum, Stage::Total, &cents).unwrap();
+
+    let total_step = steps
+        .iter()
+        .find(|s| s.label == BRIDGE_TOTAL_CHANGE)
+        .expect("bridge must include a Total change row");
+    assert_eq!(
+        rounded_step_sum.map(|m| m.amount),
+        total_step.change,
+        "bridge steps sum must equal bridge Total change"
+    );
+
+    let v1_price = v1
+        .iter()
+        .find(|l| l.label == LINE_UNIT_PRICE)
+        .unwrap()
+        .value;
+    let v2_price = v2
+        .iter()
+        .find(|l| l.label == LINE_UNIT_PRICE)
+        .unwrap()
+        .value;
+    let expected_price_change = round_money_at_stage(
+        sub(v2_price.map(Money::usd), v1_price.map(Money::usd)).unwrap(),
+        Stage::Total,
+        &cents,
+    )
+    .unwrap();
+    assert_eq!(
+        rounded_step_sum, expected_price_change,
+        "bridge steps must add up to v2 unit price minus v1 unit price"
+    );
+
+    // Also verify cached values on the rendered Price change bridge sheet reconcile.
+    let bytes = decision::render(&released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let sheets = read_workbook(&bytes);
+    let bridge_sheet = sheet_by_name(&sheets, SHEET_PRICE_BRIDGE);
+
+    let (_, cached_v1) = cell_formula_cached(bridge_sheet, "B2");
+    let v1_dec = Money::usd(Dec::parse(&cached_v1).unwrap());
+    let mut sheet_sum = Value::Known(Money::usd(Dec::ZERO));
+    let mut total_row = None;
+    let mut v2_row = None;
+    for row in 3..=20 {
+        let Some(CellValue::String(label)) = bridge_sheet.cells.get(&format!("A{row}")) else {
+            break;
+        };
+        if label == BRIDGE_TOTAL_CHANGE {
+            total_row = Some(row);
+        } else if label == BRIDGE_V2_PRICE {
+            v2_row = Some(row);
+        } else if label == LINE_CHECK {
+            break;
+        } else {
+            let (_, cached) = cell_formula_cached(bridge_sheet, &format!("B{row}"));
+            let step_dec = Money::usd(Dec::parse(&cached).unwrap());
+            sheet_sum = add(sheet_sum, Value::Known(step_dec)).unwrap();
+        }
+    }
+    let total_row = total_row.expect("Price change bridge must contain Total change row");
+    let v2_row = v2_row.expect("Price change bridge must contain Unit price, v2 row");
+    let (_, cached_total) = cell_formula_cached(bridge_sheet, &format!("B{total_row}"));
+    let (_, cached_v2) = cell_formula_cached(bridge_sheet, &format!("B{v2_row}"));
+    let v2_dec = Money::usd(Dec::parse(&cached_v2).unwrap());
+
+    let rounded_sheet_sum = round_money_at_stage(sheet_sum, Stage::Total, &cents).unwrap();
+    assert_eq!(
+        rounded_sheet_sum.known().unwrap().amount.to_string(),
+        cached_total,
+        "{SHEET_PRICE_BRIDGE}!B{total_row} must equal sum of bridge step cells"
+    );
+    let v1_plus_steps = round_money_at_stage(
+        add(Value::Known(v1_dec), rounded_sheet_sum).unwrap(),
+        Stage::Total,
+        &cents,
+    )
+    .unwrap();
+    assert_eq!(
+        v1_plus_steps,
+        Value::Known(v2_dec),
+        "v1 unit price plus bridge steps must equal v2 unit price on `{SHEET_PRICE_BRIDGE}`"
+    );
+}
+
+#[test]
+fn bridge_cached_values_equal_an_independent_recomputation() {
+    let input = synthetic_example();
+    let bytes = decision::render(&released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let sheets = read_workbook(&bytes);
+    let bridge_sheet = sheet_by_name(&sheets, SHEET_PRICE_BRIDGE);
+
+    let cents = RoundingPolicy::new(2).unwrap();
+    let find_val = |id: &str, v: Version| -> Dec {
+        let a = input.assumptions.iter().find(|a| a.id == id).unwrap();
+        let raw = match v {
+            Version::V1 => &a.v1,
+            Version::V2 => &a.v2,
+        };
+        Dec::parse(raw).unwrap()
+    };
+
+    let recompute_lines = |v: Version| -> (Dec, Dec, Dec, Dec, Dec, Dec, Dec) {
+        let mat = Money::usd(find_val(ASSUMPTION_DIRECT_MATERIAL, v));
+        let esc = find_val(ASSUMPTION_ESCALATION_PCT, v);
+        let hrs = find_val(ASSUMPTION_LABOUR_HOURS, v);
+        let rate = Money::usd(find_val(ASSUMPTION_LABOUR_RATE, v));
+        let oh_pct = find_val(ASSUMPTION_OVERHEAD_PCT, v);
+        let ga_pct = find_val(ASSUMPTION_GA_PCT, v);
+        let prof_pct = find_val(ASSUMPTION_PROFIT_PCT, v);
+
+        let mat_esc = round_money_at_stage(
+            add(
+                Value::Known(mat),
+                percent_of(Value::Known(mat), Value::Known(esc)).unwrap(),
+            )
+            .unwrap(),
+            Stage::Extension,
+            &cents,
+        )
+        .unwrap();
+        let labour = round_money_at_stage(
+            mul(Value::Known(rate), Value::Known(hrs)).unwrap(),
+            Stage::Extension,
+            &cents,
+        )
+        .unwrap();
+        let overhead_unrounded = percent_of(labour, Value::Known(oh_pct)).unwrap();
+        let overhead = round_money_at_stage(overhead_unrounded, Stage::Extension, &cents).unwrap();
+        let tci = round_money_at_stage(
+            add(add(mat_esc, labour).unwrap(), overhead).unwrap(),
+            Stage::Total,
+            &cents,
+        )
+        .unwrap();
+        let ga = round_money_at_stage(
+            percent_of(tci, Value::Known(ga_pct)).unwrap(),
+            Stage::Extension,
+            &cents,
+        )
+        .unwrap();
+        let burdened = round_money_at_stage(add(tci, ga).unwrap(), Stage::Total, &cents).unwrap();
+        let profit = round_money_at_stage(
+            percent_of(burdened, Value::Known(prof_pct)).unwrap(),
+            Stage::Extension,
+            &cents,
+        )
+        .unwrap();
+        let price =
+            round_money_at_stage(add(burdened, profit).unwrap(), Stage::Total, &cents).unwrap();
+
+        (
+            mat_esc.known().unwrap().amount,
+            labour.known().unwrap().amount,
+            overhead.known().unwrap().amount,
+            overhead_unrounded.known().unwrap().amount,
+            ga.known().unwrap().amount,
+            profit.known().unwrap().amount,
+            price.known().unwrap().amount,
+        )
+    };
+
+    let (m1, l1, oh1, oh1_raw, ga1, p1, price1) = recompute_lines(Version::V1);
+    let (m2, l2, oh2, oh2_raw, ga2, p2, price2) = recompute_lines(Version::V2);
+
+    // Ensure the synthetic example's overhead sub-cent parts differ so taking unrounded values
+    // changes the overhead step.
+    let oh_rounded_diff = sub(Value::Known(Money::usd(oh2)), Value::Known(Money::usd(oh1)))
+        .unwrap()
+        .known()
+        .unwrap()
+        .amount;
+    let oh_unrounded_diff = round_money_at_stage(
+        sub(
+            Value::Known(Money::usd(oh2_raw)),
+            Value::Known(Money::usd(oh1_raw)),
+        )
+        .unwrap(),
+        Stage::Total,
+        &cents,
+    )
+    .unwrap()
+    .known()
+    .unwrap()
+    .amount;
+    assert_ne!(
+        oh_rounded_diff, oh_unrounded_diff,
+        "synthetic example overhead v1/v2 sub-cent parts must differ so rounded != unrounded step"
+    );
+
+    let money_step = |a: Dec, b: Dec| -> Dec {
+        sub(Value::Known(Money::usd(a)), Value::Known(Money::usd(b)))
+            .unwrap()
+            .known()
+            .unwrap()
+            .amount
+    };
+
+    let expected_steps = [
+        (LINE_MATERIAL, money_step(m2, m1)),
+        (LINE_LABOUR, money_step(l2, l1)),
+        (LINE_OVERHEAD, money_step(oh2, oh1)),
+        (LINE_GA, money_step(ga2, ga1)),
+        (LINE_PROFIT, money_step(p2, p1)),
+    ];
+    let expected_total = money_step(price2, price1);
+
+    // Row 2: v1 unit price.
+    assert_eq!(cell_text(bridge_sheet, "A2"), BRIDGE_V1_PRICE);
+    let (_, cached_v1) = cell_formula_cached(bridge_sheet, "B2");
+    assert_eq!(
+        cached_v1,
+        price1.to_string(),
+        "{SHEET_PRICE_BRIDGE}!B2 (v1 unit price) cached value mismatch"
+    );
+
+    // Rows 3..=7: check all five bridge step dollar changes first so a step mismatch names its
+    // exact change cell (e.g. `Price change bridge!B5`) before downstream share percentages.
+    for (idx, (label, expected_change)) in expected_steps.iter().enumerate() {
+        let row = idx + 3;
+        assert_eq!(
+            cell_text(bridge_sheet, &format!("A{row}")),
+            *label,
+            "{SHEET_PRICE_BRIDGE}!A{row} label mismatch"
+        );
+        let (_, cached_change) = cell_formula_cached(bridge_sheet, &format!("B{row}"));
+        assert_eq!(
+            cached_change,
+            expected_change.to_string(),
+            "{SHEET_PRICE_BRIDGE}!B{row} ({label} change) cached value mismatch"
+        );
+    }
+
+    // Rows 3..=7: check each step's share of total price change.
+    for (idx, (label, expected_change)) in expected_steps.iter().enumerate() {
+        let row = idx + 3;
+        let expected_share = div_at_stage(
+            mul(
+                Value::Known(Money::usd(*expected_change)),
+                Value::Known(Dec::ONE_HUNDRED),
+            )
+            .unwrap(),
+            Value::Known(expected_total),
+            Stage::Total,
+            &cents,
+        )
+        .unwrap()
+        .known()
+        .unwrap()
+        .amount;
+        let (_, cached_share) = cell_formula_cached(bridge_sheet, &format!("C{row}"));
+        assert_eq!(
+            cached_share,
+            expected_share.to_string(),
+            "{SHEET_PRICE_BRIDGE}!C{row} ({label} share) cached value mismatch"
+        );
+    }
+
+    // Row 8: Total change and 100.00% share.
+    assert_eq!(cell_text(bridge_sheet, "A8"), BRIDGE_TOTAL_CHANGE);
+    let (_, cached_total) = cell_formula_cached(bridge_sheet, "B8");
+    assert_eq!(
+        cached_total,
+        expected_total.to_string(),
+        "{SHEET_PRICE_BRIDGE}!B8 (Total change) cached value mismatch"
+    );
+    let (_, cached_total_share) = cell_formula_cached(bridge_sheet, "C8");
+    assert_eq!(
+        cached_total_share, "100.00",
+        "{SHEET_PRICE_BRIDGE}!C8 (Total change share) cached value mismatch"
+    );
+
+    // Row 9: v2 unit price.
+    assert_eq!(cell_text(bridge_sheet, "A9"), BRIDGE_V2_PRICE);
+    let (_, cached_v2) = cell_formula_cached(bridge_sheet, "B9");
+    assert_eq!(
+        cached_v2,
+        price2.to_string(),
+        "{SHEET_PRICE_BRIDGE}!B9 (v2 unit price) cached value mismatch"
+    );
+
+    // Row 10: Check cell.
+    assert_eq!(cell_text(bridge_sheet, "A10"), LINE_CHECK);
+    let (_, cached_check) = cell_formula_cached(bridge_sheet, "B10");
+    assert_eq!(
+        cached_check, "OK",
+        "{SHEET_PRICE_BRIDGE}!B10 (Check) cached value mismatch"
+    );
+}
+
+#[test]
+fn bridge_check_cell_is_ok() {
+    let bytes = decision::render(&released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let sheets = read_workbook(&bytes);
+    let bridge_sheet = sheet_by_name(&sheets, SHEET_PRICE_BRIDGE);
+
+    assert_eq!(cell_text(bridge_sheet, "A10"), LINE_CHECK);
+    let (formula, cached) = cell_formula_cached(bridge_sheet, "B10");
+    assert_eq!(
+        cached, "OK",
+        "{SHEET_PRICE_BRIDGE}!B10 self-check must cache OK, formula={formula}"
+    );
+    assert!(
+        formula.contains("B2") && formula.contains("SUM(B3:B7)") && formula.contains("B9"),
+        "{SHEET_PRICE_BRIDGE}!B10 must check v1 price plus steps equals v2 price: `{formula}`"
+    );
+    assert_eq!(
+        cell_text(bridge_sheet, "D10"),
+        strings::ORIGIN_LABELS[1],
+        "{SHEET_PRICE_BRIDGE}!D10 origin must be Computed"
+    );
+}
+
+#[test]
+fn bridge_zero_total_change_reads_n_a_for_every_share() {
+    // Case 1: identical v1 and v2 assumptions give equal unit prices (zero total change).
+    let mut equal_input = synthetic_example();
+    for a in &mut equal_input.assumptions {
+        a.v2 = a.v1.clone();
+    }
+
+    let v1 = cost_build(&equal_input, Version::V1).unwrap();
+    let v2 = cost_build(&equal_input, Version::V2).unwrap();
+    let steps = bridge(&v1, &v2).unwrap();
+    for step in &steps {
+        assert_eq!(
+            step.share_pct,
+            Value::Unknown(Reason::ZeroDenominator),
+            "bridge step `{}` share must be Unknown(ZeroDenominator) when total change is zero",
+            step.label
+        );
+    }
+
+    let mut wb =
+        decision_workbook(&equal_input, &released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let bytes = save_workbook(&mut wb).unwrap();
+    let sheets = read_workbook(&bytes);
+    let bridge_sheet = sheet_by_name(&sheets, SHEET_PRICE_BRIDGE);
+
+    for row in 3..=8 {
+        let cell_ref = format!("C{row}");
+        let (formula, cached) = cell_formula_cached(bridge_sheet, &cell_ref);
+        assert_eq!(
+            cached, "n/a: zero denominator",
+            "{SHEET_PRICE_BRIDGE}!{cell_ref} must show `n/a: zero denominator`, formula={formula}"
+        );
+        assert!(
+            formula.contains("IF("),
+            "{SHEET_PRICE_BRIDGE}!{cell_ref} must use an explicit IF zero test: `{formula}`"
+        );
+        assert!(
+            !formula.to_ascii_uppercase().contains("IFERROR"),
+            "{SHEET_PRICE_BRIDGE}!{cell_ref} must not use IFERROR: `{formula}`"
+        );
+    }
+    let (_, cached_check) = cell_formula_cached(bridge_sheet, "B10");
+    assert_eq!(cached_check, "OK");
+
+    // Case 2: non-zero offsetting step changes whose unit prices still match (zero total change).
+    let mut offsetting = equal_input;
+    for a in &mut offsetting.assumptions {
+        if a.id == ASSUMPTION_ESCALATION_PCT || a.id == ASSUMPTION_OVERHEAD_PCT {
+            a.v1 = "0".to_owned();
+            a.v2 = "0".to_owned();
+        } else if a.id == ASSUMPTION_DIRECT_MATERIAL {
+            a.v1 = "100.00".to_owned();
+            a.v2 = "110.00".to_owned();
+        } else if a.id == ASSUMPTION_LABOUR_HOURS {
+            a.v1 = "1.00".to_owned();
+            a.v2 = "1.00".to_owned();
+        } else if a.id == ASSUMPTION_LABOUR_RATE {
+            a.v1 = "40.00".to_owned();
+            a.v2 = "30.00".to_owned();
+        }
+    }
+    let ov1 = cost_build(&offsetting, Version::V1).unwrap();
+    let ov2 = cost_build(&offsetting, Version::V2).unwrap();
+    let osteps = bridge(&ov1, &ov2).unwrap();
+    assert_eq!(
+        osteps[0].change,
+        Value::Known(Dec::parse("10.00").unwrap()),
+        "offsetting case material step must be +10.00"
+    );
+    assert_eq!(
+        osteps[1].change,
+        Value::Known(Dec::parse("-10.00").unwrap()),
+        "offsetting case labour step must be -10.00"
+    );
+    for step in &osteps {
+        assert_eq!(
+            step.share_pct,
+            Value::Unknown(Reason::ZeroDenominator),
+            "offsetting zero-total-change step `{}` share must be Unknown(ZeroDenominator)",
+            step.label
+        );
+    }
+    let mut owb =
+        decision_workbook(&offsetting, &released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let obytes = save_workbook(&mut owb).unwrap();
+    let osheets = read_workbook(&obytes);
+    let obridge = sheet_by_name(&osheets, SHEET_PRICE_BRIDGE);
+    for row in 3..=8 {
+        let (_, cached) = cell_formula_cached(obridge, &format!("C{row}"));
+        assert_eq!(
+            cached, "n/a: zero denominator",
+            "offsetting zero-total-change {SHEET_PRICE_BRIDGE}!C{row} must read n/a: zero denominator"
+        );
+    }
+    let (_, ocheck) = cell_formula_cached(obridge, "B10");
+    assert_eq!(ocheck, "OK");
+}
+
+#[test]
+fn bridge_has_five_steps_and_no_escalation_row() {
+    let input = synthetic_example();
+    let v1 = cost_build(&input, Version::V1).unwrap();
+    let v2 = cost_build(&input, Version::V2).unwrap();
+    let steps = bridge(&v1, &v2).unwrap();
+
+    assert_eq!(
+        steps.len(),
+        6,
+        "bridge must return 5 steps plus Total change"
+    );
+    let step_labels: Vec<&str> = steps[..5].iter().map(|s| s.label).collect();
+    assert_eq!(
+        step_labels,
+        [
+            LINE_MATERIAL,
+            LINE_LABOUR,
+            LINE_OVERHEAD,
+            LINE_GA,
+            LINE_PROFIT
+        ],
+        "bridge steps must follow Cost build order with escalation inside Material"
+    );
+    assert_eq!(steps[5].label, BRIDGE_TOTAL_CHANGE);
+
+    let bytes = decision::render(&released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let sheets = read_workbook(&bytes);
+    let cost_sheet = sheet_by_name(&sheets, SHEET_COST_BUILD);
+    let bridge_sheet = sheet_by_name(&sheets, SHEET_PRICE_BRIDGE);
+
+    let cost_labels: BTreeSet<String> = (2..=10)
+        .map(|row| cell_text(cost_sheet, &format!("A{row}")))
+        .collect();
+
+    for (idx, expected_label) in BRIDGE_STEP_LABELS.iter().enumerate() {
+        let row = idx + 3;
+        let label = cell_text(bridge_sheet, &format!("A{row}"));
+        assert_eq!(label, *expected_label);
+        assert!(
+            cost_labels.contains(&label),
+            "{SHEET_PRICE_BRIDGE}!A{row} label `{label}` must exist on `{SHEET_COST_BUILD}`"
+        );
+        let (formula, _) = cell_formula_cached(bridge_sheet, &format!("B{row}"));
+        assert!(
+            formula.contains("INDEX(")
+                && formula.contains("MATCH(")
+                && formula.contains(&format!("\"{label}\"")),
+            "{SHEET_PRICE_BRIDGE}!B{row} must look up `{label}` in Cost build via INDEX/MATCH: `{formula}`"
+        );
+    }
+
+    // No separate escalation row on Price change bridge.
+    for row in 2..=10 {
+        let label = cell_text(bridge_sheet, &format!("A{row}"));
+        assert_ne!(
+            label.to_ascii_lowercase(),
+            "escalation",
+            "escalation must not be a separate bridge step"
+        );
+        assert_ne!(
+            label.to_ascii_lowercase(),
+            "material escalation",
+            "escalation must not be a separate bridge step"
+        );
+        let origin = cell_text(bridge_sheet, &format!("D{row}"));
+        assert!(
+            strings::ORIGIN_LABELS.contains(&origin.as_str()),
+            "{SHEET_PRICE_BRIDGE}!D{row} origin `{origin}` must be in strings::ORIGIN_LABELS"
+        );
+    }
+
+    // First row finds v1 unit price, last price row finds v2 unit price, both via INDEX/MATCH.
+    let (v1_formula, _) = cell_formula_cached(bridge_sheet, "B2");
+    assert!(
+        v1_formula.contains("INDEX(")
+            && v1_formula.contains("$B$2:$B$10")
+            && v1_formula.contains(&format!("MATCH(\"{LINE_UNIT_PRICE}\"")),
+        "{SHEET_PRICE_BRIDGE}!B2 must look up v1 Unit price via INDEX/MATCH: `{v1_formula}`"
+    );
+    let (v2_formula, _) = cell_formula_cached(bridge_sheet, "B9");
+    assert!(
+        v2_formula.contains("INDEX(")
+            && v2_formula.contains("$C$2:$C$10")
+            && v2_formula.contains(&format!("MATCH(\"{LINE_UNIT_PRICE}\"")),
+        "{SHEET_PRICE_BRIDGE}!B9 must look up v2 Unit price via INDEX/MATCH: `{v2_formula}`"
+    );
+}
+
+#[test]
+fn bridge_formulas_use_only_the_allowed_functions() {
+    let bytes = decision::render(&released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let sheets = read_workbook(&bytes);
+    let bridge_sheet = sheet_by_name(&sheets, SHEET_PRICE_BRIDGE);
+
+    let mut formula_count = 0usize;
+    let mut index_count = 0usize;
+    let mut match_count = 0usize;
+
+    for (cell_ref, val) in &bridge_sheet.cells {
+        if let CellValue::Formula { formula, .. } = val {
+            formula_count += 1;
+            let funcs = extract_formula_functions(formula);
+            for func in &funcs {
+                assert!(
+                    ALLOWED_FUNCTIONS.contains(&func.as_str()),
+                    "{SHEET_PRICE_BRIDGE}!{cell_ref}: disallowed function `{func}` in `{formula}`"
+                );
+                assert_ne!(
+                    func, "IFERROR",
+                    "{SHEET_PRICE_BRIDGE}!{cell_ref}: IFERROR is forbidden"
+                );
+                if func == "INDEX" {
+                    index_count += 1;
+                }
+                if func == "MATCH" {
+                    match_count += 1;
+                }
+            }
+            for args in extract_match_calls(formula) {
+                assert_eq!(
+                    args.len(),
+                    3,
+                    "{SHEET_PRICE_BRIDGE}!{cell_ref}: MATCH must take 3 arguments in `{formula}`"
+                );
+                assert_eq!(
+                    args[2], "0",
+                    "{SHEET_PRICE_BRIDGE}!{cell_ref}: MATCH must use exact match type 0 in `{formula}`"
+                );
+            }
+        }
+    }
+
+    assert!(
+        formula_count >= 15,
+        "expected at least 15 formulas on `{SHEET_PRICE_BRIDGE}`, got {formula_count}"
+    );
+    assert_eq!(
+        index_count, 7,
+        "expected 7 INDEX lookups on `{SHEET_PRICE_BRIDGE}` (v1, 5 steps, v2)"
+    );
+    assert_eq!(
+        match_count, 7,
+        "expected 7 MATCH lookups on `{SHEET_PRICE_BRIDGE}` (v1, 5 steps, v2)"
+    );
+
+    let viols = xl02_violations(&bytes);
+    assert!(
+        viols.is_empty(),
+        "workbook with `{SHEET_PRICE_BRIDGE}` failed XL-02 checks:\n{}",
+        viols.join("\n")
+    );
+}
+
+#[test]
+fn bridge_sheet_follows_assumptions() {
+    let bytes = decision::render(&released_edition(), DEFAULT_WORKBOOK_EPOCH).unwrap();
+    let sheets = read_workbook(&bytes);
+    let names: Vec<&str> = sheets.iter().map(|s| s.name.as_str()).collect();
+    assert_eq!(
+        names,
+        [
+            SHEET_README,
+            SHEET_SUMMARY,
+            SHEET_COST_BUILD,
+            SHEET_ASSUMPTIONS,
+            SHEET_PRICE_BRIDGE,
+        ],
+        "Price change bridge must follow Assumptions and preserve the four earlier sheets"
+    );
+
+    let readme = sheet_by_name(&sheets, SHEET_README);
+    assert_eq!(cell_text(readme, "A10"), "Sheets");
+    let sheets_line = cell_text(readme, "B10");
+    assert_eq!(
+        sheets_line,
+        format!(
+            "{SHEET_README}, {SHEET_SUMMARY}, {SHEET_COST_BUILD}, {SHEET_ASSUMPTIONS}, {SHEET_PRICE_BRIDGE}"
+        ),
+        "Read-me Sheets row must list all five sheets in order"
+    );
 }
