@@ -1,8 +1,8 @@
 //! Synthetic decision package workbook (`templates/decision-package.xlsx`).
 //!
-//! Renders a four-sheet preview workbook (`Read-me`, `Summary`, `Cost build`, `Assumptions`)
-//! using INDEX/MATCH formulas only, with every formula cell carrying a cached value computed by
-//! `fieldbook-calc` (AD-13, XL-02, DT-01).
+//! Renders a five-sheet preview workbook (`Read-me`, `Summary`, `Cost build`, `Assumptions`,
+//! `Price change bridge`) using INDEX/MATCH formulas only, with every formula cell carrying a
+//! cached value computed by `fieldbook-calc` (AD-13, XL-02, DT-01).
 //!
 //! The builder exposes two public functions, [`decision_workbook`] and [`save_workbook`], so that
 //! `decide-port` can append an `AI proposal` sheet between them without editing any existing sheet.
@@ -32,6 +32,8 @@ pub const SHEET_SUMMARY: &str = "Summary";
 pub const SHEET_COST_BUILD: &str = "Cost build";
 /// Sheet name for the assumptions appendix.
 pub const SHEET_ASSUMPTIONS: &str = "Assumptions";
+/// Sheet name for the v1-to-v2 price change bridge (TP-06).
+pub const SHEET_PRICE_BRIDGE: &str = "Price change bridge";
 
 /// Assumption ID for direct material per unit.
 pub const ASSUMPTION_DIRECT_MATERIAL: &str = "SYN-AS-001";
@@ -66,8 +68,24 @@ pub const LINE_PROFIT: &str = "Profit";
 pub const LINE_UNIT_PRICE: &str = "Unit price";
 /// Profit on cost ratio line label (percent of burdened unit cost).
 pub const LINE_PROFIT_ON_COST: &str = "Profit on cost (%)";
-/// Self-check row label on `Cost build`.
+/// Self-check row label on `Cost build` and `Price change bridge`.
 pub const LINE_CHECK: &str = "Check";
+
+/// First row label on `Price change bridge` (baseline v1 unit price).
+pub const BRIDGE_V1_PRICE: &str = "Unit price, v1";
+/// Total change row label on `Price change bridge`.
+pub const BRIDGE_TOTAL_CHANGE: &str = "Total change";
+/// Final price row label on `Price change bridge` (revised v2 unit price).
+pub const BRIDGE_V2_PRICE: &str = "Unit price, v2";
+
+/// Cost build line labels forming the five bridge steps, in sheet order.
+pub const BRIDGE_STEP_LABELS: [&str; 5] = [
+    LINE_MATERIAL,
+    LINE_LABOUR,
+    LINE_OVERHEAD,
+    LINE_GA,
+    LINE_PROFIT,
+];
 
 const NOT_ESTABLISHED: &str = "Not established";
 const ZERO_DENOMINATOR_TEXT: &str = "n/a: zero denominator";
@@ -87,6 +105,9 @@ const ASSUMPTION_HEADERS: [&str; 11] = [
 ];
 
 const COST_BUILD_HEADERS: [&str; 6] = ["line", "v1", "v2", "change", "assumption id", "origin"];
+
+const PRICE_BRIDGE_HEADERS: [&str; 4] =
+    ["step", "change", "share of the price change (%)", "origin"];
 
 /// Version column of a decision package.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -158,6 +179,21 @@ pub struct CostLine {
     pub value: Value<Dec>,
     /// Assumption id(s) that drive this line.
     pub assumption_id: &'static str,
+    /// Figure-origin word from [`fieldbook_core::strings::ORIGIN_LABELS`].
+    pub origin: &'static str,
+}
+
+/// One step (or total change) of the `Price change bridge` sheet.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct BridgeStep {
+    /// Display label (matching a `Cost build` line label for the five steps, or
+    /// [`BRIDGE_TOTAL_CHANGE`]).
+    pub label: &'static str,
+    /// Exact dollar change (`v2 - v1`) from `fieldbook-calc`.
+    pub change: Value<Dec>,
+    /// Share of the total price change in percent, or `Value::Unknown(Reason::ZeroDenominator)`
+    /// when the total price change is zero.
+    pub share_pct: Value<Dec>,
     /// Figure-origin word from [`fieldbook_core::strings::ORIGIN_LABELS`].
     pub origin: &'static str,
 }
@@ -417,6 +453,68 @@ pub fn cost_build(input: &DecisionInput, version: Version) -> Result<Vec<CostLin
     ])
 }
 
+fn find_cost_line<'a>(lines: &'a [CostLine], label: &str) -> Result<&'a CostLine, CalcError> {
+    lines
+        .iter()
+        .find(|line| line.label == label)
+        .ok_or(CalcError::Grammar)
+}
+
+/// Computes the five-step v1-to-v2 price change bridge and its total change using exact
+/// `fieldbook-calc` arithmetic over the rounded [`CostLine`] values from [`cost_build`].
+///
+/// Returns six [`BridgeStep`] rows in fixed Cost build order: [`LINE_MATERIAL`],
+/// [`LINE_LABOUR`], [`LINE_OVERHEAD`], [`LINE_GA`], [`LINE_PROFIT`], and
+/// [`BRIDGE_TOTAL_CHANGE`]. Each share of the total change is rounded at [`Stage::Total`] to
+/// two decimal places, or `Value::Unknown(Reason::ZeroDenominator)` when total change is zero.
+///
+/// # Errors
+///
+/// Returns [`CalcError`] if any required cost line is missing or an arithmetic operation fails.
+pub fn bridge(v1: &[CostLine], v2: &[CostLine]) -> Result<Vec<BridgeStep>, CalcError> {
+    let cents = RoundingPolicy::new(2)?;
+    let computed = strings::ORIGIN_LABELS[1];
+
+    let mut step_changes: Vec<(&'static str, Value<Dec>)> =
+        Vec::with_capacity(BRIDGE_STEP_LABELS.len());
+    let mut sum = Value::Known(Money::usd(Dec::ZERO));
+
+    for &label in &BRIDGE_STEP_LABELS {
+        let l1 = find_cost_line(v1, label)?;
+        let l2 = find_cost_line(v2, label)?;
+        let change = money_diff(l2.value, l1.value)?;
+        sum = add(sum, change.map(Money::usd))?;
+        step_changes.push((label, change));
+    }
+
+    let total_change_money = round_money_at_stage(sum, Stage::Total, &cents)?;
+    let total_change = total_change_money.map(|m| m.amount);
+
+    let mut steps = Vec::with_capacity(step_changes.len() + 1);
+    for (label, change) in step_changes {
+        let scaled = mul(change.map(Money::usd), Value::Known(Dec::ONE_HUNDRED))?;
+        let share_pct = div_at_stage(scaled, total_change, Stage::Total, &cents)?.map(|m| m.amount);
+        steps.push(BridgeStep {
+            label,
+            change,
+            share_pct,
+            origin: computed,
+        });
+    }
+
+    let total_scaled = mul(total_change_money, Value::Known(Dec::ONE_HUNDRED))?;
+    let total_share_pct =
+        div_at_stage(total_scaled, total_change, Stage::Total, &cents)?.map(|m| m.amount);
+    steps.push(BridgeStep {
+        label: BRIDGE_TOTAL_CHANGE,
+        change: total_change,
+        share_pct: total_share_pct,
+        origin: computed,
+    });
+
+    Ok(steps)
+}
+
 struct EvaluatedBuild {
     v1_lines: Vec<CostLine>,
     v2_lines: Vec<CostLine>,
@@ -424,6 +522,8 @@ struct EvaluatedBuild {
     v1_check: &'static str,
     v2_check: &'static str,
     change_check: &'static str,
+    bridge_steps: Vec<BridgeStep>,
+    bridge_check: &'static str,
 }
 
 fn calc_err(err: &CalcError) -> XlsxError {
@@ -488,6 +588,32 @@ fn check_changes_reconcile(changes: &[Value<Dec>]) -> Result<&'static str, CalcE
     };
     let rounded_price = round_money_at_stage(price_change.map(Money::usd), Stage::Total, &cents)?;
     if rounded_sum == rounded_price {
+        Ok("OK")
+    } else {
+        Ok("MISMATCH")
+    }
+}
+
+fn check_bridge_reconciles(
+    v1: &[CostLine],
+    v2: &[CostLine],
+    steps: &[BridgeStep],
+) -> Result<&'static str, CalcError> {
+    let cents = RoundingPolicy::new(2)?;
+    let v1_price = find_cost_line(v1, LINE_UNIT_PRICE)?.value.map(Money::usd);
+    let v2_price = find_cost_line(v2, LINE_UNIT_PRICE)?.value.map(Money::usd);
+    let mut step_sum = Value::Known(Money::usd(Dec::ZERO));
+    for step in steps {
+        if step.label != BRIDGE_TOTAL_CHANGE {
+            step_sum = add(step_sum, step.change.map(Money::usd))?;
+        }
+    }
+    let rounded_steps = round_money_at_stage(step_sum, Stage::Total, &cents)?;
+    let rounded_diff = round_money_at_stage(sub(v2_price, v1_price)?, Stage::Total, &cents)?;
+    let rounded_v1_plus_steps =
+        round_money_at_stage(add(v1_price, rounded_steps)?, Stage::Total, &cents)?;
+    let rounded_v2 = round_money_at_stage(v2_price, Stage::Total, &cents)?;
+    if rounded_steps == rounded_diff && rounded_v1_plus_steps == rounded_v2 {
         Ok("OK")
     } else {
         Ok("MISMATCH")
@@ -565,7 +691,9 @@ fn write_readme_sheet(
         ("Rounding", strings::rounding().to_owned()),
         (
             "Sheets",
-            format!("{SHEET_README}, {SHEET_SUMMARY}, {SHEET_COST_BUILD}, {SHEET_ASSUMPTIONS}"),
+            format!(
+                "{SHEET_README}, {SHEET_SUMMARY}, {SHEET_COST_BUILD}, {SHEET_ASSUMPTIONS}, {SHEET_PRICE_BRIDGE}"
+            ),
         ),
     ];
 
@@ -875,8 +1003,134 @@ fn write_assumptions_sheet(
     Ok(())
 }
 
-/// Builds the four-sheet decision package [`Workbook`] (`Read-me`, `Summary`, `Cost build`,
-/// `Assumptions`) with a fixed creation timestamp and exact cached formula values.
+fn write_price_bridge_sheet(
+    workbook: &mut Workbook,
+    eval: &EvaluatedBuild,
+) -> Result<(), XlsxError> {
+    let sheet = workbook.add_worksheet();
+    sheet.set_name(SHEET_PRICE_BRIDGE)?;
+    sheet.set_formula_result_default("");
+
+    for (c_idx, &header) in PRICE_BRIDGE_HEADERS.iter().enumerate() {
+        let col = u16::try_from(c_idx).map_err(|_| XlsxError::RowColumnLimitError)?;
+        sheet.write_string(0, col, header)?;
+    }
+    sheet.set_column_width(0, 28.0)?;
+    sheet.set_column_width(1, 24.0)?;
+    sheet.set_column_width(2, 30.0)?;
+    sheet.set_column_width(3, 16.0)?;
+
+    let computed = strings::ORIGIN_LABELS[1];
+    let cost_last_data_row = eval.v1_lines.len() + 1;
+    let v1_price = find_cost_line(&eval.v1_lines, LINE_UNIT_PRICE)
+        .map_err(|e| calc_err(&e))?
+        .value;
+    let v2_price = find_cost_line(&eval.v2_lines, LINE_UNIT_PRICE)
+        .map_err(|e| calc_err(&e))?
+        .value;
+
+    let step_rows: Vec<&BridgeStep> = eval
+        .bridge_steps
+        .iter()
+        .filter(|s| s.label != BRIDGE_TOTAL_CHANGE)
+        .collect();
+    if step_rows.is_empty() {
+        return Err(calc_err(&CalcError::Grammar));
+    }
+    let total_step = eval
+        .bridge_steps
+        .iter()
+        .find(|s| s.label == BRIDGE_TOTAL_CHANGE)
+        .ok_or_else(|| calc_err(&CalcError::Grammar))?;
+
+    let first_step_excel_row = 3usize;
+    let last_step_excel_row = first_step_excel_row + step_rows.len() - 1;
+    let total_excel_row = last_step_excel_row + 1;
+    let v2_excel_row = total_excel_row + 1;
+
+    // Row 2 (0-based 1): v1 unit price via INDEX/MATCH.
+    sheet.write_string(1, 0, BRIDGE_V1_PRICE)?;
+    write_formula_cached(
+        sheet,
+        1,
+        1,
+        &lookup_cost_build('B', LINE_UNIT_PRICE, cost_last_data_row),
+        &format_value(v1_price),
+    )?;
+    sheet.write_string(1, 3, computed)?;
+
+    // Rows 3..=7 (0-based 2..=6): the five bridge steps.
+    for (idx, step) in step_rows.iter().enumerate() {
+        let row = u32::try_from(idx + 2).map_err(|_| XlsxError::RowColumnLimitError)?;
+        let excel_row = idx + first_step_excel_row;
+        let share_formula = format!(
+            "=IF($B${total_excel_row}=0,\"{ZERO_DENOMINATOR_TEXT}\",ROUND(B{excel_row}*100/$B${total_excel_row},2))"
+        );
+        sheet.write_string(row, 0, step.label)?;
+        write_formula_cached(
+            sheet,
+            row,
+            1,
+            &lookup_cost_build('D', step.label, cost_last_data_row),
+            &format_value(step.change),
+        )?;
+        write_formula_cached(sheet, row, 2, &share_formula, &format_value(step.share_pct))?;
+        sheet.write_string(row, 3, step.origin)?;
+    }
+
+    // Row 8 (0-based 7): Total change.
+    let total_row =
+        u32::try_from(total_excel_row - 1).map_err(|_| XlsxError::RowColumnLimitError)?;
+    let total_formula = format!("=ROUND(SUM(B{first_step_excel_row}:B{last_step_excel_row}),2)");
+    let total_share_formula = format!(
+        "=IF($B${total_excel_row}=0,\"{ZERO_DENOMINATOR_TEXT}\",ROUND(B{total_excel_row}*100/$B${total_excel_row},2))"
+    );
+    sheet.write_string(total_row, 0, total_step.label)?;
+    write_formula_cached(
+        sheet,
+        total_row,
+        1,
+        &total_formula,
+        &format_value(total_step.change),
+    )?;
+    write_formula_cached(
+        sheet,
+        total_row,
+        2,
+        &total_share_formula,
+        &format_value(total_step.share_pct),
+    )?;
+    sheet.write_string(total_row, 3, total_step.origin)?;
+
+    // Row 9 (0-based 8): v2 unit price via INDEX/MATCH.
+    let v2_row = u32::try_from(v2_excel_row - 1).map_err(|_| XlsxError::RowColumnLimitError)?;
+    sheet.write_string(v2_row, 0, BRIDGE_V2_PRICE)?;
+    write_formula_cached(
+        sheet,
+        v2_row,
+        1,
+        &lookup_cost_build('C', LINE_UNIT_PRICE, cost_last_data_row),
+        &format_value(v2_price),
+    )?;
+    sheet.write_string(v2_row, 3, computed)?;
+
+    // Row 10 (0-based 9): Check row (v1 price + steps = v2 price at cents).
+    let check_row = v2_row + 1;
+    let check_formula = format!(
+        "=IF(ROUND(B2+SUM(B{first_step_excel_row}:B{last_step_excel_row}),2)=ROUND(B{v2_excel_row},2),\"OK\",\"MISMATCH\")"
+    );
+    sheet.write_string(check_row, 0, LINE_CHECK)?;
+    write_formula_cached(sheet, check_row, 1, &check_formula, eval.bridge_check)?;
+    sheet.write_string(check_row, 3, computed)?;
+
+    sheet.set_freeze_panes(1, 0)?;
+
+    Ok(())
+}
+
+/// Builds the five-sheet decision package [`Workbook`] (`Read-me`, `Summary`, `Cost build`,
+/// `Assumptions`, `Price change bridge`) with a fixed creation timestamp and exact cached formula
+/// values.
 ///
 /// # Errors
 ///
@@ -903,6 +1157,9 @@ pub fn decision_workbook(
     let v1_check = check_reconciles(&v1_lines).map_err(|e| calc_err(&e))?;
     let v2_check = check_reconciles(&v2_lines).map_err(|e| calc_err(&e))?;
     let change_check = check_changes_reconcile(&changes).map_err(|e| calc_err(&e))?;
+    let bridge_steps = bridge(&v1_lines, &v2_lines).map_err(|e| calc_err(&e))?;
+    let bridge_check =
+        check_bridge_reconciles(&v1_lines, &v2_lines, &bridge_steps).map_err(|e| calc_err(&e))?;
 
     let evaluated = EvaluatedBuild {
         v1_lines,
@@ -911,6 +1168,8 @@ pub fn decision_workbook(
         v1_check,
         v2_check,
         change_check,
+        bridge_steps,
+        bridge_check,
     };
 
     let datetime = ExcelDateTime::from_timestamp(workbook_epoch).unwrap_or_else(|_| {
@@ -925,6 +1184,7 @@ pub fn decision_workbook(
     write_summary_sheet(&mut workbook, input, &evaluated)?;
     write_cost_build_sheet(&mut workbook, input, &evaluated)?;
     write_assumptions_sheet(&mut workbook, input)?;
+    write_price_bridge_sheet(&mut workbook, &evaluated)?;
 
     Ok(workbook)
 }
