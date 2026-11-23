@@ -50,7 +50,7 @@ Case B. The principal accountant does not elect to rely on the other accountant'
 
 ## Never confuse
 
-If part of the examination is made by an independent accountant other than the principal accountant and the principal accountant elects to place reliance on the work of the other accountant and makes reference to that effect in the principal accountant's report, the separate report of the other accountant shall be filed [@CL-CLS-0373], whereas notwithstanding the provisions of the section, reports of other accountants that may otherwise be required in filings need not be presented in annual reports to security holders furnished pursuant to the proxy and information statement rules under the Securities Exchange Act of 1934 (17 CFR 240.14a-3 and 240.14c-3) [@CL-CLS-0374; @CL-CLS-0375]. See [Auditor independence](../../mna/diligence/mna-sx-auditor-independence.md).
+Filing the other accountant's report and presenting reports in annual reports to security holders are not the same requirement: if part of the examination is made by an independent accountant other than the principal accountant and the principal accountant elects to place reliance on the work of the other accountant and makes reference to that effect in the principal accountant's report, the separate report of the other accountant shall be filed [@CL-CLS-0373], whereas notwithstanding the provisions of the section, reports of other accountants that may otherwise be required in filings need not be presented in annual reports to security holders furnished pursuant to the proxy and information statement rules under the Securities Exchange Act of 1934 (17 CFR 240.14a-3 and 240.14c-3) [@CL-CLS-0374; @CL-CLS-0375]. See [Auditor independence](../../mna/diligence/mna-sx-auditor-independence.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which engagements split an examination across more than one firm, whether the pr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the foreign governmental agency examination rule and the rule on statements of other persons.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for another accountant's separate report.

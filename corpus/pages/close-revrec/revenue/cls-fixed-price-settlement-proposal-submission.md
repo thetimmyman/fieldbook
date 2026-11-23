@@ -45,7 +45,7 @@ A contract is terminated and the contractor's whole claim comes to 8,000. That i
 
 ## Never confuse
 
-The inventory basis and the total-cost basis are on [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md). The notice of termination is covered on [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md), and its electronic and letter forms are on [Termination notices: electronic notice and letter notice](cls-termination-electronic-and-letter-notice.md). Settlement agreement formats are shown on [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md). Partial payments and final payment are covered on [Partial payments and final payment under a terminated contract](cls-termination-partial-payments-and-final-payment.md).
+Submitting the proposal is its own step rather than the settlement itself: the inventory basis and the total-cost basis are on [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md). The notice of termination is covered on [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md), and its electronic and letter forms are on [Termination notices: electronic notice and letter notice](cls-termination-electronic-and-letter-notice.md). Settlement agreement formats are shown on [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md). Partial payments and final payment are covered on [Partial payments and final payment under a terminated contract](cls-termination-partial-payments-and-final-payment.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who files termination settlement proposals, on which forms, and how the company 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: settlement proposal submission: uncited contrasts reworded as pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the SF 1439 submission rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for submission of settlement proposals for fixed-price contracts.

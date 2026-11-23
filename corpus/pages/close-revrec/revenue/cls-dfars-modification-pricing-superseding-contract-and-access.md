@@ -45,7 +45,7 @@ A contract is signed in a year when a cost principle allows a certain cost. Late
 
 ## Never confuse
 
-When costs are a factor in any price adjustment under the contract, the contract cost principles and procedures in FAR part 31 and DFARS part 231, in effect on the date of the contract, apply [@CL-CLS-1165]. Change accounting is on [Change Order Accounting clause](cls-change-order-accounting.md), equitable adjustment under the Changes clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md), requests for equitable adjustment in DoD definitization are on [DoD contract definitization and requests for equitable adjustment](../../contract-finance/financing/ctf-dod-definitization-and-requests-for-equitable-adjustment.md), and the cost rules themselves are on [Cost principles for contracts with commercial organizations](../../compliance/cas-allowability/cmp-cost-principles-commercial-organizations.md) and [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md). Authorized representatives of the Government may have access to the Contractor's on-base facilities upon reasonable notice or in case of emergency [@CL-CLS-1168].
+The pricing rule and the access rule are not one subject: when costs are a factor in any price adjustment under the contract, the contract cost principles and procedures in FAR part 31 and DFARS part 231, in effect on the date of the contract, apply [@CL-CLS-1165], while authorized representatives of the Government may have access to the Contractor's on-base facilities upon reasonable notice or in case of emergency [@CL-CLS-1168]. Change accounting is on [Change Order Accounting clause](cls-change-order-accounting.md), equitable adjustment under the Changes clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md), requests for equitable adjustment in DoD definitization are on [DoD contract definitization and requests for equitable adjustment](../../contract-finance/financing/ctf-dod-definitization-and-requests-for-equitable-adjustment.md), and the cost rules themselves are on [Cost principles for contracts with commercial organizations](../../compliance/cas-allowability/cmp-cost-principles-commercial-organizations.md) and [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which executed contracts and modifications carry these clauses, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: modification pricing, superseding contract and access: uncited absence and contrast statements removed.

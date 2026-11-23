@@ -47,7 +47,7 @@ A contractor has a terminated fixed-price contract with a total price of 800,000
 
 ## Never confuse
 
-Anticipatory profits and consequential damages shall not be allowed (but see 49.108-5) [@CL-CLS-0513]. Additional principles applicable to the termination for convenience and settlement of fixed-price and cost-reimbursement contracts are included in subparts 49.2 and 49.3 [@CL-CLS-0662]. A loss indication removes profit and, on the inventory basis, reduces the remainder through the ratio [@CL-CLS-0515; @CL-CLS-0516]. For allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For the two proposal bases, see [Termination settlement proposals](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the matching loss rule in the fixed-price termination clause, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+A settlement pays for the work rather than for lost profit: anticipatory profits and consequential damages shall not be allowed (but see 49.108-5) [@CL-CLS-0513]. Additional principles applicable to the termination for convenience and settlement of fixed-price and cost-reimbursement contracts are included in subparts 49.2 and 49.3 [@CL-CLS-0662]. A loss indication removes profit and, on the inventory basis, reduces the remainder through the ratio [@CL-CLS-0515; @CL-CLS-0516]. For allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For the two proposal bases, see [Termination settlement proposals](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the matching loss rule in the fixed-price termination clause, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who estimates the cost to complete the entire contract and signs off profit excl
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added subcontract-settlement profit rule, cost-to-complete factors, and all three inventory-basis loss cap amounts.
 - COMPATIBLE_EXTENSION, 2026-10-31: loss rule worded as quoted.

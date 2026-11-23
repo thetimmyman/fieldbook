@@ -45,7 +45,7 @@ A property administrator finds that a contractor's system does not comply and re
 
 ## Never confuse
 
-Government property shall be transferred from one contract to another only when firm requirements exist under the gaining contract (see FAR 45.102), such transfers shall be documented by modifications to both gaining and losing contracts, and once transferred, all property shall be considered Government-furnished property to the gaining contract [@CL-CLS-0709; @CL-CLS-0710], although the warranties of suitability of use and timely delivery of Government-furnished property do not apply to property acquired or fabricated by the contractor as contractor-acquired property that is subsequently transferred to another contract with the same contractor [@CL-CLS-0711]. See [Contractor Property Management System Administration clause](cls-property-management-system.md).
+Treatment after a transfer is not the same for every kind of property: government property shall be transferred from one contract to another only when firm requirements exist under the gaining contract (see FAR 45.102), such transfers shall be documented by modifications to both gaining and losing contracts, and once transferred, all property shall be considered Government-furnished property to the gaining contract [@CL-CLS-0709; @CL-CLS-0710], although the warranties of suitability of use and timely delivery of Government-furnished property do not apply to property acquired or fabricated by the contractor as contractor-acquired property that is subsequently transferred to another contract with the same contractor [@CL-CLS-0711]. See [Contractor Property Management System Administration clause](cls-property-management-system.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Who runs the corrective action plan when the property administrator gives notice
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and full qualifiers in FAR 45.105 and 45.106, and removed uncited Never confuse commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for property management system compliance and transferring accountability.

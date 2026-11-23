@@ -46,7 +46,7 @@ Case B. A filing requirement covers three consecutive years, with no more than 1
 
 ## Never confuse
 
-Except with respect to registered investment companies, the filing of financial statements covering a period of 9 to 12 months will be deemed to satisfy a requirement for filing financial statements for a period of 1 year where one of the conditions in paragraph (a)(1), (2), or (3) exists [@CL-CLS-0376; @CL-CLS-0377; @CL-CLS-0378; @CL-CLS-0379]. Where there is a requirement for filing financial statements for a time period exceeding one year but not exceeding three consecutive years (with not more than 12 months included in any period reported upon) [@CL-CLS-0380], the filing of financial statements covering a period of 9 to 12 months will satisfy a filing requirement of financial statements for one year of that time period only if the conditions described in paragraph (a)(1), (2), or (3) of the section exist [@CL-CLS-0381] and financial statements are filed that cover the full fiscal year or years for all other years in the time period [@CL-CLS-0382].
+A 9-to-12-month statement covers one year rather than the whole multi-year period: except with respect to registered investment companies, the filing of financial statements covering a period of 9 to 12 months will be deemed to satisfy a requirement for filing financial statements for a period of 1 year where one of the conditions in paragraph (a)(1), (2), or (3) exists [@CL-CLS-0376; @CL-CLS-0377; @CL-CLS-0378; @CL-CLS-0379]. Where there is a requirement for filing financial statements for a time period exceeding one year but not exceeding three consecutive years (with not more than 12 months included in any period reported upon) [@CL-CLS-0380], the filing of financial statements covering a period of 9 to 12 months will satisfy a filing requirement of financial statements for one year of that time period only if the conditions described in paragraph (a)(1), (2), or (3) of the section exist [@CL-CLS-0381] and financial statements are filed that cover the full fiscal year or years for all other years in the time period [@CL-CLS-0382].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which fiscal-year changes, significant acquisitions and Commission permissions t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on the length-alone deeming sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements covering nine to twelve months.

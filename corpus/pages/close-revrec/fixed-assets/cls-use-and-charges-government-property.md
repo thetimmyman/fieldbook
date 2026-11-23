@@ -51,7 +51,7 @@ A contractor receives written permission from the contracting officer to use a G
 
 ## Never confuse
 
-Rent-free use covers contracts with the Government that specifically authorize such use, subcontracts of any tier under Government prime contracts if the contracting officer having cognizance of the prime contract approves a subcontract specifically authorizing such use or otherwise authorizes such use in writing, and other work if the contracting officer specifically authorizes it in writing [@CL-CLS-0316; @CL-CLS-1583; @CL-CLS-0317]. Rental use requires written permission by the contracting officer or specific provision in the Schedule, and the contractor shall not use Government property for nongovernmental purposes until a rental charge for real property, or estimated rental charge for other property, is agreed upon [@CL-CLS-0222; @CL-CLS-0223].
+Rent-free use and rental use are not the same authority: rent-free use covers contracts with the Government that specifically authorize such use, subcontracts of any tier under Government prime contracts if the contracting officer having cognizance of the prime contract approves a subcontract specifically authorizing such use or otherwise authorizes such use in writing, and other work if the contracting officer specifically authorizes it in writing [@CL-CLS-0316; @CL-CLS-1583; @CL-CLS-0317], while rental use requires written permission by the contracting officer or specific provision in the Schedule, and the contractor shall not use Government property for nongovernmental purposes until a rental charge for real property, or estimated rental charge for other property, is agreed upon [@CL-CLS-0222; @CL-CLS-0223].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Who maintains Government property usage logs and reconciles commercial rental ho
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for the rental-request formula reference, restored shall modals, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subcontract case to the rent-free uses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -47,7 +47,7 @@ A company enters a cost-sharing contract for propulsion research. The agreed sha
 
 ## Never confuse
 
-In a cost contract the contractor receives no fee [@CL-CLS-0572]. In a cost-sharing contract the contractor receives no fee and is reimbursed only for an agreed-upon portion of its allowable costs [@CL-CLS-0574]. For cost-reimbursement contracts generally, see [Cost-reimbursement contracts](cls-cost-reimbursement-contracts.md). For contract type context, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md). For the cost ceiling notice, see [Limitation of cost](../../contract-finance/funding/ctf-limitation-of-cost.md).
+A cost contract and a cost-sharing contract are not the same deal: in a cost contract the contractor receives no fee [@CL-CLS-0572], while in a cost-sharing contract the contractor receives no fee and is reimbursed only for an agreed-upon portion of its allowable costs [@CL-CLS-0574]. For cost-reimbursement contracts generally, see [Cost-reimbursement contracts](cls-cost-reimbursement-contracts.md). For contract type context, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md). For the cost ceiling notice, see [Limitation of cost](../../contract-finance/funding/ctf-limitation-of-cost.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who decides how cost-share absorption and the absence of fee are recorded in the
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cost and cost-sharing contracts: accounting-system condition cited in full, contrast reworded.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated the cost-reimbursement limitations as all four conditions plus the commercial prohibition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost contracts and cost-sharing contracts.

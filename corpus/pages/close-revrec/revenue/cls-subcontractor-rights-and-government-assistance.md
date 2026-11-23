@@ -54,7 +54,7 @@ Separately, suppose the TCO determines in an unusual case, with the prime contra
 
 ## Never confuse
 
-Terminated subcontracts, assignment of rights and direct settlement are covered in [Terminated subcontracts, assignment of rights and direct settlement](../../contract-finance/billing-payment/ctf-subcontract-termination-and-direct-settlement.md).
+A subcontractor's route after termination differs from the prime's: terminated subcontracts, assignment of rights and direct settlement are covered in [Terminated subcontracts, assignment of rights and direct settlement](../../contract-finance/billing-payment/ctf-subcontract-termination-and-direct-settlement.md).
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ How prime and subcontractor termination proposals are kept paired, and who appro
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: subcontractor rights and government assistance: uncited explanations, absence statements and contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: delay rule stated as may settle.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor rights, delayed subcontractor proposals and Government assistance in settling subcontracts.
