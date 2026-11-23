@@ -44,7 +44,7 @@ An accountant signs an audit report on an issuer's statements. The report carrie
 
 ## Never confuse
 
-Under § 210.2-02(b) and (c), the accountant's report shall state the applicable professional standards under which the audit was conducted, shall designate any omitted auditing procedures deemed necessary and the reasons for their omission (without implying authority to omit any procedure independent accountants would ordinarily employ in an audit made to express the paragraph (c) opinions), and shall state clearly the accountant's opinions on the financial statements and accounting principles and practices reflected therein and on the consistency of the application of the accounting principles, or as to any changes in such principles which have a material effect on the financial statements, whereas under § 210.2-06(a), the accountant retains records relevant to the audit or review for a period of seven years after concluding an audit or review of an issuer's financial statements to which section 10A(a) of the Exchange Act applies or of the financial statements of an investment company registered under section 8 of the Investment Company Act of 1940 [@CL-MNA-0715; @CL-MNA-0787; @CL-MNA-0118; @CL-MNA-0716; @CL-MNA-0789; @CL-MNA-0717; @CL-MNA-0718; @CL-MNA-0790].
+The report's content rules and the record retention rule are not one duty: under § 210.2-02(b) and (c), the accountant's report shall state the applicable professional standards under which the audit was conducted, shall designate any omitted auditing procedures deemed necessary and the reasons for their omission (without implying authority to omit any procedure independent accountants would ordinarily employ in an audit made to express the paragraph (c) opinions), and shall state clearly the accountant's opinions on the financial statements and accounting principles and practices reflected therein and on the consistency of the application of the accounting principles, or as to any changes in such principles which have a material effect on the financial statements, whereas under § 210.2-06(a), the accountant retains records relevant to the audit or review for a period of seven years after concluding an audit or review of an issuer's financial statements to which section 10A(a) of the Exchange Act applies or of the financial statements of an investment company registered under section 8 of the Investment Company Act of 1940 [@CL-MNA-0715; @CL-MNA-0787; @CL-MNA-0118; @CL-MNA-0716; @CL-MNA-0789; @CL-MNA-0717; @CL-MNA-0718; @CL-MNA-0790].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which accountant reports and audit or review records the company obtains, and ho
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0118 on audit procedures in § 210.2-02(b) and aligned report and retention statements with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: opinion wording restated with its alternative.

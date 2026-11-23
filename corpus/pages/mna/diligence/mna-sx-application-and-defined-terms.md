@@ -44,7 +44,7 @@ A registrant has aggregate worldwide market value of voting and non-voting commo
 
 ## Never confuse
 
-Under § 210.1-02, control means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a person, whether through the ownership of voting shares, by contract, or otherwise [@CL-MNA-0863], whereas a majority-owned subsidiary means a subsidiary more than 50 percent of whose outstanding voting shares is owned by its parent and/or the parent's other majority-owned subsidiaries [@CL-MNA-0864]. An affiliate of a specific person is a person that directly, or indirectly through one or more intermediaries, controls, or is controlled by, or is under common control with, the person specified [@CL-MNA-0862], whereas a majority-owned subsidiary requires more than 50 percent of its outstanding voting shares to be owned by its parent and/or the parent's other majority-owned subsidiaries [@CL-MNA-0864]. Whether the regulation binds a company at all depends on its filings; see [Form, GAAP presumption and materiality under Regulation S-X](../../close-revrec/group-bridge/cls-sx-form-gaap-materiality.md).
+Control and majority ownership are not the same test: under § 210.1-02, control means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a person, whether through the ownership of voting shares, by contract, or otherwise [@CL-MNA-0863], whereas a majority-owned subsidiary means a subsidiary more than 50 percent of whose outstanding voting shares is owned by its parent and/or the parent's other majority-owned subsidiaries [@CL-MNA-0864]. An affiliate of a specific person is a person that directly, or indirectly through one or more intermediaries, controls, or is controlled by, or is under common control with, the person specified [@CL-MNA-0862], whereas a majority-owned subsidiary requires more than 50 percent of its outstanding voting shares to be owned by its parent and/or the parent's other majority-owned subsidiaries [@CL-MNA-0864]. Whether the regulation binds a company at all depends on its filings; see [Form, GAAP presumption and materiality under Regulation S-X](../../close-revrec/group-bridge/cls-sx-form-gaap-materiality.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0124 through CL-MNA-0126 for Exchange Act and Investment Company Act filings in § 210.1-01(a)(2)-(3) and aligned definitions with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: income test stated as both components required.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the application of Regulation S-X and its key defined terms.

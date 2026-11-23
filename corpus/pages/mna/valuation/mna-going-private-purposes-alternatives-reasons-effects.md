@@ -44,7 +44,7 @@ A company proposes to take itself private at 40 per share and files the statemen
 
 ## Never confuse
 
-Item 1013 requires stating the purposes for the Rule 13e-3 transaction, briefly describing any alternative means considered to accomplish the stated purposes and the reasons for their rejection, stating the reasons for the structure of the Rule 13e-3 transaction and for undertaking the transaction at this time, and describing the effects of the Rule 13e-3 transaction on the subject company, its affiliates and unaffiliated security holders, including the federal tax consequences of the transaction and a reasonably detailed discussion of both benefits and detriments quantified to the extent practicable [@CL-MNA-0400; @CL-MNA-0401; @CL-MNA-0402; @CL-MNA-0403; @CL-MNA-0405; @CL-MNA-0406], whereas Item 1014(a) requires stating whether the subject company or affiliate filing the statement reasonably believes that the Rule 13e-3 transaction is fair or unfair to unaffiliated security holders (see the [fairness item](mna-going-private-fairness.md) card) [@CL-MNA-0409].
+The purposes item and the fairness item are not the same disclosure: Item 1013 requires stating the purposes for the Rule 13e-3 transaction, briefly describing any alternative means considered to accomplish the stated purposes and the reasons for their rejection, stating the reasons for the structure of the Rule 13e-3 transaction and for undertaking the transaction at this time, and describing the effects of the Rule 13e-3 transaction on the subject company, its affiliates and unaffiliated security holders, including the federal tax consequences of the transaction and a reasonably detailed discussion of both benefits and detriments quantified to the extent practicable [@CL-MNA-0400; @CL-MNA-0401; @CL-MNA-0402; @CL-MNA-0403; @CL-MNA-0405; @CL-MNA-0406], whereas Item 1014(a) requires stating whether the subject company or affiliate filing the statement reasonably believes that the Rule 13e-3 transaction is fair or unfair to unaffiliated security holders (see the [fairness item](mna-going-private-fairness.md) card) [@CL-MNA-0409].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which purposes, rejected alternatives and quantified benefits and detriments the
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned Item 1013(a)-(d) and Instructions 1-3 prose with 17 CFR 229.1013 quotes and removed uncited framing.
 - COMPATIBLE_EXTENSION, 2026-10-31: conclusory-statement scope stated as in the source.
