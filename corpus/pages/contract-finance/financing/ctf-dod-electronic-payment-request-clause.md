@@ -45,7 +45,7 @@ A contractor delivers goods under a DoD supply contract and sends its invoice an
 
 ## Never confuse
 
-For the content of a proper invoice and the due date, see [Proper invoice: required content and payment documentation](../billing-payment/ctf-proper-invoice-content.md). For the routing and document type instructions, see [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](../billing-payment/ctf-wide-area-workflow-payment-instructions.md), and for the DFARS policy on when the exceptions apply, see [DoD payment rules](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md). For the payment terms that apply in emergencies and contingency operations, see [DoD payments in support of emergencies and contingency operations](ctf-dod-emergency-and-contingency-payments.md).
+The electronic submission rule and its exceptions differ in what each requires rather than coexisting by default: the contractor shall submit payment requests and receiving reports in electronic form using Wide Area WorkFlow [@CL-CTF-1745], and only one of the listed alternatives instead permits a method other than Wide Area WorkFlow [@CL-CTF-1748]. For the content of a proper invoice and the due date, see [Proper invoice: required content and payment documentation](../billing-payment/ctf-proper-invoice-content.md). For the routing and document type instructions, see [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](../billing-payment/ctf-wide-area-workflow-payment-instructions.md), and for the DFARS policy on when the exceptions apply, see [DoD payment rules](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md). For the payment terms that apply in emergencies and contingency operations, see [DoD payments in support of emergencies and contingency operations](ctf-dod-emergency-and-contingency-payments.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Who submits payment requests and receiving reports in Wide Area WorkFlow for eac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added part 12 scope and alternative-method detail; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for electronic submission of payment requests and receiving reports.

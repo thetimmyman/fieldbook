@@ -53,11 +53,11 @@ A subcontractor that is financially weak in comparison with its contractor reque
 
 ## Never confuse
 
-Under a guaranteed loan the guaranteeing agency is obligated, on demand of the lender, to purchase a stated percentage of the loan [@CL-CTF-3542], while in the subcontract case the Government's interests may be fostered by the contractor making progress payments to the subcontractor [@CL-CTF-3546].
+Under a guaranteed loan the guaranteeing agency is obligated, on demand of the lender, to purchase a stated percentage of the loan [@CL-CTF-3542], whereas in the subcontract case the obligation sits instead on the contractor, whose progress payments to the financially weak subcontractor may foster the Government's interests [@CL-CTF-3546].
 
-A guaranteeing agency is any agency that the President has authorized to guarantee loans, through Federal Reserve Banks, for expediting national defense production [@CL-CTF-3543], and Federal Reserve Banks act on behalf of guaranteeing agencies as fiscal agents of the United States in the making of loan guarantees for defense production [@CL-CTF-3544]. A guaranteed loan is made pursuant to Regulation V of the Federal Reserve Board [@CL-CTF-3542], and the Federal Reserve Board is the Board of Governors of the Federal Reserve System [@CL-CTF-3610].
+A guaranteeing agency is any agency that the President has authorized to guarantee loans, through Federal Reserve Banks, for expediting national defense production [@CL-CTF-3543], while Federal Reserve Banks act on behalf of guaranteeing agencies as fiscal agents of the United States in the making of loan guarantees for defense production rather than as guaranteeing agencies themselves [@CL-CTF-3544]. A guaranteed loan is made pursuant to Regulation V of the Federal Reserve Board [@CL-CTF-3542], and the Federal Reserve Board, unlike a guaranteeing agency, is the Board of Governors of the Federal Reserve System [@CL-CTF-3610].
 
-The codified definition ties a guaranteed loan to Regulation V of the Federal Reserve Board [@CL-CTF-3542], but the RFO text goes from its Federal Reserve Board definition straight to its Guaranteeing agency definition [@CL-CTF-4534]. The codified text tells the agency to try to arrange progress payments from the contractor for a financially weak subcontractor [@CL-CTF-3547], but RFO FAR 32.306 is marked reserved [@CL-CTF-4539].
+The codified definition ties a guaranteed loan to Regulation V of the Federal Reserve Board [@CL-CTF-3542], unlike the RFO text, which goes from its Federal Reserve Board definition straight to its Guaranteeing agency definition [@CL-CTF-4534]. The codified text tells the agency to try to arrange progress payments from the contractor for a financially weak subcontractor [@CL-CTF-3547], unlike the RFO text, where FAR 32.306 is marked reserved [@CL-CTF-4539].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Whether a financing need would be met by a guaranteed loan, and which agency wou
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts the cited text does not state and tied the subcontract duty to its condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added only; duty-to-try condition stated in full.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.302 statement on congressional authority.

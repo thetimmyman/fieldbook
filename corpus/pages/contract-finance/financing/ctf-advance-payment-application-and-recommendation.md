@@ -49,9 +49,9 @@ A contractor files a written request for advance payments before award. It attac
 
 ## Never confuse
 
-The contractor submits its request to the contracting officer, who recommends approval or disapproval and transmits the request and recommendation to the approving authority [@CL-CTF-0930; @CL-CTF-3742]. For progress payments, see [Progress payments](ctf-progress-payments.md) and [Contract financing at a glance](ctf-financing-overview.md).
+The contractor submits its request to the contracting officer, who recommends approval or disapproval rather than deciding it, and transmits the request and recommendation to the approving authority [@CL-CTF-0930; @CL-CTF-3742]. For progress payments, see [Progress payments](ctf-progress-payments.md) and [Contract financing at a glance](ctf-financing-overview.md).
 
-The codified text requires the cash flow forecast to be limited to the financed contract when the application pertains to a contract type described in FAR 32.403(a) or (b) [@CL-CTF-0931], while the RFO text states the limit without that condition [@CL-CTF-4146]. The codified text also asks about efforts to obtain a V-loan [@CL-CTF-0932], but the RFO text asks only about unguaranteed private financing [@CL-CTF-4147].
+The codified text requires the cash flow forecast to be limited to the financed contract when the application pertains to a contract type described in FAR 32.403(a) or (b) [@CL-CTF-0931], while the RFO text states the limit without that condition [@CL-CTF-4146]; the codified text also asks about efforts to obtain a V-loan [@CL-CTF-0932], unlike the RFO text, which asks only about unguaranteed private financing [@CL-CTF-4147].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm whether the company has applied for advance payments, who prepares the c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the application and recommendation wording with the cited paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.409 contracting officer recommendation rule.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

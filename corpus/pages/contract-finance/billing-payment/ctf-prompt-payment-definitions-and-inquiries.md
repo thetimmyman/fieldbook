@@ -49,7 +49,7 @@ A contractor sends one invoice covering two line items with different due dates,
 
 ## Never confuse
 
-Payment date means the date on which a check for payment is dated or, for an electronic funds transfer (EFT), the settlement date [@CL-CTF-3586], and settlement date, as it applies to electronic funds transfer, means the date on which an electronic funds transfer payment is credited to the contractor's financial institution [@CL-CTF-3587]. Questions involving delinquent payments are directed to the designated billing office or designated payment office [@CL-CTF-3588], whereas disagreements in payment amount or timing are directed to the contracting officer for resolution [@CL-CTF-3589]. Discount for prompt payment means an invoice payment reduction offered by the contractor for payment prior to the due date [@CL-CTF-3584]. For due dates, see [Prompt payment: determining invoice payment due dates](ctf-prompt-payment-due-dates.md).
+The payment date and the settlement date differ rather than coincide: payment date means the date on which a check for payment is dated or, for an electronic funds transfer (EFT), the settlement date [@CL-CTF-3586], and settlement date, as it applies to electronic funds transfer, means the date on which an electronic funds transfer payment is credited to the contractor's financial institution [@CL-CTF-3587], so a check's payment date is its issue date rather than the date the bank credits it. Questions involving delinquent payments are directed to the designated billing office or designated payment office [@CL-CTF-3588], whereas disagreements in payment amount or timing are directed to the contracting officer for resolution [@CL-CTF-3589] rather than to the payment office. Discount for prompt payment means an invoice payment reduction offered by the contractor for payment prior to the due date [@CL-CTF-3584]. For due dates, see [Prompt payment: determining invoice payment due dates](ctf-prompt-payment-due-dates.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which office the company contacts about a late payment, who owns a disagreement 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added codified FAR 2.101 EFT inclusion sentences (CL-CTF-3209 and CL-CTF-9462), separated RFO and codified citations, removed worked-example citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the as-used-in-this-subpart scope of the definitions (new companion CL-CTF-9632) and removed an uncited remark that the two dates are often treated as one.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the electronic funds transfer definition.

@@ -49,7 +49,7 @@ Answer: both are listed forms of acceptable security, subject to agency regulati
 
 ## Never confuse
 
-The offeror-proposed procedure uses the provision at FAR 52.232-31 [@CL-CTF-1459], while the installment payment clause at FAR 52.232-30 may be inserted in place of a specific clause if the stated conditions are met [@CL-CTF-1421; @CL-CTF-1422]. The contracting officer may determine the offeror's financial condition to be adequate security, subject to agency regulations [@CL-CTF-1413], and other acceptable forms of security include an irrevocable letter of credit from a federally insured financial institution and a bond from a surety acceptable in accordance with part 28 [@CL-CTF-1415]. For when commercial financing may be provided at all, see [Contract financing for commercial purchases](ctf-contract-financing-for-commercial-purchases.md) and [Contract financing at a glance](ctf-financing-overview.md). For the wider rules on providing financing, see [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
+The offeror-proposed procedure differs from the installment clause route rather than duplicating it: the offeror-proposed procedure uses the provision at FAR 52.232-31 [@CL-CTF-1459], while the installment payment clause at FAR 52.232-30 may be inserted in place of a specific clause if the stated conditions are met [@CL-CTF-1421; @CL-CTF-1422]. The contracting officer may determine the offeror's financial condition to be adequate security, subject to agency regulations [@CL-CTF-1413], unlike the other acceptable forms of security, which include an irrevocable letter of credit from a federally insured financial institution and a bond from a surety acceptable in accordance with part 28 [@CL-CTF-1415]. For when commercial financing may be provided at all, see [Contract financing for commercial purchases](ctf-contract-financing-for-commercial-purchases.md) and [Contract financing at a glance](ctf-financing-overview.md). For the wider rules on providing financing, see [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which forms of security the company can offer, and which financing terms it expe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the commercial financing security and clause wording with the cited paragraphs; added the net worth and liquidity rule.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commercial contract financing security, offeror-proposed financing and clauses.

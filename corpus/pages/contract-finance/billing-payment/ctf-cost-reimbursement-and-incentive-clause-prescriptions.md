@@ -47,7 +47,7 @@ A supply contract is a cost-plus-fixed-fee contract that is not a construction c
 
 ## Never confuse
 
-The Fixed Fee clause is on [Fixed Fee clause](ctf-fixed-fee.md) and the incentive fee clause is on [Incentive Fee clause](ctf-incentive-fee.md). The contracting officer inserts the incentive fee clause when a cost-plus-incentive-fee contract is contemplated [@CL-CTF-1245], and the incentive price revision clauses when a fixed-price incentive contract is contemplated [@CL-CTF-1248; @CL-CTF-1249]; see [Fixed-price incentive (firm target) contracts](../../estimating/pricing/est-fpi-firm-target.md) and [Fixed-price incentive (successive targets) contracts](../../estimating/pricing/est-fpi-successive-targets.md). For cost contracts and cost-sharing contracts, see [Cost contracts and cost-sharing contracts](../../close-revrec/revenue/cls-cost-and-cost-sharing-contracts.md), for the time-and-materials payments clause, see [Payments under time-and-materials and labor-hour contracts](ctf-tm-and-lh-payments.md), and for the time-and-materials contract type, see [Time-and-materials contracts: use, ceiling and surveillance](ctf-time-and-materials-contracts.md).
+The incentive fee clause and the incentive price revision clauses differ in the contract type each serves rather than in wording alone: the contracting officer inserts the incentive fee clause when a cost-plus-incentive-fee contract is contemplated [@CL-CTF-1245], and the incentive price revision clauses when a fixed-price incentive contract is contemplated [@CL-CTF-1248; @CL-CTF-1249]. The Fixed Fee clause is on [Fixed Fee clause](ctf-fixed-fee.md) and the incentive fee clause is on [Incentive Fee clause](ctf-incentive-fee.md); see [Fixed-price incentive (firm target) contracts](../../estimating/pricing/est-fpi-firm-target.md) and [Fixed-price incentive (successive targets) contracts](../../estimating/pricing/est-fpi-successive-targets.md). For cost contracts and cost-sharing contracts, see [Cost contracts and cost-sharing contracts](../../close-revrec/revenue/cls-cost-and-cost-sharing-contracts.md), for the time-and-materials payments clause, see [Payments under time-and-materials and labor-hour contracts](ctf-tm-and-lh-payments.md), and for the time-and-materials contract type, see [Time-and-materials contracts: use, ceiling and surveillance](ctf-time-and-materials-contracts.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed cost-type and incentive contracts carry which of these clauses, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta remarks and uncited contrast; restated the insertion triggers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Materials in the time-and-materials prescription now point to the 52.232-7 definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO prescriptions of the four alternates to FAR 52.216-7.

@@ -49,7 +49,7 @@ Answer: the first case meets all three listed conditions, so the prompt payment 
 
 ## Never confuse
 
-The prompt payment exception removes the FAR prompt payment subpart, except one section, when the listed conditions are met [@CL-CTF-1438; @CL-CTF-1439; @CL-CTF-1440]. Payment requests and receiving reports are required to be submitted in electronic form, except for the listed cases, and the only acceptable electronic form is Wide Area WorkFlow, except as listed [@CL-CTF-1441; @CL-CTF-1446]. A purchase card payment is an exception that still requires an electronic receiving report [@CL-CTF-1445]. Only one type of financing will be included in the resultant contract, except as may be authorized on separate orders subject to FAR 32.1003(c) [@CL-CTF-1468]. The head of the contracting activity shall make subsequent determinations, after consultation with the cognizant comptroller, as the operational area evolves into either a more stable or less stable environment [@CL-CTF-3016]. For the Wide Area WorkFlow clause itself, see [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md), and for the financing types see [Providing contract financing and customary contract financing](../financing/ctf-providing-customary-contract-financing.md).
+The prompt payment exception lifts the FAR prompt payment subpart rather than the electronic submission requirement: it removes that subpart, except one section, when the listed conditions are met [@CL-CTF-1438; @CL-CTF-1439; @CL-CTF-1440], while payment requests and receiving reports are still required to be submitted in electronic form, except for the listed cases, and the only acceptable electronic form is Wide Area WorkFlow, except as listed [@CL-CTF-1441; @CL-CTF-1446]. A purchase card payment is an exception that still requires an electronic receiving report [@CL-CTF-1445] rather than an electronic payment request. Only one type of financing will be included in the resultant contract, except as may be authorized on separate orders subject to FAR 32.1003(c) [@CL-CTF-1468]. The head of the contracting activity shall make subsequent determinations, after consultation with the cognizant comptroller, as the operational area evolves into either a more stable or less stable environment [@CL-CTF-3016]. For the Wide Area WorkFlow clause itself, see [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md), and for the financing types see [Providing contract financing and customary contract financing](../financing/ctf-providing-customary-contract-financing.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether any contract is performed in an operational area where prompt payment ma
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Placed the emergency and contingency condition citations at the end of the sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added hazardous-substance definition, transport and health care scope, subsequent determinations; cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: PBP schedule purpose clause added with companion.

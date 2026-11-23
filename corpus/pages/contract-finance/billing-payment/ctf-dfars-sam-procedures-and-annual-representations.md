@@ -49,7 +49,7 @@ The answer: the name in the contract no longer matches the SAM record, so the co
 
 ## Never confuse
 
-On contract award documents, the contractor's legal or doing business as name and physical address information is used as recorded in the SAM database at the time of award [@CL-CTF-1647]. Registration is on [SAM registration and awards](../../market/feeds/mkt-sam-registration-and-awards.md). The FAR annual representations rules are on [Annual representations and certifications in SAM](../../compliance/trade-cyber/cmp-annual-representations-and-certifications-in-sam.md), and the Alternate A content is on [Contracted services reporting and Alternate A representations](../../compliance/trade-cyber/cmp-contracted-services-reporting-and-alt-a-representations.md). A novation is on [Novation agreements](../../mna/diligence/mna-novation-agreements.md), a change of name on [Change-of-name agreements](../../mna/diligence/mna-change-of-name-agreements.md), and CAGE codes on [CAGE code reporting](../../supply-chain/supplier-identity/sup-cage-code-reporting.md).
+Data taken at award differs from data corrected later: on contract award documents, the contractor's legal or doing business as name and physical address information is used as recorded in the SAM database at the time of award [@CL-CTF-1647], while a later mismatch between the contract and the SAM record is processed instead as a novation or change-of-name agreement, or an address change, as appropriate [@CL-CTF-1620], and on contractual documents transmitted to the payment office the CAGE code is provided instead of the UEI [@CL-CTF-1621]. Registration is on [SAM registration and awards](../../market/feeds/mkt-sam-registration-and-awards.md). The FAR annual representations rules are on [Annual representations and certifications in SAM](../../compliance/trade-cyber/cmp-annual-representations-and-certifications-in-sam.md), and the Alternate A content is on [Contracted services reporting and Alternate A representations](../../compliance/trade-cyber/cmp-contracted-services-reporting-and-alt-a-representations.md). A novation is on [Novation agreements](../../mna/diligence/mna-novation-agreements.md), a change of name on [Change-of-name agreements](../../mna/diligence/mna-change-of-name-agreements.md), and CAGE codes on [CAGE code reporting](../../supply-chain/supplier-identity/sup-cage-code-reporting.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Who keeps the company's SAM record, name and address aligned with its contracts,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added actor and uncited contrasts; stated both SAM checks and the solicitation rules as written.
 - COMPATIBLE_EXTENSION, 2026-10-31: administrative-change exception restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS SAM procedures and the annual representations provision.

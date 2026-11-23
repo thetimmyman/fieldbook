@@ -47,7 +47,7 @@ Answer: the 20 added units are priced at the specified unit price of 50 each, wh
 
 ## Never confuse
 
-This clause increases the quantity of supplies called for in the Schedule at the unit price specified [@CL-CTF-2299]. The separately priced line item clause instead lets the Government require delivery of a numbered line item identified in the Schedule as an option item, in the quantity and at the price stated in the Schedule [@CL-CTF-2302]. See [Option for increased quantity as a separately priced line item](ctf-option-increased-quantity-line-item-clause.md).
+This clause increases the quantity of supplies called for in the Schedule at the unit price specified [@CL-CTF-2299] rather than requiring delivery of a priced line item, unlike the separately priced line item clause, which instead lets the Government require delivery of a numbered line item identified in the Schedule as an option item, in the quantity and at the price stated in the Schedule [@CL-CTF-2302]. See [Option for increased quantity as a separately priced line item](ctf-option-increased-quantity-line-item-clause.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm which contracts carry this clause and the notice period inserted in each
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality for delivery rate, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed words about the Schedule that the unit-price quote does not contain.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -49,7 +49,7 @@ A commercial supply contract is awarded competitively for 1,000,000 with commerc
 
 ## Never confuse
 
-Government financing of commercial purchases under this subpart is expected to be different from that used for other than commercial purchases under subpart 32.1 and its related subparts [@CL-CTF-0531]. While the contracting officer may adapt techniques and procedures from the other than commercial subparts for use in implementing commercial contract financing arrangements, the contracting officer must have a full understanding of the effects of the differing contract environments and of what is needed to protect the interests of the Government in commercial contract financing [@CL-CTF-0531; @CL-CTF-9593]. See [Contract financing at a glance](ctf-financing-overview.md) and [Simplified acquisition threshold](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
+Government financing of commercial purchases under this subpart is expected to differ from that used for other than commercial purchases under subpart 32.1 and its related subparts rather than to match it [@CL-CTF-0531]. While the contracting officer may adapt techniques and procedures from the other than commercial subparts for use in implementing commercial contract financing arrangements, the contracting officer must have a full understanding of the effects of the differing contract environments and of what is needed to protect the interests of the Government in commercial contract financing [@CL-CTF-0531; @CL-CTF-9593]. See [Contract financing at a glance](ctf-financing-overview.md) and [Simplified acquisition threshold](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which commercial contracts include financing terms and whether commercial advanc
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned authorization circumstances, RFO and deviation wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Adaptation sentence carries the full-understanding duty; authorization circumstances apply together.

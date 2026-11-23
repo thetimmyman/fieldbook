@@ -47,7 +47,7 @@ Answer: the representation states that its financial statements comply, which is
 
 ## Never confuse
 
-The Offeror represents that its financial statements are or are not in compliance with Generally Accepted Accounting Principles [@CL-CTF-1817]. The payment events and their evidence are covered on [Performance-based payment criteria](../financing/ctf-pbp-criteria.md).
+The representation lets the Offeror state that its financial statements are or are not in compliance with Generally Accepted Accounting Principles [@CL-CTF-1817], unlike the payment condition, which a non-compliance statement does not satisfy: the Contractor's financial statements shall be in compliance with Generally Accepted Accounting Principles in order to receive performance-based payments [@CL-CTF-1816]. The payment events and their evidence are covered on [Performance-based payment criteria](../financing/ctf-pbp-criteria.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Whether the company's financial statements meet the stated accounting principles
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; matched representation wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the performance-based payments representation.

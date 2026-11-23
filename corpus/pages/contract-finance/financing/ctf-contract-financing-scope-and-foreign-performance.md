@@ -51,11 +51,11 @@ A buying office awards a commercial product order under part 12 authority and, s
 
 ## Never confuse
 
-Subpart 32.2 is applicable only to purchases under authority of part 12 [@CL-CTF-3511], and the subparts on financing for other than a commercial purchase and on advance payments for other than commercial acquisitions are applicable to all purchases made under any authority other than part 12 [@CL-CTF-3512]. The order in which the contracting officer considers financing methods is covered in [Order of preference among financing methods](ctf-financing-method-order-of-preference.md).
+Subpart 32.2 is applicable only to purchases under authority of part 12 [@CL-CTF-3511] rather than to purchases under other authorities, and the subparts on financing for other than a commercial purchase and on advance payments for other than commercial acquisitions are applicable to all purchases made under any authority other than part 12 [@CL-CTF-3512]. The order in which the contracting officer considers financing methods is covered in [Order of preference among financing methods](ctf-financing-method-order-of-preference.md).
 
-Unless agency regulations otherwise permit, contract financing shall not be provided for purchases made under the authority of part 13 [@CL-CTF-3737]. Providing customary contract financing is covered in [Providing customary contract financing](ctf-providing-customary-contract-financing.md).
+Unless agency regulations otherwise permit, contract financing shall not be provided for purchases made under the authority of part 13 [@CL-CTF-3737], unlike purchases under the other authorities the part covers. Providing customary contract financing is covered in [Providing customary contract financing](ctf-providing-customary-contract-financing.md).
 
-Codified FAR 32.002(a) applies its listed sections and subparts to all purchases subject to part 32 [@CL-CTF-3509], while RFO FAR 32.002(a) applies its listed sections to all purchases, and its list includes Subpart 32.12, Fast Payment Procedure [@CL-CTF-4280; @CL-CTF-4281].
+Codified FAR 32.002(a) applies its listed sections and subparts to all purchases subject to part 32 [@CL-CTF-3509], while RFO FAR 32.002(a) applies its listed sections to all purchases rather than to purchases subject to part 32, and its list includes Subpart 32.12, Fast Payment Procedure [@CL-CTF-4280; @CL-CTF-4281].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ The award authority behind each contract, and whether foreign jurisdictions may 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned applicability, foreign security and RFO wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Commercial subpart sentence names commercial products and services under part 12.

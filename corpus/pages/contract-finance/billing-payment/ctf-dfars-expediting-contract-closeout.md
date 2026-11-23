@@ -45,7 +45,7 @@ After the closeout steps, the contractor and the Government agree that the contr
 
 ## Never confuse
 
-A residual dollar amount excludes amounts connected in any way with taxation or a violation of law or regulation [@CL-CTF-1808]. The DFARS closeout without a reconciliation audit for contracts meeting listed conditions is on [DFARS contract closeout and file disposal](ctf-dfars-contract-closeout-and-file-disposal.md).
+The waiver covers a residual dollar amount of $1,000 or less that the Government and the Contractor have mutually agreed on at the conclusion of the applicable closeout requirements [@CL-CTF-1806; @CL-CTF-1807], unlike the amounts a residual dollar amount never includes: it excludes amounts connected in any way with taxation or a violation of law or regulation [@CL-CTF-1808]. The DFARS closeout without a reconciliation audit for contracts meeting listed conditions is on [DFARS contract closeout and file disposal](ctf-dfars-contract-closeout-and-file-disposal.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ How residual balances are found and agreed at closeout, and who resolves the bil
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inferences and meta wording; restated residual amount and offsets rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for expediting contract closeout.
