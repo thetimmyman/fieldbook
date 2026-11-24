@@ -25,7 +25,7 @@ Shows when a construction wage rate determination moves the contract price at al
 | Instrument | Codified FAR [@CL-CMP-4938; @CL-CMP-4941] |
 | Codified citation | FAR 52.222-30 and FAR 52.222-31 [@CL-CMP-4938; @CL-CMP-4941] |
 | RFO citation | RFO FAR 52.222-30 [@CL-CMP-0898] and RFO FAR 52.222-31 [@CL-CMP-0917] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-30: Aug 2018 [@CL-CMP-0898]; FAR 52.222-31: Aug 2018 [@CL-CMP-0917] |
 | Text status | Final [@CL-CMP-4938] |
 | Applies to | Construction contracts where the prescriptions direct insertion of the matching price adjustment clause [@CL-CMP-4938; @CL-CMP-4941] |
 
@@ -64,6 +64,7 @@ Which construction contracts in the finance remit use the percentage method, and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: worked example and contrast wording tied to cited text.

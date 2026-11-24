@@ -25,7 +25,7 @@ Shows which delivered items need a unique item identifier, how it is marked, and
 | Instrument | Codified DFARS [@CL-CMP-3870] |
 | Codified citation | DFARS 252.211-7003 [@CL-CMP-3870] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10056] |
 | Text status | Final [@CL-CMP-3870] |
 | Applies to | Items the clause lists, delivered under contracts with the clause [@CL-CMP-3870] |
 
@@ -54,6 +54,7 @@ Which contracts carry this clause and which delivered line items fall in a liste
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the subcontract flowdown clause with commercial products and commercial services and matched the warranty tracking timing and attachment title.
 - COMPATIBLE_EXTENSION, 2026-10-31: Delivery report scope names the paragraphs; removed unsupported only.

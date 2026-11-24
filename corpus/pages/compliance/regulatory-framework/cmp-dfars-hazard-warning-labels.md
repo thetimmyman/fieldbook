@@ -25,7 +25,7 @@ Shows which hazardous materials need a hazard warning label under the clause, th
 | Instrument | Codified DFARS [@CL-CMP-4492] |
 | Codified citation | DFARS 252.223-7001 [@CL-CMP-4492] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-CMP-10142] |
 | Text status | Final [@CL-CMP-4492] |
 | Applies to | Contracts with the clause, used as prescribed in DFARS 223.304 [@CL-CMP-4543] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry the clause, and which hazardous materials the com
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited prescription section, restated label and statute wording; cut uncited contrasts.

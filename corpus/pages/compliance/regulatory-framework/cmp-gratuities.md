@@ -24,7 +24,7 @@ Shows what conduct lets the Government terminate a contract for gratuities, how 
 | Instrument | Codified FAR [@CL-CMP-5554] |
 | Codified citation | FAR 52.203-3 [@CL-CMP-5554]; FAR 3.201 [@CL-CMP-9628]; FAR 3.202 [@CL-CMP-9629; @CL-CMP-9630] |
 | RFO citation | RFO FAR 52.203-3 [@CL-CMP-1257; @CL-CMP-1258] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CMP-1259] |
 | Text status | Final [@CL-CMP-5554] |
 | Applies to | Contracts that include the gratuities clause prescribed by FAR 3.202 [@CL-CMP-5647] |
 
@@ -61,6 +61,7 @@ Confirm how gifts and hospitality are logged and who reviews them against the cl
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the RFO clause wording from codified claims; cut an uncited contrast.

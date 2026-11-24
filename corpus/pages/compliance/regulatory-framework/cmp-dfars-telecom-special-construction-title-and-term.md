@@ -25,7 +25,7 @@ Shows how special construction and equipment are charged, who holds title to tel
 | Instrument | Codified DFARS [@CL-CMP-4659; @CL-CMP-4663; @CL-CMP-4665] |
 | Codified citation | DFARS 252.239-7011, DFARS 252.239-7012 and DFARS 252.239-7013 [@CL-CMP-4659; @CL-CMP-4663; @CL-CMP-4665] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.239-7011: DEC 1991 [@CL-CMP-10177]; DFARS 252.239-7012: DEC 1991 [@CL-CMP-10178]; DFARS 252.239-7013: OCT 2019 [@CL-CMP-10179] |
 | Text status | Final [@CL-CMP-4659; @CL-CMP-4663; @CL-CMP-4665] |
 | Applies to | Contracts that include the Special Construction and Equipment Charges, Title to Telecommunication Facilities and Equipment, or Term of Agreement and Continuation of Services clause [@CL-CMP-4659; @CL-CMP-4663; @CL-CMP-4665] |
 
@@ -54,6 +54,7 @@ Which contracts and agreements carry these three clauses, and who confirms it. [
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated replacement circumstances as alternatives plus the added condition; replaced contrast sentences with cited statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special construction and equipment charges, title and term of agreement.

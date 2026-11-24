@@ -24,7 +24,7 @@ Explains how the CAS administration clause identifies affected contracts, assign
 | Instrument | Codified FAR [@CL-CMP-0611] |
 | Codified citation | FAR 52.230-6 [@CL-CMP-0611] |
 | RFO citation | RFO FAR 52.230-6 [@CL-CMP-0236] |
-| Edition date | Not established. |
+| Edition date | JUN 2010 [@CL-CMP-10060] |
 | Text status | Final [@CL-CMP-0611] |
 | Applies to | CAS requirements under contracts containing this clause [@CL-CMP-0611] |
 
@@ -53,6 +53,7 @@ Which business units are CAS-covered, and which contracts are affected by change
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Placed the desirable-change definition citations at the end of the sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the affected-contract definition lead-in and the clause's stated steps.

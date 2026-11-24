@@ -24,7 +24,7 @@ Shows what an offeror certifies about biobased products by signing its offer, wh
 | Instrument | Codified FAR [@CL-CMP-5164] |
 | Codified citation | FAR 52.223-1 and FAR 52.223-2 [@CL-CMP-5164; @CL-CMP-5166] |
 | RFO citation | RFO FAR 52.223-1 [@CL-CMP-0528] and RFO FAR 52.223-2 [@CL-CMP-0534] |
-| Edition date | Not established. |
+| Edition date | FAR 52.223-1: MAY 2024 [@CL-CMP-10081]; FAR 52.223-2: MAY 2024 [@CL-CMP-10082] |
 | Text status | Final [@CL-CMP-5164] |
 | Applies to | Offerors whose offers carry the biobased product certification provision, and contractors whose contracts carry the biobased reporting clause [@CL-CMP-5164; @CL-CMP-5166] |
 
@@ -61,6 +61,7 @@ Whether the buying records can produce the product types and dollar value purcha
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrasts.

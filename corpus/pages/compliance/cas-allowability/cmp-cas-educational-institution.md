@@ -25,7 +25,7 @@ Shows the duties the Cost Accounting Standards clause for educational institutio
 | Instrument | Codified FAR [@CL-CMP-5929] |
 | Codified citation | FAR 52.230-5 [@CL-CMP-5929] |
 | RFO citation | RFO FAR 52.230-5 [@CL-CMP-0251] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CMP-10061] |
 | Text status | Final [@CL-CMP-5929] |
 | Applies to | Contracts that carry the clause, unless the contract is exempt under 48 CFR 9903.201-1 and 9903.201-2 [@CL-CMP-5929] |
 
@@ -88,6 +88,7 @@ Which business units are educational institutions for this clause, who owns the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced paragraph glosses with the clause's paragraph references and restated an exception as unless.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the educational institution business unit in the rule paragraph and the contractor's agreement to the noncompliance adjustment.

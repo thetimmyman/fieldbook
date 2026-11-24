@@ -25,7 +25,7 @@ Shows what unlimited rights, government purpose rights and limited rights allow 
 | Instrument | Codified DFARS [@CL-CMP-3759] |
 | Codified citation | DFARS 252.227-7013 [@CL-CMP-3759] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Aug 2025 [@CL-CMP-10190] |
 | Text status | Final [@CL-CMP-3759] |
 | Applies to | Technical data on other than commercial products or services, and on parts of commercial products or services developed in any part at Government expense, except as paragraph (b)(2) of the clause provides [@CL-CMP-3759] |
 
@@ -54,6 +54,7 @@ Which executed contracts and modifications carry this clause, and who confirms h
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited companion claims for unlimited-rights, government-purpose-rights and limited-rights alternatives and cross-referenced paragraphs, and cut the truncated limited-rights exception sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated government purpose rights as both listed rights, framed unlimited, government purpose and limited rights as list members, removed meta and contrast wording.

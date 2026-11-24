@@ -24,7 +24,7 @@ Shows what the offeror represents in the covered telecommunications representati
 | Instrument | Codified FAR [@CL-CMP-3558] |
 | Codified citation | FAR 52.204-24; FAR 52.204-25 [@CL-CMP-3558; @CL-CMP-3561] |
 | RFO citation | RFO FAR 52.240-90 [@CL-CMP-1045; @CL-CMP-1047]; RFO FAR 52.240-91 [@CL-CMP-1049; @CL-CMP-1050]; the RFO text prints FAR 52.204-24 and FAR 52.204-25 as reserved [@CL-CMP-1042; @CL-CMP-1043] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-24: NOV 2021 [@CL-CMP-10114]; FAR 52.204-25: NOV 2021 [@CL-CMP-10115] |
 | Text status | Final [@CL-CMP-3558] |
 | Applies to | Offerors on solicitations with the representation provision, and contractors under contracts with the prohibition clause [@CL-CMP-3558; @CL-CMP-3561] |
 
@@ -55,6 +55,7 @@ Which equipment, systems and services the company provides or uses could be cove
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: report trigger, disclosure wording, example and contrasts tied to cited text.

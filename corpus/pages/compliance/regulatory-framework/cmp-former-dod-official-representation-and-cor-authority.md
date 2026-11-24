@@ -25,7 +25,7 @@ Shows what an offeror represents about former DoD officials it employs or pays, 
 | Instrument | Codified DFARS [@CL-CMP-4194; @CL-CMP-4197] |
 | Codified citation | DFARS 252.203-7005 and 252.201-7000 [@CL-CMP-4194; @CL-CMP-4197] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Sep 2022 [@CL-CMP-10208] |
 | Text status | Final [@CL-CMP-4194; @CL-CMP-4197] |
 | Applies to | Offers under the provision, and contracts with the clause where a contracting officer's representative is designated [@CL-CMP-4194; @CL-CMP-4197] |
 
@@ -60,6 +60,7 @@ Which former DoD officials the company employs or pays when it submits offers, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrast wording in the never-confuse section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the former DoD official compensation representation and the contracting officer's representative.

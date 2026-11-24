@@ -25,7 +25,7 @@ Shows which research the clause covers, the assurance and approvals needed befor
 | Instrument | Codified DFARS [@CL-CMP-4582] |
 | Codified citation | DFARS 252.235-7004 [@CL-CMP-4582] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUL 2009 [@CL-CMP-10167] |
 | Text status | Final [@CL-CMP-4582] |
 | Applies to | Contracts with the human subjects clause, for research involving human subjects [@CL-CMP-4582], and subcontracts that may include such research [@CL-CMP-4589], except subcontracts that involve only the use of cadaver materials [@CL-CMP-4723] |
 
@@ -54,6 +54,7 @@ Which research under which contracts and subcontracts involves human subjects, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned notification, inspection and stop-work wording with the clause; replaced contrast sentences with cited statements and pointers.

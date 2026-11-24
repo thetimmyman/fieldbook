@@ -24,7 +24,7 @@ Shows how the annual Executive Order minimum wage rate is published and adjusted
 | Instrument | Codified FAR [@CL-CMP-2390] |
 | Codified citation | FAR 22.1904, FAR 22.1905, FAR 22.1906, FAR 22.2105, FAR 22.2109, FAR 22.2110 and FAR 52.222-55 [@CL-CMP-2390; @CL-CMP-2391; @CL-CMP-9531; @CL-CMP-9541; @CL-CMP-2393; @CL-CMP-2491; @CL-CMP-9542; @CL-CMP-9543; @CL-CMP-2489] |
 | RFO citation | RFO FAR 52.222-55 [@CL-CMP-6886; @CL-CMP-6887] |
-| Edition date | Not established. |
+| Edition date | JAN 2022 [@CL-CMP-10194] |
 | Text status | Final [@CL-CMP-2390] |
 | Applies to | Contracts covered by the minimum wage requirements, and contracts covered by the paid sick leave requirements [@CL-CMP-2391; @CL-CMP-2393] |
 
@@ -63,6 +63,7 @@ Which covered contracts carry these requirements, and who tracks each new annual
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the unpaid-wage notice step and the paid sick leave alternatives; fixed the withholding wording and cut uncited explanations.

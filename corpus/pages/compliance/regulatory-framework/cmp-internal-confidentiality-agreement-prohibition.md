@@ -24,7 +24,7 @@ Shows what an offeror represents about internal confidentiality agreements and w
 | Instrument | Codified FAR [@CL-CMP-2640; @CL-CMP-2642] |
 | Codified citation | FAR 52.203-18 and FAR 52.203-19 [@CL-CMP-2640; @CL-CMP-2642] |
 | RFO citation | RFO FAR 52.203-18 [@CL-CMP-1352; @CL-CMP-1353] and RFO FAR 52.203-19 [@CL-CMP-1355; @CL-CMP-1356] |
-| Edition date | Not established. |
+| Edition date | FAR 52.203-18: JAN 2017 [@CL-CMP-10216]; FAR 52.203-19: JAN 2017 [@CL-CMP-10217] |
 | Text status | Final [@CL-CMP-2640; @CL-CMP-2642] |
 | Applies to | Solicitations and contracts when using funding subject to the prohibitions in the cited FAR section, other than personal services contracts with individuals [@CL-CMP-2696; @CL-CMP-2698; @CL-CMP-2697] |
 
@@ -57,6 +57,7 @@ Which offers include the provision, which contracts carry the clause, and whethe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the protected reporting for the provision; removed meta wording, unsupported statements and RFO text-of wording.

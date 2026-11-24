@@ -24,7 +24,7 @@ Shows what triggers the cancellation and rescission clause, what triggers the pr
 | Instrument | Codified FAR [@CL-CMP-2615; @CL-CMP-2620] |
 | Codified citation | FAR 52.203-8 and FAR 52.203-10 [@CL-CMP-2615; @CL-CMP-2620] |
 | RFO citation | RFO FAR 52.203-8 [@CL-CMP-1303; @CL-CMP-1307] and RFO FAR 52.203-10 [@CL-CMP-1308; @CL-CMP-1318] |
-| Edition date | Not established. |
+| Edition date | FAR 52.203-8: MAY 2014 [@CL-CMP-10212]; FAR 52.203-10: MAY 2014 [@CL-CMP-10213] |
 | Text status | Final [@CL-CMP-2615; @CL-CMP-2620] |
 | Applies to | Solicitations and contracts that exceed the simplified acquisition threshold, other than those for commercial products or commercial services [@CL-CMP-2687] |
 
@@ -59,6 +59,7 @@ Which contracts carry each clause, and who decides how a cancellation, rescissio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried rescission purposes, fixed-price-incentive deferral, subcontract limits; removed meta wording and unsupported contrasts.

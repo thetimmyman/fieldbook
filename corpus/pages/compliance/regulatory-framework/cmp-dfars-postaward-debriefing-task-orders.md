@@ -25,7 +25,7 @@ Explains what the DoD clause on postaward debriefings for task orders and delive
 | Instrument | Codified DFARS [@CL-CMP-9060] |
 | Codified citation | DFARS 252.216-7010 [@CL-CMP-9060] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Oct 2025 [@CL-CMP-10166] |
 | Text status | Final [@CL-CMP-9060] |
 | Applies to | Task orders and delivery orders valued at $15 million or more, when the contractor makes a timely request [@CL-CMP-9060; @CL-CMP-9061; @CL-CMP-9270] |
 
@@ -66,6 +66,7 @@ Whether this company holds task orders or delivery orders at or above these thre
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

@@ -25,7 +25,7 @@ Shows which drawings and other works become Government property, what the Govern
 | Instrument | Codified DFARS [@CL-CMP-4278] |
 | Codified citation | DFARS 252.227-7023, 252.227-7033 and 252.227-7024 [@CL-CMP-4278; @CL-CMP-4281; @CL-CMP-4282] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 1979 [@CL-CMP-10135] |
 | Text status | Final [@CL-CMP-4278] |
 | Applies to | Contracts using the property clause where DFARS 227.7107-1(b) prescribes it [@CL-CMP-4376]; the Rights in Shop Drawings clause as prescribed in 227.7107-(1)(c) [@CL-CMP-8628]; the Notice and Approval of Restricted Designs clause as prescribed at 227.7107-3 [@CL-CMP-8629] |
 
@@ -56,6 +56,7 @@ Which construction and design contracts carry these clauses, and who reports res
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added shop drawing second item, prescriptions and performance scope; cut uncited contrasts.

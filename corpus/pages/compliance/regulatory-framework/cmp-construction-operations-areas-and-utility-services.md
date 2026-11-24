@@ -25,7 +25,7 @@ States where operations and storage may go, what the contractor builds and remov
 | Instrument | Codified FAR [@CL-CMP-4882] |
 | Codified citation | FAR 52.236-10, FAR 52.236-11 and FAR 52.236-14 [@CL-CMP-4882; @CL-CMP-4883; @CL-CMP-4886] |
 | RFO citation | RFO FAR 52.236-10 [@CL-CMP-0680]; RFO FAR 52.236-11 [@CL-CMP-0686]; RFO FAR 52.236-14 [@CL-CMP-0692] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-10: APR 1984 [@CL-CMP-10093]; FAR 52.236-11: APR 1984 [@CL-CMP-10094]; FAR 52.236-14: APR 1984 [@CL-CMP-10095] |
 | Text status | Final [@CL-CMP-4882] |
 | Applies to | Contracts that include the clauses. The utility services clause is prescribed for a fixed-price construction contract or a fixed-price dismantling, demolition or removal of improvements contract that is to be performed on Government sites [@CL-CMP-4882; @CL-CMP-5059] |
 
@@ -76,6 +76,7 @@ Which contracts and business units occupy Government premises, and who tracks ar
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: example citations, inferences and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

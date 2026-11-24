@@ -25,7 +25,7 @@ Shows what the Government does not concede by taking a patent license, which pas
 | Instrument | Codified DFARS [@CL-CMP-4266] |
 | Codified citation | DFARS 252.227-7000, 252.227-7001 and 252.227-7010 [@CL-CMP-4266; @CL-CMP-4268; @CL-CMP-4271] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | OCT 1966 [@CL-CMP-10158] |
 | Text status | Final [@CL-CMP-4267] |
 | Applies to | Patent releases, license agreements and assignments, for the Non-Estoppel clause [@CL-CMP-4266] |
 
@@ -56,6 +56,7 @@ Which executed patent releases and licenses carry these clauses, and which agenc
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: release of past infringement: dropped wording implying an invention must fall under both numbered items.

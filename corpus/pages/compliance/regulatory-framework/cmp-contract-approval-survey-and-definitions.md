@@ -25,7 +25,7 @@ Explains when a contract that carries the approval clause becomes binding, what 
 | Instrument | Codified FAR [@CL-CMP-5971] |
 | Codified citation | FAR 4.103 [@CL-CMP-9751]; FAR 52.204-1; FAR 52.201-1; FAR 52.202-1 [@CL-CMP-5971; @CL-CMP-5972; @CL-CMP-5975] |
 | RFO citation | RFO FAR 52.202-1 [@CL-CMP-1018]; no RFO equivalent for FAR 52.204-1, which the RFO text prints as reserved [@CL-CMP-1022]; no RFO equivalent for FAR 52.201-1, which the RFO text prints as reserved [@CL-CMP-1023] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-1: DEC 1989 [@CL-CMP-10110]; FAR 52.201-1: SEP 2023 [@CL-CMP-10111]; FAR 52.202-1: Jun 2020 [@CL-CMP-1018] |
 | Text status | Final [@CL-CMP-5971] |
 | Applies to | Contracts with the approval clause, solicitations with the survey provision, and solicitations and contracts that use FAR-defined words or terms [@CL-CMP-5971; @CL-CMP-5972; @CL-CMP-5975] |
 
@@ -76,6 +76,7 @@ Who holds the designated official's written approval for each contract and where
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inferences and contrasts and restored the inflation-adjustment reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's duty to insert the approval clause.

@@ -25,7 +25,7 @@ Shows the rights categories the Government takes in computer software and softwa
 | Instrument | Codified DFARS [@CL-CMP-3775] |
 | Codified citation | DFARS 252.227-7014 [@CL-CMP-3775] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Aug 2025 [@CL-CMP-10186] |
 | Text status | Final [@CL-CMP-3775] |
 | Applies to | Other than commercial computer software and other than commercial computer software documentation, subject to an exception [@CL-CMP-3775] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry this clause, and who confirms whether each delive
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta and uncited comparison sentences; restated rights categories and technical data contrasts as cited statements.

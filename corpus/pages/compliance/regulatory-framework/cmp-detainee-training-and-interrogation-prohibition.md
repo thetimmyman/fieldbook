@@ -25,7 +25,7 @@ Shows who must be trained to deal with detainees and when, how the training reco
 | Instrument | Codified DFARS [@CL-CMP-4394] |
 | Codified citation | DFARS 252.237-7019 and DFARS 252.237-7010 [@CL-CMP-4394; @CL-CMP-4395] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7019: JAN 2023 [@CL-CMP-10120]; DFARS 252.237-7010: JAN 2023 [@CL-CMP-10121] |
 | Text status | Final [@CL-CMP-4394] |
 | Applies to | Contracts that include the training clause, which is used as prescribed in DFARS 237.171-4, for personnel interacting with detainees, and contracts that include the prohibition clause, which is used as prescribed in DFARS 237.173-5, for contractor personnel [@CL-CMP-4394; @CL-CMP-4337; @CL-CMP-4395; @CL-CMP-4342] |
 
@@ -56,6 +56,7 @@ Which contracts carry these clauses, which personnel interact with detainees, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prohibition clause definition of detainee and removed an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'in the course of their duties' in the subcontract flowdown condition.

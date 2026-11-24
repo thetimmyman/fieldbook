@@ -24,7 +24,7 @@ Shows the license the Government takes in existing works, and what a contractor 
 | Instrument | Codified FAR [@CL-CMP-3722] |
 | Codified citation | FAR 52.227-18 and FAR 52.227-21 [@CL-CMP-3722; @CL-CMP-3723] |
 | RFO citation | RFO FAR 52.227-21 [@CL-CMP-1175]; RFO FAR 52.227-18 prints as [Reserved] [@CL-CMP-1184] |
-| Edition date | Not established. |
+| Edition date | FAR 52.227-18: DEC 2007 [@CL-CMP-10200]; FAR 52.227-21: May 2014 [@CL-CMP-1175] |
 | Text status | Final [@CL-CMP-3722] |
 | Applies to | Technical data that relate to a major system and are delivered or required to be delivered under the contract, for the declaration clause [@CL-CMP-3723] |
 
@@ -59,6 +59,7 @@ Which executed contracts carry the declaration clause for a major system, and wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the delivery timing of the technical data declaration.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the declaration and revision lead-ins, kept who determines the reserve hold unstated as in the clause, and removed unsupported contrast.

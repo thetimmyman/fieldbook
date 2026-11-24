@@ -25,7 +25,7 @@ Explains how the contracting officer's indications turn the selection lists in p
 | Instrument | Codified FAR [@CL-CMP-9045] |
 | Codified citation | FAR 52.212-5(b) and (c) [@CL-CMP-9045; @CL-CMP-9046] |
 | RFO citation | RFO FAR 52.212-5 is [Reserved] [@CL-CMP-0643] |
-| Edition date | Not established. |
+| Edition date | MAR 2026 [@CL-CMP-10087] |
 | Text status | Final [@CL-CMP-9045] |
 | Applies to | Contracts in which the clause is inserted as prescribed in FAR 12.301(b)(4) [@CL-CMP-9201] |
 
@@ -64,6 +64,7 @@ The company must confirm who reads the Contracting Officer's indications on each
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: selection and limit wording tied to cited text; uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

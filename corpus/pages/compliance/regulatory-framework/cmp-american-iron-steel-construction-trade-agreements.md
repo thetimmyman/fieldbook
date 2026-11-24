@@ -23,7 +23,7 @@ Explains when a contract that carries this clause may use only domestic and desi
 | Instrument | Codified FAR [@CL-CMP-5404] |
 | Codified citation | FAR 52.225-23, basic clause [@CL-CMP-5404] |
 | RFO citation | RFO FAR 52.225-23 is marked reserved [@CL-CMP-0374] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CMP-10070] |
 | Text status | Final [@CL-CMP-5404] |
 | Applies to | Construction material used in performing a contract that includes the clause [@CL-CMP-5404] |
 
@@ -84,6 +84,7 @@ Which contracts carry the clause and which excepted materials each contract list
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

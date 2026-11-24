@@ -25,7 +25,7 @@ Shows what the contractor must report about Government property, how fast, and w
 | Instrument | Codified DFARS [@CL-CMP-3867] |
 | Codified citation | DFARS 252.245-7005 [@CL-CMP-3867] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Jan 2024 [@CL-CMP-10055] |
 | Text status | Final [@CL-CMP-3867] |
 | Applies to | Contractors holding Government property under contracts with the clause [@CL-CMP-3867] |
 
@@ -56,6 +56,7 @@ Whether the company's property management system is currently approved and wheth
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the GFP reporting items, 7-business-day scope, and data-element wording with the cited quotes and removed meta-wording and unquoted contrast phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS management and reporting of Government property.

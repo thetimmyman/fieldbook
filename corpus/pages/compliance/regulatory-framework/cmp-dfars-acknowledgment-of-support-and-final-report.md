@@ -25,7 +25,7 @@ Shows what published material must state about Government support, which materia
 | Instrument | Codified DFARS [@CL-CMP-4590; @CL-CMP-4593] |
 | Codified citation | DFARS 252.235-7010 [@CL-CMP-4590]; DFARS 252.235-7011 [@CL-CMP-4593] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.235-7010: MAY 1995 [@CL-CMP-10122]; DFARS 252.235-7011: DEC 2019 [@CL-CMP-10123] |
 | Text status | Final [@CL-CMP-4590; @CL-CMP-4593] |
 | Applies to | Contracts with the acknowledgment and disclaimer clause [@CL-CMP-4590], and contracts with the final scientific or technical report clause [@CL-CMP-4593] |
 
@@ -54,6 +54,7 @@ Which research contracts carry these clauses, and who checks publications and th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and tied the classified report sentences to the clause text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acknowledgment of support and the final scientific or technical report.

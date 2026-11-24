@@ -25,7 +25,7 @@ Shows whom the Contractor must employ for contract work in a named place under t
 | Instrument | Codified DFARS [@CL-CMP-4416] |
 | Codified citation | DFARS 252.222-7000 [@CL-CMP-4416] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 2000 [@CL-CMP-10168] |
 | Text status | Final [@CL-CMP-4416] |
 | Applies to | Contracts with the Restrictions on Employment of Personnel clause, used as prescribed in section 222.7004 [@CL-CMP-4416] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry this clause, and which place each contract names.
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast sentences; replaced with cited statement and pointers.

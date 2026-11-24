@@ -25,7 +25,7 @@ Shows how validation of asserted software restrictions works, how it differs fro
 | Instrument | Codified DFARS [@CL-CMP-3802] |
 | Codified citation | DFARS 252.227-7019 [@CL-CMP-3802] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-CMP-10187] |
 | Text status | Final [@CL-CMP-3802] |
 | Applies to | Restrictions asserted on the Government's rights in computer software delivered, required to be delivered, or otherwise provided to the Government under the contract [@CL-CMP-3802; @CL-CMP-8511] |
 
@@ -54,6 +54,7 @@ Who owns the response when a challenge to a software restriction arrives, and wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
