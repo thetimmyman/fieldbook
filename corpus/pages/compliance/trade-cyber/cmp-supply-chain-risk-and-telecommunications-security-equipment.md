@@ -25,7 +25,7 @@ Shows what the Government may do to manage supply chain risk, what the contracto
 | Instrument | Codified DFARS [@CL-CMP-4000; @CL-CMP-4003] |
 | Codified citation | DFARS 252.239-7018 [@CL-CMP-4000]; DFARS 252.239-7016 [@CL-CMP-4003] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.239-7018: DEC 2022 [@CL-CMP-10313]; DFARS 252.239-7016: DEC 1991 [@CL-CMP-10314] |
 | Text status | Final [@CL-CMP-4000; @CL-CMP-4003] |
 | Applies to | Contracts with the supply chain risk clause [@CL-CMP-4000]; contracts where the solicitation or contract identifies classified or sensitive information that requires securing during telecommunications [@CL-CMP-4003] |
 
@@ -54,6 +54,7 @@ Which contracts carry either clause, which suppliers and equipment sources sit i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added subcontracts paragraph scope and cited clause contrasts.

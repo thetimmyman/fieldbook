@@ -25,7 +25,7 @@ Shows when a contracting officer may issue a stop-work order, what must happen b
 | Instrument | Codified FAR [@CL-CMP-2240] |
 | Codified citation | FAR 42.1303, FAR 42.1305 and FAR 52.242-15 [@CL-CMP-2240; @CL-CMP-2263; @CL-CMP-2264] |
 | RFO citation | RFO FAR 42.1003 [@CL-CMP-6966; @CL-CMP-6967; @CL-CMP-6968; @CL-CMP-6969; @CL-CMP-6970], RFO FAR 42.1005 [@CL-CMP-6971; @CL-CMP-6972; @CL-CMP-6973] and RFO FAR 52.242-15 [@CL-CMP-6974; @CL-CMP-6975; @CL-CMP-6989; @CL-CMP-7008; @CL-CMP-7009; @CL-CMP-7010; @CL-CMP-7011; @CL-CMP-7012; @CL-CMP-9899; @CL-CMP-9900] |
-| Edition date | Not established. |
+| Edition date | Aug 1989 [@CL-CMP-6974] |
 | Text status | Final [@CL-CMP-2240] |
 | Applies to | Negotiated fixed-price or cost-reimbursement supply, research and development, or service contracts [@CL-CMP-2240] |
 
@@ -62,6 +62,7 @@ Whether the company can separate costs incurred during a stop-work period, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's "shall" for resuming work and for allowing costs on termination, and restated the later-proposal exception in full.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 42 and part 52 citations and how DoD's class deviations apply them.

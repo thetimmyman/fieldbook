@@ -25,7 +25,7 @@ Shows what must be reported on contracted services and when, and what Alternate 
 | Instrument | Codified DFARS [@CL-CMP-2869; @CL-CMP-2873] |
 | Codified citation | DFARS 252.204-7023(b) [@CL-CMP-2869]; DFARS 252.204-7007 [@CL-CMP-2873] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7023: Jul 2021 [@CL-CMP-10298]; DFARS 252.204-7007: OCT 2025 [@CL-CMP-10299] |
 | Text status | Final [@CL-CMP-2869] |
 | Applies to | Contracts and orders that include the contracted services reporting clause [@CL-CMP-2869] |
 
@@ -54,6 +54,7 @@ Which orders need services reports, where invoiced amounts and labor hours are c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added Alternate I reporting lead-in and Alternate A verification qualifiers; removed absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the Alternate I claim for the Alternate I statement.

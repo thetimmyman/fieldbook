@@ -24,7 +24,7 @@ Explains the recovered material content certification an offeror gives when it s
 | Instrument | Codified FAR [@CL-CMP-5176] |
 | Codified citation | FAR 52.223-4 and FAR 52.223-9 [@CL-CMP-0707; @CL-CMP-5176; @CL-CMP-5177] |
 | RFO citation | RFO FAR 52.223-4 and RFO FAR 52.223-9 [@CL-CMP-0708; @CL-CMP-2158; @CL-CMP-2159] |
-| Edition date | Not established. |
+| Edition date | FAR 52.223-4: May 2008 [@CL-CMP-0708]; FAR 52.223-9: May 2008 [@CL-CMP-2159] |
 | Text status | Final [@CL-CMP-5176] |
 | Applies to | Offerors whose offers carry the recovered material certification provision, and contractors whose contracts carry the estimate clause [@CL-CMP-0707; @CL-CMP-5176; @CL-CMP-5177] |
 
@@ -63,6 +63,7 @@ Whether item records can produce the recovered and postconsumer percentages for 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RCRA statutory lead-in claims for FAR 52.223-4 and RFO FAR 52.223-4, separated codified and RFO citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the performance scope in the recovered material certification and estimate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on biobased product certification and reporting.

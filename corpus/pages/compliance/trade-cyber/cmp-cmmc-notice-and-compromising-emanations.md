@@ -25,7 +25,7 @@ Shows what an offeror must have before award under the CMMC level notice, and wh
 | Instrument | Codified DFARS [@CL-CMP-4008; @CL-CMP-4012] |
 | Codified citation | DFARS 252.204-7025 [@CL-CMP-4008]; DFARS 252.239-7000 [@CL-CMP-4012] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7025: NOV 2025 [@CL-CMP-10296]; DFARS 252.239-7000: OCT 2019 [@CL-CMP-10297] |
 | Text status | Final [@CL-CMP-4008; @CL-CMP-4012] |
 | Applies to | Offerors, for each contractor information system that will process, store, or transmit Federal contract information or controlled unclassified information during performance of the contract [@CL-CMP-4008]; contractors, who shall provide or use only information technology, as specified by the Government, that has been accredited as the emanations clause describes [@CL-CMP-4012] |
 
@@ -54,6 +54,7 @@ Which information systems will handle Federal contract information or controlled
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited characterisations; cited alternatives and scope.

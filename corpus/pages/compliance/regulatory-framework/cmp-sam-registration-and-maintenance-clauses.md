@@ -24,7 +24,7 @@ Shows what a contractor must keep current in the System for Award Management aft
 | Instrument | Codified FAR [@CL-CMP-3526] |
 | Codified citation | FAR 52.204-7; FAR 52.204-13 [@CL-CMP-3576; @CL-CMP-3526] |
 | RFO citation | RFO FAR 52.204-7 [@CL-CMP-4626]; RFO FAR 52.204-13 [@CL-CMP-4627; @CL-CMP-4628; @CL-CMP-4629; @CL-CMP-4630; @CL-CMP-4631; @CL-CMP-4632; @CL-CMP-4633; @CL-CMP-4634; @CL-CMP-4635; @CL-CMP-9794; @CL-CMP-9795; @CL-CMP-4636; @CL-CMP-4637; @CL-CMP-4638] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-7: NOV 2024 [@CL-CMP-10264]; FAR 52.204-13: OCT 2018 [@CL-CMP-10265] |
 | Text status | Final [@CL-CMP-3526] |
 | Applies to | Contractors under contracts that include the maintenance clause [@CL-CMP-3526] |
 
@@ -55,6 +55,7 @@ Confirm which of the company's legal entities hold SAM registrations, who owns t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: SAM registration: executive compensation condition stated as the clause states it.

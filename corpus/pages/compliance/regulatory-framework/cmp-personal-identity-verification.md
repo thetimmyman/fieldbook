@@ -24,7 +24,7 @@ Sets out the identity verification procedures a contractor follows, the duty to 
 | Instrument | Codified FAR [@CL-CMP-5570] |
 | Codified citation | FAR 52.204-9 [@CL-CMP-5570] |
 | RFO citation | RFO FAR 52.204-9 [@CL-CMP-1895] |
-| Edition date | Not established. |
+| Edition date | Jan 2011 [@CL-CMP-1895] |
 | Text status | Final [@CL-CMP-5570] |
 | Applies to | Contracts that include the clause prescribed by FAR 4.1303 [@CL-CMP-5658] |
 
@@ -61,6 +61,7 @@ Confirm which employees hold Government identification and who returns it when e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for personal identity verification of contractor personnel.

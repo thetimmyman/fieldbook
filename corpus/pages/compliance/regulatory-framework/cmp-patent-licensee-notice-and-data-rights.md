@@ -23,7 +23,7 @@ Explains the notice a solicitation gives about a Government royalty and how an o
 | Instrument | Codified FAR [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
 | Codified citation | FAR 52.227-7, FAR 52.227-22 and FAR 52.227-23 [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
 | RFO citation | RFO FAR 52.227-7 is reserved [@CL-CMP-1823]; RFO FAR 52.227-23 is reserved [@CL-CMP-1824]; RFO FAR 52.227-22 [@CL-CMP-1825] |
-| Edition date | Not established. |
+| Edition date | FAR 52.227-7: APR 1984 [@CL-CMP-10254]; FAR 52.227-22: Jun 1987 [@CL-CMP-1825]; FAR 52.227-23: JUN 1987 [@CL-CMP-10255] |
 | Text status | Final [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
 | Applies to | Solicitations and contracts in which a provision or clause is inserted as prescribed [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
 
@@ -62,6 +62,7 @@ Which solicitations identify a Government royalty patent or a major system, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the delivery condition in the first minimum rights sentence.

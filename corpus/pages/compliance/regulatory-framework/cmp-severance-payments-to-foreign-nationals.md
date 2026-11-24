@@ -23,7 +23,7 @@ Explains the limit on the cost allowability of severance payments to foreign nat
 | Instrument | Codified FAR [@CL-CMP-5618; @CL-CMP-5762] |
 | Codified citation | FAR 52.237-8 and FAR 52.237-9 [@CL-CMP-5618; @CL-CMP-5762] |
 | RFO citation | RFO FAR 52.237-8 and RFO FAR 52.237-9 [@CL-CMP-6031; @CL-CMP-6038] |
-| Edition date | Not established. |
+| Edition date | FAR 52.237-8: AUG 2003 [@CL-CMP-10277]; FAR 52.237-9: DEC 2022 [@CL-CMP-10278] |
 | Text status | Final [@CL-CMP-5618; @CL-CMP-5762] |
 | Applies to | Service contracts performed outside the United States, through the provision and the waiver clause used as prescribed [@CL-CMP-5619; @CL-CMP-5618; @CL-CMP-5762] |
 
@@ -58,6 +58,7 @@ Which foreign service contracts pay severance, and who confirms whether a waiver
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the FAR section under which the waiver is granted.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the conjunction joining the determination matters.

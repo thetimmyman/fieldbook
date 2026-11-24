@@ -23,7 +23,7 @@ Shows what an offeror must tell the Government when work is planned at a seconda
 | Instrument | Codified FAR [@CL-CMP-5860] |
 | Codified citation | FAR 52.222-5 [@CL-CMP-5860] |
 | RFO citation | RFO FAR 52.222-5 [@CL-CMP-5332; @CL-CMP-5333; @CL-CMP-5662; @CL-CMP-5663; @CL-CMP-6202] |
-| Edition date | Not established. |
+| Edition date | MAY 2014 [@CL-CMP-10273] |
 | Text status | Final [@CL-CMP-5860] |
 | Applies to | Solicitations that carry the provision as prescribed at FAR 22.407(h) [@CL-CMP-5860] |
 
@@ -56,6 +56,7 @@ Which solicitations and offers inside the finance remit contemplate a secondary 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: secondary site: effective-date sentence limited to the quoted wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: secondary site: shall wording, clause named, definition condition.

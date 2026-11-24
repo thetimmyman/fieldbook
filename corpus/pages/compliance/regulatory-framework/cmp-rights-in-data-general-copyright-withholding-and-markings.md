@@ -24,7 +24,7 @@ Shows how the later paragraphs of the Rights in Data—General clause treat copy
 | Instrument | Codified FAR [@CL-CMP-3689] |
 | Codified citation | FAR 52.227-14(c), (e), (f), (g), (i) and Alternates II to V [@CL-CMP-3689; @CL-CMP-3692; @CL-CMP-3695; @CL-CMP-3697; @CL-CMP-3733; @CL-CMP-3699; @CL-CMP-3736; @CL-CMP-3738; @CL-CMP-3739] |
 | RFO citation | RFO FAR 52.227-14(c), (e), (f), (g), (i) and Alternates II to V [@CL-CMP-2174; @CL-CMP-2175; @CL-CMP-2176; @CL-CMP-2177; @CL-CMP-2178; @CL-CMP-2179; @CL-CMP-2180; @CL-CMP-2181; @CL-CMP-2182; @CL-CMP-2183; @CL-CMP-2184; @CL-CMP-2185; @CL-CMP-2186; @CL-CMP-2187; @CL-CMP-2188; @CL-CMP-2189; @CL-CMP-2190; @CL-CMP-2191; @CL-CMP-2192; @CL-CMP-2193; @CL-CMP-2194; @CL-CMP-2195; @CL-CMP-2196; @CL-CMP-2197; @CL-CMP-2198; @CL-CMP-4483; @CL-CMP-4484; @CL-CMP-4485; @CL-CMP-4486; @CL-CMP-4233; @CL-CMP-9774; @CL-CMP-9775; @CL-CMP-9776] |
-| Edition date | Not established. |
+| Edition date | May 2014 [@CL-CMP-2174] |
 | Text status | Final [@CL-CMP-3689] |
 | Applies to | Not established. |
 
@@ -63,6 +63,7 @@ Which executed contracts carry this clause and its alternates, and who confirms 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added codified and RFO companion citations for copyright licenses, unauthorized-marking lead-in and triggers, omitted-notice liability acknowledgment, and Alternate IV scope, and separated RFO from codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternates II and III shown as alternatives; closing words, lead-in and second trigger noted for the RFO text.

@@ -25,7 +25,7 @@ Shows what a lead system integrator may not have, and what an offeror represents
 | Instrument | Codified DFARS [@CL-CMP-4106; @CL-CMP-4136] |
 | Codified citation | DFARS 252.209-7006 and DFARS 252.209-7007 [@CL-CMP-4106; @CL-CMP-4136] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.209-7006: DEC 2022 [@CL-CMP-10224]; DFARS 252.209-7007: DEC 2022 [@CL-CMP-10225] |
 | Text status | Final [@CL-CMP-4106; @CL-CMP-4136] |
 | Applies to | Solicitations that include the provision, as prescribed in DFARS 209.570-4(a) [@CL-CMP-4106], and contracts that include the clause, as prescribed in DFARS 209.570-4(b) [@CL-CMP-4136] |
 
@@ -58,6 +58,7 @@ Whether any current or planned contract makes the company a lead system integrat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added scope and remedial measures to the financial interest clause and recast a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added services described in the solicitation to the financial interest representation.

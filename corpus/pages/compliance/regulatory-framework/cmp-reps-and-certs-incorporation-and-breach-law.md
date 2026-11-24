@@ -24,7 +24,7 @@ Shows which representations and certifications the contract reads in by referenc
 | Instrument | Codified FAR [@CL-CMP-5964] |
 | Codified citation | FAR 52.204-19 and FAR 52.233-4 [@CL-CMP-5964; @CL-CMP-5965] |
 | RFO citation | RFO FAR 52.204-19 [@CL-CMP-2172]; RFO FAR 52.233-4 [@CL-CMP-2173] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-19: Dec 2014 [@CL-CMP-2172]; FAR 52.233-4: OCT 2004 [@CL-CMP-10261] |
 | Text status | Final [@CL-CMP-5964] |
 | Applies to | Contracts that carry the two clauses [@CL-CMP-5964; @CL-CMP-5965] |
 
@@ -53,6 +53,7 @@ Which entity's representations and certifications are completed electronically f
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified citations and removed meta wording and uncited commentary.

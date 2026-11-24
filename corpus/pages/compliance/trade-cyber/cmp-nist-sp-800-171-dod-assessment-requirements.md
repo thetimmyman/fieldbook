@@ -25,7 +25,7 @@ Shows which assessment an offeror must have to be considered for award, how asse
 | Instrument | Codified DFARS [@CL-CMP-2825] |
 | Codified citation | DFARS 252.204-7019(b) [@CL-CMP-2825]; DFARS 252.204-7020(c) [@CL-CMP-2830] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7019: NOV 2023 [@CL-CMP-10308]; DFARS 252.204-7020: NOV 2023 [@CL-CMP-10309] |
 | Text status | Final [@CL-CMP-2825] |
 | Applies to | Offerors required to implement NIST SP 800-171, for each covered contractor information system relevant to the offer, contract, task order, or delivery order [@CL-CMP-2825; @CL-CMP-2826]; the assessment clause applies to covered contractor information systems required to comply with NIST SP 800-171 under the safeguarding clause [@CL-CMP-2903] |
 
@@ -58,6 +58,7 @@ Which covered contractor information systems have a current assessment posted in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
