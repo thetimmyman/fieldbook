@@ -1,0 +1,4 @@
+seen_schema = 1
+revision = 3
+hash = "550904d5566aef8d89fcec94861a10f3931a8627cb26ab0443e7abb650e90f12"
+audit_sink = "/srv/company/audit"

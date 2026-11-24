@@ -487,6 +487,17 @@ pub fn classify_file(
         return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
     }
 
+    if path == "state/policy-seen.toml" {
+        if std::str::from_utf8(bytes)
+            .ok()
+            .and_then(fieldbook_core::policy::Seen::parse)
+            .is_some()
+        {
+            return CopiedFile::new(path, BackupFileKind::TextFreeControl, LabelSet::public());
+        }
+        return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+    }
+
     // 11. State locks and init markers
     if path == "state/.init"
         || path == "state/store.lock"

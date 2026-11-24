@@ -33,6 +33,7 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("add", generate_add_report),
     ("search", generate_search_report),
     ("search-pages", generate_search_pages_report),
+    ("policy-show", generate_policy_show_report),
 ];
 
 fn repo_root() -> PathBuf {
@@ -189,6 +190,19 @@ fn generate_search_report() -> String {
     ];
     let outcome = fieldbook::run(&args, &world);
     assert_eq!(outcome.code, 0, "search --json failed: {}", outcome.stderr);
+    outcome.stdout
+}
+
+fn generate_policy_show_report() -> String {
+    let root = repo_root();
+    let world = TestWorld::new(&root.join("tests/fixtures/corpus-mini"));
+    let args = vec!["policy".to_owned(), "show".to_owned(), "--json".to_owned()];
+    let outcome = fieldbook::run(&args, &world);
+    assert_eq!(
+        outcome.code, 0,
+        "policy show --json failed: {}",
+        outcome.stderr
+    );
     outcome.stdout
 }
 

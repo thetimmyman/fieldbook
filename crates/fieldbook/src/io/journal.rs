@@ -1232,7 +1232,7 @@ impl<'a> Journal<'a> {
 
         drop(lock);
 
-        Ok(Self {
+        let mut journal = Self {
             world,
             state_dir: state_dir.to_path_buf(),
             actor,
@@ -1241,7 +1241,9 @@ impl<'a> Journal<'a> {
             active_tx: Arc::new(Mutex::new(None)),
             wrote_store: false,
             prepared_backup: Mutex::new(None),
-        })
+        };
+        crate::policy::observe_on_open(&mut journal)?;
+        Ok(journal)
     }
 
     /// Repair a broken journal chain by moving all existing segments unchanged into
@@ -2736,6 +2738,52 @@ impl<'a> Journal<'a> {
         }
 
         Ok(())
+    }
+
+    /// Return the `World` bound to this journal handle.
+    #[must_use]
+    pub fn world(&self) -> &'a dyn World {
+        self.world
+    }
+
+    /// Return the state directory bound to this journal handle.
+    #[must_use]
+    pub fn state_dir(&self) -> &Path {
+        &self.state_dir
+    }
+
+    pub(crate) fn policy_state_scope(&self) -> Result<Audited, JournalError> {
+        let mut guard = self
+            .active_tx
+            .lock()
+            .map_err(|_| JournalError::InvalidLease("poisoned transaction mutex".to_owned()))?;
+        if let Some(tx) = guard.as_mut() {
+            let _ = inspect_tail_strict(&self.state_dir)?;
+            tx.state_scope_count += 1;
+        } else {
+            let lock = acquire_journal_lock(&self.state_dir)?;
+            let _ = inspect_tail_strict(&self.state_dir)?;
+            *guard = Some(ActiveTx {
+                _lock: lock,
+                has_write_begin: false,
+                state_scope_count: 1,
+                recovery: false,
+            });
+        }
+        drop(guard);
+
+        Ok(Audited {
+            state_only: true,
+            state_dir: self.state_dir.clone(),
+            begin_seq: None,
+            verb: None,
+            labels: None,
+            affected: Vec::new(),
+            export_context: None,
+            active_tx: Arc::clone(&self.active_tx),
+            recovery_approved: None,
+            ended: false,
+        })
     }
 
     /// Return `true` if the journal hash chain has zero breaks from sequence 1 to head.

@@ -220,6 +220,14 @@ pub const CASES: &[ChipCase] = &[
         setup: &[],
         outcome: ChipOutcome::Exit0,
     },
+    ChipCase {
+        chip: "fieldbook policy show",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &[],
+        outcome: ChipOutcome::Exit0,
+    },
 ];
 
 pub fn substitute_chip(chip: &str, samples: &[(&str, &str)]) -> Vec<String> {

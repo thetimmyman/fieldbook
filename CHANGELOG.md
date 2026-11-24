@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the company policy is read from the machine-level file; policy show and policy check; the Closed state; policy.change events.
 - Added: check replays each intake rule on its own example.
 - Added: a price change bridge sheet in templates/decision-package.xlsx.
 - Added: templates/decision-package.xlsx, a synthetic decision package workbook labelled preview.
