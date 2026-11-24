@@ -58,7 +58,7 @@ test = "unlabelled_in_allow_is_invalid"
 [[elsewhere]]
 code = "FB0414"
 card = "policy-load"
-test = ""
+test = "policy_flag_into_the_state_folder_is_fb0414"
 
 [[elsewhere]]
 code = "FB0415"
@@ -78,12 +78,12 @@ test = ""
 [[elsewhere]]
 code = "FB0418"
 card = "policy-load"
-test = ""
+test = "a_writable_policy_file_closes_the_state_fb0418"
 
 [[elsewhere]]
 code = "FB0419"
 card = "policy-load"
-test = ""
+test = "on_the_laptop_a_state_flag_elsewhere_is_fb0419"
 
 [[elsewhere]]
 code = "FB0420"

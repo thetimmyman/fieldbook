@@ -21,6 +21,7 @@ mod fmt;
 pub mod io;
 pub mod new;
 pub mod pages;
+pub mod policy;
 pub mod report;
 pub mod restore;
 pub mod search;
@@ -178,6 +179,21 @@ pub trait World {
         fieldbook_core::policy::EffectivePolicy::floor(self.has_company_store())
     }
 
+    /// Return the operating-system machine `ProgramData` directory (`None` off Windows).
+    fn program_data(&self) -> Option<PathBuf> {
+        io::win::program_data()
+    }
+
+    /// Return operating-system writer facts for `path` and its parent folder.
+    fn writers(&self, path: &Path) -> fieldbook_core::policy::WriterFacts {
+        io::win::policy_writers(path)
+    }
+
+    /// Return `true` when `path` exists as a file, directory, or symbolic link.
+    fn exists(&self, path: &Path) -> bool {
+        io::Disk::with_state(self.tree_root(), self.state_dir()).exists(path)
+    }
+
     /// Read `docs/maintenance.csv` from the repository root.
     ///
     /// An absent file is the empty string: `status` prints `Unavailable` and does not fail.
@@ -283,42 +299,84 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
         };
     }
 
-    let mut outcome = match parsed.command {
-        Commands::Check(check_args) => {
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
-                };
-                run_check(&check_args, &overridden)
-            } else {
-                run_check(&check_args, world)
-            }
+    let state_dir = if let Some(flag) = parsed.state.as_deref() {
+        io::state::resolve(world.tree_root(), world.cwd(), Some(flag))
+    } else {
+        world.state_dir().to_path_buf()
+    };
+
+    if let Commands::Policy(policy_args) = &parsed.command
+        && let cli::PolicySubcommand::Check(check_args) = &policy_args.command
+    {
+        return policy::run_check(check_args, &state_dir, world);
+    }
+
+    #[cfg(feature = "test-hooks")]
+    let policy_source = io::policy::PolicySource::discover_with_flags(
+        world,
+        false,
+        parsed.policy.as_deref(),
+        parsed.program_data.as_deref(),
+    );
+
+    #[cfg(not(feature = "test-hooks"))]
+    let policy_source = io::policy::PolicySource::discover(world, false);
+
+    let policy_ctx = match policy::resolve_with_source(
+        world,
+        &state_dir,
+        world.tree_root(),
+        false,
+        policy_source,
+    ) {
+        Ok(ctx) => ctx,
+        Err(place_refusal) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{place_refusal}\n"),
+                code: EXIT_USAGE,
+            };
         }
-        Commands::Fmt(fmt_args) => {
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
-                };
-                fmt::run(&fmt_args, &overridden)
-            } else {
-                fmt::run(&fmt_args, world)
-            }
-        }
+    };
+
+    let company_store =
+        world.has_company_store() || io::policy::company_store_beside(world, &state_dir);
+    let eff = if policy_ctx.source == fieldbook_core::policy::Source::None
+        && policy_ctx.seen_read.is_none()
+        && !company_store
+    {
+        world.effective_policy()
+    } else {
+        policy_ctx.effective_policy(world)
+    };
+
+    let run_world = PolicyRunWorld {
+        inner: world,
+        state_dir: state_dir.clone(),
+        effective_policy: eff.clone(),
+        has_company_store: company_store,
+    };
+
+    let is_policy_cmd = matches!(parsed.command, Commands::Policy(_));
+    let is_closed_warn_exempt = matches!(
+        parsed.command,
+        Commands::Policy(_)
+            | Commands::Status(_)
+            | Commands::Check(_)
+            | Commands::Build(_)
+            | Commands::Search(_)
+    );
+
+    let mut outcome = policy::with_active_policy(&policy_ctx, || match parsed.command {
+        Commands::Check(check_args) => run_check(&check_args, &run_world),
+        Commands::Fmt(fmt_args) => fmt::run(&fmt_args, &run_world),
         Commands::Add(add_args) => {
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
-                };
-                add::run(&add_args, &overridden)
-            } else {
-                add::run(&add_args, world)
-            }
+            let add_policy = eff.state().policy().unwrap_or_else(|| {
+                fieldbook_core::policy::Policy::floor(
+                    fieldbook_core::policy::FloorKind::for_machine(run_world.has_company_store()),
+                )
+            });
+            add::run_with_policy(&add_args, &run_world, &add_policy)
         }
         Commands::Build(build_args) => {
             if build_args.watch {
@@ -329,79 +387,50 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                     code: EXIT_USAGE,
                 };
             }
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
-                };
-                build::run(&build_args, &overridden)
-            } else {
-                build::run(&build_args, world)
-            }
+            build::run(&build_args, &run_world)
         }
-        Commands::New(new_args) => {
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
-                };
-                new::run(&new_args, &overridden)
-            } else {
-                new::run(&new_args, world)
+        Commands::New(new_args) => new::run(&new_args, &run_world),
+        Commands::Audit(audit_args) => audit::run(&audit_args, parsed.state.as_deref(), &run_world),
+        Commands::Search(search_args) => search::run(&search_args, &run_world),
+        Commands::Status(status_args) => status::run_with_policy(&status_args, &run_world, &eff),
+        Commands::Verify(verify_args) => verify::run(&verify_args, &run_world),
+        Commands::Backup(backup_args) => match &backup_args.command {
+            Some(cli::BackupSubcommand::Verify(verify_args)) => {
+                backup::run_verify_with_policy(&run_world, &eff, verify_args)
             }
-        }
-        Commands::Audit(audit_args) => audit::run(&audit_args, parsed.state.as_deref(), world),
-        Commands::Search(search_args) => {
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
+            Some(cli::BackupSubcommand::List(list_args)) => backup::run_list(&run_world, list_args),
+            None => {
+                let options = backup::BackupOptions {
+                    target: backup_args.target.clone(),
+                    to: backup_args.to.clone(),
+                    dry_run: backup_args.dry_run,
                 };
-                search::run(&search_args, &overridden)
-            } else {
-                search::run(&search_args, world)
+                backup::run_backup(&run_world, &eff, &options)
             }
-        }
-        Commands::Status(status_args) => {
-            let policy = world.effective_policy();
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
-                };
-                status::run_with_policy(&status_args, &overridden, &policy)
-            } else {
-                status::run_with_policy(&status_args, world, &policy)
-            }
-        }
-        Commands::Verify(verify_args) => {
-            if let Some(flag) = parsed.state.as_deref() {
-                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
-                let overridden = StateOverrideWorld {
-                    inner: world,
-                    state_dir,
-                };
-                verify::run(&verify_args, &overridden)
-            } else {
-                verify::run(&verify_args, world)
-            }
-        }
-        Commands::Backup(backup_args) => backup::run(&backup_args, parsed.state.as_deref(), world),
+        },
         Commands::Restore(restore_args) => {
-            restore::run(&restore_args, parsed.state.as_deref(), world)
+            let options = restore::RestoreOptions {
+                snapshot: restore_args.snapshot,
+                to: restore_args.to.clone(),
+                drill: restore_args.drill,
+                target: restore_args.target.clone(),
+                from: restore_args.from.clone(),
+            };
+            restore::run_restore(&run_world, &eff, &options)
         }
-    };
+        Commands::Policy(policy_args) => {
+            policy::run(&policy_args, &policy_ctx, &state_dir, &run_world)
+        }
+    });
+
+    if !is_closed_warn_exempt && let Some(warn_line) = policy_ctx.closed_warning_line() {
+        outcome.stderr = format!("{warn_line}\n{}", outcome.stderr);
+    }
+    if policy_ctx.seen_unreadable && !is_policy_cmd {
+        outcome.stderr = format!("{}\n{}", policy::UNREADABLE_SEEN_WARNING, outcome.stderr);
+    }
 
     if io::journal::thread_wrote_store() && (outcome.code == 0 || outcome.code == 1) {
-        let state_dir = if let Some(flag) = parsed.state.as_deref() {
-            io::state::resolve(world.tree_root(), world.cwd(), Some(flag))
-        } else {
-            world.state_dir().to_path_buf()
-        };
         let settings = io::state::read_backup_settings(&state_dir).unwrap_or_default();
         if let Some(msg) = backup::reminder(&state_dir, world.today(), settings.warn_after_days) {
             outcome.stderr.push_str(&msg);
@@ -508,6 +537,18 @@ impl World for StateOverrideWorld<'_> {
         self.inner.effective_policy()
     }
 
+    fn program_data(&self) -> Option<PathBuf> {
+        self.inner.program_data()
+    }
+
+    fn writers(&self, path: &Path) -> fieldbook_core::policy::WriterFacts {
+        self.inner.writers(path)
+    }
+
+    fn exists(&self, path: &Path) -> bool {
+        self.inner.exists(path)
+    }
+
     fn read_maintenance(&self) -> Result<String, WorldError> {
         self.inner.read_maintenance()
     }
@@ -547,6 +588,177 @@ impl World for StateOverrideWorld<'_> {
     fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
         let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
         disk.remove_drill(audited)
+    }
+}
+
+struct PolicyRunWorld<'a> {
+    inner: &'a dyn World,
+    state_dir: PathBuf,
+    effective_policy: fieldbook_core::policy::EffectivePolicy,
+    has_company_store: bool,
+}
+
+impl World for PolicyRunWorld<'_> {
+    fn read_tree(&self) -> Result<Tree, WorldError> {
+        if self.state_dir == self.inner.state_dir() {
+            self.inner.read_tree()
+        } else {
+            io::journal::read_tree_coherent(self.inner.tree_root(), &self.state_dir)
+        }
+    }
+
+    fn write_lease(&self) -> Result<StoreLease, WorldError> {
+        if self.state_dir == self.inner.state_dir() {
+            self.inner.write_lease()
+        } else {
+            io::journal::acquire_write_lease(self.inner.tree_root(), &self.state_dir)
+        }
+    }
+
+    fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
+        if self.state_dir == self.inner.state_dir() {
+            self.inner.read_tree_under(lease)
+        } else {
+            io::journal::read_tree_under_lease(self.inner.tree_root(), &self.state_dir, lease)
+        }
+    }
+
+    fn read_file(&self, path: &Path) -> Result<Option<Vec<u8>>, WorldError> {
+        self.inner.read_file(path)
+    }
+
+    fn write_file(
+        &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        if self.state_dir == self.inner.state_dir() {
+            self.inner.write_file(audited, path, bytes)
+        } else {
+            let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+            disk.write_file(audited, path, bytes)
+        }
+    }
+
+    fn write_outside(
+        &self,
+        allowed: &Allowed,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        self.inner.write_outside(allowed, audited, path, bytes)
+    }
+
+    fn has_company_store(&self) -> bool {
+        self.has_company_store || self.inner.has_company_store()
+    }
+
+    fn today(&self) -> CivilDate {
+        self.inner.today()
+    }
+
+    fn now(&self) -> Now {
+        self.inner.now()
+    }
+
+    fn principal(&self) -> Principal {
+        self.inner.principal()
+    }
+
+    fn cwd(&self) -> &Path {
+        self.inner.cwd()
+    }
+
+    fn tree_root(&self) -> &Path {
+        self.inner.tree_root()
+    }
+
+    fn state_dir(&self) -> &Path {
+        &self.state_dir
+    }
+
+    fn stdin_is_terminal(&self) -> bool {
+        self.inner.stdin_is_terminal()
+    }
+
+    fn read_line(&self) -> String {
+        self.inner.read_line()
+    }
+
+    fn prompt(&self, flag: &str) -> Result<(), WorldError> {
+        self.inner.prompt(flag)
+    }
+
+    fn place(&self, path: &Path) -> PlaceFacts {
+        self.inner.place(path)
+    }
+
+    fn store_id(&self) -> &'static str {
+        self.inner.store_id()
+    }
+
+    fn effective_policy(&self) -> fieldbook_core::policy::EffectivePolicy {
+        self.effective_policy.clone()
+    }
+
+    fn program_data(&self) -> Option<PathBuf> {
+        self.inner.program_data()
+    }
+
+    fn writers(&self, path: &Path) -> fieldbook_core::policy::WriterFacts {
+        self.inner.writers(path)
+    }
+
+    fn exists(&self, path: &Path) -> bool {
+        self.inner.exists(path)
+    }
+
+    fn read_maintenance(&self) -> Result<String, WorldError> {
+        self.inner.read_maintenance()
+    }
+
+    fn read_state_summary(
+        &self,
+        today: fieldbook_core::CivilDate,
+    ) -> Result<fieldbook_core::status::StateSummary, WorldError> {
+        if self.state_dir == self.inner.state_dir() {
+            self.inner.read_state_summary(today)
+        } else {
+            Ok(io::state_summary(&self.state_dir, today))
+        }
+    }
+
+    fn support_facts(&self) -> SupportFacts {
+        let selected =
+            io::Disk::with_state(self.inner.tree_root(), &self.state_dir).support_facts();
+        let inner_default =
+            io::Disk::with_state(self.inner.tree_root(), self.inner.state_dir()).support_facts();
+        let inner = self.inner.support_facts();
+        if inner == inner_default {
+            selected
+        } else {
+            inner
+        }
+    }
+
+    fn reset_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        if self.state_dir == self.inner.state_dir() {
+            self.inner.reset_drill(audited)
+        } else {
+            let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+            disk.reset_drill(audited)
+        }
+    }
+
+    fn remove_drill(&self, audited: &Audited) -> Result<(), WorldError> {
+        if self.state_dir == self.inner.state_dir() {
+            self.inner.remove_drill(audited)
+        } else {
+            let disk = io::Disk::with_state(self.inner.tree_root(), &self.state_dir);
+            disk.remove_drill(audited)
+        }
     }
 }
 

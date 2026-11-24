@@ -16,6 +16,7 @@ pub mod backup_folder;
 pub mod dirs;
 pub mod journal;
 pub mod out;
+pub mod policy;
 pub mod root;
 pub mod state;
 pub mod store_lease;
@@ -250,6 +251,27 @@ impl Disk {
     pub fn place(&self, path: &Path) -> fieldbook_core::labels::PlaceFacts {
         let _ = self;
         win::place(path)
+    }
+
+    /// Return the operating-system machine `ProgramData` directory (`None` off Windows).
+    #[must_use]
+    pub fn program_data(&self) -> Option<PathBuf> {
+        let _ = self;
+        win::program_data()
+    }
+
+    /// Return operating-system writer facts for `path` and its parent folder.
+    #[must_use]
+    pub fn writers(&self, path: &Path) -> fieldbook_core::policy::WriterFacts {
+        let _ = self;
+        win::policy_writers(path)
+    }
+
+    /// Return `true` when `path` exists as a file, directory, or symbolic link.
+    #[must_use]
+    pub fn exists(&self, path: &Path) -> bool {
+        let _ = self;
+        std::fs::symlink_metadata(path).is_ok()
     }
 
     /// Read `docs/maintenance.csv` from the repository root; the empty string when it is absent.

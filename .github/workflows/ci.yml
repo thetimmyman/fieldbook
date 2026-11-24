@@ -191,6 +191,9 @@ jobs:
       - name: Run shipped crate tests on Windows
         if: needs.changes.outputs.code == 'true'
         run: cargo nextest run --workspace --exclude xtask --locked --no-fail-fast
+      - name: Run feature-enabled policy tests on Windows
+        if: needs.changes.outputs.code == 'true'
+        run: cargo xtask policy-tests
       - name: Build and scan the development binary on Windows
         if: needs.changes.outputs.code == 'true'
         run: |

@@ -1130,3 +1130,91 @@ fn logging_adds_little() {
     let unlogged = start.elapsed();
     println!("5 logged searches: {logged:?}; 5 unlogged searches: {unlogged:?}");
 }
+
+#[test]
+fn search_logging_uses_current_marking_rules() {
+    let policy_allowing_np = r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Synthetic supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'SYNTH\Fieldbook-Readers'
+"#;
+    let parsed_allow = Policy::parse(policy_allowing_np, None).expect("parse allow policy");
+    let eff_allow =
+        EffectivePolicy::new(&PolicyState::Loaded(parsed_allow), &OwnerSettings::unset());
+
+    let tmp1 = corpus();
+    let world1 = TestWorld::new(tmp1.path());
+    world1.set_effective_policy(eff_allow);
+
+    let out1 = search(&world1, &["NP-0007 NDA", "synthetic"]);
+    let plain = unlogged(&["NP-0007 NDA", "synthetic"]);
+    assert_eq!(out1.code, plain.code);
+    assert_eq!(out1.stdout, plain.stdout);
+    assert!(
+        out1.stderr.is_empty(),
+        "unexpected warning: {}",
+        out1.stderr
+    );
+
+    let saved_rows = rows(&world1);
+    assert_eq!(saved_rows.len(), 1);
+    assert_eq!(saved_rows[0].labels.to_cell(), "np-0007|owner-supplied");
+
+    let saved_events = ask_events(&world1);
+    assert_eq!(saved_events.len(), 1);
+    let EventPayload::Ask {
+        labels: ev_labels, ..
+    } = &saved_events[0].payload
+    else {
+        panic!("expected ask event");
+    };
+    assert!(ev_labels.contains(&LabelId::parse("np-0007").expect("np-0007")));
+
+    // Removing np-0007 from state holds leaves the row unwritten with one warning and unchanged search results.
+    let policy_denying_state = r#"
+policy_schema = 1
+revision = 2
+
+[[label]]
+id = "np-0007"
+title = "Synthetic supplier terms"
+banner = "NP-0007"
+restricted = true
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied"]
+"#;
+    let parsed_deny = Policy::parse(policy_denying_state, None).expect("parse deny policy");
+    let eff_deny = EffectivePolicy::new(&PolicyState::Loaded(parsed_deny), &OwnerSettings::unset());
+
+    let tmp2 = corpus();
+    let world2 = TestWorld::new(tmp2.path());
+    world2.set_effective_policy(eff_deny);
+
+    let out2 = search(&world2, &["NP-0007 NDA", "synthetic"]);
+    assert_eq!(out2.code, plain.code);
+    assert_eq!(out2.stdout, plain.stdout);
+    assert_one_warning(&out2);
+    assert!(out2.stderr.contains("FB0412"), "{}", out2.stderr);
+    assert!(rows(&world2).is_empty());
+    assert!(ask_events(&world2).is_empty());
+}

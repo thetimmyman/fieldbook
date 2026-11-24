@@ -177,6 +177,18 @@ impl World for FaultyWorld {
         self.inner.effective_policy()
     }
 
+    fn program_data(&self) -> Option<std::path::PathBuf> {
+        self.inner.program_data()
+    }
+
+    fn writers(&self, path: &Path) -> fieldbook_core::policy::WriterFacts {
+        self.inner.writers(path)
+    }
+
+    fn exists(&self, path: &Path) -> bool {
+        self.inner.exists(path)
+    }
+
     fn stdin_is_terminal(&self) -> bool {
         self.inner.stdin_is_terminal()
     }

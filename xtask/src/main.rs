@@ -106,6 +106,7 @@ mod links;
 #[cfg(test)]
 mod literals;
 mod mark;
+mod policy_tests;
 mod ports_doc;
 mod print_count;
 mod proc;
@@ -161,6 +162,7 @@ const USAGE: &str = "usage: cargo xtask <command>
   extract --source VERSION --text FILE
                                     attach supplied UTF-8 text to a stored original of any type (method supplied)
   scale [--sizes 1,5,20] [--base FILE] [--bin PATH]   time check, build and search over synthetic Corpora (advisory; fails nothing)
+  policy-tests                      run the feature-enabled fieldbook policy tests (with Windows token/DACL provisioning on Windows)
   scans                             fail a socket type outside io/net* (NS-05) and a model name in a deterministic verb (DT-05)";
 
 fn main() -> ExitCode {
@@ -211,6 +213,7 @@ fn main() -> ExitCode {
         ["print-count", file] => print_count::command(&PathBuf::from(file)),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         ["scale", rest @ ..] => return scale::command(&root, rest),
+        ["policy-tests"] => policy_tests::command(&root),
         ["scans"] => return scans::command(&root),
         ["extract", "--source", version, "--text", file] => {
             extract::command_supplied(&root, version, &PathBuf::from(file))

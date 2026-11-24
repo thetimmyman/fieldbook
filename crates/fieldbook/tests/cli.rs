@@ -35,8 +35,6 @@ const NOT_BUILT: &[&str] = &[
     "ask",
     "ai status",
     "ai test",
-    "policy show",
-    "policy check",
     "label add",
     "label reapply",
     "label show",
