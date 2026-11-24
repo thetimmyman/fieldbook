@@ -33,7 +33,6 @@ const NOT_BUILT: &[&str] = &[
     "queue flag",
     "queue pin",
     "ask",
-    "ai status",
     "ai test",
     "label add",
     "label reapply",

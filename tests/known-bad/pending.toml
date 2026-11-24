@@ -42,10 +42,6 @@ code = "FB0836"
 card = "r2-company-ids"
 
 [[pending]]
-code = "FB0900"
-card = "ai-config-and-keys"
-
-[[pending]]
 code = "FB0901"
 card = "model-handoff-ask"
 

@@ -9,12 +9,14 @@
     reason = "io reads SOURCE_DATE_EPOCH and traverses input folders at the process boundary"
 )]
 
+pub mod ai_settings;
 pub mod asked;
 pub mod atomic;
 pub mod backup_classify;
 pub mod backup_folder;
 pub mod dirs;
 pub mod journal;
+pub mod keys;
 pub mod out;
 pub mod policy;
 pub mod root;
@@ -144,7 +146,7 @@ fn enumerate_folder_inner(
 /// and construct [`BuildInfo`] (`build-v0` step 2).
 #[must_use]
 pub fn build_info_from_env() -> BuildInfo {
-    let raw_epoch = std::env::var("SOURCE_DATE_EPOCH").ok();
+    let raw_epoch = std::env::var_os("SOURCE_DATE_EPOCH").and_then(|v| v.into_string().ok());
     let parsed_epoch = raw_epoch
         .as_deref()
         .map(str::trim)

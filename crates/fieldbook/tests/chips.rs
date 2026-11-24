@@ -44,7 +44,6 @@ fieldbook queue accept <proposal-id>
 fieldbook queue reject <proposal-id> --reason <word>
 fieldbook queue flag
 fieldbook ask "<question>"
-fieldbook ai status
 fieldbook decide <file>
 fieldbook build --overlay
 fieldbook sync --dry-run

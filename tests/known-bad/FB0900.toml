@@ -1,0 +1,6 @@
+verb = "ai status"
+state = "state-known-bad/FB0900"
+
+[expect]
+code = "FB0900"
+status = 2

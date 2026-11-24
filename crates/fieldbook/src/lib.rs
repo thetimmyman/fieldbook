@@ -11,6 +11,7 @@
 
 pub mod adapters;
 pub mod add;
+pub mod ai_status;
 pub mod asked;
 pub mod audit;
 pub mod backup;
@@ -25,6 +26,7 @@ pub mod policy;
 pub mod report;
 pub mod restore;
 pub mod search;
+pub mod settings;
 pub mod since;
 pub mod status;
 pub mod verbs;
@@ -365,6 +367,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             | Commands::Check(_)
             | Commands::Build(_)
             | Commands::Search(_)
+            | Commands::Ai(_)
     );
 
     let mut outcome = policy::with_active_policy(&policy_ctx, || match parsed.command {
@@ -421,6 +424,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
         Commands::Policy(policy_args) => {
             policy::run(&policy_args, &policy_ctx, &state_dir, &run_world)
         }
+        Commands::Ai(ai_args) => ai_status::run(&ai_args, &policy_ctx, &state_dir, &run_world),
     });
 
     if !is_closed_warn_exempt && let Some(warn_line) = policy_ctx.closed_warning_line() {

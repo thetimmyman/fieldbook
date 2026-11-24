@@ -1,0 +1,45 @@
+# Synthetic policy fixture for ai-status tests (no real endpoints or company data).
+
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Synthetic supplier terms (fixture)"
+banner = "NP-0007: restricted to the named counterparty"
+restricted = true
+
+[[store]]
+id = "overlay"
+holds = ["public", "unlabelled", "np-0007"]
+default = ["np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "model"
+name = "work"
+url = "https://models.example.test/v1"
+allow = ["public", "np-0007"]
+expires = 2099-12-31
+keep_calls_days_max = 14
+ref = "CHG-0101"
+
+[[destination]]
+kind = "handoff"
+name = "approved-assistant"
+allow = ["public", "owner-supplied", "np-0007"]
+ref = "CHG-0102"
+
+[[destination]]
+kind = "mcp"
+allow = ["public"]
+clients = ["0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"]
+
+[audit]
+sink = "/srv/company/audit"
+max_unshipped_hours = 24

@@ -126,6 +126,13 @@ Show the active company policy or validate a draft policy file
 | Argument / flag | Value | Default | Help |
 |---|---|---|---|
 
+### `fieldbook ai`
+
+Inspect AI settings, adapter readiness, policy allow sets and key state
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+
 ## Exit codes
 
 | Code | Meaning |
@@ -219,6 +226,146 @@ Show the active company policy or validate a draft policy file
     "needs_extraction": 1
   },
   "exit": 1
+}
+```
+
+### `ai-status`
+
+```json
+{
+  "report_version": 1,
+  "policy": "floor",
+  "adapters": [
+    {
+      "port": "index",
+      "adapter": "bm25f@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "extractor",
+      "adapter": "plain@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "classifier",
+      "adapter": "rules@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "correlator",
+      "adapter": "exact-ids+bm25@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "admit",
+      "adapter": "corpus-add@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "backup",
+      "adapter": "folder@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "authz",
+      "adapter": "policy-readers@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "store",
+      "adapter": "folder@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    }
+  ],
+  "exit": 0
 }
 ```
 

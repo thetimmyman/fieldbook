@@ -4,6 +4,7 @@
 use std::fmt::Write as _;
 
 use fieldbook::adapters::registry::{ADAPTERS, Row};
+use fieldbook::settings::KEY_TABLE;
 use fieldbook_core::ports::Port;
 use fieldbook_core::ports::templates::TEMPLATES;
 
@@ -82,6 +83,15 @@ fn render_rows(rows: &[Row]) -> String {
             format!("{:?}", t.purpose).to_ascii_lowercase(),
             parts,
             if t.schema.is_some() { "yes" } else { "none" },
+        );
+    }
+    out.push_str("\n## Settings keys\n\n");
+    out.push_str("| Table | Key | Type | Default | Adapter |\n|---|---|---|---|---|\n");
+    for spec in KEY_TABLE {
+        let _ = writeln!(
+            out,
+            "| {} | {} | {} | {} | {} |",
+            spec.table, spec.key, spec.ty, spec.default, spec.adapter,
         );
     }
     out
