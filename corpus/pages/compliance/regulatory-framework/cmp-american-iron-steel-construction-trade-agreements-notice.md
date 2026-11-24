@@ -23,7 +23,7 @@ Explains what an offeror does when its offer includes foreign construction mater
 | Instrument | Codified FAR [@CL-CMP-5412] |
 | Codified citation | FAR 52.225-24, basic provision [@CL-CMP-5412] |
 | RFO citation | RFO FAR 52.225-24 is marked reserved [@CL-CMP-0373] |
-| Edition date | Not established. |
+| Edition date | JAN 2021 [@CL-CMP-10069] |
 | Text status | Final [@CL-CMP-5412] |
 | Applies to | Offerors that seek a determination of inapplicability or an exception for foreign construction material [@CL-CMP-5412] |
 
@@ -68,6 +68,7 @@ Whether each solicitation includes this provision and what supporting data goes 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

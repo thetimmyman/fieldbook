@@ -25,7 +25,7 @@ Explains the foreign-concern version of the disclosure and consistency clause.
 | Instrument | Codified FAR [@CL-CMP-1601] |
 | Codified citation | FAR 52.230-4 [@CL-CMP-1601] |
 | RFO citation | RFO FAR 52.230-4 [@CL-CMP-0276] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CMP-10063] |
 | Text status | Final [@CL-CMP-1601] |
 | Applies to | Contracts that include the foreign-concerns clause [@CL-CMP-1601] |
 
@@ -56,6 +56,7 @@ Which business units sit in a foreign concern, and whether a Disclosure Statemen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: consistency: joined the follow-consistently duty to its cited sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited comparison and glosses; restated the clause duties as the quotes read.

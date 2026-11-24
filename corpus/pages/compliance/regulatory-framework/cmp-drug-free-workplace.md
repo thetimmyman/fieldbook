@@ -23,7 +23,7 @@ Explains the steps a contractor other than an individual must take to keep a dru
 | Instrument | Codified FAR [@CL-CMP-5434] |
 | Codified citation | FAR 52.226-7 [@CL-CMP-5434] |
 | RFO citation | RFO FAR 52.226-7 [@CL-CMP-1083] |
-| Edition date | Not established. |
+| Edition date | May 2024 [@CL-CMP-1083] |
 | Text status | Final [@CL-CMP-5434] |
 | Applies to | Contractors other than an individual [@CL-CMP-5434]; directly engaged is defined to include all direct cost employees and any other Contractor employee who has other than a minimal impact or involvement in contract performance [@CL-CMP-5440] |
 
@@ -66,6 +66,7 @@ How a conviction notice reaches the contracting officer and who owns the awarene
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned statement publication, subdivision (b)(4)(ii) notice references and the statutory citation in the controlled substance definition with the cited quotes.

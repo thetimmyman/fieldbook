@@ -25,7 +25,7 @@ Sets out how the DoD clause on special definitions of Government property classi
 | Instrument | Codified DFARS [@CL-CMP-9070] |
 | Codified citation | DFARS 252.237-7018 [@CL-CMP-9070] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-CMP-10148] |
 | Text status | Final [@CL-CMP-9070] |
 | Applies to | Contracts that include the clause, for articles delivered to the contractor to be laundered or dry-cleaned [@CL-CMP-9070; @CL-CMP-9072] |
 
@@ -60,6 +60,7 @@ Which laundry or dry-cleaning contracts this company performs, and how the artic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example and removed meta commentary on unstated elements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special definitions of Government property in laundry and dry-cleaning contracts.

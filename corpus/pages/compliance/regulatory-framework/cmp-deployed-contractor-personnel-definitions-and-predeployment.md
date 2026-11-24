@@ -25,7 +25,7 @@ Shows who the deployed-forces clause covers, what emergency medical care and oth
 | Instrument | Codified DFARS [@CL-CMP-4149] |
 | Codified citation | DFARS 252.225-7040 [@CL-CMP-4149] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Aug 2025 [@CL-CMP-10116] |
 | Text status | Final [@CL-CMP-4149] |
 | Applies to | Contracts that include the clause, for CAAF and non-CAAF performing in a designated operational area outside the United States in one of the listed operations [@CL-CMP-4149; @CL-CMP-4150] |
 
@@ -80,6 +80,7 @@ Which contracts carry the clause, which personnel are CAAF, who keeps the tracke
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened the covered operations, support, medical care, letter of authorization and personnel data statements to their cited text.

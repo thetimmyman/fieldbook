@@ -24,7 +24,7 @@ Shows what agencies must do when notified that a contractor is in bankruptcy pro
 | Instrument | Codified FAR [@CL-CMP-2585] |
 | Codified citation | FAR 42.900 [@CL-CMP-9670; @CL-CMP-9671; @CL-CMP-9672]; FAR 42.901 [@CL-CMP-9673]; FAR 42.902, FAR 42.903 and FAR 52.242-13 [@CL-CMP-2585; @CL-CMP-2589; @CL-CMP-2650] |
 | RFO citation | RFO FAR 42.700 [@CL-CMP-8955; @CL-CMP-7372]; RFO FAR 42.701 [@CL-CMP-7373]; RFO FAR 42.702 [@CL-CMP-6704; @CL-CMP-6705; @CL-CMP-6706; @CL-CMP-6707]; RFO FAR 42.703 [@CL-CMP-6708]; RFO FAR 52.242-13 [@CL-CMP-6709; @CL-CMP-6710; @CL-CMP-6711; @CL-CMP-6712; @CL-CMP-6713] |
-| Edition date | Not established. |
+| Edition date | Jul 1995 [@CL-CMP-6709] |
 | Text status | Final [@CL-CMP-2585] |
 | Applies to | Agencies notified of bankruptcy proceedings [@CL-CMP-2585]. Solicitations and contracts exceeding the simplified acquisition threshold, for the Bankruptcy clause [@CL-CMP-2589]. A contractor under the clause that enters into proceedings relating to bankruptcy, whether voluntary or involuntary [@CL-CMP-2650] |
 
@@ -57,6 +57,7 @@ Which executed contracts contain the Bankruptcy clause, and who confirms its app
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included agency office examples and the court in which the petition was filed, restored full qualifiers in How it works, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added including those physically completed or terminated to the claim-review action and softened covers to includes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.700 scope and 42.701 general duty.

@@ -24,7 +24,7 @@ Sets out what an offeror must list about hazardous material it will deliver, whe
 | Instrument | Codified FAR [@CL-CMP-5168] |
 | Codified citation | FAR 52.223-3 [@CL-CMP-5168] |
 | RFO citation | RFO FAR 52.223-3 [@CL-CMP-1264; @CL-CMP-1265] |
-| Edition date | Not established. |
+| Edition date | FEB 2021 [@CL-CMP-10211] |
 | Text status | Final [@CL-CMP-5168] |
 | Applies to | Offerors and contractors under contracts that carry the clause, for hazardous material to be delivered [@CL-CMP-5169] |
 
@@ -77,6 +77,7 @@ Whether the company can show, item by item, which delivered materials are hazard
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts and restated list update and sheet duties from the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on environmental, radioactive material and hazard label clauses.

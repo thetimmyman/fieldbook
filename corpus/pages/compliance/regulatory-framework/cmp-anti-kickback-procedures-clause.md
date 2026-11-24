@@ -24,7 +24,7 @@ Shows the acts the clause says are prohibited, the procedures and written report
 | Instrument | Codified FAR [@CL-CMP-2608] |
 | Codified citation | FAR 52.203-7 [@CL-CMP-2608] |
 | RFO citation | RFO FAR 52.203-7 [@CL-CMP-0377] |
-| Edition date | Not established. |
+| Edition date | Jun 2020 [@CL-CMP-0377] |
 | Text status | Final [@CL-CMP-2608] |
 | Applies to | Solicitations and contracts exceeding $200,000, other than those for commercial products or commercial services [@CL-CMP-2682] |
 
@@ -55,6 +55,7 @@ Which contracts and subcontracts carry the clause, and who owns the procedures a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited characterization.

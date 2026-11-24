@@ -25,7 +25,7 @@ Shows how offers are priced under the count-of-articles and bulk weight instruct
 | Instrument | Codified DFARS [@CL-CMP-4685; @CL-CMP-4687; @CL-CMP-4689] |
 | Codified citation | DFARS 252.237-7012, DFARS 252.237-7013 and DFARS 252.237-7017 [@CL-CMP-4685; @CL-CMP-4687; @CL-CMP-4689] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7012: DEC 1991 [@CL-CMP-10149]; DFARS 252.237-7013: DEC 1991 [@CL-CMP-10150]; DFARS 252.237-7017: DEC 1991 [@CL-CMP-10151] |
 | Text status | Final [@CL-CMP-4685; @CL-CMP-4687; @CL-CMP-4689] |
 | Applies to | Solicitations that include the count-of-articles or bulk weight instruction to offerors, and contracts that include the Individual Laundry clause [@CL-CMP-4685; @CL-CMP-4687; @CL-CMP-4689] |
 
@@ -54,6 +54,7 @@ Which solicitations and contracts carry these laundry instructions and clauses, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated inspection, outer garment and bundle wording; cut uncited contrasts.

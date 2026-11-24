@@ -24,7 +24,7 @@ Shows the oversight the Contracting Officer keeps over the work in cost-reimburs
 | Instrument | Codified FAR [@CL-CMP-4924; @CL-CMP-4926] |
 | Codified citation | FAR 52.236-18 and FAR 52.236-24 through 52.236-26 [@CL-CMP-4924; @CL-CMP-4927; @CL-CMP-5121; @CL-CMP-5123] |
 | RFO citation | RFO FAR 52.236-18 [@CL-CMP-0946]; RFO FAR 52.236-24 [@CL-CMP-0948]; RFO FAR 52.236-25 [@CL-CMP-0950; @CL-CMP-0994]; no RFO equivalent for FAR 52.236-26, which the RFO text prints as reserved [@CL-CMP-0995] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-18: Apr 1984 [@CL-CMP-0946]; FAR 52.236-24: Apr 1984 [@CL-CMP-0948] |
 | Text status | Final [@CL-CMP-4924] |
 | Applies to | Contracts where the prescriptions direct insertion, including cost-reimbursement construction and architect-engineer contracts [@CL-CMP-4925; @CL-CMP-4927; @CL-CMP-5121; @CL-CMP-5123] |
 
@@ -59,6 +59,7 @@ Which cost-reimbursement construction contracts and design contracts sit in the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

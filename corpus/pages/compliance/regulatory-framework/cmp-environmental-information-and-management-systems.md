@@ -24,7 +24,7 @@ Collects three separate environmental duties from three clauses: the information
 | Instrument | Codified FAR [@CL-CMP-5181] |
 | Codified citation | FAR 52.223-5, FAR 52.223-10 and FAR 52.223-19 [@CL-CMP-5181; @CL-CMP-5185; @CL-CMP-5187] |
 | RFO citation | RFO FAR 52.223-5 [@CL-CMP-1105]; RFO FAR 52.223-10 and RFO FAR 52.223-19 print as [Reserved] [@CL-CMP-1117; @CL-CMP-1118] |
-| Edition date | Not established. |
+| Edition date | FAR 52.223-5: May 2024 [@CL-CMP-1105]; FAR 52.223-10: MAY 2024 [@CL-CMP-10192]; FAR 52.223-19: MAY 2011 [@CL-CMP-10193] |
 | Text status | Final [@CL-CMP-5181] |
 | Applies to | Contractors whose contracts carry the pollution prevention and right-to-know clause, the waste reduction clause or the environmental management systems clause [@CL-CMP-5182; @CL-CMP-5185; @CL-CMP-5187] |
 
@@ -59,6 +59,7 @@ Which contracts carry each of these clauses, which sites are Federal facilities,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced meta-wording for Executive Order 14057, Section 6002 of the Resource Conservation and Recovery Act, and 40 CFR 372.65 with the cited statutory and regulatory citations, and completed the cited list items.

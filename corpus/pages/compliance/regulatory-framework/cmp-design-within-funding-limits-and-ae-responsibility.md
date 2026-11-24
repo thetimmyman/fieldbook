@@ -24,7 +24,7 @@ Shows the two design clauses that hold an architect-engineer design inside the c
 | Instrument | Codified FAR [@CL-CMP-4913; @CL-CMP-4919] |
 | Codified citation | FAR 52.236-22 and FAR 52.236-23 [@CL-CMP-4913; @CL-CMP-4919] |
 | RFO citation | RFO FAR 52.236-22 [@CL-CMP-1052]; RFO FAR 52.236-23 [@CL-CMP-1063] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-22: APR 1984 [@CL-CMP-10118]; FAR 52.236-23: APR 1984 [@CL-CMP-10119] |
 | Text status | Final [@CL-CMP-4913] |
 | Applies to | Contracts where the prescriptions in FAR 36.609-1(c) and FAR 36.609-2(b) direct insertion of the clauses [@CL-CMP-4913; @CL-CMP-4919] |
 
@@ -63,6 +63,7 @@ Which design entities in the finance remit hold these clauses, and who confirms 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

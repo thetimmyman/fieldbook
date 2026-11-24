@@ -25,7 +25,7 @@ Shows the later duties in the deployed-forces clause: military clothing, weapons
 | Instrument | Codified DFARS [@CL-CMP-4174] |
 | Codified citation | DFARS 252.225-7040 [@CL-CMP-4174] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Aug 2025 [@CL-CMP-10117] |
 | Text status | Final [@CL-CMP-4174] |
 | Applies to | Contracts that include the clause, and subcontracts when subcontractor personnel support deployed forces in one of the listed operations [@CL-CMP-4174; @CL-CMP-8617] |
 
@@ -72,6 +72,7 @@ Whether any personnel are authorized to carry weapons, who holds next of kin con
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the last subcontract operation and the last weapons training item and tightened weapons, evacuation and change statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deployed-forces weapons, clothing, evacuation, recovery, mortuary affairs, changes and flowdown.

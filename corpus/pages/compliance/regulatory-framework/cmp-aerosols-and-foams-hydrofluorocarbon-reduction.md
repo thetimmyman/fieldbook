@@ -24,7 +24,7 @@ Sets out what the aerosols clause and the foams clause require of a contractor t
 | Instrument | Codified FAR [@CL-CMP-5207] |
 | Codified citation | FAR 52.223-20 and FAR 52.223-21 [@CL-CMP-5207; @CL-CMP-5211] |
 | RFO citation | Reserved in the RFO text: the RFO text lists RFO FAR 52.223-20 and RFO FAR 52.223-21 as reserved [@CL-CMP-0349; @CL-CMP-0350] |
-| Edition date | Not established. |
+| Edition date | FAR 52.223-20: MAY 2024 [@CL-CMP-10066]; FAR 52.223-21: MAY 2024 [@CL-CMP-10067] |
 | Text status | Final [@CL-CMP-5207] |
 | Applies to | Contractors whose contracts carry the aerosols clause or the foams clause [@CL-CMP-5207; @CL-CMP-5211] |
 
@@ -63,6 +63,7 @@ Whether product and process records show which aerosols and foams use high globa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

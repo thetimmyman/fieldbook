@@ -25,7 +25,7 @@ Shows what the essential-services clause makes a contractor do in a crisis, how 
 | Instrument | Codified DFARS [@CL-CMP-4389] |
 | Codified citation | DFARS 252.237-7023 [@CL-CMP-4389] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | OCT 2010 [@CL-CMP-10109] |
 | Text status | Final [@CL-CMP-4389] |
 | Applies to | Contracts that include the clause, which is used as prescribed in DFARS 237.7603(a), where the Government has identified contractor services as essential contractor services [@CL-CMP-4389; @CL-CMP-4314] |
 
@@ -54,6 +54,7 @@ Which contracts carry the clause, which services sit in the essential-services a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: worked example and contrast wording tied to cited text.

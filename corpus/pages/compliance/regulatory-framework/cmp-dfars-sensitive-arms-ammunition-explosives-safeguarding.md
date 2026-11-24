@@ -25,7 +25,7 @@ Shows which items the clause covers, the manual that governs their physical secu
 | Instrument | Codified DFARS [@CL-CMP-4529] |
 | Codified citation | DFARS 252.223-7007 [@CL-CMP-4529] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CMP-10171] |
 | Text status | Final [@CL-CMP-4529] |
 | Applies to | Contracts that include the clause, used as prescribed in DFARS 223.7203 [@CL-CMP-4560] |
 
@@ -54,6 +54,7 @@ Which contracts carry the clause, which AA&E items are listed on each, and which
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced meta wording in applies-to row; replaced contrast sentences with cited statements and pointers.

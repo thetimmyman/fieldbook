@@ -25,7 +25,7 @@ Shows which offerors DoD cannot award a consulting-related contract to, what the
 | Instrument | Codified DFARS [@CL-CMP-4091] |
 | Codified citation | DFARS 252.209-7012 [@CL-CMP-4091] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Oct 2025 [@CL-CMP-10108] |
 | Text status | Final [@CL-CMP-4091] |
 | Applies to | Offerors for a contract assigned a code beginning with 5416, under the provision as prescribed in DFARS 209.572(e) [@CL-CMP-4093; @CL-CMP-4091] |
 
@@ -60,6 +60,7 @@ Which subsidiaries and affiliates hold consulting contracts with covered foreign
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

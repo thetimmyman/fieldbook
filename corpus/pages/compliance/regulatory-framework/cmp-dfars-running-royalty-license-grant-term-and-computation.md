@@ -25,7 +25,7 @@ Shows the license granted under a running royalty arrangement, how long it lasts
 | Instrument | Codified DFARS [@CL-CMP-4258] |
 | Codified citation | DFARS 252.227-7006, 252.227-7007 and 252.227-7008 [@CL-CMP-4258; @CL-CMP-4260; @CL-CMP-4261] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 1984 [@CL-CMP-10169] |
 | Text status | Final [@CL-CMP-4259] |
 | Applies to | Patent releases, license agreements and assignments [@CL-CMP-4258] |
 
@@ -54,6 +54,7 @@ Which patent licenses in the contract set carry the running royalty clauses, and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the actor for the report, restated rate forms, cut uncited contrast sentences.

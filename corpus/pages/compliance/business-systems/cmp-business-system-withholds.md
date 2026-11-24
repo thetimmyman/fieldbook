@@ -25,7 +25,7 @@ Shows how much a DoD contracting officer withholds from payments when a contract
 | Instrument | DoD class deviation [@CL-CMP-0004] |
 | Codified citation | DFARS 252.242-7005(e)(1) [@CL-CMP-0004] |
 | RFO citation | Class Deviation 2026-O0050, DFARS 252.242-7998(e)(1) [@CL-CMP-0004] |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-CMP-10051] |
 | Text status | Deviation text [@CL-CMP-0004] |
 | Applies to | DoD contracts with the business-systems clause that are subject to the Cost Accounting Standards, from 2026-03-16 [@CL-CMP-0004] |
 
@@ -52,6 +52,7 @@ Which business systems are approved, and whether any determination or withhold i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the contracting officer, the written direction, the 5 percent rate and the contract types for the interim cost voucher withhold.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the codified clause's withholding caps of 5 and 10 percent, the reduction to 2 percent and its two conditions, labelled as codified text.

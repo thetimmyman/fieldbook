@@ -25,7 +25,7 @@ Shows the written code duty and the written disclosure duty in the clause, the i
 | Instrument | Codified FAR [@CL-CMP-2625] |
 | Codified citation | FAR 52.203-13 [@CL-CMP-2625] |
 | RFO citation | RFO FAR 52.203-13 [@CL-CMP-0599] |
-| Edition date | Not established. |
+| Edition date | Nov 2021 [@CL-CMP-0599] |
 | Text status | Final [@CL-CMP-2625] |
 | Applies to | Solicitations and contracts expected to exceed $7.5 million with a performance period of 120 days or more, with two exceptions for the control system paragraph [@CL-CMP-2675; @CL-CMP-2628] |
 
@@ -56,6 +56,7 @@ Which contracts carry the clause, which were won as a small business concern or 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: timely disclosure item cited; uncited inferences and contrasts replaced.

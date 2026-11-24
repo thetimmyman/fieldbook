@@ -25,7 +25,7 @@ Shows the license the Government receives in technical data for commercial produ
 | Instrument | Codified DFARS [@CL-CMP-3783] |
 | Codified citation | DFARS 252.227-7015 [@CL-CMP-3783] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-CMP-10185] |
 | Text status | Final [@CL-CMP-3783] |
 | Applies to | Technical data on any portion of a commercial product or commercial service developed exclusively at private expense [@CL-CMP-3783] |
 
@@ -56,6 +56,7 @@ Which products on executed contracts qualify as commercial products or services,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the actor lead-in of paragraph (e) for release from liability.

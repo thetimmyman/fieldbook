@@ -25,7 +25,7 @@ Shows what an audit-support firm represents and discloses about disciplinary pro
 | Instrument | Codified DFARS [@CL-CMP-4392] |
 | Codified citation | DFARS 252.237-7025 and DFARS 252.237-7026 [@CL-CMP-4392; @CL-CMP-4393] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7025: OCT 2022 [@CL-CMP-10076]; DFARS 252.237-7026: OCT 2022 [@CL-CMP-10077] |
 | Text status | Final [@CL-CMP-4392] |
 | Applies to | Offerors responding to a solicitation that includes the preaward provision, which is used as prescribed in DFARS 237.270(e)(3), and contractors under contracts that include the postaward clause, which is used as prescribed in DFARS 237.270(e)(4) [@CL-CMP-4392; @CL-CMP-4393] |
 
@@ -54,6 +54,7 @@ Which offers and contracts carry these texts, and who tracks proceedings against
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

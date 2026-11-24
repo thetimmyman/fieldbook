@@ -25,7 +25,7 @@ Shows which hotline posters a contractor displays on DoD contracts, where, and h
 | Instrument | Codified DFARS [@CL-CMP-4077] |
 | Codified citation | DFARS 252.203-7004 [@CL-CMP-4077] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10144] |
 | Text status | Final [@CL-CMP-4077] |
 | Applies to | Contracts that include the clause, used as prescribed in DFARS 203.1004(b)(2)(ii) [@CL-CMP-4077] |
 
@@ -58,6 +58,7 @@ Which contracts carry the DFARS poster clause, and which sites and subcontracts 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added to contractor personnel; stated foreign language and subcontract exception directly; cut uncited contrasts.

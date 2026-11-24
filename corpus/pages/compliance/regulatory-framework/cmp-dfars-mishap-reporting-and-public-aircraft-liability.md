@@ -25,7 +25,7 @@ Shows what a contractor must report after a mishap, how it must cooperate in an 
 | Instrument | Codified DFARS [@CL-CMP-4595; @CL-CMP-4598] |
 | Codified citation | DFARS 252.228-7005 [@CL-CMP-4595]; DFARS 252.228-7007 [@CL-CMP-4598] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.228-7005: NOV 2019 [@CL-CMP-10153]; DFARS 252.228-7007: MAR 2023 [@CL-CMP-10154] |
 | Text status | Final [@CL-CMP-4595; @CL-CMP-4598] |
 | Applies to | Contracts with the mishap clause, for aircraft, missiles and space launch vehicles being manufactured, modified, repaired, or overhauled in connection with the contract [@CL-CMP-4595], and contracts with the public aircraft clause, for performance conducted as public aircraft or state aircraft operations [@CL-CMP-4598] |
 
@@ -54,6 +54,7 @@ Which contracts involve aircraft, missiles or space launch vehicles, or public a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named statutes and issuances, cited rare-circumstance lead-in, restated liability allocation; cut uncited contrasts.

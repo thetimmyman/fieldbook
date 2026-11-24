@@ -25,7 +25,7 @@ Shows how much of a construction contract the contractor must perform itself, wh
 | Instrument | Codified FAR [@CL-CMP-4854] |
 | Codified citation | FAR 52.236-1, FAR 52.236-6 and FAR 52.236-19 [@CL-CMP-4854; @CL-CMP-4856; @CL-CMP-4857] |
 | RFO citation | RFO FAR 52.236-6 [@CL-CMP-0846]; no RFO equivalent for FAR 52.236-1 and FAR 52.236-19 [@CL-CMP-0847; @CL-CMP-0848] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-1: APR 1984 [@CL-CMP-10103]; FAR 52.236-6: APR 1984 [@CL-CMP-10104]; FAR 52.236-19: APR 1984 [@CL-CMP-10105] |
 | Text status | Final [@CL-CMP-4854] |
 | Applies to | Contracts that include the clauses. The organization and direction clause is prescribed for solicitations and contracts when a cost-reimbursement construction contract is contemplated [@CL-CMP-5024] |
 
@@ -68,6 +68,7 @@ Which construction contracts carry these clauses, what percentage each states, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: performance, superintendence and worked example wording tied to cited text.

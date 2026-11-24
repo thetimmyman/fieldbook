@@ -23,7 +23,7 @@ Explains the greenhouse gas disclosure representation an offeror completes and t
 | Instrument | Codified FAR [@CL-CMP-5447] |
 | Codified citation | FAR 52.223-22 and FAR 52.223-23 [@CL-CMP-5447; @CL-CMP-5452] |
 | RFO citation | RFO FAR 52.223-23 [@CL-CMP-1250; @CL-CMP-1254]; no RFO equivalent for FAR 52.223-22, which the RFO text lists as reserved [@CL-CMP-1249] |
-| Edition date | Not established. |
+| Edition date | FAR 52.223-22: DEC 2016 [@CL-CMP-10209]; FAR 52.223-23: MAY 2024 [@CL-CMP-10210] |
 | Text status | Final [@CL-CMP-5447] |
 | Applies to | Offerors completing the representation, and contractors supplying the sustainable products and services their contract requires [@CL-CMP-5447; @CL-CMP-5452] |
 
@@ -66,6 +66,7 @@ Whether last year's award total crosses the reporting threshold and which contra
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

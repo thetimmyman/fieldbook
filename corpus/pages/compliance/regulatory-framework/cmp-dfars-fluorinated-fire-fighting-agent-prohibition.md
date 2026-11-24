@@ -25,7 +25,7 @@ Shows what the clause bars the contractor from providing, the definition it uses
 | Instrument | Codified DFARS [@CL-CMP-4539] |
 | Codified citation | DFARS 252.223-7009 [@CL-CMP-4539] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 2024 [@CL-CMP-10138] |
 | Text status | Final [@CL-CMP-4539] |
 | Applies to | Contracts with the clause, used as prescribed in DFARS 223.7404 [@CL-CMP-4564] |
 
@@ -52,6 +52,7 @@ Which contracts carry the clause, and which fire-fighting agents the company or 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited prescription section; cut uncited contrasts.
