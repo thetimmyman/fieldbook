@@ -25,7 +25,7 @@ Shows when the Government may exercise the foreign military sales option and the
 | Instrument | Codified DFARS [@CL-CTF-1926; @CL-CTF-1928] |
 | Codified citation | DFARS 252.217-7000 and DFARS 252.217-7001 [@CL-CTF-1926; @CL-CTF-1928] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7000: NOV 2014 [@CL-CTF-9652]; DFARS 252.217-7001: DEC 2018 [@CL-CTF-9653] |
 | Text status | Final [@CL-CTF-1926] |
 | Applies to | Contracts that include the foreign military sales option clause or the surge option clause [@CL-CTF-1926; @CL-CTF-1928] |
 
@@ -56,5 +56,6 @@ Which executed contracts carry either clause or Alternate I, what country, line 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts; restated and/or options, dispute scope and continued performance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the foreign military sales option and the surge option.

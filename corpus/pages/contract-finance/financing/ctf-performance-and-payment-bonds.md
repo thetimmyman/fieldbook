@@ -24,7 +24,7 @@ Shows when performance and payment bonds are required, the penal amounts, when t
 | Instrument | Codified FAR [@CL-CTF-2489] |
 | Codified citation | FAR 52.228-15 and FAR 52.228-16 [@CL-CTF-2489; @CL-CTF-2493] |
 | RFO citation | RFO FAR 52.228-15 and RFO FAR 52.228-16 [@CL-CTF-1046; @CL-CTF-1099] |
-| Edition date | Not established. |
+| Edition date | FAR 52.228-15: Jun 2020 [@CL-CTF-1046]; FAR 52.228-16: Nov 2006 [@CL-CTF-1099] |
 | Text status | Final [@CL-CTF-2489] |
 | Applies to | Contracts with the construction bonds clause or the other than construction bonds clause [@CL-CTF-2489; @CL-CTF-2493] |
 
@@ -69,6 +69,7 @@ Which contracts require bonds, with the threshold, penal percentages and bond de
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and dual codified-on-RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

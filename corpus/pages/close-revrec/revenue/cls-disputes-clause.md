@@ -24,7 +24,7 @@ Shows how the disputes clause defines a claim, when a claim must be certified an
 | Instrument | Codified FAR [@CL-CLS-1102] |
 | Codified citation | FAR 52.233-1 [@CL-CLS-1102] |
 | RFO citation | RFO FAR 52.233-1 [@CL-CLS-0085] |
-| Edition date | Not established. |
+| Edition date | MAY 2014 [@CL-CLS-1628] |
 | Text status | Final [@CL-CLS-1102] |
 | Applies to | Contracts containing the Disputes clause [@CL-CLS-1102] |
 
@@ -63,6 +63,7 @@ Who certifies claims for the company, and where executed contracts showing the d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: disputes clause: conversion of routine requests, certification exception and defective-certification interest added.
 - COMPATIBLE_EXTENSION, 2026-10-31: decision periods, performance duty and findings stated as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -24,7 +24,7 @@ Shows the form and amount of a bid guarantee, when it is returned or used, when 
 | Instrument | Codified FAR [@CL-CTF-2471] |
 | Codified citation | FAR 52.228-1, FAR 52.228-2 and FAR 52.228-12 [@CL-CTF-2471; @CL-CTF-2476; @CL-CTF-2479] |
 | RFO citation | RFO FAR 52.228-1(a) [@CL-CTF-0839]; RFO FAR 52.228-1(b) [@CL-CTF-0840; @CL-CTF-0841]; RFO FAR 52.228-1(c) [@CL-CTF-0842]; RFO FAR 52.228-1(d) [@CL-CTF-0843]; RFO FAR 52.228-1(e) [@CL-CTF-0844]; RFO FAR 52.228-2 [@CL-CTF-0845; @CL-CTF-0846; @CL-CTF-0847; @CL-CTF-0848]; RFO FAR 52.228-12 [@CL-CTF-0849; @CL-CTF-0883] |
-| Edition date | Not established. |
+| Edition date | FAR 52.228-1: Sep 1996 [@CL-CTF-0839]; FAR 52.228-2: OCT 1997 [@CL-CTF-9712]; FAR 52.228-12: DEC 2022 [@CL-CTF-9713] |
 | Text status | Final [@CL-CTF-2471] |
 | Applies to | Solicitations and contracts that contain the bid guarantee provision, the additional bond security clause or the prospective subcontractor request clause [@CL-CTF-2471; @CL-CTF-2476; @CL-CTF-2479] |
 
@@ -67,6 +67,7 @@ Which solicitations and contracts carry these clauses, with the guarantee percen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the bid guarantee and additional bond security wording with the cited paragraphs.

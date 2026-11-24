@@ -25,7 +25,7 @@ Shows which contractors the DoD rate clause changes the progress payment and liq
 | Instrument | Codified DFARS [@CL-CTF-1810] |
 | Codified citation | DFARS 252.232-7004 [@CL-CTF-1810]; DFARS 252.232-7002 [@CL-CTF-1811] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.232-7004: OCT 2014 [@CL-CTF-9663]; DFARS 252.232-7002: MAY 2023 [@CL-CTF-9664] |
 | Text status | Final [@CL-CTF-1810] |
 | Applies to | Small business concerns, for the rate change [@CL-CTF-1810]; contracts that include foreign military sales requirements, for the separate requests [@CL-CTF-1811] |
 
@@ -56,6 +56,7 @@ Which progress payment rate applies to the company and whether any contract carr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated the FMS duties as all required.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed added only on small business rate change.

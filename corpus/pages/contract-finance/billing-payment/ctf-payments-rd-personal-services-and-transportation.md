@@ -25,7 +25,7 @@ Shows what the Government pays under the fixed-price research and development, p
 | Instrument | Codified FAR [@CL-CTF-2001; @CL-CTF-2003; @CL-CTF-2005] |
 | Codified citation | FAR 52.232-2, FAR 52.232-3 and FAR 52.232-4 [@CL-CTF-2001; @CL-CTF-2003; @CL-CTF-2005] |
 | RFO citation | RFO FAR 52.232-2 [@CL-CTF-0541]; RFO FAR 52.232-3 [@CL-CTF-0543]; RFO FAR 52.232-4 [@CL-CTF-0545] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-2: Apr 1984 [@CL-CTF-0541]; FAR 52.232-3: APR 1984 [@CL-CTF-9704]; FAR 52.232-4: Apr 1984 [@CL-CTF-0545] |
 | Text status | Final [@CL-CTF-2001; @CL-CTF-2003; @CL-CTF-2005] |
 | Applies to | Solicitations and contracts when a fixed-price research and development contract is contemplated, for personal services, and for transportation or transportation-related services [@CL-CTF-1516; @CL-CTF-1517], appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1514] |
 
@@ -60,6 +60,7 @@ How invoices and time statements under these clauses are submitted, who approves
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and Federal Travel Regulations citation, separated RFO and codified citations, and removed meta wording.

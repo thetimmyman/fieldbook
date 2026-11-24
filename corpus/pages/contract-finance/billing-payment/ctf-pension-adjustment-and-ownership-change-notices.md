@@ -25,7 +25,7 @@ Says what a contractor must notify when it ends a pension plan, recaptures pensi
 | Instrument | Codified FAR [@CL-CTF-1692; @CL-CTF-1696] |
 | Codified citation | FAR 52.215-15 [@CL-CTF-1692]; FAR 52.215-19 [@CL-CTF-1696] |
 | RFO citation | RFO FAR 52.215-15 [@CL-CTF-0576; @CL-CTF-0577; @CL-CTF-0578; @CL-CTF-0579; @CL-CTF-0580; @CL-CTF-0581; @CL-CTF-9627]; RFO FAR 52.215-19 [@CL-CTF-0582; @CL-CTF-0583; @CL-CTF-0584; @CL-CTF-0585; @CL-CTF-3203; @CL-CTF-3204] |
-| Edition date | Not established. |
+| Edition date | FAR 52.215-15: OCT 2010 [@CL-CTF-9705]; FAR 52.215-19: OCT 1997 [@CL-CTF-9706] |
 | Text status | Final [@CL-CTF-1692; @CL-CTF-1696] |
 | Applies to | Contracts with the clauses, when the contractor ends a defined-benefit plan, recaptures plan assets or has an ownership change [@CL-CTF-1692; @CL-CTF-1696] |
 
@@ -56,6 +56,7 @@ Confirm who monitors pension plan decisions and ownership changes, and how any r
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 52.215-19(b)(3)-(4) and RFO companions (CL-CTF-3054, CL-CTF-3055, CL-CTF-3203, CL-CTF-3204), named 48 CFR 9904.413-50(c)(12) and (c)(12)(vi), separated RFO citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the sentence on the Government's equitable share after the refund or credit rule (new companions CL-CTF-9626 and CL-CTF-9627).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

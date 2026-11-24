@@ -25,7 +25,7 @@ Says when a contractor pays the Government under the dismantling and demolition 
 | Instrument | Codified FAR [@CL-CTF-1698; @CL-CTF-1699] |
 | Codified citation | FAR 52.237-5 [@CL-CTF-1698]; FAR 52.237-6 [@CL-CTF-1699] |
 | RFO citation | RFO FAR 52.237-5 [@CL-CTF-0448]; RFO FAR 52.237-6 [@CL-CTF-0449] |
-| Edition date | Not established. |
+| Edition date | FAR 52.237-5: Apr 1984 [@CL-CTF-0448]; FAR 52.237-6: Apr 1984 [@CL-CTF-0449] |
 | Text status | Final [@CL-CTF-1698; @CL-CTF-1699] |
 | Applies to | Solicitations and contracts for dismantling, demolition, or removal of improvements whenever the contractor is to receive title to dismantled or demolished property and a net amount of compensation is due to the Government [@CL-CTF-3048; @CL-CTF-3049] |
 
@@ -56,6 +56,7 @@ Confirm which demolition or removal contracts carry these clauses and who tracks
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prescription lead-ins and initial-payment sentence for the incremental clause, separated RFO citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the prescription exception to include the transfer of title only upon receipt of payments.

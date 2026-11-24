@@ -25,7 +25,7 @@ Shows what a DoD solicitation tells offerors about progress payments and perform
 | Instrument | Codified DFARS [@CL-CTF-1734; @CL-CTF-1740] |
 | Codified citation | DFARS 252.232-7016 and DFARS 252.232-7018 [@CL-CTF-1734; @CL-CTF-1740] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.232-7016: APR 2020 [@CL-CTF-9718]; DFARS 252.232-7018: MAY 2023 [@CL-CTF-9719] |
 | Text status | Final [@CL-CTF-1734; @CL-CTF-1740] |
 | Applies to | Solicitations that contain clauses for both progress payments and performance-based payments, and contracts where separate progress payment requests are authorized for multiple lots [@CL-CTF-1784; @CL-CTF-1786] |
 
@@ -54,6 +54,7 @@ Which contracts receive progress payments or performance-based payments, which h
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned lot definitions, duties and inoperative wording to quotes; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Performance-based payment conditions stated as all required; FAR references restored.

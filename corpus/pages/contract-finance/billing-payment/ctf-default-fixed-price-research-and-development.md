@@ -25,7 +25,7 @@ Shows when the Government may terminate a fixed-price research and development c
 | Instrument | Codified FAR [@CL-CTF-2089] |
 | Codified citation | FAR 52.249-9 [@CL-CTF-2089] |
 | RFO citation | RFO FAR 52.249-9 [@CL-CTF-0154; @CL-CTF-0155; @CL-CTF-0156; @CL-CTF-0157; @CL-CTF-0158; @CL-CTF-0159; @CL-CTF-0160; @CL-CTF-0161; @CL-CTF-0162; @CL-CTF-0163; @CL-CTF-0164; @CL-CTF-0165; @CL-CTF-0166; @CL-CTF-0167; @CL-CTF-0168; @CL-CTF-0169; @CL-CTF-0170] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-CTF-9649] |
 | Text status | Final [@CL-CTF-2089] |
 | Applies to | Solicitations and contracts for research and development in which the prescription directs the contracting officer to insert the clause: a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1026], except those with educational or nonprofit institutions on a no-profit basis [@CL-CLS-1059] |
 
@@ -64,6 +64,7 @@ Which fixed-price research and development contracts carry this clause, and who 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Merged the prescription exception; cut uncited contrasts and meta wording; matched the no-profit or no-fee scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Applies-to row now says it describes where the prescription requires the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

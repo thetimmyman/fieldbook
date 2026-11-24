@@ -24,7 +24,7 @@ Shows what the Contracting Officer may change under the time-and-materials or la
 | Instrument | Codified FAR [@CL-CLS-1083] |
 | Codified citation | FAR 52.243-3 [@CL-CLS-1083] |
 | RFO citation | RFO FAR 52.243-3 [@CL-CLS-0042] |
-| Edition date | Not established. |
+| Edition date | SEP 2000 [@CL-CLS-1615] |
 | Text status | Final [@CL-CLS-1083] |
 | Applies to | Contracts containing the Changes—Time-and-Materials or Labor-Hours clause [@CL-CLS-1083] |
 
@@ -59,6 +59,7 @@ Where the executed contracts and modifications are kept, and who confirms that t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: time-and-materials changes: Contractor shall assert, uncited gap and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

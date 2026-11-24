@@ -25,7 +25,7 @@ Shows how the DoD clause ties performance-based payments to the whole contract, 
 | Instrument | Codified DFARS [@CL-CTF-1725] |
 | Codified citation | DFARS 252.232-7012 [@CL-CTF-1725] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-CTF-9721] |
 | Text status | Final [@CL-CTF-1725] |
 | Applies to | Performance-based payments made on a whole-contract basis [@CL-CTF-1785] |
 
@@ -56,6 +56,7 @@ Which contracts use the whole-contract clause, and what events, amounts and secu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: added solicitation scope and security qualifiers; removed uncited comparisons.

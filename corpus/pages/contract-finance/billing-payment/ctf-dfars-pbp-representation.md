@@ -25,7 +25,7 @@ Shows what an offeror represents about its financial statements under the DFARS 
 | Instrument | Codified DFARS [@CL-CTF-1816] |
 | Codified citation | DFARS 252.232-7015 [@CL-CTF-1816] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-CTF-9662] |
 | Text status | Final [@CL-CTF-1816] |
 | Applies to | Offerors, who represent that their financial statements are or are not in compliance with Generally Accepted Accounting Principles [@CL-CTF-1817] |
 
@@ -56,6 +56,7 @@ Whether the company's financial statements meet the stated accounting principles
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; matched representation wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the performance-based payments representation.

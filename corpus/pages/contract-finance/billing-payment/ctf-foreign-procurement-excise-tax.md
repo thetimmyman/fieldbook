@@ -25,7 +25,7 @@ Explains the excise tax on payments to foreign persons under certain foreign pro
 | Instrument | Codified FAR [@CL-CTF-2553] |
 | Codified citation | FAR 52.229-11 and FAR 52.229-12 [@CL-CTF-2553; @CL-CTF-2556] |
 | RFO citation | RFO FAR 52.229-11 and RFO FAR 52.229-12 [@CL-CTF-0370; @CL-CTF-0375] |
-| Edition date | Not established. |
+| Edition date | FAR 52.229-11: JUN 2020 [@CL-CTF-9699]; FAR 52.229-12: FEB 2021 [@CL-CTF-9700] |
 | Text status | Final [@CL-CTF-2553] |
 | Applies to | Foreign persons receiving specified Federal procurement payments [@CL-CTF-2553; @CL-CTF-2554] |
 
@@ -70,6 +70,7 @@ Whether any contract has a foreign contracting party, and who prepares the exemp
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored foreign-estate statutory qualifiers, shall-submit and shall-include duties, and section 5000C default-withholding scope; removed meta wording and uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the 5000C price and reimbursement bar to its clause and removed a price-adjustment characterization the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

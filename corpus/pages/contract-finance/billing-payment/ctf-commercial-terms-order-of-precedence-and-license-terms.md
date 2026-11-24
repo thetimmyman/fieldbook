@@ -25,7 +25,7 @@ Shows the compliance duties in the commercial terms clause, how inconsistencies 
 | Instrument | Codified FAR [@CL-CTF-2451] |
 | Codified citation | FAR 52.212-4(q), (r), (s), (t), (u) and (v) [@CL-CTF-2659; @CL-CTF-2660; @CL-CTF-2451; @CL-CTF-2663; @CL-CTF-2453; @CL-CTF-2667]; FAR 2.101 [@CL-CTF-9436] |
 | RFO citation | FAR 52.212-4(q): No RFO equivalent [@CL-CTF-0089]. FAR 52.212-4(r): RFO FAR 52.212-4(q) [@CL-CTF-0090; @CL-CTF-0091]. FAR 52.212-4(s): RFO FAR 52.212-4(r) [@CL-CTF-0092; @CL-CTF-0093; @CL-CTF-0094]. FAR 52.212-4(t), which is reserved: No RFO equivalent, because RFO FAR 52.212-4(t) is a different paragraph [@CL-CTF-0095; @CL-CTF-0096]. FAR 52.212-4(u): RFO FAR 52.212-4(s) [@CL-CTF-0097; @CL-CTF-0098; @CL-CTF-0099; @CL-CTF-0100; @CL-CTF-0137; @CL-CTF-0138]. FAR 52.212-4(v): RFO FAR 52.212-4(u) [@CL-CTF-0139] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CTF-9646] |
 | Text status | Final [@CL-CTF-2451] |
 | Applies to | Contracts that contain the commercial products and services terms clause, and supplies or services under them that are subject to an end user license or similar agreement [@CL-CTF-2451; @CL-CTF-2453] |
 
@@ -64,6 +64,7 @@ Confirm which end user license agreements apply to delivered software and servic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the license rule to paragraph (u) and its exception; cut uncited contrast and paragraph labels.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of commercial computer software.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of commercial computer software.

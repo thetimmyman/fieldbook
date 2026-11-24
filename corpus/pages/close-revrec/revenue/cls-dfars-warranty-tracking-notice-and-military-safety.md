@@ -25,7 +25,7 @@ Shows what warranty data an offeror furnishes for serialized warranted items, an
 | Instrument | Codified DFARS [@CL-CLS-1174; @CL-CLS-1179] |
 | Codified citation | DFARS 252.246-7005 and 252.246-7004 [@CL-CLS-1174; @CL-CLS-1179] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.246-7005: MAR 2016 [@CL-CLS-1626]; DFARS 252.246-7004: OCT 2010 [@CL-CLS-1627] |
 | Text status | Final [@CL-CLS-1174; @CL-CLS-1179] |
 | Applies to | Offers with the warranty tracking provision and contracts with the safety clause, each prescribed at its own DFARS section [@CL-CLS-1174; @CL-CLS-1179] |
 
@@ -54,6 +54,7 @@ Which solicitations and contracts carry these clauses, who completes the warrant
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: warranty tracking and military safety: standard stated in one sentence, uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the inspection clause qualifier and limited the alternate standard.

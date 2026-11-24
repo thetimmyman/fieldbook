@@ -25,7 +25,7 @@ Shows what the Advance Payments clause requires for payment, the special account
 | Instrument | Codified FAR [@CL-CTF-0940] |
 | Codified citation | FAR 52.232-12 [@CL-CTF-0940] |
 | RFO citation | RFO FAR 52.232-12(a) [@CL-CTF-0810]; RFO FAR 52.232-12(b) [@CL-CTF-0811; @CL-CTF-0812; @CL-CTF-0813]; RFO FAR 52.232-12(c) [@CL-CTF-0814]; RFO FAR 52.232-12(d) [@CL-CTF-0815]; RFO FAR 52.232-12(e) [@CL-CTF-0816; @CL-CTF-0817]; RFO FAR 52.232-12 Alternate I [@CL-CTF-0818]; RFO FAR 52.232-12 Alternate II(c) and (e) [@CL-CTF-0819; @CL-CTF-0820]; RFO FAR 52.232-12 Alternate V [@CL-CTF-0821] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CTF-0818] |
 | Text status | Final [@CL-CTF-0940] |
 | Applies to | Contracts that contain the basic Advance Payments clause [@CL-CTF-0940; @CL-CTF-1014] |
 
@@ -58,6 +58,7 @@ Confirm the percent and dollar amounts inserted in the clause, the bank holding 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Advance Payments clause wording with the cited paragraphs; added the clause titles.
 - COMPATIBLE_EXTENSION, 2026-10-31: Countersigning agent designated in writing by the contracting officer; Alternate II clause no longer called the cost clause.

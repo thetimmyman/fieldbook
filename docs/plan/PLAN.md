@@ -267,6 +267,7 @@ The edition as a usable reference for the owner without company data: search tha
 - kb-edition-dates: the Edition date row of each clause card cites the clause's edition, in parts by area
 - kb-edition-dates-2: the Edition date row of each clause card cites the clause's edition for the remaining areas after Part 1 (`sup` onward)
 - kb-edition-dates-3: the Edition date row of each clause card cites the clause's edition for the remaining areas after Part 2 (`rte` onward)
+- kb-edition-dates-4: the Edition date row of each clause card cites the clause's edition for the remaining area after Part 3 (`cmp`)
 - claims-csv-parts: the claims copy for Excel as one CSV per claims part, `data/claims-<AREA>-<part>.csv`, so no edition file grows with the claim count (owner review)
 - design-claims-copy-paths: a design revision after `claims-csv-parts` for the HANDOFF Paths row, the mockup sentence "Every build writes data/claims.csv", the `data/<register>.csv` wording of `PATHS`, and any per-part CSV links in the claims index (owner review)
 - scope-through-squash: `cargo xtask scope` names the way through for a path changed after the card's deleting commit, and the cards README says where the declaration is read and that the check runs on pull requests only

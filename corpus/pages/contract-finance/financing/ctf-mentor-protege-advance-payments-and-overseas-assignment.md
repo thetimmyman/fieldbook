@@ -25,7 +25,7 @@ Shows what a mentor firm can have reimbursed for advance payments to a protege f
 | Instrument | Codified DFARS [@CL-CTF-1760; @CL-CTF-1764] |
 | Codified citation | DFARS 252.232-7005 and DFARS 252.232-7008 [@CL-CTF-1760; @CL-CTF-1764] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.232-7005: MAR 2024 [@CL-CTF-9724]; DFARS 252.232-7008: JUN 1997 [@CL-CTF-9725] |
 | Text status | Final [@CL-CTF-1760; @CL-CTF-1764] |
 | Applies to | Solicitations and contracts where advance payments will be provided by the contractor to a subcontractor under an approved mentor-protege agreement [@CL-CTF-1794], and solicitations and contracts where contract performance will be in a foreign country [@CL-CTF-1795] |
 
@@ -54,6 +54,7 @@ Whether the company is a mentor firm making advance payments, and which overseas
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added invoice acknowledgment requirement and removed uncited contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Overseas assignment restriction worded as the clause states it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Mentor-Protege advance payment reimbursement and overseas assignment of claims.

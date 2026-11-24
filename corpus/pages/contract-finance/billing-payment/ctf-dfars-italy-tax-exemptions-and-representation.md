@@ -25,7 +25,7 @@ Shows which taxes the United States Government does not pay in Italy, how the in
 | Instrument | Codified DFARS [@CL-CTF-1861] |
 | Codified citation | DFARS 252.229-7003 and 252.229-7012 [@CL-CTF-1861; @CL-CTF-1867] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.229-7003: MAR 2012 [@CL-CTF-9659]; DFARS 252.229-7012: MAR 2012 [@CL-CTF-9660] |
 | Text status | Final [@CL-CTF-1861] |
 | Applies to | Contracts that include the Italy tax exemptions clause [@CL-CTF-1917], and offers that include the matching representation provision [@CL-CTF-1918] |
 
@@ -56,6 +56,7 @@ Which contracts and offers in Italy carry the exemption clause and representatio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the provision's exemption lead-in; cut uncited contrasts; matched invoice and certified-copy duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: IVA exemption basis stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax exemptions in Italy and the matching representation.

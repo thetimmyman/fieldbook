@@ -25,7 +25,7 @@ Sets the rule for submitting inventory disposal schedules after a termination an
 | Instrument | Codified FAR [@CL-CLS-0521] |
 | Codified citation | FAR 49.206-3 and 49.109-3 [@CL-CLS-0521; @CL-CLS-0524]; FAR 52.249-2 and 52.249-6 [@CL-CTF-0353; @CL-CTF-0421]; FAR 2.101 [@CL-CLS-1519; @CL-CLS-1520] |
 | RFO citation | RFO FAR 2.101 [@CL-CLS-1542; @CL-CLS-1551] |
-| Edition date | Not established. |
+| Edition date | FAR 52.249-2: APR 2012 [@CL-CLS-1610]; FAR 52.249-6: MAY 2004 [@CL-CLS-1611] |
 | Text status | Final [@CL-CLS-0521] |
 | Applies to | Terminations that involve termination inventory [@CL-CLS-0521] |
 
@@ -58,6 +58,7 @@ Who reconciles inventory disposal schedules and Government property accounts aga
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.109-3, 52.249-2, 52.249-6, and RFO FAR 2.101 to the table, restored shall modals, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the termination inventory definition.

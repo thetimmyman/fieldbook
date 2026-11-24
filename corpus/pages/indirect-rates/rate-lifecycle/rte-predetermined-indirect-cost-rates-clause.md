@@ -25,7 +25,7 @@ Explains the Predetermined Indirect Cost Rates clause: how the rates are applied
 | Instrument | Codified FAR [@CL-RTE-0333] |
 | Codified citation | FAR 52.216-15 [@CL-RTE-0333] |
 | RFO citation | RFO FAR 52.216-15 [@CL-RTE-0002; @CL-RTE-0003] |
-| Edition date | Not established. |
+| Edition date | APR 1998 [@CL-RTE-9378] |
 | Text status | Final [@CL-RTE-0333] |
 | Applies to | Contracts that include the Predetermined Indirect Cost Rates clause [@CL-RTE-0333] |
 
@@ -56,6 +56,7 @@ Confirm which contracts carry the clause, whether each year's final rate proposa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the shall-be-obtained rule and the pending-period reimbursement in the clause's terms, and replaced uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall wording, actors and the pending-period lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'may' for extensions; matched agreement contents; cited extension claim.

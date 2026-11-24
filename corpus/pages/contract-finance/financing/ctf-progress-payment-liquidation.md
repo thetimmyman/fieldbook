@@ -25,7 +25,7 @@ Shows how progress payments are computed and liquidated under the Progress Payme
 | Instrument | Codified FAR [@CL-CTF-0101] |
 | Codified citation | FAR 52.232-16 [@CL-CTF-0101] |
 | RFO citation | RFO FAR 52.232-16 [@CL-CTF-1112] |
-| Edition date | Not established. |
+| Edition date | Mar 2000 [@CL-CTF-1125] |
 | Text status | Final [@CL-CTF-0101] |
 | Applies to | Contracts in which the progress payments clause is inserted as prescribed in FAR 32.502-4(a) [@CL-CTF-0101] |
 
@@ -64,6 +64,7 @@ Confirm that each progress payment request is supported and that liquidation is 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and dual codified-on-RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate I paragraph (k) exception and the total-costs exclusion stated as the clause words them.
