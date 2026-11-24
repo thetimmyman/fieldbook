@@ -1,0 +1,4 @@
+correlator_id = "exact-ids+bm25@1"
+# The fixture text names no Corpus id and repeats no source title or publisher, so no
+# Present, exact-id or VersionOf link can come from it.
+present_links = 0

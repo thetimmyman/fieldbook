@@ -25,7 +25,7 @@ Shows what an offeror states and certifies about the Cost Accounting Standards a
 | Instrument | Codified FAR [@CL-CMP-5916] |
 | Codified citation | FAR 52.230-1 [@CL-CMP-5917] |
 | RFO citation | RFO FAR 52.230-1 [@CL-CMP-0260] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CMP-10062] |
 | Text status | Final [@CL-CMP-5916] |
 | Applies to | Offerors other than small businesses and foreign governments [@CL-CMP-5916] |
 
@@ -94,6 +94,7 @@ Which business units are inside the certification decision for this solicitation
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-05: Stated that the printed $50 million figures are FAR and RFO text, and that the Board's regulation states coverage at $100 million from 2026-10-01; added a closing sentence to the worked example saying so.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed the ungrounded 35 million cross-card figure from the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: CAS notices: cited the RFO Part III question text.

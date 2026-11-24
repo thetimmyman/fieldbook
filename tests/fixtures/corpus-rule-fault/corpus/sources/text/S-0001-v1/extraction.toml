@@ -1,0 +1,11 @@
+tool = "plain"
+tool_version = "1"
+method = "plain"
+page_count = 1
+thin_pages = []
+original_sha256 = "0fba4a465337f7383e693c1348ff428c4ce68dbfc6f6a3b5b64014d35d0eb73d"
+[pages]
+p0001 = "0fba4a465337f7383e693c1348ff428c4ce68dbfc6f6a3b5b64014d35d0eb73d"
+[locators]
+"1" = 1
+"2" = 1

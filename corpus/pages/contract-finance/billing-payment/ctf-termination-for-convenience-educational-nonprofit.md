@@ -25,7 +25,7 @@ Shows what an educational or other nonprofit contractor can recover on a termina
 | Instrument | Codified FAR [@CL-CTF-2069] |
 | Codified citation | FAR 52.249-5 [@CL-CTF-2069] |
 | RFO citation | RFO FAR 52.249-5 [@CL-CTF-0714] |
-| Edition date | Not established. |
+| Edition date | Aug 2016 [@CL-CTF-0714] |
 | Text status | Final [@CL-CTF-2069] |
 | Applies to | Solicitations and contracts when either a fixed-price or cost-reimbursement contract is contemplated for research and development work with an educational or nonprofit institution [@CL-CLS-1021], on a no-profit or no-fee basis [@CL-CLS-1056] |
 
@@ -60,6 +60,7 @@ Whether any award to the institution carries this clause, and who owns the settl
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.249-5(a) notice delivery, (e) contract amendment, (f) lead-in, and (g) partial payments, separated RFO and codified citations, and removed unbacked contrast sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the notice lead-in for the termination obligations and the govern-all-costs wording of the cost principles paragraph.

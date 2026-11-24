@@ -23,7 +23,7 @@ Shows the labor standards clauses a prime contractor must pass down, who answers
 | Instrument | Codified FAR [@CL-CMP-5839] |
 | Codified citation | FAR 22.406-5, FAR 52.222-11, FAR 52.222-12 and FAR 52.222-13 [@CL-CMP-5839; @CL-CMP-5843; @CL-CMP-5844; @CL-CMP-7628] |
 | RFO citation | RFO FAR 52.222-11 [@CL-CMP-1396; @CL-CMP-1407], RFO FAR 52.222-12 [@CL-CMP-1415; @CL-CMP-1416] and RFO FAR 52.222-13 [@CL-CMP-1417] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-11: MAY 2014 [@CL-CMP-10223]; FAR 52.222-12: May 2014 [@CL-CMP-1415]; FAR 52.222-13: May 2014 [@CL-CMP-1417] |
 | Text status | Final [@CL-CMP-5839] |
 | Applies to | Contracts that carry the subcontracts clause as prescribed at FAR 22.407(a) [@CL-CMP-5839] |
 
@@ -60,6 +60,7 @@ Which construction subcontracts in the United States carry the flowdown, and who
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the flowdown, delivery and termination rules with their modal verbs; separated RFO from codified claims; cut uncited contrasts.

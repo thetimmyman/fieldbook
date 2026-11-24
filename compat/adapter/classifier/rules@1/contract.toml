@@ -1,0 +1,3 @@
+kind = "adapter"
+port = "classifier"
+id = "rules@1"

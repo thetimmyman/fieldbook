@@ -25,7 +25,7 @@ Shows when the contracting officer inserts the Limitation of Cost clause or the 
 | Instrument | Codified FAR [@CL-FPA-0091] |
 | Codified citation | FAR 32.706-2; FAR 52.216-24 [@CL-FPA-0091; @CL-FPA-0092; @CL-FPA-0093; @CL-FPA-0351] |
 | RFO citation | RFO FAR 32.706-2 [@CL-FPA-0268; @CL-FPA-0269; @CL-FPA-0270; @CL-FPA-0271] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-FPA-1329] |
 | Text status | Final [@CL-FPA-0091] |
 | Applies to | Solicitations and contracts when a fully funded or incrementally funded cost-reimbursement contract or a letter contract is contemplated [@CL-FPA-0091; @CL-FPA-0092; @CL-FPA-0093; @CL-FPA-0351] |
 
@@ -54,6 +54,7 @@ Which cost-reimbursement contracts are fully funded and which are incrementally 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 52.216-24 prescription companion, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for choosing the clause for the funding state.

@@ -25,7 +25,7 @@ Sets out where the Fast Payment Procedure clause is inserted, what delivery even
 | Instrument | Codified FAR [@CL-CTF-2930] |
 | Codified citation | FAR 52.213-1 [@CL-CTF-2930] |
 | RFO citation | RFO FAR 52.232-90 [@CL-CTF-0222]; FAR 52.213-1 is [Reserved] in the RFO text [@CL-CTF-0241] |
-| Edition date | Not established. |
+| Edition date | MAY 2006 [@CL-CTF-9692] |
 | Text status | Final [@CL-CTF-2930] |
 | Applies to | Purchases in which the clause is inserted under FAR 13.404 [@CL-CTF-2930] |
 
@@ -72,6 +72,7 @@ Which orders carry the clause, how invoices and containers are marked and routed
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast and inference from the never-confuse paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fast payment eligibility and invoicing.

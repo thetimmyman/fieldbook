@@ -24,7 +24,7 @@ Shows what the Contractor must notify under the notification of changes clause, 
 | Instrument | Codified FAR [@CL-CLS-1094] |
 | Codified citation | FAR 52.243-7 [@CL-CLS-1094] |
 | RFO citation | RFO FAR 52.243-7 [@CL-CLS-0124] |
-| Edition date | Not established. |
+| Edition date | JAN 2017 [@CL-CLS-1629] |
 | Text status | Final [@CL-CLS-1094] |
 | Applies to | Contracts containing the Notification of Changes clause [@CL-CLS-1094] |
 
@@ -57,6 +57,7 @@ Who confirms which contracts carry the notification of changes clause, and where
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: notification of changes: response alternatives, adjustment condition and RFO wording tied to RFO claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: added whether changed or not changed by such conduct.

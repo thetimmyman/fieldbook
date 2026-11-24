@@ -25,7 +25,7 @@ Shows what the contractor must have, maintain and report under the CMMC level cl
 | Instrument | Codified DFARS [@CL-CMP-2834] |
 | Codified citation | DFARS 252.204-7021(d)(1)(i) [@CL-CMP-2834] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | NOV 2025 [@CL-CMP-10295] |
 | Text status | Final [@CL-CMP-2834] |
 | Applies to | Contracts with the clause, for all information systems used in performance that process, store, or transmit FCI or CUI [@CL-CMP-2835] |
 
@@ -54,6 +54,7 @@ Which information systems process, store, or transmit FCI or CUI, the CMMC statu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced the uncited contrast with the cited status duties.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor compliance with the CMMC level requirements.

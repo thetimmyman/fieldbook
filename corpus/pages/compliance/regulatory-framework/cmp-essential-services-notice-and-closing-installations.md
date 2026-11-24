@@ -25,7 +25,7 @@ Shows what an offeror must put in the written crisis plan that goes in with its 
 | Instrument | Codified DFARS [@CL-CMP-4390] |
 | Codified citation | DFARS 252.237-7024 and DFARS 252.237-7022 [@CL-CMP-4390; @CL-CMP-4391] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7024: OCT 2010 [@CL-CMP-10196]; DFARS 252.237-7022: MAY 1995 [@CL-CMP-10197] |
 | Text status | Final [@CL-CMP-4390] |
 | Applies to | Offerors responding to a solicitation that includes the notice provision, which is used as prescribed in DFARS 237.7603(b), and contracts that include the installation-closure clause, which is used as prescribed in DFARS 237.7402 [@CL-CMP-4390; @CL-CMP-4391] |
 
@@ -54,6 +54,7 @@ Which solicitations and contracts carry these texts, and who owns the offer-stag
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrast and single-rule wording about the installation-closure clause.

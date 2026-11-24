@@ -25,7 +25,7 @@ Shows what the contractor must register or provide for payment by electronic fun
 | Instrument | Codified FAR [@CL-CTF-2041; @CL-CTF-2046; @CL-CTF-2049] |
 | Codified citation | FAR 52.232-33, FAR 52.232-34 and FAR 52.232-35 [@CL-CTF-2041; @CL-CTF-2046; @CL-CTF-2049] |
 | RFO citation | RFO FAR 52.232-33 [@CL-CTF-0200]; RFO FAR 52.232-34 [@CL-CTF-0215]; RFO FAR 52.232-35 [@CL-CTF-0220] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-33: Oct 2018 [@CL-CTF-0200]; FAR 52.232-34: Jul 2013 [@CL-CTF-0215]; FAR 52.232-35: Jul 2013 [@CL-CTF-0220] |
 | Text status | Final [@CL-CTF-2041; @CL-CTF-2046; @CL-CTF-2049] |
 | Applies to | Solicitations and contracts that include the System for Award Management provision or an agency clause requiring registration [@CL-CTF-1541], that require EFT as the payment method without them [@CL-CTF-1543; @CL-CTF-1544], or that send EFT information to an office other than the payment office [@CL-CTF-1545] |
 
@@ -74,6 +74,7 @@ Whose bank details are in SAM, who keeps them current, and which contracts name 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the erroneous-transfer lead-in and exception reference; restated how-it-works and never-confuse wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the recovery responsibility and the suspension cross-reference to the EFT clause card; corrected which clause each payment-suspension and timeliness rule belongs to; kept the valid-date proviso on timeliness.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

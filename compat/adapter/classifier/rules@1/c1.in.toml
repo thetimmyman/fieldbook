@@ -1,0 +1,25 @@
+rules_toml = """
+[[rule]]
+id = "reg-text"
+when = { phrase = "Synthetic Regulation Text" }
+set = { field = "source_kind", value = "primary_law" }
+example = "Synthetic Regulation Text, part one. Made up for tests."
+expect = { field = "source_kind", value = "primary_law", quote = "Synthetic Regulation Text" }
+
+[[rule]]
+id = "fixture-agency"
+when = { publisher = "Synthetic Standards Board" }
+set = { field = "publisher", value = "Synthetic Standards Board" }
+example = "Issued by the Synthetic Standards Board for fixture tests."
+expect = { field = "publisher", value = "Synthetic Standards Board", quote = "Synthetic Standards Board" }
+
+[[rule]]
+id = "shape-clause"
+when = { id_shape = "clause_number" }
+set = { field = "purpose", value = "Clause number present" }
+example = "See 15.404-1 for pricing rules."
+expect = { field = "purpose", value = "Clause number present", quote = "15.404-1" }
+"""
+pages = [
+  "Synthetic Regulation Text issued by Synthetic Standards Board, referencing 15.404-1.",
+]

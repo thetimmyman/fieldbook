@@ -24,7 +24,7 @@ Shows what past performance information is, what it covers, and when the Payment
 | Instrument | Codified FAR [@CL-CMP-2596] |
 | Codified citation | FAR 42.1501, FAR 42.1504 and FAR 52.242-5 [@CL-CMP-2596; @CL-CMP-2599; @CL-CMP-2668] |
 | RFO citation | RFO FAR 42.1101 [@CL-CMP-6878; @CL-CMP-6879; @CL-CMP-6880]; RFO FAR 42.1104 [@CL-CMP-6881]; RFO FAR 52.242-5 [@CL-CMP-6882; @CL-CMP-6883; @CL-CMP-6884; @CL-CMP-6885] |
-| Edition date | Not established. |
+| Edition date | Jan 2017 [@CL-CMP-6883] |
 | Text status | Final [@CL-CMP-2596] |
 | Applies to | Past performance information regarding a contractor's actions under previously awarded contracts or orders [@CL-CMP-2596]. The payments clause, in solicitations and contracts containing the Small Business Subcontracting Plan clause [@CL-CMP-2599] |
 
@@ -55,6 +55,7 @@ Which executed contracts contain the small business subcontracting plan clause a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: payments notice, example and contrast wording tied to cited text.

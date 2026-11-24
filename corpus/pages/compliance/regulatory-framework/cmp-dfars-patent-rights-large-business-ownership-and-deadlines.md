@@ -25,7 +25,7 @@ Shows how the DoD clause for contractor-owned inventions of large businesses def
 | Instrument | Codified DFARS [@CL-CMP-3928] |
 | Codified citation | DFARS 252.227-7038 [@CL-CMP-3928] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 2012 [@CL-CMP-10165] |
 | Text status | Final [@CL-CMP-3928] |
 | Applies to | Subject inventions, which are inventions of the Contractor made in the performance of work under the contract [@CL-CMP-3929] |
 
@@ -58,6 +58,7 @@ Which executed contracts carry this clause, and who tracks the disclosure, elect
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (c)(3)(iii) filing deadlines for additional countries or international patent offices and completed the election and title-request qualifications.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta and contrast sentences; replaced with cited deadline statements and pointers.

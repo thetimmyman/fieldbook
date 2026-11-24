@@ -25,7 +25,7 @@ Shows what bonds the Contracting Officer may require under a ship repair Master 
 | Instrument | Codified DFARS [@CL-CTF-1963; @CL-CTF-1964] |
 | Codified citation | DFARS 252.217-7008 and DFARS 252.217-7009 [@CL-CTF-1963; @CL-CTF-1964] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7008: DEC 1991 [@CL-CTF-9667]; DFARS 252.217-7009: DEC 1991 [@CL-CTF-9668] |
 | Text status | Final [@CL-CTF-1963] |
 | Applies to | Job orders under a ship repair Master Agreement that includes the Bonds clause or the Default clause [@CL-CTF-1963; @CL-CTF-1964] |
 
@@ -58,6 +58,7 @@ Which executed job orders require bonds or set a daily liquidated damages amount
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subcontractor-default exception to the excess-cost sentence in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored qualifiers (Government capacity, judgment of the officer, surety and termination lead-ins); cut uncited contrasts.

@@ -24,7 +24,7 @@ Shows how a cost-reimbursement contract is terminated and settled: the grounds a
 | Instrument | Codified FAR [@CL-CTF-0418] |
 | Codified citation | FAR 52.249-6 [@CL-CTF-0418] |
 | RFO citation | RFO FAR 52.249-6 [@CL-CTF-0681; @CL-CTF-0682] |
-| Edition date | Not established. |
+| Edition date | May 2004 [@CL-CTF-0683] |
 | Text status | Final [@CL-CTF-0418] |
 | Applies to | Contracts that include the cost-reimbursement termination clause, which is inserted as prescribed in FAR 49.503(a)(1) [@CL-CTF-0612] |
 
@@ -67,6 +67,7 @@ Which financing and acceptance terms would drive the cash forecast on a terminat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.249-6(h) payment, (h)(4) fee lead-in, and RFO FAR 52.249-6(m)(1), cited paragraph (c) subcontract and property obligations, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the contracting officer determines condition for late proposals, the subcontract-effort exclusion in the convenience fee, the if-any wording, the all-costs scope of the part 31 rule, and must wording on notice and amendment.

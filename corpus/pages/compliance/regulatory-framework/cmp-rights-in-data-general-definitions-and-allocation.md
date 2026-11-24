@@ -24,7 +24,7 @@ Shows what the Rights in Data—General clause means by data and by unlimited ri
 | Instrument | Codified FAR [@CL-CMP-3679] |
 | Codified citation | FAR 52.227-14(a) and (b) [@CL-CMP-3679; @CL-CMP-3684] |
 | RFO citation | RFO FAR 52.227-14(a) and (b); RFO FAR 52.227-19 (reserved) [@CL-CMP-2199; @CL-CMP-2281; @CL-CMP-2282; @CL-CMP-2283; @CL-CMP-2284; @CL-CMP-2285; @CL-CMP-2286; @CL-CMP-2287; @CL-CMP-2288; @CL-CMP-2289; @CL-CMP-2290; @CL-CMP-2291; @CL-CMP-2292; @CL-CMP-2191; @CL-CMP-0645] |
-| Edition date | Not established. |
+| Edition date | FAR 52.227-14: May 2014 [@CL-CMP-2191]; FAR 52.227-19: DEC 2007 [@CL-CMP-10262] |
 | Text status | Final [@CL-CMP-3679] |
 | Applies to | Not established. |
 
@@ -57,6 +57,7 @@ Which executed contracts carry this clause, and who confirms it for each one. [@
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception for the copyright paragraph and the qualifying withholding rule, and used the clause's "shall furnish" for form, fit, and function data.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the summary sentences so the manuals category and the two protected-class definitions keep their conditions.

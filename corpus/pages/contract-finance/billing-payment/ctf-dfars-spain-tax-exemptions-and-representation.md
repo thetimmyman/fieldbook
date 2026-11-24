@@ -25,7 +25,7 @@ Shows the taxes from which Spain-related contracts are exempt and what an offero
 | Instrument | Codified DFARS [@CL-CTF-1879] |
 | Codified citation | DFARS 252.229-7005 and 252.229-7013 [@CL-CTF-1880; @CL-CTF-1882] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.229-7005: MAR 2012 [@CL-CTF-9684]; DFARS 252.229-7013: APR 2012 [@CL-CTF-9685] |
 | Text status | Final [@CL-CTF-1879] |
 | Applies to | Contracts that include the Spain tax exemptions clause [@CL-CTF-1920], and offers that include the matching representation provision [@CL-CTF-1921] |
 
@@ -54,6 +54,7 @@ Which Spain contracts and offers carry the exemption clause and representation p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited commentary and the cut-short direct-contractor description.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax exemptions in Spain and the matching representation.

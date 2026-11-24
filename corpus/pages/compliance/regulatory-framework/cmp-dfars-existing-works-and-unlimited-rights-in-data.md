@@ -25,7 +25,7 @@ Shows the license the Government receives in existing works, which items are not
 | Instrument | Codified DFARS [@CL-CMP-4275] |
 | Codified citation | DFARS 252.227-7021 and 252.227-7022 [@CL-CMP-4275; @CL-CMP-4277] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 1979 [@CL-CMP-10137] |
 | Text status | Final [@CL-CMP-4275] |
 | Applies to | Contracts using the existing works clause where DFARS 227.7105-2(a) prescribes it [@CL-CMP-4369]; the Government Rights (Unlimited) clause as prescribed at 227.7107-1(a) [@CL-CMP-8632] |
 
@@ -56,6 +56,7 @@ Which contracts include these two clauses, and which deliverables count as works
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited unlimited rights prescription; stated indemnity as alternatives; cut uncited contrasts.

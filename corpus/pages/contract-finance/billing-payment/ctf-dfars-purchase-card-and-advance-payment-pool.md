@@ -25,7 +25,7 @@ Shows when a contractor must accept the Governmentwide commercial purchase card,
 | Instrument | Codified DFARS [@CL-CTF-1818] |
 | Codified citation | DFARS 252.232-7009 [@CL-CTF-1818]; DFARS 252.232-7000 [@CL-CTF-1819] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.232-7009: MAY 2018 [@CL-CTF-9665]; DFARS 252.232-7000: APR 2020 [@CL-CTF-9666] |
 | Text status | Final [@CL-CTF-1818] |
 | Applies to | Orders or calls at or below the micro-purchase threshold under the contract or agreement [@CL-CTF-1818]; payments under the advance payment pool clause [@CL-CTF-1819] |
 
@@ -58,6 +58,7 @@ Whether any contract requires the card or draws on a pool, and what that does to
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; added the forwarding purpose for the pool check.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mandatory purchase card payment and the advance payment pool.

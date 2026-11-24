@@ -1,0 +1,4 @@
+ok
+fields 2
+field source_kind value=synthetic_fixture by=rules@1 rule=kind-fixture:phrase support=p1:Fixture Notice
+field licence value=Synthetic CC0-1.0 by=rules@1 rule=later-licence:phrase support=p2:CC0-1.0

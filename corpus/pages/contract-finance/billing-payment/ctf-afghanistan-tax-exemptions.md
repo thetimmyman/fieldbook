@@ -25,7 +25,7 @@ Sets out which Afghan taxes, customs, duties, fees and similar charges a Contrac
 | Instrument | Codified FAR [@CL-CTF-2561] |
 | Codified citation | FAR 52.229-13 and FAR 52.229-14 [@CL-CTF-2561; @CL-CTF-2564] |
 | RFO citation | No RFO equivalent for either clause: RFO part 52 lists FAR 52.229-13 and FAR 52.229-14 as [Reserved] [@CL-CTF-0004; @CL-CTF-0005] |
-| Edition date | Not established. |
+| Edition date | FAR 52.229-13: NOV 2021 [@CL-CTF-9638]; FAR 52.229-14: NOV 2021 [@CL-CTF-9639] |
 | Text status | Final [@CL-CTF-2561] |
 | Applies to | Activities in Afghanistan on behalf of or in support of United States Forces under the security agreement clause, or NATO Forces under the status of forces clause [@CL-CTF-2646; @CL-CTF-2649] |
 
@@ -62,6 +62,7 @@ Whether the work supports United States Forces or NATO Forces, and who screens A
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited explanations and agreement names; cited the carve-out claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Afghan tax exemptions.

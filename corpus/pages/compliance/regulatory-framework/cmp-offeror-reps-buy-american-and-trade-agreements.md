@@ -25,7 +25,7 @@ Explains the Buy American certificate in paragraph (f), the Buy American-Free Tr
 | Instrument | Codified FAR [@CL-CMP-8983] |
 | Codified citation | FAR 52.212-3(f) and (g) [@CL-CMP-8983; @CL-CMP-8987] |
 | RFO citation | RFO FAR 52.225-2 [@CL-CMP-9321; @CL-CMP-1556; @CL-CMP-1557; @CL-CMP-1558; @CL-CMP-1559; @CL-CMP-1560; @CL-CMP-1561]; RFO FAR 52.225-4 and its alternates [@CL-CMP-9322; @CL-CMP-1562; @CL-CMP-1563; @CL-CMP-1564; @CL-CMP-1565; @CL-CMP-1566; @CL-CMP-1567; @CL-CMP-1568]; RFO FAR 52.225-6 [@CL-CMP-9323; @CL-CMP-1569; @CL-CMP-1570; @CL-CMP-1571; @CL-CMP-1572; @CL-CMP-1573] |
-| Edition date | Not established. |
+| Edition date | FAR 52.212-3: OCT 2025 [@CL-CMP-10239]; FAR 52.225-2: Oct 2022 [@CL-CMP-1556]; FAR 52.225-4: Jan 2025 [@CL-CMP-1567]; FAR 52.225-6: Feb 2021 [@CL-CMP-1569] |
 | Text status | Final [@CL-CMP-8983] |
 | Applies to | Solicitations that include FAR 52.225-1, FAR 52.225-3 or FAR 52.225-5, each for its own certificate [@CL-CMP-8983; @CL-CMP-8987; @CL-CMP-8990] |
 
@@ -76,6 +76,7 @@ Which source data supports the country of origin and domestic content answers on
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated clause applicability and alternates with cited text; removed contrasts and inferences; fixed RFO wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

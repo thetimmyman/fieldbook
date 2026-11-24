@@ -25,7 +25,7 @@ Shows how incentive fee payments are billed during contract performance, adjuste
 | Instrument | Codified FAR [@CL-CTF-0267] |
 | Codified citation | FAR 52.216-10 [@CL-CTF-0267] |
 | RFO citation | RFO FAR 52.216-10 [@CL-CTF-0298] |
-| Edition date | Not established. |
+| Edition date | Jun 2011 [@CL-CTF-0298] |
 | Text status | Final [@CL-CTF-0267] |
 | Applies to | Cost-plus-incentive-fee contracts other than facilities contracts [@CL-CTF-0267] |
 
@@ -54,6 +54,7 @@ How billing fee adjustments are monitored against cost run rates and target mile
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the Schedule-payment and Government-interest reserve qualifiers, participation in cents, and separate RFO citations; removed uncited timing words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the normal-payment lead-in, the Excusable Delays qualification, the shall-pay lesser fee and the signed-modification wording on the incentive fee card; removed an added only; kept the cost-comparison citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

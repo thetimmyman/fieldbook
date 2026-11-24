@@ -24,7 +24,7 @@ Shows that the Government takes title to subject inventions under this clause, w
 | Instrument | Codified FAR [@CL-CMP-3642] |
 | Codified citation | FAR 52.227-13 [@CL-CMP-3642] |
 | RFO citation | RFO FAR 52.227-13 [@CL-CMP-1866] |
-| Edition date | Not established. |
+| Edition date | Dec 2007 [@CL-CMP-1866] |
 | Text status | Final [@CL-CMP-3642] |
 | Applies to | Each subject invention under the clause [@CL-CMP-3642] |
 
@@ -59,6 +59,7 @@ Which contracts carry the Government-ownership clause, and who tracks the interi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Interim report interval now carries its start point.

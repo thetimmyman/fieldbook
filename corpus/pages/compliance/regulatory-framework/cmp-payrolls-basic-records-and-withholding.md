@@ -23,7 +23,7 @@ Shows the payroll records a contractor must keep, the weekly submission and Stat
 | Instrument | Codified FAR [@CL-CMP-5824] |
 | Codified citation | FAR 52.222-8 and FAR 52.222-7 [@CL-CMP-5824; @CL-CMP-5831] |
 | RFO citation | RFO FAR 52.222-8 [@CL-CMP-1879] and RFO FAR 52.222-7 [@CL-CMP-1889] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-8: JUL 2021 [@CL-CMP-10256]; FAR 52.222-7: MAY 2014 [@CL-CMP-10257] |
 | Text status | Final [@CL-CMP-5824] |
 | Applies to | Contracts that carry the payrolls clause as prescribed at FAR 22.407(a) [@CL-CMP-5824] |
 
@@ -70,6 +70,7 @@ That recordkeeping and weekly submission duties are assigned for every covered c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction payrolls and withholding.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records sentence so the fringe benefit rate keeps the statutory types.

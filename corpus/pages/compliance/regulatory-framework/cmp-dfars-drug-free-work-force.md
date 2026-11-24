@@ -25,7 +25,7 @@ Shows what the Contractor must do to keep a drug-free work force, which employee
 | Instrument | Codified DFARS [@CL-CMP-4449] |
 | Codified citation | DFARS 252.226-7003 [@CL-CMP-4449] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Aug 2024 [@CL-CMP-10136] |
 | Text status | Final [@CL-CMP-4449] |
 | Applies to | Contracts with the Drug-Free Work Force clause, used as prescribed in section 226.570-2 [@CL-CMP-4449] |
 
@@ -60,6 +60,7 @@ Which contracts carry the clause, and who owns the program and its testing crite
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added drug testing lead-in, stated testing alternatives and guideline limit fully; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the FAR drug-free workplace clause.

@@ -25,7 +25,7 @@ Shows the order in which a contractor must look for electronic parts, the tracea
 | Instrument | Codified DFARS [@CL-CMP-3857] |
 | Codified citation | DFARS 252.246-7008 [@CL-CMP-3857] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10058] |
 | Text status | Final [@CL-CMP-3857] |
 | Applies to | Electronic parts the Contractor obtains under contracts with the clause [@CL-CMP-3857] |
 
@@ -52,6 +52,7 @@ Which contracts carry this clause and which subcontracts for electronic parts ha
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the paragraph (b)(1) supplier sources and the paragraph (c)(1) traceability scope, and removed meta-wording and unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Source and circumstance lists stated as alternatives.

@@ -25,7 +25,7 @@ Shows how service reporting works when the contract is indefinite-delivery: what
 | Instrument | Codified FAR [@CL-CMP-5956] |
 | Codified citation | FAR 52.204-15 [@CL-CMP-5956] |
 | RFO citation | RFO FAR 52.204-15 [@CL-CMP-6019] |
-| Edition date | Not established. |
+| Edition date | OCT 2016 [@CL-CMP-10275] |
 | Text status | Final [@CL-CMP-5956] |
 | Applies to | Indefinite-delivery contracts that carry the clause, for orders that exceed the thresholds established in FAR 4.1703(a)(2) [@CL-CMP-5956] |
 
@@ -66,6 +66,7 @@ Which indefinite-delivery orders sit inside the remit, who keeps the invoiced am
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: indefinite-delivery reporting: shall report, and/or in supplier-agreement exclusion.

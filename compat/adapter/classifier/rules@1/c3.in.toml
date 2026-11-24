@@ -1,0 +1,8 @@
+rules_toml = """
+[[rule]]
+id = "missing-example"
+when = { phrase = "Synthetic" }
+set = { field = "source_kind", value = "primary_law" }
+expect = { field = "source_kind", value = "primary_law" }
+"""
+pages = ["Synthetic"]

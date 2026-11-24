@@ -25,7 +25,7 @@ Shows who may end a fixed-price architect-engineer contract or a personal servic
 | Instrument | Codified FAR [@CL-CTF-2076] |
 | Codified citation | FAR 52.249-7 and FAR 52.249-12 [@CL-CTF-2076; @CL-CTF-2081] |
 | RFO citation | RFO FAR 52.249-7 [@CL-CTF-0653; @CL-CTF-0654; @CL-CTF-0655; @CL-CTF-0656; @CL-CTF-0657; @CL-CTF-0658; @CL-CTF-9131]; RFO FAR 52.249-12 [@CL-CTF-0659] |
-| Edition date | Not established. |
+| Edition date | FAR 52.249-7: Apr 1984 [@CL-CTF-0653]; FAR 52.249-12: Apr 1984 [@CL-CTF-0659] |
 | Text status | Final [@CL-CTF-2076] |
 | Applies to | Solicitations and contracts for architect-engineer services when a fixed-price contract is contemplated for FAR 52.249-7 [@CL-CLS-1023], and solicitations and contracts for personal services for FAR 52.249-12 [@CL-CTF-3153] |
 
@@ -58,6 +58,7 @@ The mix of fixed-price architect-engineer and personal services work in the cont
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 49.505(a) prescription for FAR 52.249-12 and the upon-receipt lead-in for FAR 52.249-7(a), separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the whether completed or in process wording and the must wording for the termination notice and the convenience adjustment.

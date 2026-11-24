@@ -25,7 +25,7 @@ Explains when the examination right under the sealed bidding audit and records c
 | Instrument | Codified FAR [@CL-CTF-2948] |
 | Codified citation | FAR 52.214-26 [@CL-CTF-2948] |
 | RFO citation | RFO FAR 52.214-26 [@CL-CTF-0006; @CL-CTF-0007; @CL-CTF-0008; @CL-CTF-0009; @CL-CTF-0010]; No RFO equivalent for Alternate I, which the RFO section does not print [@CL-CTF-0016] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CTF-9641] |
 | Text status | Final [@CL-CTF-2948] |
 | Applies to | Sealed bidding contracts in which the clause is inserted under its own prescription [@CL-CTF-2948] |
 
@@ -68,6 +68,7 @@ Which modifications required certified data, where those files sit, who can prod
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded right, alternatives and interview condition; replaced uncited contract-specific remark with prescriptions.

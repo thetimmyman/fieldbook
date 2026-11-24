@@ -25,7 +25,7 @@ Shows what direct-contractor status in Spain gives a contractor, what it must do
 | Instrument | Codified DFARS [@CL-CTF-1868] |
 | Codified citation | DFARS 252.229-7004 [@CL-CTF-1868] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 1997 [@CL-CTF-9683] |
 | Text status | Final [@CL-CTF-1868] |
 | Applies to | Contracts that include the direct contractor status clause for Spain [@CL-CTF-1919], which designates the contractor a Direct Contractor [@CL-CTF-1869] |
 
@@ -54,6 +54,7 @@ Which Spanish contracts need this status, who files for approval, and how the gu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the delay exception, guaranty amount and subcontract wording; replaced uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: guaranty purpose stated with companion.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for status of contractors as a direct contractor in Spain.

@@ -25,7 +25,7 @@ Shows the Government's inspection rights, the standards the work must meet, and 
 | Instrument | Codified DFARS [@CL-CTF-1950; @CL-CTF-1953] |
 | Codified citation | DFARS 252.217-7005 and DFARS 252.217-7011 [@CL-CTF-1950; @CL-CTF-1953] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7005: JUL 2009 [@CL-CTF-9672]; DFARS 252.217-7011: DEC 1991 [@CL-CTF-9673] |
 | Text status | Final [@CL-CTF-1950] |
 | Applies to | Job orders under a ship repair Master Agreement that includes the Inspection and Manner of Doing Work clause or the Access to Vessel clause [@CL-CTF-1950; @CL-CTF-1953] |
 
@@ -58,6 +58,7 @@ Which executed job orders name Navy specifications, and who confirms that these 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the fire-duty lead-in; merged the standards sentence; cut meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: records made available to the Government.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ship repair master agreement clauses on inspection and manner of doing work, and access to vessel.

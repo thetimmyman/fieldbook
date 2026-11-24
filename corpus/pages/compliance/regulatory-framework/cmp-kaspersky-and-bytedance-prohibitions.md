@@ -24,7 +24,7 @@ Shows what the Kaspersky Lab clause and the ByteDance covered application clause
 | Instrument | Codified FAR [@CL-CMP-3563] |
 | Codified citation | FAR 52.204-23; FAR 52.204-27 [@CL-CMP-3563; @CL-CMP-3567] |
 | RFO citation | RFO FAR 52.240-91 [@CL-CMP-1372; @CL-CMP-1373; @CL-CMP-1374; @CL-CMP-1376; @CL-CMP-1382]; RFO FAR 52.204-23 and RFO FAR 52.204-27 are reserved [@CL-CMP-1370; @CL-CMP-1371] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-23: DEC 2023 [@CL-CMP-10219]; FAR 52.204-27: JUN 2023 [@CL-CMP-10220] |
 | Text status | Final [@CL-CMP-3563] |
 | Applies to | Contractors under contracts that include either clause [@CL-CMP-3563; @CL-CMP-3567] |
 
@@ -57,6 +57,7 @@ Whether any company software, hardware, service or personal device used on contr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

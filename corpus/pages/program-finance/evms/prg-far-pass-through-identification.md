@@ -24,7 +24,7 @@ Shows what an offeror must identify in its proposal about subcontract effort, an
 | Instrument | Codified FAR [@CL-PRG-0940] |
 | Codified citation | FAR 52.215-22 [@CL-PRG-0940] |
 | RFO citation | RFO FAR 52.215-22 [@CL-PRG-0027; @CL-PRG-0028; @CL-PRG-0029; @CL-PRG-0030; @CL-PRG-0031; @CL-PRG-0032; @CL-PRG-0033] |
-| Edition date | Not established. |
+| Edition date | OCT 2009 [@CL-PRG-9168] |
 | Text status | Final [@CL-PRG-0940] |
 | Applies to | Offerors responding to solicitations that include the provision [@CL-PRG-0940] |
 
@@ -57,6 +57,7 @@ Who prepares the subcontract-effort identification in each proposal, and how it 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated required list items with and, separated RFO and codified citations, and removed meta-wording.

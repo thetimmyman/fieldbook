@@ -24,7 +24,7 @@ Shows the trafficking in persons prohibition, when an offeror must certify a com
 | Instrument | Codified FAR [@CL-CMP-2394] |
 | Codified citation | FAR 22.1700, FAR 22.1701, FAR 22.1703, FAR 22.1704 and FAR 52.222-50 [@CL-CMP-9471; @CL-CMP-9526; @CL-CMP-9527; @CL-CMP-9528; @CL-CMP-2394; @CL-CMP-2398; @CL-CMP-2495] |
 | RFO citation | RFO FAR 52.222-50 [@CL-CMP-6725; @CL-CMP-6876; @CL-CMP-6877] |
-| Edition date | Not established. |
+| Edition date | OCT 2025 [@CL-CMP-10085] |
 | Text status | Final [@CL-CMP-2394] |
 | Applies to | Government solicitations and contracts, with the compliance plan certification applying where a portion meets the listed conditions [@CL-CMP-2394; @CL-CMP-2395; @CL-CMP-2396] |
 
@@ -61,6 +61,7 @@ Which contracts and subcontracts meet the certification conditions, and who owns
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Inspector General report trigger, the notice step and the paragraph reference to the substantiation steps.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the applicability section.

@@ -1,0 +1,4 @@
+index_id = "bm25f@1"
+# `withholding` occurs in the public corpus-mini units, so the default index must answer
+# with at least one ranked hit.
+min_hits = 1

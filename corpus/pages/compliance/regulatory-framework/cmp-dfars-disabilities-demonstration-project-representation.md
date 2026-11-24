@@ -25,7 +25,7 @@ Shows what the offeror represents under the demonstration project provision and 
 | Instrument | Codified DFARS [@CL-CMP-4459] |
 | Codified citation | DFARS 252.226-7002 [@CL-CMP-4459] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2019 [@CL-CMP-10134] |
 | Text status | Final [@CL-CMP-4459] |
 | Applies to | Solicitations with the provision, used as prescribed in section 226.7203, which are issued pursuant to the Demonstration Project [@CL-CMP-4459; @CL-CMP-4482] |
 
@@ -54,6 +54,7 @@ Which solicitations include the provision, and who confirms the workforce share,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Showed that the three eligible contractor conditions are joined by and and removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the demonstration project representation for contractors employing persons with disabilities.

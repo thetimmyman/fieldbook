@@ -25,7 +25,7 @@ Shows the definitions, the marking, handling and re-transfer duties, and the flo
 | Instrument | Codified DFARS [@CL-CMP-4027] |
 | Codified citation | DFARS 252.225-7047 [@CL-CMP-4027] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 2013 [@CL-CMP-10292] |
 | Text status | Final [@CL-CMP-4027] |
 | Applies to | Contracts with the clause, for exports or transfers of qualifying defense articles in performance of the contract [@CL-CMP-4030] |
 
@@ -54,6 +54,7 @@ Which subcontractors and facilities are Approved Community members, and who mark
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the regulations named in the compliance duty and the permission condition; replaced uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word and marked the cut-short regulation reference.

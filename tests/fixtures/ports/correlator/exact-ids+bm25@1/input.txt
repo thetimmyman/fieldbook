@@ -1,0 +1,7 @@
+Synthetic fixture candidate for the exact-ids+bm25 correlator contract.
+
+This made-up paragraph exists only to give the contract and the mutation test a stable
+page of text. It names no Corpus identifier, quotes no source title, and is not a real
+document. Zzqx vprmn qwrtp lkjhg plmokn. The words around this line are synthetic and
+carry no meaning: fbrx nqtv wzzp kkrh mmbv. A reviewer may change nothing here without
+changing the correlator contract fixture and its expected links together.

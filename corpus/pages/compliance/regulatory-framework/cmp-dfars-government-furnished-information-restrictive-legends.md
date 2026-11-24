@@ -25,7 +25,7 @@ Shows what a contractor may do with Government-furnished technical data and comp
 | Instrument | Codified DFARS [@CL-CMP-3942] |
 | Codified citation | DFARS 252.227-7025 [@CL-CMP-3942] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-CMP-10140] |
 | Text status | Final [@CL-CMP-3942] |
 | Applies to | Technical data or computer software provided to the Contractor as Government-furnished information under the contract [@CL-CMP-3978] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry this clause, who receives Government-furnished in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

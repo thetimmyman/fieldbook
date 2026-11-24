@@ -25,7 +25,7 @@ Shows how the North Carolina sales and use tax clause and the State of New Mexic
 | Instrument | Codified FAR [@CL-CTF-2529] |
 | Codified citation | FAR 52.229-2 and FAR 52.229-10 [@CL-CTF-2529; @CL-CTF-2534] |
 | RFO citation | RFO FAR 52.229-2 and RFO FAR 52.229-10 [@CL-CTF-0393; @CL-CTF-0398] |
-| Edition date | Not established. |
+| Edition date | FAR 52.229-2: APR 1984 [@CL-CTF-9701]; FAR 52.229-10: APR 2003 [@CL-CTF-9702] |
 | Text status | Final [@CL-CTF-2529] |
 | Applies to | North Carolina clause: construction to be performed in North Carolina [@CL-CTF-2529]. New Mexico clause: payments for performance within the State of New Mexico [@CL-CTF-2619] |
 
@@ -72,6 +72,7 @@ Which contracts carry the North Carolina or New Mexico clause, and who holds the
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the Gross Receipts and Compensating Tax Act reference, mandatory duties, and Government nonreimbursement qualifier; cited Never confuse rules and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the contract-number and Tax Administration Act wording for New Mexico registration and made the North Carolina certification list all attachment-based items.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

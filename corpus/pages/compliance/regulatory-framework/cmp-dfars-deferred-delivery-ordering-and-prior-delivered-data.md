@@ -25,7 +25,7 @@ Shows the time limits for deferred delivery and deferred ordering of technical d
 | Instrument | Codified DFARS [@CL-CMP-4284] |
 | Codified citation | DFARS 252.227-7026, 252.227-7027 and 252.227-7028 [@CL-CMP-4284; @CL-CMP-4286; @CL-CMP-4289] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | APR 1988 [@CL-CMP-10133] |
 | Text status | Final [@CL-CMP-4284] |
 | Applies to | Contracts using the deferred delivery clause where DFARS 227.7103-8(a) prescribes it [@CL-CMP-4381], for technical data or computer software items identified in the contract as deferred delivery [@CL-CMP-4285] |
 
@@ -56,6 +56,7 @@ Which contracts carry these clauses, and where earlier deliveries of similar dat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

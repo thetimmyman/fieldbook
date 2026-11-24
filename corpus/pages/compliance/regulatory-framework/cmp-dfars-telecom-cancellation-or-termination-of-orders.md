@@ -25,7 +25,7 @@ Shows what the Government pays when it cancels or terminates ordered telecommuni
 | Instrument | Codified DFARS [@CL-CMP-4649; @CL-CMP-4650] |
 | Codified citation | DFARS 252.239-7007 [@CL-CMP-4649; @CL-CMP-4650] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | SEP 2019 [@CL-CMP-10176] |
 | Text status | Final [@CL-CMP-4649; @CL-CMP-4650] |
 | Applies to | Contracts that include the Cancellation or Termination of Orders clause [@CL-CMP-4649] |
 
@@ -56,6 +56,7 @@ Which orders carry this clause, which tariffs or agreed schedules set the charge
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Orders for Facilities and Services clause qualifier in paragraph (f)(1), the full definition of installed costs, and the paragraph (h)(1) inventory-schedule lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added at-any-time timing to relocation, replaced contrast and characterization sentences with cited statements and pointers.

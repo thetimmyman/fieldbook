@@ -25,7 +25,7 @@ States what schedule a construction contractor must submit and update, what foll
 | Instrument | Codified FAR [@CL-CMP-4896] |
 | Codified citation | FAR 52.236-15, FAR 52.236-16 and FAR 52.236-17 [@CL-CMP-4896; @CL-CMP-4902; @CL-CMP-4903] |
 | RFO citation | RFO FAR 52.236-15 [@CL-CMP-0742], RFO FAR 52.236-16 [@CL-CMP-0749] and RFO FAR 52.236-17 [@CL-CMP-0797] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-15: APR 1984 [@CL-CMP-10100]; FAR 52.236-16: APR 1984 [@CL-CMP-10101]; FAR 52.236-17: APR 1984 [@CL-CMP-10102] |
 | Text status | Final [@CL-CMP-4896] |
 | Applies to | Contracts that include the clauses. The contracting officer may insert the quantity surveys clause when a fixed-price construction contract providing for unit pricing of items and for payment based on quantity surveys is contemplated [@CL-CMP-5078], and the layout clause is inserted when a fixed-price construction contract is contemplated and use of the clause is appropriate due to a need for accurate work layout and for siting verification during work performance [@CL-CMP-5087] |
 
@@ -80,6 +80,7 @@ Which schedule, survey and layout records are open findings on construction work
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: schedule, survey and layout wording tied to cited text; paragraph references.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -25,7 +25,7 @@ Sets out how the foreign fixed-price clause and the fixed-price clause with a fo
 | Instrument | Codified FAR [@CL-CTF-2539] |
 | Codified citation | FAR 52.229-6 and FAR 52.229-7 [@CL-CTF-2539; @CL-CTF-2546] |
 | RFO citation | RFO FAR 52.229-6 and RFO FAR 52.229-7 [@CL-CTF-0343; @CL-CTF-0366] |
-| Edition date | Not established. |
+| Edition date | FAR 52.229-6: FEB 2013 [@CL-CTF-9697]; FAR 52.229-7: FEB 2013 [@CL-CTF-9698] |
 | Text status | Final [@CL-CTF-2539] |
 | Applies to | Foreign fixed-price clause: supplies furnished or services performed outside the United States and its outlying areas [@CL-CTF-2539]. Clause with a foreign government: Not established. |
 
@@ -76,6 +76,7 @@ Whether each foreign-performance contract carries the foreign fixed-price clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded definitions and exception lists, restored the legal-fees phrase, and cut uncited contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Placed the subparagraph (c)(2) exception on the whole price-inclusion rule and carried the (d)(2) exception on the price increase.

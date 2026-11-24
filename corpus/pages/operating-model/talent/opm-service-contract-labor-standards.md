@@ -23,7 +23,7 @@ Shows when the service contract labor standards clause goes into a contract and 
 | Instrument | Codified FAR [@CL-OPM-0093] |
 | Codified citation | FAR 22.1000; FAR 22.1002-1; FAR 22.1006; FAR 22.1007; FAR 22.1014; FAR 22.1023; FAR 22.1024; FAR 22.1026 [@CL-OPM-0093; @CL-OPM-0096; @CL-OPM-1006; @CL-OPM-1007; @CL-OPM-1008; @CL-OPM-1009; @CL-OPM-1010; @CL-OPM-0187; @CL-OPM-1012; @CL-OPM-1013; @CL-OPM-1017]; FAR 52.222-41 [@CL-OPM-9000; @CL-OPM-9001] |
 | RFO citation | RFO FAR 52.222-41 [@CL-OPM-1063; @CL-OPM-1064; @CL-OPM-9002] |
-| Edition date | Not established. |
+| Edition date | AUG 2018 [@CL-OPM-9004] |
 | Text status | Final [@CL-OPM-0093] |
 | Applies to | Solicitations and contracts (except as provided in FAR 22.1006(a)(2)) if the contract is subject to the Service Contract Labor Standards statute and is either over $2,500 or for an indefinite dollar amount where the contracting officer does not know in advance that the contract amount will be $2,500 or less [@CL-OPM-0093; @CL-OPM-0094] |
 
@@ -58,6 +58,7 @@ Which contracts the company treats as subject to the Service Contract Labor Stan
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.1023 statute lead-in and full clause titles and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited codified and RFO text for the paragraph heading and verb, and kept the statute lead-in.

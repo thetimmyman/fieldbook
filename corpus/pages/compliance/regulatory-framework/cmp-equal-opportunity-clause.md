@@ -24,7 +24,7 @@ Shows the equal opportunity duties a contractor carries on a covered Federal con
 | Instrument | Codified FAR [@CL-CMP-5866] |
 | Codified citation | FAR 52.222-26 [@CL-CMP-5866] |
 | RFO citation | RFO FAR 52.222-26 prints as [Reserved] [@CL-CMP-1119] |
-| Edition date | Not established. |
+| Edition date | SEP 2016 [@CL-CMP-10195] |
 | Text status | Final [@CL-CMP-5866] |
 | Applies to | Contractors holding nonexempt Federal contracts or subcontracts above the coverage threshold [@CL-CMP-5866] |
 
@@ -73,6 +73,7 @@ Which contracts and business units sit inside the equal opportunity population w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subcontract action scope and removed unsupported contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records access sentence so the inspection rule keeps its extension to the rules and regulations that implement the Executive Order.

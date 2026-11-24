@@ -24,7 +24,7 @@ Shows the records, cost-examination, plant-inspection, and certified-data audit 
 | Instrument | Codified FAR [@CL-CMP-0601] |
 | Codified citation | FAR 52.215-2 [@CL-CMP-0601] |
 | RFO citation | RFO FAR 52.215-2 [@CL-CMP-0227] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CMP-10049] |
 | Text status | Final [@CL-CMP-0601] |
 | Applies to | Cost-reimbursement, incentive, time-and-materials, labor-hour, or price redeterminable contracts, or any combination of these, for cost examination, and contracts where the contractor has been required to submit certified cost or pricing data in connection with any pricing action relating to the contract [@CL-CMP-0602; @CL-CMP-0189] |
 
@@ -53,6 +53,7 @@ Which control findings, corrective actions, and external requests are open, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the certified cost or pricing data audit lead-in and four alternatives, matched exact contract-type and records wording, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the certified-data audit sentence so the four related-records matters are alternatives.

@@ -24,7 +24,7 @@ Shows when the Government may terminate a fixed-price construction contract for 
 | Instrument | Codified FAR [@CL-CLS-1118] |
 | Codified citation | FAR 52.249-10 and FAR 52.249-14 [@CL-CLS-1118; @CL-CLS-1122] |
 | RFO citation | RFO FAR 52.249-10 and RFO FAR 52.249-14 [@CL-CLS-0061; @CL-CLS-0068] |
-| Edition date | Not established. |
+| Edition date | FAR 52.249-10: Apr 1984 [@CL-CLS-0064]; FAR 52.249-14: Apr 1984 [@CL-CLS-0073] |
 | Text status | Final [@CL-CLS-1118] |
 | Applies to | Contracts containing the Default (Fixed-Price Construction) clause, and contracts for which the Excusable Delays clause is prescribed [@CL-CLS-1118; @CL-CLS-1123] |
 
@@ -61,6 +61,7 @@ Which default and excusable-delays clauses each open contract carries, checked a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: construction default and excusable delays: ascertain duty, subcontractor conditions, uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated both default grounds, the example list as alternatives and the request step.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

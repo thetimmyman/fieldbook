@@ -25,7 +25,7 @@ Shows what the preconstruction conference notice must contain, how a site visit 
 | Instrument | Codified FAR [@CL-CMP-5123; @CL-CMP-5124; @CL-CMP-5127] |
 | Codified citation | FAR 52.236-26 through 52.236-28 [@CL-CMP-5123; @CL-CMP-5124; @CL-CMP-5127] |
 | RFO citation | No RFO equivalent [@CL-CMP-0739; @CL-CMP-0740; @CL-CMP-0741] |
-| Edition date | Not established. |
+| Edition date | FEB 1995 [@CL-CMP-10099] |
 | Text status | Final [@CL-CMP-5123] |
 | Applies to | Solicitations and contracts where the prescriptions direct insertion [@CL-CMP-5123; @CL-CMP-5124; @CL-CMP-5127] |
 
@@ -62,6 +62,7 @@ Who confirms that the proposal form, the site visit record and the conference at
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO comparison, worked example and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on work oversight and designer registration.

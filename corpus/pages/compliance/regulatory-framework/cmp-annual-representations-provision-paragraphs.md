@@ -24,7 +24,7 @@ Shows how the annual representations and certifications provision works in a sol
 | Instrument | Codified FAR [@CL-CMP-3532] |
 | Codified citation | FAR 52.204-8 [@CL-CMP-3532; @CL-CMP-3534] |
 | RFO citation | RFO FAR 52.204-8 is marked reserved [@CL-CMP-0375]; the RFO list of entity-level representations is in RFO FAR 52.204-7(c)(1) [@CL-CMP-0424] |
-| Edition date | Not established. |
+| Edition date | MAR 2026 [@CL-CMP-10071] |
 | Text status | Final [@CL-CMP-3532] |
 | Applies to | Offerors on solicitations that include the annual representations provision, with the SAM paragraph applying as described below [@CL-CMP-3532; @CL-CMP-3533] |
 
@@ -57,6 +57,7 @@ Which representations and certifications in SAM the company relies on for each s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

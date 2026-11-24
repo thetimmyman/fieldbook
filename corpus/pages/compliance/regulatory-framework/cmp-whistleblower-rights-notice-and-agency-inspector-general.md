@@ -25,7 +25,7 @@ Shows what the contractor must tell its employees about whistleblower rights, ho
 | Instrument | Codified DFARS [@CL-CMP-4191] |
 | Codified citation | DFARS 252.203-7002 and 252.203-7003 [@CL-CMP-4191; @CL-CMP-4193] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-CMP-10289] |
 | Text status | Final [@CL-CMP-4191] |
 | Applies to | Contracts that include the clauses [@CL-CMP-4191; @CL-CMP-4193] |
 
@@ -56,6 +56,7 @@ Which workforce languages need the written notice, and who owns disclosures to t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and recast contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: whistleblower rights notice: posting duty wording as quoted.

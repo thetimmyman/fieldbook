@@ -25,7 +25,7 @@ Shows how a written change order becomes an equitable adjustment in a fixed-pric
 | Instrument | Codified FAR [@CL-CTF-0311] |
 | Codified citation | FAR 52.243-1 [@CL-CTF-0311] |
 | RFO citation | RFO FAR 52.243-1 [@CL-CTF-1126; @CL-CTF-1128] |
-| Edition date | Not established. |
+| Edition date | AUG 1987 [@CL-CTF-9726] |
 | Text status | Final [@CL-CTF-0311] |
 | Applies to | Contracts containing the Changes—Fixed-Price clause [@CL-CTF-0311] |
 
@@ -58,6 +58,7 @@ Where the executed contracts and modifications are kept, and who confirms that t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for FAR 52.243-1(a) change areas, preserved shall modality, separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded never-confuse text that added an only and an out-of-scope contrast.

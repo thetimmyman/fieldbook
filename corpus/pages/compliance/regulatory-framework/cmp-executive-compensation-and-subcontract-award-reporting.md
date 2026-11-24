@@ -24,7 +24,7 @@ Shows when a contractor reports the compensation of its most highly paid executi
 | Instrument | Codified FAR [@CL-CMP-3538] |
 | Codified citation | FAR 52.204-10 [@CL-CMP-3538; @CL-CMP-3543] |
 | RFO citation | RFO FAR 52.204-10 [@CL-CMP-1159] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CMP-10199] |
 | Text status | Final [@CL-CMP-3538] |
 | Applies to | Contractors under contracts that include the clause, if the listed conditions are met [@CL-CMP-3538] |
 
@@ -59,6 +59,7 @@ Whether the company or any first-tier subcontractor meets the revenue and public
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that all executive compensation conditions apply, cited the SAM registration lead-in and FAR 4.1403(a) actor, and removed unsupported wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -25,7 +25,7 @@ Covers the duty to keep the Commercial and Government entity code current at eac
 | Instrument | Codified FAR [@CL-CMP-5987] |
 | Codified citation | FAR 52.204-18; FAR 52.204-26 [@CL-CMP-5988; @CL-CMP-5993] |
 | RFO citation | RFO FAR 52.204-91 [@CL-CMP-0538]; RFO FAR 52.240-90 [@CL-CMP-0550]; RFO FAR 52.240-92 [@CL-CMP-0545] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-18: AUG 2020 [@CL-CMP-10083]; FAR 52.204-26: OCT 2020 [@CL-CMP-10084] |
 | Text status | Final [@CL-CMP-5987] |
 | Applies to | Contractors under contracts with the code maintenance clause, and offerors on solicitations with the representation provision [@CL-CMP-5988; @CL-CMP-5993] |
 
@@ -76,6 +76,7 @@ Which legal entities and locations hold codes and registrations, who files each 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: representation comparisons and example scope tightened.

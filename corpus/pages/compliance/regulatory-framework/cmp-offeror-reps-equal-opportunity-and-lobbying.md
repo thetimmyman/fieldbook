@@ -25,7 +25,7 @@ Covers the Executive Order 11246 representations in paragraph (d) and the certif
 | Instrument | Codified FAR [@CL-CMP-8976] |
 | Codified citation | FAR 52.212-3(d) and (e) [@CL-CMP-9147; @CL-CMP-8979] |
 | RFO citation | Paragraph (d): RFO part 52 prints no equivalent and marks FAR 52.222-22 and FAR 52.222-25 as reserved [@CL-CMP-1589; @CL-CMP-1590]; paragraph (e): RFO FAR 52.203-11(c) and (d) [@CL-CMP-1591; @CL-CMP-9325; @CL-CMP-1592; @CL-CMP-1593; @CL-CMP-1594] |
-| Edition date | Not established. |
+| Edition date | FAR 52.212-3: OCT 2025 [@CL-CMP-10243]; FAR 52.222-22: FEB 1999 [@CL-CMP-10244]; FAR 52.222-25: APR 1984 [@CL-CMP-10245]; FAR 52.203-11: Sep 2024 [@CL-CMP-1591] |
 | Text status | Final [@CL-CMP-8976] |
 | Applies to | Offerors completing paragraphs (c) through (v) for the equal opportunity representations, and contracts expected to exceed $200,000 for the payment certification [@CL-CMP-8961; @CL-CMP-8979] |
 
@@ -74,6 +74,7 @@ Who holds the affirmative action programs and compliance reports for each establ
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

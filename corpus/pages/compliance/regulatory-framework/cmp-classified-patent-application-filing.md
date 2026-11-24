@@ -24,7 +24,7 @@ Shows what the contractor must send the Contracting Officer before filing a pate
 | Instrument | Codified FAR [@CL-CMP-3624] |
 | Codified citation | FAR 52.227-10 [@CL-CMP-3624] |
 | RFO citation | RFO FAR 52.227-10 [@CL-CMP-0593] |
-| Edition date | Not established. |
+| Edition date | Dec 2007 [@CL-CMP-0593] |
 | Text status | Final [@CL-CMP-3624] |
 | Applies to | Contract subject matter classified Secret or higher, or Confidential [@CL-CMP-3624; @CL-CMP-3626] |
 
@@ -55,6 +55,7 @@ Which contracts involve classified subject matter, and who confirms that this cl
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Confidential purpose cited; contrast and example wording cited.

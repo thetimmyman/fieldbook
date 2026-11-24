@@ -25,7 +25,7 @@ Shows how the commercial terms clause treats assignment of payment rights, chang
 | Instrument | Codified FAR [@CL-CTF-2427] |
 | Codified citation | FAR 52.212-4(b) to (f) [@CL-CTF-2427; @CL-CTF-2428; @CL-CTF-2429; @CL-CTF-2430; @CL-CTF-2431; @CL-CTF-2456] |
 | RFO citation | RFO FAR 52.212-4(a) [@CL-CTF-0052]; RFO FAR 52.212-4(c) [@CL-CTF-0053; @CL-CTF-0054]; RFO FAR 52.212-4(d) [@CL-CTF-0055]; RFO FAR 52.212-4(e) [@CL-CTF-0056; @CL-CTF-0057; @CL-CTF-0058]; RFO FAR 52.212-4(f) [@CL-CTF-0059; @CL-CTF-0060; @CL-CTF-0061] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CTF-9643] |
 | Text status | Final [@CL-CTF-2427] |
 | Applies to | Contracts that contain the commercial products and services terms clause, as to the paragraphs quoted [@CL-CTF-2427] |
 
@@ -60,6 +60,7 @@ Confirm which executed contracts carry this clause, and who approves written cha
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined the assignment exception to its rule; restored dispute scope; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commercial contract terms on assignment, changes, disputes, definitions and excusable delays.

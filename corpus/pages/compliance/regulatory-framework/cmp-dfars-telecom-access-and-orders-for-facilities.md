@@ -25,7 +25,7 @@ Shows when the Government must let a telecommunications contractor into its own 
 | Instrument | Codified DFARS [@CL-CMP-4641; @CL-CMP-4645] |
 | Codified citation | DFARS 252.239-7002 and DFARS 252.239-7004 [@CL-CMP-4641; @CL-CMP-4645] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.239-7002: DEC 1991 [@CL-CMP-10174]; DFARS 252.239-7004: SEP 2019 [@CL-CMP-10175] |
 | Text status | Final [@CL-CMP-4641; @CL-CMP-4645] |
 | Applies to | Contracts that include the Access clause or the Orders for Facilities and Services clause [@CL-CMP-4641; @CL-CMP-4645] |
 
@@ -56,6 +56,7 @@ Which contracts and modifications carry the Access and Orders for Facilities and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported only-if wording and rule count; replaced contrast sentences with cited statements and pointers.

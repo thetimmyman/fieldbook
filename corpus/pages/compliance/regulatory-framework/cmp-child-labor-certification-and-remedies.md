@@ -24,7 +24,7 @@ Shows what an offeror certifies about forced or indentured child labor in listed
 | Instrument | Codified FAR [@CL-CMP-5896] |
 | Codified citation | FAR 52.222-18 and 52.222-19 [@CL-CMP-5896; @CL-CMP-5900] |
 | RFO citation | RFO FAR 52.222-18 [@CL-CMP-0584] and RFO FAR 52.222-19 [@CL-CMP-0585] |
-| Edition date | Not established. |
+| Edition date | Feb 2021 [@CL-CMP-0584] |
 | Text status | Final [@CL-CMP-5896] |
 | Applies to | Solicitations that list end products subject to the certification, and contracts carrying the cooperation and remedies clause [@CL-CMP-5897; @CL-CMP-5901] |
 
@@ -63,6 +63,7 @@ Who signs the child labor certification and where the supply-chain evidence behi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: definition, listed-products, remedy and example wording tied to cited text.

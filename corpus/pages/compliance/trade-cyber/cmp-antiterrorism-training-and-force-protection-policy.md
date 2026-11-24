@@ -24,7 +24,7 @@ Shows who must complete antiterrorism awareness training, when, and what contrac
 | Instrument | Codified DFARS [@CL-CMP-4034; @CL-CMP-4036] |
 | Codified citation | DFARS 252.204-7004 [@CL-CMP-4034]; DFARS 252.225-7043 [@CL-CMP-4036] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7004: JAN 2023 [@CL-CMP-10290]; DFARS 252.225-7043: JUN 2015 [@CL-CMP-10291] |
 | Text status | Final [@CL-CMP-4034; @CL-CMP-4036] |
 | Applies to | Contractor personnel who require routine physical access to a Federally-controlled facility or military installation [@CL-CMP-4034]; the contractor and its subcontractors, if performing or traveling outside the United States under the contract [@CL-CMP-4036] |
 
@@ -53,6 +53,7 @@ Which contracts require personnel to enter Federally-controlled facilities or mi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Qualified training instruction lead-in and duty wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word and noted the lead-in to the training routes.

@@ -25,7 +25,7 @@ Shows when the defense trade cooperation treaties may be used to prepare a respo
 | Instrument | Codified DFARS [@CL-CMP-4021] |
 | Codified citation | DFARS 252.225-7046 [@CL-CMP-4021] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 2013 [@CL-CMP-10293] |
 | Text status | Final [@CL-CMP-4021] |
 | Applies to | Approved Community members responding to the solicitation [@CL-CMP-4021] |
 
@@ -54,6 +54,7 @@ Which entities and facilities are Approved Community members, and who signs the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the separate provisions named in the contrast section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word from the flowdown summary.

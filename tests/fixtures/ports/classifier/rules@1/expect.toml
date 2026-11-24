@@ -1,0 +1,17 @@
+[[suggestion]]
+field = "source_kind"
+value = "primary_law"
+rule = "reg-text"
+kind = "phrase"
+
+[[suggestion]]
+field = "publisher"
+value = "Synthetic Standards Board"
+rule = "fixture-agency"
+kind = "publisher"
+
+[[suggestion]]
+field = "licence"
+value = "Synthetic CC0-1.0"
+rule = "fixture-licence"
+kind = "phrase"

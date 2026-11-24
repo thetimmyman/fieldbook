@@ -25,7 +25,7 @@ Shows how the DoD clause for SBIR and STTR contracts defines SBIR/STTR data, wha
 | Instrument | Codified DFARS [@CL-CMP-3914] |
 | Codified citation | DFARS 252.227-7018 [@CL-CMP-3914] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 2025 [@CL-CMP-10170] |
 | Text status | Final [@CL-CMP-3914] |
 | Applies to | All SBIR/STTR data [@CL-CMP-3917] |
 
@@ -70,6 +70,7 @@ Which executed SBIR or STTR contracts carry this clause, whether the agency and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added qualifying recipients, terminal limit, marking actors, omitted-marking request, government-purpose release alternative, and full FAR 52.227-20 disclosure terms.

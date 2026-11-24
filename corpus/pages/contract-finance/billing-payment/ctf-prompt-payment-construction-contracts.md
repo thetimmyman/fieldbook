@@ -25,7 +25,7 @@ Sets out what the construction prompt payment clause says about due dates for pr
 | Instrument | Codified FAR [@CL-CTF-1651] |
 | Codified citation | FAR 52.232-27 [@CL-CTF-1651] |
 | RFO citation | RFO FAR 52.232-27 [@CL-CTF-0627; @CL-CTF-0628; @CL-CTF-0629; @CL-CTF-0630; @CL-CTF-0631; @CL-CTF-0632; @CL-CTF-0633; @CL-CTF-0634; @CL-CTF-0635; @CL-CTF-0636; @CL-CTF-0637; @CL-CTF-0638; @CL-CTF-0639; @CL-CTF-0640; @CL-CTF-0641; @CL-CTF-9119; @CL-CTF-9120; @CL-CTF-9121; @CL-CTF-9122; @CL-CTF-9123; @CL-CTF-9124; @CL-CTF-9125; @CL-CTF-9126] |
-| Edition date | Not established. |
+| Edition date | Jan 2017 [@CL-CTF-0627] |
 | Text status | Final [@CL-CTF-1651] |
 | Applies to | Contracts with the clause, for the payment types it lists [@CL-CTF-1650; @CL-CTF-1653] |
 
@@ -58,6 +58,7 @@ Confirm which construction contracts carry this clause, who resolves returned in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored invoice-item parentheticals, material-supplier scope, and 41 U.S.C. 7109 reference, separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the paragraph (d) negotiation lead-in, the agreed-terms continuation of retainage, the release-to-Contractor wording and the notice-copy wording (new companions CL-CTF-9628 to CL-CTF-9631) and named the billing office and the subcontract payment terms in full.

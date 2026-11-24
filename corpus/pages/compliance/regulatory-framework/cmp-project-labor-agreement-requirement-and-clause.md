@@ -25,7 +25,7 @@ Shows when a construction solicitation demands a project labor agreement, what t
 | Instrument | Codified FAR [@CL-CMP-5246] |
 | Codified citation | FAR 52.222-33 and 52.222-34 [@CL-CMP-5246; @CL-CMP-5253] |
 | RFO citation | RFO FAR 52.222-33 and 52.222-34 [@CL-CMP-1974; @CL-CMP-1986] |
-| Edition date | Not established. |
+| Edition date | JAN 2024 [@CL-CMP-10260] |
 | Text status | Final [@CL-CMP-5246] |
 | Applies to | Construction solicitations that carry the provision, and construction contracts that carry the clause [@CL-CMP-5246; @CL-CMP-5253] |
 
@@ -74,6 +74,7 @@ Which solicitations carry the provision or an alternate, and who holds the execu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the Alternate II subcontract inclusion duty to each order that uses an agreement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Competition term now names the offeror as well as subcontractors.

@@ -25,7 +25,7 @@ Shows how the technical data clause for items that are not commercial controls m
 | Instrument | Codified DFARS [@CL-CMP-3809] |
 | Codified citation | DFARS 252.227-7013 [@CL-CMP-3809] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Aug 2025 [@CL-CMP-10188] |
 | Text status | Final [@CL-CMP-3809] |
 | Applies to | Technical data to be delivered under a contract with the clause, when the Contractor or a subcontractor or supplier asserts a restriction on it [@CL-CMP-3809] |
 
@@ -84,6 +84,7 @@ Which executed contracts carry this clause, and who confirms how deliverable dat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the omitted-marking duties in paragraph (g)(2)(ii)(A) through (C), the nondisclosure waiver alternative in paragraph (c)(3)(iv)(C), the records requirement in paragraph (h)(2), and the actor lead-in of DFARS 252.227-7015(e).

@@ -24,7 +24,7 @@ Sets out the written notice a contractor gives before delivering or servicing it
 | Instrument | Codified FAR [@CL-CMP-5189] |
 | Codified citation | FAR 52.223-7 [@CL-CMP-5189] |
 | RFO citation | RFO FAR 52.223-7 [@CL-CMP-1473; @CL-CMP-1474; @CL-CMP-1475] |
-| Edition date | Not established. |
+| Edition date | JAN 1997 [@CL-CMP-10238] |
 | Text status | Final [@CL-CMP-5189] |
 | Applies to | Contractors delivering or servicing items that contain radioactive material of either kind the clause describes [@CL-CMP-5189; @CL-CMP-5190; @CL-CMP-5191] |
 
@@ -67,6 +67,7 @@ Whether shipping records identify every item that meets the licensing or activit
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts and inference; restated number of days, waiver, marking and notice text; fixed RFO wording.

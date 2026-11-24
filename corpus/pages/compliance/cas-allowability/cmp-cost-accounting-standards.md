@@ -24,7 +24,7 @@ Explains the disclosure, consistency, practice-change, and confidentiality requi
 | Instrument | Codified FAR [@CL-CMP-0606] |
 | Codified citation | FAR 52.230-2 [@CL-CMP-0606] |
 | RFO citation | RFO FAR 52.230-2 [@CL-CMP-0284] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CMP-10064] |
 | Text status | Final [@CL-CMP-0606] |
 | Applies to | Contracts that are not exempt under 48 CFR 9903.201-1 and 9903.201-2 [@CL-CMP-0606] |
 
@@ -53,6 +53,7 @@ Whether each business unit has full CAS coverage, modified coverage, or neither,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the RFO clause paragraphs only to RFO claims and kept the shall wording for protection and class deviation use.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the clause scope, consistency and prospective-change sentences as the quotes say them.

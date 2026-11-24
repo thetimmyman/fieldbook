@@ -25,7 +25,7 @@ Shows how long the German construction warranty runs, what the Contractor must c
 | Instrument | Codified DFARS [@CL-CLS-1183] |
 | Codified citation | DFARS 252.246-7002 [@CL-CLS-1183] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 1997 [@CL-CLS-1625] |
 | Text status | Final [@CL-CLS-1183] |
 | Applies to | Contracts with the clause, which DFARS 246.710(2) prescribes [@CL-CLS-1206] |
 
@@ -56,6 +56,7 @@ Which executed overseas construction contracts carry the clause, and who tracks 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: German construction warranty: uncited gap statements removed, Inspection clause wording tied to the quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: listed causes as alternatives and added the damage limb of the Government-furnished limit.

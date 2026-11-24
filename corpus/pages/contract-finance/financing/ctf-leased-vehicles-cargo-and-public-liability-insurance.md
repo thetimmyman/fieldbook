@@ -24,7 +24,7 @@ Shows who bears loss or damage on leased vehicles, the insurance minimums for le
 | Instrument | Codified FAR [@CL-CTF-2502] |
 | Codified citation | FAR 52.228-8, FAR 52.228-9 and FAR 52.228-10 [@CL-CTF-2502; @CL-CTF-2504; @CL-CTF-2505] |
 | RFO citation | RFO FAR 52.228-8, RFO FAR 52.228-9 and RFO FAR 52.228-10 [@CL-CTF-1026; @CL-CTF-1035; @CL-CTF-1041] |
-| Edition date | Not established. |
+| Edition date | FAR 52.228-8: May 1999 [@CL-CTF-1026]; FAR 52.228-9: May 1999 [@CL-CTF-1035]; FAR 52.228-10: APR 1984 [@CL-CTF-9723] |
 | Text status | Final [@CL-CTF-2502] |
 | Applies to | Contracts with the leased motor vehicles clause, the cargo insurance clause or the vehicular and general public liability insurance clause [@CL-CTF-2502; @CL-CTF-2504; @CL-CTF-2505] |
 
@@ -65,6 +65,7 @@ Which contracts carry these clauses, and what cargo and liability amounts each o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "shall", the contract-duration limit and the exact exceptions in the leased vehicle and insurance sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Public liability limits now include property damage.

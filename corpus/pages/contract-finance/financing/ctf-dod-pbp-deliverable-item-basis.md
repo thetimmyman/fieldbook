@@ -25,7 +25,7 @@ Shows how the DoD deliverable-item clause ties performance-based payment events 
 | Instrument | Codified DFARS [@CL-CTF-1731] |
 | Codified citation | DFARS 252.232-7013 [@CL-CTF-1731] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-CTF-9720] |
 | Text status | Final [@CL-CTF-1731] |
 | Applies to | Performance-based payments made on a deliverable-item basis, for the contract line items that the Contracting Officer inserts in the clause [@CL-CTF-1785; @CL-CTF-1731] |
 
@@ -54,6 +54,7 @@ Which line items carry performance-based payments, and which events and amounts 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: added solicitation scope and shall wording; removed uncited comparisons.

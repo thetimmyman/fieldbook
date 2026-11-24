@@ -25,7 +25,7 @@ Shows the contractor's duty to comply with export control laws under the export-
 | Instrument | Codified DFARS [@CL-CMP-4017] |
 | Codified citation | DFARS 252.225-7048 [@CL-CMP-4017] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 2013 [@CL-CMP-10305] |
 | Text status | Final [@CL-CMP-4017] |
 | Applies to | Contracts with the clause, for export-controlled items subject to the Export Administration Regulations or the International Traffic in Arms Regulations [@CL-CMP-4016] |
 
@@ -54,6 +54,7 @@ Which contracts involve export-controlled items, which entities are registered w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added no-change paragraph; removed absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for export-controlled items.

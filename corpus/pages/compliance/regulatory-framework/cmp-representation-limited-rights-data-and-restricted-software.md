@@ -24,7 +24,7 @@ Shows what an offeror represents and identifies about limited rights data and re
 | Instrument | Codified FAR [@CL-CMP-3700] |
 | Codified citation | FAR 52.227-15 [@CL-CMP-3700; @CL-CMP-3702] |
 | RFO citation | RFO FAR 52.227-15 [@CL-CMP-2166; @CL-CMP-2167; @CL-CMP-2168; @CL-CMP-2169; @CL-CMP-2170; @CL-CMP-2171] |
-| Edition date | Not established. |
+| Edition date | Dec 2007 [@CL-CMP-2166] |
 | Text status | Final [@CL-CMP-3700] |
 | Applies to | Offerors that complete the representation paragraph of the provision [@CL-CMP-3700] |
 
@@ -55,6 +55,7 @@ Which solicitations carry this provision, and who confirms which proposed data q
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the included-in-the-contract condition for the data rights clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

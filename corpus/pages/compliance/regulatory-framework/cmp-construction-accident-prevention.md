@@ -25,7 +25,7 @@ States the safety duties the accident prevention clause imposes, the standards i
 | Instrument | Codified FAR [@CL-CMP-4888] |
 | Codified citation | FAR 52.236-13 [@CL-CMP-4888] |
 | RFO citation | RFO FAR 52.236-13 [@CL-CMP-0646] |
-| Edition date | Not established. |
+| Edition date | NOV 1991 [@CL-CMP-10090] |
 | Text status | Final [@CL-CMP-4888] |
 | Applies to | Contracts that include the clause. Alternate I applies where the contract involves work of a long duration or hazardous nature, or performance on a Government facility with the hazards that the alternate describes [@CL-CMP-4888; @CL-CMP-5069; @CL-CMP-5070] |
 
@@ -80,6 +80,7 @@ Which safety findings and corrective actions are open on construction work, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: uncited records contrast, inferences and example claims tied to cited text.

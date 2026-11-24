@@ -25,7 +25,7 @@ Shows the contractor's duty to justify asserted restrictions on technical data, 
 | Instrument | Codified DFARS [@CL-CMP-3793] |
 | Codified citation | DFARS 252.227-7037 [@CL-CMP-3793] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-CMP-10189] |
 | Text status | Final [@CL-CMP-3793] |
 | Applies to | Contractors and subcontractors at any tier that assert restrictions on technical data [@CL-CMP-3793] |
 
@@ -54,6 +54,7 @@ Who owns the response when a challenge notice arrives, and where the records tha
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (c) delivered-data scope, the 60-day final-decision windows in paragraphs (g)(1) and (g)(2)(i), and the continued-bound rules in paragraphs (g)(2)(ii) through (iv).
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated how-it-works and never-confuse sentences as cited statements and pointers, restored the three failure alternatives.
