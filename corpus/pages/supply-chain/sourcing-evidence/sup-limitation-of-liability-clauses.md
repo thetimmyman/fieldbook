@@ -24,7 +24,7 @@ Shows what loss of Government property the contractor is not liable for after ac
 | Instrument | Codified FAR [@CL-SUP-1180] |
 | Codified citation | FAR 52.246-23, 52.246-24 and 52.246-25 [@CL-SUP-1180; @CL-SUP-1181; @CL-SUP-1182; @CL-SUP-1183; @CL-SUP-1184; @CL-SUP-1185; @CL-SUP-1186; @CL-SUP-1201; @CL-SUP-1202; @CL-SUP-1203; @CL-SUP-1204; @CL-SUP-1205] |
 | RFO citation | RFO FAR 52.246-23, 52.246-24 and 52.246-25 [@CL-SUP-3446; @CL-SUP-3447; @CL-SUP-3448; @CL-SUP-3449; @CL-SUP-3450; @CL-SUP-3451; @CL-SUP-3452; @CL-SUP-3453; @CL-SUP-3454; @CL-SUP-3455; @CL-SUP-3456; @CL-SUP-3457; @CL-SUP-3458] |
-| Edition date | Not established. |
+| Edition date | FAR 52.246-23: FEB 1997 [@CL-SUP-9873]; FAR 52.246-24: Feb 1997 [@CL-SUP-3455] |
 | Text status | Final [@CL-SUP-1180] |
 | Applies to | Loss of or damage to Government property after acceptance that results from defects or deficiencies, under a contract that includes the matching clause [@CL-SUP-1180; @CL-SUP-1183; @CL-SUP-1185] |
 
@@ -57,6 +57,7 @@ Which limitation of liability clause each contract carries, whether any line ite
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and aligned limitation of liability wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried insurance condition and scope; services includes materials.

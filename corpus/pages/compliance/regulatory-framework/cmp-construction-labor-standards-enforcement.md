@@ -54,7 +54,7 @@ Later a Department of Labor investigator arrives at the site. The contracting of
 
 ## Never confuse
 
-A regular compliance check is part of ordinary checking, while a special check may be required after an inconsistency, error or omission is detected in a regular check, or on receipt of a complaint alleging violations [@CL-CMP-6746]. The payroll review in a regular check is the Government's review of the payrolls that prime contractors and subcontractors submit [@CL-CMP-6744]. The payrolls and statements that the contractor submits are covered in [Construction payrolls, statements and investigations](../regulatory-framework/cmp-construction-payrolls-statements-and-investigations.md). The contracting agency must cooperate with representatives of the Department of Labor in investigations undertaken by the Department of Labor [@CL-CMP-6907].
+A regular compliance check is part of ordinary checking, unlike a special check, which may be required after an inconsistency, error or omission is detected in a regular check, or on receipt of a complaint alleging violations [@CL-CMP-6746]. The payroll review in a regular check is the Government's review of the payrolls that prime contractors and subcontractors submit [@CL-CMP-6744]. The payrolls and statements that the contractor submits are covered in [Construction payrolls, statements and investigations](../regulatory-framework/cmp-construction-payrolls-statements-and-investigations.md). The contracting agency must cooperate with representatives of the Department of Labor in investigations undertaken by the Department of Labor [@CL-CMP-6907].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Confirm who receives the preconstruction information and letter, who attends the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced an uncited contrast with the cooperation duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Program sentence now says the program includes the four elements, not that it has only four.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the report after a termination for labor standards violations.

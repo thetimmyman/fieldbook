@@ -44,7 +44,7 @@ A registrant has consolidated net assets of 1,000 at year end. Restricted net as
 
 ## Never confuse
 
-Under § 210.5-04(c) Schedule I and § 210.12-04(a), Schedule I provides condensed financial information as to financial position, cash flows and results of operations of the registrant as of the same dates and for the same periods for which audited consolidated financial statements are required when the restricted net assets of consolidated subsidiaries exceed 25 percent of consolidated net assets as of the end of the most recently completed fiscal year [@CL-MNA-0908; @CL-MNA-0909], whereas separate financial statements of unconsolidated subsidiaries and 50 percent or less owned persons are covered on [Group reporting notes and separate subsidiary statements under Regulation S-X](../../close-revrec/group-bridge/cls-sx-group-reporting-notes.md).
+Schedule I and the separate-subsidiary statements are not the same requirement: under § 210.5-04(c) Schedule I and § 210.12-04(a), Schedule I provides condensed financial information as to financial position, cash flows and results of operations of the registrant as of the same dates and for the same periods for which audited consolidated financial statements are required when the restricted net assets of consolidated subsidiaries exceed 25 percent of consolidated net assets as of the end of the most recently completed fiscal year [@CL-MNA-0908; @CL-MNA-0909], whereas separate financial statements of unconsolidated subsidiaries and 50 percent or less owned persons are covered on [Group reporting notes and separate subsidiary statements under Regulation S-X](../../close-revrec/group-bridge/cls-sx-group-reporting-notes.md).
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which reporting measures management uses for restricted net assets and parent-on
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited CL-CLS-0408 and CL-CLS-0410 for Schedule II periods and independent accountant examination under § 210.5-04(a)(2) and (c).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for schedules and condensed parent-only financial information.

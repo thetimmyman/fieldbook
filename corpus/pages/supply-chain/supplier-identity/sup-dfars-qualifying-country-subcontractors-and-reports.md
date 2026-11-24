@@ -25,7 +25,7 @@ Shows what the contractor must allow for qualifying country sources as subcontra
 | Instrument | Codified DFARS [@CL-SUP-1505; @CL-SUP-1506; @CL-SUP-1509] |
 | Codified citation | DFARS 252.225-7002 [@CL-SUP-1505]; DFARS 252.225-7003 [@CL-SUP-1506]; DFARS 252.225-7004 [@CL-SUP-1509] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7002: MAR 2022 [@CL-SUP-9937]; DFARS 252.225-7003: OCT 2025 [@CL-SUP-9938] |
 | Text status | Final [@CL-SUP-1505] |
 | Applies to | Contracts with the subcontractors clause, offers with the offer report provision, and contracts with the after-award report clause [@CL-SUP-1505; @CL-SUP-1506; @CL-SUP-1509] |
 
@@ -58,6 +58,7 @@ Whether the purchasing process lets qualifying country and U.S. sources compete,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the cited DFARS sections; removed meta sentence; replaced uncited contrasts with pointers.

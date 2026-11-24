@@ -24,7 +24,7 @@ Shows where delivery happens under the two air terminal terms, what the contract
 | Instrument | Codified FAR [@CL-SUP-2428; @CL-SUP-2432] |
 | Codified citation | FAR 52.247-43 and FAR 52.247-44 [@CL-SUP-2428; @CL-SUP-2432] |
 | RFO citation | No RFO equivalent; the RFO text prints FAR 52.247-43 and FAR 52.247-44 each as [Reserved] [@CL-SUP-0016; @CL-SUP-0017] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-43: FEB 2006 [@CL-SUP-9796]; FAR 52.247-44: APR 1984 [@CL-SUP-9797] |
 | Text status | Final [@CL-SUP-2428; @CL-SUP-2432] |
 | Applies to | Solicitations and contracts when the delivery term is f.o.b. designated air carrier's terminal, point of exportation [@CL-SUP-2480], or point of importation [@CL-SUP-2484] |
 
@@ -67,6 +67,7 @@ Which air term each shipment carries and where the named terminal sits, because 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned importation-point charges wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

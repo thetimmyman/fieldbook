@@ -45,7 +45,7 @@ Offeror A proposes to use Government-owned equipment rent-free, and the rent tha
 
 ## Never confuse
 
-To consider any potentially unfair competitive advantage that may result from an offeror or contractor possessing Government property, offers shall be adjusted by applying, for evaluation purposes only, a rental equivalent evaluation factor as specified in FAR 52.245-9 [@CL-IND-0015; @CL-IND-0016]. The clause itself is covered on [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md).
+The evaluation factor is for evaluation purposes only rather than a rent the contractor owes: to consider any potentially unfair competitive advantage that may result from an offeror or contractor possessing Government property, offers shall be adjusted by applying, for evaluation purposes only, a rental equivalent evaluation factor as specified in FAR 52.245-9 [@CL-IND-0015; @CL-IND-0016]. The clause itself is covered on [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which capital projects depend on offered Government property, and who reconciles
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 45.201(c)(1) accountable-contract and authorization list requirement and accounting-for-property scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Shall wording for property plan check.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for offering Government property in a solicitation.

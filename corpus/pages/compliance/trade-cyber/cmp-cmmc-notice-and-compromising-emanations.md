@@ -45,7 +45,7 @@ A solicitation states a required CMMC level. An offeror has two systems that wil
 
 ## Never confuse
 
-For the contractor compliance clause, see [Contractor compliance with CMMC level requirements](cmp-cmmc-level-compliance-clause.md). Plan of action and milestones and scoring are on [CMMC POA&M conditions and scoring](cmp-cmmc-poam-and-scoring.md), and affirmation and flowdown are on [CMMC affirmation and subcontractor flowdown](cmp-cmmc-affirmation-and-flowdown.md). The emanations clause requires the contractor to provide or use only information technology, as specified by the Government, that has been accredited as the clause describes [@CL-CMP-4012]. For cloud services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
+The emanations clause is not the CMMC notice: the emanations clause requires the contractor to provide or use only information technology, as specified by the Government, that has been accredited as the clause describes [@CL-CMP-4012]. For the contractor compliance clause, see [Contractor compliance with CMMC level requirements](cmp-cmmc-level-compliance-clause.md); plan of action and milestones and scoring are on [CMMC POA&M conditions and scoring](cmp-cmmc-poam-and-scoring.md), and affirmation and flowdown are on [CMMC affirmation and subcontractor flowdown](cmp-cmmc-affirmation-and-flowdown.md). For cloud services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which information systems will handle Federal contract information or controlled
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited characterisations; cited alternatives and scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the accreditation standards as alternatives.

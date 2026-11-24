@@ -47,7 +47,7 @@ An agency issues solicitation 1000001 and amends it twice. It uses 1000001 with 
 
 ## Never confuse
 
-The Procurement Instrument Identifier is the Government-unique identifier, and the supplementary identifier is the non-unique identifier that is used in conjunction with the Government-unique identifier [@CL-CMP-8283; @CL-CMP-8284]. The line item subpart prescribes policies and procedures for assigning line items and subline items and their identifiers [@CL-CMP-8597], and its policies shall apply to the procurement instruments the subpart lists, to include amendments, modifications, and change orders [@CL-CMP-8286].
+The Government-unique identifier is not the supplementary identifier: the Procurement Instrument Identifier is the Government-unique identifier, and the supplementary identifier is the non-unique identifier that is used in conjunction with the Government-unique identifier [@CL-CMP-8283; @CL-CMP-8284]. The line item subpart prescribes policies and procedures for assigning line items and subline items and their identifiers [@CL-CMP-8597], and its policies shall apply to the procurement instruments the subpart lists, to include amendments, modifications, and change orders [@CL-CMP-8286].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which legal entities, business units and contracts sit inside the finance remit,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored scope list wording; restated identifier text; removed absence statements and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of FAR part 4 and its definitions.

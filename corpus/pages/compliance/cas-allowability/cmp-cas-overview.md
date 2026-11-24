@@ -34,7 +34,7 @@ A business unit wins its first negotiated award of 60 million. The award exceeds
 
 ## Never confuse
 
-A cost is allowable only when it complies with all of the requirements listed in FAR 31.201-2(a), one of which is standards promulgated by the CAS Board, if applicable [@CL-CMP-0101; @CL-CMP-8030].
+CAS compliance is one requirement, not the whole allowability test: a cost is allowable only when it complies with all of the requirements listed in FAR 31.201-2(a), one of which is standards promulgated by the CAS Board, if applicable [@CL-CMP-0101; @CL-CMP-8030].
 
 ## Company calibration
 
@@ -43,6 +43,7 @@ Which business units have full coverage, modified coverage or neither, and wheth
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-10: Reworded the purpose to name the Cost Accounting Standards twice, so that a search for them finds this page.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-05: Dated the coverage figures to 2026-10-01 as the Board's regulation, named the exemption figure, and stated that the FAR text still prints earlier figures.

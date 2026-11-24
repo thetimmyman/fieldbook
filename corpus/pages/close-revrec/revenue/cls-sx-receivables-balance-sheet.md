@@ -44,7 +44,7 @@ A registrant has 1,000 of receivables, of which 150 are notes. The notes exceed 
 
 ## Never confuse
 
-The notes test compares the aggregate amount of notes receivable with the aggregate amount of receivables [@CL-CLS-0820]. Amounts representing the recognized sales value of performance that had not been billed and were not billable to customers at the balance sheet date are a separate listed item from billed or unbilled amounts representing claims or other similar items subject to uncertainty [@CL-CLS-0823; @CL-CLS-0824]. For contract payment rules, see [Making payments](../../contract-finance/billing-payment/ctf-making-payments.md).
+The notes test compares the aggregate amount of notes receivable with the aggregate amount of receivables [@CL-CLS-0820]. Unbilled performance and claims are not the same line item: amounts representing the recognized sales value of performance that had not been billed and were not billable to customers at the balance sheet date are a separate listed item from billed or unbilled amounts representing claims or other similar items subject to uncertainty [@CL-CLS-0823; @CL-CLS-0824]. For contract payment rules, see [Making payments](../../contract-finance/billing-payment/ctf-making-payments.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ How unbilled amounts, retainage and claims are identified and reviewed at close,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the receivables disclosure rules as quoted and removed unquoted meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for receivables and long-term contract amounts on the balance sheet.

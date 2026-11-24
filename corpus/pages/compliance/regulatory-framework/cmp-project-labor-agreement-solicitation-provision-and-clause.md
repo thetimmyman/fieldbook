@@ -65,9 +65,7 @@ Now take an IDIQ contract where the agency will negotiate agreements order by or
 
 ## Never confuse
 
-The provision at 52.222-33 is inserted in solicitations containing the clause at 52.222-34 [@CL-CMP-8005]. The clause at 52.222-34 is inserted in solicitations and contracts associated with the construction project [@CL-CMP-8009].
-
-For submission after contract award, the provision's Alternate II is used except when Alternate III is used [@CL-CMP-8007], and the clause's Alternate I is used except when Alternate II is used [@CL-CMP-8010]. Alternate III of the provision is used when Alternate II of 52.222-34 is used [@CL-CMP-8008].
+The provision is not the clause: the provision at 52.222-33 is inserted in solicitations containing the clause at 52.222-34 [@CL-CMP-8005], while the clause at 52.222-34 is inserted in solicitations and contracts associated with the construction project [@CL-CMP-8009]. For submission after contract award, the provision's Alternate II is used except when Alternate III is used [@CL-CMP-8007], and the clause's Alternate I is used except when Alternate II is used [@CL-CMP-8010]. Alternate III of the provision is used when Alternate II of 52.222-34 is used [@CL-CMP-8008].
 
 ## Company calibration
 
@@ -77,6 +75,7 @@ Which of the company's construction pursuits involve a project labor agreement, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the IDIQ condition for the clause's Alternate II; cut uncited negatives and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the project labor agreement solicitation provision and clause.

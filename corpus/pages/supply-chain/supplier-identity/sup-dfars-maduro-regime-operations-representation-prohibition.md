@@ -25,7 +25,7 @@ Shows what DoD may not buy from a person with business operations with an author
 | Instrument | Codified DFARS [@CL-SUP-1712] |
 | Codified citation | DFARS 252.225-7055 [@CL-SUP-1714] and DFARS 252.225-7056 [@CL-SUP-1712] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7055: MAY 2022 [@CL-SUP-9931]; DFARS 252.225-7056: JAN 2023 [@CL-SUP-9932] |
 | Text status | Final [@CL-SUP-1712] |
 | Applies to | Solicitations with the representation [@CL-SUP-1714], and contracts with the clause where DFARS 225.7020-5(b) prescribes it [@CL-SUP-1766], for products or services bought by DoD [@CL-SUP-1712] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry the clause and which subcontracts carry the flowd
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the multilateral institution part of the person definition; aligned flowdown and contrast wording with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: representation and clause duty name the Maduro regime authority as quoted.

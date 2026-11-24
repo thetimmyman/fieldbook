@@ -45,7 +45,7 @@ A license agreement lists two patents and uses Alternate I, so the license would
 
 ## Never confuse
 
-For the license the Government holds in inventions the contractor makes under a patent rights clause, see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). For the running royalty license grant clause, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md). For the royalty reporting and readjustment clauses for patent license contracts, see [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md).
+The license grant clause is not the patent rights license: under the License Grant clause the Contractor grants the Government an irrevocable, nonexclusive, nontransferable and paid up license under the patents and patent applications listed in the clause, and patents granted on those applications [@CL-CMP-4250]. For the license the Government holds in inventions the contractor makes under a patent rights clause, see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). For the running royalty license grant clause, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md). For the royalty reporting and readjustment clauses for patent license contracts, see [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which patent releases, license agreements and assignments carry these clauses, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated other-patents wording and how-it-works as cited facts; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the grant sentence so the license keeps the patents that may issue as the result of any reissue, division or continuation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent license grant, license term and termination.

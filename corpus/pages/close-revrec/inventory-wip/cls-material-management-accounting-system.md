@@ -53,7 +53,7 @@ A bill of materials is 90 percent accurate, below the stated goal. The contracto
 
 ## Never confuse
 
-A material management and accounting system is the contractor's system or systems for planning, controlling, and accounting for the acquisition, use, issuing, and disposition of material, and an acceptable system is one that generally complies with the system criteria in paragraph (d) of the clause [@CL-CLS-0109; @CL-CLS-0110].
+A material management and accounting system is not the property system of the Government Property clause: it is the contractor's system or systems for planning, controlling, and accounting for the acquisition, use, issuing, and disposition of material, and an acceptable system is one that generally complies with the system criteria in paragraph (d) of the clause [@CL-CLS-0109; @CL-CLS-0110].
 
 The disclosure duty runs on significant changes in the MMAS, which must be disclosed to the Administrative Contracting Officer at least 30 days prior to implementation [@CL-CLS-0114].
 
@@ -64,6 +64,7 @@ Who owns the inventory and Government property title records, and how physical a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers on accuracy goals, internal reviews, and 252.242-7005, and replaced uncited Never confuse commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the continuation of the corrective action rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated the actors and conditions in the determination and response rules.

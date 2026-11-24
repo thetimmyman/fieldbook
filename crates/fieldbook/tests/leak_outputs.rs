@@ -68,6 +68,7 @@ const BUILT_SINKS: &[&str] = &[
     "register_csvs",
     "restore",
     "template_workbooks",
+    "decision_package",
     "desk_pages",
     "changes_page",
 ];
@@ -113,6 +114,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "template_workbooks",
         run: run_template_workbooks_surface,
+    },
+    Surface {
+        name: "decision_package",
+        run: run_decision_package_surface,
     },
     Surface {
         name: "desk_pages",
@@ -2905,6 +2910,70 @@ fn delivered_workbook_and_csvs_filter_rows() {
 #[test]
 fn delivered_templates_are_public_and_complete() {
     run_template_workbooks_surface();
+}
+
+fn run_decision_package_surface() {
+    let info = BuildInfo::default();
+    let delivery = deliver_mixed_edition(&info);
+    let fixture = load_fixture();
+    let non_public_canaries: Vec<&str> = fixture
+        .record
+        .iter()
+        .filter(|r| r.label != "public")
+        .map(|r| r.canary.as_str())
+        .collect();
+
+    let edition_toml = std::fs::read_to_string(delivery.edition_dir.join("edition.toml"))
+        .unwrap_or_else(|e| panic!("read edition.toml: {e}"));
+    let edition_info =
+        EditionInfo::parse(&edition_toml).unwrap_or_else(|e| panic!("parse edition.toml: {e}"));
+
+    let wb_path = delivery
+        .edition_dir
+        .join(fieldbook_render::decision::OUTPUT_PATH);
+    let wb_bytes =
+        std::fs::read(&wb_path).unwrap_or_else(|e| panic!("read {}: {e}", wb_path.display()));
+    let expected = fieldbook_render::decision::render(&edition_info, info.workbook_epoch)
+        .unwrap_or_else(|e| panic!("decision::render failed: {e}"));
+    assert_eq!(
+        wb_bytes, expected,
+        "delivered templates/decision-package.xlsx must equal decision::render for the same EditionInfo and epoch"
+    );
+
+    let mut cursor = std::io::Cursor::new(&wb_bytes);
+    let mut archive =
+        ZipArchive::new(&mut cursor).unwrap_or_else(|e| panic!("open decision-package zip: {e}"));
+    for i in 0..archive.len() {
+        let mut entry = archive
+            .by_index(i)
+            .unwrap_or_else(|e| panic!("zip entry {i}: {e}"));
+        let name = entry
+            .name()
+            .map_or_else(|_| String::new(), std::borrow::Cow::into_owned);
+        if !name.ends_with(".xml") && !name.ends_with(".rels") {
+            continue;
+        }
+        let mut xml = String::new();
+        std::io::Read::read_to_string(&mut entry, &mut xml)
+            .unwrap_or_else(|e| panic!("read {name}: {e}"));
+        for forbidden in FORBIDDEN_REGISTER_STRINGS {
+            assert!(
+                !xml.contains(forbidden),
+                "decision-package part `{name}` contains forbidden `{forbidden}`"
+            );
+        }
+        for canary in &non_public_canaries {
+            assert!(
+                !xml.contains(canary),
+                "decision-package part `{name}` contains non-public canary `{canary}`"
+            );
+        }
+    }
+}
+
+#[test]
+fn delivered_decision_package_is_public_and_complete() {
+    run_decision_package_surface();
 }
 
 fn desk_add_report_json(labels: &str, file_canary: &str, source_id: &str) -> String {

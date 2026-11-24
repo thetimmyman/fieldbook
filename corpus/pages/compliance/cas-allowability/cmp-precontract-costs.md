@@ -45,7 +45,7 @@ A contractor incurs 50,000 in material and labor costs directly pursuant to nego
 
 ## Never confuse
 
-Precontract costs are costs incurred before the effective date of the contract, directly pursuant to the negotiation and in anticipation of the award, when necessary to meet the proposed delivery schedule; they are allowable to the extent they would have been allowable if incurred after the contract date [@CL-CMP-0801; @CL-CMP-0802]. They must be incurred directly pursuant to the negotiation and in anticipation of the contract award [@CL-CMP-0801]; see [Advance agreements](cmp-advance-agreements.md) and [Allowability factors](cmp-allowability-factors.md).
+Precontract costs sit before the contract date but are judged by the after-date test: they are costs incurred before the effective date of the contract, directly pursuant to the negotiation and in anticipation of the award, when necessary to meet the proposed delivery schedule, and they are allowable to the extent they would have been allowable if incurred after the contract date [@CL-CMP-0801; @CL-CMP-0802]. They must be incurred directly pursuant to the negotiation and in anticipation of the contract award [@CL-CMP-0801]; see [Advance agreements](cmp-advance-agreements.md) and [Allowability factors](cmp-allowability-factors.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether the company's precontract costs were incurred directly pursuant to the n
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the RFO precontract text from the quotes; removed an unsupported reviewer step from the example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

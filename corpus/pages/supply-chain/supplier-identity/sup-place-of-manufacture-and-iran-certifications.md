@@ -25,7 +25,7 @@ Shows what an offeror states about where its end products are manufactured, and 
 | Instrument | Codified FAR [@CL-SUP-1269; @CL-SUP-1271] |
 | Codified citation | FAR 52.225-18 [@CL-SUP-1269]; FAR 52.225-25 [@CL-SUP-1271] |
 | RFO citation | RFO FAR 52.225-18 [@CL-SUP-3735]; RFO FAR 52.240-90(f) [@CL-SUP-3740], as RFO FAR part 52 lists FAR 52.225-25 as [Reserved] [@CL-SUP-3739] |
-| Edition date | Not established. |
+| Edition date | FAR 52.225-18: Aug 2018 [@CL-SUP-3735]; FAR 52.225-25: JUN 2020 [@CL-SUP-9958] |
 | Text status | Final [@CL-SUP-1269; @CL-SUP-1271] |
 | Applies to | Offerors responding to solicitations that include the provisions [@CL-SUP-1269; @CL-SUP-1271] |
 
@@ -59,6 +59,7 @@ Which offers include each provision, and who confirms the Iran representation an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for FAR 52.225-18(b)(2) and FAR 52.225-25(c)(2), (c)(3), and (d)(1), and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -53,7 +53,7 @@ Suppose instead that the subcontractor is a sole source and a delay by the contr
 
 ## Never confuse
 
-The termination for convenience clauses in FAR 52.249, except the short-form clauses, require the prime contractor to assign to the Government, as directed by the TCO, all rights, titles, and interest under any subcontract terminated because of termination of the prime contract [@CL-CTF-3110], whereas when the TCO determines that it is in the Government's interest, the TCO shall, after notifying the contractor, settle the subcontractor's proposal using the procedures for settlement of prime contracts [@CL-CTF-3241].
+Assignment and direct settlement differ in what moves rather than in who initiates: the termination for convenience clauses in FAR 52.249, except the short-form clauses, require the prime contractor to assign to the Government, as directed by the TCO, all rights, titles, and interest under any subcontract terminated because of termination of the prime contract [@CL-CTF-3110], whereas when the TCO determines that it is in the Government's interest, the TCO shall, after notifying the contractor, settle the subcontractor's proposal using the procedures for settlement of prime contracts [@CL-CTF-3241].
 
 After receipt of a termination notice, the prime contractor shall terminate all subcontracts to the extent that they relate to the performance of prime work terminated, except as otherwise directed by the TCO [@CL-CTF-3106], and the reasonableness of the prime contractor's settlement with a subcontractor should normally be measured by the aggregate amount due under paragraph (f) of the subcontract termination clause suggested in FAR 49.502(e) [@CL-CTF-3108].
 
@@ -66,6 +66,7 @@ How subcontract termination clauses and the limits written into the company's pu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored should and shall modals, full qualifiers in Never confuse, and removed worked-example citations and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must wording on subcontract termination, assignment and direct settlement and narrowed the short-form clause scope to what the quotes say.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for terminated subcontracts, assignment of subcontract rights and direct settlement.

@@ -47,7 +47,7 @@ A contracting officer files a D&F for an action worth 5,000,000. The D&F names t
 
 ## Never confuse
 
-Unless precluded by law, executive order, or regulation, deviations from the FAR may be granted as specified in FAR subpart 1.4 when necessary to meet the specific needs and requirements of each agency [@CL-OPM-0021], whereas a D&F sets forth enough facts and circumstances to clearly and convincingly justify the specific determination made and includes a determination, based on the findings, that the proposed action is justified under the applicable statute or regulation [@CL-OPM-0027; @CL-OPM-0030].
+A deviation and a determination and findings are not the same tool: unless precluded by law, executive order, or regulation, deviations from the FAR may be granted as specified in FAR subpart 1.4 when necessary to meet the specific needs and requirements of each agency [@CL-OPM-0021], whereas a D&F sets forth enough facts and circumstances to clearly and convincingly justify the specific determination made and includes a determination, based on the findings, that the proposed action is justified under the applicable statute or regulation [@CL-OPM-0027; @CL-OPM-0030].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which D&Fs sit behind each contract action, and who holds the signed copies. [@Q
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened FAR 1.704 and FAR 1.602-1(a) qualifiers and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the deviation conditions and the signing rule wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the determinations and findings subpart.

@@ -45,7 +45,7 @@ Two firms agree to offer jointly on a 12,000,000 dollar development effort, pair
 
 ## Never confuse
 
-Companies normally form an arrangement before submitting an offer, but they may enter into one later, including after award [@CL-CMP-8254]. Contractor team arrangements may be particularly appropriate in complex research and development acquisitions, but may be used in other appropriate acquisitions, including production [@CL-CMP-8253].
+Forming the arrangement normally precedes the offer rather than following award: companies normally form an arrangement before submitting an offer, but they may enter into one later, including after award [@CL-CMP-8254]. Contractor team arrangements may be particularly appropriate in complex research and development acquisitions, but may be used in other appropriate acquisitions, including production [@CL-CMP-8253].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which of the company's bidding entities sit inside the remit when an offer is ma
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: timing and scope wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor team arrangements and why they may be desirable.

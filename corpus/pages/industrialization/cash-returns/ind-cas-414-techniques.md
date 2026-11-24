@@ -45,7 +45,7 @@ Pool A has a factor of 0.50 dollars per direct labor hour, and the contract used
 
 ## Never confuse
 
-The cost of money rate for any cost accounting period shall be the arithmetic mean of the interest rates specified by the Secretary of the Treasury pursuant to Public Law 92-41 [@CL-IND-0036], whereas a facilities capital cost of money factor shall be determined in accordance with Form CASB CMF and its instructions in appendix A to 9904.414 for each indirect cost pool to which a significant amount of facilities capital has been allocated and which is used to allocate indirect costs to final cost objectives [@CL-IND-0038; @CL-IND-0039]. The profit side is a different use of these figures, covered on [DoD weighted guidelines: facilities capital employed](../../estimating/pricing/est-weighted-guidelines-facilities-capital.md). The allowability conditions are on [Cost of money as an imputed cost](../../compliance/cas-allowability/cmp-cost-of-money.md), and the requirement itself is on [Cost of money on facilities capital](../../compliance/cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md).
+The rate and the factor are not the same computation: the cost of money rate for any cost accounting period shall be the arithmetic mean of the interest rates specified by the Secretary of the Treasury pursuant to Public Law 92-41 [@CL-IND-0036], whereas a facilities capital cost of money factor shall be determined in accordance with Form CASB CMF and its instructions in appendix A to 9904.414 for each indirect cost pool to which a significant amount of facilities capital has been allocated and which is used to allocate indirect costs to final cost objectives [@CL-IND-0038; @CL-IND-0039]. The profit side is a different use of these figures, covered on [DoD weighted guidelines: facilities capital employed](../../estimating/pricing/est-weighted-guidelines-facilities-capital.md). The allowability conditions are on [Cost of money as an imputed cost](../../compliance/cas-allowability/cmp-cost-of-money.md), and the requirement itself is on [Cost of money on facilities capital](../../compliance/cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Whether the company computes a factor for each significant pool and keeps the fo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched CAS 414 rate statute, factor shall wording, appendix reference and contract scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CAS 414 techniques.

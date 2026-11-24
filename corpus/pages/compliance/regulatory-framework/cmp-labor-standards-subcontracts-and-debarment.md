@@ -51,9 +51,7 @@ A prime contractor is awarded a construction contract on day 0 and has 4 constru
 
 ## Never confuse
 
-The prime contractor shall be responsible for compliance by any subcontractor or lower tier subcontractor performing construction within the United States with all the contract clauses cited in paragraph (b) [@CL-CMP-5841]. A breach of the listed contract clauses may be grounds for termination of the contract, and for debarment as a Contractor and subcontractor as provided in 29 CFR 5.12 [@CL-CMP-6185] [@CL-CMP-5843].
-
-The insertion rules for these clauses are covered in [Construction labor standards disputes and the contract clauses and provision to insert](cmp-construction-labor-disputes-and-contract-clauses.md), and the companion clauses on disputes, certification of eligibility and approval of wage rates are covered in [Labor standards disputes, certification of eligibility and approval of wage rates](cmp-labor-standards-disputes-and-eligibility.md).
+Responsibility for a subcontractor's compliance sits with the prime rather than with the subcontractor alone: the prime contractor shall be responsible for compliance by any subcontractor or lower tier subcontractor performing construction within the United States with all the contract clauses cited in paragraph (b) [@CL-CMP-5841]. A breach of the listed contract clauses may be grounds for termination of the contract, and for debarment as a Contractor and subcontractor as provided in 29 CFR 5.12 [@CL-CMP-6185] [@CL-CMP-5843]. The insertion rules for these clauses are covered in [Construction labor standards disputes and the contract clauses and provision to insert](cmp-construction-labor-disputes-and-contract-clauses.md), and the companion clauses on disputes, certification of eligibility and approval of wage rates are covered in [Labor standards disputes, certification of eligibility and approval of wage rates](cmp-labor-standards-disputes-and-eligibility.md).
 
 ## Company calibration
 
@@ -63,6 +61,7 @@ Which construction subcontracts in the United States carry the flowdown, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the flowdown, delivery and termination rules with their modal verbs; separated RFO from codified claims; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statement and acknowledgment rule for subcontracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction labor clause insertion.

@@ -45,7 +45,7 @@ A contractor incurs 80,000 for government affairs personnel advocating for pendi
 
 ## Never confuse
 
-Codified paragraph (a)(3) concerns attempts to influence legislation through communication with any member or employee of the Congress or state legislature, among other communication [@CL-CMP-8586; @CL-CMP-10045], and paragraph (a)(4) concerns attempts to influence legislation by preparing, distributing or using publicity or propaganda, among other means [@CL-CMP-8587]. Paragraph (b)(1) concerns a technical and factual presentation of information on a topic directly related to the performance of a contract, in response to a documented request, provided such information is readily obtainable and can be readily put in deliverable form [@CL-CMP-0312; @CL-CMP-0819; @CL-CMP-0820]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
+The unallowable attempts and the allowable presentation are different activities: codified paragraph (a)(3) concerns attempts to influence legislation through communication with any member or employee of the Congress or state legislature, among other communication [@CL-CMP-8586; @CL-CMP-10045], and paragraph (a)(4) concerns attempts to influence legislation by preparing, distributing or using publicity or propaganda, among other means [@CL-CMP-8587], while paragraph (b)(1) concerns a technical and factual presentation of information on a topic directly related to the performance of a contract, in response to a documented request, provided such information is readily obtainable and can be readily put in deliverable form [@CL-CMP-0312; @CL-CMP-0819; @CL-CMP-0820]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
 In the RFO text, paragraph (a)(3) has an item (i) on communication with any member or employee of the Congress or state legislature [@CL-CMP-8557] and an item (ii) on preparing, distributing or using publicity or propaganda [@CL-CMP-8559], and paragraph (b)(2) refers to lobbying made unallowable by paragraph (a)(3) [@CL-CMP-8566]. In the codified text, paragraph (b)(2) refers to lobbying made unallowable by paragraph (a)(3) [@CL-CMP-8588], which concerns, among other things, communication with any member or employee of the Congress or state legislature [@CL-CMP-8586].
 
@@ -56,6 +56,7 @@ How lobbying, legislative liaison, and political contributions are tracked and s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated lobbying and political activity text from the quotes; restored dropped conditions and the indirect-cost treatment; added companion for the exceptions lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the source of the documented request to the technical and factual presentation exception.

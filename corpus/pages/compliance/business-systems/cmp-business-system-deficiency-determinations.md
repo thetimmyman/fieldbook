@@ -51,7 +51,7 @@ A contractor has two covered contracts with progress payments. The contracting o
 
 ## Never confuse
 
-If the contracting officer makes a final determination to disapprove a contractor's business system in accordance with DFARS 252.242-7005, the contracting officer's withholding duties apply [@CL-CMP-2217], while the contracting officer monitors the contractor's progress in correcting the weaknesses and notifies the contractor of any decision to decrease or increase the amount of payment withholding in accordance with DFARS 252.242-7005 [@CL-CMP-2249; @CL-CMP-0164]. Total payment withholding under DFARS 252.242-7005 does not exceed 10 percent, and payment withholding for each business system does not exceed 5 percent, of the specified payments billed under each identified covered contract [@CL-CMP-2218; @CL-CMP-2219]. For how the audit side reports findings, see [DCAA business system audits](cmp-dcaa-business-system-audits.md).
+The two withhold caps differ: payment withholding for each business system does not exceed 5 percent of the specified payments billed under each identified covered contract, while total payment withholding under DFARS 252.242-7005 does not exceed 10 percent [@CL-CMP-2218; @CL-CMP-2219]. If the contracting officer makes a final determination to disapprove a contractor's business system in accordance with DFARS 252.242-7005, the contracting officer's withholding duties apply [@CL-CMP-2217], while the contracting officer monitors the contractor's progress in correcting the weaknesses and notifies the contractor of any decision to decrease or increase the amount of payment withholding in accordance with DFARS 252.242-7005 [@CL-CMP-2249; @CL-CMP-0164]. For how the audit side reports findings, see [DCAA business system audits](cmp-dcaa-business-system-audits.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which business systems are approved or disapproved, and whether any determinatio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the 90-day determination branches, the interim cost voucher withholding clause, and the DFARS 252.242-7005 monitoring reference, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said what the quotes leave out about the first 90-day option and the continue or reinstate withholding paragraph.

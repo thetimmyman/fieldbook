@@ -25,7 +25,7 @@ Shows when a move away from an estimated quantity of a unit-priced item brings a
 | Instrument | Codified FAR [@CL-SUP-2585] |
 | Codified citation | FAR 52.211-18 [@CL-SUP-2585] |
 | RFO citation | RFO FAR 52.211-18 [Reserved] [@CL-SUP-2827] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-SUP-9848] |
 | Text status | Final [@CL-SUP-2585] |
 | Applies to | Fixed-price construction solicitations and contracts that authorize a variation in the estimated quantity of unit-priced items [@CL-SUP-2585] |
 
@@ -65,6 +65,7 @@ Confirm how estimated quantities are tracked against actual quantities and who w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned summary sentences with the cited quotes and removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated "only" about the 15 percent trigger; restated the permitted-variation limit as the clause words it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

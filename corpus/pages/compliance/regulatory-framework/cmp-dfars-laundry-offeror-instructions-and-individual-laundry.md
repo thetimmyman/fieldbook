@@ -45,7 +45,7 @@ Under the count-of-articles instruction, an offeror prices every item in a lot a
 
 ## Never confuse
 
-Under the count-of-articles provision the offeror shall include unit prices for each item in a lot [@CL-CMP-4685], and under the bulk weight provision offers shall be submitted on a unit price per pound of serviced laundry [@CL-CMP-4687]. For the delivery ticket and loss or damage clause, see [Laundry delivery tickets and loss or damage](../../supply-chain/sourcing-evidence/sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md). For mortuary services, see [Group interment, preparation history, and transfer and adoption of military animals](cmp-dfars-mortuary-group-interment-and-military-animals.md).
+Count-of-articles pricing is not bulk weight pricing: under the count-of-articles provision the offeror shall include unit prices for each item in a lot [@CL-CMP-4685], while under the bulk weight provision offers shall be submitted on a unit price per pound of serviced laundry [@CL-CMP-4687]. For the delivery ticket and loss or damage clause, see [Laundry delivery tickets and loss or damage](../../supply-chain/sourcing-evidence/sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md). For mortuary services, see [Group interment, preparation history, and transfer and adoption of military animals](cmp-dfars-mortuary-group-interment-and-military-animals.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which solicitations and contracts carry these laundry instructions and clauses, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated inspection, outer garment and bundle wording; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for laundry instructions to offerors and individual laundry.

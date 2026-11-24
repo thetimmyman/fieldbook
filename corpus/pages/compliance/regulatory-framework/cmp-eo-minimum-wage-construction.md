@@ -58,9 +58,7 @@ Assume that in a made-up year the annual rate set by the Secretary of Labor unde
 
 ## Never confuse
 
-The $15.00 rate applies as of January 30, 2022 [@CL-CMP-7998; @CL-CMP-7999], and the wage rate is subject to annual increases [@CL-CMP-8000].
-
-The clause requires the Executive Order 14026 minimum wage rate to be paid if it is higher than other minimum wage rates, such as the subpart 22.4 statutory wage determination amount [@CL-CMP-8001].
+The Executive Order 14026 rate is not a replacement for the statutory determination when the statutory amount is higher: the clause requires the Executive Order 14026 minimum wage rate to be paid if it is higher than other minimum wage rates, such as the subpart 22.4 statutory wage determination amount [@CL-CMP-8001]. The $15.00 rate applies as of January 30, 2022 [@CL-CMP-7998; @CL-CMP-7999], and the wage rate is subject to annual increases [@CL-CMP-8000].
 
 ## Company calibration
 
@@ -70,6 +68,7 @@ Which of the company's construction contracts carry the minimum wage clause, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited negatives, inferences and contrasts; stated the clause rule and supersession as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to paid sick leave under Executive Order 13706.

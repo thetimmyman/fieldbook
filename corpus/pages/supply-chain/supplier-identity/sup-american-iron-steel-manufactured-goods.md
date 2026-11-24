@@ -25,7 +25,7 @@ Explains the required use of American iron, steel and manufactured goods in cons
 | Instrument | Codified FAR [@CL-SUP-2811] |
 | Codified citation | FAR 52.225-21 [@CL-SUP-2811]; FAR 52.225-22 [@CL-SUP-2820]; FAR 52.225-22, Alternate I [@CL-SUP-2900] |
 | RFO citation | The RFO text lists FAR 52.225-21 and FAR 52.225-22 as reserved [@CL-SUP-3539; @CL-SUP-3540] |
-| Edition date | Not established. |
+| Edition date | FAR 52.225-21: JAN 2021 [@CL-SUP-9883]; FAR 52.225-22: JAN 2021 [@CL-SUP-9884] |
 | Text status | Final [@CL-SUP-2811] |
 | Applies to | Construction contracts that include the clause, and solicitations that include the notice provision [@CL-SUP-2811; @CL-SUP-2820] |
 
@@ -104,6 +104,7 @@ How the company evidences where its iron and steel were produced, and who approv
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the exception list, iron and steel, award-determination, tie-break, RFO citation and never-confuse wording with their quotes; added the comparable-domestic-material qualifier.

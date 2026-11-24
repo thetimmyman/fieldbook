@@ -45,7 +45,7 @@ Assume a contract worth 2,000,000 under which a contractor develops a new radio 
 
 ## Never confuse
 
-For other clauses with a flowdown paragraph, see [Animal welfare in research](cmp-dfars-animal-welfare-in-research.md) [@CL-CMP-4574] and [Protection of human subjects](cmp-dfars-protection-of-human-subjects.md) [@CL-CMP-4589].
+Who acts differs by clause version: the contractor must obtain authorization for the radio frequencies required in support of the contract [@CL-CMP-4575]; under the basic clause the contracting officer furnishes the procedures for obtaining radio frequency authorization [@CL-CMP-4578], while under Alternate I the contractor must use DD Form 1494, Application for Equipment Frequency Allocation, to obtain radio frequency authorization [@CL-CMP-4579]. For other clauses with a flowdown paragraph, see [Animal welfare in research](cmp-dfars-animal-welfare-in-research.md) [@CL-CMP-4574] and [Protection of human subjects](cmp-dfars-protection-of-human-subjects.md) [@CL-CMP-4589].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which equipment under which contracts radiates and needs a frequency authorizati
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated early report and version rules in the clause words; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored experimental, developmental or operational scope of the characteristics report.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for frequency authorization.

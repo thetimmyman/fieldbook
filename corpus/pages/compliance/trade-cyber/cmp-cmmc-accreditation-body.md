@@ -44,7 +44,7 @@ A Board director leaves the Accreditation Body in month 0. For the next 12 month
 
 ## Never confuse
 
-The Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218]. C3PAOs are responsible for conducting Level 2 certification assessments [@CL-CMP-3224]. The CMMC PMO retains the prerogative to review decisions of the Accreditation Body as part of its oversight of the CMMC program [@CL-CMP-3211]. The roles of the PMO and DCMA DIBCAC are on the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the certification body for assessors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card.
+The two roles sit at different layers: the Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218], while C3PAOs are responsible for conducting Level 2 certification assessments [@CL-CMP-3224]. The CMMC PMO retains the prerogative to review decisions of the Accreditation Body as part of its oversight of the CMMC program [@CL-CMP-3211]. The roles of the PMO and DCMA DIBCAC are on the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the certification body for assessors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card.
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which third-party assessment organization the company engages, whether it appear
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the PMO review wording and role statements to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the following-requirements qualifier to the approval sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CMMC Accreditation Body.

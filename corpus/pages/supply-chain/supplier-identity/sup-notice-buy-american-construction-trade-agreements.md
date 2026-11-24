@@ -24,7 +24,7 @@ Explains the notice provision that accompanies the Buy American clause for const
 | Instrument | Codified FAR [@CL-SUP-2801] |
 | Codified citation | FAR 52.225-12 [@CL-SUP-2801]; Alternate I [@CL-SUP-2805]; Alternate II [@CL-SUP-2839] |
 | RFO citation | RFO FAR 52.225-12 [@CL-SUP-3698]; Alternate I [@CL-SUP-3712]; Alternate II [@CL-SUP-3713] |
-| Edition date | Not established. |
+| Edition date | May 2014 (basic) [@CL-SUP-3698]; May 2014 (Alternate I) [@CL-SUP-3712]; Nov 2023 (Alternate II) [@CL-SUP-3713] |
 | Text status | Final [@CL-SUP-2801] |
 | Applies to | Offers in solicitations that include the provision, from offerors that request a determination or submit an alternate offer [@CL-SUP-2801; @CL-SUP-2834] |
 
@@ -87,6 +87,7 @@ Whether the company files its request early enough for a decision before offers 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for paragraphs (b), (c)(1), Alternate I, and Alternate II, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate II repeated sentence cited to its own quote; definition alternatives and solicitation listing stated.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

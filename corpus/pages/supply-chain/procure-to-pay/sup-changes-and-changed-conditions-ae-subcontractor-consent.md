@@ -25,7 +25,7 @@ Shows how a contracting officer orders changes to drawings and specifications, h
 | Instrument | Codified FAR [@CL-SUP-3091; @CL-SUP-3097] |
 | Codified citation | FAR 52.243-5 and FAR 52.244-4 [@CL-SUP-3091; @CL-SUP-3097] |
 | RFO citation | RFO FAR 52.243-5 [@CL-SUP-0018; @CL-SUP-0019; @CL-SUP-0020; @CL-SUP-0021; @CL-SUP-0022; @CL-SUP-0023]; RFO FAR 52.244-4 [@CL-SUP-0024; @CL-SUP-0025] |
-| Edition date | Not established. |
+| Edition date | FAR 52.243-5: APR 1984 [@CL-SUP-9798]; FAR 52.244-4: Aug 1998 [@CL-SUP-0024] |
 | Text status | Final [@CL-SUP-3091; @CL-SUP-3097] |
 | Applies to | Contracts that include the changes and changed conditions clause, or the architect-engineer subcontractors clause [@CL-SUP-3091; @CL-SUP-3097] |
 
@@ -62,6 +62,7 @@ Which clause text sits in each construction and architect-engineer contract, whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned notice, prescription and architect-engineer wording with the cited quotes.

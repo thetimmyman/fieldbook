@@ -48,9 +48,7 @@ A reporting period ends on March 31. The report is due within 30 days after that
 
 ## Never confuse
 
-The semiannual report is required from each contracting agency and shall contain only information as to the enforcement actions of the contracting agency, prepared as prescribed in Department of Labor memoranda [@CL-CMP-8002; @CL-CMP-8004].
-
-The reporting periods are October 1 through March 31 and April 1 through September 30, and each report shall be submitted to the Department of Labor within 30 days after the end of the reporting period [@CL-CMP-8003; @CL-CMP-8004].
+The report covers compliance with and enforcement of the construction labor standards requirements, but its content is enforcement only rather than a record of compliance: it is required from each contracting agency and shall contain only information as to the enforcement actions of the contracting agency, prepared as prescribed in Department of Labor memoranda [@CL-CMP-8002; @CL-CMP-8004]. The reporting periods are October 1 through March 31 and April 1 through September 30, and each report shall be submitted to the Department of Labor within 30 days after the end of the reporting period [@CL-CMP-8003; @CL-CMP-8004].
 
 ## Company calibration
 
@@ -59,5 +57,6 @@ Whether any open enforcement finding or external request touches the company's c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched modal verbs to the verbatim text, removed citations from the worked example, and removed meta commentary and uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for semiannual enforcement reports on construction labor standards.

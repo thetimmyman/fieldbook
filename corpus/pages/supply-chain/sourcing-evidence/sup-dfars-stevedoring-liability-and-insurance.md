@@ -25,7 +25,7 @@ Shows what the contractor is liable for, the insurance it must carry, and the Go
 | Instrument | Codified DFARS [@CL-SUP-1605] |
 | Codified citation | DFARS 252.247-7007 [@CL-SUP-1677] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-SUP-9864] |
 | Text status | Final [@CL-SUP-1605] |
 | Applies to | Contracts where the DFARS prescription calls for the Liability and Insurance clause [@CL-SUP-1677] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry this clause, what insurance the company carries a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated limitations, self-insurance, endorsement and recovery duties as cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the limitation lead-in saying what the limitation relieves.

@@ -25,7 +25,7 @@ Shows the domestic construction material requirement of the Balance of Payments 
 | Instrument | Codified DFARS [@CL-SUP-1877] |
 | Codified citation | DFARS 252.225-7044 [@CL-SUP-1877] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-SUP-9907] |
 | Text status | Final [@CL-SUP-1877] |
 | Applies to | Contracts with the Balance of Payments Program construction material clause, which requires only domestic construction material except for the listed exceptions [@CL-SUP-1877] |
 
@@ -68,6 +68,7 @@ Which construction contracts carry this clause or an alternate, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the manufactured-in-the-United-States condition, the iron and steel scope and the emergency systems timing; narrowed the exceptions and waiver wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: domestic construction material definition stated as two alternatives.

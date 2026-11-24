@@ -49,9 +49,9 @@ Answer: the SAM-based EFT clause. If the solicitation lacked the registration pr
 
 ## Never confuse
 
-When the clause at 52.232-36, Payment by Third Party, is included in a solicitation or contract, the contracting officer shall also insert the clause at 52.232-33 or 52.232-34 [@CL-CTF-1571; @CL-CTF-1572]. The offeror EFT information provision at 52.232-38 is a provision inserted in the solicitation where the solicitation contains the clause at 52.232-34 and an offeror is required to submit EFT information prior to award [@CL-CTF-1548; @CL-CTF-1549]. For the rules on when the Government pays by EFT and by purchase card, see [EFT applicability and payment by Governmentwide commercial purchase card](ctf-eft-applicability-and-purchase-card-payment.md). For invoice due dates, see [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md), and for DoD electronic submission, see [DoD payment rules: prompt payment applicability, electronic submission and performance-based payment procedures](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md).
+When the clause at 52.232-36, Payment by Third Party, is included in a solicitation or contract, the contracting officer shall also insert the clause at 52.232-33 or 52.232-34 [@CL-CTF-1571; @CL-CTF-1572] rather than the third-party clause alone. The offeror EFT information provision at 52.232-38 is a provision inserted in the solicitation rather than in the contract, where the solicitation contains the clause at 52.232-34 and an offeror is required to submit EFT information prior to award [@CL-CTF-1548; @CL-CTF-1549]. For the rules on when the Government pays by EFT and by purchase card, see [EFT applicability and payment by Governmentwide commercial purchase card](ctf-eft-applicability-and-purchase-card-payment.md). For invoice due dates, see [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md), and for DoD electronic submission, see [DoD payment rules: prompt payment applicability, electronic submission and performance-based payment procedures](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md).
 
-Codified FAR 32.1110(a) says the contracting officer shall insert the clause at 52.232-33 [@CL-CTF-1541]; RFO FAR 32.1110(a) says "Insert the clause at—" [@CL-CTF-4303].
+Codified FAR 32.1110(a) says the contracting officer shall insert the clause at 52.232-33 [@CL-CTF-1541], unlike RFO FAR 32.1110(a), which says "Insert the clause at—" [@CL-CTF-4303] instead of naming it in that paragraph.
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which EFT clauses and provisions each solicitation and contract carries 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added sealed bid and delivery-order clauses; removed meta wording and comparisons; separated RFO statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Closing exceptions stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

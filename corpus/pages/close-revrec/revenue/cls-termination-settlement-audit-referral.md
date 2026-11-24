@@ -47,7 +47,7 @@ A subcontract settlement of 250,000 arrives for approval. The TCO decides a part
 
 ## Never confuse
 
-The audit report is advisory only, and is for the TCO to use in negotiating a settlement or issuing a unilateral determination [@CL-CLS-0919]. The audit review also does not relieve the prime contractor or higher tier subcontractor of the responsibility for performing an accounting review [@CL-CLS-0951]. The threshold used here is the threshold for obtaining certified cost or pricing data set forth in FAR 15.403-4(a)(1) [@CL-CLS-0914]. For the TCO's role, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). For subcontract settlements that the TCO approves or ratifies, see [Subcontract settlements: authority, judgments and arbitration awards](cls-subcontract-settlements-authorization-and-awards.md). For a determination issued when the parties cannot agree, see [Settlement by determination under a terminated contract](cls-settlement-by-determination.md). For how a settlement proposal is built, see [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the audit access clause that applies to negotiated contracts, see [Audit and Records, Negotiation clause](../../compliance/audit-retention/cmp-audit-and-records-negotiation.md).
+An audit referral is not a decision: the audit report is advisory only, and is for the TCO to use in negotiating a settlement or issuing a unilateral determination [@CL-CLS-0919]. The audit review also does not relieve the prime contractor or higher tier subcontractor of the responsibility for performing an accounting review [@CL-CLS-0951]. The threshold used here is the threshold for obtaining certified cost or pricing data set forth in FAR 15.403-4(a)(1) [@CL-CLS-0914]. For the TCO's role, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). For subcontract settlements that the TCO approves or ratifies, see [Subcontract settlements: authority, judgments and arbitration awards](cls-subcontract-settlements-authorization-and-awards.md). For a determination issued when the parties cannot agree, see [Settlement by determination under a terminated contract](cls-settlement-by-determination.md). For how a settlement proposal is built, see [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the audit access clause that applies to negotiated contracts, see [Audit and Records, Negotiation clause](../../compliance/audit-retention/cmp-audit-and-records-negotiation.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who assembles audit support for settlement proposals and which audit milestones 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the FAR 15.403-4(a)(1) cross-reference, added TCO subcontract-referral duty, and removed meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for audit of termination settlement proposals and subcontract settlements.

@@ -25,7 +25,7 @@ Shows the transition duties a services contract can impose at expiration, and th
 | Instrument | Codified FAR [@CL-SUP-2918] |
 | Codified citation | FAR 52.237-3 and FAR 52.237-4 [@CL-SUP-2918; @CL-SUP-2923] |
 | RFO citation | RFO FAR 52.237-3 [@CL-SUP-0117] and RFO FAR 52.237-4 [@CL-SUP-0127] |
-| Edition date | Not established. |
+| Edition date | FAR 52.237-3: Jan 1991 [@CL-SUP-0117]; FAR 52.237-4: Apr 1984 (basic) [@CL-SUP-0126]; FAR 52.237-4: Apr 1984 (Alternate I) [@CL-SUP-0127] |
 | Text status | Final [@CL-SUP-2918] |
 | Applies to | Contracts that carry the continuity clause, and solicitations and contracts solely for dismantling, demolition or removal of improvements where the contracting officer determines that the Government will pay the contractor in addition to any title [@CL-SUP-2918; @CL-SUP-2923; @CL-SUP-3005] |
 
@@ -78,6 +78,7 @@ Whether any services contract carries the continuity clause and who prices the p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned payment-amount, retention and property-permission wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the risk-of-condition sentence in the clause's words.

@@ -59,11 +59,9 @@ A third debt is 98,000 plus 6,000 of interest. With interest it totals 104,000, 
 
 ## Never confuse
 
-An installment payment request and a debt compromise are governed by separate rules: the office designated in agency procedures is responsible for approving or denying requests for installment payments or deferment of collections [@CL-CTF-1435], while the designated agency official may compromise debts under $100,000, excluding interest, pursuant to the Federal Claims Collection Standards and agency regulations [@CL-CTF-3620].
+An installment payment request and a debt compromise are governed by separate rules rather than one: the office designated in agency procedures is responsible for approving or denying requests for installment payments or deferment of collections [@CL-CTF-1435], while the designated agency official may compromise debts under $100,000, excluding interest, pursuant to the Federal Claims Collection Standards and agency regulations [@CL-CTF-3620] rather than the contracting officer, who cannot compromise debts unless specifically authorized by agency procedures [@CL-CTF-3621].
 
-Interest charges apply to a contract debt unpaid after 30 days from the issuance of a demand unless the Interest clause specifies otherwise or one of the two exceptions applies [@CL-CTF-3617; @CL-CTF-3618]. When interest is accrued based on the date of the demand letter and delivery of the demand letter is delayed by the Government, the date of the debt and accrual of interest are extended to a time that is fair and reasonable under the particular circumstances [@CL-CTF-3619; @CL-CTF-3632].
-
-The $100,000 compromise threshold in FAR 32.610 is measured excluding interest [@CL-CTF-3620].
+Interest charges apply to a contract debt unpaid after 30 days from the issuance of a demand unless the Interest clause specifies otherwise or one of the two exceptions applies [@CL-CTF-3617; @CL-CTF-3618]; when interest is accrued based on the date of the demand letter and delivery of the demand letter is delayed by the Government, the date of the debt and accrual of interest are extended to a time that is fair and reasonable under the particular circumstances [@CL-CTF-3619; @CL-CTF-3632] rather than waived.
 
 The general debt rules and the installment decision are in [Contract debts: what the FAR counts as one](../financing/ctf-contract-debts-general-rules.md) and [Assignment of claims procedure and installment payments of contract debts](ctf-assignment-procedure-and-debt-installments.md). The demand and deferment steps are in [Contract debts demand deferment and interest](ctf-contract-debts.md). The DoD rule on compromise is in [DoD contract debts: determination, demand, compromise and collection transfer](ctf-dfars-contract-debt-steps-and-collection-transfer.md).
 
@@ -74,6 +72,7 @@ Which office agency procedures designate for installment requests, who tracks th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed negative-inference statements not stated in the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the contract debts subpart scope.

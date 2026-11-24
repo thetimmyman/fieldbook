@@ -441,6 +441,7 @@ fn build_synthetic_edition_set(
                 "templates/discovery-log.xlsx",
                 "templates/assumption-register.xlsx",
                 "templates/90-day-plan.xlsx",
+                "templates/decision-package.xlsx",
             ] {
                 ed_files.insert(data.to_owned(), b"synthetic\n".to_vec());
             }

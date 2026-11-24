@@ -25,7 +25,7 @@ Shows what must come from Afghanistan and what must be produced in the United St
 | Instrument | Codified DFARS [@CL-SUP-1803; @CL-SUP-1805] |
 | Codified citation | DFARS 252.225-7026 [@CL-SUP-1803; @CL-SUP-1842]; DFARS 252.225-7029 [@CL-SUP-1805; @CL-SUP-1843] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7026: SEP 2013 [@CL-SUP-9898]; DFARS 252.225-7029: SEP 2013 [@CL-SUP-9899] |
 | Text status | Final [@CL-SUP-1803; @CL-SUP-1805] |
 | Applies to | Contracts that include the restricted acquisition clause [@CL-SUP-1803; @CL-SUP-1842] or the uniform components clause [@CL-SUP-1805; @CL-SUP-1843] |
 
@@ -56,6 +56,7 @@ Whether any executed contract includes these clauses, and who confirms the claus
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording; cited the prescribing sections; aligned the never-confuse wording with its quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restricted acquisition from Afghanistan and uniform components.

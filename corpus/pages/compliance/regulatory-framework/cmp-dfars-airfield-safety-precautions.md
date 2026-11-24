@@ -49,7 +49,7 @@ Before starting work beside a taxiway, the contractor reports to the Contracting
 
 ## Never confuse
 
-The ammunition and explosives safety clause is on [Ammunition and explosives safety precautions](cmp-dfars-ammunition-explosives-safety-precautions.md). In the landing areas and in the safety precaution areas, the Contractor shall place nothing without the authorization of the Contracting Officer [@CL-CMP-4682; @CL-CMP-4691]. The drawing and waterway duties of the other construction clauses are on [Construction drawings, waterways and additive or deductive items](cmp-dfars-construction-drawings-waterways-and-additive-items.md).
+The airfield safety precautions clause is not the ammunition and explosives safety clause: the ammunition and explosives safety clause is on [Ammunition and explosives safety precautions](cmp-dfars-ammunition-explosives-safety-precautions.md). In the landing areas and in the safety precaution areas, the Contractor shall place nothing without the authorization of the Contracting Officer [@CL-CMP-4682; @CL-CMP-4691]. The drawing and waterway duties of the other construction clauses are on [Construction drawings, waterways and additive or deductive items](cmp-dfars-construction-drawings-waterways-and-additive-items.md).
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Which contracts carry this clause, at which airfields, and who confirms the widt
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the landing areas definition lead-in and removed uncited contrasts and a rule count.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for airfield safety precautions.

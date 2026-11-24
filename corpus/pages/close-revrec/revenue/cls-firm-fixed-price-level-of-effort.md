@@ -45,7 +45,7 @@ A contractor agrees to provide 1,000 hours of engineering study over six months 
 
 ## Never confuse
 
-Under a firm-fixed-price, level-of-effort term contract the Government pays the contractor a fixed dollar amount [@CL-CLS-0562]. Cost-reimbursement types of contracts provide for payment of allowable incurred costs, to the extent prescribed in the contract [@CL-CLS-0567]. The term form of a cost-plus-fixed-fee contract obligates the contractor to devote a specified level of effort for a stated time period [@CL-CLS-0579], and a cost-plus-fixed-fee contract is a cost-reimbursement contract [@CL-CLS-0576]. For that type, see [Cost-plus-fixed-fee contracts](cls-cost-plus-fixed-fee-contracts.md). For general contract type context, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md).
+A fixed price for effort is not a reimbursement of cost: under a firm-fixed-price, level-of-effort term contract the Government pays the contractor a fixed dollar amount [@CL-CLS-0562], while cost-reimbursement types of contracts provide for payment of allowable incurred costs, to the extent prescribed in the contract [@CL-CLS-0567]. The term form of a cost-plus-fixed-fee contract obligates the contractor to devote a specified level of effort for a stated time period [@CL-CLS-0579], and a cost-plus-fixed-fee contract is a cost-reimbursement contract [@CL-CLS-0576]. For that type, see [Cost-plus-fixed-fee contracts](cls-cost-plus-fixed-fee-contracts.md). For general contract type context, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who tracks hours expended against the level-of-effort commitment to support reve
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: firm-fixed-price level-of-effort: uncited contrasts reworded.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the product of the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for firm-fixed-price, level-of-effort term contracts.

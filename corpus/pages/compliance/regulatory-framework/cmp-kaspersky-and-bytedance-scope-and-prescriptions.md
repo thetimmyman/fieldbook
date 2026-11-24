@@ -53,7 +53,7 @@ In the same contract, staff use their own phones for contract work, and one phon
 
 ## Never confuse
 
-The statute prohibits Government use on or after October 1, 2018 of any hardware, software, or services developed or provided, in whole or in part, by a covered entity [@CL-CMP-7580], and contractors are prohibited from providing, and from using in the development of data or deliverables first produced in the performance of the contract, any Kaspersky Lab covered article [@CL-CMP-7581; @CL-CMP-7582]. The prohibition on covered applications applies unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-7584]. For the clause text, see [Kaspersky and ByteDance prohibitions: what is barred, reported and flowed down](cmp-kaspersky-and-bytedance-prohibitions.md); for the broader telecommunications prohibitions, see [Covered telecommunications equipment or services: definitions and prohibition](../trade-cyber/cmp-covered-telecommunications-definitions-and-prohibition.md).
+The statutory bar differs from the clause bar: the statute prohibits Government use on or after October 1, 2018 of any hardware, software, or services developed or provided, in whole or in part, by a covered entity [@CL-CMP-7580], and contractors are separately prohibited from providing, and from using in the development of data or deliverables first produced in the performance of the contract, any Kaspersky Lab covered article [@CL-CMP-7581; @CL-CMP-7582]. The prohibition on covered applications applies unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-7584]. For the clause text, see [Kaspersky and ByteDance prohibitions: what is barred, reported and flowed down](cmp-kaspersky-and-bytedance-prohibitions.md); for the broader telecommunications prohibitions, see [Covered telecommunications equipment or services: definitions and prohibition](../trade-cyber/cmp-covered-telecommunications-definitions-and-prohibition.md).
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Which products and applications in use on contract work fall inside either prohi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the covered application statute and guidance; cut uncited negatives, inferences and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notification section that points to agency procedures.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added when the contracting officer inserts the covered application clause.

@@ -49,7 +49,7 @@ A contractor subject to the Cost Accounting Standards buys parts through 30 subc
 
 ## Never confuse
 
-Failure to maintain an acceptable counterfeit electronic part detection and avoidance system, as defined in the clause, may result in disapproval of the purchasing system by the Contracting Officer and/or withholding of payments [@CL-CMP-3852], and may affect the allowability of costs of counterfeit electronic parts or suspect counterfeit electronic parts and the cost of rework or corrective action that may be required to remedy the use or inclusion of such parts (see DFARS 231.205-71) [@CL-CMP-3901]. What follows a disapproval is on [DoD business system deficiencies: payment withholding and release](cmp-business-system-deficiency-determinations.md), and the cost rules are on [Costs of counterfeit and suspect counterfeit electronic parts](../cas-allowability/cmp-counterfeit-electronic-part-costs.md). The purchasing system itself is covered on [Contractor Purchasing System Administration clause](../../supply-chain/procure-to-pay/sup-contractor-purchasing-system.md), and payment withholds on [Business system withholds](cmp-business-system-withholds.md).
+An unacceptable counterfeit-part system and the cost consequence are different outcomes: failure to maintain an acceptable counterfeit electronic part detection and avoidance system, as defined in the clause, may result in disapproval of the purchasing system by the Contracting Officer and/or withholding of payments [@CL-CMP-3852], and may affect the allowability of costs of counterfeit electronic parts or suspect counterfeit electronic parts and the cost of rework or corrective action that may be required to remedy the use or inclusion of such parts (see DFARS 231.205-71) [@CL-CMP-3901]. What follows a disapproval is on [DoD business system deficiencies: payment withholding and release](cmp-business-system-deficiency-determinations.md), and the cost rules are on [Costs of counterfeit and suspect counterfeit electronic parts](../cas-allowability/cmp-counterfeit-electronic-part-costs.md). The purchasing system itself is covered on [Contractor Purchasing System Administration clause](../../supply-chain/procure-to-pay/sup-contractor-purchasing-system.md), and payment withholds on [Business system withholds](cmp-business-system-withholds.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether the company is subject to the Cost Accounting Standards, and the current
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the title 41 chapter 15 reference, the inspection and testing techniques sentence, the risk-based tracking lead-in and discrete-or-assembly scope, the applicable system criteria flowdown phrase, and the Government review lead-in, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statute reference and Government as reviewer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the flowdown sentence so the flowdown area keeps the subcontractors that perform authentication testing.

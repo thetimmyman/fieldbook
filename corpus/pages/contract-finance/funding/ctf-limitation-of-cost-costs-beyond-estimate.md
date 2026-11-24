@@ -55,11 +55,11 @@ A cost-reimbursement contract, not cost-sharing, carries an estimated cost of 80
 
 ## Never confuse
 
-Change orders shall not be considered an authorization to exceed the estimated cost to the Government specified in the Schedule, unless they contain a statement increasing the estimated cost [@CL-CTF-2928].
+A change order differs from the written increase rather than matching it: change orders shall not be considered an authorization to exceed the estimated cost to the Government specified in the Schedule, unless they contain a statement increasing the estimated cost [@CL-CTF-2928].
 
-In the absence of the specified notice, the Government is not obligated to reimburse the Contractor for any costs in excess of the estimated cost or, if it is a cost-sharing contract, for any costs in excess of the estimated cost to the Government specified in the Schedule, whether those excess costs were incurred during the course of the contract or as a result of termination [@CL-CTF-2971; @CL-CTF-2972].
+In the absence of the specified notice, the Government is not obligated to reimburse the Contractor for any costs in excess of the estimated cost or, if it is a cost-sharing contract, for any costs in excess of the estimated cost to the Government specified in the Schedule, whether those excess costs were incurred during the course of the contract or as a result of termination rather than only during performance [@CL-CTF-2971; @CL-CTF-2972].
 
-If the estimated cost specified in the Schedule is increased, any costs the Contractor incurs before the increase that are in excess of the previously estimated cost shall be allowable to the same extent as if incurred afterward, unless the Contracting Officer issues a termination or other notice directing that the increase is solely to cover termination or other specified expenses [@CL-CTF-2926; @CL-CTF-2927].
+When the estimated cost specified in the Schedule is increased, the rule differs rather than repeating the no-notice one: any costs the Contractor incurs before the increase that are in excess of the previously estimated cost shall be allowable to the same extent as if incurred afterward, unless the Contracting Officer issues a termination or other notice directing that the increase is solely to cover termination or other specified expenses [@CL-CTF-2926; @CL-CTF-2927].
 
 ## Company calibration
 
@@ -68,6 +68,7 @@ How the company records the Contracting Officer's written increase and revised e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed meta-wording and uncited sentences in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for costs beyond the estimated cost, increases and termination.

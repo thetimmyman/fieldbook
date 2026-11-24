@@ -56,7 +56,7 @@ Foreign Fund F is not an excepted investor. It takes a small non-controlling sta
 
 ## Never confuse
 
-Being a covered transaction brings a deal inside the Committee's reach [@CL-MNA-0622], and whether a declaration is mandatory is on the [mandatory declarations card](mna-cfius-mandatory-declarations.md). A party may choose a declaration or a notice, as the [voluntary declarations card](mna-cfius-voluntary-declarations-and-notices.md) explains, and the [review and investigation card](mna-cfius-review-and-investigation.md) covers what follows. Foreign ownership, control or influence under the security-clearance regime is a different test; see [Foreign ownership, control or influence and its mitigation](../diligence/mna-nispom-foci-and-mitigation.md).
+Being a covered transaction brings a deal inside the Committee's reach [@CL-MNA-0622], and FOCI clearance is a different test instead of the same one: whether a declaration is mandatory is on the [mandatory declarations card](mna-cfius-mandatory-declarations.md). A party may choose a declaration or a notice, as the [voluntary declarations card](mna-cfius-voluntary-declarations-and-notices.md) explains, and the [review and investigation card](mna-cfius-review-and-investigation.md) covers what follows. Foreign ownership, control or influence under the security-clearance regime is a different test; see [Foreign ownership, control or influence and its mitigation](../diligence/mna-nispom-foci-and-mitigation.md).
 
 ## Company calibration
 
@@ -65,6 +65,7 @@ Whether any foreign person holds or could acquire an interest, board seat or acc
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added explicit dates, statutory citations, and source qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of minimum excepted ownership.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of manufacture, own, service and supply for column 2 of appendix A.

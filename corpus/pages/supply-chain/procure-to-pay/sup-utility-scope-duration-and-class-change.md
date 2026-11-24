@@ -23,7 +23,7 @@ Explains the period, type of service and tariff basis of a utility service contr
 | Instrument | Codified FAR [@CL-SUP-2666] |
 | Codified citation | FAR 52.241-3 and 52.241-4 [@CL-SUP-2666; @CL-SUP-2670] |
 | RFO citation | RFO FAR 52.241-3 and 52.241-4 [@CL-SUP-2410; @CL-SUP-2414] |
-| Edition date | Not established. |
+| Edition date | FEB 1995 [@CL-SUP-9845] |
 | Text status | Final [@CL-SUP-2666] |
 | Applies to | Contracts where the clauses are inserted as prescribed [@CL-SUP-2714; @CL-SUP-2715] |
 
@@ -63,6 +63,7 @@ Confirm which rate schedule each site is billed on and who checks it against the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the class-of-service and scope summaries from the cited quotes and removed meta blank wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility facilities and service provisions.

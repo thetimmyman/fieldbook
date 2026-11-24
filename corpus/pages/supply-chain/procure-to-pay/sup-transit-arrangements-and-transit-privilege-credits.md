@@ -24,7 +24,7 @@ Explains how transit arrangements are evaluated, how an offeror proposes to use 
 | Instrument | Codified FAR [@CL-SUP-2458; @CL-SUP-2460] |
 | Codified citation | FAR 52.247-56 and FAR 52.247-57 [@CL-SUP-2458; @CL-SUP-2460] |
 | RFO citation | RFO FAR 52.247-56 [@CL-SUP-0639; @CL-SUP-0640; @CL-SUP-0641]; No RFO equivalent for FAR 52.247-57, which is marked [Reserved] [@CL-SUP-0642] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-56: APR 1984 [@CL-SUP-9835]; FAR 52.247-57: APR 1984 [@CL-SUP-9836] |
 | Text status | Final [@CL-SUP-2458; @CL-SUP-2460] |
 | Applies to | Solicitations when benefits may accrue to the Government because transit arrangements may apply [@CL-SUP-2458], and solicitations and contracts when offerors may have potential transit credits that the Government may use to reduce transportation costs [@CL-SUP-2460] |
 
@@ -66,6 +66,7 @@ Whether the company holds transit privileges it can apply, and what shipping and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and meta wording and aligned RFO reserved status with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed statements about who completes the blanks, which the clause does not make.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -45,7 +45,7 @@ A support contractor receives details from another contractor's incident report 
 
 ## Never confuse
 
-Cyber incident information is information obtained from a third party's reporting of a cyber incident under the safeguarding clause, or derived from such information [@CL-CMP-2849; @CL-CMP-2910]. Litigation information is any information, including sensitive information, that is furnished to the contractor by or on behalf of the Government, or that is generated or obtained by the contractor in the performance of litigation support under a contract [@CL-CMP-2913], and it does not include information that is lawfully, publicly available without restriction [@CL-CMP-2923]. Under the cyber incident clause, the contractor shall access and use the information only for the purpose of furnishing advice or technical assistance directly to the Government in support of the Government's activities related to the safeguarding clause [@CL-CMP-2850]. Under the litigation support clause, the contractor shall access and use litigation information only for the purpose of providing litigation support under the contract [@CL-CMP-2853]. For the safeguarding clause, see the [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md) card.
+The two information kinds carry different use limits: cyber incident information is information obtained from a third party's reporting of a cyber incident under the safeguarding clause, or derived from such information [@CL-CMP-2849; @CL-CMP-2910], while litigation information is any information, including sensitive information, that is furnished to the contractor by or on behalf of the Government, or that is generated or obtained by the contractor in the performance of litigation support under a contract [@CL-CMP-2913], and it does not include information that is lawfully, publicly available without restriction [@CL-CMP-2923]. Under the cyber incident clause, the contractor shall access and use the information only for the purpose of furnishing advice or technical assistance directly to the Government in support of the Government's activities related to the safeguarding clause [@CL-CMP-2850], while under the litigation support clause, the contractor shall access and use litigation information only for the purpose of providing litigation support under the contract [@CL-CMP-2853]. For the safeguarding clause, see the [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md) card.
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which storage, transfer and assistant tools IT approves for incident and litigat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored return-to-Government wording; replaced uncited contrasts with cited purposes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for limits on the use or disclosure of third-party contractor reported cyber incident information and of information by litigation support contractors.

@@ -44,7 +44,7 @@ A contractor with a Level 1 contract finishes its self-assessment at month 0 and
 
 ## Never confuse
 
-No POA&Ms are permitted for Level 1 [@CL-CMP-2066]. A Level 2 self-assessment reaches Conditional Level 2 (Self) status if it results in a POA&M and the POA&M meets all the Level 2 POA&M requirements [@CL-CMP-2070], which is covered on the [Level 2 assessment](cmp-cmmc-level-2-assessment.md) card. OSA information systems that process, store, or transmit FCI are in scope for Level 1 [@CL-CMP-2061], and assets that process, store, or transmit CUI are in the Level 2 assessment scope as CUI Assets [@CL-CMP-2062].
+Level 1 and Level 2 differ on POA&Ms and scope: no POA&Ms are permitted for Level 1 [@CL-CMP-2066], while a Level 2 self-assessment reaches Conditional Level 2 (Self) status if it results in a POA&M and the POA&M meets all the Level 2 POA&M requirements [@CL-CMP-2070], which is covered on the [Level 2 assessment](cmp-cmmc-level-2-assessment.md) card. OSA information systems that process, store, or transmit FCI are in scope for Level 1 [@CL-CMP-2061], while assets that process, store, or transmit CUI are in the Level 2 assessment scope as CUI Assets [@CL-CMP-2062].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Who owns the annual self-assessment and affirmation, and which entities and cont
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the how-it-works and contrast wording to the cited text; removed uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Level 2 conditional status sentence with its quote.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Level 1 self-assessment.

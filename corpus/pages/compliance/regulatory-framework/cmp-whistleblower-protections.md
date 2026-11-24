@@ -50,7 +50,7 @@ A contract carries both clauses, and the contractor has 9 subcontracts, of which
 
 ## Never confuse
 
-Under FAR 52.203-15, the Contractor shall post notice of employees rights and remedies for whistleblower protections provided under section 1553 of the Recovery Act [@CL-CMP-5561], whereas under FAR 52.203-17, the Contractor shall inform its employees in writing, in the predominant language of the workforce, of employee whistleblower rights and protections under section 4712 of title 41 of the United States Code, as described in FAR 3.900 through 3.905 [@CL-CMP-5564]. In RFO FAR part 52, 52.203-15 is `[Reserved]` and RFO FAR 52.203-17 requires the Contractor to inform its employees in writing, in the predominant language of the workforce, of employee whistleblower rights and protections under section 4712 of title 41 of the United States Code, as described in FAR 3.900 through 3.905 [@CL-CMP-6603; @CL-CMP-6605].
+The Recovery Act posting clause is not the informant clause: under FAR 52.203-15, the Contractor shall post notice of employees rights and remedies for whistleblower protections provided under section 1553 of the Recovery Act [@CL-CMP-5561], whereas under FAR 52.203-17, the Contractor shall inform its employees in writing, in the predominant language of the workforce, of employee whistleblower rights and protections under section 4712 of title 41 of the United States Code, as described in FAR 3.900 through 3.905 [@CL-CMP-5564]. In RFO FAR part 52, 52.203-15 is `[Reserved]` and RFO FAR 52.203-17 requires the Contractor to inform its employees in writing, in the predominant language of the workforce, of employee whistleblower rights and protections under section 4712 of title 41 of the United States Code, as described in FAR 3.900 through 3.905 [@CL-CMP-6603; @CL-CMP-6605].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm where the notice is posted and who verifies the written employee notice 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified citations and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the two clause prescription sections.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -47,7 +47,7 @@ A contractor bills a large share of its costs to Government contracts through it
 
 ## Never confuse
 
-The objective of each business system audit is to gather sufficient appropriate evidence to express an opinion on the contractor's compliance with the applicable business system criteria during the audit period, and the audit report will serve to support the contracting officer's compliance determination [@CL-CMP-1653; @CL-CMP-1963]. After audit or review of a business system, the contracting officer is responsible for determining if the system is acceptable [@CL-CMP-1652]. See [Accounting system criteria](cmp-accounting-system-criteria.md) for the clause criteria.
+The auditor's opinion and the contracting officer's determination are different acts: the objective of each business system audit is to gather sufficient appropriate evidence to express an opinion on the contractor's compliance with the applicable business system criteria during the audit period, and the audit report will serve to support the contracting officer's compliance determination [@CL-CMP-1653; @CL-CMP-1963], while after audit or review of a business system, the contracting officer is responsible for determining if the system is acceptable [@CL-CMP-1652]. See [Accounting system criteria](cmp-accounting-system-criteria.md) for the clause criteria.
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm the current Government status of each of the three audited systems: appr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the parenthetical examples of business system criteria and related audits, completed the substantive-testing planning clause, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DCAA audits of contractor business systems and audit objectives.

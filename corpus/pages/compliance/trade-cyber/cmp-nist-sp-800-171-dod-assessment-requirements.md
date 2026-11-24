@@ -49,7 +49,7 @@ An offeror completed its Basic Assessment 2 years and 9 months before the offer 
 
 ## Never confuse
 
-The notice provision requires a current assessment to be considered for award [@CL-CMP-2825], while the subcontract rule prohibits awarding a covered subcontract or other contractual instrument unless the subcontractor has completed at least a Basic assessment within the last 3 years [@CL-CMP-2832]. A Basic Assessment is the contractor's own self-assessment [@CL-CMP-2902], while Medium and High assessments are conducted by the Government [@CL-CMP-2900; @CL-CMP-2901]. The security requirements themselves are on the [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md) card. The CMMC status duties are on the [Contractor compliance with CMMC level requirements](cmp-cmmc-level-compliance-clause.md) card, and the use of SPRS risk assessments in evaluating offers is on the [Safeguarding controls representation and SPRS risk assessments](cmp-safeguarding-controls-representation-and-sprs-notice.md) card.
+The notice provision requires a current assessment to be considered for award [@CL-CMP-2825], while the subcontract rule prohibits awarding a covered subcontract or other contractual instrument unless the subcontractor has completed at least a Basic assessment within the last 3 years [@CL-CMP-2832]. A Basic Assessment differs from Medium and High: a Basic Assessment is the contractor's own self-assessment [@CL-CMP-2902], while Medium and High assessments are conducted by the Government [@CL-CMP-2900; @CL-CMP-2901]. The security requirements themselves are on the [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md) card. The CMMC status duties are on the [Contractor compliance with CMMC level requirements](cmp-cmmc-level-compliance-clause.md) card, and the use of SPRS risk assessments in evaluating offers is on the [Safeguarding controls representation and SPRS risk assessments](cmp-safeguarding-controls-representation-and-sprs-notice.md) card.
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which covered contractor information systems have a current assessment posted in
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added SPRS posting scope and Basic Assessment definition details, and removed meta prose.
 - COMPATIBLE_EXTENSION, 2026-10-31: Noted the scope and further elements the quotes stop short of.

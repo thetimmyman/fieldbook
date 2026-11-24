@@ -46,7 +46,7 @@ Answer: the SMO may appoint one employee to both roles, and the contractor still
 
 ## Never confuse
 
-Pursuant to the rule and CSA provided guidance to supplement unique CSA mission requirements, the insider threat program is established and maintained to gather, integrate, and report relevant and available information indicative of a potential or actual insider threat, consistent with E.O. 13587 and the Presidential Memorandum on National Insider Threat Policy [@CL-CMP-3163; @CL-CMP-0428]. For reporting ownership and control events to the CSA, see [NISPOM changed conditions and reportable ownership events](../../mna/diligence/mna-nispom-changed-condition-reporting.md). For authorizing officials at the CSA, see [NISPOM purpose, applicability and responsibilities](cmp-nispom-purpose-applicability-and-responsibilities.md).
+The CSA guidance supplements the rule rather than replacing it: pursuant to the rule and CSA provided guidance to supplement unique CSA mission requirements, the insider threat program is established and maintained to gather, integrate, and report relevant and available information indicative of a potential or actual insider threat, consistent with E.O. 13587 and the Presidential Memorandum on National Insider Threat Policy [@CL-CMP-3163; @CL-CMP-0428]. For reporting ownership and control events to the CSA, see [NISPOM changed conditions and reportable ownership events](../../mna/diligence/mna-nispom-changed-condition-reporting.md). For authorizing officials at the CSA, see [NISPOM purpose, applicability and responsibilities](cmp-nispom-purpose-applicability-and-responsibilities.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who holds the SMO, FSO and ITPSO roles, when the last self-inspection took place
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added E.O. 13587 and Presidential Memorandum qualifier for the insider threat program, the fourth SMO annual certification item, and paragraphs (b)(2)–(4) scope, and removed uncited meta sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the facility location condition for the ISSM.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for NISPOM general procedures and security officials.

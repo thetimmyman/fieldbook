@@ -24,7 +24,7 @@ Explains how export offers made on different delivery bases are compared on one 
 | Instrument | Codified FAR [@CL-SUP-2443; @CL-SUP-2490] |
 | Codified citation | FAR 52.247-51 [@CL-SUP-2443; @CL-SUP-2490] |
 | RFO citation | No RFO equivalent for FAR 52.247-51: the RFO text lists it as [Reserved] [@CL-SUP-0213] |
-| Edition date | Not established. |
+| Edition date | JAN 2001 [@CL-SUP-9810] |
 | Text status | Final [@CL-SUP-2443; @CL-SUP-2490] |
 | Applies to | Solicitations that include the Evaluation of Export Offers provision [@CL-SUP-2490] |
 
@@ -87,6 +87,7 @@ Which delivery bases and alternates each export solicitation uses, which ports t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned alternates, price basis and evaluation wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -44,7 +44,7 @@ A contractor estimates a subcontract with one practice and accumulates and repor
 
 ## Never confuse
 
-A changed practice and a noncompliant practice are the two alternatives in the definition of an affected contract or subcontract [@CL-CMP-8028; @CL-CMP-0612; @CL-CMP-0613]. A desirable change must be compliant and requires the cognizant official's findings [@CL-CMP-0612; @CL-CMP-0613; @CL-CMP-0615].
+A changed practice and a noncompliant practice are the two alternatives in the definition of an affected contract or subcontract [@CL-CMP-8028; @CL-CMP-0612; @CL-CMP-0613], and they differ in what follows: a desirable change must be compliant and requires the cognizant official's findings [@CL-CMP-0612; @CL-CMP-0613; @CL-CMP-0615].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which business units are CAS-covered, and which contracts are affected by change
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Placed the desirable-change definition citations at the end of the sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the affected-contract definition lead-in and the clause's stated steps.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

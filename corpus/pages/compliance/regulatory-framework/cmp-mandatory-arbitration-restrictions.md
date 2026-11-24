@@ -51,11 +51,7 @@ The first subcontractor is a covered subcontractor, so the contractor must requi
 
 ## Never confuse
 
-The clause restricts agreements requiring arbitration of any claim under title VII of the Civil Rights Act of 1964 or any tort related to or arising out of sexual assault or harassment [@CL-CMP-4185; @CL-CMP-4186].
-
-A covered subcontractor is an entity that has a subcontract valued in excess of $1 million [@CL-CMP-4184].
-
-For the notice of whistleblower rights, see [Informing employees of whistleblower rights and the agency Inspector General](cmp-whistleblower-rights-notice-and-agency-inspector-general.md).
+The restriction is on mandatory arbitration agreements rather than on all arbitration: the clause restricts agreements requiring arbitration of any claim under title VII of the Civil Rights Act of 1964 or any tort related to or arising out of sexual assault or harassment [@CL-CMP-4185; @CL-CMP-4186]. A covered subcontractor is an entity that has a subcontract valued in excess of $1 million [@CL-CMP-4184]. For the notice of whistleblower rights, see [Informing employees of whistleblower rights and the agency Inspector General](cmp-whistleblower-rights-notice-and-agency-inspector-general.md).
 
 ## Company calibration
 
@@ -65,5 +61,6 @@ Which employee and independent contractor agreements contain arbitration terms, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated exception and waiver text; removed absence statements and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restrictions on mandatory arbitration agreements.

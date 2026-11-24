@@ -25,7 +25,7 @@ Shows the inspection system duty, the Government's right to inspect and test, th
 | Instrument | Codified FAR [@CL-SUP-1114] |
 | Codified citation | FAR 52.246-12 [@CL-SUP-1114] |
 | RFO citation | RFO FAR 52.246-12 [@CL-SUP-3168] |
-| Edition date | Not established. |
+| Edition date | Aug 1996 [@CL-SUP-3168] |
 | Text status | Final [@CL-SUP-1114] |
 | Applies to | Contracts that include the Inspection of Construction clause [@CL-SUP-1114]; the clause is directed for solicitations and contracts for construction when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-SUP-1141] |
 
@@ -58,6 +58,7 @@ Which acceptance and payment terms govern construction milestones under the exec
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned inspection, remedy, acceptance, and class deviation wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO-only wording on continuing rights removed; codified claim cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected "includes" to "states" for the paragraph (i) continuing-rights item, which the codified text also has.

@@ -57,9 +57,7 @@ Orders A and B are above the order threshold, so the contractor reports each by 
 
 ## Never confuse
 
-This clause reports for orders that exceed the thresholds [@CL-CMP-5956], while the basic clause reports for services performed under the contract [@CL-CMP-5947]; the basic clause is on the [service contract reporting card](cmp-service-contract-reporting.md). The subcontractor duty still turns on subcontracts at or above the thresholds, and the contractor files the report [@CL-CMP-5962; @CL-CMP-5961].
-
-The codified clause names FAR 4.1703(a)(2) for the order thresholds [@CL-CMP-5956] and for the subcontract thresholds [@CL-CMP-5962], and FAR subpart 42.15 for performance information [@CL-CMP-6535], while the RFO clause names 4.303(b) for both thresholds [@CL-CMP-6019; @CL-CMP-6028] and the Federal Acquisition Regulation part 42 for performance information [@CL-CMP-6024].
+This clause is not the basic reporting clause: it reports for orders that exceed the thresholds [@CL-CMP-5956], while the basic clause reports for services performed under the contract [@CL-CMP-5947]; the basic clause is on the [service contract reporting card](cmp-service-contract-reporting.md). The subcontractor duty still turns on subcontracts at or above the thresholds, and the contractor files the report [@CL-CMP-5962; @CL-CMP-5961]. The codified clause names FAR 4.1703(a)(2) for the order thresholds [@CL-CMP-5956] and for the subcontract thresholds [@CL-CMP-5962], and FAR subpart 42.15 for performance information [@CL-CMP-6535], while the RFO clause names 4.303(b) for both thresholds [@CL-CMP-6019; @CL-CMP-6028] and the Federal Acquisition Regulation part 42 for performance information [@CL-CMP-6024].
 
 ## Company calibration
 
@@ -69,6 +67,7 @@ Which indefinite-delivery orders sit inside the remit, who keeps the invoiced am
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: indefinite-delivery reporting: shall report, and/or in supplier-agreement exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to cite the FAR 4.1703(a)(2) order threshold and to list the contract number in each report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

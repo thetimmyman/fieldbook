@@ -47,9 +47,9 @@ A written change order revises a specification, raising the cost of a fixed-pric
 
 ## Never confuse
 
-Under FAR 52.243-1(a), the Contracting Officer may make changes within the general scope of the contract in drawings, designs, or specifications when the supplies to be furnished are to be specially manufactured for the Government in accordance with the drawings, designs, or specifications, method of shipment or packing, or place of delivery [@CL-CTF-0312; @CL-CTF-0443]. Under RFO FAR 52.243-1(a)(1), the Contracting Officer may issue a written order making changes within the scope of the contract related to drawings, designs, or specifications which require special manufacturing of supplies for the Government, the method of shipment or packing, or place of delivery [@CL-CTF-1126].
+The codified and RFO change clauses differ in wording rather than in the power to order changes: under FAR 52.243-1(a), the Contracting Officer may make changes within the general scope of the contract in drawings, designs, or specifications when the supplies to be furnished are to be specially manufactured for the Government in accordance with the drawings, designs, or specifications, method of shipment or packing, or place of delivery [@CL-CTF-0312; @CL-CTF-0443], whereas under RFO FAR 52.243-1(a)(1), the Contracting Officer may instead issue a written order making changes within the scope of the contract related to drawings, designs, or specifications which require special manufacturing of supplies for the Government, the method of shipment or packing, or place of delivery [@CL-CTF-1126].
 
-Under FAR 52.243-1(b), the Contracting Officer shall make an equitable adjustment if any such change causes an increase or decrease in the cost of, or the time required for, performance of any part of the work under the contract [@CL-CTF-0313; @CL-CTF-0314]. Under RFO FAR 52.243-1(b), the Contracting Officer shall make an equitable adjustment if any of the changes cause an increase or decrease in the cost of, or the time required for, performance of the work under the contract [@CL-CTF-1128; @CL-CTF-1129].
+The adjustment triggers differ in wording as well rather than in the duty to adjust: under FAR 52.243-1(b), the Contracting Officer shall make an equitable adjustment if any such change causes an increase or decrease in the cost of, or the time required for, performance of any part of the work under the contract [@CL-CTF-0313; @CL-CTF-0314], whereas under RFO FAR 52.243-1(b), the Contracting Officer shall make an equitable adjustment if any of the changes cause an increase or decrease in the cost of, or the time required for, performance of the work under the contract rather than of any part of it [@CL-CTF-1128; @CL-CTF-1129].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Where the executed contracts and modifications are kept, and who confirms that t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for FAR 52.243-1(a) change areas, preserved shall modality, separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded never-confuse text that added an only and an out-of-scope contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

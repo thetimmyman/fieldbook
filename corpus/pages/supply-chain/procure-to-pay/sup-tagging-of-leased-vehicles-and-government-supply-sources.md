@@ -24,7 +24,7 @@ Shows who provides tags for a leased vehicle, how interagency fleet management s
 | Instrument | Codified FAR [@CL-SUP-2938] |
 | Codified citation | FAR 52.208-7, FAR 52.251-2 and FAR 52.251-1 [@CL-SUP-2938; @CL-SUP-2940; @CL-SUP-2941] |
 | RFO citation | RFO FAR 52.208-90 [@CL-SUP-0630; @CL-SUP-0631; @CL-SUP-0632]; RFO FAR 52.208-91 [@CL-SUP-0633; @CL-SUP-0634]; RFO FAR 52.208-7, RFO FAR 52.251-1, and RFO FAR 52.251-2 are marked [Reserved] [@CL-SUP-0627; @CL-SUP-0628; @CL-SUP-0629] |
-| Edition date | Not established. |
+| Edition date | FAR 52.208-7: MAY 1986 [@CL-SUP-9830]; FAR 52.251-2: JAN 1991 [@CL-SUP-9831]; FAR 52.251-1: APR 2012 [@CL-SUP-9832] |
 | Text status | Final [@CL-SUP-2938] |
 | Applies to | Leased vehicles under a contract that carries the tagging clause, and contracts where the Contracting Officer authorizes fleet vehicles or Government supply sources [@CL-SUP-2938; @CL-SUP-2940; @CL-SUP-2941] |
 
@@ -64,6 +64,7 @@ Who reconciles vehicle tags, fleet authorizations and Government supply source p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned prescription, modality, and RFO reserved wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on leased vehicle payments and marking.

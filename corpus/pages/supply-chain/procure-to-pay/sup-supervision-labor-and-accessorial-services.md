@@ -24,7 +24,7 @@ Describes the supervision, labor and packing duties of a moving contractor and s
 | Instrument | Codified FAR [@CL-SUP-2222] |
 | Codified citation | FAR 52.247-12 and FAR 52.247-13 [@CL-SUP-2222; @CL-SUP-2223] |
 | RFO citation | RFO FAR 52.247-13 [@CL-SUP-0596; @CL-SUP-0597; @CL-SUP-0598; @CL-SUP-0599; @CL-SUP-0600; @CL-SUP-0601; @CL-SUP-0602; @CL-SUP-0603; @CL-SUP-0604]; no RFO equivalent for FAR 52.247-12 [@CL-SUP-0595] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-12: APR 1984 [@CL-SUP-9829]; FAR 52.247-13: Apr 1984 [@CL-SUP-0596] |
 | Text status | Final [@CL-SUP-2222; @CL-SUP-2223] |
 | Applies to | The supervision, labor or materials clause when the contractor is required to furnish supervision, labor or materials [@CL-SUP-2259]; the accessorial services clause in solicitations and contracts for the transportation of household goods or office furniture [@CL-SUP-2221] |
 
@@ -56,6 +56,7 @@ Confirm that the company's move estimate itemizes packing, crating and disassemb
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality, container examples, and RFO reserved wording with the cited quotes and removed absence commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "and/or" in the packing and crating duty.

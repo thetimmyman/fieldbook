@@ -51,9 +51,7 @@ A commercial services contract is solicited under FAR part 12 procedures. The Le
 
 ## Never confuse
 
-DFARS 232.703-70 restricts the use of funds appropriated by annual military construction appropriations acts for payments under cost-plus-fixed-fee contracts [@CL-CTF-3689].
-
-DFARS 232.7102 prescribes the clause at 252.232-7010, Levies on Contract Payments, in all solicitations and contracts [@CL-CTF-3690]. The clause at 252.232-7003, Electronic Submission of Payment Requests and Receiving Reports, is prescribed by DFARS 232.7004(a) and is covered on [DoD electronic payment request clause](../financing/ctf-dod-electronic-payment-request-clause.md) [@CL-CTF-1745; @CL-CTF-1788].
+The milcon restriction and the levies prescription differ in subject rather than overlapping: DFARS 232.703-70 restricts the use of funds appropriated by annual military construction appropriations acts for payments under cost-plus-fixed-fee contracts [@CL-CTF-3689] rather than prescribing a clause, whereas DFARS 232.7102 instead prescribes the clause at 252.232-7010, Levies on Contract Payments, in all solicitations and contracts [@CL-CTF-3690]. The clause at 252.232-7003, Electronic Submission of Payment Requests and Receiving Reports, is prescribed by DFARS 232.7004(a) and is covered on [DoD electronic payment request clause](../financing/ctf-dod-electronic-payment-request-clause.md) [@CL-CTF-1745; @CL-CTF-1788].
 
 ## Company calibration
 
@@ -62,6 +60,7 @@ Which awards carry the Levies on Contract Payments clause, and where its applica
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 10 U.S.C. 2801 construction definition reference in DFARS 216.306(c)(ii)(A) and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sentences on DFARS 232.7102 now cite its claim directly.

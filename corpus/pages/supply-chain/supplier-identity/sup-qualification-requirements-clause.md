@@ -24,7 +24,7 @@ Shows what a product, manufacturer or source must show before award under a qual
 | Instrument | Codified FAR [@CL-SUP-1023] |
 | Codified citation | FAR 9.206-2 [@CL-SUP-4151] and FAR 52.209-1 [@CL-SUP-1023; @CL-SUP-1024; @CL-SUP-1026; @CL-SUP-1027; @CL-SUP-1063; @CL-SUP-1065]; FAR 2.101 [@CL-SUP-9567] |
 | RFO citation | RFO FAR 52.209-1 [@CL-SUP-3759]; RFO FAR 2.101 [@CL-SUP-9605] |
-| Edition date | Not established. |
+| Edition date | FEB 1995 [@CL-SUP-9959] |
 | Text status | Final [@CL-SUP-1023] |
 | Applies to | Supplies or services covered by a qualification requirement [@CL-SUP-1024] |
 
@@ -56,6 +56,7 @@ Which items and sources carry qualification requirements and where the evidence 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of qualified products list.

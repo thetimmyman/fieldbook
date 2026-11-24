@@ -24,7 +24,7 @@ Shows what a services solicitation asks offerors to do about visiting the site, 
 | Instrument | Codified FAR [@CL-SUP-2911] |
 | Codified citation | FAR 52.237-1 and FAR 52.237-2 [@CL-SUP-2911; @CL-SUP-2914] |
 | RFO citation | RFO FAR 52.237-1 [@CL-SUP-0489; @CL-SUP-0490; @CL-SUP-0491] and RFO FAR 52.237-2 [@CL-SUP-0492; @CL-SUP-0493; @CL-SUP-0494; @CL-SUP-0495] |
-| Edition date | Not established. |
+| Edition date | FAR 52.237-1: Apr 1984 [@CL-SUP-0491]; FAR 52.237-2: Apr 1984 [@CL-SUP-0492] |
 | Text status | Final [@CL-SUP-2911] |
 | Applies to | The site visit provision goes in solicitations, and the protection clause in solicitations and contracts, for services performed on Government installations, unless the work is construction [@CL-SUP-2911; @CL-SUP-2914] |
 
@@ -66,6 +66,7 @@ Who confirms that each services solicitation on a Government installation carrie
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality and removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an invented only from the repair duty.

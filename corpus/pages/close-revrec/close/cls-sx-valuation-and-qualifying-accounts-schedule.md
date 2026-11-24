@@ -46,7 +46,7 @@ A company's balance sheet deducts an allowance from the receivables it applies t
 
 ## Never confuse
 
-Footnote 1 in § 210.12-09 groups (a) those valuation and qualifying accounts which are deducted in the balance sheet from the assets to which they apply and (b) those reserves which support the balance sheet caption, Reserves [@CL-CLS-0403]. Section 210.12-01 states that the Article 12 sections prescribe the form and content of the schedules required by §§ 210.5-04, 210.6-10, 210.6A-05, and 210.7-05 [@CL-CLS-0405], whereas under § 210.5-04 Schedule II shall be filed in support of valuation and qualifying accounts included in each balance sheet but not included in Schedule VI [@CL-CLS-0406] and if the information required by any schedule (including the notes thereto) may be shown in the related financial statement or in a note thereto without making such statement unclear or confusing, that procedure may be followed and the schedule omitted [@CL-CLS-0409].
+The schedule requirement and the note alternative are not the same route: footnote 1 in § 210.12-09 groups (a) those valuation and qualifying accounts which are deducted in the balance sheet from the assets to which they apply and (b) those reserves which support the balance sheet caption, Reserves [@CL-CLS-0403]. Section 210.12-01 states that the Article 12 sections prescribe the form and content of the schedules required by §§ 210.5-04, 210.6-10, 210.6A-05, and 210.7-05 [@CL-CLS-0405], whereas under § 210.5-04 Schedule II shall be filed in support of valuation and qualifying accounts included in each balance sheet but not included in Schedule VI [@CL-CLS-0406] and if the information required by any schedule (including the notes thereto) may be shown in the related financial statement or in a note thereto without making such statement unclear or confusing, that procedure may be followed and the schedule omitted [@CL-CLS-0409].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which valuation and qualifying accounts and reserves the company carries, their 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers in § 210.5-04(b) and § 210.12-09 footnote 1, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the Schedule II sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the valuation and qualifying accounts schedule.

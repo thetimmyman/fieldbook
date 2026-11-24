@@ -48,7 +48,7 @@ A contractor acquires a business unit for 15,000,000, with net identifiable asse
 
 ## Never confuse
 
-Any costs for amortization, expensing, write-off, or write-down of goodwill (however represented) are unallowable [@CL-CMP-0507]. RFO FAR 31.205-49(d) says any costs for amortization, expensing, write-off, or write-down of goodwill are unallowable [@CL-CMP-9412].
+The unallowability follows the cost, not the label: any costs for amortization, expensing, write-off, or write-down of goodwill (however represented) are unallowable [@CL-CMP-0507]. RFO FAR 31.205-49(d) says any costs for amortization, expensing, write-off, or write-down of goodwill are unallowable [@CL-CMP-9412].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ How goodwill amortization, expensing, and impairment write-offs are tracked and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated goodwill text from the quotes; cut uncited contrast; added companion for the codified definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the goodwill origin, definition and unallowability wording to the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

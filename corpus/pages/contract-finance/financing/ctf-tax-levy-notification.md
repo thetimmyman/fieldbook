@@ -47,7 +47,7 @@ A levy of 80,000 reaches a contractor during performance. The contractor promptl
 
 ## Never confuse
 
-The contracting officer must require the contractor to give notice when a levy may result in an inability to perform [@CL-CTF-3402]. The contracting officer's duty to notify the Principal Director arises when the inability will adversely affect national security or will result in significant additional costs to the Government [@CL-CTF-3403]. For the clause terms, see [Levies on contract payments](../cash/ctf-levies-on-contract-payments.md).
+The contractor's notice duty and the contracting officer's differ in trigger rather than duplicating each other: the contracting officer must require the contractor to give notice when a levy may result in an inability to perform [@CL-CTF-3402], whereas the contracting officer's own duty to notify the Principal Director arises only when the inability will adversely affect national security or will result in significant additional costs to the Government rather than on any levy [@CL-CTF-3403]. For the clause terms, see [Levies on contract payments](../cash/ctf-levies-on-contract-payments.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm who watches for tax levies and who notifies the contracting officer and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added CL-CTF-9528 and the IRS tax-resolution phrase in the DoD notification summary and removed uncited framing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Levy notice sequence, notice contents and DoD notification stated with their conditions and alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the DoD review sentence so the written notification keeps its listed contents.

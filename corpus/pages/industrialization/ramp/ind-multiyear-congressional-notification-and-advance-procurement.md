@@ -45,7 +45,7 @@ A DoD component plans a multiyear contract with a cancellation ceiling of 150 mi
 
 ## Never confuse
 
-Under FAR 17.108, written notification by the head of the agency and the wait until the thirty-first day after the date of notification apply when a multiyear contract includes a cancellation ceiling in excess of $20 million (except for DoD, NASA, and the Coast Guard) or in excess of $200 million (for DoD, NASA, and the Coast Guard) [@CL-IND-0113; @CL-IND-0406; @CL-IND-0114; @CL-IND-0151]. Under DFARS 217.170, DoD must provide notification to the congressional defense committees at least 30 days before entering into a multiyear contract for certain procurements, including those expected to meet one of the four alternatives in DFARS 217.170(d)(1)(i) through (iv) [@CL-IND-0117; @CL-IND-0118; @CL-IND-0119; @CL-IND-0408; @CL-IND-0121], and the head of the agency must provide written notice to the congressional defense committees at least 30 days before termination of any multiyear contract [@CL-IND-0116].
+The FAR ceiling notice and the DFARS committee notices are not the same notification: under FAR 17.108, written notification by the head of the agency and the wait until the thirty-first day after the date of notification apply when a multiyear contract includes a cancellation ceiling in excess of $20 million (except for DoD, NASA, and the Coast Guard) or in excess of $200 million (for DoD, NASA, and the Coast Guard) [@CL-IND-0113; @CL-IND-0406; @CL-IND-0114; @CL-IND-0151], while under DFARS 217.170, DoD must provide notification to the congressional defense committees at least 30 days before entering into a multiyear contract for certain procurements, including those expected to meet one of the four alternatives in DFARS 217.170(d)(1)(i) through (iv) [@CL-IND-0117; @CL-IND-0118; @CL-IND-0119; @CL-IND-0408; @CL-IND-0121], and the head of the agency must provide written notice to the congressional defense committees at least 30 days before termination of any multiyear contract [@CL-IND-0116].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which planned multiyear or advance procurement commitments could cross a notice 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 17.108(a)-(b) committee recipients and thirty-first-day wait and DFARS 217.170(d)(1)(iii) alternative connector.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for congressional notification and advance procurement for multiyear contracts.

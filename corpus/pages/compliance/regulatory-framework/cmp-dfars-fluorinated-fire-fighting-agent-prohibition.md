@@ -43,7 +43,7 @@ A contractor supplies foam concentrate for a base fire station. The lab report s
 
 ## Never confuse
 
-For the hexavalent chromium bar, see [Prohibition of hexavalent chromium (DFARS)](cmp-dfars-hexavalent-chromium-prohibition.md). For how commercial subcontracts take clause terms in general, see [Subcontracts for commercial products or commercial services (DFARS)](../../close-revrec/revenue/cls-dfars-commercial-subcontract-flowdown.md).
+The prohibition covers agents above one part per billion rather than all agents containing the substances: the Contractor must not provide or use under the contract any fire-fighting agent that contains perfluoroalkyl substances or polyfluoroalkyl substances in excess of one part per billion [@CL-CMP-4539]. For the hexavalent chromium bar, see [Prohibition of hexavalent chromium (DFARS)](cmp-dfars-hexavalent-chromium-prohibition.md). For how commercial subcontracts take clause terms in general, see [Subcontracts for commercial products or commercial services (DFARS)](../../close-revrec/revenue/cls-dfars-commercial-subcontract-flowdown.md).
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which contracts carry the clause, and which fire-fighting agents the company or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited prescription section; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition of procurement of fluorinated fire-fighting agent for use on military installations.

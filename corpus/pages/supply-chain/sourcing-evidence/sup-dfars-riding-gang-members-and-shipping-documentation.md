@@ -25,7 +25,7 @@ Shows who may serve as a riding gang member, the vetting of exempt individuals, 
 | Instrument | Codified DFARS [@CL-SUP-1627] |
 | Codified citation | DFARS 252.247-7027 and 252.247-7028 [@CL-SUP-1627; @CL-SUP-1632] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAY 2018 [@CL-SUP-9860] |
 | Text status | Final [@CL-SUP-1627] |
 | Applies to | Contracts that include the riding gang member clause, and contracts that include the shipping documentation application clause [@CL-SUP-1627; @CL-SUP-1632] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry these clauses, and who confirms credentials, back
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exemption conditions and categories as alternatives and cited the contractor duty lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that automated systems are used in lieu of the application form.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for riding gang member requirements and the application for United States Government shipping documentation.

@@ -47,9 +47,7 @@ A contracting officer sends a direct request to a listed administration office t
 
 ## Never confuse
 
-The list of functions is on [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md), and the roles of the offices are on [Oversight roles](../audit-retention/cmp-oversight-roles.md).
-
-The codified text excepts functions pertaining to cost accounting standards and negotiation of forward pricing rates and indirect cost rates from rescission or recall [@CL-CMP-2562], while the RFO text excepts the cognizant Federal agency functions identified in 42.302(a) [@CL-CMP-0069].
+The list of functions is on [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md), and the roles of the offices are on [Oversight roles](../audit-retention/cmp-oversight-roles.md). What each text excepts from rescission or recall differs: the codified text excepts functions pertaining to cost accounting standards and negotiation of forward pricing rates and indirect cost rates [@CL-CMP-2562], while the RFO text excepts the cognizant Federal agency functions identified in 42.302(a) [@CL-CMP-0069].
 
 ## Company calibration
 
@@ -59,6 +57,7 @@ Which executed contracts name a contract administration office and any withheld 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for assignment of contract administration, reassignment and the DoD additions.

@@ -51,7 +51,7 @@ The answer: the award and completion ages meet the two time conditions in the so
 
 ## Never confuse
 
-Except as provided in paragraph (3) of the DFARS closeout section, contracting officers shall close out contracts in accordance with the procedures at PGI 204.804 [@CL-CTF-1611]. Completed contract files are held in the office responsible for maintaining them for 12 months after completion [@CL-CTF-1616], and pricing review files are retained for six years [@CL-CTF-1617]. The FAR time standards for closing contract files are on [Time standards for closing contract files](../../compliance/audit-retention/cmp-contract-file-closeout-time-standards.md).
+Closeout normally follows the procedures at PGI 204.804 rather than the paragraph (3) route: except as provided in paragraph (3) of the DFARS closeout section, contracting officers shall close out contracts in accordance with the procedures at PGI 204.804 [@CL-CTF-1611]. Completed contract files and pricing review files carry different retention periods: completed contract files are held in the office responsible for maintaining them for 12 months after completion [@CL-CTF-1616], while pricing review files are retained for six years [@CL-CTF-1617]. The FAR time standards for closing contract files are on [Time standards for closing contract files](../../compliance/audit-retention/cmp-contract-file-closeout-time-standards.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which completed contracts the company expects to be closed out, and how the comp
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (3) exception to the Never confuse closeout sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta sentences and uncited contrasts; restated reconciliation conditions and closeout steps.
 - COMPATIBLE_EXTENSION, 2026-10-31: offset continuation companion; FAR 4.804-5 scope.

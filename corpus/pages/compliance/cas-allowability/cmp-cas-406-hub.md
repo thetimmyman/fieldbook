@@ -38,7 +38,7 @@ A contractor operates on a 12-month fiscal year. For an upcoming contract schedu
 
 ## Never confuse
 
-CAS 406 governs the selection of the time period used as the cost accounting period to accumulate indirect cost pools and establish allocation bases [@CL-EST-2500; @CL-CMP-0210; @CL-CMP-0211], whereas CAS 401 requires consistency between the cost accounting practices used in estimating costs for a proposal and those used in accumulating and reporting costs [@CL-EST-2492; @CL-CMP-0201]. Estimating and accumulating indirect rates over matching partial periods may appear internally consistent under CAS 401, but doing so violates CAS 406 unless an authorized exception applies, because indirect pools and allocation bases must be calculated using the full cost accounting period [@CL-CMP-2802; @CL-CMP-2887].
+CAS 406 governs the selection of the time period used as the cost accounting period to accumulate indirect cost pools and establish allocation bases [@CL-EST-2500; @CL-CMP-0210; @CL-CMP-0211], unlike CAS 401, which requires consistency between the cost accounting practices used in estimating costs for a proposal and those used in accumulating and reporting costs [@CL-EST-2492; @CL-CMP-0201]. Estimating and accumulating indirect rates over matching partial periods may appear internally consistent under CAS 401, but doing so violates CAS 406 unless an authorized exception applies, because indirect pools and allocation bases must be calculated using the full cost accounting period [@CL-CMP-2802; @CL-CMP-2887].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

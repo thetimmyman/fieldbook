@@ -46,7 +46,7 @@ A contractor holds a contract to run a cafeteria in the United States with 40 ho
 
 ## Never confuse
 
-For the service contract labor standards clause and wage determinations, see [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). For the cost treatment of strike costs, see [Labor relations: labor policies and strike costs in pricing and cost allowance](cmp-labor-disputes-and-labor-costs-in-pricing.md).
+The policy is impartiality rather than conciliation: agencies shall remain impartial concerning any dispute between labor and contractor management and not undertake the conciliation, mediation, or arbitration of a labor dispute [@CL-CMP-3092]. For the service contract labor standards clause and wage determinations, see [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). For the cost treatment of strike costs, see [Labor relations: labor policies and strike costs in pricing and cost allowance](cmp-labor-disputes-and-labor-costs-in-pricing.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which service contracts the company holds, and who owns any notice of a labor di
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited characterizations and contrasts; restated the definition scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 22 and the agency cooperation policy.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor law definitions and labor relations policy.

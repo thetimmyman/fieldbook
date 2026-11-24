@@ -48,7 +48,7 @@ A registrant buys a business after its last balance sheet date. The highest of t
 
 ## Never confuse
 
-Under § 210.11-01(b)(1)(i), a business acquisition is considered significant for pro forma financial information if it meets the definition of a significant subsidiary in § 210.1-02(w)(1), substituting 20 percent for 10 percent each place it appears therein [@CL-MNA-0687], whereas under § 210.3-05(b)(2), the 20 percent and 40 percent thresholds determine the periods for which separate financial statements of the business acquired or to be acquired must be filed [@CL-MNA-0675; @CL-MNA-0676; @CL-MNA-0677; @CL-MNA-0678]; see [Pro forma financial information: when it is required](mna-sx-pro-forma-presentation.md).
+The pro forma significance test and the separate-statements thresholds are not the same test: under § 210.11-01(b)(1)(i), a business acquisition is considered significant for pro forma financial information if it meets the definition of a significant subsidiary in § 210.1-02(w)(1), substituting 20 percent for 10 percent each place it appears therein [@CL-MNA-0687], whereas under § 210.3-05(b)(2), the 20 percent and 40 percent thresholds determine the periods for which separate financial statements of the business acquired or to be acquired must be filed [@CL-MNA-0675; @CL-MNA-0676; @CL-MNA-0677; @CL-MNA-0678]; see [Pro forma financial information: when it is required](mna-sx-pro-forma-presentation.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ What acquisition mandate, decision criteria and diligence scope the company has 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0119 on fiscal-year audit exceptions under § 210.3-05(b)(1) and combined the Form 8-K omission sentence.

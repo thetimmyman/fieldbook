@@ -25,7 +25,7 @@ Names Alternates I to VII of the construction material under trade agreements cl
 | Instrument | Codified DFARS [@CL-SUP-1890] |
 | Codified citation | DFARS 252.225-7045, Alternates I to VII [@CL-SUP-1890] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-SUP-9908] |
 | Text status | Final [@CL-SUP-1890] |
 | Applies to | Contracts that use an alternate as prescribed in the clause text [@CL-SUP-1890; @CL-SUP-1892] |
 
@@ -64,6 +64,7 @@ Which alternate, if any, each construction contract carries, and who confirms wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Contracting Officer determination to the waiver statements; removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Alternate II sentence so the description keeps the added paragraph (d).

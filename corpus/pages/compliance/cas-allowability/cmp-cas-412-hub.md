@@ -38,7 +38,7 @@ A contractor computes annual pension cost for a qualified defined-benefit plan. 
 
 ## Never confuse
 
-CAS 412 establishes criteria for measuring the components of pension cost and assigning those costs to cost accounting periods [@CL-EST-2914; @CL-EST-2915], whereas CAS 413 governs adjusting pension costs through actuarial gains and losses, valuing plan assets, and allocating pension costs to organizational segments, including mandatory adjustments upon segment closing or benefit curtailment [@CL-EST-2918; @CL-EST-2919; @CL-MNA-0392]. Furthermore, CAS 412 explicitly excludes Employee Stock Ownership Plans meeting the definition of a pension plan [@CL-EST-2917], whereas CAS 415 provides criteria for measuring and assigning deferred compensation and specifically covers ESOPs, measuring their cost by the amounts contributed by the contractor [@CL-EST-3036; @CL-EST-2505; @CL-CMP-0573].
+CAS 412 establishes criteria for measuring the components of pension cost and assigning those costs to cost accounting periods [@CL-EST-2914; @CL-EST-2915], unlike CAS 413, which governs adjusting pension costs through actuarial gains and losses, valuing plan assets, and allocating pension costs to organizational segments, including mandatory adjustments upon segment closing or benefit curtailment [@CL-EST-2918; @CL-EST-2919; @CL-MNA-0392]. Furthermore, CAS 412 explicitly excludes Employee Stock Ownership Plans meeting the definition of a pension plan [@CL-EST-2917], unlike CAS 415, which provides criteria for measuring and assigning deferred compensation and specifically covers ESOPs, measuring their cost by the amounts contributed by the contractor [@CL-EST-3036; @CL-EST-2505; @CL-CMP-0573].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

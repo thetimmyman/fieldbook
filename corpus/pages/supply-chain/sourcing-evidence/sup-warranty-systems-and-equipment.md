@@ -24,7 +24,7 @@ Shows the warranty period, the contractor's correction duty, the limits on the c
 | Instrument | Codified FAR [@CL-SUP-1165] |
 | Codified citation | FAR 52.246-19 [@CL-SUP-1165; @CL-SUP-0440; @CL-SUP-1166; @CL-SUP-1167; @CL-SUP-1168; @CL-SUP-0441; @CL-SUP-1169; @CL-SUP-0442; @CL-SUP-1220; @CL-SUP-0443; @CL-SUP-1170; @CL-SUP-0444; @CL-SUP-0445] |
 | RFO citation | RFO FAR 52.246-19 [@CL-SUP-3504; @CL-SUP-9344; @CL-SUP-3505; @CL-SUP-3506; @CL-SUP-3507; @CL-SUP-3508; @CL-SUP-3509; @CL-SUP-3510; @CL-SUP-9345; @CL-SUP-3511; @CL-SUP-3512; @CL-SUP-9346; @CL-SUP-9347; @CL-SUP-9348; @CL-SUP-3513; @CL-SUP-9349; @CL-SUP-9350] |
-| Edition date | Not established. |
+| Edition date | May 2001 [@CL-SUP-3505] |
 | Text status | Final [@CL-SUP-1165] |
 | Applies to | Supplies or services accepted by the Government under a contract that includes the clause [@CL-SUP-1167] |
 
@@ -56,6 +56,7 @@ Whether the contract carries this clause, what its warranty-period, notice and r
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for codified FAR 52.246-19(b)(1), (b)(8), (b)(9), (c)(5), and (c)(6); separated codified and RFO citations; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Government-furnished property exception and cut-quote wording.

@@ -53,7 +53,7 @@ Answer: a consultant role is a listed capacity, and 3 years is less than the 5-y
 
 ## Never confuse
 
-The bar applies to an individual convicted after September 29, 1988, of fraud or any other felony arising out of a contract with the DoD [@CL-CMP-4070]. The compensation rule for former DoD officials is on [the former DoD official compensation card](cmp-former-dod-official-compensation.md). Suspension or debarment, cancellation of the contract at no cost to the Government, and termination of the contract for default are other remedies the Government may consider [@CL-CMP-4074].
+The role bar is not the criminal penalty: the bar applies to an individual convicted after September 29, 1988, of fraud or any other felony arising out of a contract with the DoD [@CL-CMP-4070], and suspension or debarment, cancellation of the contract at no cost to the Government, and termination of the contract for default are other remedies the Government may consider [@CL-CMP-4074]. The compensation rule for former DoD officials is on [the former DoD official compensation card](cmp-former-dod-official-compensation.md).
 
 ## Company calibration
 
@@ -63,5 +63,6 @@ Which contracts carry the clause and who checks board members, consultants and a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the remedies to the statutory penalty, and removed unsupported explanation and contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on persons convicted of fraud or defense-contract-related felonies.

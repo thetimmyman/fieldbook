@@ -53,9 +53,7 @@ Had the excess been only 800 rather than 120,000, the TCO would not have recomme
 
 ## Never confuse
 
-The recommendation to release excess funds rests on the TCO's estimate of the funds required to settle the termination [@CL-CTF-3113], the TCO shall maintain continuous surveillance of required funds to permit timely release of any additional excess funds [@CL-CTF-3244], and if previous releases result in a shortage of the amount required for settlement, the TCO shall promptly inform the contracting officer, who shall reinstate the funds within 30 days [@CL-CTF-3115].
-
-Funding control on the same contract is on [the limitation of funds card](ctf-limitation-of-funds.md) and [the incremental funding card](ctf-incremental-funding-policy.md).
+Release and reinstatement differ in direction rather than being the same act: the recommendation to release excess funds rests on the TCO's estimate of the funds required to settle the termination [@CL-CTF-3113], the TCO shall maintain continuous surveillance of required funds to permit timely release of any additional excess funds [@CL-CTF-3244], and if previous releases instead result in a shortage of the amount required for settlement, the TCO shall promptly inform the contracting officer, who shall reinstate the funds within 30 days rather than release more [@CL-CTF-3115]. Funding control on the same contract is on [the limitation of funds card](ctf-limitation-of-funds.md) and [the incremental funding card](ctf-incremental-funding-policy.md).
 
 ## Company calibration
 
@@ -64,6 +62,7 @@ How the company ties its settlement estimate to the obligated balance so that ex
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Preserved shall and shall not modality from FAR 49.105-2 and FAR 49.604 and removed an uncited sentence in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on recommending the release of excess funds.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of excess funds on a terminated contract.

@@ -25,7 +25,7 @@ Shows the domestic construction material rule, the exceptions and the cost compa
 | Instrument | Codified FAR [@CL-SUP-1255; @CL-SUP-1260] |
 | Codified citation | FAR 52.225-9 [@CL-SUP-1255]; FAR 52.225-10 [@CL-SUP-1260] |
 | RFO citation | RFO FAR 52.225-9 [@CL-SUP-3565; @CL-SUP-3566; @CL-SUP-3567; @CL-SUP-3568; @CL-SUP-3569; @CL-SUP-3570; @CL-SUP-3571; @CL-SUP-3572; @CL-SUP-3573; @CL-SUP-3574]; RFO FAR 52.225-10 [@CL-SUP-3575; @CL-SUP-3576; @CL-SUP-3577; @CL-SUP-3578] |
-| Edition date | Not established. |
+| Edition date | FAR 52.225-9: OCT 2022 [@CL-SUP-9889]; FAR 52.225-10: MAY 2014 [@CL-SUP-9890] |
 | Text status | Final [@CL-SUP-1255; @CL-SUP-1260] |
 | Applies to | Contracts that include the clause [@CL-SUP-1255]; solicitations that include the provision [@CL-SUP-1260] |
 
@@ -62,6 +62,7 @@ Which executed construction contracts carry the clause, and who confirms any lis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the foreign-origin and unknown-origin component rules and the or joining the listed grounds; aligned the never-confuse wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: offer evaluation percentage tied to the clause paragraph that specifies it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

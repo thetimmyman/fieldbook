@@ -55,7 +55,7 @@ Had the contracting officer made no such determination, the contracting officer 
 
 ## Never confuse
 
-The loss ratio adjustment applies when the sum of the total costs incurred under a contract plus the estimated costs to complete the performance are likely to exceed the contract price [@CL-CTF-3411]. In the supplementary analysis example, total costs eligible for progress payments of 2,700,000 are multiplied by a loss ratio factor of 83.3% to yield recognized costs for progress payments of 2,249,100, to which a progress payment rate of 80.0% is then applied [@CL-CTF-3493]. The other actions that the same FAR section describes follow their own conditions; see [Suspension or reduction of progress payments](ctf-suspension-or-reduction-of-progress-payments.md) and [Progress payment administration](ctf-progress-payment-administration.md).
+The loss ratio adjustment scales the costs eligible for progress payments rather than cutting the rate: the adjustment applies when the sum of the total costs incurred under a contract plus the estimated costs to complete the performance are likely to exceed the contract price [@CL-CTF-3411], and in the supplementary analysis example, total costs eligible for progress payments of 2,700,000 are multiplied by a loss ratio factor of 83.3% to yield recognized costs for progress payments of 2,249,100 — the factored amount rather than the full 2,700,000 — to which a progress payment rate of 80.0% is then applied [@CL-CTF-3493]. The other actions that the same FAR section describes follow their own conditions; see [Suspension or reduction of progress payments](ctf-suspension-or-reduction-of-progress-payments.md) and [Progress payment administration](ctf-progress-payment-administration.md).
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Confirm who prepares the costs-to-complete estimate and whether the supporting a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (4) manner reference and removed meta and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Audit-trail direction worded as the DFARS directs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.

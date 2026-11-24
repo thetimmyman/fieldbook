@@ -52,7 +52,7 @@ The same six workers would otherwise be subject to the War Hazards Compensation 
 
 ## Never confuse
 
-For employees for whom the applicability of the Defense Base Act has been waived, the Contractor shall provide at least that workers' compensation insurance or the equivalent as the laws of the country of which these employees are nationals may require [@CL-CTF-2496]. Whether a premium is allowable as a cost is covered in [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
+Coverage for waived employees differs from Defense Base Act coverage rather than repeating it: for employees for whom the applicability of the Defense Base Act has been waived, the Contractor shall provide at least that workers' compensation insurance or the equivalent as the laws of the country of which these employees are nationals may require [@CL-CTF-2496], unlike covered employees, for whom the Contractor establishes provisions for disability compensation, medical benefits and death benefits by purchasing workers' compensation insurance or qualifying as a self-insurer [@CL-CTF-2494]. Whether a premium is allowable as a cost is covered in [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Which contracts and subcontracts carry the Defense Base Act clause, and who conf
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned shall-duties, waiver coverage and RFO wording to quotes.

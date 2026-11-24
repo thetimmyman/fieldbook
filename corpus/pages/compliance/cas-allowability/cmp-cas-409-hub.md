@@ -38,7 +38,7 @@ A contractor's disclosed practice depreciates capital equipment costing 500,000 
 
 ## Never confuse
 
-Although the Board's final rule rescinded most provisions of CAS 409 and removed and reserved subpart 9904.409 [@CL-CMP-1500; @CL-CMP-1506; @CL-CMP-1523], FAR 31.205-11 remains active and governs the allowability of depreciation on plant, equipment, and other capital facilities [@CL-CMP-0464]. Under FAR 31.205-11, allowable depreciation is subject to specific regulatory limits, including disallowing depreciation on property acquired from the Government at no cost [@CL-CMP-0466] and barring depreciation on fully depreciated property [@CL-CMP-0467]. In addition, CAS 414 remains active to measure and allocate the imputed cost of capital committed to facilities [@CL-CMP-8690; @CL-IND-0031], applying a cost of money rate to facilities capital consisting of the net book value of capital assets [@CL-CMP-0567; @CL-IND-0032].
+CAS 409 is rescinded where FAR 31.205-11 stands: although the Board's final rule rescinded most provisions of CAS 409 and removed and reserved subpart 9904.409 [@CL-CMP-1500; @CL-CMP-1506; @CL-CMP-1523], FAR 31.205-11 remains active and governs the allowability of depreciation on plant, equipment, and other capital facilities [@CL-CMP-0464]. Under FAR 31.205-11, allowable depreciation is subject to specific regulatory limits, including disallowing depreciation on property acquired from the Government at no cost [@CL-CMP-0466] and barring depreciation on fully depreciated property [@CL-CMP-0467]. In addition, CAS 414 remains active to measure and allocate the imputed cost of capital committed to facilities [@CL-CMP-8690; @CL-IND-0031], applying a cost of money rate to facilities capital consisting of the net book value of capital assets [@CL-CMP-0567; @CL-IND-0032].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

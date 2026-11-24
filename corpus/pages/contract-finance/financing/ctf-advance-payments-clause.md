@@ -49,7 +49,7 @@ A contract has a price of 2,000,000 and the clause sets the percent at 25, so th
 
 ## Never confuse
 
-The contractor repays on written request of the administering office [@CL-CTF-0945], and on completion or termination of the contract the Government deducts the unliquidated advance payments and interest charges payable from the amount due [@CL-CTF-0947]. The special account's check-and-countersignature rule governs withdrawals, while the use of funds paragraph limits what the money may be spent on [@CL-CTF-0943; @CL-CTF-0944]. For interest on unliquidated balances, see [Advance payments: exclusions and interest](ctf-advance-payment-exclusions-and-interest.md); for the agreement and liens that protect the Government, see [Advance payments: security and the special account](ctf-advance-payment-security-and-special-account.md); for how advance payments are authorized in the first place, see [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md); for liquidation of progress payments, see [Progress payment liquidation](ctf-progress-payment-liquidation.md).
+The contractor repays on written request of the administering office [@CL-CTF-0945] rather than only at the end, and on completion or termination of the contract the Government deducts the unliquidated advance payments and interest charges payable from the amount due [@CL-CTF-0947]. The special account's check-and-countersignature rule governs withdrawals rather than what the money may be spent on, which the use of funds paragraph limits [@CL-CTF-0943; @CL-CTF-0944]. For interest on unliquidated balances, see [Advance payments: exclusions and interest](ctf-advance-payment-exclusions-and-interest.md); for the agreement and liens that protect the Government, see [Advance payments: security and the special account](ctf-advance-payment-security-and-special-account.md); for how advance payments are authorized in the first place, see [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md); for liquidation of progress payments, see [Progress payment liquidation](ctf-progress-payment-liquidation.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm the percent and dollar amounts inserted in the clause, the bank holding 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Advance Payments clause wording with the cited paragraphs; added the clause titles.
 - COMPATIBLE_EXTENSION, 2026-10-31: Countersigning agent designated in writing by the contracting officer; Alternate II clause no longer called the cost clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the advance payment paragraph of the clause.

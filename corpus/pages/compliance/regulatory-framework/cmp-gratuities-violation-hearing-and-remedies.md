@@ -59,9 +59,7 @@ If the contract used no such money, the paragraph would not list exemplary damag
 
 ## Never confuse
 
-The agency head or a designee determines whether the contractor, its agent, or another representative offered or gave a gratuity and intended by the gratuity to obtain a contract or favorable treatment under a contract [@CL-CMP-7647; @CL-CMP-7648].
-
-The listed actions are terminating the contractor's right to proceed, initiating debarment or suspension measures as set forth in subpart 9.4, and assessing exemplary damages if the contract uses money appropriated to the Department of Defense [@CL-CMP-7651; @CL-CMP-7652].
+The hearing determination differs from the remedies that follow it: the agency head or a designee determines whether the contractor, its agent, or another representative offered or gave a gratuity and intended by the gratuity to obtain a contract or favorable treatment under a contract [@CL-CMP-7647; @CL-CMP-7648]; the listed actions are terminating the contractor's right to proceed, initiating debarment or suspension measures as set forth in subpart 9.4, and assessing exemplary damages if the contract uses money appropriated to the Department of Defense [@CL-CMP-7651; @CL-CMP-7652].
 
 ## Company calibration
 
@@ -71,6 +69,7 @@ The company must confirm which of its contracts contain the Gratuities clause an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited negatives, an added only and contrasts; restated the determination and remedies as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the duty to report suspected violations of the Gratuities clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for treatment of gratuities violations.

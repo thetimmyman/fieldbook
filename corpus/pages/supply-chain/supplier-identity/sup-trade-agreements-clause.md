@@ -25,7 +25,7 @@ Shows how the Trade Agreements clause treats designated country end products, wh
 | Instrument | Codified FAR [@CL-SUP-1252] |
 | Codified citation | FAR 52.225-5 [@CL-SUP-1252] |
 | RFO citation | RFO FAR 52.225-5 [@CL-SUP-3790] |
-| Edition date | Not established. |
+| Edition date | Nov 2023 [@CL-SUP-3790] |
 | Text status | Final [@CL-SUP-1252] |
 | Applies to | Acquisitions where the Contracting Officer has determined that the WTO GPA and FTAs apply [@CL-SUP-1252] |
 
@@ -55,6 +55,7 @@ Which executed contracts carry this clause, and who confirms that the trade agre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

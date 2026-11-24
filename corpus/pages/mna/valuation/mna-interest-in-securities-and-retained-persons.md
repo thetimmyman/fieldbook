@@ -52,7 +52,7 @@ A filing person that is named in response to Item 1003 of Regulation M-A benefic
 
 ## Never confuse
 
-Item 1008(a) requires stating the aggregate number and percentage of subject securities that are beneficially owned by each person named in response to Item 1003 of Regulation M-A and by each associate and majority-owned subsidiary of those persons (and giving the name and address of any associate or subsidiary) [@CL-MNA-0310; @CL-MNA-1082], whereas Item 1008(b) requires describing any transaction in the subject securities during the past 60 days for the persons specified in Instruction 1 to Item 1008(b) [@CL-MNA-0314; @CL-MNA-1083; @CL-MNA-1084; @CL-MNA-1085]. Item 1009(a) requires identifying all persons and classes of persons that are directly or indirectly employed, retained, or to be compensated to make solicitations or recommendations in connection with the transaction and summarizing all material terms of employment, retainer or other arrangement for compensation [@CL-MNA-0316; @CL-MNA-0317], whereas Item 1009(b) requires identifying any officer, class of employees or corporate assets of the subject company that has been or will be employed or used by the filing person in connection with the transaction and describing the purpose for their employment or use (except for the information required by Item 1009(a) and Item 1007) [@CL-MNA-0318; @CL-MNA-0319].
+Ownership and transactions are not the same item: Item 1008(a) requires stating the aggregate number and percentage of subject securities that are beneficially owned by each person named in response to Item 1003 of Regulation M-A and by each associate and majority-owned subsidiary of those persons (and giving the name and address of any associate or subsidiary) [@CL-MNA-0310; @CL-MNA-1082], whereas Item 1008(b) requires describing any transaction in the subject securities during the past 60 days for the persons specified in Instruction 1 to Item 1008(b) [@CL-MNA-0314; @CL-MNA-1083; @CL-MNA-1084; @CL-MNA-1085]. Outside and inside persons are also not the same item: Item 1009(a) requires identifying all persons and classes of persons that are directly or indirectly employed, retained, or to be compensated to make solicitations or recommendations in connection with the transaction and summarizing all material terms of employment, retainer or other arrangement for compensation [@CL-MNA-0316; @CL-MNA-0317], whereas Item 1009(b) requires identifying any officer, class of employees or corporate assets of the subject company that has been or will be employed or used by the filing person in connection with the transaction and describing the purpose for their employment or use (except for the information required by Item 1009(a) and Item 1007) [@CL-MNA-0318; @CL-MNA-0319].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Which acquisition mandate and diligence scope are authorized, and within it whic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned Item 1008 and Item 1009 prose and instructions with 17 CFR 229.1008 and 229.1009 quotes and removed meta phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: paragraph (b) scope stated as in the source.

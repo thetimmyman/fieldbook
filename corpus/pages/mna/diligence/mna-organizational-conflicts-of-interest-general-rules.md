@@ -46,7 +46,7 @@ Answer: in the first case the rule says an unfair competitive advantage exists. 
 
 ## Never confuse
 
-The two principles are different tests. One looks at conflicting roles that might bias a contractor's judgment, and the other looks at unfair competitive advantage [@CL-MNA-0547]. The two listed situations are cases where unfair competitive advantage exists in addition to the other situations in the subpart [@CL-MNA-0548].
+The two principles are not the same test: one looks at conflicting roles that might bias a contractor's judgment, and the other looks at unfair competitive advantage [@CL-MNA-0547]. The two listed situations are cases where unfair competitive advantage exists in addition to the other situations in the subpart [@CL-MNA-0548].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which current and past engagements of the target, the buyer and their affiliates
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Example now says Government official, matching the rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the source selection information definition.

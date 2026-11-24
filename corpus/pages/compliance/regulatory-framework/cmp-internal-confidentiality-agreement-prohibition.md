@@ -48,7 +48,7 @@ A company that is using funding subject to the prohibition has a contract that i
 
 ## Never confuse
 
-For the display of a hotline poster, see [Display of hotline poster clause](cmp-hotline-poster-clause.md). For the reprisal rules, see [Whistleblower protections for contractor employees: policy and remedies](cmp-contractor-employee-whistleblower-protections.md).
+The prohibition on internal confidentiality agreements is not the hotline poster duty and not the reprisal rules: for the display of a hotline poster, see [Display of hotline poster clause](cmp-hotline-poster-clause.md). For the reprisal rules, see [Whistleblower protections for contractor employees: policy and remedies](cmp-contractor-employee-whistleblower-protections.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which offers include the provision, which contracts carry the clause, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the protected reporting for the provision; removed meta wording, unsupported statements and RFO text-of wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause cards for the internal confidentiality agreement representation and clause.

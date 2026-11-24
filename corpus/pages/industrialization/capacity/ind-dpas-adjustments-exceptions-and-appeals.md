@@ -46,7 +46,7 @@ A supplier believes a provision causes it an undue hardship that others in simil
 
 ## Never confuse
 
-A request for an adjustment or exception is submitted to the Office of Strategic Industries and Economic Security under § 700.80, whereas an appeal is submitted to the Assistant Secretary for Export Administration by a person whose request for adjustment or exception under § 700.80 has been denied by that Office [@CL-IND-0199; @CL-IND-0204]. Neither a request for adjustment or exception nor the submission of an appeal relieves any person from the obligation of complying with the provisions of the part or official action in question while the request or appeal is being considered, unless relief is granted in writing by the Office of Strategic Industries and Economic Security for a request or by the Assistant Secretary for Export Administration for an appeal [@CL-IND-0203; @CL-IND-9001; @CL-IND-0224; @CL-IND-9002].
+A request and an appeal are not the same filing, and neither one lifts the compliance duty while it is pending: a request for an adjustment or exception is submitted to the Office of Strategic Industries and Economic Security under § 700.80, whereas an appeal is submitted to the Assistant Secretary for Export Administration by a person whose request for adjustment or exception under § 700.80 has been denied by that Office [@CL-IND-0199; @CL-IND-0204]. Neither a request for adjustment or exception nor the submission of an appeal relieves any person from the obligation of complying with the provisions of the part or official action in question while the request or appeal is being considered, unless relief is granted in writing by the Office of Strategic Industries and Economic Security for a request or by the Assistant Secretary for Export Administration for an appeal [@CL-IND-0203; @CL-IND-9001; @CL-IND-0224; @CL-IND-9002].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Who decides to ask for relief, who tracks the response and appeal dates, and whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the two request grounds as alternatives, added the written appeal decision requirement, and aligned compliance and supplement references.

@@ -46,7 +46,7 @@ A company holds a contract for a major system. The contracting officer assigns d
 
 ## Never confuse
 
-Designator A covers critical contracts, including DX-rated contracts (see FAR subpart 11.6), contracts citing the authority in FAR 6.302-2 (unusual and compelling urgency), and contracts for major systems [@CL-OPM-0056]. When information on contract performance status is needed, contracting officers may require contractors to submit production progress reports (see FAR 42.1107(a)) [@CL-OPM-0058], whereas the contract administration office may at any time initiate a report to advise the contracting officer (and the inventory manager, if one is designated in the contract) of any potential or actual delay in performance [@CL-OPM-0060]. Under FAR 42.1107(a), the contracting officer shall insert the clause at FAR 52.242-2, Production Progress Reports, in solicitations and contracts when production progress reporting is required, unless a construction contract or a Federal Supply Schedule contract is contemplated [@CL-CMP-2572], and under RFO FAR 42.805(a), the clause at FAR 52.242-2, Production Progress Reports, is inserted in solicitations and contracts when production progress reporting is required, unless a construction contract or a Federal Supply Schedule contract is contemplated [@CL-OPM-0160].
+Designator A covers critical contracts, including DX-rated contracts (see FAR subpart 11.6), contracts citing the authority in FAR 6.302-2 (unusual and compelling urgency), and contracts for major systems [@CL-OPM-0056]. Contractor-initiated reports and office-initiated reports are not the same flow: when information on contract performance status is needed, contracting officers may require contractors to submit production progress reports (see FAR 42.1107(a)) [@CL-OPM-0058], whereas the contract administration office may at any time initiate a report to advise the contracting officer (and the inventory manager, if one is designated in the contract) of any potential or actual delay in performance [@CL-OPM-0060]. Under FAR 42.1107(a), the contracting officer shall insert the clause at FAR 52.242-2, Production Progress Reports, in solicitations and contracts when production progress reporting is required, unless a construction contract or a Federal Supply Schedule contract is contemplated [@CL-CMP-2572], and under RFO FAR 42.805(a), the clause at FAR 52.242-2, Production Progress Reports, is inserted in solicitations and contracts when production progress reporting is required, unless a construction contract or a Federal Supply Schedule contract is contemplated [@CL-OPM-0160].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which production progress reports the contract requires, who prepares them and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added cross-references and FAR 42.302(a) qualifiers, and separated codified and RFO citations.

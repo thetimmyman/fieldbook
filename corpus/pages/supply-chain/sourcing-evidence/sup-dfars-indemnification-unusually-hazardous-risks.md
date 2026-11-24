@@ -25,7 +25,7 @@ Shows what the fixed-price indemnification clause covers, the conditions and exc
 | Instrument | Codified DFARS [@CL-SUP-1417] |
 | Codified citation | DFARS 252.235-7000 and 252.235-7001 [@CL-SUP-1417; @CL-SUP-1424] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-SUP-9858] |
 | Text status | Final [@CL-SUP-1417] |
 | Applies to | Contractors that meet all the terms and conditions of the clause [@CL-SUP-1417] |
 
@@ -54,6 +54,7 @@ Whether the contract defines any unusually hazardous risk, which of the two clau
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the quoted supervision list and said the conditions listed are examples.
 - COMPATIBLE_EXTENSION, 2026-10-31: Indemnification conditions now include the supervision scope and the specific approval alternative.

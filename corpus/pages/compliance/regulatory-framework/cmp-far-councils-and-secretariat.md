@@ -57,9 +57,7 @@ A contractor asks which body changed a cost principle last quarter. The trail sh
 
 ## Never confuse
 
-Subject to the authorities discussed in 1.103, revisions to the FAR will be prepared and issued through the coordinated action of the DAR Council and the CAA Council [@CL-CMP-8408]. Subsequent chapters are reserved for agency acquisition regulations that implement or supplement the FAR [@CL-CMP-8396]; see [The FAR System and agency supplements](cmp-far-system-and-agency-supplements.md).
-
-The General Services Administration is responsible for establishing and operating the FAR Secretariat to publish and distribute the FAR [@CL-CMP-8417], and the FAR Secretariat shall provide the two councils with centralized services for keeping a synopsis of current FAR cases and their status and for maintaining official files [@CL-CMP-8418].
+The councils write the FAR rather than the Secretariat: subject to the authorities discussed in 1.103, revisions to the FAR will be prepared and issued through the coordinated action of the DAR Council and the CAA Council [@CL-CMP-8408], while the General Services Administration is responsible for establishing and operating the FAR Secretariat to publish and distribute the FAR [@CL-CMP-8417], and the FAR Secretariat shall provide the two councils with centralized services for keeping a synopsis of current FAR cases and their status and for maintaining official files [@CL-CMP-8418]. Subsequent chapters are reserved for agency acquisition regulations that implement or supplement the FAR [@CL-CMP-8396]; see [The FAR System and agency supplements](cmp-far-system-and-agency-supplements.md).
 
 ## Company calibration
 
@@ -69,6 +67,7 @@ Which council case file the company treats as the record of a rule change it rel
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the councils' duties with their conditions; cut uncited inferences, negatives and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who is responsible for agency compliance with the FAR.

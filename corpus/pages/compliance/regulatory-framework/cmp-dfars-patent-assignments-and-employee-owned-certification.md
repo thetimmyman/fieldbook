@@ -45,7 +45,7 @@ Assume an offeror wins a contract paying 10,000,000 for services and plans 6,000
 
 ## Never confuse
 
-For the small business limitation on subcontracting, see [Limitations on subcontracting and the nonmanufacturer rule](../../market/programs/mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md). For the patent rights clause, see [Patent rights with ownership by the Government](cmp-patent-rights-government-ownership.md).
+The assignment clause conveys the entire right, title, and interest rather than a license: the contractor conveys to the Government, as represented by the named Secretary, the entire right, title, and interest in and to the listed patents and applications for patent, and in and to the inventions thereof [@CL-CMP-4609]. The subcontract certification is also not the small business limitation on subcontracting: the offeror certifies that in performance of the contract it will not expend more than 50 percent of the amount paid under the contract on subcontracts unless, among the listed exceptions, the subcontract is awarded to a qualified business [@CL-CMP-4614]. For the small business limitation on subcontracting, see [Limitations on subcontracting and the nonmanufacturer rule](../../market/programs/mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md). For the patent rights clause, see [Patent rights with ownership by the Government](cmp-patent-rights-government-ownership.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which contracts, assignments and solicitations carry these clauses and provision
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated holder definition and certification exceptions as alternatives, named tax provisions; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent assignments, cooperative agreement holder information and the employee-owned business certification.

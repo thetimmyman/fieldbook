@@ -45,7 +45,7 @@ If the same award instead required three more years of service, the 400,000 woul
 
 ## Never confuse
 
-For deferred compensation other than ESOPs, the cost is the present value of the future benefits to be paid by the contractor [@CL-CMP-0572]. For an ESOP, the cost is the amount contributed to the ESOP by the contractor [@CL-CMP-0573].
+The cost measure differs by plan type: for deferred compensation other than ESOPs, the cost is the present value of the future benefits to be paid by the contractor [@CL-CMP-0572], while for an ESOP, the cost is the amount contributed to the ESOP by the contractor [@CL-CMP-0573].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which business units are under full or modified coverage and where each deferred
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited separate-award rule and matched obligation wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deferred compensation accounting.
