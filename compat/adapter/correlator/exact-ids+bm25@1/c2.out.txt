@@ -1,0 +1,6 @@
+ok
+correlator exact-ids+bm25@1
+link related S-0001-v1 p.1: "s-0001-v1"
+link related Q-001 p.1: "q-001"
+link related Q-001 Q-001 (score 1326)
+link related S-0001-v1 S-0001-v1 (score 1220)

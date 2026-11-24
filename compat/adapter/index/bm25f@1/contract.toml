@@ -1,0 +1,3 @@
+kind = "adapter"
+port = "index"
+id = "bm25f@1"

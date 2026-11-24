@@ -6,7 +6,9 @@
 //!
 //! **Rules.** Pure: no I/O.
 
+pub mod bm25f_v1;
 pub mod corpus_add_v1;
+pub mod exact_ids_bm25_v1;
 pub mod html_strip_v1;
 pub mod plain_v1;
 pub mod policy_readers_v1;

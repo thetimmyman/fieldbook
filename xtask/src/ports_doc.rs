@@ -159,7 +159,7 @@ mod tests {
     #[test]
     fn ports_doc_lists_registered_rows_and_the_ask_template() {
         let body = render_ports_section("").expect("render");
-        assert_eq!(ADAPTERS.len(), 9);
+        assert_eq!(ADAPTERS.len(), 11);
         for r in ADAPTERS {
             assert!(
                 body.contains(&format!("### {} {}\n", r.port.as_str(), r.id)),

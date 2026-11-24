@@ -1,0 +1,3 @@
+kind = "adapter"
+port = "correlator"
+id = "exact-ids+bm25@1"

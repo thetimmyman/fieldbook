@@ -7,8 +7,11 @@ use std::path::{Path, PathBuf};
 
 use fieldbook_calc::{CALC_EPOCH, ReplayCase, Run};
 use fieldbook_core::cases::case_set_sha256_entries;
+use fieldbook_core::date::CivilDate;
 use fieldbook_core::hash::sha256_hex;
 use fieldbook_core::ids::{EditionId, ToolRelease};
+use fieldbook_core::pipeline::{Candidate, CorpusView, Correlator, LinkKind, Support};
+use fieldbook_core::ports::index::{IndexPort, Query, Scope};
 use serde::{Deserialize, Serialize};
 
 /// Runner and binding category (`compatibility.md#published-manifest`).
@@ -281,11 +284,12 @@ fn is_valid_versioned_id(id: &str) -> bool {
     let Some((name, ver)) = id.split_once('@') else {
         return false;
     };
+    // A name may carry the `+` of a composed adapter id (`exact-ids+bm25@1`).
     if name.is_empty()
         || !name.as_bytes()[0].is_ascii_lowercase()
-        || !name
-            .bytes()
-            .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'_' || b == b'-')
+        || !name.bytes().all(|b| {
+            b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'_' || b == b'-' || b == b'+'
+        })
     {
         return false;
     }
@@ -867,6 +871,26 @@ struct AdmitCaseInput {
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
+struct IndexCaseInput {
+    query: String,
+    #[serde(default)]
+    limit: Option<usize>,
+    #[serde(default)]
+    scope: Vec<String>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct CorrelatorCaseInput {
+    text: String,
+    #[serde(default)]
+    sha256: Option<String>,
+    #[serde(default)]
+    fail_index: bool,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct ClassifierCaseInput {
     rules_toml: String,
     pages: Vec<String>,
@@ -1017,6 +1041,175 @@ fn execute_template_ask_1(
     out.push_str("--- prompt ---\n");
     out.push_str(&req.prompt());
     Ok(out)
+}
+
+/// Fixed SHA-256 carried by the synthetic source version the index and correlator vectors index.
+const PIPELINE_COMPAT_SHA: &str =
+    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+/// Title of the synthetic source version; both this and the publisher appear on page 1 for a
+/// `VersionOf` link.
+const PIPELINE_COMPAT_TITLE: &str = "Synthetic Cost Rule, made up for tests";
+
+/// Publisher of the synthetic source version.
+const PIPELINE_COMPAT_PUBLISHER: &str = "Synthetic Standards Board";
+
+/// A source row that parses as synthetic_fixture is written once here so both adapters index it.
+fn pipeline_compat_model() -> fieldbook_core::check::Model {
+    use fieldbook_core::check::{Host, Options, Tree};
+    use fieldbook_core::schema::Register;
+
+    let today = CivilDate::parse("2026-03-01").unwrap_or(CivilDate::MAX);
+    let mut tree = Tree::new();
+    tree.insert_dir("corpus");
+    tree.insert_dir("corpus/registers");
+    tree.insert_bytes(
+        "corpus/corpus.toml",
+        include_bytes!("../../tests/fixtures/corpus-mini/corpus/corpus.toml").to_vec(),
+    );
+    for reg in Register::ALL {
+        let header = reg
+            .columns()
+            .iter()
+            .map(|c| c.name)
+            .collect::<Vec<_>>()
+            .join(",");
+        let body = match reg {
+            Register::Sources => format!(
+                "{header}\nS-0001,1,synthetic-replay,\"{PIPELINE_COMPAT_TITLE}\",{PIPELINE_COMPAT_PUBLISHER},synthetic_fixture,primary_evidence,A,\"Synthetic, no restrictions\",,,S-0001-v1.txt,{PIPELINE_COMPAT_SHA},2026-01-10,2026-01-15,2026-02-01,2026-02-01,active,,V2,public,Synthetic replay note for compatibility vectors.,Synthetic replay purpose,,,,,\n"
+            ),
+            Register::Questions => format!(
+                "{header}\nQ-001,cmp,Which synthetic replay source governs the withholding schedule?,Compliance Lead,,,,,true,open,,,\n"
+            ),
+            _ => format!("{header}\n"),
+        };
+        tree.insert_bytes(
+            format!("corpus/registers/{}", reg.file_name()),
+            body.into_bytes(),
+        );
+    }
+    let (model, _report) =
+        fieldbook_core::check::load(&Host::new(tree, today), &Options::new(false));
+    model
+}
+
+/// The tier word of an index hit in the compatibility output.
+const fn tier_word(tier: fieldbook_core::ports::index::Tier) -> &'static str {
+    match tier {
+        fieldbook_core::ports::index::Tier::Exact => "exact",
+        fieldbook_core::ports::index::Tier::Ranked => "ranked",
+    }
+}
+
+/// The link kind word of a correlator link in the compatibility output.
+const fn link_word(kind: LinkKind) -> &'static str {
+    match kind {
+        LinkKind::Present => "present",
+        LinkKind::VersionOf => "version_of",
+        LinkKind::Related => "related",
+        LinkKind::Answers => "answers",
+    }
+}
+
+/// A default `Correlator` vector: the flagged-failure index for the refusal case.
+struct FailingIndex;
+
+impl IndexPort for FailingIndex {
+    fn id(&self) -> &'static str {
+        "failing-index@1"
+    }
+
+    fn query(
+        &self,
+        _query: &Query,
+    ) -> Result<fieldbook_core::ports::index::Hits, fieldbook_core::ports::index::IndexError> {
+        Err(fieldbook_core::ports::index::IndexError::new(
+            fieldbook_core::check::Code::Fb0930,
+            "planted index failure",
+        ))
+    }
+}
+
+fn run_index_vector(input_str: &str) -> String {
+    use fieldbook_core::versions::bm25f_v1::{Bm25Index, ID};
+
+    let parsed: IndexCaseInput = match toml::from_str(input_str) {
+        Ok(parsed) => parsed,
+        Err(error) => return format!("refuse parse:{error}\n"),
+    };
+    let scope = match Scope::new(parsed.scope) {
+        Ok(scope) => scope,
+        Err(error) => return format!("refuse {}\n", error.code),
+    };
+    let model = pipeline_compat_model();
+    let index = Bm25Index::public(&model);
+    let query = Query::new(parsed.query, scope, parsed.limit.unwrap_or(10));
+    let mut out = format!("ok\nindex {ID}\n");
+    match index.query(&query) {
+        Ok(hits) => {
+            out.push_str(&format!("total {}\n", hits.total));
+            for hit in hits.hits {
+                out.push_str(&format!(
+                    "hit {} {} {}\n",
+                    tier_word(hit.tier),
+                    hit.score,
+                    hit.unit.id
+                ));
+            }
+            out
+        }
+        Err(error) => format!("refuse {}\n", error.code),
+    }
+}
+
+fn run_correlator_vector(input_str: &str) -> String {
+    use fieldbook_core::versions::exact_ids_bm25_v1::{ExactIdsBm25, ID};
+
+    let parsed: CorrelatorCaseInput = match toml::from_str(input_str) {
+        Ok(parsed) => parsed,
+        Err(error) => return format!("refuse parse:{error}\n"),
+    };
+    let model = pipeline_compat_model();
+    let view = CorpusView::from_model(&model);
+    let index = fieldbook_core::versions::bm25f_v1::Bm25Index::public(&model);
+    let sha256 = parsed
+        .sha256
+        .unwrap_or_else(|| sha256_hex(parsed.text.as_bytes()));
+    let bytes = u64::try_from(parsed.text.len()).unwrap_or(u64::MAX);
+    let candidate = Candidate {
+        file: "candidate.txt".to_owned(),
+        sha256,
+        bytes,
+        ext: "txt".to_owned(),
+        labels: fieldbook_core::labels::LabelSet::public(),
+        origin: None,
+        extraction: Some(fieldbook_core::extraction::Extraction {
+            method: "plain",
+            pages: vec![fieldbook_core::extraction::PageText {
+                number: 1,
+                text: parsed.text,
+            }],
+        }),
+    };
+    let failing = FailingIndex;
+    let index_ref: &dyn IndexPort = if parsed.fail_index { &failing } else { &index };
+    match ExactIdsBm25.correlate(&candidate, &view, index_ref) {
+        Ok(links) => {
+            let mut out = format!("ok\ncorrelator {ID}\n");
+            for link in links {
+                let supports: Vec<String> = link.support.iter().map(Support::as_text).collect();
+                out.push_str(&format!(
+                    "link {} {} {}\n",
+                    link_word(link.kind),
+                    link.target,
+                    supports.join(" ; ")
+                ));
+            }
+            out
+        }
+        Err(fieldbook_core::pipeline::StageError::Failed(code)) => format!("refuse {code}\n"),
+        Err(fieldbook_core::pipeline::StageError::Deferred(_)) => "refuse deferred\n".to_owned(),
+    }
 }
 
 fn run_vector(
@@ -1579,6 +1772,8 @@ fn run_vector(
                     }
                     out
                 }
+                ("index", "bm25f@1") => run_index_vector(input_str),
+                ("correlator", "exact-ids+bm25@1") => run_correlator_vector(input_str),
                 ("classifier", "rules@1") => {
                     let parsed: ClassifierCaseInput = toml::from_str(input_str).map_err(|e| {
                         format!(
