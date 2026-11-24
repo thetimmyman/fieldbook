@@ -43,7 +43,7 @@ A business unit opens three projects: two independent research projects costing 
 
 ## Never confuse
 
-The basic unit for identification and accumulation is the individual project [@CL-CMP-0575], and the cost pools consist of all project costs and other allocable costs [@CL-CMP-8115]. Home office pools are allocated to the segments reporting to that home office [@CL-CMP-0577], and business unit pools are allocated to the final cost objectives of that business unit [@CL-CMP-0578].
+The two pool kinds go to different places: the basic unit for identification and accumulation is the individual project [@CL-CMP-0575], and the cost pools consist of all project costs and other allocable costs [@CL-CMP-8115]. Home office pools are allocated to the segments reporting to that home office [@CL-CMP-0577], while business unit pools are allocated to the final cost objectives of that business unit [@CL-CMP-0578].
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ Whether each project is opened, charged and closed with records that support the
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited pool composition and matched allocation recipients.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal costs.

@@ -52,15 +52,7 @@ A service contractor signs its offer, which makes the biobased certification: th
 
 ## Never confuse
 
-The certification and the report are different duties: the offeror gives the certification by signing its offer, while the contractor makes the report to the website the clause names, with a copy to the contracting officer [@CL-CMP-5164; @CL-CMP-5166].
-
-The offeror's signature on the offer is the certification [@CL-CMP-5164].
-
-For recovered material content, the offeror certifies the percentage for EPA-designated items to be delivered or used in the performance of the contract [@CL-CMP-5176].
-
-A USDA-designated product category is described with USDA purchasing recommendations in the codified clause [@CL-CMP-5267], but with minimum biobased content standards in the RFO clause [@CL-CMP-0533].
-
-The separate certification and estimate for recovered material content are covered in [Recovered material certification and content estimate](cmp-recovered-material-certification-and-estimate.md).
+The certification is not the report: the offeror gives the certification by signing its offer, and the offeror's signature on the offer is the certification [@CL-CMP-5164], while the contractor makes the report to the website the clause names, with a copy to the contracting officer [@CL-CMP-5164; @CL-CMP-5166]. For recovered material content, the offeror certifies the percentage for EPA-designated items to be delivered or used in the performance of the contract [@CL-CMP-5176]. A USDA-designated product category is described with USDA purchasing recommendations in the codified clause [@CL-CMP-5267], but with minimum biobased content standards in the RFO clause [@CL-CMP-0533]. The separate certification and estimate for recovered material content are covered in [Recovered material certification and content estimate](cmp-recovered-material-certification-and-estimate.md).
 
 ## Company calibration
 
@@ -70,6 +62,7 @@ Whether the buying records can produce the product types and dollar value purcha
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on recovered material certification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the codified reporting sentence so the biobased report keeps its submission deadlines.

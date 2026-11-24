@@ -53,11 +53,11 @@ The parties negotiated the other items one by one, so the memorandum specifies t
 
 ## Never confuse
 
-When a settlement agreement reserves rights or demands of the parties that are excepted from the settlement, the TCO shall ensure that sufficient funds are retained to cover complete settlement of the reserved items and, at the appropriate time, prepare a separate settlement of reserved items and include it in a separate settlement agreement [@CL-CTF-3117; @CL-CTF-3119].
+When a settlement agreement reserves rights or demands of the parties that are excepted from the settlement, the reserved items stay outside the settlement rather than being settled with it: the TCO shall ensure that sufficient funds are retained to cover complete settlement of the reserved items and, at the appropriate time, prepare a separate settlement of reserved items and include it in a separate settlement agreement [@CL-CTF-3117; @CL-CTF-3119].
 
-With the consent of the contractor, the TCO or TCOs concerned may negotiate jointly two or more termination settlement proposals of the same contractor under different contracts [@CL-CTF-3120], and the resulting settlement may be evidenced by one settlement agreement covering all contracts involved or by a separate agreement for each contract involved [@CL-CTF-3252]. When the settlement agreement covers more than one contract, it shall clearly identify the contracts involved, assign an amendment modification number to each contract, and apportion the total amount of the settlement among the several contracts on some reasonable basis [@CL-CTF-3121].
+With the consent of the contractor, the TCO or TCOs concerned may negotiate jointly two or more termination settlement proposals of the same contractor under different contracts [@CL-CTF-3120] rather than one proposal under one contract, and the resulting settlement may be evidenced by one settlement agreement covering all contracts involved or by a separate agreement for each contract involved [@CL-CTF-3252]; when the settlement agreement covers more than one contract, it shall clearly identify the contracts involved, assign an amendment modification number to each contract, and apportion the total amount of the settlement among the several contracts on some reasonable basis [@CL-CTF-3121].
 
-If the settlement was negotiated on an overall lump-sum basis, it is not necessary to evaluate each item or group of items individually, but the total amount of the recommended settlement shall be supported in reasonable detail [@CL-CTF-3123].
+Unlike a settlement negotiated on the basis of individual items, for which the TCO shall specify the factors considered for each item [@CL-CTF-3122], if the settlement was negotiated on an overall lump-sum basis, it is not necessary to evaluate each item or group of items individually, but the total amount of the recommended settlement shall be supported in reasonable detail [@CL-CTF-3123].
 
 The agreement formats for fixed-price contracts are on [the settlement agreement formats card](../../close-revrec/revenue/cls-settlement-agreement-formats-fixed-price.md).
 
@@ -68,6 +68,7 @@ How reserved items, the funds held for them, and the memorandum's support are tr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modality in FAR 49.109-2, FAR 49.109-6, and FAR 49.110, removed worked-example citations, and replaced unbacked negative lead-ins in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the must wording for reservations, multi-contract settlement agreements and the negotiation memorandum.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reservations, joint settlement of proposals and the settlement negotiation memorandum.

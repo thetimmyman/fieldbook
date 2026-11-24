@@ -46,7 +46,7 @@ A contractor assigns an analyst to review proposals for the agency. The analyst 
 
 ## Never confuse
 
-A personal conflict of interest is a situation in which a covered employee has a financial interest, personal activity, or relationship that could impair the employee's ability to act impartially and in the best interest of the Government when performing under the contract [@CL-CMP-2344]. For organizational conflicts of interest, see [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md). Duties to disclose credible evidence of violations are covered in [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md).
+A personal conflict of interest is not an organizational conflict of interest: a personal conflict of interest is a situation in which a covered employee has a financial interest, personal activity, or relationship that could impair the employee's ability to act impartially and in the best interest of the Government when performing under the contract [@CL-CMP-2344]. For organizational conflicts of interest, see [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md). Duties to disclose credible evidence of violations are covered in [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which employees and subcontract individuals perform covered acquisition function
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the policy lead-in, restored the non-public information scope and cut meta wording and an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope, the policy section and the contracting officer's step on suspected violations.

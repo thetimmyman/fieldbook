@@ -25,7 +25,7 @@ Shows the melted or produced rule for specialty metals in items delivered to DoD
 | Instrument | Codified DFARS [@CL-SUP-1324] |
 | Codified citation | DFARS 252.225-7009 [@CL-SUP-1324] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-SUP-9941] |
 | Text status | Final [@CL-SUP-1324] |
 | Applies to | Items delivered under the contract that incorporate specialty metals [@CL-SUP-1324] |
 
@@ -57,6 +57,7 @@ Which executed contracts carry this clause, and whether subcontracts for items c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (d)(2) COTS-inclusion rule for the commercial derivative alternative and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: commercial derivative alternative states its purpose, both conditions and the certified agreements.

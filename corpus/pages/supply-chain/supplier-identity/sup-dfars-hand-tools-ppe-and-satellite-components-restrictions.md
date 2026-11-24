@@ -25,7 +25,7 @@ Shows what each of three DoD clauses restricts: hand or measuring tools, persona
 | Instrument | Codified DFARS [@CL-SUP-1487; @CL-SUP-1488; @CL-SUP-1493] |
 | Codified citation | DFARS 252.225-7015 [@CL-SUP-1487]; DFARS 252.225-7061 [@CL-SUP-1488]; DFARS 252.225-7064 [@CL-SUP-1493] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7015: JUN 2005 [@CL-SUP-9925]; DFARS 252.225-7061: JAN 2023 [@CL-SUP-9926]; DFARS 252.225-7064: MAY 2024 [@CL-SUP-9927] |
 | Text status | Final [@CL-SUP-1487] |
 | Applies to | Hand or measuring tools, covered items, and star trackers delivered under contracts with the matching clause [@CL-SUP-1487; @CL-SUP-1488; @CL-SUP-1493] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry each clause, and whether subcontracts for covered
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and absence sentences; aligned flowdown and contrast wording with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: covered item list worded as alternatives joined by or.

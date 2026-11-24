@@ -23,7 +23,7 @@ Shows what the contractor pays under f.o.b. destination, where delivery happens 
 | Instrument | Codified FAR [@CL-SUP-1978; @CL-SUP-1984] |
 | Codified citation | FAR 52.247-34 and 52.247-35 [@CL-SUP-1978; @CL-SUP-1984] |
 | RFO citation | RFO FAR 52.247-34 [@CL-SUP-0252; @CL-SUP-0253; @CL-SUP-0254; @CL-SUP-0255; @CL-SUP-0256; @CL-SUP-0257; @CL-SUP-0258; @CL-SUP-0259; @CL-SUP-0260; @CL-SUP-0261; @CL-SUP-0262; @CL-SUP-0263; @CL-SUP-0264; @CL-SUP-0265]; RFO FAR 52.247-35 [@CL-SUP-0266; @CL-SUP-0267; @CL-SUP-0268; @CL-SUP-0269; @CL-SUP-0270; @CL-SUP-0271; @CL-SUP-0272] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-34: Jan 1991 [@CL-SUP-0252]; FAR 52.247-35: Apr 1984 [@CL-SUP-0266] |
 | Text status | Final [@CL-SUP-1978; @CL-SUP-1984] |
 | Applies to | Contracts containing the f.o.b. destination or f.o.b. destination, within consignee's premises clause [@CL-SUP-1978; @CL-SUP-1984] |
 
@@ -58,6 +58,7 @@ Confirm who arranges and pays freight to the consignee's dock on each contract a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the within-premises duties lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the RFO definition sentences.

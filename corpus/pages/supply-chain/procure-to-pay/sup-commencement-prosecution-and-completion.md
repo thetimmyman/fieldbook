@@ -25,7 +25,7 @@ Shows the three duties the construction clause places on the Contractor, namely 
 | Instrument | Codified FAR [@CL-SUP-2562] |
 | Codified citation | FAR 52.211-10 [@CL-SUP-2562] |
 | RFO citation | No RFO equivalent; the RFO text prints FAR 52.211-10 as [Reserved] [@CL-SUP-0033] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-SUP-9799] |
 | Text status | Final [@CL-SUP-2562] |
 | Applies to | Fixed-price construction solicitations and contracts [@CL-SUP-2562] |
 
@@ -62,6 +62,7 @@ Confirm which notice-to-proceed date each construction contract assumes and whet
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned blanks and Alternate I extension wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

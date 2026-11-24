@@ -55,9 +55,9 @@ For both contracts, DoD has determined that customary contract financing other t
 
 ## Never confuse
 
-Progress payments based on percentage or stage of completion are authorized only for contracts for construction (as defined in FAR 36.102), shipbuilding, and ship conversion, alteration, or repair [@CL-CTF-3788]. Percentage or stage of completion methods of measuring contractor performance may be used for performance-based payments in accordance with FAR Subpart 32.10 [@CL-CTF-3789].
+Progress payments based on percentage or stage of completion are authorized only for contracts for construction (as defined in FAR 36.102), shipbuilding, and ship conversion, alteration, or repair [@CL-CTF-3788], unlike the same percentage or stage of completion methods of measuring contractor performance, which may be used for performance-based payments in accordance with FAR Subpart 32.10 rather than being limited to that work [@CL-CTF-3789].
 
-DoD has determined that the use of customary contract financing, other than loan guarantees and advance payments, is in DoD's best interest [@CL-CTF-3791], and that further justification of its use in individual acquisitions is unnecessary [@CL-CTF-3886].
+DoD has determined that the use of customary contract financing, other than loan guarantees and advance payments, is in DoD's best interest [@CL-CTF-3791], and that further justification of its use in individual acquisitions is unnecessary [@CL-CTF-3886] rather than a demonstration of actual financial need or the unavailability of private financing [@CL-CTF-3792].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Which contracts are construction or ship work, whether each fixed-price contract
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned financing basis and DoD determination wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD financing methods and the finding on customary contract financing.

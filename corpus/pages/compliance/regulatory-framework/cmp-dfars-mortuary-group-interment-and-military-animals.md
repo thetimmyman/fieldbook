@@ -45,7 +45,7 @@ A contract covers 8 caskets holding the remains of 20 people in one group interm
 
 ## Never confuse
 
-For what the Government orders and where the contractor performs, see [Mortuary services requirements](cmp-mortuary-services-requirements-area-and-delivery.md), and for subcontracting and permits, see [Mortuary services subcontracting and permits](cmp-mortuary-services-subcontracting-default-and-permits.md). For laundry pricing and individual laundry, see [Laundry instructions to offerors and individual laundry](cmp-dfars-laundry-offeror-instructions-and-individual-laundry.md).
+Group interment is priced per casket rather than per person: the Government will pay the Contractor for supplies and services provided for remains interred as a group on the basis of the number of caskets furnished, rather than on the basis of the number of persons in the group [@CL-CMP-4667]. For what the Government orders and where the contractor performs, see [Mortuary services requirements](cmp-mortuary-services-requirements-area-and-delivery.md), and for subcontracting and permits, see [Mortuary services subcontracting and permits](cmp-mortuary-services-subcontracting-default-and-permits.md). For laundry pricing and individual laundry, see [Laundry instructions to offerors and individual laundry](cmp-dfars-laundry-offeror-instructions-and-individual-laundry.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which contracts and modifications carry these clauses, and who confirms it. [@Q-
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory references for dog transfer; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mortuary group interment and preparation history, and transfer and adoption of military animals.

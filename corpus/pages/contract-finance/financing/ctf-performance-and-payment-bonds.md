@@ -60,7 +60,7 @@ A second service contract uses Alternate I and fills in 50 percent for the perfo
 
 ## Never confuse
 
-In the construction bonds clause, the penal amount of each of the performance bond and the payment bond at the time of contract award is 100 percent of the original contract price [@CL-CTF-2490], whereas in the other than construction bonds clause the Contractor furnishes a performance bond and a payment bond in amounts equal to percentages of the original contract price filled in for each contract [@CL-CTF-2493]. Related topics are on [Surety-takeover agreements after a default termination](../../close-revrec/revenue/cls-surety-takeover-agreements.md) and [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
+In the construction bonds clause, the penal amount of each of the performance bond and the payment bond at the time of contract award is 100 percent of the original contract price [@CL-CTF-2490] rather than a filled-in percentage, whereas in the other than construction bonds clause the Contractor furnishes a performance bond and a payment bond in amounts equal to percentages of the original contract price filled in for each contract [@CL-CTF-2493]. Related topics are on [Surety-takeover agreements after a default termination](../../close-revrec/revenue/cls-surety-takeover-agreements.md) and [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
 
 ## Company calibration
 
@@ -69,6 +69,7 @@ Which contracts require bonds, with the threshold, penal percentages and bond de
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and dual codified-on-RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance and payment bonds, construction and other than construction.

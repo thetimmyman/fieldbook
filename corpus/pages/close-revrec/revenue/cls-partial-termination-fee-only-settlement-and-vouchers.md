@@ -62,7 +62,7 @@ Had performance of the continued portion been only on spare parts, an exception 
 
 ## Never confuse
 
-The contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. In the case of the exceptions in paragraph (a), the procedures in 49.302 and 49.303 apply [@CL-CLS-1315]; see [Termination of cost-reimbursement contracts: settlement proposal, inventory schedules and audit](cls-cost-reimbursement-termination-proposal-and-schedules.md) and [Cost-reimbursement terminations: vouchers and the adjusted fee](../../contract-finance/billing-payment/ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee.md).
+A fee-only proposal is not a cost proposal: the contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. In the case of the exceptions in paragraph (a), the procedures in 49.302 and 49.303 apply [@CL-CLS-1315]; see [Termination of cost-reimbursement contracts: settlement proposal, inventory schedules and audit](cls-cost-reimbursement-termination-proposal-and-schedules.md) and [Cost-reimbursement terminations: vouchers and the adjusted fee](../../contract-finance/billing-payment/ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee.md).
 
 Settlement format, subcontract settlement authorization and delinquency notices for cost-reimbursement contracts are covered in [Cost-reimbursement settlement format authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md).
 
@@ -73,6 +73,7 @@ Whether the fee-only route is confirmed in writing, with the fee reduction subst
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: partial termination fee-only settlement: uncited statements and contrasts removed, source sentences stated as written.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of terminated portion of the contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of terminated portion of the contract.

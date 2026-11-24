@@ -24,7 +24,7 @@ Shows how termination liability is computed when utility service is discontinued
 | Instrument | Codified FAR [@CL-SUP-2697] |
 | Codified citation | FAR 52.241-10 and 52.241-12 [@CL-SUP-2697; @CL-SUP-2704] |
 | RFO citation | RFO FAR 52.241-10 and 52.241-12 [@CL-SUP-2416; @CL-SUP-2470] |
-| Edition date | Not established. |
+| Edition date | FEB 1995 [@CL-SUP-9846] |
 | Text status | Final [@CL-SUP-2697] |
 | Applies to | Contracts where the clauses are inserted as prescribed [@CL-SUP-2768; @CL-SUP-2770] |
 
@@ -62,6 +62,7 @@ Confirm, for each new facility, the cost recovery period, the monthly rate, the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned termination liability and nonrefundable service charge summaries with the cited quotes and removed meta blank wording.

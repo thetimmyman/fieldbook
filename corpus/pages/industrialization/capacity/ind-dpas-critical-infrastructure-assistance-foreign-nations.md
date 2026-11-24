@@ -47,7 +47,7 @@ A foreign nation needs 200 replacement transformers for a grid restoration progr
 
 ## Never confuse
 
-Under 15 CFR 700.58, a request for priority rating authority on Form BIS-999 goes to the Department of Commerce, and a request for a written determination that the request supports a program that is necessary or appropriate to promote the national defense goes to the Office of Policy and Program Analysis, Federal Emergency Management Agency, Department of Homeland Security [@CL-IND-0302; @CL-IND-0303; @CL-IND-0304; @CL-IND-0305]. Under 15 CFR 700.57, a person in a foreign nation other than Canada, or in an international organization, requiring assistance in obtaining items in the United States or priority rating authority for items to be purchased in the United States should submit a request to the Department of Defense DPA Title I Lead, Office of the Assistant Secretary of Defense for Industrial Base Policy [@CL-IND-0293; @CL-IND-0294]. The domestic determination request is on [Requests for a determination that a program is necessary or appropriate to promote the national defense](ind-dpas-approved-program-determination.md).
+The two requests in § 700.58 do not go to one office but two: under 15 CFR 700.58, a request for priority rating authority on Form BIS-999 goes to the Department of Commerce, and a request for a written determination that the request supports a program that is necessary or appropriate to promote the national defense goes to the Office of Policy and Program Analysis, Federal Emergency Management Agency, Department of Homeland Security [@CL-IND-0302; @CL-IND-0303; @CL-IND-0304; @CL-IND-0305]. Under 15 CFR 700.57, a person in a foreign nation other than Canada, or in an international organization, requiring assistance in obtaining items in the United States or priority rating authority for items to be purchased in the United States should submit a request to the Department of Defense DPA Title I Lead, Office of the Assistant Secretary of Defense for Industrial Base Policy [@CL-IND-0293; @CL-IND-0294]. The domestic determination request is on [Requests for a determination that a program is necessary or appropriate to promote the national defense](ind-dpas-approved-program-determination.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm that the program a foreign customer cites for a rated order is a critica
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced literal telephone and fax numbers with a reference to the telephone and fax numbers listed in 15 CFR 700.58.

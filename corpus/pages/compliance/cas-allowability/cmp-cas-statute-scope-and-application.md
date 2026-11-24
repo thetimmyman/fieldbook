@@ -48,7 +48,7 @@ The example does not decide whether the company is one of the certain contractor
 
 ## Never confuse
 
-Under FAR 30.202-6(b), the contracting officer shall not award a CAS-covered contract until the cognizant Federal agency official (CFAO) has made a written determination that a required Disclosure Statement is adequate [@CL-CMP-7035], unless, in order to protect the Government's interest, the agency head, on a nondelegable basis, authorizes award without obtaining submission of the required Disclosure Statement [@CL-CMP-7036]. The CFAO is responsible for issuing determinations of adequacy and compliance of the Disclosure Statement [@CL-CMP-7039]. See [Contracting officer, auditor and CFAO responsibilities for Disclosure Statements and CAS coverage](cmp-cas-disclosure-statement-responsibilities.md).
+The CFAO determination and the agency-head authorization are different routes: under FAR 30.202-6(b), the contracting officer shall not award a CAS-covered contract until the cognizant Federal agency official (CFAO) has made a written determination that a required Disclosure Statement is adequate [@CL-CMP-7035], unless, in order to protect the Government's interest, the agency head, on a nondelegable basis, authorizes award without obtaining submission of the required Disclosure Statement [@CL-CMP-7036]. The CFAO is responsible for issuing determinations of adequacy and compliance of the Disclosure Statement [@CL-CMP-7039]. See [Contracting officer, auditor and CFAO responsibilities for Disclosure Statements and CAS coverage](cmp-cas-disclosure-statement-responsibilities.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which legal entities, business units and contracts sit inside the finance remit,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Spelled out the statute reference in how-it-works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, negative glosses and uncited contrasts; restated provisions as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the claim citation inside each part of the Public Law sentence.

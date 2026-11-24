@@ -34,7 +34,7 @@ A new DoD solicitation asks for certified data above 12 million, while a referen
 
 ## Never confuse
 
-Class deviations affect more than one contract action and, for DoD, are controlled, processed, and approved in accordance with the Defense FAR Supplement [@CL-OPM-0024; @CL-OPM-0026], whereas Phase 2 of the RFO continues with the issuance of proposed FAR and DFARS rules for public notice and comment [@CL-CMP-0698], the opportunity to submit written comments on proposed significant revisions shall be provided by placing a notice in the Federal Register [@CL-CMP-8366], and FAR changes apply to solicitations issued on or after the effective date of the change unless otherwise specified [@CL-CMP-2012]. See the threshold changes in [Rule changes to know before Day 1](cmp-brief-rule-changes.md) and [Acquisition thresholds](cmp-acquisition-thresholds.md).
+A class deviation is not a change to the FAR itself: class deviations affect more than one contract action and, for DoD, are controlled, processed, and approved in accordance with the Defense FAR Supplement [@CL-OPM-0024; @CL-OPM-0026], whereas a change to the FAR applies to solicitations issued on or after the effective date of the change unless otherwise specified [@CL-CMP-2012]. The rulemaking path is notice and comment: Phase 2 of the RFO continues with the issuance of proposed FAR and DFARS rules for public notice and comment [@CL-CMP-0698], and the opportunity to submit written comments on proposed significant revisions shall be provided by placing a notice in the Federal Register [@CL-CMP-8366]. See the threshold changes in [Rule changes to know before Day 1](cmp-brief-rule-changes.md) and [Acquisition thresholds](cmp-acquisition-thresholds.md).
 
 ## Company calibration
 
@@ -43,5 +43,6 @@ Where the executed contracts are, and who confirms which clauses and deviations 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the FAR and DFARS system rules, FAR change effective-date rules, and the RFO Phase 1 and Phase 2 class deviation announcements with verbatim claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 page on the regulations and class deviations.

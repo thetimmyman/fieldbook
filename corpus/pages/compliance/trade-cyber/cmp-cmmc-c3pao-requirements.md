@@ -44,7 +44,7 @@ A C3PAO plans an assessment for a supplier. It names one Lead CCA and two other 
 
 ## Never confuse
 
-C3PAOs are responsible for conducting Level 2 certification assessments [@CL-CMP-3224]. The Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218]. The Accreditation Body is described on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card. A C3PAO must itself undergo a Level 2 certification assessment, with the exception that the assessment will be conducted by DCMA DIBCAC [@CL-CMP-3228]. The assessors who carry out a contractor assessment are on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card, and the DIBCAC role is on the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card.
+The assessor and the accredited differ in role: C3PAOs are responsible for conducting Level 2 certification assessments [@CL-CMP-3224], while the Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218]. The Accreditation Body is described on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card. A C3PAO must itself undergo a Level 2 certification assessment, with the exception that the assessment will be conducted by DCMA DIBCAC [@CL-CMP-3228]. The assessors who carry out a contractor assessment are on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card, and the DIBCAC role is on the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card.
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which third-party assessment organization the company engages for a certificatio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrasts in the contrast section with cited role statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Third-Party Assessment Organization requirements.

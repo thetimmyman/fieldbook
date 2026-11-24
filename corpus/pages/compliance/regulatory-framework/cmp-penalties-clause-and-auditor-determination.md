@@ -51,9 +51,7 @@ On a DoD contract, the auditor and the contractor cannot agree on the indirect c
 
 ## Never confuse
 
-The clause prescription decides whether a solicitation or contract carries the penalties clause [@CL-CMP-7820]. The auditor's notice is a separate step that follows a failure to reach agreement and is issued in addition to the advisory report [@CL-CMP-7822].
-
-Codified FAR 42.709-7 prescribes the penalties clause [@CL-CMP-7820], and the same prescription is numbered FAR 42.508-7 in the RFO text [@CL-CMP-0125].
+The penalties clause prescription is not the auditor determination procedure: the clause prescription decides whether a solicitation or contract carries the penalties clause [@CL-CMP-7820], while the auditor's notice is a separate step that follows a failure to reach agreement and is issued in addition to the advisory report [@CL-CMP-7822]. Codified FAR 42.709-7 prescribes the penalties clause [@CL-CMP-7820], and the same prescription is numbered FAR 42.508-7 in the RFO text [@CL-CMP-0125].
 
 ## Company calibration
 
@@ -63,6 +61,7 @@ Which awarded contracts exceed the threshold, which of them fall within an excep
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the no-agreement condition of the auditor notice step.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the adequacy-for-audit lead-in of the auditor forwarding step.
 - COMPATIBLE_EXTENSION, 2026-10-31: FAR auditor-determination sentence now names the official identified in the Directory, as the quote does.

@@ -63,11 +63,7 @@ A contractor with two contracts is found in violation of E.O. 11246 [@CL-CMP-801
 
 ## Never confuse
 
-The actions are for contractors found to be in violation of E.O. 11246, the regulations of the Secretary of Labor, or the applicable contract clauses [@CL-CMP-8015].
-
-Debarment under paragraph (c) is from future Government contracts, or extensions or modifications of existing contracts, until the contractor has established and carried out personnel and employment policies in compliance with E.O. 11246 and the regulations of the Secretary of Labor [@CL-CMP-8018].
-
-Under paragraph (d), the Deputy Assistant Secretary refers a matter arising under E.O. 11246 to the Department of Justice or the Equal Employment Opportunity Commission for the institution of appropriate civil or criminal proceedings [@CL-CMP-8019].
+Debarment is not the referral: debarment under paragraph (c) is from future Government contracts, or extensions or modifications of existing contracts, until the contractor has established and carried out personnel and employment policies in compliance with E.O. 11246 and the regulations of the Secretary of Labor [@CL-CMP-8018], while under paragraph (d), the Deputy Assistant Secretary refers a matter arising under E.O. 11246 to the Department of Justice or the Equal Employment Opportunity Commission for the institution of appropriate civil or criminal proceedings [@CL-CMP-8019]. The actions are for contractors found to be in violation of E.O. 11246, the regulations of the Secretary of Labor, or the applicable contract clauses [@CL-CMP-8015].
 
 ## Company calibration
 
@@ -77,6 +73,7 @@ Whether any open enforcement finding or external request touches the company's e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrasts with the debarment and referral wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the referral of contractor inquiries and complaints.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for enforcement of the equal employment opportunity clause.

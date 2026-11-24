@@ -25,7 +25,7 @@ Shows the Government's inspection rights, the reperformance rule, and the remedi
 | Instrument | Codified FAR [@CL-SUP-1090] |
 | Codified citation | FAR 52.246-5 [@CL-SUP-1090] |
 | RFO citation | RFO FAR 52.246-5 [@CL-SUP-3185] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-SUP-3185] |
 | Text status | Final [@CL-SUP-1090] |
 | Applies to | Contracts that include the Inspection of Services—Cost-Reimbursement clause [@CL-SUP-1090]; the clause is directed for solicitations and contracts for services, or supplies that involve the furnishing of services, when a cost-reimbursement contract is contemplated [@CL-SUP-1133] |
 
@@ -56,6 +56,7 @@ Whether the executed contract includes this clause, and how the company bills an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for reduced-value fee reduction and alternative cause; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Inspection system no longer tied to contract term.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (h) of the supplies inspection clause that the quoted rule refers to.

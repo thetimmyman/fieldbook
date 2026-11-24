@@ -52,7 +52,7 @@ A protest is filed after award, and the Contracting Officer orders work stopped.
 
 ## Never confuse
 
-Stop-work orders are covered on [Stop-work orders](../../compliance/regulatory-framework/cmp-stop-work-orders.md). The termination clauses are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md) and [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md).
+The stop-work order rather than the protest itself is what stops performance: stop-work orders are covered on [Stop-work orders](../../compliance/regulatory-framework/cmp-stop-work-orders.md), and the termination clauses are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md) and [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md).
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Who tells the company's finance team that a protest stop-work order has arrived,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: protest after award: uncited absence statements and contrasts removed, RFO paragraph cites RFO claims only.
 - COMPATIBLE_EXTENSION, 2026-10-31: adjustment conditions stated as both required.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

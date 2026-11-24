@@ -45,7 +45,7 @@ A contract has two line items. The Contracting Officer inserts line item one in 
 
 ## Never confuse
 
-The whole-contract clause applies to the whole contract [@CL-CTF-1725], while this clause applies to the contract line items that the Contracting Officer inserts [@CL-CTF-1731] and its schedule identifies the CLINs to which each event applies [@CL-CTF-1732]. For which kind of financing a contract carries, performance-based or progress payments, see [DoD financing notice and progress payments for multiple lots](ctf-dod-financing-notice-and-multiple-lot-progress-payments.md).
+The whole-contract clause applies to the whole contract [@CL-CTF-1725], unlike this clause, which applies not to the whole contract but to the contract line items that the Contracting Officer inserts [@CL-CTF-1731], with its schedule identifying the CLINs to which each event applies [@CL-CTF-1732]. For which kind of financing a contract carries, performance-based or progress payments, see [DoD financing notice and progress payments for multiple lots](ctf-dod-financing-notice-and-multiple-lot-progress-payments.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which line items carry performance-based payments, and which events and amounts 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: added solicitation scope and shall wording; removed uncited comparisons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

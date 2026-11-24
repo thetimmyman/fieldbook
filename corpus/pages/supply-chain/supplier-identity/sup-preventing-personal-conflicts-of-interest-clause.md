@@ -24,7 +24,7 @@ Shows who is a covered employee, what the Contractor must do to screen, prevent 
 | Instrument | Codified FAR [@CL-SUP-1007] |
 | Codified citation | FAR 52.203-16 [@CL-SUP-1007; @CL-SUP-1008; @CL-SUP-1010; @CL-SUP-1011; @CL-SUP-1057; @CL-SUP-1544; @CL-SUP-1539] |
 | RFO citation | RFO FAR 52.203-16 [@CL-SUP-3747] |
-| Edition date | Not established. |
+| Edition date | Jun 2020 [@CL-SUP-3747] |
 | Text status | Final [@CL-SUP-1007] |
 | Applies to | The Contractor, with respect to its covered employees [@CL-SUP-1007; @CL-SUP-1008] |
 
@@ -56,6 +56,7 @@ Who counts as a covered employee and how disclosures are kept. [@Q-014]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: personal conflicts clause: added the disclosure list, the "and" join, the prevention detail and the self-employed reason.

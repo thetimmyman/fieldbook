@@ -25,7 +25,7 @@ Shows the contractor's duty to select subcontractors and suppliers competitively
 | Instrument | Codified FAR [@CL-SUP-0556] |
 | Codified citation | FAR 52.244-5 [@CL-SUP-0556] |
 | RFO citation | RFO FAR 52.244-5 [@CL-SUP-3165] |
-| Edition date | Not established. |
+| Edition date | Aug 2024 [@CL-SUP-3165] |
 | Text status | Final [@CL-SUP-0556] |
 | Applies to | Contracts with the Competition in Subcontracting clause, inserted as prescribed in FAR 44.204(c) [@CL-SUP-0688] |
 
@@ -58,6 +58,7 @@ Confirm whether purchasing procedures require competitive solicitation and a rec
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the review and mentor exception wording to match the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

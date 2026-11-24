@@ -51,7 +51,7 @@ In a separate year, the plan funds 10 more than the pension cost assigned to the
 
 ## Never confuse
 
-An assignable cost credit is the decrease in unfunded actuarial liability that results when the pension cost computed for a cost accounting period is less than zero [@CL-CMP-3380]. An actuarial surplus is the excess of the actuarial value of the assets of a pension plan over the actuarial accrued liability [@CL-CMP-3377]. A prepayment credit is the amount funded in excess of the pension cost assigned to a cost accounting period that is carried forward for future recognition [@CL-CMP-3381].
+An assignable cost credit and a prepayment credit are different credits: an assignable cost credit is the decrease in unfunded actuarial liability that results when the pension cost computed for a cost accounting period is less than zero [@CL-CMP-3380], while a prepayment credit is the amount funded in excess of the pension cost assigned to a cost accounting period that is carried forward for future recognition [@CL-CMP-3381]. An actuarial surplus is the excess of the actuarial value of the assets of a pension plan over the actuarial accrued liability [@CL-CMP-3377].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which pension plans, business units and contracts fall under the pension standar
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the definition sentences as they read, removed source-meta wording and uncited glosses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said the actuarial accrued liability definition is quoted from its first sentence only; named who deems the criteria essential.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 412 definitions.

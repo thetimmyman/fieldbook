@@ -25,7 +25,7 @@ Shows what may not be acquired, and from where, for large medium-speed diesel en
 | Instrument | Codified DFARS [@CL-SUP-1732] |
 | Codified citation | DFARS 252.225-7062 [@CL-SUP-1732], DFARS 252.225-7063 [@CL-SUP-1734] and DFARS 252.225-7065 [@CL-SUP-1737] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAY 2024 [@CL-SUP-9917] |
 | Text status | Final [@CL-SUP-1732] |
 | Applies to | Contracts delivering large medium-speed diesel engines where DFARS 225.7004-7(b) prescribes the engine clause [@CL-SUP-1769; @CL-SUP-1732], contracts delivering listed vessel components [@CL-SUP-1734], and solicitations for fuel for an overseas contingency operation [@CL-SUP-1737; @CL-SUP-1738] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry each clause and which subcontracts above the thre
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned vessel component list, subcontract and fuel wording with the quotes; replaced uncited contrasts and absence sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: fuel certification scope (fuel to be provided under any resulting contract) stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for large medium-speed diesel engines, vessel components and overseas contingency operation fuel.

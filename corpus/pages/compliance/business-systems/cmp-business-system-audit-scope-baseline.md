@@ -45,7 +45,7 @@ A contractor completed a full accounting system audit two years ago. This year i
 
 ## Never confuse
 
-Once a full business system audit has been performed, it should serve as a baseline for establishing the scope of subsequent audits of that system [@CL-CMP-1657], and subsequent audits should also cover major system changes [@CL-CMP-1658]. For the audit that checks whether reported deficiencies were fixed, see [Follow-up business system audits](cmp-follow-up-business-system-audits.md).
+A subsequent audit differs from the full baseline audit: once a full business system audit has been performed, it should serve as a baseline for establishing the scope of subsequent audits of that system [@CL-CMP-1657], and subsequent audits should also cover major system changes [@CL-CMP-1658]. For the audit that checks whether reported deficiencies were fixed, see [Follow-up business system audits](cmp-follow-up-business-system-audits.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Identify major changes to business system policies or automated controls since t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the walk-through confirmation clause, added the three named DFARS systems and efficiency purpose, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the control objectives sentence to say should identify.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the subsequent-audit and internal-control sentences so the rules keep the added FAR, law and contract-term criteria and the contractor context factors.

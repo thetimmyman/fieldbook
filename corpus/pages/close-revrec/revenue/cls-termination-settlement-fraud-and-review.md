@@ -48,7 +48,7 @@ Separately, Agency A provides termination settlement services for Agency B. Agen
 
 ## Never confuse
 
-When the TCO suspects fraud or other criminal conduct related to the settlement of a terminated contract, the TCO shall discontinue negotiations and report the facts under agency procedures [@CL-CLS-1266]. Separately, each agency shall establish procedures, when necessary, for the administrative review of proposed termination settlements [@CL-CLS-1267]. When one agency provides termination settlement services for another agency, the agency providing the services shall also perform the settlement review function [@CL-CLS-1268]. For audit referral of settlement proposals, see [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md).
+The fraud route and the review route are not the same path: when the TCO suspects fraud or other criminal conduct related to the settlement of a terminated contract, the TCO shall discontinue negotiations and report the facts under agency procedures [@CL-CLS-1266]. Separately, each agency shall establish procedures, when necessary, for the administrative review of proposed termination settlements [@CL-CLS-1267]. When one agency provides termination settlement services for another agency, the agency providing the services shall also perform the settlement review function [@CL-CLS-1268]. For audit referral of settlement proposals, see [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ What the company keeps in a termination settlement file and who it notifies when
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted contrasts and meta commentary on fraud reporting and settlement review.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fraud in a termination settlement and review of proposed settlements.

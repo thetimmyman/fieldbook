@@ -46,7 +46,7 @@ A fixed-price construction contract uses the percentage method with the default 
 
 ## Never confuse
 
-A written notification by the Department of Labor that a solicitation includes the wrong wage determination or the wrong rate schedule is effective immediately if received by the contracting officer prior to award [@CL-CMP-3024]. Each time the contracting officer exercises an option to extend the term of a contract for construction, or a contract that includes substantial and segregable construction work, the contracting officer must modify the contract to incorporate the most current wage determination [@CL-CMP-3026], and the clause in a fixed-price contract specifies one of the listed methods [@CL-CMP-3027]. For revised wage determinations on service contracts, see [Service Contract Labor Standards: revised wage determinations and additional classes of service employees](cmp-scls-revised-wage-determinations-and-conformance.md).
+The pre-award notification is not the option-exercise pricing: a written notification by the Department of Labor that a solicitation includes the wrong wage determination or the wrong rate schedule is effective immediately if received by the contracting officer prior to award [@CL-CMP-3024], while each time the contracting officer exercises an option to extend the term of a contract for construction, or a contract that includes substantial and segregable construction work, the contracting officer must modify the contract to incorporate the most current wage determination [@CL-CMP-3026], and the clause in a fixed-price contract specifies one of the listed methods [@CL-CMP-3027]. For revised wage determinations on service contracts, see [Service Contract Labor Standards: revised wage determinations and additional classes of service employees](cmp-scls-revised-wage-determinations-and-conformance.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which construction options and price adjustment methods sit in the company's con
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the no-change exception for sealed bidding and cut uncited inferences, a meta negative and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the appeal route for wage determinations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the bid opening postponement so the postponement keeps its stated purpose.

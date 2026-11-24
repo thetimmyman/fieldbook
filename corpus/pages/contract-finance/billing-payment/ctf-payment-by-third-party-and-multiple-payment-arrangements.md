@@ -47,7 +47,7 @@ A contractor invoices 5,000 for a delivery on a contract that allows payment by 
 
 ## Never confuse
 
-Payments made or due by the third party under the clause are not payments made by the Government and are not subject to the Prompt Payment Act or any implementation thereof in the contract [@CL-CTF-2098]. For ordinary invoice payments, see [Prompt payment for invoices](ctf-prompt-payment.md), for the designated payment office under electronic funds transfer see [Payment by electronic funds transfer and the designated office for EFT information](ctf-eft-payment-clauses-and-designated-office.md), and for the card rules on electronic funds transfer, see [EFT applicability and payment by Governmentwide commercial purchase card](../financing/ctf-eft-applicability-and-purchase-card-payment.md). Notwithstanding any other provision of the contract, if any payment is made under the third-party clause, no payment under the contract may be assigned under the provisions of the assignment of claims terms of the contract or the Assignment of Claims Act of 1940 [@CL-CTF-2099]; for assignment of claims conditions and policies, see [Assignment of claims conditions and policies](../cash/ctf-assignment-of-claims.md).
+Payments made or due by the third party under the clause differ from payments made by the Government rather than merely in who sends them: they are not payments made by the Government and are not subject to the Prompt Payment Act or any implementation thereof in the contract [@CL-CTF-2098], and if any payment is made under the third-party clause, no payment under the contract may be assigned under the provisions of the assignment of claims terms of the contract or the Assignment of Claims Act of 1940 [@CL-CTF-2099]. For ordinary invoice payments, see [Prompt payment for invoices](ctf-prompt-payment.md), for the designated payment office under electronic funds transfer see [Payment by electronic funds transfer and the designated office for EFT information](ctf-eft-payment-clauses-and-designated-office.md), and for the card rules on electronic funds transfer, see [EFT applicability and payment by Governmentwide commercial purchase card](../financing/ctf-eft-applicability-and-purchase-card-payment.md); for assignment of claims conditions and policies, see [Assignment of claims conditions and policies](../cash/ctf-assignment-of-claims.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which payment methods the contracts allow, how they are designated, and how that
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added third-party payment agreement lead-ins, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the third-party payment and assignment rules as the clause words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

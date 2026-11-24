@@ -45,7 +45,7 @@ A final rate proposal includes 50,000 of an expressly unallowable cost in the ov
 
 ## Never confuse
 
-The penalty applies where the indirect cost is expressly unallowable under a cost principle in the FAR, or an executive agency supplement to the FAR, that defines the allowability of specific selected costs [@CL-CMP-8495], or was determined to be unallowable for that contractor before proposal submission [@CL-CMP-1860]. For the final indirect cost rate proposal, see [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
+The two triggers differ: the penalty applies where the indirect cost is expressly unallowable under a cost principle in the FAR, or an executive agency supplement to the FAR, that defines the allowability of specific selected costs [@CL-CMP-8495], or was determined to be unallowable for that contractor before proposal submission [@CL-CMP-1860]. For the final indirect cost rate proposal, see [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How unallowable costs are screened before the incurred cost submission. [@Q-044]
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated unallowable-cost penalty rules from the quotes; added scope and penalty lead-in companions; RFO-only paragraph; cut uncited explanations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the or between the excluded contract types and removed an actor the quoted two-times penalty sentence does not name.

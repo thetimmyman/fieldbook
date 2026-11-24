@@ -45,7 +45,7 @@ A contract of 1,500,000 is physically complete, so the contract administration o
 
 ## Never confuse
 
-When the actions in paragraph (a) — including that the contractor's closing statement is completed [@CL-CMP-2440; @CL-CMP-2443] — have been verified, the contracting officer administering the contract must ensure that a contract completion statement containing the required items in paragraph (b) is prepared [@CL-CMP-2444; @CL-CMP-0219; @CL-CMP-0220; @CL-CMP-0221]. See [Closeout time standards for contract files](cmp-contract-file-closeout-time-standards.md) and [Quick-closeout procedure](../../indirect-rates/rate-lifecycle/rte-quick-closeout.md).
+The contractor's closing statement and the contract completion statement are different documents: when the actions in paragraph (a) — including that the contractor's closing statement is completed [@CL-CMP-2440; @CL-CMP-2443] — have been verified, the contracting officer administering the contract must ensure that a contract completion statement containing the required items in paragraph (b) is prepared [@CL-CMP-2444; @CL-CMP-0219; @CL-CMP-0220; @CL-CMP-0221]. See [Closeout time standards for contract files](cmp-contract-file-closeout-time-standards.md) and [Quick-closeout procedure](../../indirect-rates/rate-lifecycle/rte-quick-closeout.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which closing contracts still have open interim or disallowed costs, unsettled p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for final patent report procedures and the twelve contract completion statement items, and included the closeout time standards in the file-types sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the patent-report and file-type sentences to state what the quotes support and note the patent procedures are not restated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procedures for closing out contract files.

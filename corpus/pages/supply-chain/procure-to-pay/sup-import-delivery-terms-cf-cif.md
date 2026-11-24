@@ -24,7 +24,7 @@ Explains what the contractor arranges and pays, which documents it provides, and
 | Instrument | Codified FAR [@CL-SUP-2421; @CL-SUP-2426] |
 | Codified citation | FAR 52.247-41 and FAR 52.247-42 [@CL-SUP-2421; @CL-SUP-2426] |
 | RFO citation | RFO part 52 lists 52.247-41 and 52.247-42 as reserved [@CL-SUP-0398; @CL-SUP-0399] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-41: APR 1984 [@CL-SUP-9817]; FAR 52.247-42: APR 1984 [@CL-SUP-9818] |
 | Text status | Final [@CL-SUP-2421; @CL-SUP-2426] |
 | Applies to | Solicitations and contracts when the delivery term is cost and freight destination [@CL-SUP-2471] or cost, insurance and freight destination [@CL-SUP-2474] |
 
@@ -61,6 +61,7 @@ Which import term each order carries and who confirms that its clause applies. [
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor duty lead-ins, definitions and RFO paragraph to the clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported only from the C&F and CIF comparison.

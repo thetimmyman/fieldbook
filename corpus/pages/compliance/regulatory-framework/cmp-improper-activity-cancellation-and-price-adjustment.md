@@ -50,7 +50,7 @@ A cost-plus-fixed-fee contract above the simplified acquisition threshold, not f
 
 ## Never confuse
 
-For annulment under the covenant against contingent fees, see [Independent price certificate and covenant against contingent fees](cmp-independent-price-and-contingent-fee-clauses.md). For the agency head's power to void and rescind a contract after a final conviction, see [Voiding and rescinding contracts after a conviction or proven offense](cmp-voiding-and-rescinding-contracts.md). The price clause refers to a violation as implemented in section 3.104 of the Federal Acquisition Regulation [@CL-CMP-2622], and that section's rules are covered in [Procurement integrity: bid and proposal information and the disclosure and obtaining bans](cmp-procurement-integrity-prohibitions.md) and [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md). Under the price clause the Government may reduce the price or fee by the amount of profit or fee determined under the clause [@CL-CMP-2621], and on rescission the Government is entitled to recover the amount expended under the contract [@CL-CMP-2619].
+The price or fee reduction is not the rescission remedy: under the price clause the Government may reduce the price or fee by the amount of profit or fee determined under the clause [@CL-CMP-2621], and on rescission the Government is entitled to recover the amount expended under the contract [@CL-CMP-2619]. The price clause refers to a violation as implemented in section 3.104 of the Federal Acquisition Regulation [@CL-CMP-2622], and that section's rules are covered in [Procurement integrity: bid and proposal information and the disclosure and obtaining bans](cmp-procurement-integrity-prohibitions.md) and [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md). For annulment under the covenant against contingent fees, see [Independent price certificate and covenant against contingent fees](cmp-independent-price-and-contingent-fee-clauses.md). For the agency head's power to void and rescind a contract after a final conviction, see [Voiding and rescinding contracts after a conviction or proven offense](cmp-voiding-and-rescinding-contracts.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which contracts carry each clause, and who decides how a cancellation, rescissio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried rescission purposes, fixed-price-incentive deferral, subcontract limits; removed meta wording and unsupported contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the fixed-price-incentive sentence so the price adjustment rule keeps the Contracting Officer's option to defer the adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

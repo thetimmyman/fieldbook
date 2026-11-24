@@ -47,7 +47,7 @@ A covered contract of 500,000 has a mechanic who works 46 hours in a workweek an
 
 ## Never confuse
 
-For overtime premium approvals on cost-reimbursement, time-and-materials, and labor-hour contracts, see [Overtime premiums on cost-type, time-and-materials and labor-hour contracts](opm-overtime-premium-approval.md). Under FAR 22.302(a), when an overtime computation discloses underpayments, the responsible contractor or subcontractor must pay the affected employee any unpaid wages and pay liquidated damages to the Government [@CL-OPM-0089], and under FAR 22.302(d), after the contracting officer determines the liquidated damages and the contractor makes appropriate payments, any remaining assessments are disbursed in accordance with agency procedures [@CL-OPM-0125].
+For overtime premium approvals on cost-reimbursement, time-and-materials, and labor-hour contracts, see [Overtime premiums on cost-type, time-and-materials and labor-hour contracts](opm-overtime-premium-approval.md). Unpaid wages and liquidated damages are not the same payment: under FAR 22.302(a), when an overtime computation discloses underpayments, the responsible contractor or subcontractor must pay the affected employee any unpaid wages and pay liquidated damages to the Government [@CL-OPM-0089], and under FAR 22.302(d), after the contracting officer determines the liquidated damages and the contractor makes appropriate payments, any remaining assessments are disbursed in accordance with agency procedures [@CL-OPM-0125].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which payroll and timekeeping systems are authoritative for the hours worked and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.302(a) actor and inflation adjustment and the full FAR 22.305(a)-(g) exclusion list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the contracting officer as the one who assesses liquidated damages.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the administration rule and the overtime clause as stated in the construction subpart.

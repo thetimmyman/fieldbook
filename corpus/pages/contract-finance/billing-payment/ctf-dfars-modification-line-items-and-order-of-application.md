@@ -51,7 +51,7 @@ A second modification, numbered later, has the earlier effective date. It is app
 
 ## Never confuse
 
-Circumstances may exist in which the numeric order of the modifications to a contract is not the order in which the changes actually take effect [@CL-CTF-1634]. When two or more modifications have the same effective date and the same signature date, procuring contracting office modifications are applied in numeric order, followed by contract administration office modifications in numeric order [@CL-CTF-1605]. How a changed price is settled is on [Contract definitization](../funding/ctf-contract-definitization.md) and [Equitable adjustment for fixed-price changes](../funding/ctf-changes-fixed-price-equitable-adjustment.md). The numbering procedures themselves are on [DFARS line item and subline item numbering, exhibits and attachments](ctf-dfars-line-item-numbering-and-exhibits.md), and the tests for a line item are on [DFARS criteria for contract line items and subline items](ctf-dfars-line-item-and-subline-item-criteria.md).
+The order modifications are applied follows dates rather than numbers: the numeric order of the modifications to a contract may not be the order in which the changes actually take effect [@CL-CTF-1634], and only when two or more modifications have the same effective date and the same signature date does numeric order decide, with procuring contracting office modifications applied in numeric order, followed by contract administration office modifications in numeric order [@CL-CTF-1605]. How a changed price is settled is on [Contract definitization](../funding/ctf-contract-definitization.md) and [Equitable adjustment for fixed-price changes](../funding/ctf-changes-fixed-price-equitable-adjustment.md). The numbering procedures themselves are on [DFARS line item and subline item numbering, exhibits and attachments](ctf-dfars-line-item-numbering-and-exhibits.md), and the tests for a line item are on [DFARS criteria for contract line items and subline items](ctf-dfars-line-item-and-subline-item-criteria.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ How the company tracks the effective date and line item effect of each modificat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta sentence and uncited contrasts; restated sequence and decrease rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR rule on line item numbers for new items in a modification.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for line items in modifications and the order of application.

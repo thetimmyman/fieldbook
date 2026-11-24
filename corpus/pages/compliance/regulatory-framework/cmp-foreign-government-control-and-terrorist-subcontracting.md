@@ -49,7 +49,7 @@ Answer: the offeror disclosed the parent interest in its offer. The subcontract 
 
 ## Never confuse
 
-The disclosure provision is used in solicitations as prescribed in DFARS 209.104-70 [@CL-CMP-4083], and the subcontracting clause is used as prescribed in DFARS 209.409 [@CL-CMP-4087]. The disclosure duty reaches an interest that constitutes control as the provision defines it [@CL-CMP-4085]. A separate provision on consulting services lists, among its covered foreign entities, the government of any country if the Secretary of State determines that such government has repeatedly provided support for acts of international terrorism, pursuant to any of the provisions of law that the provision then lists [@CL-CMP-4123]; see [the consulting services card](cmp-consulting-services-conflicts-of-interest.md).
+The disclosure provision is not the subcontracting restriction: the disclosure provision is used in solicitations as prescribed in DFARS 209.104-70 [@CL-CMP-4083], and the subcontracting clause is used as prescribed in DFARS 209.409 [@CL-CMP-4087]. The disclosure duty reaches an interest that constitutes control as the provision defines it [@CL-CMP-4085]. A separate provision on consulting services lists, among its covered foreign entities, the government of any country if the Secretary of State determines that such government has repeatedly provided support for acts of international terrorism, pursuant to any of the provisions of law that the provision then lists [@CL-CMP-4123]; see [the consulting services card](cmp-consulting-services-conflicts-of-interest.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which legal entities and parents have to be screened for foreign government inte
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported timing, absence and contrast wording and carried the list lead-in of the consulting services pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure of foreign government ownership or control and subcontracting with terrorist-state firms.

@@ -47,7 +47,7 @@ A contractor ships supplies priced at 10,000 under a contract that does not prov
 
 ## Never confuse
 
-Unless the contract specifically provides otherwise, risk of loss passes on delivery to a carrier if transportation is free on board origin, or on delivery at the destination if it is free on board destination [@CL-CTF-2441; @CL-CTF-2442]. Unless specified elsewhere in the contract, title passes on acceptance [@CL-CTF-2443]. The patent indemnity in paragraph (h) covers liability for infringement of a United States or foreign patent, trademark or copyright, arising out of the performance of the contract [@CL-CTF-2439; @CL-CTF-2440]. See [Free on board origin delivery term](../../supply-chain/procure-to-pay/sup-fob-origin-delivery-term.md), [Title and risk of loss under performance-based payments](../financing/ctf-pbp-title-and-risk-of-loss.md), [Federal, state and local taxes](ctf-federal-state-local-taxes.md) and [Patent indemnity and refund of royalties](../../compliance/regulatory-framework/cmp-patent-indemnity-and-refund-of-royalties.md).
+Unless specified elsewhere in the contract, title passes on acceptance, regardless of when or where the Government takes physical possession [@CL-CTF-2443], whereas risk of loss turns on the delivery term instead of on acceptance: unless the contract specifically provides otherwise, risk of loss passes on delivery to a carrier if transportation is free on board origin, or on delivery at the destination if it is free on board destination [@CL-CTF-2441; @CL-CTF-2442]. The patent indemnity in paragraph (h) covers liability for infringement of a United States or foreign patent, trademark or copyright, arising out of the performance of the contract [@CL-CTF-2439; @CL-CTF-2440]. See [Free on board origin delivery term](../../supply-chain/procure-to-pay/sup-fob-origin-delivery-term.md), [Title and risk of loss under performance-based payments](../financing/ctf-pbp-title-and-risk-of-loss.md), [Federal, state and local taxes](ctf-federal-state-local-taxes.md) and [Patent indemnity and refund of royalties](../../compliance/regulatory-framework/cmp-patent-indemnity-and-refund-of-royalties.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm the transportation term and any title term in each executed contract. [@
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated title, price and indemnity wording to match the clause; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Patent indemnity summary now carries the performance scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

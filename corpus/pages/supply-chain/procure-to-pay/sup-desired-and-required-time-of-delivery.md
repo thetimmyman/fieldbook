@@ -25,7 +25,7 @@ Shows how the desired and required time of delivery clause separates the schedul
 | Instrument | Codified FAR [@CL-SUP-2552] |
 | Codified citation | FAR 52.211-9 [@CL-SUP-2552] |
 | RFO citation | No RFO equivalent [@CL-SUP-0169] |
-| Edition date | Not established. |
+| Edition date | JUN 1997 [@CL-SUP-9804] |
 | Text status | Final [@CL-SUP-2552] |
 | Applies to | Not established. |
 
@@ -76,6 +76,7 @@ Confirm which schedule in each solicitation is desired and which is required, ho
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed punctuation and lead-in wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned schedule, alternate and RFO wording with the cited quotes.

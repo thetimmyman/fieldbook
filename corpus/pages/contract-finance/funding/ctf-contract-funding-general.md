@@ -45,7 +45,7 @@ A fully funded fixed-price contract has a target price of 2,000,000, so funds ar
 
 ## Never confuse
 
-If the contract is fully funded, funds are obligated to cover the price or target price of a fixed-price contract or the estimated cost and any fee of a cost-reimbursement contract [@CL-CTF-3687]. If the contract is incrementally funded, funds are obligated to cover the amount allotted and any corresponding increment of fee [@CL-CTF-3688].
+Fully funded and incrementally funded contracts differ in what the obligation covers rather than in when funds arrive: if the contract is fully funded, funds are obligated to cover the price or target price of a fixed-price contract or the estimated cost and any fee of a cost-reimbursement contract [@CL-CTF-3687], while if the contract is incrementally funded, funds are obligated instead to cover the amount allotted and any corresponding increment of fee [@CL-CTF-3688].
 
 Subpart 32.7 describes basic requirements for contract funding and prescribes procedures for using limitation of cost or limitation of funds clauses, and detailed acquisition funding requirements are contained in agency fiscal regulations [@CL-CTF-3691].
 
@@ -56,6 +56,7 @@ Which contracts are fully or incrementally funded, which notices apply, and who 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, stated the full DFARS 232.703-1 incremental-funding conditions, and removed uncited meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 32.703-2 condition on the expressly conditioned alternative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the quote that joins the two DFARS condition sets.

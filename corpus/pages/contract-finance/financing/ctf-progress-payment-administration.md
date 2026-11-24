@@ -49,7 +49,7 @@ A contractor submits a progress payment request for 500,000. The administrative 
 
 ## Never confuse
 
-Even when the administrative contracting officer relies upon the accounting system and the contractor's certification without requiring audit or review of a request before payment [@CL-CTF-0982], postpayment reviews, including audits when considered necessary, shall be made periodically, or when considered desirable by the administrative contracting officer, to determine the validity of progress payments already made and expected to be made [@CL-CTF-0964]. When there is reason to doubt the amount of a progress payment request, only the doubtful amount should be withheld, subject to later adjustment after review or audit, and any clearly proper and due amounts should be paid without awaiting resolution of the differences [@CL-CTF-0963]. For the general financing concept, see [Progress payments](ctf-progress-payments.md).
+Reliance before payment differs from review after it rather than excluding review altogether: even when the administrative contracting officer relies upon the accounting system and the contractor's certification without requiring audit or review of a request before payment [@CL-CTF-0982], postpayment reviews, including audits when considered necessary, shall be made periodically, or when considered desirable by the administrative contracting officer, to determine the validity of progress payments already made and expected to be made [@CL-CTF-0964]. When there is reason to doubt the amount of a progress payment request, only the doubtful amount should be withheld rather than the whole request, subject to later adjustment after review or audit, and any clearly proper and due amounts should be paid without awaiting resolution of the differences [@CL-CTF-0963]. For the general financing concept, see [Progress payments](ctf-progress-payments.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm the date of the last accounting system review and verify the billing res
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO postpayment review minimum determinations and removed meta and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Postpayment review minimum determinations listed in full; reliability finding worded as the text states.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

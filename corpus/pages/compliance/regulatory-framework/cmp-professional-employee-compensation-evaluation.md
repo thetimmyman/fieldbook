@@ -49,9 +49,7 @@ An offeror proposes 90,000 a year for a senior analyst, while the predecessor co
 
 ## Never confuse
 
-This provision looks at the salaries and fringe benefits proposed for professional employees and at whether that pay can obtain and keep suitably qualified personnel [@CL-CMP-4823; @CL-CMP-4970]. The wage determination rules for service contracts are on [service contract labor standards](../../operating-model/talent/opm-service-contract-labor-standards.md).
-
-The codified section prints a provision on the evaluation of compensation for professional employees [@CL-CMP-4823], while the RFO text lists the section number as reserved [@CL-CMP-2118].
+This provision looks at the salaries and fringe benefits proposed for professional employees and at whether that pay can obtain and keep suitably qualified personnel [@CL-CMP-4823; @CL-CMP-4970] rather than at the wage determination floor. The wage determination rules for service contracts are on [service contract labor standards](../../operating-model/talent/opm-service-contract-labor-standards.md). The codified section prints a provision on the evaluation of compensation for professional employees [@CL-CMP-4823], while the RFO text lists the section number as reserved [@CL-CMP-2118].
 
 ## Company calibration
 
@@ -61,6 +59,7 @@ Who prepares the total compensation plan and the survey data behind each profess
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Low-compensation sentence now says professional compensation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the evaluation of professional employee compensation.

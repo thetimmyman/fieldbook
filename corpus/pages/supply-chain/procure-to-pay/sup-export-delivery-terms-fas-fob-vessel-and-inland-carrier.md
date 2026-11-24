@@ -25,7 +25,7 @@ Compares the three export delivery terms, showing where delivery is complete in 
 | Instrument | Codified FAR [@CL-SUP-2333] |
 | Codified citation | FAR 52.247-36, FAR 52.247-37 and FAR 52.247-38 [@CL-SUP-2333; @CL-SUP-2336; @CL-SUP-2339] |
 | RFO citation | RFO FAR 52.247-36 [@CL-SUP-0214; @CL-SUP-0215; @CL-SUP-0216; @CL-SUP-0217; @CL-SUP-0218; @CL-SUP-0219; @CL-SUP-0220; @CL-SUP-0221]; RFO FAR 52.247-37 [@CL-SUP-0222; @CL-SUP-0223; @CL-SUP-0224; @CL-SUP-0225; @CL-SUP-0226; @CL-SUP-0227; @CL-SUP-0228; @CL-SUP-0229]; RFO FAR 52.247-38 [@CL-SUP-0230; @CL-SUP-0231; @CL-SUP-0232; @CL-SUP-0233; @CL-SUP-0234; @CL-SUP-0235; @CL-SUP-0236; @CL-SUP-0237] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-36: Apr 1984 [@CL-SUP-0214]; FAR 52.247-37: Apr 1984 [@CL-SUP-0222]; FAR 52.247-38: Feb 2006 [@CL-SUP-0230] |
 | Text status | Final [@CL-SUP-2333] |
 | Applies to | Solicitations and contracts when the delivery term is f.a.s. vessel, port of shipment [@CL-SUP-2342]; f.o.b. vessel, port of shipment [@CL-SUP-2376]; or f.o.b. inland carrier, point of exportation [@CL-SUP-2381] |
 
@@ -66,6 +66,7 @@ Confirm which delivery term each export order carries, the delivery date or peri
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the prescription sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added contractor duty lead-in, aligned RFO and delivery wording.

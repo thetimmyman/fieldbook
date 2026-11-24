@@ -45,7 +45,7 @@ Assume an aircraft being overhauled under a contract worth 5,000,000 is damaged 
 
 ## Never confuse
 
-For the Government taking on the risk of loss to covered aircraft, see [Ground and flight risk (DFARS)](../../supply-chain/sourcing-evidence/sup-dfars-ground-and-flight-risk.md). For the indemnification clause for unusually hazardous risks, see [Indemnification for unusually hazardous risks](../../supply-chain/sourcing-evidence/sup-dfars-indemnification-unusually-hazardous-risks.md).
+The mishap clause is a reporting and cooperation duty rather than a risk transfer: the contractor must report promptly to the administrative contracting officer all pertinent facts relating to each mishap involving an aircraft, missile, or space launch vehicle being manufactured, modified, repaired, or overhauled in connection with the contract [@CL-CMP-4595]. For the Government taking on the risk of loss to covered aircraft, see [Ground and flight risk (DFARS)](../../supply-chain/sourcing-evidence/sup-dfars-ground-and-flight-risk.md). For the indemnification clause for unusually hazardous risks, see [Indemnification for unusually hazardous risks](../../supply-chain/sourcing-evidence/sup-dfars-indemnification-unusually-hazardous-risks.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which contracts involve aircraft, missiles or space launch vehicles, or public a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named statutes and issuances, cited rare-circumstance lead-in, restated liability allocation; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the very-rare-circumstances condition and the DoD Directive 4500.54E reference to state aircraft designation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mishap reporting and public aircraft liability.

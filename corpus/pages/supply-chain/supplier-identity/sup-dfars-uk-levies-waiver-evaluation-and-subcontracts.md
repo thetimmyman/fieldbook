@@ -25,7 +25,7 @@ Shows how United Kingdom levies in offered prices are identified and treated in 
 | Instrument | Codified DFARS [@CL-SUP-1740] |
 | Codified citation | DFARS 252.225-7032 [@CL-SUP-1740] and DFARS 252.225-7033 [@CL-SUP-1744] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7032: APR 2003 [@CL-SUP-9947]; DFARS 252.225-7033: APR 2003 [@CL-SUP-9948] |
 | Text status | Final [@CL-SUP-1740] |
 | Applies to | Solicitations with the evaluation provision where offered prices for contracts or subcontracts with United Kingdom firms may contain commercial exploitation levies [@CL-SUP-0074; @CL-SUP-1740], and contracts with the clause where DFARS 225.1101(8) prescribes it [@CL-SUP-1770], where United Kingdom firms are involved [@CL-SUP-1744] |
 
@@ -56,6 +56,7 @@ Which subcontracts to United Kingdom firms exceed the value in the clause and ho
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (a) and (c) lead-in quotes of DFARS 252.225-7032 and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the waiver of United Kingdom levies.

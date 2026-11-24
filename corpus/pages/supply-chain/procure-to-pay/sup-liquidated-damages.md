@@ -25,7 +25,7 @@ Shows how the two liquidated damages clauses fix a daily amount, when that amoun
 | Instrument | Codified FAR [@CL-SUP-2568] |
 | Codified citation | FAR 52.211-11 and FAR 52.211-12 [@CL-SUP-2568; @CL-SUP-2572] |
 | RFO citation | RFO FAR 52.211-11 [@CL-SUP-0421]; RFO FAR 52.211-12 [@CL-SUP-0425] |
-| Edition date | Not established. |
+| Edition date | FAR 52.211-11: Sep 2000 [@CL-SUP-0421]; FAR 52.211-12: Sep 2000 [@CL-SUP-0425] |
 | Text status | Final [@CL-SUP-2568] |
 | Applies to | Not established. |
 
@@ -62,6 +62,7 @@ Confirm the daily amount inserted in each contract and whether the recorded dela
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used shall wording in the rule paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded how-it-works, never-confuse and RFO paragraph to the clause text.

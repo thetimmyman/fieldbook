@@ -48,9 +48,7 @@ A solicitation checks the box for a DO rated order. The supplier that wins takes
 
 ## Never confuse
 
-The notice provision states that any contract awarded as a result of the solicitation will be a DX rated order or a DO rated order certified for national defense, emergency preparedness, and energy program use under DPAS (15 CFR 700) and that the Contractor will be required to follow all of the requirements of that regulation [@CL-CMP-5995; @CL-CMP-5996], whereas the contract clause states in the contract that the order is a rated order certified for those uses and that the Contractor shall follow all the requirements of the DPAS regulation (15 CFR part 700) [@CL-CMP-5997].
-
-For the effect of DX and DO ratings, see [DPAS: rated orders](../../industrialization/capacity/ind-dpas-rated-orders.md).
+The notice speaks at the offer stage rather than in the contract: the notice provision states that any contract awarded as a result of the solicitation will be a DX rated order or a DO rated order certified for national defense, emergency preparedness, and energy program use under DPAS (15 CFR 700) and that the Contractor will be required to follow all of the requirements of that regulation [@CL-CMP-5995; @CL-CMP-5996], whereas the contract clause states in the contract that the order is a rated order certified for those uses and that the Contractor shall follow all the requirements of the DPAS regulation (15 CFR part 700) [@CL-CMP-5997]. For the effect of DX and DO ratings, see [DPAS: rated orders](../../industrialization/capacity/ind-dpas-rated-orders.md).
 
 ## Company calibration
 
@@ -60,6 +58,7 @@ Which awards carry a rating, which box was checked on each solicitation, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified citations and removed uncited negative commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for priority ratings and the defense priority and allocation requirements.

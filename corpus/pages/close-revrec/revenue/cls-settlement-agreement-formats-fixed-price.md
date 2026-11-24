@@ -45,7 +45,7 @@ A fixed-price contract has three line items and the Government terminates line i
 
 ## Never confuse
 
-Settlement by determination is covered on [Settlement by determination under a terminated contract](cls-settlement-by-determination.md). The equitable adjustment of the continued portion is covered on [Partial termination: equitable adjustment and partial settlements](cls-partial-termination-equitable-adjustment-and-settlements.md). The complete-termination format for a cost-reimbursement contract is on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md). Submission of settlement proposals is shown on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md).
+The agreement format is not the proposal: settlement by determination is covered on [Settlement by determination under a terminated contract](cls-settlement-by-determination.md); the equitable adjustment of the continued portion is covered on [Partial termination: equitable adjustment and partial settlements](cls-partial-termination-equitable-adjustment-and-settlements.md); the complete-termination format for a cost-reimbursement contract is on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md); and submission of settlement proposals is shown on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who prepares and signs the settlement agreement for each terminated contract, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: settlement agreement formats: partial-termination specification wording as printed, uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: certification, terminated-portion list and payee stated as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the complete-termination format paragraphs so the certification and the net settlement keep the proceeds and retention credits statement and the inventory-basis and total-cost-basis sums.

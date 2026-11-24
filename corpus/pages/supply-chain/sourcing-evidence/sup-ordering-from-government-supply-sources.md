@@ -25,7 +25,7 @@ Shows what authorization a contractor needs to order from Government supply sour
 | Instrument | Codified DFARS [@CL-SUP-1651] |
 | Codified citation | DFARS 252.251-7000 [@CL-SUP-1651] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 2012 [@CL-SUP-9875] |
 | Text status | Final [@CL-SUP-1651] |
 | Applies to | Contracts that use the clause as prescribed in DFARS 251.107 [@CL-SUP-1651], for orders under Federal Supply Schedules, Personal Property Rehabilitation Price Schedules, or Enterprise Software Agreements [@CL-SUP-1567], orders under GSA Office of Information Resources Management nonmandatory schedule contracts and requirements contracts [@CL-SUP-1659], and orders for Government stock [@CL-SUP-1570; @CL-SUP-1660] |
 
@@ -62,6 +62,7 @@ Which orders the company places against Government supply sources and how it pay
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for order address item and paragraph (b) items; aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Order statement item; excusable delay scope; 30-day scope.

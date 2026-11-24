@@ -49,7 +49,7 @@ After an audit cites a material weakness in labor charging, the contractor autom
 
 ## Never confuse
 
-The scope of the follow-up business system audit will be limited to determining if the contractor corrected the previously reported material weaknesses and/or system deficiencies and the system complies with DFARS [@CL-CMP-1686]. For the baseline that sets the scope of subsequent audits after a full business system audit, see [Scope and baseline](cmp-business-system-audit-scope-baseline.md).
+A follow-up audit differs from the full audit in scope: the scope of the follow-up business system audit will be limited to determining if the contractor corrected the previously reported material weaknesses and/or system deficiencies and the system complies with DFARS [@CL-CMP-1686]. For the baseline that sets the scope of subsequent audits after a full business system audit, see [Scope and baseline](cmp-business-system-audit-scope-baseline.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Check that enough transactions have accumulated under the corrected practices be
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the DFARS business system requirements compliance standard and matched the follow-up business system audit report and previous business system audit terms to the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored governance qualifier, should, and discussion step; kept and/or in scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the follow-up audit trigger so the rule keeps the purpose that the available transactions must serve.

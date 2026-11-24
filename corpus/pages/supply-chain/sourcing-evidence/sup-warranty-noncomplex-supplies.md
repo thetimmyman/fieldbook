@@ -24,7 +24,7 @@ Shows the warranty a contractor gives for noncomplex supplies, how the Governmen
 | Instrument | Codified FAR [@CL-SUP-1151] |
 | Codified citation | FAR 52.246-17 [@CL-SUP-1151; @CL-SUP-1225; @CL-SUP-1152; @CL-SUP-0431; @CL-SUP-1153; @CL-SUP-1154; @CL-SUP-0434; @CL-SUP-1155; @CL-SUP-1156; @CL-SUP-0432; @CL-SUP-1212; @CL-SUP-1213; @CL-SUP-1214; @CL-SUP-0435; @CL-SUP-9790; @CL-SUP-1215; @CL-SUP-1216; @CL-SUP-0436] |
 | RFO citation | RFO FAR 52.246-17 and its Alternate II [@CL-SUP-3490; @CL-SUP-3491; @CL-SUP-3492; @CL-SUP-9339; @CL-SUP-3493; @CL-SUP-3494; @CL-SUP-3495; @CL-SUP-3496; @CL-SUP-3497; @CL-SUP-0433; @CL-SUP-3498; @CL-SUP-3499; @CL-SUP-3500; @CL-SUP-9340; @CL-SUP-9341; @CL-SUP-3501; @CL-SUP-3502; @CL-SUP-3503] |
-| Edition date | Not established. |
+| Edition date | Jun 2003 [@CL-SUP-3498] |
 | Text status | Final [@CL-SUP-1151] |
 | Applies to | Supplies furnished under a contract that includes the clause [@CL-SUP-1151] |
 
@@ -56,6 +56,7 @@ Whether each fixed-price supply contract carries this clause, what warranty peri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for codified FAR 52.246-17(b)(1)(ii), (b)(3), (c)(2)(i), (c)(4)(i)(B), and Alternate II, and RFO FAR 52.246-17(b)(3); separated codified and RFO citations; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cure-period condition and alternatives wording.

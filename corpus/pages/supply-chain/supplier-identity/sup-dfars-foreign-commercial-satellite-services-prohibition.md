@@ -24,7 +24,7 @@ Shows what the satellite services clause limits, which countries count as covere
 | Instrument | Codified DFARS [@CL-SUP-1496; @CL-SUP-1499] |
 | Codified citation | DFARS 252.225-7051 [@CL-SUP-1496] and DFARS 252.225-7049 [@CL-SUP-1499] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7051: DEC 2022 [@CL-SUP-9923]; DFARS 252.225-7049: DEC 2018 [@CL-SUP-9924] |
 | Text status | Final [@CL-SUP-1496] |
 | Applies to | Satellite services provided under contracts with the clause, and offers with the representations provision [@CL-SUP-1496; @CL-SUP-1499] |
 
@@ -57,6 +57,7 @@ Which executed contracts carry the clause, and which offers carried the represen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta sentence; aligned exception scope and award prohibition wording with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: limitation and exception alternatives and award-prohibition categories stated.

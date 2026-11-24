@@ -49,7 +49,7 @@ The same contract uses the clause at FAR 52.242-2, so its schedule gives reporti
 
 ## Never confuse
 
-The criticality designator is assigned and changed by the contracting officer [@CL-CMP-7831; @CL-CMP-7833]. When using the clause at FAR 52.242-2, the instructions in the contract schedule must include the frequency and timing of reporting, the offices where reports should be sent, and the requirements for report content [@CL-CMP-7834; @CL-CMP-7835; @CL-CMP-7836].
+The criticality designator is not the postaward conference record: only the contracting officer shall change the assigned criticality designator [@CL-CMP-7833], and contracting officers shall assign criticality designator A to items with a priority 01, 02, 03, or 06 (if emergency supply of clothing) under DoD Manual 4140.01, Volume 5 [@CL-CMP-7831]. When using the clause at FAR 52.242-2, the instructions in the contract schedule must include the frequency and timing of reporting, the offices where reports should be sent, and the requirements for report content [@CL-CMP-7834; @CL-CMP-7835; @CL-CMP-7836].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Which contracts carry the production progress reports clause or the cost and sof
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta sentences and uncited and/or explanation; restated FAR rules directly and conditioned the schedule instructions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD postaward conference, criticality designators and production progress reports.

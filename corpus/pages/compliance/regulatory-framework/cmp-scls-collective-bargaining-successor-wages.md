@@ -46,7 +46,7 @@ A predecessor's collective bargaining agreement sets 20 per hour plus 5 in fring
 
 ## Never confuse
 
-The successor pay duty sets a pay floor [@CL-CMP-3260], while the timing rule decides whether a new or changed agreement takes effect [@CL-CMP-3263; @CL-CMP-3264]. When the clause goes into a contract and when wage determinations are obtained are on [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). Requests for wage determinations and the incumbent's agreement are on [Obtaining wage determinations and successor pay](cmp-scls-wage-determinations-and-successorship.md). Requests for a hearing on a variance or an arm's length question are on [Service Contract Labor Standards: repair or remanufacturing, unidentified places and hearing requests](cmp-scls-remanufacturing-unidentified-places-and-hearings.md). None is restated here.
+The successor pay duty sets a pay floor rather than a timing rule [@CL-CMP-3260], while the timing rule decides whether a new or changed agreement takes effect [@CL-CMP-3263; @CL-CMP-3264]. When the clause goes into a contract and when wage determinations are obtained are on [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). Requests for wage determinations and the incumbent's agreement are on [Obtaining wage determinations and successor pay](cmp-scls-wage-determinations-and-successorship.md). Requests for a hearing on a variance or an arm's length question are on [Service Contract Labor Standards: repair or remanufacturing, unidentified places and hearing requests](cmp-scls-remanufacturing-unidentified-places-and-hearings.md). None is restated here.
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which service contracts follow an incumbent's collective bargaining agreement, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the modification in the other-than-sealed-bidding rule and said the 30-day no-commencement case is one of two alternatives.

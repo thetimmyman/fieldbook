@@ -51,7 +51,7 @@ A contractor delivers a batch of widgets priced at 100,000 under a firm-fixed-pr
 
 ## Never confuse
 
-Title to supplies shall pass to the Government upon formal acceptance, regardless of when or where the Government takes physical possession, unless the contract specifically provides for earlier passage of title [@CL-CLS-0201].
+Title and risk of loss are not the same transfer: title to supplies shall pass to the Government upon formal acceptance, regardless of when or where the Government takes physical possession, unless the contract specifically provides for earlier passage of title [@CL-CLS-0201].
 
 With f.o.b. origin shipment, risk of loss of or damage to supplies shall pass to the Government upon delivery of the supplies to a carrier, unless the contract specifically provides otherwise [@CL-CLS-0301].
 
@@ -64,6 +64,7 @@ How accounting revenue recognition criteria align with formal Government accepta
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: payments and responsibility for supplies: wording matched to clause text, RFO paragraph cites RFO claims only, uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: partial-delivery grounds stated as alternatives and risk-of-loss lead-in as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the payment rule.

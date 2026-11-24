@@ -47,9 +47,7 @@ A buy uses the authority provided in 239.7305(d) [@CL-CMP-8428], and two offeror
 
 ## Never confuse
 
-For the ordinary notice rule, see [Notices to unsuccessful offerors](../../estimating/pricing/est-notices-to-unsuccessful-offerors.md).
-
-The limit applies if the Government exercises the authority provided in 239.7305(d) [@CL-CMP-8428], and covers information that is determined to be withheld from disclosure [@CL-CMP-8429].
+The supply-chain limit is not the ordinary notice rule: it applies if the Government exercises the authority provided in 239.7305(d) [@CL-CMP-8428], and covers information that is determined to be withheld from disclosure [@CL-CMP-8429]. For the ordinary notice rule, see [Notices to unsuccessful offerors](../../estimating/pricing/est-notices-to-unsuccessful-offerors.md).
 
 ## Company calibration
 
@@ -59,5 +57,6 @@ Which contracts in the company's portfolio sit under the supply chain risk autho
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and uncited contrast; restated cited rule and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS notifications to unsuccessful offerors under the supply chain risk authority.

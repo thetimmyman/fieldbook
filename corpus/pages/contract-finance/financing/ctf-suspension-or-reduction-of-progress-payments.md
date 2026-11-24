@@ -45,7 +45,7 @@ A contractor has received 800,000 in progress payments against undelivered contr
 
 ## Never confuse
 
-A reduction or suspension of progress payments is a Government right exercised under the Progress Payments clause only in accordance with the contract terms and never precipitately or arbitrarily [@CL-CTF-0251; @CL-CTF-0521]. It is distinct from the suspension of progress payments and all other payments that the contracting officer shall impose if the contracting officer concludes that further progress payments would increase the probable loss to the Government [@CL-CTF-0254]. See [Customary progress payment rates](ctf-progress-payments.md) and [Contract financing at a glance](ctf-financing-overview.md).
+A reduction or suspension of progress payments is a Government right exercised under the Progress Payments clause only in accordance with the contract terms and never precipitately or arbitrarily [@CL-CTF-0251; @CL-CTF-0521], rather than an automatic step. It differs from the suspension of progress payments and all other payments rather than matching it: the contracting officer shall impose the latter if the contracting officer concludes that further progress payments would increase the probable loss to the Government [@CL-CTF-0254]. See [Customary progress payment rates](ctf-progress-payments.md) and [Contract financing at a glance](ctf-financing-overview.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which contracts carry progress payments and whether accounting system controls s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included intended-action notice object and amount of unliquidated progress payments from the cited FAR 32.503-6 quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Operations-evaluation basis, actor for immediate action, accounting duty and loss-suspension wording aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

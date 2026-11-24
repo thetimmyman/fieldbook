@@ -46,7 +46,7 @@ A shop receives a DO rated order calling for delivery on 30 June, but it can onl
 
 ## Never confuse
 
-Under mandatory rejection, unless otherwise directed by Commerce, a person shall not accept a rated order for delivery on a specific date if unable to fill the order by that date, and must inform the customer of the earliest date on which delivery can be made and offer to accept the order on the basis of that date [@CL-IND-0143; @CL-IND-0334]. Under optional rejection, unless otherwise directed by Commerce, rated orders may be rejected in any of the listed cases as long as a supplier does not discriminate among customers, including if the person placing the order is unwilling or unable to meet regularly established terms of sale or payment [@CL-IND-0144]. Under extension of priority ratings, a person must use rated orders with suppliers to obtain industrial resources needed to fill a rated order and must include the required elements of a rated order outlined in § 700.12 on each successive order [@CL-IND-0149; @CL-IND-0159; @CL-IND-0326].
+Mandatory and optional rejection are not the same posture: under mandatory rejection, unless otherwise directed by Commerce, a person shall not accept a rated order for delivery on a specific date if unable to fill the order by that date, and must inform the customer of the earliest date on which delivery can be made and offer to accept the order on the basis of that date [@CL-IND-0143; @CL-IND-0334]. Under optional rejection, unless otherwise directed by Commerce, rated orders may be rejected in any of the listed cases as long as a supplier does not discriminate among customers, including if the person placing the order is unwilling or unable to meet regularly established terms of sale or payment [@CL-IND-0144]. Under extension of priority ratings, a person must use rated orders with suppliers to obtain industrial resources needed to fill a rated order and must include the required elements of a rated order outlined in § 700.12 on each successive order [@CL-IND-0149; @CL-IND-0159; @CL-IND-0326].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which supplier agreements and lead times would let the company meet response dea
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added schedule modification and rating extension qualifiers and aligned rejection and deadline terms to the cited sections.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the DX preference over unrated orders and removed an unsupported only.

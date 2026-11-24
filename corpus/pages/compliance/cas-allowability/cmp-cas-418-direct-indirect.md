@@ -45,7 +45,7 @@ A business unit pools 500,000 of supervision cost over a fabrication department 
 
 ## Never confuse
 
-A business unit shall have a written statement of accounting policies and practices for classifying costs as direct or indirect which shall be consistently applied [@CL-CMP-0216]. Indirect costs shall be accumulated in indirect cost pools which are homogeneous [@CL-CMP-0217].
+The written classification statement and the homogeneous pools are different requirements: a business unit shall have a written statement of accounting policies and practices for classifying costs as direct or indirect which shall be consistently applied [@CL-CMP-0216], and indirect costs shall be accumulated in indirect cost pools which are homogeneous [@CL-CMP-0217].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How the pools, bases and the direct-versus-indirect split are defined and reconc
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the allocation-base rules and cut meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added practices to the written-statement rule and the only-under-either-condition limit on the labor-rate standard.

@@ -44,7 +44,7 @@ A contractor stores records electronically for a cost-reimbursement contract. An
 
 ## Never confuse
 
-Records includes books, documents, accounting procedures and practices, and other data, regardless of type and regardless of whether such items are in written form, in the form of computer data, or in any other form [@CL-CMP-0601], and the right of examination under paragraph (b) includes inspection at all reasonable times of the Contractor's plants, or parts of them, engaged in performing the contract [@CL-CMP-0604].
+The clause reaches two different things: records includes books, documents, accounting procedures and practices, and other data, regardless of type and regardless of whether such items are in written form, in the form of computer data, or in any other form [@CL-CMP-0601], while the right of examination under paragraph (b) includes inspection at all reasonable times of the Contractor's plants, or parts of them, engaged in performing the contract [@CL-CMP-0604].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which control findings, corrective actions, and external requests are open, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the certified cost or pricing data audit lead-in and four alternatives, matched exact contract-type and records wording, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the certified-data audit sentence so the four related-records matters are alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records and audit sentence so the records duty keeps its cover of anticipated costs and its plant inspection right.

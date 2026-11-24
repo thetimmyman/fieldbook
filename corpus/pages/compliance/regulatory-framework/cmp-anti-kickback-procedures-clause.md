@@ -46,9 +46,7 @@ A prime contractor holds a 5 million contract that is not for commercial product
 
 ## Never confuse
 
-The prohibited acts reach any person, while the procedures duty is the contractor's own and covers its own operations and direct business relationships [@CL-CMP-2609; @CL-CMP-2611]. The Government's rights recover the kickback amount. The printed clause states no separate monetary penalty.
-
-The codified withholding right is measured by the amount of any kickback, while the RFO text says the amount of the kickback [@CL-CMP-2614; @CL-CMP-0384].
+The prohibited acts reach any person, unlike the procedures duty, which is the contractor's own and covers its own operations and direct business relationships [@CL-CMP-2609; @CL-CMP-2611]. The Government's rights recover the kickback amount; the printed clause states no separate monetary penalty. The codified withholding right is measured by the amount of any kickback, while the RFO text says the amount of the kickback [@CL-CMP-2614; @CL-CMP-0384].
 
 ## Company calibration
 
@@ -58,6 +56,7 @@ Which contracts and subcontracts carry the clause, and who owns the procedures a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited characterization.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Anti-Kickback Procedures clause text.

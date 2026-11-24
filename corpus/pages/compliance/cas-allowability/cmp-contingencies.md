@@ -47,7 +47,7 @@ A proposal carries a 250,000 estimate for a production line. Anticipated rework 
 
 ## Never confuse
 
-A contingency is a possible future event or condition arising from presently known or unknown causes, the outcome of which is indeterminable at the present time [@CL-CMP-0751]. In estimates of future costs, contingencies of the first category are to be included and those of the second category are to be excluded but disclosed separately [@CL-CMP-0754; @CL-CMP-0755]. Results of pending litigation are given as an example of the second category [@CL-CMP-1111]; see [Costs of legal proceedings](cmp-legal-proceedings-costs.md).
+A contingency is a possible future event or condition arising from presently known or unknown causes, the outcome of which is indeterminable at the present time [@CL-CMP-0751]. The two contingency categories get different treatment: in estimates of future costs, contingencies of the first category are to be included and those of the second category are to be excluded but disclosed separately [@CL-CMP-0754; @CL-CMP-0755]. Results of pending litigation are given as an example of the second category [@CL-CMP-1111]; see [Costs of legal proceedings](cmp-legal-proceedings-costs.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Whether the company keeps foreseeable contingencies inside its estimates and dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: contingencies: joined the two-category lead-in to its cited first category.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited glosses and negative comparisons; restated the treatment as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the past-period recognition and estimate sentences to the quoted wording.

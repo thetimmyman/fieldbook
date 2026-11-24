@@ -48,7 +48,7 @@ Commerce issues an allocation order directly to one supplier. The order describe
 
 ## Never confuse
 
-Before using its allocations authority to address a supply problem within its resource jurisdiction, the Department of Commerce develops a plan, and every allocation order must include a detailed description of the required allocation action, including its relationship to previously or subsequently received DX rated orders, DO rated orders and unrated orders [@CL-IND-0186; @CL-IND-0189].
+The plan comes before the orders rather than after them: before using its allocations authority to address a supply problem within its resource jurisdiction, the Department of Commerce develops a plan, and every allocation order must include a detailed description of the required allocation action, including its relationship to previously or subsequently received DX rated orders, DO rated orders and unrated orders [@CL-IND-0186; @CL-IND-0189].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which capacity, materials or output the company could be required to allocate, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the full compliance statement for directly issued allocation orders and aligned plan and notice wording to 15 CFR 700.31 and 700.34.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added changes or cancellations of allocation orders and how notice may be given.

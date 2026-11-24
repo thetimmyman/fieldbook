@@ -68,7 +68,7 @@ The contracting officer receives acceptable inventory schedules for each propert
 
 Other work covers any current or scheduled work of the contractor, whether Government or commercial, other than work related to the terminated contract [@CL-CLS-0251].
 
-A settlement proposal is a proposal submitted by a contractor or subcontractor for effecting settlement of a contract terminated in whole or in part, whereas a settlement agreement is a written agreement in the form of a contract modification settling all or a severable portion of a settlement proposal [@CL-CLS-0255; @CL-CLS-0254].
+A settlement proposal and a settlement agreement are not the same document: a settlement proposal is a proposal submitted by a contractor or subcontractor for effecting settlement of a contract terminated in whole or in part, whereas a settlement agreement is a written agreement in the form of a contract modification settling all or a severable portion of a settlement proposal [@CL-CLS-0255; @CL-CLS-0254].
 
 The final phase of the plant clearance period is the period after receipt of acceptable inventory schedules, whereas the plant clearance period begins on the effective date of contract completion or termination [@CL-CLS-0253; @CL-CLS-0252].
 
@@ -81,6 +81,7 @@ Which executed termination notices, modifications and inventory schedules the co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO FAR 2.101 citations and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: plant clearance period scope cited to its own quote.

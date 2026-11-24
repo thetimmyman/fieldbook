@@ -54,9 +54,7 @@ A Federal agency asks the Secretary of Labor for a variation from a provision of
 
 ## Never confuse
 
-Never confuse relief under paragraph (a) with relief under paragraph (b). The first reaches the statute and may follow a Federal agency request; the second reaches the regulatory requirements and depends on a finding [@CL-CMP-7995; @CL-CMP-7996].
-
-Under paragraph (a), the Secretary of Labor may act upon the Secretary's initiative or at the request of any Federal agency [@CL-CMP-7995].
+Relief under paragraph (a) is not relief under paragraph (b): the first reaches the statute and may follow a Federal agency request, while the second reaches the regulatory requirements and depends on a finding [@CL-CMP-7995; @CL-CMP-7996]. Under paragraph (a), the Secretary of Labor may act upon the Secretary's initiative or at the request of any Federal agency [@CL-CMP-7995].
 
 ## Company calibration
 
@@ -66,6 +64,7 @@ Which of the company's construction contracts sit under the statute, and who con
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited negatives and contrasts about who grants relief.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a duty statement about officials the cited text does not name.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variations, tolerances and exemptions under the Contract Work Hours and Safety Standards statute.

@@ -45,7 +45,7 @@ Annual shareholders' meeting and proxy work cost 15,000, the reports to sharehol
 
 ## Never confuse
 
-Preparing and publishing reports to shareholders is item (d) [@CL-CMP-0870], and preparing and submitting required reports and forms to taxing and other regulatory bodies is item (e) [@CL-CMP-0871]. For public relations and advertising costs, see [Public relations and advertising](../cas-allowability/cmp-public-relations-and-advertising-costs.md).
+The two report kinds go to different audiences: preparing and publishing reports to shareholders is item (d) [@CL-CMP-0870], and preparing and submitting required reports and forms to taxing and other regulatory bodies is item (e) [@CL-CMP-0871]. For public relations and advertising costs, see [Public relations and advertising](../cas-allowability/cmp-public-relations-and-advertising-costs.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether shareholder and regulatory housekeeping costs are booked as recurring in
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the recurring cost list from the quotes; cut meta wording and uncited statements.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Narrowed the statements to what the section lists and removed statements about cost pools that the section does not make.

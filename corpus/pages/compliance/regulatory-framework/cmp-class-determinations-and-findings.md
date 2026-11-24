@@ -45,7 +45,7 @@ A class document covers recurring purchases of the same repair service for one y
 
 ## Never confuse
 
-A determination and findings shall ordinarily be for an individual contract action, and unless otherwise prohibited, class documents may be executed for classes of contract action [@CL-CMP-8340; @CL-CMP-8341]. A class deviation is a deviation, which FAR 1.401 defines as any one or combination of the forms it lists, that affects more than one contract action [@CL-CMP-8330; @CL-OPM-0024]. A class document is a determination and findings, a special form of written approval by an authorized official, that provides authority for a class of contract actions [@CL-CMP-8337; @CL-CMP-8345]. The deviation rules are on [Deviations from the FAR: who authorizes them and what cannot be deviated from](../../operating-model/decision-rights/opm-deviations-from-the-far.md).
+An individual determination, not a class document, is the ordinary case: a determination and findings shall ordinarily be for an individual contract action, and unless otherwise prohibited, class documents may be executed for classes of contract action [@CL-CMP-8340; @CL-CMP-8341]. A class deviation is also not a class determination and findings: a class deviation is a deviation, which FAR 1.401 defines as any one or combination of the forms it lists, that affects more than one contract action [@CL-CMP-8330; @CL-OPM-0024], while a class document is a determination and findings, a special form of written approval by an authorized official, that provides authority for a class of contract actions [@CL-CMP-8337; @CL-CMP-8345]. The deviation rules are on [Deviations from the FAR: who authorizes them and what cannot be deviated from](../../operating-model/decision-rights/opm-deviations-from-the-far.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which recurring contract actions in the company's remit are covered by a class d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: uncited contrasts and inferences removed; signature and scope text cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the class deviation and class document characterizations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for class determinations and findings.

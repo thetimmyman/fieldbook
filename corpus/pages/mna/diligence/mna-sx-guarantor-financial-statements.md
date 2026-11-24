@@ -44,7 +44,7 @@ A parent company registers debt notes that a consolidated subsidiary issues and 
 
 ## Never confuse
 
-Under § 210.3-10(a) and § 210.13-01(a)(4), when the conditions for omitting separate financial statements of a consolidated-subsidiary issuer or guarantor are met, the parent company provides summarized financial information as specified in § 210.1-02(bb)(1) of each issuer and guarantor of the guaranteed security, with an accompanying note that briefly describes the basis of presentation, to the extent material and subject to paragraph (a)(4)(vi) [@CL-MNA-0951; @CL-MNA-0892; @CL-MNA-0897; @CL-MNA-0958]. Under § 210.13-02(a), the collateral disclosures apply to a security collateralized by a security of the registrant's affiliate or affiliates [@CL-MNA-0901], whereas § 210.13-01(a) applies where the registrant is the parent company of one or more subsidiaries that issue or guarantee the guaranteed security [@CL-MNA-0949; @CL-MNA-0896]; see [Affiliates whose securities collateralize registered securities](mna-sx-collateral-affiliate-disclosures.md).
+Summarized guarantor information and the collateral disclosures are not the same disclosure: under § 210.3-10(a) and § 210.13-01(a)(4), when the conditions for omitting separate financial statements of a consolidated-subsidiary issuer or guarantor are met, the parent company provides summarized financial information as specified in § 210.1-02(bb)(1) of each issuer and guarantor of the guaranteed security, with an accompanying note that briefly describes the basis of presentation, to the extent material and subject to paragraph (a)(4)(vi) [@CL-MNA-0951; @CL-MNA-0892; @CL-MNA-0897; @CL-MNA-0958]. Under § 210.13-02(a), the collateral disclosures apply to a security collateralized by a security of the registrant's affiliate or affiliates [@CL-MNA-0901], whereas § 210.13-01(a) applies where the registrant is the parent company of one or more subsidiaries that issue or guarantee the guaranteed security [@CL-MNA-0949; @CL-MNA-0896]; see [Affiliates whose securities collateralize registered securities](mna-sx-collateral-affiliate-disclosures.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned § 210.3-10 and § 210.13-01 omission and disclosure statements with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the omission of summarized information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements of guarantors and issuers of guaranteed securities.

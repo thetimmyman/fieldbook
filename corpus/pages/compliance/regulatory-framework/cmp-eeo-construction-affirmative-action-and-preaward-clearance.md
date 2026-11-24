@@ -52,7 +52,7 @@ A contracting officer plans to award a supply contract estimated at 12 million, 
 
 ## Never confuse
 
-The clearance for contracts and subcontracts of $10 million or more excludes construction [@CL-CMP-3057], and the goals listing covers geographical areas and covered construction trades [@CL-CMP-3056]. For wage rules for construction contracts, see [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md). The terms used here are defined on [Equal employment opportunity: definitions and what the Executive Order requires](cmp-eeo-definitions-and-general-rules.md), and the exemptions that decide which contracts are covered are on [Equal employment opportunity exemptions and the related provisions and clauses](cmp-eeo-exemptions-and-clauses.md).
+The preaward clearance is not the goals listing: the clearance for contracts and subcontracts of $10 million or more excludes construction [@CL-CMP-3057], while the goals listing covers geographical areas and covered construction trades [@CL-CMP-3056]. For wage rules for construction contracts, see [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md). The terms used here are defined on [Equal employment opportunity: definitions and what the Executive Order requires](cmp-eeo-definitions-and-general-rules.md), and the exemptions that decide which contracts are covered are on [Equal employment opportunity exemptions and the related provisions and clauses](cmp-eeo-exemptions-and-clauses.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which awards and subcontracts near the dollar threshold have a preaward clearanc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the timing and notice qualifiers for the goals instruction, clearance request and urgent award, and cut meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the written affirmative action program rule for nonconstruction contractors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the urgent and critical contract sentence so the preaward clearance rule keeps that the approved award is made without the clearance.

@@ -52,7 +52,7 @@ A construction contractor receives an oral instruction to move a wall. It gives 
 
 ## Never confuse
 
-A written change order is provided for in paragraph (a) [@CL-CLS-1088], and another written or oral order that is treated as a change order in paragraph (b) [@CL-CLS-1089]. The written-notice proviso [@CL-CLS-1089; @CL-CLS-1090] and the pre-notice cost limit [@CL-CLS-1092] are stated for the second route. The accounting for change orders is on [Change order accounting](cls-change-order-accounting.md), and the fixed-price clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md). The cost-reimbursement version is on [Changes clause for cost-reimbursement contracts](cls-changes-cost-reimbursement.md), the time-and-materials version is on [Changes clause for time-and-materials and labor-hour contracts](cls-changes-time-and-materials-labor-hours.md), and a separate notice route is on [Notification of changes clause](cls-notification-of-changes.md). The claims process is on [Disputes clause, claims and certification](cls-disputes-clause.md).
+The two routes differ in form: a written change order is provided for in paragraph (a) [@CL-CLS-1088], and another written or oral order that is treated as a change order in paragraph (b) [@CL-CLS-1089]. The written-notice proviso [@CL-CLS-1089; @CL-CLS-1090] and the pre-notice cost limit [@CL-CLS-1092] are stated for the second route, instead of the first. The accounting for change orders is on [Change order accounting](cls-change-order-accounting.md), and the fixed-price clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md). The cost-reimbursement version is on [Changes clause for cost-reimbursement contracts](cls-changes-cost-reimbursement.md), the time-and-materials version is on [Changes clause for time-and-materials and labor-hour contracts](cls-changes-time-and-materials-labor-hours.md), and a separate notice route is on [Notification of changes clause](cls-notification-of-changes.md). The claims process is on [Disputes clause, claims and certification](cls-disputes-clause.md).
 
 The RFO text sets out the written change order and written notice events as (e)(1)(i) and (ii) [@CL-CLS-0058], where the codified clause numbers them (1) and (2) within paragraph (e) [@CL-CLS-1132], and it puts the sureties rule at (a)(2) [@CL-CLS-0049], where the codified clause has it in the lead-in of paragraph (a) [@CL-CLS-1088].
 
@@ -63,6 +63,7 @@ Where the executed construction contracts and modifications are kept, and who co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: construction changes: order definition, proviso wording, cited paragraph contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: wrote the listed changes as a list joined by or.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the equitable adjustment is made by modifying the contract in writing, citing the remainder of the paragraph (d) sentence.

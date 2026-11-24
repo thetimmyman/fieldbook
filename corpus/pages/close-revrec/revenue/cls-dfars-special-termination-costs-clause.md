@@ -45,7 +45,7 @@ A contract inserts 400,000 as the amount in the clause. After a termination for 
 
 ## Never confuse
 
-In the event of termination for the convenience of the Government, the clause shall not be construed as affecting the allowability of special termination costs in any manner other than limiting the maximum amount of the costs payable by the Government [@CL-CLS-1155]. The paragraph on the cost estimate applies notwithstanding the Limitation of Cost/Limitation of Funds clause [@CL-CLS-1201], and those clauses are covered on [Limitation of Cost notice](../../contract-finance/funding/ctf-limitation-of-cost.md) and [Limitation of Funds clause](../../contract-finance/funding/ctf-limitation-of-funds.md). How a termination settlement is built is on [Termination costs](../inventory-wip/cls-termination-costs.md) and [Termination for convenience clauses and the contracts they go in](cls-termination-for-convenience-clauses.md), the conditions for authorizing use of this clause are on [DoD special termination costs and the limitation on pricing the terminated effort](../../estimating/pricing/est-dod-special-termination-costs.md), and the separate notice to employees and subcontractors of an anticipated termination is on [Notification of anticipated contract termination or reduction (DFARS)](cls-dfars-anticipated-termination-notification.md).
+The clause's one effect on special termination costs is the payable limit rather than an allowability judgment: in the event of termination for the convenience of the Government, the clause shall not be construed as affecting the allowability of special termination costs in any manner other than limiting the maximum amount of the costs payable by the Government [@CL-CLS-1155]. The paragraph on the cost estimate applies notwithstanding the Limitation of Cost/Limitation of Funds clause [@CL-CLS-1201], and those clauses are covered on [Limitation of Cost notice](../../contract-finance/funding/ctf-limitation-of-cost.md) and [Limitation of Funds clause](../../contract-finance/funding/ctf-limitation-of-funds.md). How a termination settlement is built is on [Termination costs](../inventory-wip/cls-termination-costs.md) and [Termination for convenience clauses and the contracts they go in](cls-termination-for-convenience-clauses.md), the conditions for authorizing use of this clause are on [DoD special termination costs and the limitation on pricing the terminated effort](../../estimating/pricing/est-dod-special-termination-costs.md), and the separate notice to employees and subcontractors of an anticipated termination is on [Notification of anticipated contract termination or reduction (DFARS)](cls-dfars-anticipated-termination-notification.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which executed contracts carry the clause and the amount inserted in each, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: special termination costs clause: category cross-references, uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special termination costs.

@@ -46,7 +46,7 @@ Answer: the report is a derivative classification, so the employee carries forwa
 
 ## Never confuse
 
-Classification guidance is the exclusive responsibility of the GCA, and the final determination of the appropriate classification rests with that activity [@CL-CMP-3502]. Meanwhile the contractor protects the information at the higher of the assigned or proposed level until action is completed [@CL-CMP-3459]. The fact that a contractor has initiated a challenge will not, in any way, serve as a basis for adverse action against the contractor by the USG [@CL-CMP-3462]. Storage of classified material belongs to the [NISPOM safeguarding of classified information](cmp-nispom-safeguarding-classified-information.md) card.
+The GCA decides and the contractor protects: classification guidance is the exclusive responsibility of the GCA, and the final determination of the appropriate classification rests with that activity [@CL-CMP-3502], while the contractor protects the information at the higher of the assigned or proposed level until action is completed [@CL-CMP-3459]. The fact that a contractor has initiated a challenge will not, in any way, serve as a basis for adverse action against the contractor by the USG [@CL-CMP-3462]. Storage of classified material belongs to the [NISPOM safeguarding of classified information](cmp-nispom-safeguarding-classified-information.md) card.
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Who is authorized to make derivative classification decisions, when each last tr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrast and meta wording; challenge steps cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened two sentences to match their quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for NISPOM classification duties and challenges.

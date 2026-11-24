@@ -49,7 +49,7 @@ A fixed-price production contract for 100 units is partially terminated, cancell
 
 ## Never confuse
 
-For change order accounting, see [Change order accounting](cls-change-order-accounting.md). For payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md). For termination for convenience settlement, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+A partial termination settles the terminated portion rather than the whole contract: for change order accounting, see [Change order accounting](cls-change-order-accounting.md); for payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md); for termination for convenience settlement, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Who verifies that costs in a continued-portion adjustment are kept out of the te
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the general rule on partial settlements.
 - COMPATIBLE_EXTENSION, 2026-10-31: partial termination adjustment and settlements: RFO definition cited alone, partial settlement conditions stated in full, uncited contrast removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated the no-overlap rule as quoted.

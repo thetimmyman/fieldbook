@@ -44,7 +44,7 @@ A contracting officer issues a solicitation for supplies expected to cost 80,000
 
 ## Never confuse
 
-Appearance of a product on the List is an alert that there is a reasonable basis to believe that the product may have been made by forced or indentured child labor [@CL-CMP-3094]; absent any actual knowledge that the certification is false, the contracting officer must rely on the offerors' certifications in making award decisions [@CL-CMP-3097]. The Director of OFCCP's waiver concerns the clause at 52.222-36, Equal Opportunity for Workers with Disabilities [@CL-CMP-3098], and the child labor certification is made by the offeror [@CL-CMP-3095]. The micro-purchase figure is on [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md).
+Appearance on the List is an alert rather than a bar to purchase: appearance of a product on the List is an alert that there is a reasonable basis to believe that the product may have been made by forced or indentured child labor [@CL-CMP-3094]; absent any actual knowledge that the certification is false, the contracting officer must rely on the offerors' certifications in making award decisions [@CL-CMP-3097]. The Director of OFCCP's waiver concerns the clause at 52.222-36, Equal Opportunity for Workers with Disabilities [@CL-CMP-3098], and the child labor certification is made by the offeror [@CL-CMP-3095]. The micro-purchase figure is on [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which supply awards cover listed end products, and who owns each certification a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: forced child labor: cut uncited pointer sentences and smoothed the waiver alternative wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the country exception and the certification and waiver lists as alternatives, cited the referral recipients, and removed unsupported contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the forced or indentured child labor list and waivers for workers with disabilities.

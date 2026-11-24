@@ -44,7 +44,7 @@ An offeror submits its SAM representations on a given day. They stay effective u
 
 ## Never confuse
 
-The provision at 52.204-8 is inserted in solicitations, with an exception for commercial products or services under part 12 [@CL-CMP-2984]. The clause at 52.204-19 is inserted in solicitations and contracts [@CL-CMP-2985]. This card does not set out what the provision's paragraphs or its alternate contain.
+The provision and the clause differ in where they go: the provision at 52.204-8 is inserted in solicitations, with an exception for commercial products or services under part 12 [@CL-CMP-2984], while the clause at 52.204-19 is inserted in solicitations and contracts [@CL-CMP-2985]. This card does not set out what the provision's paragraphs or its alternate contain.
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which representations and certifications the company holds in SAM, when each was
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names all registrants.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the registrants as the ones who must review and update.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for annual representations and certifications in SAM.

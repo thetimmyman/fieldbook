@@ -23,7 +23,7 @@ Shows where the contractor delivers under an f.o.b. origin term, what it bears, 
 | Instrument | Codified FAR [@CL-SUP-1961] |
 | Codified citation | FAR 52.247-29 [@CL-SUP-1961] |
 | RFO citation | RFO FAR 52.247-29 [@CL-SUP-0297; @CL-SUP-0310] |
-| Edition date | Not established. |
+| Edition date | Feb 2006 [@CL-SUP-0297] |
 | Text status | Final [@CL-SUP-1961] |
 | Applies to | Contracts containing the F.o.b. Origin clause [@CL-SUP-1961] |
 
@@ -58,6 +58,7 @@ Confirm which delivery term each contract carries, who loads at each shipping po
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reordered the never-confuse sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added contractor duty lead-in, aligned RFO and responsibility wording.

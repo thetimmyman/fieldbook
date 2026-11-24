@@ -47,7 +47,7 @@ An offeror abroad bases its price on wage rates fixed by the host-country govern
 
 ## Never confuse
 
-Economic price adjustment clauses are on [Economic Price Adjustment—Labor and Material](../../contract-finance/billing-payment/ctf-economic-price-adjustment-labor-and-material.md) and [Economic price adjustments in proposals and proposal audits](../../estimating/escalation/est-economic-price-adjustments.md). The wider cost rules are on [Costs related to legal and other proceedings](../../compliance/cas-allowability/cmp-legal-proceedings-costs.md), and the employee protections are on [Whistleblower protections for contractor employees: policy and remedies](../../compliance/regulatory-framework/cmp-contractor-employee-whistleblower-protections.md). The claims process is on [Disputes clause, claims and certification](cls-disputes-clause.md).
+The three clauses on this card govern different subjects instead of one rule: the wage-price representation speaks to the offer, the legal costs clause to allowable costs, and the choice-of-law clause to law and forum. Economic price adjustment clauses are on [Economic Price Adjustment—Labor and Material](../../contract-finance/billing-payment/ctf-economic-price-adjustment-labor-and-material.md) and [Economic price adjustments in proposals and proposal audits](../../estimating/escalation/est-economic-price-adjustments.md). The wider cost rules are on [Costs related to legal and other proceedings](../../compliance/cas-allowability/cmp-legal-proceedings-costs.md), and the employee protections are on [Whistleblower protections for contractor employees: policy and remedies](../../compliance/regulatory-framework/cmp-contractor-employee-whistleblower-protections.md). The claims process is on [Disputes clause, claims and certification](cls-disputes-clause.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which overseas contracts and offers carry these clauses, and how whistleblower p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: foreign wage and price representation, legal costs and choice of law: uncited inferences and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the foreign-government-controlled price representation, whistleblower proceeding legal costs and overseas choice of law.

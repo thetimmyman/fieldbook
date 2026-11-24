@@ -43,7 +43,7 @@ A home office keeps a residual pool of 10 million and two segments whose aggrega
 
 ## Never confuse
 
-The independent research and development and bid and proposal cost pools of a home office are allocated to segments on the basis of the beneficial or causal relationship between those costs and the segments reporting to that home office [@CL-CMP-0577]. The reach of the standards across business units is a separate question; see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
+The independent research and development and bid and proposal cost pools of a home office are allocated to segments on the basis of the beneficial or causal relationship between those costs and the segments reporting to that home office [@CL-CMP-0577], unlike the residual expenses, which are allocated to all segments under a home office by means of a base representative of the total activity of such segments [@CL-CMP-0555]. The reach of the standards across business units is a separate question; see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ Whether every home office pool has a documented base and whether service center 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched cited sentences to the quoted scope and cited the residual expense test lead.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for home office expense allocation.

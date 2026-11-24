@@ -47,7 +47,7 @@ A contractor receives a reparable item as Government-furnished property on a Mon
 
 ## Never confuse
 
-To facilitate reporting of Government property to the GFP module, the Contractor's property records, in addition to the requirements of paragraph (f)(1)(iii) of the FAR 52.245-1 clause of the contract, shall enable recording of the required data elements [@CL-CMP-3867]. See [Government property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
+The DFARS data elements come in addition to, and differ from, the FAR clause requirements: to facilitate reporting of Government property to the GFP module, the Contractor's property records, in addition to the requirements of paragraph (f)(1)(iii) of the FAR 52.245-1 clause of the contract, shall enable recording of the required data elements [@CL-CMP-3867]. See [Government property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Whether the company's property management system is currently approved and wheth
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the GFP reporting items, 7-business-day scope, and data-element wording with the cited quotes and removed meta-wording and unquoted contrast phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS management and reporting of Government property.

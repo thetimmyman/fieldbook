@@ -38,7 +38,7 @@ A business unit incurs 1,200,000 in general and administrative expenses during a
 
 ## Never confuse
 
-CAS 410 governs how a business unit groups its general and administrative expenses into a separate indirect cost pool and allocates them only to final cost objectives using a cost input base representing total activity [@CL-CMP-0213; @CL-CMP-0214], whereas CAS 403 governs allocating home office expenses to segments and explicitly stops short of reallocating those expenses to individual contracts or other cost objectives [@CL-EST-2495; @CL-EST-2499]. When a segment receives home office expenses, their subsequent allocation to segment cost objectives is governed by the criteria of CAS 410 [@CL-CMP-7887; @CL-EST-2912].
+CAS 410 governs how a business unit groups its general and administrative expenses into a separate indirect cost pool and allocates them only to final cost objectives using a cost input base representing total activity [@CL-CMP-0213; @CL-CMP-0214], unlike CAS 403, which governs allocating home office expenses to segments and explicitly stops short of reallocating those expenses to individual contracts or other cost objectives [@CL-EST-2495; @CL-EST-2499]. When a segment receives home office expenses, their subsequent allocation to segment cost objectives is governed by the criteria of CAS 410 [@CL-CMP-7887; @CL-EST-2912].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

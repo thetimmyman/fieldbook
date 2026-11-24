@@ -52,7 +52,7 @@ On a fourth contract, the contracting officer finds some weeks after award that 
 
 ## Never confuse
 
-For a clerical error the Administrator may correct the determination [@CL-CMP-6729], and the correction is effective immediately and applies to any solicitation or active contract [@CL-CMP-6897]. For an award without the required determination, the contracting officer acts and must either modify the contract retroactive to the date of award or terminate it [@CL-CMP-6732]. Pricing at an option exercise is on [Improper wage determinations and option wage pricing](../regulatory-framework/cmp-improper-wage-determinations-and-option-wage-pricing.md). The types of primary-site determination, and how one is requested, are on [Construction wage determination types and requests](../regulatory-framework/cmp-construction-wage-determination-types-and-requests.md).
+A clerical-error correction is not the remedy for an award without the required determination: for a clerical error the Administrator may correct the determination [@CL-CMP-6729], and the correction is effective immediately and applies to any solicitation or active contract [@CL-CMP-6897], while for an award without the required determination the contracting officer acts and must either modify the contract retroactive to the date of award or terminate it [@CL-CMP-6732]. Pricing at an option exercise is on [Improper wage determinations and option wage pricing](../regulatory-framework/cmp-improper-wage-determinations-and-option-wage-pricing.md). The types of primary-site determination, and how one is requested, are on [Construction wage determination types and requests](../regulatory-framework/cmp-construction-wage-determination-types-and-requests.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm which solicitations were issued before the primary-site determination ar
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited contrast and restored the scope of a clerical correction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Dropped an unstated sequence word; after-award price adjustment now carries its cost-of-performance qualification.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction awards without the primary-site wage determination.

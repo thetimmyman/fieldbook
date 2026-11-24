@@ -64,7 +64,7 @@ An offering price is 10.00 per share and the offering includes an over-allotment
 
 ## Never confuse
 
-The cover-page table and the dilution disclosure are separate items. Both use the same quartile intervals, but the cover-page table sits in the cover-page paragraph [@CL-MNA-1196] and the dilution disclosure is its own paragraph that must also show each source of dilution [@CL-MNA-1160; @CL-MNA-1199]. For conflicts of interest, the rules require the filing to state on the cover page whether there may be actual or potential material conflicts of interest and to describe any actual or potential material conflict of interest [@CL-MNA-1155; @CL-MNA-1163]. A roll-up transaction of partnerships has its own disclosure items, see [Disclosure in a roll-up transaction of partnerships](mna-roll-up-transaction-disclosure.md).
+The cover-page table and the dilution disclosure are separate items rather than one. Both use the same quartile intervals, but the cover-page table sits in the cover-page paragraph [@CL-MNA-1196] and the dilution disclosure is its own paragraph that must also show each source of dilution [@CL-MNA-1160; @CL-MNA-1199]. For conflicts of interest, the rules require the filing to state on the cover page whether there may be actual or potential material conflicts of interest and to describe any actual or potential material conflict of interest [@CL-MNA-1155; @CL-MNA-1163]. A roll-up transaction of partnerships has its own disclosure items, see [Disclosure in a roll-up transaction of partnerships](mna-roll-up-transaction-disclosure.md).
 
 ## Company calibration
 
@@ -73,6 +73,7 @@ Confirm how the company fixes the maximum redemption threshold, the adjusted net
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added first sentence of Item 506 and removed unsupported contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sponsor compensation now covers amounts that have been or will be awarded, earned or paid.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the new card on roll-up transaction disclosure.

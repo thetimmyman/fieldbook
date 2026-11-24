@@ -45,9 +45,7 @@ An offeror will deliver two hazardous materials. One is subject to the labelling
 
 ## Never confuse
 
-For the bar on storing or disposing of non-DoD hazardous materials on an installation, see [Prohibition on storage, treatment and disposal of toxic or hazardous materials (DFARS)](cmp-dfars-toxic-hazardous-material-storage-prohibition.md) and [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md).
-
-The FAR clause on hazardous material identification and material safety data is covered in [Hazardous material identification and material safety data](cmp-hazardous-material-identification-and-material-safety-data.md).
+The hazard warning label duty is a labelling duty rather than a storage or disposal bar: the Contractor must label the item package (unit container) of any hazardous material to be delivered under the contract in accordance with the Hazard Communication Standard [@CL-CMP-4492]. For the bar on storing or disposing of non-DoD hazardous materials on an installation, see [Prohibition on storage, treatment and disposal of toxic or hazardous materials (DFARS)](cmp-dfars-toxic-hazardous-material-storage-prohibition.md) and [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md). The FAR clause on hazardous material identification and material safety data is covered in [Hazardous material identification and material safety data](cmp-hazardous-material-identification-and-material-safety-data.md).
 
 ## Company calibration
 
@@ -57,6 +55,7 @@ Which executed contracts carry the clause, and which hazardous materials the com
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited prescription section, restated label and statute wording; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on hazardous material identification and data sheets.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hazard warning labels.

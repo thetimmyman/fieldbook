@@ -25,7 +25,7 @@ Shows when a Certificate of Conformance may be shipped in place of source inspec
 | Instrument | Codified FAR [@CL-SUP-1121; @CL-SUP-1125] |
 | Codified citation | FAR 52.246-15 and 52.246-13 [@CL-SUP-1121; @CL-SUP-1125] |
 | RFO citation | RFO FAR 52.246-15 and 52.246-13 [@CL-SUP-2903; @CL-SUP-2909] |
-| Edition date | Not established. |
+| Edition date | FAR 52.246-15: Apr 1984 [@CL-SUP-2903]; FAR 52.246-13: Aug 1996 [@CL-SUP-2909] |
 | Text status | Final [@CL-SUP-1121; @CL-SUP-1125] |
 | Applies to | Supplies for which the contract would otherwise require inspection at source, once the cognizant office authorizes a certificate in writing [@CL-SUP-1121]; the certificate clause is directed for solicitations and contracts for supplies or services when the conditions in FAR 46.504 apply [@CL-SUP-1143], which allow use of a certificate at the contracting officer's discretion [@CL-SUP-1148]; workmanship on dismantling or demolition work [@CL-SUP-1125]; the dismantling clause is directed for solicitations and contracts for dismantling, demolition, or removal of improvements [@CL-SUP-1146] |
 
@@ -62,6 +62,7 @@ Whether the cognizant office has authorized certificates in writing under the ex
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the certificate conditions and authorization as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Certificate of Conformance and inspection of dismantling, demolition or removal of improvements.

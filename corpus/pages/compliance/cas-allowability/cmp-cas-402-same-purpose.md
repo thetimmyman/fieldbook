@@ -43,7 +43,7 @@ A contractor charges travel for one contract engineer as a direct cost but puts 
 
 ## Never confuse
 
-Any direct cost of minor dollar amount may be treated as an indirect cost for reasons of practicality where the accounting treatment for such cost is consistently applied to all final cost objectives, provided that such treatment produces results which are substantially the same as the results which would have been obtained if such cost had been treated as a direct cost [@CL-CMP-8809; @CL-CMP-8810].
+Treating a minor direct cost as indirect differs from misclassifying it: any direct cost of minor dollar amount may be treated as an indirect cost for reasons of practicality where the accounting treatment for such cost is consistently applied to all final cost objectives, provided that such treatment produces results which are substantially the same as the results which would have been obtained if such cost had been treated as a direct cost [@CL-CMP-8809; @CL-CMP-8810].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Whether a Disclosure Statement is on file that sets out the criteria separating 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the reassignment alternatives and the minor-cost rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the Disclosure Statement and no-statement rules and matched the minor-cost allowance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for consistency in allocating costs incurred for the same purpose.

@@ -45,7 +45,7 @@ Assume a research contract worth 200,000 that uses live animals, run in a facili
 
 ## Never confuse
 
-The contractor must register the facility with the Secretary of Agriculture unless it is otherwise exempt, and must have its proposed animal use approved by a DoD Component Headquarters Oversight Office [@CL-CMP-4566; @CL-CMP-4567]. It must furnish evidence of the registration and the approval to the contracting officer before beginning work [@CL-CMP-4568]. The contracting officer may immediately suspend, in whole or in part, work and further payments for failure to comply [@CL-CMP-4572], and failure to complete corrective action within the time the contracting officer specifies may result in termination [@CL-CMP-4573]. Under the clause on protection of human subjects, failure to comply will result in the issuance of a stop-work order to immediately suspend, in whole or in part, work and further payment, or will result in other issuance of suspension of work and further payment for as long as determined necessary at the discretion of the contracting officer [@CL-CMP-4588; @CL-CMP-4726]; see [Protection of human subjects](cmp-dfars-protection-of-human-subjects.md) and [Stop-work orders](cmp-stop-work-orders.md).
+The animal welfare remedies are not the human subjects remedies: the contracting officer may immediately suspend, in whole or in part, work and further payments for failure to comply [@CL-CMP-4572], and failure to complete corrective action within the time the contracting officer specifies may result in termination [@CL-CMP-4573], while under the clause on protection of human subjects, failure to comply will result in the issuance of a stop-work order to immediately suspend, in whole or in part, work and further payment, or will result in other issuance of suspension of work and further payment for as long as determined necessary at the discretion of the contracting officer [@CL-CMP-4588; @CL-CMP-4726]; see [Protection of human subjects](cmp-dfars-protection-of-human-subjects.md) and [Stop-work orders](cmp-stop-work-orders.md). The contractor must register the facility with the Secretary of Agriculture unless it is otherwise exempt, and must have its proposed animal use approved by a DoD Component Headquarters Oversight Office [@CL-CMP-4566; @CL-CMP-4567], and it must furnish evidence of the registration and the approval to the contracting officer before beginning work [@CL-CMP-4568].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which research contracts and subcontracts use live vertebrate animals, and who c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and tied the approval and inspection statements to the clause text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for animal welfare in research.

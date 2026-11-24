@@ -51,7 +51,7 @@ Under FAR 32.109, the contract financing procedures of FAR part 32 may be applie
 
 ## Never confuse
 
-FAR 32.109 states that the contract financing procedures under FAR part 32 may be applied to the financing of terminations either in connection with or independently of financing for contract performance, and refers to FAR 49.112-1 (while RFO FAR 32.109 refers to part 49) [@CL-CTF-3420; @CL-CTF-3433]. The [termination for convenience settlement](../billing-payment/ctf-termination-for-convenience-settlement.md) card covers termination for convenience settlements.
+Termination financing can run alongside performance financing rather than instead of it: FAR 32.109 states that the contract financing procedures under FAR part 32 may be applied to the financing of terminations either in connection with or independently of financing for contract performance [@CL-CTF-3420]. The codified text refers to FAR 49.112-1, unlike RFO FAR 32.109, which instead refers to part 49 [@CL-CTF-3420; @CL-CTF-3433]. The [termination for convenience settlement](../billing-payment/ctf-termination-for-convenience-settlement.md) card covers termination for convenience settlements.
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Whether the company's cash forecast separates financing received during a termin
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on what FAR 32.109 omits and stated the RFO FAR 32.109 rule directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.100 subpart scope.

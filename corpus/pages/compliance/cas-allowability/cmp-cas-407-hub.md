@@ -38,7 +38,7 @@ A contractor operates a manufacturing production unit that uses standard costs t
 
 ## Never confuse
 
-While the Board's final rule on CAS 407 rescinded the standard, removed and reserved subpart 9904.407, and transferred one definition within chapter 99 [@CL-CMP-1516; @CL-CMP-1521; @CL-CMP-1523], the retained requirements addressing standard costs and related variances at the production unit level were moved to CAS 418 [@CL-CMP-1518]. Under CAS 418, standard costs may be used for estimating, accumulating and reporting costs of direct material and direct labor only when standard costs and related variances are accounted for at the production unit level and under the standard costing paragraph [@CL-RTE-0650; @CL-CMP-1526], with a production unit defined as a grouping of activities using homogeneous inputs or yielding homogeneous outputs appropriate for allocating variances [@CL-CMP-1527]. CAS 418 also broadly governs direct and indirect cost classification under written policies and requires indirect costs to be accumulated in homogeneous pools allocated on beneficial or causal relationships [@CL-CMP-0216; @CL-CMP-0217; @CL-CMP-0218].
+CAS 407 differs from the active standards: the Board's final rule on CAS 407 rescinded the standard, removed and reserved subpart 9904.407, and transferred one definition within chapter 99 [@CL-CMP-1516; @CL-CMP-1521; @CL-CMP-1523], and the retained requirements addressing standard costs and related variances at the production unit level were moved to CAS 418 [@CL-CMP-1518]. Under CAS 418, standard costs may be used for estimating, accumulating and reporting costs of direct material and direct labor only when standard costs and related variances are accounted for at the production unit level and under the standard costing paragraph [@CL-RTE-0650; @CL-CMP-1526], with a production unit defined as a grouping of activities using homogeneous inputs or yielding homogeneous outputs appropriate for allocating variances [@CL-CMP-1527]. CAS 418 also broadly governs direct and indirect cost classification under written policies and requires indirect costs to be accumulated in homogeneous pools allocated on beneficial or causal relationships [@CL-CMP-0216; @CL-CMP-0217; @CL-CMP-0218].
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

@@ -60,11 +60,7 @@ A second cost-reimbursement contract is partially terminated. The agreement dele
 
 ## Never confuse
 
-Where settlement is limited to fee, the contractor's allowable costs under the contract will be paid under the terms and conditions of the contract and parts 31 and 49 of the FAR [@CL-CTF-3275], and that subparagraph is inserted only if there are costs to be vouchered out or if there are costs to be covered later by a separate settlement agreement [@CL-CTF-3276].
-
-The partial-termination format deletes the terminated portion and decreases the fee and, if appropriate, the estimated cost [@CL-CTF-3287; @CL-CTF-3139], and the contractor's allowable costs and earned fee, if any, for the terminated portion continue to be reimbursed on SF 1034 under the applicable provisions of the contract and part 31 [@CL-CTF-3140].
-
-The authorization and delinquency notices for these agreements are on [the cost-reimbursement settlement format card](../../close-revrec/revenue/cls-cost-reimbursement-settlement-format-and-delinquency.md).
+Unlike the partial-termination format, which amends the contract by deleting the terminated portion and decreases the fee and, if appropriate, the estimated cost [@CL-CTF-3287; @CL-CTF-3139] instead of settling fee alone, the fee-only format settles the amount of fee due under the contract [@CL-CTF-3272] and inserts the costs statement that the contractor's allowable costs under the contract will be paid under the terms and conditions of the contract and parts 31 and 49 of the FAR only if there are costs to be vouchered out or costs to be covered later by a separate settlement agreement [@CL-CTF-3275; @CL-CTF-3276], while the contractor's allowable costs and earned fee, if any, for the terminated portion continue to be reimbursed on SF 1034 under the applicable provisions of the contract and part 31 [@CL-CTF-3140]. The authorization and delinquency notices for these agreements are on [the cost-reimbursement settlement format card](../../close-revrec/revenue/cls-cost-reimbursement-settlement-format-and-delinquency.md).
 
 ## Company calibration
 
@@ -73,6 +69,7 @@ Which agreement language and which reserved-items list the company uses when fee
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts; restated the costs subparagraph condition and the partial termination voucher rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of supplemental agreement.

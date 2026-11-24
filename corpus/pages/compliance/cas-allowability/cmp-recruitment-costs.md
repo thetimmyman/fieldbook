@@ -47,7 +47,7 @@ A contractor incurs 30,000 for recruitment advertising during the fiscal year. O
 
 ## Never confuse
 
-The codified list of allowable costs opens with the words subject to paragraph (b) of this subsection [@CL-CMP-1120], and the RFO list opens with the words the following costs are allowable [@CL-CMP-9600]. Employment agency costs are item (a)(6) in the codified list [@CL-CMP-0804] and item (a)(1) in the RFO list [@CL-CMP-9600]. For travel, see [Travel costs](cmp-travel-costs.md), and for the factors that determine allowability, see [Allowability factors](cmp-allowability-factors.md).
+The codified list of allowable costs opens with the words subject to paragraph (b) of this subsection [@CL-CMP-1120], and the RFO list opens with the words the following costs are allowable [@CL-CMP-9600]. The two lists number the same costs differently: employment agency costs are item (a)(6) in the codified list [@CL-CMP-0804] and item (a)(1) in the RFO list [@CL-CMP-9600]. For travel, see [Travel costs](cmp-travel-costs.md), and for the factors that determine allowability, see [Allowability factors](cmp-allowability-factors.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How help-wanted advertising and recruiter costs are reviewed to exclude unallowa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated recruitment cost lists and advertising limit from the quotes; RFO-only paragraph; cut contrast.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.

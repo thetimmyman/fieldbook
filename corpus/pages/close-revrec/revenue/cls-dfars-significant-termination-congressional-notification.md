@@ -50,7 +50,7 @@ If the contract is under a major defense program, it also carries the clause at 
 
 ## Never confuse
 
-Proposed terminations must be cleared through department or agency liaison offices before release of the termination notice, or any information on the proposed termination, to the contractor [@CL-CLS-1359]. The clause at 252.249-7002 is to be used in all contracts under a major defense program [@CL-CLS-1361]. The clause itself is covered in [Anticipated termination notification](cls-dfars-anticipated-termination-notification.md). The termination notice is covered in [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md).
+Clearance runs ahead of release rather than alongside it: proposed terminations must be cleared through department or agency liaison offices before release of the termination notice, or any information on the proposed termination, to the contractor [@CL-CLS-1359]. The clause at 252.249-7002 is to be used in all contracts under a major defense program [@CL-CLS-1361]. The clause itself is covered in [Anticipated termination notification](cls-dfars-anticipated-termination-notification.md). The termination notice is covered in [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md).
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Whether a proposed termination would reduce contractor employment by 100 or more
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: congressional notification: uncited gap statements and contrasts removed, clause prescription cited as a requirement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for congressional notification of significant defense contract terminations.

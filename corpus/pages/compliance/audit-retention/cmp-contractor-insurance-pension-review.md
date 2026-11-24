@@ -49,7 +49,7 @@ A contractor had 60,000,000 of qualifying sales last year, and the ACO, after ad
 
 ## Never confuse
 
-The DCAA auditor shall use relevant findings and recommendations of previously performed CIPRs in determining the scope of any audits of insurance and pension costs [@CL-CMP-2238]. The cost rules for insurance and pension are on [Insurance standard](../cas-allowability/cmp-cas-416-insurance.md), [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md), and [Pension cost composition](../cas-allowability/cmp-cas-412-pension-composition.md).
+The CIPR differs from the audits it shapes: the DCAA auditor shall use relevant findings and recommendations of previously performed CIPRs in determining the scope of any audits of insurance and pension costs [@CL-CMP-2238]. The cost rules for insurance and pension are on [Insurance standard](../cas-allowability/cmp-cas-416-insurance.md), [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md), and [Pension cost composition](../cas-allowability/cmp-cas-412-pension-composition.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which insurance or pension reviews, recommendations or follow-ups are open, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Restored the special CIPR and already-scheduled CIPR wording on the ACO concurrence sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the in-depth CIPR and special CIPR lead-ins, included DCAA and contractor qualifiers, and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the in-depth review decision sentence to keep the sales condition and the risk assessment basis.

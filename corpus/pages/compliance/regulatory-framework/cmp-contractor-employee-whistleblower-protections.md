@@ -44,7 +44,7 @@ A contractor demotes an employee soon after the employee reports a suspected bil
 
 ## Never confuse
 
-The reprisal ban covers an employee who discloses information to the listed entities [@CL-CMP-2331]. For a contractor principal's duty to disclose credible evidence of violations to the Government, see [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md). For the Recovery Act protections, see [Whistleblower protections under the Recovery Act: coverage, file access and relief](cmp-recovery-act-whistleblower-protections.md).
+The reprisal ban is a ban on retaliation rather than a duty to report violations: it covers an employee who discloses information to the listed entities [@CL-CMP-2331]. For a contractor principal's duty to disclose credible evidence of violations to the Government, see [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md). For the Recovery Act protections, see [Whistleblower protections under the Recovery Act: coverage, file access and relief](cmp-recovery-act-whistleblower-protections.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who owns reprisal complaints, hotline handling and personnel actions that follow
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited inferences and contrasts with the cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule that the statute gives no right to disclose classified information not otherwise provided by law.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the reinstatement and court-action sentences so the listed action keeps the terms that would have applied absent the reprisal and the right of action keeps its subcontractor, court and jurisdiction scope.

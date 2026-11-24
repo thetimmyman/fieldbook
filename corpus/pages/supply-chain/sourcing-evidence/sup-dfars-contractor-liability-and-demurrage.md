@@ -25,7 +25,7 @@ Shows when the contractor is liable for loss or damage to shipped property, how 
 | Instrument | Codified DFARS [@CL-SUP-1615] |
 | Codified citation | DFARS 252.247-7016 and 252.247-7014 [@CL-SUP-1615; @CL-SUP-1621] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-SUP-9855] |
 | Text status | Final [@CL-SUP-1615] |
 | Applies to | Shipments picked up under Schedule I, Outbound Services, or delivered under Schedule II, Inbound Services, and shipments picked up or delivered under Schedule III, Intra-City and Intra-Area, for the liability clause; and a failure to load or unload within the free time, for the demurrage clause [@CL-SUP-1615; @CL-SUP-1619; @CL-SUP-1621] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry these clauses and which schedule each shipment fa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and restated the notice periods and liability rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the per-pound rate sentence to say what its quotes support.

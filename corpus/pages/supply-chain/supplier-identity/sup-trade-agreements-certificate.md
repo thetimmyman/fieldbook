@@ -24,7 +24,7 @@ Shows what an offeror certifies in the Trade Agreements Certificate, how it list
 | Instrument | Codified FAR [@CL-SUP-2781] |
 | Codified citation | FAR 52.225-6 [@CL-SUP-2781] |
 | RFO citation | RFO FAR 52.225-6 [@CL-SUP-3782] |
-| Edition date | Not established. |
+| Edition date | Feb 2021 [@CL-SUP-3782] |
 | Text status | Final [@CL-SUP-2781] |
 | Applies to | Offers in solicitations that include the provision [@CL-SUP-2781] |
 
@@ -62,6 +62,7 @@ Which record holds the country of origin for each end product, and who signs the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

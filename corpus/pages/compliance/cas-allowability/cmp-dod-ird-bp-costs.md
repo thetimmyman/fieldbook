@@ -45,7 +45,7 @@ A contractor has three product divisions that put independent research and devel
 
 ## Never confuse
 
-The DoD supplement defines a covered contract [@CL-CMP-0875; @CL-CMP-0876] and provides that the amount of independent research and development costs allowable under DoD contracts shall not exceed the lesser of [@CL-CMP-0884] such contracts' allocable share of total incurred independent research and development costs [@CL-CMP-8329] or the total amount of incurred independent research and development costs that the chief executive officer of the contractor has determined will advance the needs of DoD for future technology and advanced capability as DoD describes such needs in communications referenced at 242.771-3(c)(1)(i) [@CL-CMP-0885]. The general principle is in [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md) and the allocation question is in [the allocation standard for these costs](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
+The DoD supplement is the stricter layer: it defines a covered contract [@CL-CMP-0875; @CL-CMP-0876] and provides that the amount of independent research and development costs allowable under DoD contracts shall not exceed the lesser of [@CL-CMP-0884] such contracts' allocable share of total incurred independent research and development costs [@CL-CMP-8329] or the total amount of incurred independent research and development costs that the chief executive officer of the contractor has determined will advance the needs of DoD for future technology and advanced capability as DoD describes such needs in communications referenced at 242.771-3(c)(1)(i) [@CL-CMP-0885]. The general principle is in [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md) and the allocation question is in [the allocation standard for these costs](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether independent research and development projects and bid and proposal effor
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DTIC form, the first of the two cap amounts and the foreign military sale pointer, and cut contrast the quotes do not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the DTIC reporting condition and the allowable IR&D cap as the quotes say them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS definitions of covered segment, including a contractor with no product divisions, and major contractor.

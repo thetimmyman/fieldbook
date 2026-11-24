@@ -25,7 +25,7 @@ Shows which contractors must split each payment request into expenditures in the
 | Instrument | Codified DFARS [@CL-SUP-1772] |
 | Codified citation | DFARS 252.225-7005 [@CL-SUP-1772; @CL-SUP-1774; @CL-SUP-1837] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 2005 [@CL-SUP-9928] |
 | Text status | Final [@CL-SUP-1774] |
 | Applies to | Contracts with this clause, prescribed in DFARS 225.1103(1) [@CL-SUP-1837]; the clause applies only if the Contractor is a concern incorporated in the United States, or an unincorporated concern having its principal place of business there [@CL-SUP-1772; @CL-SUP-1773] |
 
@@ -56,6 +56,7 @@ Whether the executed contracts include this clause, and who confirms it. [@Q-004
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned obligation and applicability wording with the quotes; replaced contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (i) of the duty-free entry clause that the quoted rule refers to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identification of expenditures in the United States.

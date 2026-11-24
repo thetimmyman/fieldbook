@@ -24,7 +24,7 @@ Shows how the Contracting Officer starts or stops service at a location, how the
 | Instrument | Codified FAR [@CL-SUP-2706] |
 | Codified citation | FAR 52.241-11 and 52.241-13 [@CL-SUP-2706; @CL-SUP-2709] |
 | RFO citation | RFO FAR 52.241-11 and 52.241-13 [@CL-SUP-2300; @CL-SUP-2395] |
-| Edition date | Not established. |
+| Edition date | FEB 1995 [@CL-SUP-9843] |
 | Text status | Final [@CL-SUP-2706] |
 | Applies to | Contracts where the clauses are inserted as prescribed [@CL-SUP-2771; @CL-SUP-2774] |
 
@@ -62,6 +62,7 @@ Confirm which sites sit on the contract, which modifications added them, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned summary sentences with the cited quotes and removed meta blank wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a rate-schedule statement that the clauses do not make.

@@ -53,7 +53,7 @@ Costs incurred reach 400,000 and no progress payment has yet been made, so the c
 
 ## Never confuse
 
-Progress payments are computed from costs incurred [@CL-CTF-0102; @CL-CTF-0271], while performance-based payments are built on specifically described events or a measurable criterion of performance [@CL-CTF-0109].
+Progress payments are computed from costs incurred [@CL-CTF-0102; @CL-CTF-0271] rather than from events, unlike performance-based payments, which are built on specifically described events or a measurable criterion of performance [@CL-CTF-0109].
 
 For related progress payment topics, see [Progress payments](ctf-progress-payments.md).
 
@@ -64,6 +64,7 @@ Confirm that each progress payment request is supported and that liquidation is 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and dual codified-on-RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate I paragraph (k) exception and the total-costs exclusion stated as the clause words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

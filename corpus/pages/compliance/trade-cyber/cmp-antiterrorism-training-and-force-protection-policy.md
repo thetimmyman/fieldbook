@@ -44,7 +44,7 @@ A contractor assigns a technician who will badge into a military installation ea
 
 ## Never confuse
 
-The training clause concerns routine physical access to a Federally-controlled facility or military installation [@CL-CMP-4034]. The policy clause concerns performance or travel outside the United States under the contract [@CL-CMP-4036].
+The two clauses differ in scope: the training clause concerns routine physical access to a Federally-controlled facility or military installation [@CL-CMP-4034], while the policy clause concerns performance or travel outside the United States under the contract [@CL-CMP-4036].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which contracts require personnel to enter Federally-controlled facilities or mi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Qualified training instruction lead-in and duty wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word and noted the lead-in to the training routes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for antiterrorism awareness training and antiterrorism and force protection policy.

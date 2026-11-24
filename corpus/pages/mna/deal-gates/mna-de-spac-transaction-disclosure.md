@@ -60,7 +60,7 @@ A company is organized in a jurisdiction whose law requires its board to determi
 
 ## Never confuse
 
-A board determination is disclosed where the law of the jurisdiction in which the special purpose acquisition company is organized requires its board to make it or a comparable determination [@CL-MNA-1174; @CL-MNA-1175]; the cover page states the determination "if any" [@CL-MNA-1166]. The quantified discussion of benefits and detriments addresses the effects on each listed party [@CL-MNA-1270; @CL-MNA-1271; @CL-MNA-1172], while Item 1604(c) requires a tabular disclosure at selected redemption levels and, for each redemption level, a statement of the company valuation at or above which the potential dilution results in the amount of the non-redeeming shareholders' interest per share being at least the initial public offering price per share of common stock [@CL-MNA-1215; @CL-MNA-1169]. A statement that an unaffiliated representative was retained is separate from the statement on approval by unaffiliated security holders [@CL-MNA-1222; @CL-MNA-1178]. For the going-private counterpart on fairness, see the [going-private fairness card](../valuation/mna-going-private-fairness.md).
+The narrative effects discussion and the tabular dilution disclosure are not the same item. A board determination is disclosed where the law of the jurisdiction in which the special purpose acquisition company is organized requires its board to make it or a comparable determination [@CL-MNA-1174; @CL-MNA-1175]; the cover page states the determination "if any" [@CL-MNA-1166]. The quantified discussion of benefits and detriments addresses the effects on each listed party [@CL-MNA-1270; @CL-MNA-1271; @CL-MNA-1172], while Item 1604(c) instead requires a tabular disclosure at selected redemption levels and, for each redemption level, a statement of the company valuation at or above which the potential dilution results in the amount of the non-redeeming shareholders' interest per share being at least the initial public offering price per share of common stock [@CL-MNA-1215; @CL-MNA-1169]. A statement that an unaffiliated representative was retained is separate from the statement on approval by unaffiliated security holders [@CL-MNA-1222; @CL-MNA-1178]. For the going-private counterpart on fairness, see the [going-private fairness card](../valuation/mna-going-private-fairness.md).
 
 ## Company calibration
 
@@ -69,6 +69,7 @@ Confirm what the company's governing law requires of its board, so the determina
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added net tangible book value qualifiers and governing-body parenthetical.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cover-page amounts and representative purposes aligned to rule text.

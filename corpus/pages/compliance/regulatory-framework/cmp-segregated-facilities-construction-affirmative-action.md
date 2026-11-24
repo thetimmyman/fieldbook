@@ -52,11 +52,7 @@ A prime contractor awards two second-tier construction subcontracts for covered 
 
 ## Never confuse
 
-The segregated facilities clause is about the facilities the contractor maintains or provides for its employees, and the locations under its control where employees perform services [@CL-CMP-5876]. A breach of it is a violation of the equal opportunity clause [@CL-CMP-6370]. The construction goals are percentages for the aggregate workforce in each trade, and compliance with them is measured against total work hours performed [@CL-CMP-5880; @CL-CMP-6375].
-
-The rules on this page come from the codified text, and the RFO text prints the same three section numbers as reserved [@CL-CMP-5684; @CL-CMP-5685; @CL-CMP-5686; @CL-CMP-5876; @CL-CMP-5880; @CL-CMP-5882].
-
-The equal opportunity clause is covered in [Equal opportunity duties on a covered Federal contract](cmp-equal-opportunity-clause.md), the construction affirmative action compliance clause in [Affirmative action compliance requirements for construction](cmp-affirmative-action-requirements-for-construction.md), and the policy on construction goals and preaward clearance in [Equal employment opportunity: construction goals and preaward clearance](cmp-eeo-construction-affirmative-action-and-preaward-clearance.md).
+The segregated facilities clause is not the goals clause: the segregated facilities clause is about the facilities the contractor maintains or provides for its employees, and the locations under its control where employees perform services [@CL-CMP-5876], while the construction goals are percentages for the aggregate workforce in each trade, and compliance with them is measured against total work hours performed [@CL-CMP-5880; @CL-CMP-6375]. A breach of the facilities clause is a violation of the equal opportunity clause [@CL-CMP-6370]. The rules on this page come from the codified text, and the RFO text prints the same three section numbers as reserved [@CL-CMP-5684; @CL-CMP-5685; @CL-CMP-5686; @CL-CMP-5876; @CL-CMP-5880; @CL-CMP-5882]. The equal opportunity clause is covered in [Equal opportunity duties on a covered Federal contract](cmp-equal-opportunity-clause.md), the construction affirmative action compliance clause in [Affirmative action compliance requirements for construction](cmp-affirmative-action-requirements-for-construction.md), and the policy on construction goals and preaward clearance in [Equal employment opportunity: construction goals and preaward clearance](cmp-eeo-construction-affirmative-action-and-preaward-clearance.md).
 
 ## Company calibration
 
@@ -66,6 +62,7 @@ Whether each covered construction subcontract carries the segregated facilities 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added what the compliance basis applies to and the OFCCP actor on the preaward evaluation.
 - COMPATIBLE_EXTENSION, 2026-10-31: segregated facilities: preaward evaluation sentence limited to the quoted wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: segregated facilities: shall wording, preaward evaluation actor and exception, compliance basis.

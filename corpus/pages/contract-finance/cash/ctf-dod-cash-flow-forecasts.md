@@ -45,7 +45,7 @@ A contractor on an extended defense project has supplier delays that put its cas
 
 ## Never confuse
 
-Cash flow forecasts must show the origin and use of all material amounts of cash within the entire business unit responsible for contract performance, period by period, for the length of the contract (or until the risk of a cash crisis ends), and provide an audit trail to the data and assumptions used to prepare them [@CL-CTF-0759; @CL-CTF-0862]. Single or one-time cash flow forecasts are of limited forecasting power and should be limited to preaward survey situations [@CL-CTF-0882]. For contract payment timing rules see [Prompt payment](../billing-payment/ctf-prompt-payment.md), for the financial review triggers see [DoD required financial reviews](ctf-dod-required-financial-reviews.md), and for financing generally see [Contract financing overview](../financing/ctf-financing-overview.md).
+Forecast reliability comes from a series rather than a single forecast: cash flow forecasts must show the origin and use of all material amounts of cash within the entire business unit responsible for contract performance, period by period, for the length of the contract (or until the risk of a cash crisis ends), and provide an audit trail to the data and assumptions used to prepare them [@CL-CTF-0759; @CL-CTF-0862]; unlike the comparison of a series of previous actual cash flows with the corresponding forecasts that establishes reliability [@CL-CTF-0761], single or one-time cash flow forecasts are of limited forecasting power and should be limited to preaward survey situations [@CL-CTF-0882]. For contract payment timing rules see [Prompt payment](../billing-payment/ctf-prompt-payment.md), for the financial review triggers see [DoD required financial reviews](ctf-dod-required-financial-reviews.md), and for financing generally see [Contract financing overview](../financing/ctf-financing-overview.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm that operating unit cash forecasts provide full audit trails from operat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added items (1) through (5) and (8) of the cash flow forecast assumptions in DFARS 232.072-3(e).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the assumptions lead-in, completed the listed assumptions and restored the alternatives in the consultation list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD cash flow forecasts.

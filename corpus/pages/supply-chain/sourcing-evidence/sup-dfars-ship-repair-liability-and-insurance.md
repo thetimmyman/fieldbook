@@ -25,7 +25,7 @@ Shows who bears loss of or damage to the vessel, what the Government does not as
 | Instrument | Codified DFARS [@CL-SUP-1425] |
 | Codified citation | DFARS 252.217-7012 [@CL-SUP-1425; @CL-SUP-1427; @CL-SUP-1429] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 2003 [@CL-SUP-9863] |
 | Text status | Final [@CL-SUP-1425] |
 | Applies to | Loss or damage to the vessel and to materials or equipment the Government owns or furnished for installation [@CL-SUP-1425] |
 
@@ -57,6 +57,7 @@ What the executed contract says about the vessel risk, and what liability and wo
 
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exclusion, replacement-or-repair alternatives and indemnity limit as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Government non-assumption sentences with the quoted costs and actors.
