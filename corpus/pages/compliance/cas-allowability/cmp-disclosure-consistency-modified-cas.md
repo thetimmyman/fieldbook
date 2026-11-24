@@ -49,7 +49,7 @@ A business unit proposes a change to its cost accounting practice after award, a
 
 ## Never confuse
 
-The contractor shall follow its cost accounting practices consistently, and a change to such practices may be proposed by either the Government or the Contractor [@CL-CMP-0955]; after agreement the change must be applied prospectively to the contract [@CL-CMP-0956]. The disclosure paragraph is headed CAS-covered Contracts Only and applies if the contractor is a business unit of a company required to submit a Disclosure Statement [@CL-CMP-0953]. For the foreign-concern version of the clause, see [Disclosure and consistency for foreign concerns](cmp-consistency-cost-accounting-practices.md). The Cost Accounting Standards clause has its own page, [Cost Accounting Standards clause](cmp-cost-accounting-standards.md).
+This modified-coverage clause differs from the full Cost Accounting Standards clause, which has its own page, [Cost Accounting Standards clause](cmp-cost-accounting-standards.md): the contractor shall follow its cost accounting practices consistently, and a change to such practices may be proposed by either the Government or the Contractor [@CL-CMP-0955]; after agreement the change must be applied prospectively to the contract [@CL-CMP-0956]. The disclosure paragraph is headed CAS-covered Contracts Only and applies if the contractor is a business unit of a company required to submit a Disclosure Statement [@CL-CMP-0953]. For the foreign-concern version of the clause, see [Disclosure and consistency for foreign concerns](cmp-consistency-cost-accounting-practices.md).
 
 For the subcontract clause and the lower threshold, the codified clause points to FAR 30.201-4 and 30.201-4(b) [@CL-CMP-0964; @CL-CMP-0965], while the RFO clause points to FAR 30.205 and 30.205(b) [@CL-CMP-0297; @CL-CMP-0298].
 
@@ -60,6 +60,7 @@ Which coverage each business unit is under, and whether a Disclosure Statement i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the lead-in, Changes clause reference and interest rate, and restated the RFO paragraph from the RFO quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed the four standards with parentheses so one claim covers the whole list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the standards list, disclosure, dispute, flowdown and disclosure-scope sentences with their quotes.

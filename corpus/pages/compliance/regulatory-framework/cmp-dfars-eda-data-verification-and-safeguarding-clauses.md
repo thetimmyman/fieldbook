@@ -51,7 +51,7 @@ A contracting office completes the PGI recording procedures for a modification, 
 
 ## Never confuse
 
-Verification concerns recording the results of data verification in the system [@CL-CMP-7890]; when the PGI procedures are followed, the posted contract documents and data are an accurate representation of the contract and may be used for audit [@CL-CMP-7891]. The disclosure clause concerns unclassified information the contractor will have access to or generate [@CL-CMP-7893]. The work product clause concerns Government personnel work product and is used in all solicitations and contracts [@CL-CMP-7894].
+Data verification is not the disclosure clause and not the work product clause: verification concerns recording the results of data verification in the system [@CL-CMP-7890]; when the PGI procedures are followed, the posted contract documents and data are an accurate representation of the contract and may be used for audit [@CL-CMP-7891]. The disclosure clause concerns unclassified information the contractor will have access to or generate [@CL-CMP-7893], while the work product clause concerns Government personnel work product and is used in all solicitations and contracts [@CL-CMP-7894].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Which data verification exceptions and contract deficiency reports are open, who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, uncited inferences and an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer responsibilities section and its PGI pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for recording data verification results in the electronic document access system and the additional DoD safeguarding clauses.

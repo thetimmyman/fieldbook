@@ -47,7 +47,7 @@ A contract calls for a training video and for a set of building drawings develop
 
 ## Never confuse
 
-The Government has unlimited rights under the unlimited rights clause in all drawings, designs, specifications, notes and other works developed in the performance of the contract [@CL-CMP-4277]. Unlimited rights in technical data are covered separately; see [Technical data rights categories](cmp-dod-technical-data-rights-categories.md), and for computer software see [Noncommercial computer software rights](cmp-dod-noncommercial-software-rights.md). Drawings that become Government property under a separate clause are in [Drawings and other data as Government property](cmp-dfars-drawings-property-shop-drawings-and-restricted-designs.md). The FAR existing works clause is covered in [Existing works and technical data declaration](cmp-existing-works-and-technical-data-declaration-major-systems.md), and the general clause is in [Rights in data, general](cmp-rights-in-data-general-definitions-and-allocation.md).
+The existing works license is not the unlimited rights grant: under the existing works clause the Contractor grants the Government a nonexclusive, paid-up license [@CL-CMP-4275], while the Government has unlimited rights under the unlimited rights clause in all drawings, designs, specifications, notes and other works developed in the performance of the contract [@CL-CMP-4277]. Unlimited rights in technical data are covered separately; see [Technical data rights categories](cmp-dod-technical-data-rights-categories.md), and for computer software see [Noncommercial computer software rights](cmp-dod-noncommercial-software-rights.md). Drawings that become Government property under a separate clause are in [Drawings and other data as Government property](cmp-dfars-drawings-property-shop-drawings-and-restricted-designs.md). The FAR existing works clause is covered in [Existing works and technical data declaration](cmp-existing-works-and-technical-data-declaration-major-systems.md), and the general clause is in [Rights in data, general](cmp-rights-in-data-general-definitions-and-allocation.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which contracts include these two clauses, and which deliverables count as works
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited unlimited rights prescription; stated indemnity as alternatives; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rights in data for existing works and Government unlimited rights.

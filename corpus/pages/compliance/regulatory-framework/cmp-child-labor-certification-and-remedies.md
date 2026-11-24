@@ -54,9 +54,7 @@ A solicitation lists an end product from a listed country, and the offeror check
 
 ## Never confuse
 
-The definition covers work or service exacted from any person under the age of 18 under the menace of any penalty for its nonperformance, or performed by any person under the age of 18 pursuant to a contract the enforcement of which can be accomplished by process or penalties [@CL-CMP-5896; @CL-CMP-6390]. The first certification paragraph covers any end product listed in paragraph (b) of the provision that was mined, produced, or manufactured in a corresponding country as listed for that end product [@CL-CMP-5898].
-
-The codified cooperation condition covers a solicitation that includes the certification provision or the equivalent at 52.212-3(i) [@CL-CMP-5901], while the RFO condition is that the solicitation includes the provision 52.222-18, without the equivalent at 52.212-3(i) [@CL-CMP-0587].
+The definition covers work or service exacted from any person under the age of 18 under the menace of any penalty for its nonperformance, or performed by any person under the age of 18 pursuant to a contract the enforcement of which can be accomplished by process or penalties [@CL-CMP-5896; @CL-CMP-6390]. The first certification paragraph covers any end product listed in paragraph (b) of the provision that was mined, produced, or manufactured in a corresponding country as listed for that end product [@CL-CMP-5898]. The codified cooperation condition differs from the RFO condition: the codified condition covers a solicitation that includes the certification provision or the equivalent at 52.212-3(i) [@CL-CMP-5901], while the RFO condition is that the solicitation includes the provision 52.222-18, without the equivalent at 52.212-3(i) [@CL-CMP-0587].
 
 ## Company calibration
 
@@ -66,6 +64,7 @@ Who signs the child labor certification and where the supply-chain evidence behi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: definition, listed-products, remedy and example wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for child labor certification, cooperation and remedies.

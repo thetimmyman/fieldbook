@@ -57,9 +57,7 @@ For a class of supply contracts, the agency head asks the Secretary of Labor to 
 
 ## Never confuse
 
-The clause at 52.222-3 is inserted in solicitations and contracts above the micro-purchase threshold that will be performed in the listed locations, unless the contract will be subject to chapter 65 of title 41 of the United States Code [@CL-CMP-6783; @CL-CMP-6784]. The stipulations come with contracts subject to the statute for the manufacture or furnishing of supplies in any amount exceeding $20,000 [@CL-CMP-6978; @CL-CMP-6788].
-
-Contracts for the listed acquisitions are fully exempt from the statute [@CL-CMP-6786; @CL-CMP-6787]. Separately, upon the request of the agency head, the Secretary of Labor may exempt specific contracts or classes of contracts from one or more of the stipulations, provided the request includes a finding by the agency head [@CL-CMP-6789; @CL-CMP-6980].
+The convict labor clause is not the Walsh-Healey stipulations: the clause at 52.222-3 is inserted in solicitations and contracts above the micro-purchase threshold that will be performed in the listed locations, unless the contract will be subject to chapter 65 of title 41 of the United States Code [@CL-CMP-6783; @CL-CMP-6784], while the stipulations come with contracts subject to the statute for the manufacture or furnishing of supplies in any amount exceeding $20,000 [@CL-CMP-6978; @CL-CMP-6788]. Contracts for the listed acquisitions are fully exempt from the statute [@CL-CMP-6786; @CL-CMP-6787]; this differs from the specific exemption, under which, upon the request of the agency head, the Secretary of Labor may exempt specific contracts or classes of contracts from one or more of the stipulations, provided the request includes a finding by the agency head [@CL-CMP-6789; @CL-CMP-6980].
 
 ## Company calibration
 
@@ -69,5 +67,6 @@ Which supply contracts exceed the stipulation amount, which exemptions or Secret
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: scope wording, example and contrast tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the convict labor clause prescription and the scope and exemptions of the Walsh-Healey Act.

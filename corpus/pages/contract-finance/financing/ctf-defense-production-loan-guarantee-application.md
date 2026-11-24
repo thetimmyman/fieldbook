@@ -51,9 +51,9 @@ A contractor has 2,000,000 of items under defense contracts that the asset formu
 
 ## Never confuse
 
-A contractor, subcontractor or supplier that needs operating funds may apply to a financing institution for a loan, and a financing institution that considers a Government guarantee necessary may apply to the Federal Reserve Bank of its district for the guarantee [@CL-CTF-3073; @CL-CTF-3167]. Progress payments are deducted from the asset formula [@CL-CTF-3077]. The [defense production loan guarantees](ctf-defense-production-loan-guarantees.md) card covers the rest of the regime, and the [surety, other borrowing and terminated contracts](ctf-defense-production-loan-guarantee-surety-and-termination.md) card covers the conditions that follow.
+A contractor, subcontractor or supplier that needs operating funds may apply to a financing institution for a loan rather than to the Government, and a financing institution that considers a Government guarantee necessary may apply to the Federal Reserve Bank of its district for the guarantee [@CL-CTF-3073; @CL-CTF-3167]. Progress payments are deducted from the asset formula [@CL-CTF-3077] rather than added to it. The [defense production loan guarantees](ctf-defense-production-loan-guarantees.md) card covers the rest of the regime, and the [surety, other borrowing and terminated contracts](ctf-defense-production-loan-guarantee-surety-and-termination.md) card covers the conditions that follow.
 
-Under codified FAR 32.304-3 the agency shall normally limit a guarantee for a loan made primarily for working capital purposes with an asset formula of 90 percent or less of the contractor's investment [@CL-CTF-3075; @CL-CTF-9594], and under FAR 32.304-4 the agency may change the guarantee amount or maturity date, within the limitations at 32.304-3, as described there [@CL-CTF-3174]. RFO FAR 32.304 is marked [Reserved] [@CL-CTF-4527].
+Under codified FAR 32.304-3 the agency shall normally limit a guarantee for a loan made primarily for working capital purposes with an asset formula of 90 percent or less of the contractor's investment [@CL-CTF-3075; @CL-CTF-9594], and under FAR 32.304-4 the agency may change the guarantee amount or maturity date, within the limitations at 32.304-3, as described there [@CL-CTF-3174], unlike the RFO text, where FAR 32.304 is marked [Reserved] [@CL-CTF-4527].
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which defense contracts sit under a guaranteed loan, and how each guarantee, its
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned asset formula, Reserve Bank steps and RFO wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Asset formula sentences now carry the working-capital lead-in and cite its companion claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

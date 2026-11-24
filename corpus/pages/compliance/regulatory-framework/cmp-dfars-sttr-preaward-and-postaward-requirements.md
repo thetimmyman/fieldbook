@@ -45,7 +45,7 @@ A small business answers a solicitation with the STTR preaward provision. Its of
 
 ## Never confuse
 
-The written agreement between the Offeror and a research institution contains a specific allocation of ownership, rights, and responsibilities for intellectual property [@CL-CMP-3922]. The Government's rights in SBIR and STTR data are covered on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md). A concern's size and eligibility for the programs are a different question, covered on [SBIR and STTR size and eligibility standards](../../market/taxonomy/mkt-sbir-sttr-size-and-eligibility-standards.md). The FAR clause on SBIR rights is covered on [Rights in data under the SBIR and STTR program](cmp-rights-in-data-sbir-and-sttr-program.md).
+The preaward written agreement is not the postaward freeze: the written agreement between the Offeror and a research institution contains a specific allocation of ownership, rights, and responsibilities for intellectual property [@CL-CMP-3922], while after award the Contractor shall not allow any modification to its written agreement with the research institution unless the modified agreement contains, among its listed items, a specific allocation of ownership, rights, and responsibilities for intellectual property [@CL-CMP-3926]. The Government's rights in SBIR and STTR data are covered on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md). A concern's size and eligibility for the programs are a different question, covered on [SBIR and STTR size and eligibility standards](../../market/taxonomy/mkt-sbir-sttr-size-and-eligibility-standards.md). The FAR clause on SBIR rights is covered on [Rights in data under the SBIR and STTR program](cmp-rights-in-data-sbir-and-sttr-program.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which executed STTR contracts carry these provisions, where the agreement and re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the preaward and postaward agreement sentences and recast the contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the scope of the preaward intellectual property allocation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the postaward agreement sentence so the intellectual property rule keeps the scope of inventions, patents, technical data and computer software resulting from performance of the contract.

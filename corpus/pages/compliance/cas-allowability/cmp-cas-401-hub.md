@@ -38,7 +38,7 @@ A business unit estimates engineering labor for a proposal by function: design a
 
 ## Never confuse
 
-CAS 401 requires consistency between practices used in estimating costs and those used in accumulating and reporting costs [@CL-CMP-0201], whereas CAS 402 requires that all costs incurred for the same purpose in like circumstances are direct costs only or indirect costs only with respect to final cost objectives [@CL-CMP-0204]. CAS 402 ensures each type of cost is allocated only once and on only one basis to any cost objective [@CL-EST-2906], meaning an accounting practice can satisfy CAS 401 consistency yet still violate the separate single-purpose classification rule of CAS 402.
+CAS 401 requires consistency between practices used in estimating costs and those used in accumulating and reporting costs [@CL-CMP-0201], unlike CAS 402, which requires that all costs incurred for the same purpose in like circumstances are direct costs only or indirect costs only with respect to final cost objectives [@CL-CMP-0204]. CAS 402 ensures each type of cost is allocated only once and on only one basis to any cost objective [@CL-EST-2906], meaning an accounting practice can satisfy CAS 401 consistency yet still violate the separate single-purpose classification rule of CAS 402.
 
 ## Company calibration
 
@@ -47,4 +47,5 @@ Whether the company's business units are covered by this standard, and which dis
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - NEW_KNOWLEDGE, 2026-11-12: Drafted the concept hub for this Cost Accounting Standard, assembled from existing claims and linking every page that cites it.

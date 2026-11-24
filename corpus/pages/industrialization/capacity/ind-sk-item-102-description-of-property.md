@@ -43,7 +43,7 @@ A public company owns one plant outright and leases a second. Its filing describ
 
 ## Never confuse
 
-Item 102 requires disclosure, to the extent material, of the location and general character of the registrant's principal physical properties and requires information that will reasonably inform investors as to the suitability, adequacy, productive capacity, and extent of utilization of the principal physical properties of the registrant and its subsidiaries, to the extent the described properties are material [@CL-IND-0043; @CL-IND-0046]. Idle facilities and idle capacity costs are covered on [Idle facilities and idle capacity costs](../../compliance/cas-allowability/cmp-idle-facilities-and-capacity.md).
+Item 102 asks about physical properties rather than about costs: item 102 requires disclosure, to the extent material, of the location and general character of the registrant's principal physical properties and requires information that will reasonably inform investors as to the suitability, adequacy, productive capacity, and extent of utilization of the principal physical properties of the registrant and its subsidiaries, to the extent the described properties are material [@CL-IND-0043; @CL-IND-0046]. Idle facilities and idle capacity costs are covered on [Idle facilities and idle capacity costs](../../compliance/cas-allowability/cmp-idle-facilities-and-capacity.md).
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Whether the company is an SEC registrant and, if so, how its property disclosure
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the comprehensive materiality consideration and Item 101 instruction reference and aligned the encumbrance qualifier to 17 CFR 229.102.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Regulation S-K Item 102.

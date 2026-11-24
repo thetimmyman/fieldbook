@@ -45,7 +45,7 @@ The agreed rate is 5 percent of net selling price, and the part embodies an inve
 
 ## Never confuse
 
-Under the Computation of Royalties clause, royalties accrue to the Contractor [@CL-CMP-4261]. For royalty costs the Contractor pays to others, see [Royalties and other costs for use of patents](../cas-allowability/cmp-patent-royalties.md). The clauses on reporting and readjusting royalties for patent license contracts are in [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md). For the License Grant clause under which the Contractor grants a paid up license [@CL-CMP-4250], see [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md).
+A running royalty accrues article by article rather than being paid up once: under the Computation of Royalties clause, royalties accrue to the Contractor [@CL-CMP-4261], while the License Grant clause grants a paid up license [@CL-CMP-4250]. For royalty costs the Contractor pays to others, see [Royalties and other costs for use of patents](../cas-allowability/cmp-patent-royalties.md). The clauses on reporting and readjusting royalties for patent license contracts are in [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md). For the License Grant clause under which the Contractor grants a paid up license [@CL-CMP-4250], see [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which patent licenses in the contract set carry the running royalty clauses, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the actor for the report, restated rate forms, cut uncited contrast sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the grant sentence so the running royalty license keeps the patents that may issue as the result of any reissue, division or continuation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for running royalty license grant, term and computation of royalties.

@@ -25,7 +25,7 @@ Shows what shipyard information an offeror provides, how it is used in evaluatio
 | Instrument | Codified DFARS [@CL-SUP-1622] |
 | Codified citation | DFARS 252.247-7026 and 252.247-7025 [@CL-SUP-1622; @CL-SUP-1625] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | OCT 2024 [@CL-SUP-9856] |
 | Text status | Final [@CL-SUP-1622] |
 | Applies to | Solicitations that include the domestic shipyard evaluation criterion, and contracts that include the reflagging or repair work clause [@CL-SUP-1622; @CL-SUP-1625] |
 
@@ -54,6 +54,7 @@ Which solicitations carry the provision, what shipyard history the company can d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the reflagging requirement lead-in for both items and removed commentary not in the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's right to request supporting documentation.

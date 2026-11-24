@@ -63,7 +63,7 @@ An existing employee is permanently transferred to a new facility. The employee 
 
 ## Never confuse
 
-Relocation costs are costs incident to a permanent change of assigned work location for a period of 12 months or more [@CL-CMP-0806]; see [Travel costs](cmp-travel-costs.md) for travel cost rules. Loss on the sale of a home and continuing mortgage principal payments on a residence being sold are expressly unallowable relocation items [@CL-CMP-1141; @CL-CMP-1144]; see [Compensation for personal services](cmp-compensation-personal-services.md). Under the codified text a mortgage title policy is allowable through a parenthetical in paragraph (c)(2)(v) [@CL-CMP-1143]; under the RFO text it is allowable under paragraph (a)(5) [@CL-CMP-9500]. The codified $5,000 lump sum refers to paragraph (a)(5) [@CL-CMP-0808], which is paragraph (a)(6) in the RFO text [@CL-CMP-9504; @CL-CMP-9501].
+A permanent change of 12 months or more is not a trip: relocation costs are costs incident to a permanent change of assigned work location for a period of 12 months or more [@CL-CMP-0806]; see [Travel costs](cmp-travel-costs.md) for travel cost rules. Loss on the sale of a home and continuing mortgage principal payments on a residence being sold are expressly unallowable relocation items [@CL-CMP-1141; @CL-CMP-1144]; see [Compensation for personal services](cmp-compensation-personal-services.md). Under the codified text a mortgage title policy is allowable through a parenthetical in paragraph (c)(2)(v) [@CL-CMP-1143]; under the RFO text it is allowable under paragraph (a)(5) [@CL-CMP-9500]. The codified $5,000 lump sum refers to paragraph (a)(5) [@CL-CMP-0808], which is paragraph (a)(6) in the RFO text [@CL-CMP-9504; @CL-CMP-9501].
 
 ## Company calibration
 
@@ -73,6 +73,7 @@ How relocation reimbursements are monitored to enforce ceiling caps and track ea
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Continuing ownership costs now carry the after-settlement or lease date condition, including in the worked example.

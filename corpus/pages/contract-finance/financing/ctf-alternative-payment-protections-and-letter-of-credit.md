@@ -68,7 +68,7 @@ The issuing institution creates a performance bond letter of credit in the parag
 
 ## Never confuse
 
-The payment protection is submitted within the stated number of days of contract award [@CL-CTF-2483], and the Contracting Officer is authorized to access its funds when a supplier of labor or material alleges nonpayment in writing, except for escrow agreements and payment bonds, which provide their own protection procedures [@CL-CTF-2484]. For letters of credit for advance payments, see [Advance payment letters of credit and findings](ctf-advance-payment-letters-of-credit-and-findings.md).
+The payment protection is submitted within the stated number of days of contract award [@CL-CTF-2483], and the Contracting Officer is authorized to access its funds when a supplier of labor or material alleges nonpayment in writing, except for escrow agreements and payment bonds, which provide their own protection procedures rather than falling under that access [@CL-CTF-2484]. For letters of credit for advance payments, see [Advance payment letters of credit and findings](ctf-advance-payment-letters-of-credit-and-findings.md).
 
 ## Company calibration
 
@@ -77,6 +77,7 @@ Which contracts require payment protection or a letter of credit, in what form, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the payment protection and letter of credit wording with the cited paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified text for the end of the confirmation format sentence.

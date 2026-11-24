@@ -25,7 +25,7 @@ Shows which end products a contractor may deliver under the Buy American, Free T
 | Instrument | Codified FAR [@CL-SUP-1246] |
 | Codified citation | FAR 52.225-3 [@CL-SUP-1246] |
 | RFO citation | RFO FAR 52.225-3 [@CL-SUP-3579; @CL-SUP-3580; @CL-SUP-3581; @CL-SUP-3582; @CL-SUP-3583; @CL-SUP-3584; @CL-SUP-3585]; Alternate II [@CL-SUP-3586]; Alternate III [@CL-SUP-3587] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-SUP-9892] |
 | Text status | Final [@CL-SUP-1246] |
 | Applies to | Acquisitions where the Contracting Officer has determined that the listed FTAs and the Israeli Trade Act apply [@CL-SUP-1246] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry this clause rather than the plain supplies clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Alternate III paragraph (c) substitution; aligned the delivery-rule, definitions pointer and never-confuse wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Israeli end product definition stated as two alternatives.

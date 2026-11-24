@@ -45,7 +45,7 @@ A contractor delivers a sensor kit to a partner facility in the United Kingdom t
 
 ## Never confuse
 
-This clause covers exports and transfers in performance of the contract [@CL-CMP-4030]. The provision on exports in response to a solicitation covers exports and transfers in preparing a response to the solicitation [@CL-CMP-4023] and has an offeror representation [@CL-CMP-4025]; see [Exports by approved community members in response to a solicitation](cmp-approved-community-exports-in-response-to-solicitation.md). The export-controlled items clause requires the contractor to comply with all applicable laws and regulations regarding export-controlled items [@CL-CMP-4017]; see [Export-controlled items clause](cmp-export-controlled-items-clause.md).
+The clause and the provision differ in phase: this clause covers exports and transfers in performance of the contract [@CL-CMP-4030], while the provision on exports in response to a solicitation covers exports and transfers in preparing a response to the solicitation [@CL-CMP-4023] and has an offeror representation [@CL-CMP-4025]; see [Exports by approved community members in response to a solicitation](cmp-approved-community-exports-in-response-to-solicitation.md). The export-controlled items clause requires the contractor to comply with all applicable laws and regulations regarding export-controlled items [@CL-CMP-4017]; see [Export-controlled items clause](cmp-export-controlled-items-clause.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which subcontractors and facilities are Approved Community members, and who mark
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the regulations named in the compliance duty and the permission condition; replaced uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word and marked the cut-short regulation reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the marking and handling duty and the conduct outside the treaties so each keeps the added articles, the treaty and regulation basis and the other United States requirements.

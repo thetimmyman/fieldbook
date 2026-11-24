@@ -49,7 +49,7 @@ After termination a contractor identifies 250,000 of raw materials and component
 
 ## Never confuse
 
-An inventory disposal schedule lists termination inventory allocable to the terminated portion, whereas the property account check determines the accuracy of the Government property account for the terminated contract before execution of a settlement agreement [@CL-CLS-0521; @CL-CLS-0524]. For how costs of termination are judged, see [Termination costs](cls-termination-costs.md). For property records under the contractor's system, see [Property management system](../fixed-assets/cls-property-management-system.md) and [Government Property clause](../fixed-assets/cls-government-property-clause.md). For title to inventory under progress payments, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md).
+The inventory disposal schedule and the property account check are not the same step: an inventory disposal schedule lists termination inventory allocable to the terminated portion, whereas the property account check determines the accuracy of the Government property account for the terminated contract before execution of a settlement agreement [@CL-CLS-0521; @CL-CLS-0524]. For how costs of termination are judged, see [Termination costs](cls-termination-costs.md). For property records under the contractor's system, see [Property management system](../fixed-assets/cls-property-management-system.md) and [Government Property clause](../fixed-assets/cls-government-property-clause.md). For title to inventory under progress payments, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Who reconciles inventory disposal schedules and Government property accounts aga
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.109-3, 52.249-2, 52.249-6, and RFO FAR 2.101 to the table, restored shall modals, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the termination inventory definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of termination inventory.

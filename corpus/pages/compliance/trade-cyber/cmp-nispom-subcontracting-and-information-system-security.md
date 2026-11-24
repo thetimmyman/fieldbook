@@ -46,7 +46,7 @@ Answer: before releasing the drawings the prime makes the access determination, 
 
 ## Never confuse
 
-The CSA must authorize an information system before the contractor can use the system to process classified information [@CL-CMP-3199]. For covered defense information on unclassified systems, see [Safeguarding covered defense information](cmp-safeguarding-covered-defense-information.md); for the contracting officer's duties for the classification specification, see [Safeguarding classified information within industry](../audit-retention/cmp-classified-information-safeguarding-duties.md); and for contractor security officials and the ISSM appointment in the procedures section, see [NISPOM security officials, insider threat program and self-inspection](cmp-nispom-general-procedures-and-security-officials.md).
+Use follows authorization, not the other way round: the CSA must authorize an information system before the contractor can use the system to process classified information [@CL-CMP-3199]. For covered defense information on unclassified systems, see [Safeguarding covered defense information](cmp-safeguarding-covered-defense-information.md); for the contracting officer's duties for the classification specification, see [Safeguarding classified information within industry](../audit-retention/cmp-classified-information-safeguarding-duties.md); and for contractor security officials and the ISSM appointment in the procedures section, see [NISPOM security officials, insider threat program and self-inspection](cmp-nispom-general-procedures-and-security-officials.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which subcontracts involve classified information, who verifies subcontractor el
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added § 117.9(a) reference to the access determination, restored the existing-contractual-relationship condition in How it works, and removed uncited meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the subcontract-requirement condition on verification.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for NISPOM subcontracting and information system security.

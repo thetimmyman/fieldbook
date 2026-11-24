@@ -48,9 +48,7 @@ A contractor finds that a software tool in a deliverable comes from a Kaspersky 
 
 ## Never confuse
 
-The Kaspersky prohibition covers providing a covered article the Government will use and using one in developing contract data or deliverables [@CL-CMP-3563; @CL-CMP-3564]. The ByteDance prohibition covers having or using a covered application on information technology, including employee equipment used for the contract [@CL-CMP-3567]. The ByteDance prohibition has a written-exception route [@CL-CMP-3568]. The broader telecommunications prohibitions are on [Covered telecommunications equipment or services: definitions and prohibition](../trade-cyber/cmp-covered-telecommunications-definitions-and-prohibition.md).
-
-The codified Kaspersky clause sets a report within 3 business days and a further report within 10 business days [@CL-CMP-3565; @CL-CMP-3594], while the RFO text sets 72 hours for the report [@CL-CMP-1376] and for a subsequent report; the 10 business days run on the Contractor from submitting the report, and the subsequent 72 hours run on the contractor from discovering the new information [@CL-CMP-3594; @CL-CMP-1381].
+The Kaspersky prohibition is not the ByteDance prohibition: the Kaspersky prohibition covers providing a covered article the Government will use and using one in developing contract data or deliverables [@CL-CMP-3563; @CL-CMP-3564], while the ByteDance prohibition covers having or using a covered application on information technology, including employee equipment used for the contract [@CL-CMP-3567]. The ByteDance prohibition has a written-exception route [@CL-CMP-3568]. The broader telecommunications prohibitions are on [Covered telecommunications equipment or services: definitions and prohibition](../trade-cyber/cmp-covered-telecommunications-definitions-and-prohibition.md). The codified Kaspersky clause sets a report within 3 business days and a further report within 10 business days [@CL-CMP-3565; @CL-CMP-3594], while the RFO text sets 72 hours for the report [@CL-CMP-1376] and for a subsequent report; the 10 business days run on the Contractor from submitting the report, and the subsequent 72 hours run on the contractor from discovering the new information [@CL-CMP-3594; @CL-CMP-1381].
 
 ## Company calibration
 
@@ -60,6 +58,7 @@ Whether any company software, hardware, service or personal device used on contr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and absence statements.

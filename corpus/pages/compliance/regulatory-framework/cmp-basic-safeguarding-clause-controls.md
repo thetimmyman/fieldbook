@@ -46,11 +46,7 @@ A contractor keeps Federal contract information on an internal file server and a
 
 ## Never confuse
 
-The clause sets, at a minimum, a basic set of security controls for covered contractor information systems [@CL-CMP-3547]. The flowdown reaches subcontracts in which the subcontractor may have Federal contract information residing in or transiting through its information system [@CL-CMP-3557]. For covered defense information, see [Safeguarding covered defense information and cyber incident reporting](../trade-cyber/cmp-safeguarding-covered-defense-information.md).
-
-In the codified clause the exception for commercially available off-the-shelf items is written after both commercial products and commercial services [@CL-CMP-3557], while the RFO clause writes it after commercial products and before commercial services [@CL-CMP-0527].
-
-The clause on privacy or security safeguards, with the drone prohibition, is covered in [Privacy or security safeguards and the drone prohibition](cmp-privacy-and-security-safeguards-and-drone-prohibition.md).
+Basic safeguarding of a covered contractor information system is not the safeguarding of covered defense information: the clause sets, at a minimum, a basic set of security controls for covered contractor information systems [@CL-CMP-3547], and the flowdown reaches subcontracts in which the subcontractor may have Federal contract information residing in or transiting through its information system [@CL-CMP-3557]. For covered defense information, see [Safeguarding covered defense information and cyber incident reporting](../trade-cyber/cmp-safeguarding-covered-defense-information.md). In the codified clause the exception for commercially available off-the-shelf items is written after both commercial products and commercial services [@CL-CMP-3557], while the RFO clause writes it after commercial products and before commercial services [@CL-CMP-0527]. The clause on privacy or security safeguards, with the drone prohibition, is covered in [Privacy or security safeguards and the drone prohibition](cmp-privacy-and-security-safeguards-and-drone-prohibition.md).
 
 ## Company calibration
 
@@ -60,6 +56,7 @@ Which company systems process, store or transmit Federal contract information, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: corrected the scan wording and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on privacy or security safeguards and the drone prohibition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

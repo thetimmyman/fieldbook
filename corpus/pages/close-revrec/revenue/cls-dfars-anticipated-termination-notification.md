@@ -47,7 +47,7 @@ A contractor on a defense program is told that funding will be substantially red
 
 ## Never confuse
 
-The notice of the anticipated termination or reduction is due within 2 weeks after the Contracting Officer notifies the Contractor that contract funding will be terminated or substantially reduced [@CL-CLS-1158]. The termination notice itself and the Contractor's duties after that notice are on [Prime contractor duties after a notice of termination](cls-prime-contractor-duties-after-termination-notice.md), [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md) and [Termination for convenience clauses and the contracts they go in](cls-termination-for-convenience-clauses.md). The clause on special termination costs is on [Special termination costs clause (DFARS)](cls-dfars-special-termination-costs-clause.md).
+This notice is not the termination notice itself: the notice of the anticipated termination or reduction is due within 2 weeks after the Contracting Officer notifies the Contractor that contract funding will be terminated or substantially reduced [@CL-CLS-1158]. The termination notice itself and the Contractor's duties after that notice are on [Prime contractor duties after a notice of termination](cls-prime-contractor-duties-after-termination-notice.md), [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md) and [Termination for convenience clauses and the contracts they go in](cls-termination-for-convenience-clauses.md). The clause on special termination costs is on [Special termination costs clause (DFARS)](cls-dfars-special-termination-costs-clause.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed contracts carry the clause, and who owns the employee and subcont
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: anticipated termination notification: Workforce Innovation and Opportunity Act scope of employee notice, uncited gap statements removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: named the two statutes the clause implements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of anticipated contract termination or reduction.

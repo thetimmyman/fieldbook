@@ -43,7 +43,7 @@ During an incurred cost audit of a cost-reimbursement contract, the auditor revi
 
 ## Never confuse
 
-The cost-element verifications are examples that additional audit objectives may include [@CL-CMP-1854], alongside assessing and evaluating whether costs charged to Government contracts are necessary, comply with contract terms, and are allowable, allocable, and reasonable and consistent with FAR 31 Contract Cost Principles and Procedures, GAAP, and CAS [@CL-CMP-1717; @CL-CMP-1853]. For the purchasing controls behind material and subcontract costs, see [Contractor purchasing system](../../supply-chain/procure-to-pay/sup-contractor-purchasing-system.md).
+The cost-element verifications are additions, not the core: they are examples that additional audit objectives may include [@CL-CMP-1854], alongside assessing and evaluating whether costs charged to Government contracts are necessary, comply with contract terms, and are allowable, allocable, and reasonable and consistent with FAR 31 Contract Cost Principles and Procedures, GAAP, and CAS [@CL-CMP-1717; @CL-CMP-1853]. For the purchasing controls behind material and subcontract costs, see [Contractor purchasing system](../../supply-chain/procure-to-pay/sup-contractor-purchasing-system.md).
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added assessing and evaluating wording, cited the additional-objectives lead-in on each cost element, and included the FAR citations on excessive pass-through costs.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for audit objectives for major cost elements.

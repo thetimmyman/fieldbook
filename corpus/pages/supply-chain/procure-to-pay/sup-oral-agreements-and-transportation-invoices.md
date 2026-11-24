@@ -25,7 +25,7 @@ Explains which changes to a transportation contract must be in writing, and what
 | Instrument | Codified FAR [@CL-SUP-2320] |
 | Codified citation | FAR 52.247-27 and FAR 52.247-28 [@CL-SUP-2320; @CL-SUP-2321] |
 | RFO citation | No RFO equivalent [@CL-SUP-0481; @CL-SUP-0482] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-27: APR 1984 [@CL-SUP-9822]; FAR 52.247-28: APR 1984 [@CL-SUP-9823] |
 | Text status | Final [@CL-SUP-2320] |
 | Applies to | The oral agreement clause in solicitations and contracts for transportation or transportation-related services [@CL-SUP-2355]; the invoices clause in solicitations and contracts for drayage or other term contracts for transportation or transportation-related services [@CL-SUP-2323] |
 
@@ -57,6 +57,7 @@ Confirm which ordering office document identifiers the contract requires on each
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality and RFO reserved status wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

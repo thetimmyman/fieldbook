@@ -48,7 +48,7 @@ A labor-hour contract has a ceiling price of 600,000. A written order moves the 
 
 ## Never confuse
 
-Under this clause the Contracting Officer will make the equitable adjustment in any one or more of the ceiling price, hourly rates, delivery schedule and other affected terms [@CL-CLS-1086]. The fixed-price clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md), and the contract type is on [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md). The cost-reimbursement version is on [Changes clause for cost-reimbursement contracts](cls-changes-cost-reimbursement.md), and the construction version is on [Changes clause for construction contracts](cls-changes-construction.md).
+The equitable adjustment lands on terms this clause names rather than on the estimated cost and fee of the cost-reimbursement version: under this clause the Contracting Officer will make the equitable adjustment in any one or more of the ceiling price, hourly rates, delivery schedule and other affected terms [@CL-CLS-1086]. The fixed-price clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md), and the contract type is on [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md). The cost-reimbursement version is on [Changes clause for cost-reimbursement contracts](cls-changes-cost-reimbursement.md), and the construction version is on [Changes clause for construction contracts](cls-changes-construction.md).
 
 The RFO text numbers the paragraph (a) items (a)(1)(i) to (vii) and puts the sureties rule at (a)(2) [@CL-CLS-0039; @CL-CLS-0040; @CL-CLS-0041], where the codified clause numbers the items (1) to (7) under paragraph (a) and puts the words on the sureties in the lead-in of paragraph (a) [@CL-CLS-1084; @CL-CLS-1130; @CL-CLS-1083].
 
@@ -59,6 +59,7 @@ Where the executed contracts and modifications are kept, and who confirms that t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: time-and-materials changes: Contractor shall assert, uncited gap and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the changes clause for time-and-materials or labor-hour contracts.

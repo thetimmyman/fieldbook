@@ -53,9 +53,7 @@ In a separate case, a strike halts work at a plant that holds items an agency pr
 
 ## Never confuse
 
-The contracting officer shall secure from the contractor a request for all overtime to be used during the life of the contract [@CL-CMP-6778]. Approval before overtime is used is covered on [Overtime premium approval](../../operating-model/talent/opm-overtime-premium-approval.md), and the separate contract work hours rule is on [Contract work hours overtime](cmp-contract-work-hours-overtime.md).
-
-Items shall be removed from contractors' facilities affected by work stoppages in accordance with agency procedures, and the use or appearance of force is to be avoided [@CL-CMP-6977; @CL-CMP-6781].
+The overtime request is not the approval and not the item removal: the contracting officer shall secure from the contractor a request for all overtime to be used during the life of the contract [@CL-CMP-6778]. Approval before overtime is used is covered on [Overtime premium approval](../../operating-model/talent/opm-overtime-premium-approval.md), and the separate contract work hours rule is on [Contract work hours overtime](cmp-contract-work-hours-overtime.md). Items shall be removed from contractors' facilities affected by work stoppages in accordance with agency procedures, and the use or appearance of force is to be avoided [@CL-CMP-6977; @CL-CMP-6781].
 
 ## Company calibration
 
@@ -65,6 +63,7 @@ Which contracts the company holds are applicable contracts for the overtime prem
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall/should wording, exceptions and lead-ins; removed contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the solicitation overtime rule with its normally and shall not wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

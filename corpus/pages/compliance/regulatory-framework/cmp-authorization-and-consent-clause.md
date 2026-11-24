@@ -50,7 +50,7 @@ A contractor builds a pump under a contract that contains the basic clause. A Un
 
 ## Never confuse
 
-For patent indemnity, see the [patent indemnity and refund of royalties card](cmp-patent-indemnity-and-refund-of-royalties.md). The consent clause points to the indemnity clause, if any, as the sole measure of liability to the Government [@CL-CMP-3607]. Alternate II applies to orders and subcontracts placed under the contract for communication services and facilities of the kind described [@CL-CMP-3610].
+For patent indemnity, see the [patent indemnity and refund of royalties card](cmp-patent-indemnity-and-refund-of-royalties.md). The authorization and consent is not an assumption of liability: the consent clause points to the indemnity clause, if any, as the sole measure of liability to the Government [@CL-CMP-3607]. Alternate II applies to orders and subcontracts placed under the contract for communication services and facilities of the kind described [@CL-CMP-3610].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which executed contracts and subcontracts carry the basic clause or an alternate
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the subcontract wording of Alternate II and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for authorization and consent.

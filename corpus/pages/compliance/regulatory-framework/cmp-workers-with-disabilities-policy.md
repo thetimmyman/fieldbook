@@ -58,7 +58,7 @@ The contractor must also take affirmative action to employ and advance in employ
 
 ## Never confuse
 
-FAR 22.1401 requires all three duties: taking affirmative action to employ and advance in employment qualified individuals with disabilities and treating them without discrimination based on physical or mental disability under paragraph (a), undertaking appropriate outreach and positive recruitment activities reasonably designed to effectively recruit qualified individuals with disabilities under paragraph (b), and comparing workforce utilization of individuals with disabilities to the utilization goal prescribed in the regulations of the Secretary of Labor on an annual basis under paragraph (c) [@CL-CMP-8158; @CL-CMP-8159; @CL-CMP-8160; @CL-CMP-8161].
+The three duties are one section rather than a choice among them: FAR 22.1401 requires all three duties: taking affirmative action to employ and advance in employment qualified individuals with disabilities and treating them without discrimination based on physical or mental disability under paragraph (a), undertaking appropriate outreach and positive recruitment activities reasonably designed to effectively recruit qualified individuals with disabilities under paragraph (b), and comparing workforce utilization of individuals with disabilities to the utilization goal prescribed in the regulations of the Secretary of Labor on an annual basis under paragraph (c) [@CL-CMP-8158; @CL-CMP-8159; @CL-CMP-8160; @CL-CMP-8161].
 
 ## Company calibration
 
@@ -68,6 +68,7 @@ Whether each contract and subcontract the company holds is subject to the Act, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited negative and meta commentary and stated the three conjunctive duties from FAR 22.1401.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope section that names the Act and its subcontract definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the employment policy for workers with disabilities.

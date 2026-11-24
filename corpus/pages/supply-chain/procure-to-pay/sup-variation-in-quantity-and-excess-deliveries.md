@@ -24,7 +24,7 @@ Shows which variations in quantity the Government accepts, how the contract stat
 | Instrument | Codified FAR [@CL-SUP-2578] |
 | Codified citation | FAR 52.211-16 and FAR 52.211-17 [@CL-SUP-2578; @CL-SUP-2581] |
 | RFO citation | RFO FAR 52.211-16 and 52.211-17 [Reserved] [@CL-SUP-2828; @CL-SUP-2829] |
-| Edition date | Not established. |
+| Edition date | FAR 52.211-16: APR 1984 [@CL-SUP-9849]; FAR 52.211-17: SEP 1989 [@CL-SUP-9850] |
 | Text status | Final [@CL-SUP-2578] |
 | Applies to | Not established. |
 
@@ -62,6 +62,7 @@ Confirm how received quantities are reconciled against the contract quantity and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned summary sentences with the cited quotes and removed meta blank wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept "if any" in the extent of an accepted variation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

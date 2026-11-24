@@ -45,7 +45,7 @@ An offeror prices a Spanish services contract at an assumed 200,000 and a subcon
 
 ## Never confuse
 
-The representation is made in the offer, and the clause states the exemption in the contract [@CL-CTF-1882; @CL-CTF-1880]. For direct-contractor status in Spain, see [Status as a direct contractor in Spain](ctf-dfars-spain-direct-contractor-status.md). For whether a tax is an allowable cost, see [Taxes](../../compliance/cas-allowability/cmp-taxes.md). For the FAR tax clause, see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Italy has a parallel clause and provision, see [Italy tax exemptions and the matching representation](ctf-dfars-italy-tax-exemptions-and-representation.md).
+The representation and the clause differ in where each operates rather than in substance: the representation is made in the offer [@CL-CTF-1882], while the clause states the exemption in the contract [@CL-CTF-1880], under which the contract price, including subcontract prices, does not include the taxes from which the Government is exempt [@CL-CTF-1879]. For direct-contractor status in Spain, see [Status as a direct contractor in Spain](ctf-dfars-spain-direct-contractor-status.md). For whether a tax is an allowable cost, see [Taxes](../../compliance/cas-allowability/cmp-taxes.md). For the FAR tax clause, see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Italy has a parallel clause and provision, see [Italy tax exemptions and the matching representation](ctf-dfars-italy-tax-exemptions-and-representation.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which Spain contracts and offers carry the exemption clause and representation p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited commentary and the cut-short direct-contractor description.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax exemptions in Spain and the matching representation.

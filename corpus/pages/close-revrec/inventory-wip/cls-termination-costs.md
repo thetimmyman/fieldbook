@@ -47,7 +47,7 @@ Following a partial termination, a contractor holds standard raw material that i
 
 ## Never confuse
 
-Costs which cannot be discontinued immediately after the effective date of termination despite all reasonable efforts by the contractor are generally allowable, whereas any costs continuing after the effective date of the termination due to the negligent or willful failure of the contractor to discontinue the costs shall be unallowable [@CL-CLS-0214; @CL-CLS-0215]. The costs of items reasonably usable on the contractor's other work shall not be allowable unless the contractor submits evidence that the items could not be retained at cost without sustaining a loss [@CL-CLS-0213].
+Allowability after a termination turns on whether the costs can be discontinued rather than on the contractor's preference: costs which cannot be discontinued immediately after the effective date of termination despite all reasonable efforts by the contractor are generally allowable, whereas any costs continuing after the effective date of the termination due to the negligent or willful failure of the contractor to discontinue the costs shall be unallowable [@CL-CLS-0214; @CL-CLS-0215]. The costs of items reasonably usable on the contractor's other work shall not be allowable unless the contractor submits evidence that the items could not be retained at cost without sustaining a loss [@CL-CLS-0213].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ How excess inventory and work in process on terminated contracts are reviewed fo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and supporting-data qualifier, removed an unsupported date from the deviation note, and removed meta numbering commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: added common-item usability tests and the subcontract settlement item.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

@@ -25,7 +25,7 @@ Shows the Government's inspection rights, the correction duty and how acceptance
 | Instrument | Codified FAR [@CL-SUP-1105; @CL-SUP-1109] |
 | Codified citation | FAR 52.246-7 and 52.246-8 [@CL-SUP-1105; @CL-SUP-1109] |
 | RFO citation | RFO FAR 52.246-7 [@CL-SUP-3176] and RFO FAR 52.246-8 [@CL-SUP-3180] |
-| Edition date | Not established. |
+| Edition date | FAR 52.246-7: Aug 1996 [@CL-SUP-3176]; FAR 52.246-8: May 2001 [@CL-SUP-3180] |
 | Text status | Final [@CL-SUP-1105; @CL-SUP-1109] |
 | Applies to | Research and development contracts that include the fixed-price or the cost-reimbursement inspection clause [@CL-SUP-1105; @CL-SUP-1109]; the fixed-price clause is prescribed for research and development solicitations and contracts when the primary objective of the contract is the delivery of end items other than designs, drawings, or reports, a fixed-price contract is contemplated, and the contract amount is expected to exceed the simplified acquisition threshold [@CL-SUP-1136], unless use of the clause is impractical and the clause prescribed in 46.309 is considered to be more appropriate [@CL-SUP-1137]; the cost-reimbursement clause is prescribed for research and development solicitations and contracts when the primary objective of the contract is the delivery of end items other than designs, drawings, or reports, and a cost-reimbursement contract is contemplated [@CL-SUP-1138], unless use of the clause is impractical and the clause prescribed in 46.309 is considered to be more appropriate [@CL-SUP-1139] |
 
@@ -56,6 +56,7 @@ Which acceptance and invoicing terms drive the cash forecast on research and dev
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and aligned R&D inspection and paragraph (h) wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO-only wording on correction time removed; codified claim cited.

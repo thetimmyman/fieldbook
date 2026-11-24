@@ -46,7 +46,7 @@ A contractor has an invention whose description includes subject matter classifi
 
 ## Never confuse
 
-The clause addresses patent applications that disclose subject matter of the contract classified Secret or higher or classified Confidential, and patent filing in any country other than the United States where the subject matter is classified for reasons of security [@CL-CMP-3624; @CL-CMP-3626; @CL-CMP-3627; @CL-CMP-3628]. For who holds title to an invention, see [ownership by the contractor](cmp-patent-rights-contractor-ownership-definitions-and-licenses.md) and [ownership by the Government](cmp-patent-rights-government-ownership.md). For the Contracting Officer's wider duties on classified acquisitions, see [Safeguarding classified information within industry](../audit-retention/cmp-classified-information-safeguarding-duties.md).
+The clause governs the filing of patent applications on classified subject matter rather than who owns the invention: it addresses patent applications that disclose subject matter of the contract classified Secret or higher or classified Confidential, and patent filing in any country other than the United States where the subject matter is classified for reasons of security [@CL-CMP-3624; @CL-CMP-3626; @CL-CMP-3627; @CL-CMP-3628]. For who holds title to an invention, see [ownership by the contractor](cmp-patent-rights-contractor-ownership-definitions-and-licenses.md) and [ownership by the Government](cmp-patent-rights-government-ownership.md). For the Contracting Officer's wider duties on classified acquisitions, see [Safeguarding classified information within industry](../audit-retention/cmp-classified-information-safeguarding-duties.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts involve classified subject matter, and who confirms that this cl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Confidential purpose cited; contrast and example wording cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for filing patent applications on classified subject matter.

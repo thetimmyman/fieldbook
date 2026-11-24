@@ -25,7 +25,7 @@ Shows who may use Interagency Fleet Management System vehicles under the clause,
 | Instrument | Codified DFARS [@CL-SUP-1652] |
 | Codified citation | DFARS 252.251-7001 [@CL-SUP-1652] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-SUP-9872] |
 | Text status | Final [@CL-SUP-1652] |
 | Applies to | Contracts that use the clause as prescribed in section 251.205 of the Defense Federal Acquisition Regulation Supplement [@CL-SUP-1652], for a contractor authorized use of Interagency Fleet Management System (IFMS) vehicles [@CL-SUP-1578] |
 
@@ -54,6 +54,7 @@ Whether any contract authorizes the company to use these vehicles and who may re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted insurance commentary and aligned IFMS vehicle wording with quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Interagency Fleet Management System vehicles and related services.

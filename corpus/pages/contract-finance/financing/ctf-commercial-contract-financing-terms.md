@@ -55,13 +55,13 @@ Market research shows that buyers in the market normally pay a 10 percent advanc
 
 ## Never confuse
 
-Subpart 32.2, Commercial Product and Commercial Service Purchase Financing, is applicable only to purchases of commercial products and commercial services under authority of part 12, while the subparts listed in FAR 32.002(c), including Subpart 32.1 and Subpart 32.4, are applicable to all purchases made under any authority other than part 12 [@CL-CTF-3511; @CL-CTF-3512].
+Subpart 32.2, Commercial Product and Commercial Service Purchase Financing, is applicable only to purchases of commercial products and commercial services under authority of part 12 [@CL-CTF-3511] rather than to purchases under other authorities, while the subparts listed in FAR 32.002(c), including Subpart 32.1 and Subpart 32.4, are applicable to all purchases made under any authority other than part 12 [@CL-CTF-3512].
 
-The head of the agency determines which terms are appropriate or customary in the commercial marketplace under the statutes [@CL-CTF-3535], and the contracting officer determines, as one of the criteria, that it is appropriate or customary in the commercial marketplace to make financing payments for the item [@CL-CTF-0527].
+The head of the agency determines which terms are appropriate or customary in the commercial marketplace under the statutes [@CL-CTF-3535] rather than the contracting officer, who determines, as one of the criteria, that it is appropriate or customary in the commercial marketplace to make financing payments for the item [@CL-CTF-0527].
 
-Contract financing may be a subject included in the market research conducted in accordance with part 10 [@CL-CTF-3536].
+Contract financing may be a subject included in the market research conducted in accordance with part 10 [@CL-CTF-3536] rather than being a required part of it.
 
-RFO FAR 32.201(b) states that section 3324(d)(2) of title 31 of the United States Code authorizes advance payments for subscriptions or other charges for newspapers, magazines, periodicals, or other publications [@CL-CTF-4213], and RFO FAR 32.201(a) states the commercial payment terms rule [@CL-CTF-4212].
+RFO FAR 32.201(b) states that section 3324(d)(2) of title 31 of the United States Code authorizes advance payments for subscriptions or other charges for newspapers, magazines, periodicals, or other publications [@CL-CTF-4213], unlike the codified text, and RFO FAR 32.201(a) states the commercial payment terms rule [@CL-CTF-4212].
 
 ## Company calibration
 
@@ -70,6 +70,7 @@ What financing terms the company's market actually uses, and whether the solicit
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the commercial financing terms wording with the cited paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: All authorization circumstances apply together (and-list); market-research wording tightened.

@@ -23,7 +23,7 @@ Shows the new-material rule and its exceptions, how used or reconditioned materi
 | Instrument | Codified FAR [@CL-SUP-1195] |
 | Codified citation | FAR 52.211-5 and 52.211-6 [@CL-SUP-1195; @CL-SUP-1196; @CL-SUP-1197; @CL-SUP-1198; @CL-SUP-1199; @CL-SUP-1200; @CL-SUP-1224] |
 | RFO citation | RFO FAR 52.211-5 [@CL-SUP-3459; @CL-SUP-9331; @CL-SUP-3460; @CL-SUP-3461; @CL-SUP-3462]; RFO FAR 52.211-6 is reserved [@CL-SUP-3463] |
-| Edition date | Not established. |
+| Edition date | AUG 2000 [@CL-SUP-9874] |
 | Text status | Final [@CL-SUP-1195] |
 | Applies to | Contracts that include the material requirements clause, and solicitations that include the brand name or equal provision [@CL-SUP-1195; @CL-SUP-1197] |
 
@@ -54,6 +54,7 @@ Whether the contract or solicitation carries these terms, whether it requires vi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and aligned material requirements and brand name or equal wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Virgin material wording matches the clause.

@@ -24,7 +24,7 @@ Walks a shipment through receipt, loading at the tailgate and the two return pat
 | Instrument | Codified FAR [@CL-SUP-2228] |
 | Codified citation | FAR 52.247-14, FAR 52.247-15 and FAR 52.247-16 [@CL-SUP-2228; @CL-SUP-2229; @CL-SUP-2232] |
 | RFO citation | RFO FAR 52.247-15 [@CL-SUP-0485; @CL-SUP-0486; @CL-SUP-0487; @CL-SUP-0488]; no RFO equivalent for FAR 52.247-14 or FAR 52.247-16 [@CL-SUP-0483; @CL-SUP-0484] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-14: APR 1984 [@CL-SUP-9824]; FAR 52.247-15: APR 1984 [@CL-SUP-9825]; FAR 52.247-16: APR 1984 [@CL-SUP-9826] |
 | Text status | Final [@CL-SUP-2228; @CL-SUP-2229; @CL-SUP-2232] |
 | Applies to | The receipt clause in solicitations and contracts for transportation or transportation-related services [@CL-SUP-2227]; the loading and unloading clause when the contractor is responsible for loading and unloading shipments [@CL-SUP-2264]; the returning undelivered freight clause when the contractor is responsible for returning undelivered freight [@CL-SUP-2266] |
 
@@ -64,6 +64,7 @@ Confirm that the company documents written exceptions at receipt and knows which
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality, return conditions, and RFO reserved wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the no-fault lead-in for the same-charges return.

@@ -67,9 +67,7 @@ Under a fixed-price contract with a foreign government, the two governments agre
 
 ## Never confuse
 
-For foreign taxes under cost-reimbursement contracts, see [Foreign taxes under cost-reimbursement contracts](ctf-foreign-cost-reimbursement-taxes.md).
-
-To the extent that the contract provides for furnishing supplies or performing services outside the United States and its outlying areas, the foreign fixed-price clause applies in lieu of the general [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md) [@CL-CTF-2539]. For the excise tax on certain foreign procurements, see [excise tax on certain foreign procurements](ctf-foreign-procurement-excise-tax.md). For foreign tax reporting, see [Foreign tax reporting and excise tax exemption](ctf-dfars-foreign-tax-reporting-and-excise-tax-exemption.md).
+The foreign fixed-price clause differs from the general [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md) rather than repeating it, and applies in its place to the extent that the contract provides for furnishing supplies or performing services outside the United States and its outlying areas [@CL-CTF-2539]. For foreign taxes under cost-reimbursement contracts, see [Foreign taxes under cost-reimbursement contracts](ctf-foreign-cost-reimbursement-taxes.md), for the excise tax on certain foreign procurements, see [excise tax on certain foreign procurements](ctf-foreign-procurement-excise-tax.md), and for foreign tax reporting, see [Foreign tax reporting and excise tax exemption](ctf-dfars-foreign-tax-reporting-and-excise-tax-exemption.md).
 
 ## Company calibration
 
@@ -78,6 +76,7 @@ Whether each foreign-performance contract carries the foreign fixed-price clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded definitions and exception lists, restored the legal-fees phrase, and cut uncited contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Placed the subparagraph (c)(2) exception on the whole price-inclusion rule and carried the (d)(2) exception on the price increase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the contract price sentence so the rule keeps the exception for subparagraph (c)(2).

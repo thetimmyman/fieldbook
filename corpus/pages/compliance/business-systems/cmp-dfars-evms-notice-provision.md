@@ -49,7 +49,7 @@ Under the class deviation provision, which splits at 100 million, both proposals
 
 ## Never confuse
 
-Under paragraph (b)(1), the offeror submits a written description of the management procedures it will use and maintain in the performance of any resultant contract to comply with the requirements of the Earned Value Management System clause [@CL-CMP-3838]. The definition of contractor business systems lists the earned value management system, if the contract includes the clause at DFARS 252.234-7002, Earned Value Management System [@CL-CMP-1200]. See [Contractor business systems](cmp-contractor-business-systems.md). For the clause itself, see [Earned Value Management System clause](../../program-finance/evms/prg-earned-value-management-system.md). The FAR version of the notice is on [Notice of earned value management system, preaward and postaward review](../../program-finance/evms/prg-far-evms-notice-provisions.md), and how a compliance determination is made is on [EVMS compliance determination](../../program-finance/evms/prg-evms-compliance-determination.md).
+The DFARS notice provision differs from the FAR version it sits beside: under paragraph (b)(1), the offeror submits a written description of the management procedures it will use and maintain in the performance of any resultant contract to comply with the requirements of the Earned Value Management System clause [@CL-CMP-3838]. The definition of contractor business systems lists the earned value management system, if the contract includes the clause at DFARS 252.234-7002, Earned Value Management System [@CL-CMP-1200]. See [Contractor business systems](cmp-contractor-business-systems.md). For the clause itself, see [Earned Value Management System clause](../../program-finance/evms/prg-earned-value-management-system.md). The FAR version of the notice is on [Notice of earned value management system, preaward and postaward review](../../program-finance/evms/prg-far-evms-notice-provisions.md), and how a compliance determination is made is on [EVMS compliance determination](../../program-finance/evms/prg-evms-compliance-determination.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which solicitations carry this provision, and whether the company's system has a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart provision 252.234-7998 and its proposal-value split, tied each duty to its paragraph with the compliance plan and determination copy alternatives and the exclusion of nontraditional defense contractors, and filled the RFO citation and edition date rows.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the ANSI/EIA-748 standard title and version in paragraph (a)(1) and the subcontracted effort agreement clause in paragraph (c), and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Subcontractor selection is agreed by the offeror and the Government.

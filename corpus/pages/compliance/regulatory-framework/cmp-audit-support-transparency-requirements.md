@@ -45,7 +45,7 @@ A firm offers audit remediation services. Two years ago one of its employees was
 
 ## Never confuse
 
-The preaward provision is a representation and disclosure made with the offer [@CL-CMP-4330], and it carries a look-back period [@CL-CMP-4328]. The postaward clause is a disclosure made before each contract action, and it also reports changes since the last action [@CL-CMP-4333]. Neither is the contracting officer's request for audit services, which is covered on [Contract audit services](../../estimating/pricing/est-contract-audit-services.md). The responsibility standards that apply to an audit services offeror are a separate provision, covered on [Special standards of responsibility and compliance with audit standards](cmp-audit-services-responsibility-and-standards.md).
+The preaward provision is a representation and disclosure made with the offer [@CL-CMP-4330], and it carries a look-back period [@CL-CMP-4328]; the postaward clause differs, being a disclosure made before each contract action that also reports changes since the last action [@CL-CMP-4333]. Neither is the contracting officer's request for audit services, which is covered on [Contract audit services](../../estimating/pricing/est-contract-audit-services.md). The responsibility standards that apply to an audit services offeror are a separate provision, covered on [Special standards of responsibility and compliance with audit standards](cmp-audit-services-responsibility-and-standards.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which offers and contracts carry these texts, and who tracks proceedings against
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preaward and postaward transparency requirements for firms supporting audits.

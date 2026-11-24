@@ -51,7 +51,7 @@ A practice change affects five line items of 2,400 each, and all five run in the
 
 In determining whether amounts of cost are material or immaterial, the listed criteria shall be considered where appropriate; no one criterion is necessarily determinative [@CL-CMP-1777].
 
-In judging the cumulative impact of individually immaterial items, it is appropriate to consider whether such impacts tend to offset one another or tend to be in the same direction and hence to accumulate into a material amount [@CL-CMP-1781]. The meaning of a change to a cost accounting practice is described in [Cost accounting practice definitions](../cas-allowability/cmp-cost-accounting-practice-definitions.md), and the audit products that test cost impact in [DCAA audits](../cas-allowability/cmp-dcaa-cas-audits.md).
+Individual immaterial items and their cumulative impact are judged differently: in judging the cumulative impact of individually immaterial items, it is appropriate to consider whether such impacts tend to offset one another or tend to be in the same direction and hence to accumulate into a material amount [@CL-CMP-1781]. The meaning of a change to a cost accounting practice is described in [Cost accounting practice definitions](../cas-allowability/cmp-cost-accounting-practice-definitions.md), and the audit products that test cost impact in [DCAA audits](../cas-allowability/cmp-dcaa-cas-audits.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Whether each materiality judgement is documented against the criteria before a c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated criteria wording as the quotes read and cut uncited glosses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the criteria sentences with the quotes on must consider, same direction and appropriate.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for materiality under the Cost Accounting Standards.

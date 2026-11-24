@@ -55,7 +55,7 @@ The contractor's payroll actually rises by 14,000 because of the new wage determ
 
 ## Never confuse
 
-Under the percentage method the Contracting Officer adjusts the portion of the contract price or unit prices containing the covered labor costs at the exercise of each option [@CL-CMP-4942], while under the none or separately specified method the Contracting Officer makes no adjustment in contract price, other than provided for elsewhere in the contract, to cover increases or decreases in wages and benefits as a result of the listed causes [@CL-CMP-4939]. The percentage inserted in the clause is the portion of the contract price or unit prices containing labor costs [@CL-CMP-5133], and that portion is increased by the percentage rate published in the named publication [@CL-CMP-4943].
+The percentage method is not the none or separately specified method: under the percentage method the Contracting Officer adjusts the portion of the contract price or unit prices containing the covered labor costs at the exercise of each option [@CL-CMP-4942], while under the none or separately specified method the Contracting Officer makes no adjustment in contract price, other than provided for elsewhere in the contract, to cover increases or decreases in wages and benefits as a result of the listed causes [@CL-CMP-4939]. The percentage inserted in the clause is the portion of the contract price or unit prices containing labor costs [@CL-CMP-5133], and that portion is increased by the percentage rate published in the named publication [@CL-CMP-4943].
 
 ## Company calibration
 
@@ -65,6 +65,7 @@ Which construction contracts in the finance remit use the percentage method, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: worked example and contrast wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the construction wage rate requirements price adjustment under the percentage method.

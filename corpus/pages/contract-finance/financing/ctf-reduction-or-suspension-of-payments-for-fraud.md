@@ -57,9 +57,9 @@ An agency subject to Division C of subtitle I of title 41 holds a contract worth
 
 ## Never confuse
 
-The remedy coordination official coordinates within the agency the administration of criminal, civil, administrative and contractual remedies and recommends that the agency head reduce or suspend further payments, while the agency head determines whether substantial evidence exists and decides whether to reduce or suspend further payments [@CL-CTF-3521; @CL-CTF-1402; @CL-CTF-1450; @CL-CTF-3517; @CL-CTF-1404].
+The remedy coordination official and the agency head differ in role rather than sharing one: the remedy coordination official coordinates within the agency the administration of criminal, civil, administrative and contractual remedies and recommends that the agency head reduce or suspend further payments, while the agency head rather than the official determines whether substantial evidence exists and decides whether to reduce or suspend further payments [@CL-CTF-3521; @CL-CTF-1402; @CL-CTF-1450; @CL-CTF-3517; @CL-CTF-1404].
 
-Under FAR 32.503-6(a), the Progress Payments clause provides a Government right to reduce or suspend progress payments, or to increase the liquidation rate, under specified conditions [@CL-CTF-0251], covered in [Suspension or reduction of progress payments](ctf-suspension-or-reduction-of-progress-payments.md).
+The fraud authority differs from the Progress Payments clause right rather than duplicating it: under FAR 32.503-6(a), the Progress Payments clause provides a Government right to reduce or suspend progress payments, or to increase the liquidation rate, under specified conditions [@CL-CTF-0251], covered in [Suspension or reduction of progress payments](ctf-suspension-or-reduction-of-progress-payments.md).
 
 ## Company calibration
 
@@ -68,6 +68,7 @@ Which payment streams the company receives could be reduced or suspended, and wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited framing and matched RFO substantial-evidence citation and Never-confuse statements to their cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Remedy coordination official recommendation carries its finding condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of substantial evidence.

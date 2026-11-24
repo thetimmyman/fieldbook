@@ -45,7 +45,7 @@ A foreign-concern contract carries 250,000 of cost in a pool, of which 150,000 w
 
 ## Never confuse
 
-The foreign-concern clause requires compliance with 48 CFR 9904.401, Consistency in Estimating, Accumulating, and Reporting Costs, and 48 CFR 9904.402, Consistency in Allocating Costs Incurred for the Same Purpose [@CL-CMP-0967]. The clause on [the neighbouring page](cmp-disclosure-consistency-modified-cas.md) requires compliance with 48 CFR 9904.401, 9904.402, 9904.405, Accounting for Unallowable Costs, and 9904.406 [@CL-CMP-0951].
+The two clauses require different standards: the foreign-concern clause requires compliance with 48 CFR 9904.401, Consistency in Estimating, Accumulating, and Reporting Costs, and 48 CFR 9904.402, Consistency in Allocating Costs Incurred for the Same Purpose [@CL-CMP-0967], while the clause on [the neighbouring page](cmp-disclosure-consistency-modified-cas.md) requires compliance with 48 CFR 9904.401, 9904.402, 9904.405, Accounting for Unallowable Costs, and 9904.406 [@CL-CMP-0951].
 
 For a subcontract awarded to a business unit under other types of CAS coverage, the codified clause points to FAR 30.201-4 [@CL-CMP-0974] and the RFO clause points to FAR 30.205 [@CL-CMP-0283].
 
@@ -56,6 +56,7 @@ Which business units sit in a foreign concern, and whether a Disclosure Statemen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: consistency: joined the follow-consistently duty to its cited sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited comparison and glosses; restated the clause duties as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced an abbreviation that split the sentence so the figure and its claim stay together.

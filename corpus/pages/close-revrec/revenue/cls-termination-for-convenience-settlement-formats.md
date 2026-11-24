@@ -44,7 +44,7 @@ An agency prescribes a special termination clause for a service contract. The te
 
 ## Never confuse
 
-The formats to be used for termination for convenience settlement agreements should be substantially as shown in FAR 49.603 [@CL-CLS-1356], while Standard Form 30 (SF 30), Amendment of Solicitation/Modification of Contract, shall be used to execute a settlement agreement (see 49.109-1) [@CL-CLS-1355]. See [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md).
+The format and the executing form are not the same document: the formats to be used for termination for convenience settlement agreements should be substantially as shown in FAR 49.603 [@CL-CLS-1356], while Standard Form 30 (SF 30, Amendment of Solicitation/Modification of Contract, shall be used to execute a settlement agreement (see 49.109-1) [@CL-CLS-1355]. See [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md).
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether each termination settlement agreement the company signs follows the prin
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted contrasts and meta commentary on settlement agreement formats.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination for convenience settlement agreement formats.

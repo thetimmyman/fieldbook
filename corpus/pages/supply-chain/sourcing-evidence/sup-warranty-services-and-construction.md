@@ -24,7 +24,7 @@ Shows what the services and construction warranties cover, when the Government m
 | Instrument | Codified FAR [@CL-SUP-1171] |
 | Codified citation | FAR 52.246-20 and 52.246-21 [@CL-SUP-1171; @CL-SUP-0437; @CL-SUP-1172; @CL-SUP-0438; @CL-SUP-1173; @CL-SUP-1174; @CL-SUP-1221; @CL-SUP-0439; @CL-SUP-1175; @CL-SUP-1176; @CL-SUP-1177; @CL-SUP-1178; @CL-SUP-1179; @CL-SUP-1222; @CL-SUP-4051; @CL-SUP-1223] |
 | RFO citation | RFO FAR 52.246-20 and 52.246-21 [@CL-SUP-3514; @CL-SUP-3515; @CL-SUP-3516; @CL-SUP-9342; @CL-SUP-3517; @CL-SUP-3518; @CL-SUP-3519; @CL-SUP-3520; @CL-SUP-9343; @CL-SUP-3521; @CL-SUP-3522; @CL-SUP-3523; @CL-SUP-3524; @CL-SUP-3525; @CL-SUP-3526; @CL-SUP-3527] |
-| Edition date | Not established. |
+| Edition date | FAR 52.246-20: May 2001 [@CL-SUP-3517]; FAR 52.246-21: Mar 1994 [@CL-SUP-3523] |
 | Text status | Final [@CL-SUP-1171] |
 | Applies to | Services performed, and construction work performed, under a contract that includes the matching clause [@CL-SUP-1171; @CL-SUP-0437; @CL-SUP-1175] |
 
@@ -56,6 +56,7 @@ Whether each service or construction contract carries the matching clause, what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for codified FAR 52.246-20(b) and 52.246-21(a); separated codified and RFO citations; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the construction warranty exception sentence so the exception keeps the second item, damage resulting from defects in Government-furnished material or design.

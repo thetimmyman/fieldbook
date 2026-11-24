@@ -24,7 +24,7 @@ Shows what an offeror certifies and discloses about payments to influence a Fede
 | Instrument | Codified FAR [@CL-SUP-1001; @CL-SUP-1004] |
 | Codified citation | FAR 52.203-11 [@CL-SUP-1001; @CL-SUP-1002; @CL-SUP-1545; @CL-SUP-1056] and FAR 52.203-12 [@CL-SUP-1004; @CL-SUP-1006; @CL-SUP-1053; @CL-SUP-1537] |
 | RFO citation | RFO FAR 52.203-11 [@CL-SUP-3682; @CL-SUP-3683]; RFO FAR 52.203-12 [@CL-SUP-3687; @CL-SUP-3688] |
-| Edition date | Not established. |
+| Edition date | FAR 52.203-11: SEP 2024 [@CL-SUP-9954]; FAR 52.203-12: Jun 2020 [@CL-SUP-9303] |
 | Text status | Final [@CL-SUP-1001] |
 | Applies to | Offerors, for the provision, and the Contractor, for the clause [@CL-SUP-1001; @CL-SUP-1004] |
 
@@ -56,6 +56,7 @@ How lobbying contacts and subcontractor declarations are tracked and retained. [
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for the regularly employed definition and subcontract declaration lead-in, and removed uncited commentary.

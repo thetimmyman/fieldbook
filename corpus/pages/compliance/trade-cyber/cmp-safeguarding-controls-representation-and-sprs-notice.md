@@ -45,7 +45,7 @@ An offeror answers a solicitation that names the version of the standard in effe
 
 ## Never confuse
 
-By submission of the offer, the offeror represents that it will implement the specified security requirements [@CL-CMP-2842], while SPRS risk assessments are considered by the contracting officer during the evaluation of quotations or offers received in response to the solicitation [@CL-CMP-2846].
+The representation and the evaluation differ: by submission of the offer, the offeror represents that it will implement the specified security requirements [@CL-CMP-2842], while SPRS risk assessments are considered by the contracting officer during the evaluation of quotations or offers received in response to the solicitation [@CL-CMP-2846].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Whether the offer's representation matches the controls actually in place, any p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added solicitation scope to SPRS evaluation sentence and removed meta prose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for safeguarding covered defense information controls and the notice on use of the Supplier Performance Risk System.

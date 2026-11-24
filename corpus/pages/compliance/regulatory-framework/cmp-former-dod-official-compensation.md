@@ -49,7 +49,7 @@ Answer: the person is within 2 years of leaving, so the Contractor must make the
 
 ## Never confuse
 
-The rule covers compensation to a covered DoD official within 2 years after the official leaves DoD service, without first making the required determination [@CL-CMP-4067]. [The prohibition on persons convicted of fraud or other felonies](cmp-felony-convicted-persons-prohibition.md) bars listed roles on a contract for an individual convicted after September 29, 1988 [@CL-CMP-4070].
+The compensation ban is not the felony role bar: the rule covers compensation to a covered DoD official within 2 years after the official leaves DoD service, without first making the required determination [@CL-CMP-4067], while [the prohibition on persons convicted of fraud or other felonies](cmp-felony-convicted-persons-prohibition.md) bars listed roles on a contract for an individual convicted after September 29, 1988 [@CL-CMP-4070].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Which contracts carry the clause and which new hires or consultants may be cover
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the position lists as alternatives, kept the knowingly and statute wording, and removed unsupported explanation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for compensation of former DoD officials.

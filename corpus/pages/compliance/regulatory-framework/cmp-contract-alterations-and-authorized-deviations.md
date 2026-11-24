@@ -66,9 +66,7 @@ A FAR clause is used in the same contract with an authorized deviation. It keeps
 
 ## Never confuse
 
-The alterations clause is inserted to revise or supplement other parts of the contract, except for any clause authorized for use with a deviation [@CL-CMP-6005]. A provision or clause used with an authorized deviation is identified by the same number, title and date it has without deviation, and the contracting officer inserts (DEVIATION) after the date [@CL-CMP-6007; @CL-CMP-6010].
-
-The alterations provision in a solicitation is covered in [Provisions and clauses incorporated by reference, and alterations in a solicitation](cmp-incorporation-by-reference-and-solicitation-alterations.md). The authorized deviations provision is inserted in solicitations [@CL-CMP-6702], and the authorized deviations clause in solicitations and contracts [@CL-CMP-6703].
+An alteration is not a deviation: the alterations clause is inserted to revise or supplement other parts of the contract, except for any clause authorized for use with a deviation [@CL-CMP-6005], while a provision or clause used with an authorized deviation is identified by the same number, title and date it has without deviation, and the contracting officer inserts (DEVIATION) after the date [@CL-CMP-6007; @CL-CMP-6010]. The alterations provision in a solicitation is covered in [Provisions and clauses incorporated by reference, and alterations in a solicitation](cmp-incorporation-by-reference-and-solicitation-alterations.md). The authorized deviations provision is inserted in solicitations [@CL-CMP-6702], and the authorized deviations clause in solicitations and contracts [@CL-CMP-6703].
 
 ## Company calibration
 
@@ -78,6 +76,7 @@ Which deviations are in force on each contract, who authorized them, and where t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: opening note, example and contrast wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract alterations and authorized deviations.

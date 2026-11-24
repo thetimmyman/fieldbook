@@ -48,10 +48,11 @@ pub const REQUIRED_FILES: &[&str] = &[
     "data/glossary.csv",
     "data/questions.csv",
     "data/sources.csv",
-    // templates/: the three data-only workbook templates (E1).
+    // templates/: the three data-only workbook templates (E1) and the decision package.
     "templates/discovery-log.xlsx",
     "templates/assumption-register.xlsx",
     "templates/90-day-plan.xlsx",
+    "templates/decision-package.xlsx",
 ];
 
 /// The two attestation files that carry measured browser evidence and are compared separately.
@@ -1736,7 +1737,12 @@ mod tests {
         write(root, "out/edition/data/glossary.csv", b"term_id\r\n");
         write(root, "out/edition/data/questions.csv", b"question_id\r\n");
         write(root, "out/edition/data/sources.csv", b"source_id\r\n");
-        for name in ["discovery-log", "assumption-register", "90-day-plan"] {
+        for name in [
+            "discovery-log",
+            "assumption-register",
+            "90-day-plan",
+            "decision-package",
+        ] {
             write(
                 root,
                 &format!("out/edition/templates/{name}.xlsx"),
@@ -2423,6 +2429,31 @@ mod tests {
         let pkg = res.expect("package");
         let delivery = delivery_from_files(&pkg.files).expect("delivery");
         let template = "templates/discovery-log.xlsx";
+        assert!(
+            delivery.edition.contains_key(template),
+            "healthy site stage must hold {template}"
+        );
+        let d = rebuilt(&pkg, true, |e, _| {
+            e.remove(template);
+        });
+        match verify_delivery(&d) {
+            Err(Stop::Refused(m)) => {
+                assert!(
+                    m.contains("FB0601") && m.contains(template),
+                    "expected FB0601 and {template}, got: {m}"
+                );
+            }
+            other => panic!("expected Err(Stop::Refused), got: {other:?}"),
+        }
+    }
+
+    #[test]
+    fn missing_decision_package_is_fb0601() {
+        let repo = fixture_repo();
+        let (res, _) = run(repo.path());
+        let pkg = res.expect("package");
+        let delivery = delivery_from_files(&pkg.files).expect("delivery");
+        let template = "templates/decision-package.xlsx";
         assert!(
             delivery.edition.contains_key(template),
             "healthy site stage must hold {template}"

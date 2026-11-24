@@ -71,7 +71,7 @@ A subcontractor places two subcontracts of its own, valued at 160,000 and 150,00
 
 The notice provided under the section concerns the anticipated termination of, or substantial reduction in the funding of, affected contracts [@CL-CLS-0296]. The notice of termination that starts the settlement clock is on [Prime contractor duties after a termination notice](cls-prime-contractor-duties-after-termination-notice.md).
 
-The responsibility to establish the procedure for notice within 60 days sits with departments and agencies, and the subcontractor notice responsibilities sit with the prime contractor [@CL-CLS-0296; @CL-CLS-0297].
+Setting up the procedure and flowing it down are not one duty: the responsibility to establish the procedure for notice within 60 days sits with departments and agencies, and the subcontractor notice responsibilities sit with the prime contractor [@CL-CLS-0296; @CL-CLS-0297].
 
 The prime contractor is responsible for requiring that each subcontractor impose a similar notice and flowdown requirement in subcontracts valued greater than $150,000 at all tiers [@CL-CLS-0298].
 
@@ -82,6 +82,7 @@ Which prime contracts and subcontracts the company holds above the notice thresh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: anticipated termination reduction policy: uncited gap statements and contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed a statement the cited text does not make.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $700,000 first-tier test.

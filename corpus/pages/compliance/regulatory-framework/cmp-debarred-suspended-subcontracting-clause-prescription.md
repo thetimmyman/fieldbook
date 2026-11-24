@@ -43,7 +43,7 @@ A solicitation is for a contract valued at 50,000 dollars, so the contract value
 
 ## Never confuse
 
-The contracting officer shall insert the clause at 52.209-6, about subcontracting with contractors debarred, suspended, proposed for debarment or voluntarily excluded, in solicitations and contracts where the contract value exceeds $45,000 [@CL-CMP-8237].
+The clause protects the Government's interest rather than barring the subcontract: the contracting officer shall insert the clause at 52.209-6, about subcontracting with contractors debarred, suspended, proposed for debarment or voluntarily excluded, in solicitations and contracts where the contract value exceeds $45,000 [@CL-CMP-8237].
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Who confirms clause applicability in each solicitation and contract, and where t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: duty, example and contrast wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the clause prescription on subcontracting with debarred, suspended or proposed-for-debarment contractors.

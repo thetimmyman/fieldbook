@@ -45,7 +45,7 @@ A contract needs a 300,000 test rig bought for that contract, so its cost is all
 
 ## Never confuse
 
-Under the codified text, items disqualified because with relatively minor expense they can be made suitable for general purpose use have adaptation and return costs that are allowable [@CL-CMP-0867], and items which the contract schedule specifically excludes are allowable only as depreciation or amortization [@CL-CMP-0865]. The codified paragraph refers to items acquired by the contractor before the effective date of the contract (or replacement of such items) [@CL-CMP-1401], and the RFO paragraph refers to special tooling and special test equipment acquired or replaced by the contractor before the effective date of the contract [@CL-CMP-9633]. The RFO text makes the cost to adapt contractor-owned special tooling or special test equipment for use under a contract allowable [@CL-CMP-9635]. The general test for a charge is in [Allowability factors](../cas-allowability/cmp-allowability-factors.md).
+The two disqualified kinds are treated differently: under the codified text, items disqualified because with relatively minor expense they can be made suitable for general purpose use have adaptation and return costs that are allowable [@CL-CMP-0867], while items which the contract schedule specifically excludes are allowable only as depreciation or amortization [@CL-CMP-0865]. The codified paragraph refers to items acquired by the contractor before the effective date of the contract (or replacement of such items) [@CL-CMP-1401], and the RFO paragraph refers to special tooling and special test equipment acquired or replaced by the contractor before the effective date of the contract [@CL-CMP-9633]. The RFO text makes the cost to adapt contractor-owned special tooling or special test equipment for use under a contract allowable [@CL-CMP-9635]. The general test for a charge is in [Allowability factors](../cas-allowability/cmp-allowability-factors.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether tooling and test equipment purchases are identified by acquisition date 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated special tooling rules from the quotes; RFO-only paragraph; cut inference text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Corrected the exception so that both categories are allowable only as depreciation or amortization, added the full disqualification test, and removed statements the section does not make.

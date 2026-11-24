@@ -45,7 +45,7 @@ An agency head's designee, acting as the appointing official, considers a candid
 
 ## Never confuse
 
-The statute requires agency heads to establish and maintain a procurement career management program and a system for the selection, appointment and termination of appointment of contracting officers [@CL-CMP-8356]. In selecting contracting officers, the appointing official shall consider the complexity and dollar value of the acquisitions to be assigned and the candidate's experience, training, education, business acumen, judgment, character and reputation [@CL-CMP-8359], and the lettered criteria are examples of selection criteria [@CL-CMP-7673].
+The program is a statutory duty rather than a hiring preference: the statute requires agency heads to establish and maintain a procurement career management program and a system for the selection, appointment and termination of appointment of contracting officers [@CL-CMP-8356]. In selecting contracting officers, the appointing official shall consider the complexity and dollar value of the acquisitions to be assigned and the candidate's experience, training, education, business acumen, judgment, character and reputation [@CL-CMP-8359], and the lettered criteria are examples of selection criteria rather than an exhaustive list [@CL-CMP-7673].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which of the company's contracts fall inside the remit that the agency's appoint
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: example, contrast wording and examples lead-in tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the procurement career management program and the selection of contracting officers.

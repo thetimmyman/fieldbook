@@ -46,7 +46,7 @@ A registrant prepares its inventory note on a non-GAAP basis and explains the di
 
 ## Never confuse
 
-The information required with respect to any statement shall be furnished as a minimum requirement to which shall be added such further material information as is necessary to make the required statements, in the light of the circumstances under which they are made, not misleading [@CL-CLS-0814]. If the amount that would otherwise be required to be shown with respect to any item is not material, it need not be separately set forth, and the combination of insignificant amounts is permitted [@CL-CLS-0816]. For materiality under cost accounting standards, see [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md). For the line items themselves, see [Receivables and long-term contract amounts on the balance sheet](../revenue/cls-sx-receivables-balance-sheet.md), [Inventories and long-term contract disclosures](../inventory-wip/cls-sx-inventories-long-term-contracts.md) and [Income statement captions](../revenue/cls-sx-income-statement-captions.md). For the registrant's discussion of estimates, see [Critical accounting estimates in MD&A](../../fpa/forecast-vintage/fpa-critical-accounting-estimates.md).
+The floor and the materiality relief are not the same rule: the information required with respect to any statement shall be furnished as a minimum requirement to which shall be added such further material information as is necessary to make the required statements, in the light of the circumstances under which they are made, not misleading [@CL-CLS-0814], while if the amount that would otherwise be required to be shown with respect to any item is not material, it need not be separately set forth, and the combination of insignificant amounts is permitted [@CL-CLS-0816]. For materiality under cost accounting standards, see [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md). For the line items themselves, see [Receivables and long-term contract amounts on the balance sheet](../revenue/cls-sx-receivables-balance-sheet.md), [Inventories and long-term contract disclosures](../inventory-wip/cls-sx-inventories-long-term-contracts.md) and [Income statement captions](../revenue/cls-sx-income-statement-captions.md). For the registrant's discussion of estimates, see [Critical accounting estimates in MD&A](../../fpa/forecast-vintage/fpa-critical-accounting-estimates.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which accounting framework the company uses for local and group reporting, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and cross-references in § 210.5-01, and removed meta wording and uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on who the sections apply to.
 - COMPATIBLE_EXTENSION, 2026-10-31: The sentences on Rule 5-01 now name the sections it covers instead of describing them as line-item rules.

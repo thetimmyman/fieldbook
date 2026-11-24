@@ -53,7 +53,7 @@ A project manager learns that a certified welder was refused an entry visa for a
 
 ## Never confuse
 
-The employee rights notice is a posting duty: the notice has the size, form and content the Secretary of Labor prescribes [@CL-CMP-5241], and the contractor shall comply with it and the related rules and orders [@CL-CMP-5378]. The visa denial notice depends on what the contractor knows and believes about the denial [@CL-CMP-5240]. The codified clause requires that notice [@CL-CMP-5239], while the RFO text prints FAR 52.222-29 as reserved [@CL-CMP-6485].
+The employee rights notice is a posting duty rather than a knowledge trigger: the notice has the size, form and content the Secretary of Labor prescribes [@CL-CMP-5241], and the contractor shall comply with it and the related rules and orders [@CL-CMP-5378]. The visa denial notice differs, depending on what the contractor knows and believes about the denial [@CL-CMP-5240]. The codified clause requires that notice [@CL-CMP-5239], while the RFO text prints FAR 52.222-29 as reserved [@CL-CMP-6485].
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Who receives and files the two-office notice, and where the poster and the elect
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the must-for-shall remark to several paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: codified paragraphs now say shall as the clauses do.
 - COMPATIBLE_EXTENSION, 2026-10-31: visa denial and employee rights notices: sanction and exemption qualifiers; unsupported remark removed.

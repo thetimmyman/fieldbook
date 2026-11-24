@@ -24,7 +24,7 @@ Explains the waiver of the Buy American statute for civil aircraft and related a
 | Instrument | Codified FAR [@CL-SUP-2788] |
 | Codified citation | FAR 52.225-7 [@CL-SUP-2788] |
 | RFO citation | RFO FAR 52.225-7 [@CL-SUP-3628; @CL-SUP-3632; @CL-SUP-3635] |
-| Edition date | Not established. |
+| Edition date | FEB 2016 [@CL-SUP-9894] |
 | Text status | Final [@CL-SUP-2788] |
 | Applies to | Acquisitions of civil aircraft and related articles from countries that are parties to the Agreement on Trade in Civil Aircraft [@CL-SUP-2788] |
 
@@ -75,6 +75,7 @@ Which items the company classifies as civil aircraft and related articles, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and advice; cited the framing; reworded the exclusion sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: second product-of-a-country alternative keeps its materials-from-another-country condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -47,7 +47,7 @@ A contract modification that adds 2,000,000 of work is signed by a contracting o
 
 ## Never confuse
 
-Contracting officers shall be appointed in writing on an SF 1402, Certificate of Appointment [@CL-OPM-0017], whereas a COR's file for each assigned contract includes a copy of the contracting officer's letter of designation [@CL-OPM-0019], and a COR has no authority to make any commitments or changes that affect price, quality, quantity, delivery, or other terms and conditions of the contract nor in any way direct the contractor or its subcontractors to operate in conflict with the contract terms and conditions [@CL-OPM-0006].
+A contracting officer's appointment and a COR's designation are not the same instrument: contracting officers shall be appointed in writing on an SF 1402, Certificate of Appointment [@CL-OPM-0017], whereas a COR's file for each assigned contract includes a copy of the contracting officer's letter of designation [@CL-OPM-0019], and a COR has no authority to make any commitments or changes that affect price, quality, quantity, delivery, or other terms and conditions of the contract nor in any way direct the contractor or its subcontractors to operate in conflict with the contract terms and conditions [@CL-OPM-0006].
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Where the certificates of appointment and COR designation letters for each execu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 1.603-3(b) micro-purchase delegation rules and full FAR 1.602-1(a) and 1.602-2(d)(5) qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how a contracting officer appointment is terminated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for appointment of contracting officers and the contract file.

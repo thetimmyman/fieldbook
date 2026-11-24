@@ -23,7 +23,7 @@ Shows what the contractor must load or guarantee under f.o.b. origin minimum shi
 | Instrument | Codified FAR [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
 | Codified citation | FAR 52.247-59 to 52.247-61 [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
 | RFO citation | No RFO equivalent for FAR 52.247-59, FAR 52.247-60 and FAR 52.247-61, which RFO part 52 lists as [Reserved] [@CL-SUP-0321; @CL-SUP-0322; @CL-SUP-0323] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-SUP-9813] |
 | Text status | Final [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
 | Applies to | Solicitations and contracts containing the carload and truckload, guaranteed shipping characteristics or minimum size of shipments clause [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
 
@@ -58,6 +58,7 @@ Confirm the load sizes and package data the company can guarantee at each shippi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added dropped delivery-schedule scope and aligned wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the price-reduction consequence and restated the carload prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on f.o.b. origin delivery terms.

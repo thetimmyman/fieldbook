@@ -51,7 +51,7 @@ A lien against inventories is one of the listed examples of other forms of secur
 
 ## Never confuse
 
-FAR 32.304-6 lists mortgages on fixed assets, liens against inventories, endorsements, guarantees, and subordinations or standbys of other indebtedness as examples of other forms of security that, although seldom invoked under guaranteed loans, may be required when considered necessary for protection of the Government interest [@CL-CTF-3422; @CL-CTF-3423]. The [defense production loan guarantee](ctf-loan-guarantees-for-defense-production.md) card covers the loan guarantee policies and procedures.
+FAR 32.304-6 lists mortgages on fixed assets, liens against inventories, endorsements, guarantees, and subordinations or standbys of other indebtedness as examples of other forms of security that, rather than being routinely taken, are seldom invoked under guaranteed loans but may be required when considered necessary for protection of the Government interest [@CL-CTF-3422; @CL-CTF-3423]. The [defense production loan guarantee](ctf-loan-guarantees-for-defense-production.md) card covers the loan guarantee policies and procedures.
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which assets the company could pledge if a guaranteed loan needs other collatera
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and contrast wording not stated in the cited sections.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.300 subpart scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for other collateral security for guaranteed loans.

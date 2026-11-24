@@ -47,7 +47,7 @@ A contract has a total price of 2,000,000 and specifies technical data for deliv
 
 ## Never confuse
 
-For the withholding of a reserve for patent reporting failures, see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). For the withholding of a reserve for technical data on a major system, see [Existing works and technical data declaration](cmp-existing-works-and-technical-data-declaration-major-systems.md). The foreign clause covers all technical data including reports, drawings and blueprints, and all computer software, specified to be delivered by the Contractor to the United States Government under the contract [@CL-CMP-4296].
+The foreign clause differs from the payment-withholding clause: the foreign clause covers all technical data including reports, drawings and blueprints, and all computer software, specified to be delivered by the Contractor to the United States Government under the contract [@CL-CMP-4296]. For the withholding of a reserve for patent reporting failures, see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). For the withholding of a reserve for technical data on a major system, see [Existing works and technical data declaration](cmp-existing-works-and-technical-data-declaration-major-systems.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which contracts carry these clauses, and who tracks data delivery dates and inve
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who furnishes the invention reports and removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for technical data withholding, foreign data rights and invention reporting.

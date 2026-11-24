@@ -56,7 +56,7 @@ Answer: F is a foreign person because it is a foreign entity, and H and T are fo
 
 ## Never confuse
 
-Parent status turns on the voting, profit, asset, general partner or intermediate parent tests [@CL-MNA-0812; @CL-MNA-0813; @CL-MNA-0814], while foreign person status turns on being a foreign national, foreign government or foreign entity, or on being under foreign control [@CL-MNA-0810]. The control concept is on the [control card](mna-cfius-control.md). Whether an entity is a U.S. business depends on whether it is engaged in interstate commerce in the United States, irrespective of the nationality of the persons that control it [@CL-MNA-0815]. A party to a transaction is a separate idea, and it is on the [party and transaction card](mna-cfius-party-transaction-and-applicability.md).
+Parent status and foreign person status are not the same test: parent status turns on the voting, profit, asset, general partner or intermediate parent tests [@CL-MNA-0812; @CL-MNA-0813; @CL-MNA-0814], while foreign person status turns on being a foreign national, foreign government or foreign entity, or on being under foreign control [@CL-MNA-0810]. The control concept is on the [control card](mna-cfius-control.md). Whether an entity is a U.S. business depends on whether it is engaged in interstate commerce in the United States, irrespective of the nationality of the persons that control it [@CL-MNA-0815]. A party to a transaction is a separate idea, and it is on the [party and transaction card](mna-cfius-party-transaction-and-applicability.md).
 
 ## Company calibration
 
@@ -65,6 +65,7 @@ Whether any owner, investor or lender of the company or of a target is a foreign
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: citation placed before the semicolon.
 - COMPATIBLE_EXTENSION, 2026-10-31: Profit and assets parent test reworded to the right held.

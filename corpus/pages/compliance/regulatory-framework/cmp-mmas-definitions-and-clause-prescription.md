@@ -47,7 +47,7 @@ A cost-reimbursement contract worth 3,000,000 dollars is awarded to a small busi
 
 ## Never confuse
 
-An acceptable material management and accounting system is one that generally complies with the system criteria in paragraph (d) of the clause at 252.242-7004 [@CL-CMP-7846]. A material management and accounting system is the contractor's system or systems for planning, controlling and accounting for the acquisition, use, issuing and disposition of material [@CL-CMP-7847]. DFARS 242.7204(b)(2) refers to fixed-price contracts with progress payments made on the basis of costs incurred by the contractor as work progresses under the contract [@CL-CMP-7852]. DFARS 242.7503(b) refers to a contract with progress payments made on the basis of costs incurred by the contractor or on a percentage or stage of completion [@CL-CMP-7858]. For the clause itself, see [Material management and accounting system](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md); for the surrounding business-system policy, see [Business systems clause and MMAS policy](../business-systems/cmp-business-systems-clause-and-mmas-policy.md).
+An acceptable MMAS differs from an MMAS: an acceptable material management and accounting system is one that generally complies with the system criteria in paragraph (d) of the clause at 252.242-7004 [@CL-CMP-7846], while a material management and accounting system is the contractor's system or systems for planning, controlling and accounting for the acquisition, use, issuing and disposition of material [@CL-CMP-7847]. DFARS 242.7204(b)(2) refers to fixed-price contracts with progress payments made on the basis of costs incurred by the contractor as work progresses under the contract [@CL-CMP-7852]. DFARS 242.7503(b) refers to a contract with progress payments made on the basis of costs incurred by the contractor or on a percentage or stage of completion [@CL-CMP-7858]. For the clause itself, see [Material management and accounting system](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md); for the surrounding business-system policy, see [Business systems clause and MMAS policy](../business-systems/cmp-business-systems-clause-and-mmas-policy.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which contracts are above the simplified acquisition threshold and outside the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence statements and contrasts; restated definition scope and progress payment text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Made clear that the progress payment contrast applies to fixed-price contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for material management and accounting system definitions and the clause prescription.

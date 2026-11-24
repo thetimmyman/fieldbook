@@ -43,7 +43,7 @@ An auditor sets a quantitative materiality threshold of 100,000 for an incurred 
 
 ## Never confuse
 
-Auditors must design and perform procedures on all material balances to support their audit opinion, regardless of the assessed risk, while risk assessment influences the nature, timing, and extent of these procedures [@CL-CMP-1712], and qualitative risks may justify auditing amounts below the quantitative materiality threshold [@CL-CMP-1713]. See [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
+Assessed risk does not change the material-balance duty, but it does change the procedures: auditors must design and perform procedures on all material balances to support their audit opinion, regardless of the assessed risk, while risk assessment influences the nature, timing, and extent of these procedures [@CL-CMP-1712], and qualitative risks may justify auditing amounts below the quantitative materiality threshold [@CL-CMP-1713]. See [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated in the worked example that assessed risk influences the nature, timing, and extent of procedures.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included the effect of risk assessment on procedures in Never confuse and removed the uncited sampling contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the materiality comparison to say what the quotes support about material balances and qualitative risks.

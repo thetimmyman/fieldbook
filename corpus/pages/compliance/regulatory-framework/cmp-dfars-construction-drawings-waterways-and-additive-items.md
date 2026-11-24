@@ -47,9 +47,7 @@ A drawing shows a dimension that disagrees with the specification. The contracto
 
 ## Never confuse
 
-For drawings as Government property, see [Drawings, shop drawings and restricted designs](cmp-dfars-drawings-property-shop-drawings-and-restricted-designs.md). The Contracting Officer will use the list of priorities in the bid schedule only to determine the low offeror [@CL-CMP-4677]. For the payment rule for bidding schedule items, see [Price breakdown and bidding schedules](../../estimating/pricing/est-dfars-modification-price-breakdown-and-bidding-schedules.md). For changes to a construction contract, see [Changes clause for construction contracts](../../close-revrec/revenue/cls-changes-construction.md). For work on or near airfields, see [Airfield safety precautions](cmp-dfars-airfield-safety-precautions.md).
-
-The FAR clause on specifications and drawings for construction is covered in [Specifications and drawings for construction](cmp-specifications-and-drawings-construction.md).
+The list of priorities in the bid schedule is not the award rule: the Contracting Officer will use the list of priorities in the bid schedule only to determine the low offeror [@CL-CMP-4677]. For drawings as Government property, see [Drawings, shop drawings and restricted designs](cmp-dfars-drawings-property-shop-drawings-and-restricted-designs.md). For the payment rule for bidding schedule items, see [Price breakdown and bidding schedules](../../estimating/pricing/est-dfars-modification-price-breakdown-and-bidding-schedules.md). For changes to a construction contract, see [Changes clause for construction contracts](../../close-revrec/revenue/cls-changes-construction.md). For work on or near airfields, see [Airfield safety precautions](cmp-dfars-airfield-safety-precautions.md). The FAR clause on specifications and drawings for construction is covered in [Specifications and drawings for construction](cmp-specifications-and-drawings-construction.md).
 
 ## Company calibration
 
@@ -59,6 +57,7 @@ Which construction contracts and solicitations carry these clauses, and who conf
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the low offeror lead-in and the bond alternative and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on FAR specifications and drawings for construction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction contract drawings, obstruction of navigable waterways and additive or deductive items.

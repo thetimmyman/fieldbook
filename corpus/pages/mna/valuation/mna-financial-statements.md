@@ -44,7 +44,7 @@ A company has 10,000,000 shares and equity of 120,000,000 at its latest balance 
 
 ## Never confuse
 
-Under Item 1010(b), if material, the filing must furnish pro forma information disclosing the effect of the transaction on the company's balance sheet as of the date of the most recent balance sheet presented under paragraph (a), the company's statement of comprehensive income and earnings per share for the most recent fiscal year and the latest interim period provided under paragraph (a)(2), and the company's book value per share as of the date of the most recent balance sheet presented under paragraph (a) (see also [Pro forma financial information: how it is prepared](../diligence/mna-sx-pro-forma-preparation.md)) [@CL-MNA-0324; @CL-MNA-0325; @CL-MNA-1091; @CL-MNA-0326]. The unaudited balance sheets, comparative year-to-date statements of comprehensive income (as defined in § 210.1-02 of Regulation S-X) and related earnings per share data and statements of cash flows in paragraph (a)(2) are those required to be included in the company's most recent quarterly report filed under the Exchange Act (see also [Interim financial statements: condensed form, periods and review](../diligence/mna-sx-interim-financial-statements.md)) [@CL-MNA-0321; @CL-MNA-0322], and paragraph (c) requires furnishing a fair and adequate summary of the information specified in paragraphs (a) and (b) for the same periods specified [@CL-MNA-0327].
+The pro forma item and the historical item are not the same disclosure: under Item 1010(b), if material, the filing must furnish pro forma information disclosing the effect of the transaction on the company's balance sheet as of the date of the most recent balance sheet presented under paragraph (a), the company's statement of comprehensive income and earnings per share for the most recent fiscal year and the latest interim period provided under paragraph (a)(2), and the company's book value per share as of the date of the most recent balance sheet presented under paragraph (a) (see also [Pro forma financial information: how it is prepared](../diligence/mna-sx-pro-forma-preparation.md)) [@CL-MNA-0324; @CL-MNA-0325; @CL-MNA-1091; @CL-MNA-0326], while the unaudited balance sheets, comparative year-to-date statements of comprehensive income (as defined in § 210.1-02 of Regulation S-X) and related earnings per share data and statements of cash flows in paragraph (a)(2) are those required to be included in the company's most recent quarterly report filed under the Exchange Act (see also [Interim financial statements: condensed form, periods and review](../diligence/mna-sx-interim-financial-statements.md)) [@CL-MNA-0321; @CL-MNA-0322]. Paragraph (c) requires furnishing a fair and adequate summary of the information specified in paragraphs (a) and (b) for the same periods specified [@CL-MNA-0327].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which audited, interim and pro forma figures the company can support, and on wha
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned Item 1010(a), (b), and (c) financial statement rules with 17 CFR 229.1010 quotes and removed meta phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements in a Regulation M-A filing.

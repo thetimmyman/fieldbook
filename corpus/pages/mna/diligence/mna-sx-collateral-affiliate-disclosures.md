@@ -44,7 +44,7 @@ A registrant registers notes secured by a pledge of the shares of an affiliate. 
 
 ## Never confuse
 
-Under § 210.13-01(a), the disclosures apply when the registrant is the parent company of one or more subsidiaries that issue or guarantee the guaranteed security [@CL-MNA-0896], whereas under § 210.13-02(a), the disclosures apply when a security is collateralized by a security of the registrant's affiliate or affiliates [@CL-MNA-0950; @CL-MNA-0901]; see [Financial statements of guarantors and issuers of guaranteed securities](mna-sx-guarantor-financial-statements.md). Group statements of subsidiaries are on [Group reporting notes and separate subsidiary statements under Regulation S-X](../../close-revrec/group-bridge/cls-sx-group-reporting-notes.md).
+The guarantor rule and the collateral rule are not the same trigger: under § 210.13-01(a), the disclosures apply when the registrant is the parent company of one or more subsidiaries that issue or guarantee the guaranteed security [@CL-MNA-0896], whereas under § 210.13-02(a), the disclosures apply when a security is collateralized by a security of the registrant's affiliate or affiliates [@CL-MNA-0950; @CL-MNA-0901]; see [Financial statements of guarantors and issuers of guaranteed securities](mna-sx-guarantor-financial-statements.md). Group statements of subsidiaries are on [Group reporting notes and separate subsidiary statements under Regulation S-X](../../close-revrec/group-bridge/cls-sx-group-reporting-notes.md).
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0132 for the trading-market disclosure in § 210.13-02(a)(3) and aligned statements with the cited quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for affiliates whose securities collateralize registered securities.

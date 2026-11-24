@@ -46,7 +46,7 @@ A registrant with a December year end files with a balance sheet as of the end o
 
 ## Never confuse
 
-Under § 210.11-02(a)(6) and (7), the pro forma condensed balance sheet and pro forma condensed statements of comprehensive income must include, and be limited to, Transaction Accounting Adjustments and Autonomous Entity Adjustments (presented in a separate column if the condition in § 210.11-01(a)(7) is met), except that Management's Adjustments depicting synergies and dis-synergies may, in the registrant's discretion, be presented if in management's opinion such adjustments would enhance an understanding of the pro forma effects of the transaction and the conditions in paragraph (a)(7) are met [@CL-MNA-0691; @CL-MNA-0692; @CL-MNA-0134; @CL-MNA-0693; @CL-MNA-0694]. Separate historical financial statements of a business acquired or to be acquired are covered on [Financial statements of businesses acquired or to be acquired](mna-sx-acquired-business-financial-statements.md).
+Required adjustments and Management's Adjustments are not the same class: under § 210.11-02(a)(6) and (7), the pro forma condensed balance sheet and pro forma condensed statements of comprehensive income must include, and be limited to, Transaction Accounting Adjustments and Autonomous Entity Adjustments (presented in a separate column if the condition in § 210.11-01(a)(7) is met), except that Management's Adjustments depicting synergies and dis-synergies may, in the registrant's discretion, be presented if in management's opinion such adjustments would enhance an understanding of the pro forma effects of the transaction and the conditions in paragraph (a)(7) are met [@CL-MNA-0691; @CL-MNA-0692; @CL-MNA-0134; @CL-MNA-0693; @CL-MNA-0694]. Separate historical financial statements of a business acquired or to be acquired are covered on [Financial statements of businesses acquired or to be acquired](mna-sx-acquired-business-financial-statements.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which valuation, working-capital and integration conventions the company applies
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0134 and CL-MNA-0135 for the separate Autonomous Entity Adjustments column and retrospective accounting-principle revisions under § 210.11-02.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the no-filing case for income statements and balance sheet scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pro forma financial information preparation requirements.

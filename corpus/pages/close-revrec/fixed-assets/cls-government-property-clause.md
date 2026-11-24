@@ -49,7 +49,7 @@ A contractor on a cost-reimbursement contract buys electronic parts for 50,000 a
 
 ## Never confuse
 
-Under fixed price type contracts, in the absence of financing provisions or other specific requirements for passage of title in the contract, the Contractor retains title to all property acquired by the Contractor for use on the contract, except for property identified as a deliverable end item [@CL-CLS-0584], whereas under the paragraph on cost-reimbursement or time-and-material contracts or cost-reimbursable line items under fixed-price contracts [@CL-CLS-0692], title to all property purchased by the Contractor for which the Contractor is entitled to be reimbursed as a direct item of cost under the contract shall pass to and vest in the Government upon the vendor's delivery of such property [@CL-CLS-0585]. For the property management system administration clause, see [Contractor Property Management System Administration clause](cls-property-management-system.md). For rental use of Government property, see [Use and Charges clause for Government property](cls-use-and-charges-government-property.md). For the property account check before a termination settlement, see [Termination inventory: disposal schedules and government property accounting](../inventory-wip/cls-termination-inventory-schedules-and-property-accounting.md).
+Title differs by contract type: under fixed price type contracts, in the absence of financing provisions or other specific requirements for passage of title in the contract, the Contractor retains title to all property acquired by the Contractor for use on the contract, except for property identified as a deliverable end item [@CL-CLS-0584], whereas under the paragraph on cost-reimbursement or time-and-material contracts or cost-reimbursable line items under fixed-price contracts [@CL-CLS-0692], title to all property purchased by the Contractor for which the Contractor is entitled to be reimbursed as a direct item of cost under the contract shall pass to and vest in the Government upon the vendor's delivery of such property [@CL-CLS-0585]. For the property management system administration clause, see [Contractor Property Management System Administration clause](cls-property-management-system.md). For rental use of Government property, see [Use and Charges clause for Government property](cls-use-and-charges-government-property.md). For the property account check before a termination settlement, see [Termination inventory: disposal schedules and government property accounting](../inventory-wip/cls-termination-inventory-schedules-and-property-accounting.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Who owns Government property title records and how physical and accounting balan
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers and shall modals, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the fixture and personal-property continuation of the title-not-affected sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

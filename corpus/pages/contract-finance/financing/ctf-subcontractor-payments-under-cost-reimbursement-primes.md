@@ -53,9 +53,9 @@ A cost-reimbursement prime contractor pays a subcontractor 200,000 in customary 
 
 ## Never confuse
 
-FAR 32.110 addresses financing payments that a contractor makes to a subcontractor under a cost-reimbursement prime contract and states the conditions under which the contracting officer should accept those financing payments as reimbursable costs of the prime contract [@CL-CTF-3529].
+Making a financing payment to a subcontractor differs from having it accepted as a reimbursable cost rather than being the same thing: FAR 32.110 addresses financing payments that a contractor makes to a subcontractor under a cost-reimbursement prime contract and states the conditions under which the contracting officer should accept those financing payments as reimbursable costs of the prime contract [@CL-CTF-3529].
 
-The liquidation conditions in FAR 32.110(c) and (d) require that the subcontractor comply with the liquidation principles of FAR 32.503-8, 32.503-9, and 32.503-10 for customary progress payments or of FAR 32.1004(d) for performance-based payments [@CL-CTF-3532; @CL-CTF-3533]. For subcontracts under a prime contract that itself provides progress payments, see [Subcontracts under prime contracts providing progress payments](ctf-subcontracts-under-prime-progress-payments.md).
+The liquidation conditions in FAR 32.110(c) and (d) require that the subcontractor comply with the liquidation principles of FAR 32.503-8, 32.503-9, and 32.503-10 for customary progress payments rather than those for performance-based payments, or of FAR 32.1004(d) for performance-based payments [@CL-CTF-3532; @CL-CTF-3533]. For subcontracts under a prime contract that itself provides progress payments, see [Subcontracts under prime contracts providing progress payments](ctf-subcontracts-under-prime-progress-payments.md).
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Whether each subcontract carries the prescribed financing payment terms, and whi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all three FAR 32.501-2(a) conditions for unusual progress payments and removed uncited negative framing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Subcontractor financing conditions worded as conditions of acceptance, with the unusual-payment exception kept.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.

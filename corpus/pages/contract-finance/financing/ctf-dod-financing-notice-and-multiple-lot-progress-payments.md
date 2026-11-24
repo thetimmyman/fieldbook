@@ -45,7 +45,7 @@ A contract has two lots, each a group of fixed-price line items with its own pri
 
 ## Never confuse
 
-A lot is one or more fixed-price deliverable line items or deliverable subline items representing a single, severable group [@CL-CTF-1740]. For the customary rates and the basic liquidation rules, see [Customary progress payment rates](ctf-progress-payments.md) and [Progress payment liquidation](ctf-progress-payment-liquidation.md), and for the contract price used for progress payments, see [Contract price for progress payments](ctf-contract-price-for-progress-payments.md). For the FAR performance-based payments clause, see [Performance-based payments clause](ctf-performance-based-payments.md), and for the two DoD performance-based payments clauses, see [DoD performance-based payments: whole-contract basis](ctf-dod-pbp-whole-contract-basis.md) and [DoD performance-based payments: deliverable-item basis](ctf-dod-pbp-deliverable-item-basis.md).
+A lot is one or more fixed-price deliverable line items or deliverable subline items representing a single, severable group [@CL-CTF-1740], and with multiple lots the progress payment proration is performed on a lot-wide rather than a contract-wide basis [@CL-CTF-1741]. For the customary rates and the basic liquidation rules, see [Customary progress payment rates](ctf-progress-payments.md) and [Progress payment liquidation](ctf-progress-payment-liquidation.md), and for the contract price used for progress payments, see [Contract price for progress payments](ctf-contract-price-for-progress-payments.md). For the FAR performance-based payments clause, see [Performance-based payments clause](ctf-performance-based-payments.md), and for the two DoD performance-based payments clauses, see [DoD performance-based payments: whole-contract basis](ctf-dod-pbp-whole-contract-basis.md) and [DoD performance-based payments: deliverable-item basis](ctf-dod-pbp-deliverable-item-basis.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which contracts receive progress payments or performance-based payments, which h
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned lot definitions, duties and inoperative wording to quotes; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Performance-based payment conditions stated as all required; FAR references restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD notice of progress or performance-based payments and progress payments for multiple lots.

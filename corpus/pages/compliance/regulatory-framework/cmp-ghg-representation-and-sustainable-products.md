@@ -57,11 +57,7 @@ On the product side, a contract's statement of work lists the sustainable produc
 
 ## Never confuse
 
-The representation concerns whether the Offeror publicly discloses greenhouse gas emissions [@CL-CMP-6103] and a quantitative greenhouse gas emissions reduction goal [@CL-CMP-6104], and it is optional if the Offeror received less than $7.5 million in Federal contract awards in the prior Federal fiscal year [@CL-CMP-5447]. The sustainable products clause concerns the sustainable products and services required by the contract, which will be set forth in the statement of work or elsewhere in the contract [@CL-CMP-5452; @CL-CMP-5451].
-
-The codified part has a separate greenhouse gas representation provision [@CL-CMP-5447], but the RFO text lists that section as reserved [@CL-CMP-1249]. The codified clause defines sustainable products and services through statutory and EPA purchasing programs [@CL-CMP-6289; @CL-CMP-6294], while the RFO clause defines a sustainable product through four listed kinds [@CL-CMP-1250; @CL-CMP-1253].
-
-The certifications for recovered material content and for biobased products are covered in [Recovered material certification and content estimate](cmp-recovered-material-certification-and-estimate.md) and [Biobased product certification and reporting](cmp-biobased-product-certification-and-reporting.md).
+The representation is not the products clause: the representation concerns whether the Offeror publicly discloses greenhouse gas emissions [@CL-CMP-6103] and a quantitative greenhouse gas emissions reduction goal [@CL-CMP-6104], and it is optional if the Offeror received less than $7.5 million in Federal contract awards in the prior Federal fiscal year [@CL-CMP-5447], while the sustainable products clause concerns the sustainable products and services required by the contract, which will be set forth in the statement of work or elsewhere in the contract [@CL-CMP-5452; @CL-CMP-5451]. The codified part has a separate greenhouse gas representation provision [@CL-CMP-5447], but the RFO text lists that section as reserved [@CL-CMP-1249]. The codified clause defines sustainable products and services through statutory and EPA purchasing programs [@CL-CMP-6289; @CL-CMP-6294], while the RFO clause defines a sustainable product through four listed kinds [@CL-CMP-1250; @CL-CMP-1253]. The certifications for recovered material content and for biobased products are covered in [Recovered material certification and content estimate](cmp-recovered-material-certification-and-estimate.md) and [Biobased product certification and reporting](cmp-biobased-product-certification-and-reporting.md).
 
 ## Company calibration
 
@@ -71,6 +67,7 @@ Whether last year's award total crosses the reporting threshold and which contra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed page-meta wording and unsupported contrast from the RFO comparison and never-confuse paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on recovered material and biobased certifications.

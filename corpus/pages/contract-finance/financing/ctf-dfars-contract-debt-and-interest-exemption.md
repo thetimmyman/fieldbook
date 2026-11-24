@@ -59,9 +59,7 @@ A third contract falls in none of the paragraph (a)(7) exceptions and in none of
 
 ## Never confuse
 
-The Principal Director's authority is to exempt contracts, in exceptional circumstances, from the administrative interest charges required by the subpart [@CL-CTF-3797]. The disbursing officer is responsible for determining the amount and collecting contract debts whenever overpayments or erroneous payments have been made [@CL-CTF-3794].
-
-Disbursing officers are those officials designated to make payments under a contract or to receive payments of amounts due under a contract [@CL-CTF-3793]. The contracting officer's FAR role is on [Contract debts: responsibilities and the debt determination](../cash/ctf-contract-debt-responsibilities-and-determination.md).
+The Principal Director's authority differs from the disbursing officer's duty rather than overlapping with it: the Principal Director's authority is to exempt contracts, in exceptional circumstances, from the administrative interest charges required by the subpart [@CL-CTF-3797], while the disbursing officer is responsible for determining the amount and collecting contract debts whenever overpayments or erroneous payments have been made [@CL-CTF-3794]. Disbursing officers are those officials designated to make payments under a contract or to receive payments of amounts due under a contract [@CL-CTF-3793], unlike the contracting officer, whose FAR role is on [Contract debts: responsibilities and the debt determination](../cash/ctf-contract-debt-responsibilities-and-determination.md).
 
 ## Company calibration
 
@@ -70,5 +68,6 @@ Which payment office is the disbursing officer for each contract, whether the co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned disbursing officer and exemption wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract debt responsibility and the exemption from administrative interest charges.

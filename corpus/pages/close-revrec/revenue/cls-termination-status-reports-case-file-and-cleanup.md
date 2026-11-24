@@ -54,7 +54,7 @@ The TCO who will negotiate the final settlement sits in a different activity fro
 
 ## Never confuse
 
-A termination case file holds memoranda and records of all actions relative to the settlement [@CL-CLS-1255]. A status report is furnished by the TCO to the contracting office upon request when the TCO and the contracting officer are in different activities, while a separate case file for each termination is established by the TCO responsible for negotiating the final settlement [@CL-CLS-1252; @CL-CLS-1254].
+The status report and the case file are not the same record: a termination case file holds memoranda and records of all actions relative to the settlement [@CL-CLS-1255], while a status report is furnished by the TCO to the contracting office upon request when the TCO and the contracting officer are in different activities, and a separate case file for each termination is established by the TCO responsible for negotiating the final settlement [@CL-CLS-1252; @CL-CLS-1254].
 
 For terminated construction contracts, the contracting officer shall direct action to ensure site cleanup, protection of serviceable materials, removal of hazards, and other action necessary to leave a safe and healthful site [@CL-CLS-1256]. For the TCO's other duties, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md).
 
@@ -65,6 +65,7 @@ Who maintains the termination case file and who supplies the status report when 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and unquoted actor contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

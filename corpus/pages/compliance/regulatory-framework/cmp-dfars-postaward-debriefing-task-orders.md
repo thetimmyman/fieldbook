@@ -57,11 +57,7 @@ For protest timing, the order value exceeds $25 million, so the first period end
 
 ## Never confuse
 
-This clause sets its own duty for task orders and delivery orders valued at $15 million or more and its own timetable [@CL-CMP-9060; @CL-CMP-9061]. The general rules are in [Postaward debriefing](../../estimating/pricing/est-postaward-debriefing.md) and [DFARS postaward debriefing at 15 million dollars and above](../../estimating/pricing/est-dfars-postaward-debriefing-15-million-and-above.md) [@CL-EST-2464]. The prescription and the ordering rules are in [DoD ordering under multiple award contracts](../../estimating/pricing/est-dod-ordering-multiple-award-contracts.md) and [DFARS indefinite delivery solicitation provisions and clause](../../market/programs/mkt-dfars-indefinite-delivery-solicitation-provisions-clause.md).
-
-The clause ties the Government's right to suspend or terminate to notice from the Government Accountability Office of a protest filed within the listed periods [@CL-CMP-9066].
-
-The $15 million debriefing threshold [@CL-CMP-9060] and the $25 million threshold for the first protest period [@CL-CMP-9067] apply to different paragraphs of the clause.
+This clause is not the general debriefing rule: it sets its own duty for task orders and delivery orders valued at $15 million or more and its own timetable [@CL-CMP-9060; @CL-CMP-9061]. The general rules are in [Postaward debriefing](../../estimating/pricing/est-postaward-debriefing.md) and [DFARS postaward debriefing at 15 million dollars and above](../../estimating/pricing/est-dfars-postaward-debriefing-15-million-and-above.md) [@CL-EST-2464]. The prescription and the ordering rules are in [DoD ordering under multiple award contracts](../../estimating/pricing/est-dod-ordering-multiple-award-contracts.md) and [DFARS indefinite delivery solicitation provisions and clause](../../market/programs/mkt-dfars-indefinite-delivery-solicitation-provisions-clause.md). The clause ties the Government's right to suspend or terminate to notice from the Government Accountability Office of a protest filed within the listed periods [@CL-CMP-9066]. The $15 million debriefing threshold [@CL-CMP-9060] and the $25 million threshold for the first protest period [@CL-CMP-9067] apply to different paragraphs of the clause.
 
 ## Company calibration
 
@@ -71,6 +67,7 @@ Whether this company holds task orders or delivery orders at or above these thre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts between debriefing, protest and general rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Debriefing conclusion sentence now joins its two dates with the source's or.

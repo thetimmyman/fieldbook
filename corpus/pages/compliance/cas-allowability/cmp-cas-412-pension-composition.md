@@ -43,7 +43,7 @@ A plan has a normal cost of 2 million, an amortized slice of an unfunded liabili
 
 ## Never confuse
 
-A defined-contribution plan's cost is a contribution figure, while the cost of a defined-benefit plan outside the pay-as-you-go method is built from components and measured with an immediate-gain actuarial cost method [@CL-CMP-0558; @CL-CMP-0557; @CL-CMP-0559]. The companion pension standard requires actuarial gains and losses to be calculated annually [@CL-CMP-0562] and pension costs to be allocated to each segment having participants in a pension plan [@CL-CMP-0564].
+A defined-contribution plan's cost differs from a defined-benefit plan's: the defined-contribution cost is a contribution figure, while the cost of a defined-benefit plan outside the pay-as-you-go method is built from components and measured with an immediate-gain actuarial cost method [@CL-CMP-0558; @CL-CMP-0557; @CL-CMP-0559]. The companion pension standard requires actuarial gains and losses to be calculated annually [@CL-CMP-0562] and pension costs to be allocated to each segment having participants in a pension plan [@CL-CMP-0564].
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Which business units are under full or modified coverage and whether each pensio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the plan scope, assumption validity and future-period exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the liability equality condition for assignable pension cost.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension cost composition and measurement.

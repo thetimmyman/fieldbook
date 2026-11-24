@@ -49,9 +49,9 @@ A contract price is 3,000,000 and the estimated cost of performing the contract 
 
 ## Never confuse
 
-Under the ordinary method, the liquidation rate is the same as the progress payment rate [@CL-CTF-0762], whereas under the alternate method the minimum liquidation rate is the expected progress payments divided by the contract price [@CL-CTF-0764]. For customary progress payment rates see [Progress payments](ctf-progress-payments.md).
+Under the ordinary method, the liquidation rate is the same as the progress payment rate [@CL-CTF-0762] rather than a separately computed figure, whereas under the alternate method the minimum liquidation rate is the expected progress payments divided by the contract price [@CL-CTF-0764]. For customary progress payment rates see [Progress payments](ctf-progress-payments.md).
 
-Under the alternate method, the codified text requires the contractor to agree to certify annually, or more often if requested by the contracting officer, that the alternate rate continues to meet the conditions of subsections 5, 6, and 7 above [@CL-CTF-4451], while RFO FAR 32.503-9(a)(9) refers to the conditions of sections 32.503-5 and 32.503-6 [@CL-CTF-4424].
+Under the alternate method, the codified text requires the contractor to agree to certify annually, or more often if requested by the contracting officer, that the alternate rate continues to meet the conditions of subsections 5, 6, and 7 above [@CL-CTF-4451], unlike RFO FAR 32.503-9(a)(9), which instead refers to the conditions of sections 32.503-5 and 32.503-6 [@CL-CTF-4424].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which contracts qualify for alternate liquidation rates and verify that 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraphs (b)(3)-(4) circumstances for excess unliquidated progress payments and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Rate-reduction conditions stated as all applying, with the cost-data, recoupment, payment and certification details.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the annual certification condition so the rule keeps the conditions that the alternate rate must continue to meet.

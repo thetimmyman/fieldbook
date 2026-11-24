@@ -51,7 +51,7 @@ A second offeror expects to do all the work on its own premises and checks the b
 
 ## Never confuse
 
-The offeror indicates its answer by checking the appropriate blank in paragraph (c) of the provision [@CL-CMP-9075]. For the contract clause on cloud computing services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
+The representation provision and the clause differ in stage: the offeror indicates its answer by checking the appropriate blank in paragraph (c) of the provision [@CL-CMP-9075], while the contract clause on cloud computing services is at [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
 
 The definition includes commercial offerings for software-as-a-service, infrastructure-as-a-service, and platform-as-a-service [@CL-CMP-9074].
 
@@ -64,6 +64,7 @@ Which solicitations this company bids, and whether its technical solution or its
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed absence and inference wording; replaced contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated both conditions of the cloud approval step.

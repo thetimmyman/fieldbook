@@ -55,7 +55,7 @@ In the fourth period, the actuarial accrued liability is 1,000 and the minimum a
 
 ## Never confuse
 
-The Effective Date is February 27, 2012 [@CL-CMP-3404]. The Applicability Date is the first day of the cost accounting period in which the amended standard is first applicable to a contractor or subcontractor [@CL-CMP-3406]. Prior to the Applicability Date, contractors or subcontractors shall follow the standard in effect prior to the Effective Date [@CL-CMP-3407].
+The Effective Date and the Applicability Date are different dates: the Effective Date is February 27, 2012 [@CL-CMP-3404], while the Applicability Date is the first day of the cost accounting period in which the amended standard is first applicable to a contractor or subcontractor [@CL-CMP-3406]. Prior to the Applicability Date, contractors or subcontractors shall follow the standard in effect prior to the Effective Date [@CL-CMP-3407].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Which contracts and subcontracts are subject to the pension standard, when each 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Merged the transition lead-in with its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added lead-in scopes, removed meta sentences, matched dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 412.

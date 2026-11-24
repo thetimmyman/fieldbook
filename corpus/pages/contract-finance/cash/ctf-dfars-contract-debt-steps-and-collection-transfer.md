@@ -51,9 +51,9 @@ A contract debt of 15,000 exists, and a demand for payment is issued following t
 
 ## Never confuse
 
-Issuing a demand for payment of a contract debt follows the procedures at PGI 232.604 [@CL-CTF-3623], whereas compromising debts covered by DFARS subpart 232.6 is authorized only for the department or agency contract financing offices (see PGI 232.070(c)) [@CL-CTF-3624].
+Issuing a demand for payment of a contract debt follows the procedures at PGI 232.604 [@CL-CTF-3623], unlike the compromise authority, which is not a procedure to follow but a restriction: compromising debts covered by DFARS subpart 232.6 is authorized only for the department or agency contract financing offices (see PGI 232.070(c)) [@CL-CTF-3624].
 
-Transferring a case to the contract financing office under DFARS 232.603 follows PGI 232.603, while transferring responsibility for debt collection under DFARS 232.670 follows PGI 232.670 [@CL-CTF-3622; @CL-CTF-3625].
+A case transfer and a collection transfer differ in the section that governs each rather than in following the same procedure: transferring a case to the contract financing office under DFARS 232.603 follows PGI 232.603, while transferring responsibility for debt collection under DFARS 232.670 follows PGI 232.670 [@CL-CTF-3622; @CL-CTF-3625].
 
 The DoD rules on contract debt determination and collection responsibility are on [DoD contract debt responsibility and exemption from administrative interest](../financing/ctf-dfars-contract-debt-and-interest-exemption.md). The FAR rules on installments, interest and compromise are on [Contract debts: installments, interest and compromises](ctf-contract-debt-installments-interest-and-compromise.md).
 
@@ -64,5 +64,6 @@ Which office holds the company's debt cases, and where the demand, case transfer
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary about unprinted PGI text and negative inferences not stated in the cited DFARS sections.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract debt determination, demand, compromise, collection transfer and bankruptcy reporting.

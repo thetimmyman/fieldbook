@@ -45,7 +45,7 @@ Work is set to start on day 100 of the contract schedule. The Contractor obtains
 
 ## Never confuse
 
-For the offeror's representation of authority to do business where the contract is performed, see [Authorization to perform and English correspondence](cmp-authorization-to-perform-and-english-correspondence.md). For the duty to follow local labor laws and union agreements, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md). Failure to comply with the requirements of the Spanish social security clause may result in termination of the contract under the Default clause [@CL-CMP-4437]; see [Spanish social security laws and Spanish laws and insurance](cmp-dfars-spanish-social-security-and-insurance.md).
+The Italian permit differs from the Spanish social security duty in how it ends: failure to obtain the permit may result in termination of the contract for the convenience of the United States Government, at no cost to the United States Government [@CL-CMP-4431], while failure to comply with the requirements of the Spanish social security clause may result in termination of the contract under the Default clause [@CL-CMP-4437]; see [Spanish social security laws and Spanish laws and insurance](cmp-dfars-spanish-social-security-and-insurance.md). For the offeror's representation of authority to do business where the contract is performed, see [Authorization to perform and English correspondence](cmp-authorization-to-perform-and-english-correspondence.md). For the duty to follow local labor laws and union agreements, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which Italian work sites are covered, and where each permit and its copy are kep
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated failure consequence in the clause words; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the permit from the Italian Inspectorate of Labor.

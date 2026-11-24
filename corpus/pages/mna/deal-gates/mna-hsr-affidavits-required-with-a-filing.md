@@ -62,7 +62,7 @@ Assume § 801.30 applies [@CL-MNA-0220]. A buyer hand-delivers written notice to
 
 ## Never confuse
 
-The paragraph (a) affidavit attests notice to the issuer or unincorporated entity and states the filer's good faith intention to make the acquisition [@CL-MNA-0220; @CL-MNA-0229]. The paragraph (b) affidavit attests an executed contract, agreement in principle or letter of intent and the intention to complete the transaction [@CL-MNA-0233; @CL-MNA-0234]. In a tender offer, the first affidavit (paragraph (a)(2)) adds the attestation that the intention to make the offer has been publicly announced [@CL-MNA-0229]. In examples 4 and 5, a notice that did not state an intent to meet or exceed any notification threshold did not comply [@CL-MNA-0231; @CL-MNA-1023]. Paragraph (a)(1)(iii) asks for that threshold when the number of voting securities is not known in the case of an issuer [@CL-MNA-0224]. A filing made on behalf of a refusing foreign person has its own affidavit statement of the refusal, described on [the foreign person card](mna-hsr-foreign-person-refusal-to-file.md) [@CL-MNA-0213].
+The paragraph (a) and paragraph (b) affidavits are not the same attestation: the paragraph (a) affidavit attests notice to the issuer or unincorporated entity and states the filer's good faith intention to make the acquisition [@CL-MNA-0220; @CL-MNA-0229], while the paragraph (b) affidavit attests an executed contract, agreement in principle or letter of intent and the intention to complete the transaction [@CL-MNA-0233; @CL-MNA-0234]. In a tender offer, the first affidavit (paragraph (a)(2)) adds the attestation that the intention to make the offer has been publicly announced [@CL-MNA-0229]. In examples 4 and 5, a notice that did not state an intent to meet or exceed any notification threshold did not comply [@CL-MNA-0231; @CL-MNA-1023]. Paragraph (a)(1)(iii) asks for that threshold when the number of voting securities is not known in the case of an issuer [@CL-MNA-0224]. A filing made on behalf of a refusing foreign person has its own affidavit statement of the refusal, described on [the foreign person card](mna-hsr-foreign-person-refusal-to-file.md) [@CL-MNA-0213].
 
 ## Company calibration
 
@@ -71,6 +71,7 @@ Which notice steps and transaction documents the deal file must hold so that eac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal illustrative email addresses in Example 1 to 16 CFR 803.5(a)(1)(vi) with descriptions of the general-account and officer email addresses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added email-notice example details and removed unsupported commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the affidavits required with a filing.

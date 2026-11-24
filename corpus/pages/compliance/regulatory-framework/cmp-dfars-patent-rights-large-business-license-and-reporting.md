@@ -47,7 +47,7 @@ A contractor keeps title to a new sensor design. The Government holds a paid-up 
 
 ## Never confuse
 
-For the clause where the Government takes title from the start, see [Patent rights with ownership by the Government](cmp-patent-rights-government-ownership.md), and for the FAR contractor-ownership clause, see [the deadlines and title card](cmp-patent-rights-contractor-ownership-deadlines-and-title.md). For disclosure, election and filing deadlines for this DoD clause, see [DoD patent rights for large businesses: ownership, disclosure, election and filing](cmp-dfars-patent-rights-large-business-ownership-and-deadlines.md).
+Retaining ownership grants the Government a license rather than leaving the Government without rights: if the Contractor retains ownership of any subject invention, the Government shall have a nonexclusive, nontransferable, irrevocable, paid-up license to practice, or have practiced for or on behalf of the United States, the subject invention throughout the world [@CL-CMP-3935]. For the clause where the Government takes title from the start, see [Patent rights with ownership by the Government](cmp-patent-rights-government-ownership.md), and for the FAR contractor-ownership clause, see [the deadlines and title card](cmp-patent-rights-contractor-ownership-deadlines-and-title.md). For disclosure, election and filing deadlines for this DoD clause, see [DoD patent rights for large businesses: ownership, disclosure, election and filing](cmp-dfars-patent-rights-large-business-ownership-and-deadlines.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which executed contracts carry this clause, who prepares the interim and utiliza
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added interim report statement, withholding timing and scope, full licensing authority; cut uncited characterizations and meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the utilization report sentence so the reporting rule keeps the limit to efforts made by the Contractor or its licensees or assignees.

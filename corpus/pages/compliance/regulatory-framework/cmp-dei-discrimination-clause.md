@@ -49,7 +49,7 @@ A contractor holds a 12-month service contract that carries the clause. A subcon
 
 ## Never confuse
 
-The conduct, information, reporting and materiality terms are in paragraph (b), while paragraph (c) carries the substance into subcontracts at any tier, except those where the place of delivery or performance is outside the United States [@CL-CMP-8603; @CL-CMP-8609]. In paragraph (b)(6), the Contractor recognizes that compliance with the requirements of the clause is material to the Government's payment decisions for purposes of section 3729(b)(4) of title 31 of the United States Code [@CL-CMP-8608].
+The terms in paragraph (b) are not the flowdown in paragraph (c): the conduct, information, reporting and materiality terms are in paragraph (b), while paragraph (c) carries the substance into subcontracts at any tier, except those where the place of delivery or performance is outside the United States [@CL-CMP-8603; @CL-CMP-8609]. In paragraph (b)(6), the Contractor recognizes that compliance with the requirements of the clause is material to the Government's payment decisions for purposes of section 3729(b)(4) of title 31 of the United States Code [@CL-CMP-8608].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which contracts and subcontracts the company holds that carry the clause, who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed statements about what the clause does not contain and who acts on noncompliance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the equal opportunity clause card.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DEI discrimination clause.
