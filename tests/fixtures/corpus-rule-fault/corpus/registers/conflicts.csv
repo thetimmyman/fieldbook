@@ -1,0 +1,2 @@
+conflict_id,area,topic,positions,resolution,rationale,evidence,resolved_on,status,claim_ids,question_id
+XC-01,cmp,Synthetic review interval versus withholding check timing,Synthetic review runs every 30 days|Synthetic withholding check runs at each billing cycle,,,,,unresolved,CL-CMP-0001|CL-CMP-0002,Q-001

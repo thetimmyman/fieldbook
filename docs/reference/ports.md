@@ -27,6 +27,16 @@ Contract test `contract_extractor_pdftotext_layout_1`; model calls: no.
 
 Contract test `contract_extractor_staged_1`; model calls: no.
 
+## classifier
+
+| ID | Default | State | Build | Crate | Needs | Sees | Settings keys | Fixtures | Suite |
+|---|---|---|---|---|---|---|---|---|---|
+| `rules@1` | yes | built | silent | `fieldbook-core` | none | labelled | - | `tests/fixtures/ports/classifier/rules@1/` | `classifier_suite` |
+
+### classifier rules@1
+
+Contract test `contract_classifier_rules_1`; model calls: no.
+
 ## admit
 
 | ID | Default | State | Build | Crate | Needs | Sees | Settings keys | Fixtures | Suite |

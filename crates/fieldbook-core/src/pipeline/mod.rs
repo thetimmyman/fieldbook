@@ -8,6 +8,7 @@
 pub mod admit;
 pub mod candidate;
 pub mod proposal;
+pub mod rules;
 pub mod suggest;
 pub mod targets;
 pub mod view;

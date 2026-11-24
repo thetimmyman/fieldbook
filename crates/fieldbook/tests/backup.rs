@@ -6688,6 +6688,7 @@ fn snapshot_bytes_are_unchanged_by_the_two_passes() {
         "data/corpus/pages/estimating/pricing/est-calc-01.md",
         "data/corpus/pages/estimating/pricing/est-rate-reference.md",
         "data/corpus/pages/estimating/pricing/est-rate-window-brief.md",
+        "data/corpus/pipeline/rules.toml",
         "data/corpus/registers/claims.csv",
         "data/corpus/registers/conflicts.csv",
         "data/corpus/registers/glossary.csv",

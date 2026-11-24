@@ -1,0 +1,4 @@
+row_id,kind,title,detail,source_ref,area,owner_role,waits_on_question,status,as_of,drafted_by
+example-1,note,Synthetic example: Document recurring billing discrepancies across cost centers,ledger extract shows recurring billing discrepancies across cost centers,"example-source-v1, p. 14",example-area,finance lead,example-question-1,open,2000-01-01,ai
+example-2,gap,Synthetic example: Track missing vendor rebate schedules in shared storage,vendor rebate schedules are missing from shared folder,No source yet,example-billing,contracts lead,,in_progress,2000-01-01,owner
+example-3,clause,Synthetic example: Review liability limitation clause capping recovery at monthly fees,limitation of liability clause caps recovery at monthly fees paid,"example-source-v2, p. 28",example-contracts,treasury lead,example-question-2,done,2000-01-01,ai

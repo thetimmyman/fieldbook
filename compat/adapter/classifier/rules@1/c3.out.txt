@@ -1,0 +1,1 @@
+refuse 1:rule `missing-example` is missing its `example`

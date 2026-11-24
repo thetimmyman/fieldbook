@@ -1,0 +1,6 @@
+ok
+fields 4
+field source_kind value=primary_law by=rules@1 rule=reg-text:phrase support=p1:Synthetic Regulation Text
+field publisher value=Synthetic Standards Board by=rules@1 rule=fixture-agency:publisher support=p1:Synthetic Standards Board
+field purpose value=Clause number present by=rules@1 rule=shape-clause:id_shape support=p1:15.404-1
+field title value=Synthetic Regulation Text issued by Synthetic Standards Board, referencing 15.404-1. by=rules@1 rule=- support=p1:Synthetic Regulation Text issued by Synthetic Standards Board, referencing 15.404-1.
