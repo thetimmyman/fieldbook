@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 26) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 27) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 26
+## Current revision 27
+
+The claims copy for Excel follows what `claims-csv-parts` merged: the build writes one CSV per claims part, `data/claims-<AREA>-<part>.csv`, and no single claims CSV, and the set of part CSVs equals the set of part pages. The Paths row of Frozen strings names the part files beside the other register copies as the build must hold them, and section 5 (`RegisterTable`) of `HANDOFF.md` specifies the `Copy for Excel:` line: the claims index links no part CSV and each part page links its own, each link named by the file name it points at, wrapping at narrow width and printing as ordinary text. This is a wording-only revision: no layout family, token or component geometry changes, so no study is needed (section 13 of `HANDOFF.md`). The mockup changes only its claims landing note to the new wording with synthetic part names, and MANIFEST.txt lists the new hashes.
+
+## Revision 26 (historical)
 
 The workspace opening. An empty Changes to review panel says what was observed, from the check state of the claims in its scope, and says "Nothing upstream has moved." only when every one has been checked (`changes-empty-by-check`). A workspace section whose object has not landed leaves the section order and the jump list and sits in one closed "Not built yet" disclosure after the built sections, the sidebar's form since revision 22, so an area's library pages open in the first screen (`workspace-unbuilt-fold`). One layout family changed, the workspace section sequence, with one study recorded in section 13 of `HANDOFF.md`. The mockup adds both as specimens on [the workspace specimen](mockup/index.html#workspace/unbuilt), reached from the states gallery. No token or component geometry is added, and MANIFEST.txt lists the new hashes.
 
