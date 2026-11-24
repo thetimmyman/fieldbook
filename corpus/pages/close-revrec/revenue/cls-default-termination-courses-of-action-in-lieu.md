@@ -65,7 +65,7 @@ On contract B, the requirement continues. The no-cost course is not available on
 
 ## Never confuse
 
-These courses are alternatives to termination for default [@CL-CLS-0258]. The default termination itself and its effects are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md). The default clauses are on [Default clauses for fixed-price contracts and when each goes in](cls-fixed-price-default-clauses.md).
+These courses are alternatives to termination for default rather than supplements to it [@CL-CLS-0258]. The default termination itself and its effects are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md). The default clauses are on [Default clauses for fixed-price contracts and when each goes in](cls-fixed-price-default-clauses.md).
 
 The no-cost course applies if the requirement for the supplies and services in the contract no longer exists, and the contractor is not liable to the Government for damages as provided in 49.402-7 [@CL-CLS-0261].
 
@@ -78,5 +78,6 @@ Who confirms whether the requirement still exists and whether the contractor is 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: courses of action in lieu of default: uncited inferences and gap statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the courses of action in lieu of termination for default.

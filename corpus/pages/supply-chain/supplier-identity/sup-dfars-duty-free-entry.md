@@ -25,7 +25,7 @@ Shows which supplies qualify for duty-free entry under the DFARS clause, what th
 | Instrument | Codified DFARS [@CL-SUP-1784] |
 | Codified citation | DFARS 252.225-7013 [@CL-SUP-1784; @CL-SUP-1790; @CL-SUP-1839] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 2025 [@CL-SUP-9919] |
 | Text status | Final [@CL-SUP-1784] |
 | Applies to | Contracts with the duty-free entry clause, which its text says is prescribed in a DFARS section it names [@CL-SUP-1839]; the price paragraph covers the supplies it lists [@CL-SUP-1784; @CL-SUP-1785; @CL-SUP-1786] |
 
@@ -76,6 +76,7 @@ Whether the purchasing system flags foreign supplies for notice and flowdown, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: exemption conditions worded as both required.
 - COMPATIBLE_EXTENSION, 2026-10-31: price-paragraph items, consignee and excepted cases stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added import destination, administering office, in-connection-with-contract and eligible-supplies scope to four sentences.

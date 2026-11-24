@@ -46,7 +46,7 @@ A subcontractor receives a payment financed entirely from non-Recovery Act appro
 
 ## Never confuse
 
-Covered funds under these sections require that the Federal Government provide any portion of the money or property that is provided, requested, or demanded and that at least some of the funds be appropriated or otherwise made available by the Recovery Act [@CL-CMP-2338]. For general whistleblower protections for contractor employees, see [Whistleblower protections for contractor employees: policy and remedies](cmp-contractor-employee-whistleblower-protections.md).
+The Recovery Act protections attach to covered funds rather than to all Federal contracts: covered funds under these sections require that the Federal Government provide any portion of the money or property that is provided, requested, or demanded and that at least some of the funds be appropriated or otherwise made available by the Recovery Act [@CL-CMP-2338]. For general whistleblower protections for contractor employees, see [Whistleblower protections for contractor employees: policy and remedies](cmp-contractor-employee-whistleblower-protections.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Whether any contract or subcontract payment includes Recovery Act funds. [@Q-003
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added all eight protected recipient entities and all five categories of covered information, and removed meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Recovery Act whistleblower protections.

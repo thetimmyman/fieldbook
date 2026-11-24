@@ -57,7 +57,7 @@ A company's costs on another contract exceed that contract's income by 25,000, o
 
 ## Never confuse
 
-The plant protection sections call listed kinds of cost allowable [@CL-CMP-8699; @CL-CMP-8700], and the loss sections call an excess of costs over income under another contract unallowable [@CL-CMP-8697; @CL-CMP-8698].
+The two groups come out differently: the plant protection sections call listed kinds of cost allowable [@CL-CMP-8699; @CL-CMP-8700], while the loss sections call an excess of costs over income under another contract unallowable [@CL-CMP-8697; @CL-CMP-8698].
 
 The codified text speaks of an excess of costs over income under any other contract [@CL-CMP-8697]. The unallowable cost card at [Accounting for unallowable costs](../cas-allowability/cmp-cas-405-unallowable-costs.md) covers the separate unallowable cost classes.
 
@@ -68,6 +68,7 @@ How unallowable costs are kept out of rate and billing pools: accounts, review a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut disclaimers and negative statements the quotes do not state, and tied the DFARS subpart statements to their headings.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the Part 31 scope with its cost-analysis condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined three lead-ins to their cited sentences; renamed one link text.

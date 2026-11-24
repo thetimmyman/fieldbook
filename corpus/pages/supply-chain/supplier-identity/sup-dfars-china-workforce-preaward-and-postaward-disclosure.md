@@ -25,7 +25,7 @@ Shows which contracts are covered by the China workforce disclosure rules, what 
 | Instrument | Codified DFARS [@CL-SUP-1719] |
 | Codified citation | DFARS 252.225-7057 [@CL-SUP-1719] and DFARS 252.225-7058 [@CL-SUP-1754] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-SUP-9916] |
 | Text status | Final [@CL-SUP-1717] |
 | Applies to | Covered contracts, meaning DoD contracts or subcontracts over $5 million that are not contracts for commercial products and commercial services [@CL-SUP-1717]; offers for covered contracts [@CL-SUP-1720]; and contracts with the clause where DFARS 225.7021-4(b) prescribes it [@CL-SUP-1767] |
 
@@ -54,6 +54,7 @@ Which executed contracts and subcontracts exceed the covered contract value and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

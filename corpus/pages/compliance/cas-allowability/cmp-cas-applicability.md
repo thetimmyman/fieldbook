@@ -47,7 +47,7 @@ A business unit wins a negotiated award of 40 million, above an exemption thresh
 
 ## Never confuse
 
-A business unit means any segment of an organization, or an entire business organization that is not divided into segments [@CL-RTE-9063].
+A business unit is not only a segment: it means any segment of an organization, or an entire business organization that is not divided into segments [@CL-RTE-9063].
 
 The Cost Accounting Standards statute itself, and how a contract reaches it through the FAR part on Cost Accounting Standards administration, are covered in [What the Cost Accounting Standards statute requires and who it applies to](cmp-cas-statute-scope-and-application.md).
 
@@ -58,6 +58,7 @@ Which business units are CAS-covered, at what level, and whether a Disclosure St
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-05: Corrected the Applies to row, which had read awards from 2026-10-01 and went beyond the cited text, to the Board's regulation with application to earlier awards not established.
 - COMPATIBLE_EXTENSION, 2026-11-05: Named the Board's regulation as the place that states the values, added the values before 2026-10-01 with a citation to the rule's own statement of them, added the rule's transition for business units under the earlier full-coverage line, stated that the FAR text still prints earlier figures, and marked which figure applies as not established.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited exemption, coverage and Disclosure Statement lead-ins; removed uncited contrasts.

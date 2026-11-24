@@ -45,7 +45,7 @@ An office plans to buy 12 vehicles and expects to add 4 more under an option. Be
 
 ## Never confuse
 
-The determination is a conclusion or decision supported by the findings, and the findings are statements of fact or rationale essential to support the determination [@CL-CMP-8339; @CL-CMP-8338].
+The determination is not the findings: the determination is a conclusion or decision supported by the findings [@CL-CMP-8339], and the findings are statements of fact or rationale essential to support the determination [@CL-CMP-8338].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which contract actions in the company's remit depend on a determination and find
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an inference and uncited contrasts and restored the word certain in the scope row.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for determinations and findings and their general rules.

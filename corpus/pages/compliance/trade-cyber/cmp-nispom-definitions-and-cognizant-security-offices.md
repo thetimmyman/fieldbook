@@ -48,7 +48,7 @@ Answer: the acronym list reads these as facility (security) clearance, governmen
 
 ## Never confuse
 
-In the acronym list, FCL stands for facility (security) clearance, KMP for key management personnel and SMO for senior management official [@CL-CMP-3495; @CL-CMP-3497; @CL-CMP-3498], and KMP and SMO each also have a separate definition [@CL-CMP-3518; @CL-CMP-3520]. A CDC is a subset of contractors cleared under the NISP who have classified contracts with the DoD [@CL-CMP-3499].
+In the acronym list, FCL stands for facility (security) clearance, KMP for key management personnel and SMO for senior management official [@CL-CMP-3495; @CL-CMP-3497; @CL-CMP-3498], and KMP and SMO each also have a separate definition [@CL-CMP-3518; @CL-CMP-3520]. A CDC is not every cleared contractor: it is a subset of contractors cleared under the NISP who have classified contracts with the DoD [@CL-CMP-3499].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which legal entities and contracts hold a facility clearance or classified DoD c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: definitions tied to quotes; added CCIPP, program and SMO companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Flagged the definition text that follows two quoted sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the foreign interest and key management personnel definitions so each keeps the persons and the qualifying test that follow the quoted text.

@@ -46,7 +46,7 @@ A contractor performs a contract worth 9 million, not for commercial products or
 
 ## Never confuse
 
-A hotline poster is named as one example of a reporting mechanism in an awareness program [@CL-CMP-2639]. For the code of business ethics clause and its internal control system, see [Code of business ethics clause: timely disclosure and the internal control system](cmp-code-of-ethics-clause-disclosure-and-controls.md).
+The displayed poster is not the awareness program's reporting mechanism: a hotline poster is named as one example of a reporting mechanism in an awareness program [@CL-CMP-2639]. For the code of business ethics clause and its internal control system, see [Code of business ethics clause: timely disclosure and the internal control system](cmp-code-of-ethics-clause-disclosure-and-controls.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts carry the poster clause, where the company performs work on them
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified poster list, where to obtain posters and the flowdown lead-in; cut meta and unsupported contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the poster sentence so the display duty keeps the Department of Homeland Security posters identified in paragraph (b)(3) of the clause.

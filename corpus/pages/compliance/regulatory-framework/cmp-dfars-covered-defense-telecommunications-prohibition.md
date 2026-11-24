@@ -53,7 +53,7 @@ An office plans to exercise an option on a contract for a ballistic missile defe
 
 ## Never confuse
 
-The definition includes telecommunications equipment produced by Huawei Technologies Company or ZTE Corporation, or any subsidiary or affiliate of such entities [@CL-CMP-7915]. It also includes equipment or services from an entity the Secretary of Defense reasonably believes to be owned or controlled by, or connected to, the government of a covered foreign country [@CL-CMP-7916]. The prohibition in this section is addressed to the contracting officer [@CL-CMP-7920].
+The definition is not the prohibition: the definition includes telecommunications equipment produced by Huawei Technologies Company or ZTE Corporation, or any subsidiary or affiliate of such entities [@CL-CMP-7915], and equipment or services from an entity the Secretary of Defense reasonably believes to be owned or controlled by, or connected to, the government of a covered foreign country [@CL-CMP-7916], while the prohibition in this section is addressed to the contracting officer [@CL-CMP-7920].
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Where the executed contracts and modifications sit, and who confirms whether any
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inferences and contrasts about the definition and prohibition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered defense telecommunications equipment or services, the prohibition, and the solicitation provisions and contract clause.

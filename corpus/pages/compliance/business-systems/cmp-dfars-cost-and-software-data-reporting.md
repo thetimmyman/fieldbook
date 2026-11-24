@@ -46,7 +46,7 @@ A contract carries the basic clause text. The contractor awards a subcontract wo
 
 ## Never confuse
 
-As part of its proposal under the provision, the offeror describes the process to be used to satisfy the CSDR Manual and the Government-approved CSDR plan for the proposed contract, while in the performance of the contract under the clause, the Contractor uses a documented standard CSDR process that satisfies the guidelines in the CSDR Manual [@CL-CMP-3842; @CL-CMP-3846]. The basic and Alternate I texts use a different subcontractor paragraph [@CL-CMP-3885; @CL-CMP-3887; @CL-CMP-3844; @CL-CMP-3845; @CL-CMP-3848; @CL-CMP-3849].
+The provision and the clause differ in phase: as part of its proposal under the provision, the offeror describes the process to be used to satisfy the CSDR Manual and the Government-approved CSDR plan for the proposed contract, while in the performance of the contract under the clause, the Contractor uses a documented standard CSDR process that satisfies the guidelines in the CSDR Manual [@CL-CMP-3842; @CL-CMP-3846]. The basic and Alternate I texts use a different subcontractor paragraph [@CL-CMP-3885; @CL-CMP-3887; @CL-CMP-3844; @CL-CMP-3845; @CL-CMP-3848; @CL-CMP-3849].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which solicitations and contracts carry the basic or the Alternate I text, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the Alternate I subcontractor wording to the cited text and removed meta-wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS cost and software data reporting.

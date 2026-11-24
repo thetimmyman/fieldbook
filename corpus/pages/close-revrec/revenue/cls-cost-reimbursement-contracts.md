@@ -47,7 +47,7 @@ A contractor performs an engineering development contract with an estimated tota
 
 ## Never confuse
 
-Cost-reimbursement types of contracts provide for payment of allowable incurred costs, to the extent prescribed in the contract [@CL-CLS-0567]. They establish an estimate of total cost for the purpose of obligating funds and establishing a ceiling that the contractor may not exceed, except at its own risk, without the approval of the contracting officer [@CL-CLS-0680]. The contracting officer shall use them only in one of the two alternative cases listed in FAR 16.301-2(a) [@CL-CLS-0568; @CL-CLS-0681]. For the notice duty as costs approach the ceiling, see [Limitation of cost](../../contract-finance/funding/ctf-limitation-of-cost.md). For a fixed-price contract that pays for effort, see [Firm-fixed-price, level-of-effort term contracts](cls-firm-fixed-price-level-of-effort.md). For the accounting system criteria, see [Accounting system criteria](../../compliance/business-systems/cmp-accounting-system-criteria.md).
+A cost-reimbursement contract pays cost rather than an agreed price: cost-reimbursement types of contracts provide for payment of allowable incurred costs, to the extent prescribed in the contract [@CL-CLS-0567]. They establish an estimate of total cost for the purpose of obligating funds and establishing a ceiling that the contractor may not exceed, except at its own risk, without the approval of the contracting officer [@CL-CLS-0680]. The contracting officer shall use them only in one of the two alternative cases listed in FAR 16.301-2(a) [@CL-CLS-0568; @CL-CLS-0681]. For the notice duty as costs approach the ceiling, see [Limitation of cost](../../contract-finance/funding/ctf-limitation-of-cost.md). For a fixed-price contract that pays for effort, see [Firm-fixed-price, level-of-effort term contracts](cls-firm-fixed-price-level-of-effort.md). For the accounting system criteria, see [Accounting system criteria](../../compliance/business-systems/cmp-accounting-system-criteria.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Who confirms accounting system adequacy for cost determination and monitors cost
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cost-reimbursement contracts: accounting-system condition cited in full, surveillance reference, contrast reworded.
 - COMPATIBLE_EXTENSION, 2026-10-31: described the two cases as alternatives and the four conditions as all required.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-reimbursement contracts.

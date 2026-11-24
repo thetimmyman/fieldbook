@@ -24,7 +24,7 @@ Explains where the Government delivers Government-furnished property and where t
 | Instrument | Codified FAR [@CL-SUP-2051] |
 | Codified citation | FAR 52.247-55 and 52.247-66 [@CL-SUP-2051; @CL-SUP-2056] |
 | RFO citation | RFO part 52 lists 52.247-55 and 52.247-66 as reserved [@CL-SUP-0388; @CL-SUP-0389] |
-| Edition date | Not established. |
+| Edition date | JUN 2003 [@CL-SUP-9816] |
 | Text status | Final [@CL-SUP-2051] |
 | Applies to | Government-furnished property for use within the contiguous United States or Canada, or at a contractor plant outside them [@CL-SUP-2051; @CL-SUP-2053], and returnable cylinders, meaning pressure vessels designed for pressures higher than 40 psia with a circular cross section, excluding the tank types the clause names [@CL-SUP-2181] |
 
@@ -59,6 +59,7 @@ Which clause versions and delivery points the contracts state for Government-fur
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the shall wording, packing scope, replacement value and RFO paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the notwithstanding lead-in for the rail car direction.

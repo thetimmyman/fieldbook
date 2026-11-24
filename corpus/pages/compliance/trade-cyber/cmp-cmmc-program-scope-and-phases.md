@@ -46,7 +46,7 @@ A program office issues a solicitation 14 months after Phase 1 began, for work i
 
 ## Never confuse
 
-Phase 1 begins on the effective date of the complementary 48 CFR part 204 CMMC Acquisition final rule [@CL-CMP-2055]. Phase 2 begins one calendar year after the start of Phase 1 [@CL-CMP-2056]. For subcontractors, see [CMMC affirmation and subcontractor flowdown](cmp-cmmc-affirmation-and-flowdown.md); application of the CMMC Status for subcontractors will be determined in accordance with § 170.23 [@CL-CMP-0090].
+The two phases differ in start: Phase 1 begins on the effective date of the complementary 48 CFR part 204 CMMC Acquisition final rule [@CL-CMP-2055], while Phase 2 begins one calendar year after the start of Phase 1 [@CL-CMP-2056]. For subcontractors, see [CMMC affirmation and subcontractor flowdown](cmp-cmmc-affirmation-and-flowdown.md); application of the CMMC Status for subcontractors will be determined in accordance with § 170.23 [@CL-CMP-0090].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which solicitations and contracts carry a CMMC status requirement, and who confi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added Phase 2 delay; removed absence and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the status selection sentence with its quote.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Program scope and implementation phases.

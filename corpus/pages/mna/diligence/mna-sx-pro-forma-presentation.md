@@ -46,7 +46,7 @@ A registrant's filing includes a balance sheet as of its latest quarter end. Aft
 
 ## Never confuse
 
-Under § 210.11-01(b)(1), a business acquisition is considered significant for pro forma financial information if it meets the significant subsidiary definition in § 210.1-02(w)(1) substituting 20 percent for 10 percent (or for a real estate operation, the investment test in § 210.1-02(w)(1)(i) substituting 20 percent for 10 percent as modified by § 210.3-14(b)(2)(ii)) [@CL-MNA-0687; @CL-MNA-0136], whereas under § 210.3-05(b)(2), the 20 percent and 40 percent thresholds determine the periods for which separate financial statements of the business acquired or to be acquired must be filed [@CL-MNA-0676; @CL-MNA-0677; @CL-MNA-0678]; see [Financial statements of businesses acquired or to be acquired](mna-sx-acquired-business-financial-statements.md).
+The pro forma significance test and the separate-statements thresholds are not the same test: under § 210.11-01(b)(1), a business acquisition is considered significant for pro forma financial information if it meets the significant subsidiary definition in § 210.1-02(w)(1) substituting 20 percent for 10 percent (or for a real estate operation, the investment test in § 210.1-02(w)(1)(i) substituting 20 percent for 10 percent as modified by § 210.3-14(b)(2)(ii)) [@CL-MNA-0687; @CL-MNA-0136], whereas under § 210.3-05(b)(2), the 20 percent and 40 percent thresholds determine the periods for which separate financial statements of the business acquired or to be acquired must be filed [@CL-MNA-0676; @CL-MNA-0677; @CL-MNA-0678]; see [Financial statements of businesses acquired or to be acquired](mna-sx-acquired-business-financial-statements.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ What acquisition mandate, decision criteria and diligence scope the company has 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0136 for real estate operations in § 210.11-01(b)(1)(ii) and combined the § 210.11-01(c) aggregate-impact exception into one sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: significance test described as one listed test; exception wording tightened.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that the Article 8 pro forma rule applies to smaller reporting companies.

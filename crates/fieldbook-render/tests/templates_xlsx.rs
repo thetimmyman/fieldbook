@@ -1093,10 +1093,13 @@ fn a_missing_template_csv_renders_no_file() {
             let ctx = site::render_context(view, &info).unwrap();
             let site = site::render_with_info(view, &ctx, &info).unwrap();
 
-            assert!(
-                !site.files().keys().any(|k| k.starts_with("templates/")),
-                "site must hold no templates/ files when all template CSVs are absent"
-            );
+            for spec in TEMPLATES {
+                let path = templates_xlsx::output_path(spec.name);
+                assert!(
+                    !site.files().contains_key(&path),
+                    "site must not hold E1 template `{path}` when its CSV is absent"
+                );
+            }
             assert!(
                 templates_xlsx::planned_paths(view).is_empty(),
                 "templates_xlsx::planned_paths must be empty"
@@ -1154,6 +1157,7 @@ fn a_rendered_site_holds_the_three_templates() {
             vec![
                 "templates/90-day-plan.xlsx",
                 "templates/assumption-register.xlsx",
+                "templates/decision-package.xlsx",
                 "templates/discovery-log.xlsx",
             ]
         );

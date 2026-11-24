@@ -53,7 +53,7 @@ For a commercial product, the contracting officer would like to use installment 
 
 ## Never confuse
 
-The prompt payment standards for commercial delivery payments shall be the same as those FAR subpart 32.9 specifies for invoice payments for the item delivered [@CL-CTF-3364]. Performance-based payments shall not be conditioned upon costs incurred in contract performance, but on the achievement of performance outcomes [@CL-CTF-3359]. Generally, the contracting officer shall insert 7 days for progress payments and 14 days for performance-based payments [@CL-CTF-3406]. The full rules are on [Progress payments](ctf-progress-payments.md), [Performance-based payments](ctf-performance-based-payments.md), [Contract financing for commercial purchases](ctf-contract-financing-for-commercial-purchases.md) and [PBP invitation and commercial financing installments](../billing-payment/ctf-pbp-invitation-and-commercial-financing-installments.md).
+Performance-based payments differ from progress payments in their condition rather than only in name: performance-based payments shall not be conditioned upon costs incurred in contract performance, but on the achievement of performance outcomes [@CL-CTF-3359], whereas the standard due dates differ too — generally, the contracting officer shall insert 7 days for progress payments and 14 days for performance-based payments [@CL-CTF-3406]. The prompt payment standards for commercial delivery payments shall be the same as those FAR subpart 32.9 specifies for invoice payments for the item delivered [@CL-CTF-3364] rather than the financing due dates. The full rules are on [Progress payments](ctf-progress-payments.md), [Performance-based payments](ctf-performance-based-payments.md), [Contract financing for commercial purchases](ctf-contract-financing-for-commercial-purchases.md) and [PBP invitation and commercial financing installments](../billing-payment/ctf-pbp-invitation-and-commercial-financing-installments.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Confirm which financing terms each contract states and who tracks the entitlemen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "shall" and removed contrasts the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Performance-based payment sentences name their subject; consideration duty stated as a direction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.

@@ -53,7 +53,7 @@ In a second scenario, the agency head, on a nondelegable basis and in order to p
 
 ## Never confuse
 
-The cognizant auditor is responsible for conducting reviews of Disclosure Statements for adequacy and compliance [@CL-CMP-7038]. The CFAO is responsible for issuing determinations of adequacy and compliance of the Disclosure Statement [@CL-CMP-7039].
+The auditor reviews and the CFAO determines: the cognizant auditor is responsible for conducting reviews of Disclosure Statements for adequacy and compliance [@CL-CMP-7038], while the CFAO is responsible for issuing determinations of adequacy and compliance of the Disclosure Statement [@CL-CMP-7039].
 
 Authorization to award without obtaining submission of the required Disclosure Statement is given by the agency head on a nondelegable basis [@CL-CMP-7036]; in that event the contractor shall submit the required Disclosure Statement [@CL-CMP-7037].
 
@@ -64,6 +64,7 @@ For each business unit, whether proposed contracts may require CAS coverage and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated the award bar exception as unless.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named adequacy and compliance in the auditor and CFAO duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names the auditor.

@@ -65,7 +65,7 @@ Company B completed a High Assessment before the effective date that left 1 POA&
 
 An OSC that achieved a perfect score with no open POA&M from a DCMA DIBCAC High Assessment conducted prior to the effective date of the rule will be given a CMMC Status of Level 2 Final (C3PAO) with a validity period of three years from the date of the original assessment [@CL-CMP-8466]. The Level 2 certification assessment scope is identical to the High Assessment scope [@CL-CMP-8469].
 
-The validity period is three years from the date of the original assessment [@CL-CMP-8466], and the OSC must also submit an affirmation in SPRS and annually thereafter to achieve contractual eligibility [@CL-CMP-8470].
+Status and contractual eligibility differ: the validity period is three years from the date of the original assessment [@CL-CMP-8466], and the OSC must also submit an affirmation in SPRS and annually thereafter to achieve contractual eligibility [@CL-CMP-8470].
 
 ## Company calibration
 
@@ -74,5 +74,6 @@ Which control findings and corrective actions are open from each DCMA DIBCAC Hig
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed absence and meta wording; cited positive statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acceptance of existing DoD assessments.

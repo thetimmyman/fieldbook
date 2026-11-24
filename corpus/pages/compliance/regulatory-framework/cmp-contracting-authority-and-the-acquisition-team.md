@@ -53,7 +53,7 @@ A program engineer who is not a contracting officer asks a supplier to add a tes
 
 ## Never confuse
 
-Contracts may be entered into and signed on behalf of the Government only by contracting officers [@CL-CMP-6868], and contracting officers may bind the Government only to the extent of the authority delegated to them [@CL-CMP-7165]. The team rule that absence of direction should be interpreted as permitting the Team to innovate and use sound business judgment applies within the limits of their authority [@CL-CMP-6871].
+Only a contracting officer, rather than any member of the acquisition team, may enter into and sign contracts on behalf of the Government: contracts may be entered into and signed on behalf of the Government only by contracting officers [@CL-CMP-6868], and contracting officers may bind the Government only to the extent of the authority delegated to them [@CL-CMP-7165]. The team rule that absence of direction should be interpreted as permitting the Team to innovate and use sound business judgment applies within the limits of their authority [@CL-CMP-6871].
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Which roles in the company may accept direction that changes scope, price or sch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: authority wording and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the clause's 'in any way' on directing the contractor.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names contracting officers.

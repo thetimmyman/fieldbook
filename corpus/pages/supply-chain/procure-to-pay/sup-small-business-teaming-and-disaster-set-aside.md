@@ -24,7 +24,7 @@ Shows who may offer under the small business teaming provision, what makes a Sma
 | Instrument | Codified FAR [@CL-SUP-2956] |
 | Codified citation | FAR 52.207-6 and FAR 52.226-4 [@CL-SUP-2956; @CL-SUP-2960] |
 | RFO citation | RFO FAR 52.207-6 [@CL-SUP-0544; @CL-SUP-0496; @CL-SUP-0497; @CL-SUP-0498; @CL-SUP-0499; @CL-SUP-0540; @CL-SUP-0541; @CL-SUP-0542; @CL-SUP-0543] and RFO FAR 52.226-4 [@CL-SUP-0545; @CL-SUP-0546] |
-| Edition date | Not established. |
+| Edition date | FAR 52.207-6: AUG 2024 [@CL-SUP-9827]; FAR 52.226-4: NOV 2007 [@CL-SUP-9828] |
 | Text status | Final [@CL-SUP-2956] |
 | Applies to | Solicitations that carry the small business teaming provision, which is titled for multiple-award contracts, and contracts that carry the disaster or emergency area set-aside clause [@CL-SUP-2974; @CL-SUP-2960] |
 
@@ -72,6 +72,7 @@ Whether the company's teaming agreements are in writing, carry the arrangement n
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and aligned How it works and Never confuse with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on competition notices and right of first refusal.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the review question to drop a filing deadline the provision does not set.

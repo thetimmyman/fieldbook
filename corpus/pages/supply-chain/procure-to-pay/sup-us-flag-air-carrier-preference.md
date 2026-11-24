@@ -25,7 +25,7 @@ Explains when a contractor must use a United States-flag air carrier for interna
 | Instrument | Codified FAR [@CL-SUP-2022] |
 | Codified citation | FAR 52.247-63 [@CL-SUP-2022] |
 | RFO citation | RFO FAR 52.247-63 [@CL-SUP-0714; @CL-SUP-0715; @CL-SUP-0716; @CL-SUP-0717; @CL-SUP-0718; @CL-SUP-0719; @CL-SUP-0720; @CL-SUP-0721; @CL-SUP-0722; @CL-SUP-0723] |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-SUP-9840] |
 | Text status | Final [@CL-SUP-2022] |
 | Applies to | International air transportation of personnel (and their personal effects) or property in performing work under the contract [@CL-SUP-2023], and subcontracts and purchases under it that may involve international air transportation [@CL-SUP-2026] |
 
@@ -59,6 +59,7 @@ How the company books international air travel and shipments, where the statemen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality, flowdown wording, and disallowance conditions with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the Fly America Act and the General Services Administration as the source of the requirements; removed an unsupported statement about vouchers.

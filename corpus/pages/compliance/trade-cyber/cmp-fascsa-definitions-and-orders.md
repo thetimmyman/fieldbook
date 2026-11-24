@@ -46,7 +46,7 @@ A civilian agency learns that a DHS order names a source and establishes the pro
 
 ## Never confuse
 
-A FASCSA order is any of the listed orders issued under the Federal Acquisition Supply Chain Security Act requiring the removal of covered articles from executive agency information systems or the exclusion of one or more named sources or named covered articles from executive agency procurement actions [@CL-CMP-2969; @CL-CMP-0145]. The Secretary of Homeland Security, the Secretary of Defense and the Director of National Intelligence may each issue orders of the types described [@CL-CMP-2970; @CL-CMP-2971; @CL-CMP-2972]. The agency prohibition on procuring or obtaining covered articles applies if it is established by an applicable FASCSA order issued by one of them [@CL-CMP-2974].
+The two order types differ: a FASCSA order is any of the listed orders issued under the Federal Acquisition Supply Chain Security Act requiring the removal of covered articles from executive agency information systems or the exclusion of one or more named sources or named covered articles from executive agency procurement actions [@CL-CMP-2969; @CL-CMP-0145]. The Secretary of Homeland Security, the Secretary of Defense and the Director of National Intelligence may each issue orders of the types described [@CL-CMP-2970; @CL-CMP-2971; @CL-CMP-2972]. The agency prohibition on procuring or obtaining covered articles applies if it is established by an applicable FASCSA order issued by one of them [@CL-CMP-2974].
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which FASCSA orders the company has been told apply to each contract, and who tr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added procurement-actions qualifier; replaced inference wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the required-action element to the order definition summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the expiry of its authority.

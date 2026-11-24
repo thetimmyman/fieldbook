@@ -51,7 +51,7 @@ During the procurement the agency determines that there is a reasonable basis to
 
 ## Never confuse
 
-An offeror that cannot make the representation is ineligible for award of a contract, unless waived in accordance with the procedures at FAR 9.108-4 [@CL-CMP-7594]. The contracting officer may rely on the offeror's representation unless the contracting officer has reason to question it [@CL-CMP-7595]. Executive agencies share supply chain risk information with the FASC under FAR 4.2302 [@CL-CMP-7598; @CL-CMP-7599]. The representation provision and the tax matters certification are covered on [Inverted domestic corporation representation and tax matters certification](cmp-inverted-domestic-corporation-and-tax-matters.md).
+Ineligibility follows from the representation rather than from an agency finding: an offeror that cannot make the representation is ineligible for award of a contract, unless waived in accordance with the procedures at FAR 9.108-4 [@CL-CMP-7594]. The contracting officer may rely on the offeror's representation unless the contracting officer has reason to question it [@CL-CMP-7595]. Executive agencies share supply chain risk information with the FASC under FAR 4.2302 [@CL-CMP-7598; @CL-CMP-7599]. The representation provision and the tax matters certification are covered on [Inverted domestic corporation representation and tax matters certification](cmp-inverted-domestic-corporation-and-tax-matters.md).
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ Who signs the inverted domestic corporation representation, and who confirms the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the contracting officer duty lead-ins; removed meta wording and unsupported contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the inverted domestic corporation representation, provisions and supply chain risk sharing.

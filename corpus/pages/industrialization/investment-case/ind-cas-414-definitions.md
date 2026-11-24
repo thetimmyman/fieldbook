@@ -43,7 +43,7 @@ A business unit has tangible assets with a net book value of 5,000,000 and an am
 
 ## Never confuse
 
-Facilities capital means the net book value of tangible capital assets and of those intangible capital assets that are subject to amortization [@CL-IND-0032]. Cost of capital committed to facilities means an imputed cost determined by applying a cost of money rate to facilities capital [@CL-IND-0031]. How the investment base, rate and factors are computed is on the techniques card of this area.
+Facilities capital and the cost of capital committed to it are not the same quantity: facilities capital means the net book value of tangible capital assets and of those intangible capital assets that are subject to amortization [@CL-IND-0032], while cost of capital committed to facilities means an imputed cost determined by applying a cost of money rate to facilities capital [@CL-IND-0031]. How the investment base, rate and factors are computed is on the techniques card of this area.
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ Which assets the company counts as facilities capital, and how the net book valu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added held-by-an-enterprise actor and matched CAS 414 definition wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CAS 414 definitions.

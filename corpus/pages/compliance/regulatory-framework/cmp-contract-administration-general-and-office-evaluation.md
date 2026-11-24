@@ -57,11 +57,7 @@ Some of the services are performed in another country. They should follow FAR 42
 
 ## Never confuse
 
-FAR 42.301 sets what the CAO works to [@CL-CMP-8761; @CL-CMP-8762]. FAR 42.403 sets who may accomplish onsite inspections or evaluations of the performance of the CAO's assigned functions [@CL-CMP-8763].
-
-The overseas sentence and the general rule use different verbs. FAR 42.301 and FAR 42.403 say shall [@CL-CMP-8761; @CL-CMP-8763]. DFARS 242.301 says should [@CL-CMP-8764].
-
-The instruction to coordinate proposed actions applies in the case where there are no policies and procedures covering a given situation [@CL-CMP-8764; @CL-CMP-8765].
+The overseas DFARS sentence is not the general rule and does not use its verb: FAR 42.301 sets what the CAO works to [@CL-CMP-8761; @CL-CMP-8762], and FAR 42.403 sets who may accomplish onsite inspections or evaluations of the performance of the CAO's assigned functions [@CL-CMP-8763]; FAR 42.301 and FAR 42.403 say shall [@CL-CMP-8761; @CL-CMP-8763], while DFARS 242.301 says should [@CL-CMP-8764]. The instruction to coordinate proposed actions applies in the case where there are no policies and procedures covering a given situation [@CL-CMP-8764; @CL-CMP-8765].
 
 ## Company calibration
 
@@ -71,6 +67,7 @@ Which contracts and business units sit in the finance remit, and which administr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the only-by-the-agency limit and the full coordination actors, cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.301 sentence on contract administration functions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract administration functions and evaluation of contract administration offices.

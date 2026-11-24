@@ -49,9 +49,7 @@ A file note needs the current citation for the old Truth in Negotiations Act. Th
 
 ## Never confuse
 
-The section records that certain general and permanent laws were revised, codified and enacted as title 40 and as title 41 of the United States Code [@CL-CMP-8389; @CL-CMP-8390], and the table cross-references the historical titles of the acts to the current reference in title 40 or title 41 [@CL-CMP-8391].
-
-The three officials prepare, issue and maintain the FAR jointly, each under their several statutory authorities [@CL-CMP-8388].
+The positive-law codification is not the FAR itself: the section records that certain general and permanent laws were revised, codified and enacted as title 40 and as title 41 of the United States Code [@CL-CMP-8389; @CL-CMP-8390], and the table cross-references the historical titles of the acts to the current reference in title 40 or title 41 [@CL-CMP-8391]. The three officials prepare, issue and maintain the FAR jointly rather than singly, each under their several statutory authorities [@CL-CMP-8388].
 
 ## Company calibration
 
@@ -61,5 +59,6 @@ Which statutory authorities the company records as the basis for the acquisition
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied each table footnote to its act and removed unsupported absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR System authority and positive law codification.

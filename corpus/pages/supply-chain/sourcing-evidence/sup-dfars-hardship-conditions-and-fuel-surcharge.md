@@ -25,7 +25,7 @@ Shows when the contractor may ask for extra payment for unusual loading or unloa
 | Instrument | Codified DFARS [@CL-SUP-1634] |
 | Codified citation | DFARS 252.247-7000 and 252.247-7003 [@CL-SUP-1634; @CL-SUP-1637] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 2000 [@CL-SUP-9857] |
 | Text status | Final [@CL-SUP-1634] |
 | Applies to | Contracts that include the Hardship Conditions clause, and contracts that include the fuel surcharge pass-through clause [@CL-SUP-1634; @CL-SUP-1637] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry these clauses, and who in the company tracks sail
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the hardship request and fuel pass-through rules as the cited text has them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hardship conditions and the pass-through of motor carrier fuel surcharge adjustment to the cost bearer.

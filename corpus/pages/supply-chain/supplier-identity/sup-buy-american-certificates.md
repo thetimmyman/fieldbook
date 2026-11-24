@@ -25,7 +25,7 @@ Shows what an offeror certifies in the Buy American Certificate and in the Buy A
 | Instrument | Codified FAR [@CL-SUP-1236; @CL-SUP-1240] |
 | Codified citation | FAR 52.225-2 [@CL-SUP-1236]; FAR 52.225-4 [@CL-SUP-1240] |
 | RFO citation | RFO FAR 52.225-2 [@CL-SUP-3552; @CL-SUP-3553; @CL-SUP-3554; @CL-SUP-3555; @CL-SUP-3556; @CL-SUP-3557]; RFO FAR 52.225-4 [@CL-SUP-3558; @CL-SUP-3559; @CL-SUP-3560; @CL-SUP-3561; @CL-SUP-3562] |
-| Edition date | Not established. |
+| Edition date | FAR 52.225-2: OCT 2022 [@CL-SUP-9887]; FAR 52.225-4: NOV 2023 [@CL-SUP-9888] |
 | Text status | Final [@CL-SUP-1236; @CL-SUP-1240] |
 | Applies to | Offers in solicitations that include either provision [@CL-SUP-1236; @CL-SUP-1240] |
 
@@ -62,6 +62,7 @@ Which offers and executed contracts carry each certificate, and who confirms wha
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose sentence now cites its claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Alternate II and III paragraph (b) substitutions; aligned the evaluation, domestic-content and delivery wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

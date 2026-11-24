@@ -51,7 +51,7 @@ On 2026-03-02 an agency head determines that it is impractical to secure the Dis
 
 ## Never confuse
 
-The agency head may determine that it is impractical to secure the Disclosure Statement, although submission is required, and authorize contract award without obtaining the Statement [@CL-CMP-8686]. Under FAR 30.202-6(b), where the agency head has authorized award without obtaining submission of the required Disclosure Statement, the contractor shall submit the required Disclosure Statement and the CFAO shall make a determination of adequacy as soon as possible after the award [@CL-CMP-7036; @CL-CMP-7037].
+An award without the Statement is not the end of the duty: the agency head may determine that it is impractical to secure the Disclosure Statement, although submission is required, and authorize contract award without obtaining the Statement [@CL-CMP-8686]; under FAR 30.202-6(b), where the agency head has authorized award without obtaining submission of the required Disclosure Statement, the contractor shall submit the required Disclosure Statement and the CFAO shall make a determination of adequacy as soon as possible after the award [@CL-CMP-7036; @CL-CMP-7037].
 
 Where the offeror or contractor has notified the contracting officer that the Disclosure Statement contains privileged and confidential trade secrets and commercial or financial information, the Disclosure Statement shall be protected and shall not be released outside the Government [@CL-CMP-8689]. The related cards are [Disclosure Statement responsibilities](../cas-allowability/cmp-cas-disclosure-statement-responsibilities.md) and [Practice change proposal disclosure](../cas-allowability/cmp-cas-practice-change-proposal-disclosure.md).
 
@@ -62,6 +62,7 @@ Whether the company has an advance agreement with the government on any cost, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Spelled out the statute reference in how-it-works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, negative glosses and uncited contrasts; restated provisions as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names the agency head.

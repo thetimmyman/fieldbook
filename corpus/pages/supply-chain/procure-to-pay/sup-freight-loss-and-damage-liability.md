@@ -25,7 +25,7 @@ Sets out the liability standard for freight lost or damaged in the movement, the
 | Instrument | Codified FAR [@CL-SUP-2308] |
 | Codified citation | FAR 52.247-22 and FAR 52.247-23 [@CL-SUP-2308; @CL-SUP-2310] |
 | RFO citation | RFO FAR 52.247-22 [@CL-SUP-0382]; RFO FAR 52.247-23 [@CL-SUP-0383; @CL-SUP-0384] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-22: Apr 1984 [@CL-SUP-0382]; FAR 52.247-23: Jan 1991 [@CL-SUP-0383] |
 | Text status | Final [@CL-SUP-2308] |
 | Applies to | The freight clause in solicitations and contracts for the transportation of freight other than household goods [@CL-SUP-2309]; the household goods clause, which the prescription directs to be inserted [@CL-SUP-2352] |
 
@@ -60,6 +60,7 @@ Confirm which liability clause each transportation award carries, the indemnity 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the exception, notice rule, indemnity and RFO paragraph to the clause text.

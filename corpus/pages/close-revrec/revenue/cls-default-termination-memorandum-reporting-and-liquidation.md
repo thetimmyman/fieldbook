@@ -64,7 +64,7 @@ The resultant damages come to 120,000. The contractor has 60,000 of retained per
 
 ## Never confuse
 
-The memorandum explains the reasons for the action taken and goes in the contract file [@CL-CLS-1322]. The report concerns information relating to the termination for default notice and a later withdrawal or conversion to a termination for convenience [@CL-CLS-1323].
+The memorandum and the report are not the same document: the memorandum explains the reasons for the action taken and goes in the contract file [@CL-CLS-1322], while the report concerns information relating to the termination for default notice and a later withdrawal or conversion to a termination for convenience [@CL-CLS-1323].
 
 If the surety does not arrange for completion of the contract, the contracting officer normally will arrange for completion of the work [@CL-CLS-1324]. If the retained and unpaid amounts are insufficient, the contracting officer shall take steps to recover the additional sum from the contractor and the surety [@CL-CLS-1329]. The effect of a default termination and the repurchase itself are covered in [Termination for default effect and repurchase](cls-termination-for-default-effect-and-repurchase.md).
 
@@ -75,6 +75,7 @@ Whether the file memorandum, the reporting entry and the liquidation calculation
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: default termination memorandum, reporting and liquidation: uncited gap statements and contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the steps after a default termination.

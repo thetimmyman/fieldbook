@@ -51,7 +51,7 @@ Answer: the agency head decides, after written notice and an opportunity to resp
 
 ## Never confuse
 
-There shall be no separate consideration for a financing clause included at the inception of a contract, but financing added or changed after award needs adequate new consideration [@CL-CTF-1400; @CL-CTF-1401]. The fraud procedure is a decision of the agency head on a recommendation from the remedy coordination official [@CL-CTF-1450; @CL-CTF-1403]. For the financing the contracting officer may include in the first place, see [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md) and [Contract financing at a glance](ctf-financing-overview.md).
+The consideration rules differ by timing rather than applying alike: there shall be no separate consideration for a financing clause included at the inception of a contract, but financing added or changed after award instead needs adequate new consideration [@CL-CTF-1400; @CL-CTF-1401]. The fraud procedure differs in who acts rather than in being one decision: it is a decision of the agency head on a recommendation from the remedy coordination official [@CL-CTF-1450; @CL-CTF-1403]. For the financing the contracting officer may include in the first place, see [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md) and [Contract financing at a glance](ctf-financing-overview.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Who answers a written notice proposing to reduce or suspend payments, and which 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "shall" in the codified consideration, fraud-procedure and review sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Two listed steps stated as both required.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.006-3 agency procedures and fraud reporting duty.

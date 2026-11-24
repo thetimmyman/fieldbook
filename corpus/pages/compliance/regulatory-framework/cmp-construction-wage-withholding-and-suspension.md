@@ -46,7 +46,7 @@ On a construction contract the contracting officer believes a violation exists a
 
 ## Never confuse
 
-The contracting officer withholds from payments due an amount equal to the estimated wage underpayment and estimated liquidated damages [@CL-CMP-2352]. The agency suspends any further payment, advance or guarantee of funds until the violations cease or until the agency has withheld sufficient funds to compensate employees for back wages and to cover any liquidated damages due [@CL-CMP-2355; @CL-CMP-2356]. The Contract Work Hours and Safety Standards overtime rule is covered in [Contract Work Hours and Safety Standards overtime](../../operating-model/talent/opm-contract-work-hours-overtime.md). Minimum wage and paid sick leave enforcement is covered in [Executive Order minimum wage and paid sick leave](cmp-eo-minimum-wage-and-paid-sick-leave.md).
+Withholding is not suspension: the contracting officer withholds from payments due an amount equal to the estimated wage underpayment and estimated liquidated damages [@CL-CMP-2352], while the agency suspends any further payment, advance or guarantee of funds until the violations cease or until the agency has withheld sufficient funds to compensate employees for back wages and to cover any liquidated damages due [@CL-CMP-2355; @CL-CMP-2356]. The Contract Work Hours and Safety Standards overtime rule is covered in [Contract Work Hours and Safety Standards overtime](../../operating-model/talent/opm-contract-work-hours-overtime.md). Minimum wage and paid sick leave enforcement is covered in [Executive Order minimum wage and paid sick leave](cmp-eo-minimum-wage-and-paid-sick-leave.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Who receives a withholding or suspension notice or request, and who owns the res
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: how-it-works and example wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for withholding from and suspension of construction contract payments.

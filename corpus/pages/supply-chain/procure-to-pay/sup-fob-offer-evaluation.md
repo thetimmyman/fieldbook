@@ -23,7 +23,7 @@ Shows how the Government compares f.o.b. origin and f.o.b. destination offers an
 | Instrument | Codified FAR [@CL-SUP-1995; @CL-SUP-1998; @CL-SUP-1999] |
 | Codified citation | FAR 52.247-45 to 52.247-47 [@CL-SUP-1995; @CL-SUP-1998; @CL-SUP-1999] |
 | RFO citation | No RFO equivalent for FAR 52.247-45, FAR 52.247-46 and FAR 52.247-47: the RFO text lists each as [Reserved] [@CL-SUP-0273; @CL-SUP-0274; @CL-SUP-0275] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-SUP-9812] |
 | Text status | Final [@CL-SUP-1995; @CL-SUP-1998; @CL-SUP-1999] |
 | Applies to | Solicitations that include the f.o.b. origin and f.o.b. destination evaluation provisions [@CL-SUP-1995; @CL-SUP-1998; @CL-SUP-1999] |
 
@@ -54,6 +54,7 @@ Confirm which shipping points the company offers from and whether it states quan
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned evaluation wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

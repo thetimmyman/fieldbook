@@ -42,7 +42,7 @@ A contractor's billings for the quarter total 500,000 while the cost accounts sh
 
 ## Never confuse
 
-The accounting system criteria require exclusion from costs charged to Government contracts of amounts that are not allowable in terms of FAR part 31, Contract Cost Principles and Procedures, and other contract provisions [@CL-CMP-0409; @CL-CMP-0986]. If the contracting officer makes a final determination to disapprove the contractor's accounting system, and the contract includes the clause at DFARS 252.242-7005, Contractor Business Systems, the contracting officer will withhold payments in accordance with that clause [@CL-CMP-0993; @CL-CMP-0414].
+The accounting system criteria are the standard the system must meet — among them excluding from costs charged to Government contracts amounts that are not allowable in terms of FAR part 31, Contract Cost Principles and Procedures, and other contract provisions [@CL-CMP-0409; @CL-CMP-0986] — while the withhold follows only the contracting officer's final determination to disapprove the system under the clause at DFARS 252.242-7005 [@CL-CMP-0993; @CL-CMP-0414].
 
 ## Company calibration
 
@@ -51,6 +51,7 @@ The current government status of each contractor business system: approved, disa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the accounting system definition, added the system criteria and final-determination lead-ins, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed citations for the acceptable-system definition, timekeeping and withholding sentences and kept the written determination and corrective action plan wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

@@ -48,7 +48,7 @@ Answer: it may not bid on or be awarded new classified contracts or solicitation
 
 ## Never confuse
 
-The CSA may invalidate an existing determination; while it is invalidated, the contractor may not bid on or be awarded new classified contracts or solicitations, and may continue to work on existing classified contracts if the GCA agrees [@CL-CMP-3308; @CL-CMP-3172]. If the determination is terminated or revoked, the contractor will return all classified material in its possession to the appropriate GCA or dispose of the material as instructed by the CSA [@CL-CMP-3173]. FOCI is one of the listed requirements [@CL-CMP-3171]; the mitigation measures are on the [NISPOM foreign ownership, control or influence and its mitigation](../../mna/diligence/mna-nispom-foci-and-mitigation.md) card. Employee eligibility is on the [NISPOM personnel eligibility for access to classified information](cmp-nispom-personnel-eligibility-determination.md) card.
+Invalidation and termination differ in what follows: the CSA may invalidate an existing determination; while it is invalidated, the contractor may not bid on or be awarded new classified contracts or solicitations, and may continue to work on existing classified contracts if the GCA agrees [@CL-CMP-3308; @CL-CMP-3172]; if the determination is terminated or revoked, the contractor will return all classified material in its possession to the appropriate GCA or dispose of the material as instructed by the CSA [@CL-CMP-3173]. FOCI is one of the listed requirements [@CL-CMP-3171]; the mitigation measures are on the [NISPOM foreign ownership, control or influence and its mitigation](../../mna/diligence/mna-nispom-foci-and-mitigation.md) card. Employee eligibility is on the [NISPOM personnel eligibility for access to classified information](cmp-nispom-personnel-eligibility-determination.md) card.
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which company entities hold or need an entity eligibility determination, who spo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed contrast and gloss; how-it-works and never-confuse tied to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the safeguarding capability and exclusion basis.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the sponsorship and need-for-access sentences so the rules keep the timing of sponsorship and the national security interest limit.

@@ -51,7 +51,7 @@ A contract carries 400,000 of direct cost, 100,000 of allocable indirect cost an
 
 ## Never confuse
 
-The total cost of a contract includes all costs properly allocable to the contract, and the allowable costs to the Government are limited to those allocable costs which are allowable [@CL-CMP-7510]. The applicable portion of any income, rebate, allowance, or other credit relating to any allowable cost and received by or accruing to the contractor shall be credited to the Government either as a cost reduction or by cash refund [@CL-CMP-7511]. The codified text limits allowable costs to those allowable under FAR part 31 and applicable agency supplements [@CL-CMP-7510], while the RFO text limits them to those allowable pursuant to this part [@CL-CMP-9375]. The codified credit rule covers the applicable portion of any credit relating to any allowable cost [@CL-CMP-7511], while the RFO credit rule covers a credit relating to an allowable cost under a cost contract [@CL-CMP-9376]. The allocability and allowability tests behind the two measures are set out in [allocability](../cas-allowability/cmp-allocability.md) and [allowability factors](../cas-allowability/cmp-allowability-factors.md).
+Allocable and allowable are different limits: the total cost of a contract includes all costs properly allocable to the contract, and the allowable costs to the Government are limited to those allocable costs which are allowable [@CL-CMP-7510]. The applicable portion of any income, rebate, allowance, or other credit relating to any allowable cost and received by or accruing to the contractor shall be credited to the Government either as a cost reduction or by cash refund [@CL-CMP-7511]. The codified text limits allowable costs to those allowable under FAR part 31 and applicable agency supplements [@CL-CMP-7510], while the RFO text limits them to those allowable pursuant to this part [@CL-CMP-9375]. The codified credit rule covers the applicable portion of any credit relating to any allowable cost [@CL-CMP-7511], while the RFO credit rule covers a credit relating to an allowable cost under a cost contract [@CL-CMP-9376]. The allocability and allowability tests behind the two measures are set out in [allocability](../cas-allowability/cmp-allocability.md) and [allowability factors](../cas-allowability/cmp-allowability-factors.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ How pools, bases, service centers and intercompany charges are defined and recon
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited glosses; restated total cost and credit rules as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Worked example now assumes the whole rebate is the applicable portion and a cost contract; credit sentence now names the cost reduction or cash refund alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

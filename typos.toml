@@ -45,5 +45,7 @@ exlcusive = "exlcusive"
 witheld = "witheld"
 # "identifer", as misprinted in FAR 52.212-3(p) and quoted verbatim.
 identifer = "identifer"
+# "Commerical", as misprinted in DFARS 252.225-7051 and quoted verbatim.
+commerical = "commerical"
 # "_seh_filter_exe", the Windows CRT structured-exception-handling symbol in xtask/binscan/*.txt.
 seh = "seh"

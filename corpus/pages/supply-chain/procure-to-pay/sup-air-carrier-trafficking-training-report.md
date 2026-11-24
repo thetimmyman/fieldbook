@@ -25,7 +25,7 @@ Explains the annual report a contractor files on training to prevent human traff
 | Instrument | Codified FAR [@CL-SUP-2037] |
 | Codified citation | FAR 52.247-69 [@CL-SUP-2037] |
 | RFO citation | RFO FAR 52.247-69 [@CL-SUP-0009; @CL-SUP-0010; @CL-SUP-0011; @CL-SUP-0012; @CL-SUP-0013; @CL-SUP-0014; @CL-SUP-0015] |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-SUP-0009] |
 | Text status | Final [@CL-SUP-2037] |
 | Applies to | Contracts that include FAR 52.247-69, the clause titled as a reporting requirement for United States-flag air carriers regarding training to prevent human trafficking [@CL-SUP-2161] |
 
@@ -54,6 +54,7 @@ Who owns the annual trafficking-prevention report and how training and notificat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Spelled out the statute reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned report contents and statute wording with the cited quotes.

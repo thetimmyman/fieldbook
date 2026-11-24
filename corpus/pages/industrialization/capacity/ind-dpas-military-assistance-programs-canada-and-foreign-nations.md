@@ -51,7 +51,7 @@ In a second case, a firm in a foreign nation other than Canada wants priority ra
 
 ## Never confuse
 
-Priority ratings have no legal authority outside of the United States, and 15 CFR 700.56 and 700.57 provide information on how persons in the United States may obtain informal assistance in Canada and in the foreign nations that are signatories to bilateral security of supply arrangements with the Department of Defense [@CL-IND-0280; @CL-IND-0291]. 15 CFR 700.56 applies to military assistance to Canada, whereas 15 CFR 700.57 applies to a person in a foreign nation other than Canada or in an international organization [@CL-IND-0279; @CL-IND-0293]. Critical infrastructure assistance to foreign nations and international organizations is on [DPAS critical infrastructure assistance](ind-dpas-critical-infrastructure-assistance-foreign-nations.md).
+Priority ratings have no legal authority outside of the United States; the two sections instead route informal assistance requests: 15 CFR 700.56 and 700.57 provide information on how persons in the United States may obtain informal assistance in Canada and in the foreign nations that are signatories to bilateral security of supply arrangements with the Department of Defense [@CL-IND-0280; @CL-IND-0291]. The two sections do not reach the same people: 15 CFR 700.56 applies to military assistance to Canada, whereas 15 CFR 700.57 applies to a person in a foreign nation other than Canada or in an international organization [@CL-IND-0279; @CL-IND-0293]. Critical infrastructure assistance to foreign nations and international organizations is on [DPAS critical infrastructure assistance](ind-dpas-critical-infrastructure-assistance-foreign-nations.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Confirm which Canadian and other foreign suppliers sit behind rated orders, whic
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal telephone number in 15 CFR 700.57 with a reference to the telephone number listed in the section.

@@ -50,7 +50,7 @@ A contract worth 400,000 contains this clause. The Contractor does not deliver a
 
 ## Never confuse
 
-Under this clause the Contractor assigns title to the Government [@CL-CMP-3642]. Under the contractor-ownership clause the Contractor may retain ownership instead [@CL-CMP-3629]. The two clauses are separate, and which one a contract carries decides who holds title; see the [contractor ownership card](cmp-patent-rights-contractor-ownership-definitions-and-licenses.md) and its [companion on deadlines and title](cmp-patent-rights-contractor-ownership-deadlines-and-title.md). The Government's license in an invention is also separate from its rights in data, which have their own card on [rights in data, definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md).
+Under this clause the Contractor assigns title to the Government rather than retaining it [@CL-CMP-3642]. Under the contractor-ownership clause the Contractor may retain ownership instead [@CL-CMP-3629]. The two clauses are separate, and which one a contract carries decides who holds title; see the [contractor ownership card](cmp-patent-rights-contractor-ownership-definitions-and-licenses.md) and its [companion on deadlines and title](cmp-patent-rights-contractor-ownership-deadlines-and-title.md). The Government's license in an invention is also separate from its rights in data, which have their own card on [rights in data, definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which contracts carry the Government-ownership clause, and who tracks the interi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Interim report interval now carries its start point.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent rights with ownership by the Government.

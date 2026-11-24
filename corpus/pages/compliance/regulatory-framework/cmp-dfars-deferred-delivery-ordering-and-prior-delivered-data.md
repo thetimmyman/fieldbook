@@ -47,7 +47,7 @@ A contract lists a software manual as deferred delivery data. All other items ar
 
 ## Never confuse
 
-Deferred delivery covers any technical data or computer software item identified in the contract as deferred delivery data or computer software [@CL-CMP-4285]; deferred ordering covers any technical data or computer software generated in the performance of the contract or any subcontract under it [@CL-CMP-4287]. For the list of data restrictions an offeror asserts, see [Assertion of data restrictions](cmp-dod-assertion-of-data-restrictions.md). Categories of rights are in [Technical data rights categories](cmp-dod-technical-data-rights-categories.md), and rights in computer software are in [Noncommercial computer software rights](cmp-dod-noncommercial-software-rights.md). Withholding of payment for late or deficient technical data is in [Technical data payment withholding, foreign data rights and invention reporting](cmp-dfars-data-withholding-foreign-data-and-invention-reports.md).
+Deferred delivery is not deferred ordering: deferred delivery covers any technical data or computer software item identified in the contract as deferred delivery data or computer software [@CL-CMP-4285]; deferred ordering covers any technical data or computer software generated in the performance of the contract or any subcontract under it [@CL-CMP-4287]. For the list of data restrictions an offeror asserts, see [Assertion of data restrictions](cmp-dod-assertion-of-data-restrictions.md). Categories of rights are in [Technical data rights categories](cmp-dod-technical-data-rights-categories.md), and rights in computer software are in [Noncommercial computer software rights](cmp-dod-noncommercial-software-rights.md). Withholding of payment for late or deficient technical data is in [Technical data payment withholding, foreign data rights and invention reporting](cmp-dfars-data-withholding-foreign-data-and-invention-reports.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which contracts carry these clauses, and where earlier deliveries of similar dat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the in-addition-to lead-in for deferred ordering and removed uncited contrasts and card-scope notes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deferred delivery, deferred ordering and technical data previously delivered.

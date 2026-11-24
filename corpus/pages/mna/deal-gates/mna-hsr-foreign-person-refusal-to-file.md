@@ -44,7 +44,7 @@ Assume that § 801.30 does not apply and that no assets other than investment as
 
 ## Never confuse
 
-When a party files on behalf of a refusing foreign person, it must state the refusal in the § 803.5(b) affidavit and explain all efforts it made to obtain the foreign person's compliance [@CL-MNA-0213; @CL-MNA-0214]. The foreign person remains a "person filing notification" for purposes of the act and the rules and is not exempted from any requirements of the act or the rules with respect to a request for additional information or an extension of the waiting period pursuant to section 7A(e) and the rules [@CL-MNA-0217; @CL-MNA-0218]. Where information or documentary material is not reasonably available, the filer indicates that on the Notification and Report Form and need not supply the statement of reasons for noncompliance required by § 803.3 [@CL-MNA-0216]. Which person normally files and certifies is on [the filing card](mna-hsr-filing-and-who-files.md).
+Filing for a refusing person is not filing as that person: when a party files on behalf of a refusing foreign person, it must state the refusal in the § 803.5(b) affidavit and explain all efforts it made to obtain the foreign person's compliance [@CL-MNA-0213; @CL-MNA-0214]. The foreign person remains a "person filing notification" for purposes of the act and the rules and is not exempted from any requirements of the act or the rules with respect to a request for additional information or an extension of the waiting period pursuant to section 7A(e) and the rules [@CL-MNA-0217; @CL-MNA-0218]. Where information or documentary material is not reasonably available, the filer indicates that on the Notification and Report Form and need not supply the statement of reasons for noncompliance required by § 803.3 [@CL-MNA-0216]. Which person normally files and certifies is on [the filing card](mna-hsr-filing-and-who-files.md).
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which records of the foreign seller the acquirer can reach, and who controls the
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added section 7A(e) reference and removed unsupported contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the filing made when a foreign person refuses.

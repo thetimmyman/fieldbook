@@ -51,7 +51,7 @@ An asset is built over two periods, with 100,000 of construction cost incurred i
 
 ## Never confuse
 
-If substantially all the activities necessary to get the asset ready for its intended use are discontinued, cost of money shall not be capitalized for the period of discontinuance [@CL-CMP-1796]. However, if such discontinuance arises out of causes beyond the control and without the fault or negligence of the contractor, cessation of cost of money capitalization is not required [@CL-CMP-1797].
+Fault matters for capitalization: if substantially all the activities necessary to get the asset ready for its intended use are discontinued, cost of money shall not be capitalized for the period of discontinuance [@CL-CMP-1796]; however, if such discontinuance arises out of causes beyond the control and without the fault or negligence of the contractor, cessation of cost of money capitalization is not required [@CL-CMP-1797].
 
 The allowability of cost of money is covered in [Cost of money](../cas-allowability/cmp-cost-of-money.md), and facilities capital cost of money in [Facilities capital cost of money](../cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md).
 
@@ -62,6 +62,7 @@ Whether cost of money on assets under construction is captured in the capital pr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the calculation lead-in with a companion claim; restated limits and exception as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording and the calculation lead-in; example no longer assumes capitalization resumes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

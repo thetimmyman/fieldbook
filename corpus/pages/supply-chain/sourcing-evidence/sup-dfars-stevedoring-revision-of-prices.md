@@ -25,7 +25,7 @@ Shows when the contracting officer or the contractor may demand a price revision
 | Instrument | Codified DFARS [@CL-SUP-1596] |
 | Codified citation | DFARS 252.247-7002 [@CL-SUP-1671] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-SUP-9865] |
 | Text status | Final [@CL-SUP-1596] |
 | Applies to | Contracts where the DFARS prescription calls for the Revision of Prices clause [@CL-SUP-1671] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry this clause, and who sends or answers a price rev
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added effective date, wage adjustment definition, submission timing and disputes wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for revision of prices in transportation and stevedoring contracts.

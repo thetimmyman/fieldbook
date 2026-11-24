@@ -48,7 +48,7 @@ A fabricator holds an unrated order for 400 housings due on day 30. It then rece
 
 ## Never confuse
 
-A priority rating consists of the rating symbol (DO or DX), which indicates the level of priority, and a program identification symbol, which indicates which approved program is attributed to the rated order [@CL-IND-0057; @CL-IND-0058; @CL-IND-0059]. A person may place a priority rating on an order only when it is in receipt of a rated order, has been explicitly authorized to do so by the Department of Commerce or a Delegate Agency, or is otherwise permitted to do so by the part [@CL-IND-0062].
+The two symbols are not interchangeable: a priority rating consists of the rating symbol (DO or DX), which indicates the level of priority, and a program identification symbol, which indicates which approved program is attributed to the rated order [@CL-IND-0057; @CL-IND-0058; @CL-IND-0059]. A person may place a priority rating on an order only when it is in receipt of a rated order, has been explicitly authorized to do so by the Department of Commerce or a Delegate Agency, or is otherwise permitted to do so by the part [@CL-IND-0062].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which supplier orders carry a rating, who places them, and which lead times and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the full statutory citations in 15 CFR 700.1 and cited the supplier flowdown sentence in 15 CFR 700.3(d).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose of the Defense Priorities and Allocations System and its priority ratings.

@@ -25,7 +25,7 @@ Sets out three related shipping duties: what the contractor writes on commercial
 | Instrument | Codified FAR [@CL-SUP-2011] |
 | Codified citation | FAR 52.247-1, 52.247-67 and 52.247-68 [@CL-SUP-2011; @CL-SUP-2014; @CL-SUP-2017] |
 | RFO citation | RFO FAR 52.247-1 [@CL-SUP-0085], RFO FAR 52.247-67 [@CL-SUP-0092] and RFO FAR 52.247-68 [@CL-SUP-0098] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-1: Feb 2006 [@CL-SUP-0085]; FAR 52.247-67: Feb 2006 [@CL-SUP-0092]; FAR 52.247-68: Feb 2006 [@CL-SUP-0098] |
 | Text status | Final [@CL-SUP-2011] |
 | Applies to | Shipments the contracting officer authorizes on a commercial bill of lading with the transportation reimbursed as direct allowable costs [@CL-SUP-2141]; transportation documents for freight charges the United States will assume that were paid by the contractor under a cost-reimbursement contract and by a first-tier subcontractor under a cost-reimbursement subcontract thereunder [@CL-SUP-2014]; and the shipments for which the clause calls for a prepaid notice [@CL-SUP-2017] |
 
@@ -56,6 +56,7 @@ Which shipping documents the company annotates, which bills it submits for a pre
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned audit, notice alternatives and notation wording with the cited quotes; added the or-alternatives companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

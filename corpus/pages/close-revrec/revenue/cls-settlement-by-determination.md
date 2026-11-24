@@ -47,7 +47,7 @@ Answer: the 20 days is longer than the 15-day minimum, so the notice step is met
 
 ## Never confuse
 
-For the TCO's other duties, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). For partial payments and final payment, see [Partial payments and final payment under a terminated contract](cls-termination-partial-payments-and-final-payment.md). For audit referral of termination settlement proposals and subcontract settlements, see [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md). For termination for convenience settlement, see [Termination for Convenience of the Government (Fixed-Price): settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md). For termination settlements and fair compensation, see [Termination settlements: fair compensation and unsettled contract changes](cls-termination-settlement-fair-compensation.md).
+A determination is the TCO's unilateral route instead of a negotiated agreement: for the TCO's other duties, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). For partial payments and final payment, see [Partial payments and final payment under a terminated contract](cls-termination-partial-payments-and-final-payment.md). For audit referral of termination settlement proposals and subcontract settlements, see [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md). For termination for convenience settlement, see [Termination for Convenience of the Government (Fixed-Price): settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md). For termination settlements and fair compensation, see [Termination settlements: fair compensation and unsettled contract changes](cls-termination-settlement-fair-compensation.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which open terminations are headed for a determination and which close judgments
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: settlement by determination: appeal exception stated in full, uncited absence statements and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for settlement by determination.

@@ -25,7 +25,7 @@ Shows what the offeror represents about institutions of higher education that ho
 | Instrument | Codified DFARS [@CL-SUP-1656; @CL-SUP-1657; @CL-SUP-1658] |
 | Codified citation | DFARS 252.209-7011 [@CL-SUP-1656]; DFARS 252.204-7015 [@CL-SUP-1657]; DFARS 252.204-7003 [@CL-SUP-1658]; DFARS 204.7400 [@CL-SUP-4121]; DFARS 204.402 [@CL-SUP-4120] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7015: JAN 2023 [@CL-SUP-9870]; DFARS 252.204-7003: APR 1992 [@CL-SUP-9871] |
 | Text status | Final [@CL-SUP-1656; @CL-SUP-1657; @CL-SUP-1658] |
 | Applies to | Solicitations that use the representation provision as prescribed in section 209.170-4 [@CL-SUP-1656], contracts that use the litigation support notice clause as prescribed in section 204.7403(b) [@CL-SUP-1657], and contracts that use the work product clause as prescribed in section 204.404-70(b) [@CL-SUP-1658], each of the Defense Federal Acquisition Regulation Supplement |
 
@@ -58,6 +58,7 @@ Which solicitations carry the higher education representation and which subcontr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited advice and contrasts; restated waiver, disclosure and subcontract wording as cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the Confucius Institute definition as alternatives and added the notwithstanding lead-in and clause title.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the litigation support subpart scope and the oversight personnel work product rule.

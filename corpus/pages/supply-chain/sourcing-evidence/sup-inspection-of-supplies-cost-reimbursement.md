@@ -25,7 +25,7 @@ Shows what the inspection clause for cost-reimbursement supply contracts asks of
 | Instrument | Codified FAR [@CL-SUP-1077] |
 | Codified citation | FAR 52.246-3 [@CL-SUP-1076] |
 | RFO citation | RFO FAR 52.246-3 [@CL-SUP-3244] |
-| Edition date | Not established. |
+| Edition date | May 2001 [@CL-SUP-3244] |
 | Text status | Final [@CL-SUP-1077] |
 | Applies to | Solicitations and contracts for supplies, or services that involve the furnishing of supplies, when a cost-reimbursement contract is contemplated [@CL-SUP-1076] |
 
@@ -58,6 +58,7 @@ Whether the executed contract includes this clause or the fixed-price one, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for fixed-fee reduction and alternative cause; aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added nonconforming scope and notwithstanding lead-in.

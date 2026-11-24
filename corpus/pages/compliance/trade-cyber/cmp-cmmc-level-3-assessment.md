@@ -45,7 +45,7 @@ A contractor holds Final Level 2 (C3PAO) status for a data enclave at month 0, a
 
 ## Never confuse
 
-A Level 3 certification assessment is performed by DCMA DIBCAC on behalf of DoD [@CL-CMP-2079], and the OSC must obtain a Level 2 certification assessment from an authorized or accredited C3PAO [@CL-CMP-2074]. A Final Level 2 (C3PAO) status for the information systems within the Level 3 assessment scope is a prerequisite to undergo a Level 3 certification assessment, and Level 3 recertification also has a prerequisite of a new Level 2 assessment [@CL-CMP-2078], as the [Level 2 assessment](cmp-cmmc-level-2-assessment.md) card describes for that status.
+The two assessment levels differ in who assesses: a Level 3 certification assessment is performed by DCMA DIBCAC on behalf of DoD [@CL-CMP-2079], while the OSC must obtain a Level 2 certification assessment from an authorized or accredited C3PAO [@CL-CMP-2074]. A Final Level 2 (C3PAO) status for the information systems within the Level 3 assessment scope is a prerequisite to undergo a Level 3 certification assessment, and Level 3 recertification also has a prerequisite of a new Level 2 assessment [@CL-CMP-2078], as the [Level 2 assessment](cmp-cmmc-level-2-assessment.md) card describes for that status.
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Whether any contract requires this status, and who owns the readiness work and e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited inference and replaced the Level 2 contrast with the cited prerequisite.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the information-type basis to the status selection sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Level 3 assessment.

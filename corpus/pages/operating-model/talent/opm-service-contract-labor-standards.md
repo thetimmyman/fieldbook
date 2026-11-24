@@ -49,7 +49,7 @@ A service contract is awarded at 2,000 and the statute applies. Later a modifica
 
 ## Never confuse
 
-Under FAR 22.1006(a)(1), the contracting officer inserts the clause at FAR 52.222-41, Service Contract Labor Standards, in solicitations and contracts (except as provided in FAR 22.1006(a)(2)) if the contract is subject to the statute and is over $2,500 or for an indefinite dollar amount where the contracting officer does not know in advance that the contract amount will be $2,500 or less [@CL-OPM-0093; @CL-OPM-0094], while FAR 22.1007 sets out the service contracts for which the contracting officer shall obtain wage determinations [@CL-OPM-0096; @CL-OPM-0097; @CL-OPM-0098; @CL-OPM-0082]. Under FAR 22.305(a), the clause at FAR 52.222-4, Contract Work Hours and Safety Standards—Overtime Compensation, is not included in solicitations and contracts valued at or below $200,000 [@CL-OPM-0091; @CL-OPM-0092].
+Clause insertion and wage determination are not the same step: under FAR 22.1006(a)(1), the contracting officer inserts the clause at FAR 52.222-41, Service Contract Labor Standards, in solicitations and contracts (except as provided in FAR 22.1006(a)(2)) if the contract is subject to the statute and is over $2,500 or for an indefinite dollar amount where the contracting officer does not know in advance that the contract amount will be $2,500 or less [@CL-OPM-0093; @CL-OPM-0094], while FAR 22.1007 sets out the service contracts for which the contracting officer shall obtain wage determinations [@CL-OPM-0096; @CL-OPM-0097; @CL-OPM-0098; @CL-OPM-0082]. Under FAR 22.305(a), the clause at FAR 52.222-4, Contract Work Hours and Safety Standards—Overtime Compensation, is not included in solicitations and contracts valued at or below $200,000 [@CL-OPM-0091; @CL-OPM-0092].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which contracts the company treats as subject to the Service Contract Labor Stan
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.1023 statute lead-in and full clause titles and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited codified and RFO text for the paragraph heading and verb, and kept the statute lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 52.222-41 prescription cross-reference and the Contractor's Representation paragraph.

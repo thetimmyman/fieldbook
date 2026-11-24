@@ -25,7 +25,7 @@ Shows what notice the Government gives before a shipment, what equipment it furn
 | Instrument | Codified FAR [@CL-SUP-2314] |
 | Codified citation | FAR 52.247-24, FAR 52.247-25 and FAR 52.247-26 [@CL-SUP-2314; @CL-SUP-2317; @CL-SUP-2318] |
 | RFO citation | No RFO equivalent; the RFO text prints FAR 52.247-24, FAR 52.247-25 and FAR 52.247-26 each as [Reserved] [@CL-SUP-0006; @CL-SUP-0007; @CL-SUP-0008] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-24: APR 1984 [@CL-SUP-9793]; FAR 52.247-25: APR 1984 [@CL-SUP-9794]; FAR 52.247-26: APR 1984 [@CL-SUP-9795] |
 | Text status | Final [@CL-SUP-2314] |
 | Applies to | The advance notification clause when the Government is responsible for notifying the contractor of specific service times or unusual shipments [@CL-SUP-2316]; the equipment clause when the Government furnishes equipment with or without operators [@CL-SUP-2353]; the direction and marking clause when office relocations are involved [@CL-SUP-2354] |
 
@@ -60,6 +60,7 @@ Confirm which of the three clauses each transportation award carries, the notice
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contract-specific wording the quotes do not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

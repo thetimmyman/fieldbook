@@ -50,7 +50,7 @@ A supplier receives a directive to divert half of its coating line to a defense 
 
 ## Never confuse
 
-A rated order is a prime contract, a subcontract or a purchase order in support of an approved program issued in accordance with the provisions of the part, whereas an allocation order is an official action to control the distribution of materials, services or facilities for a purpose deemed necessary or appropriate to promote the national defense [@CL-IND-0079; @CL-IND-0064]. A set-aside is a type of allocation order that requires a person to reserve materials, services or facilities capacity in anticipation of the receipt of rated orders [@CL-IND-0090; @CL-IND-0081]. 15 CFR 700.32 states that no allocation action by the Department of Commerce may be used to control the general distribution of a material in the civilian market unless the conditions of paragraphs (a), (b) and (c) of that section are met [@CL-IND-0086]. 15 CFR 700.30 states when allocation orders will be used and how they will be distributed, and 15 CFR 700.35 states the acceptance, non-discrimination and immediate notification duties of a person that receives an allocation order [@CL-IND-0083; @CL-IND-0084; @CL-IND-0085; @CL-IND-0093; @CL-IND-0094; @CL-IND-0096].
+A rated order and an allocation order are not the same instrument: a rated order is a prime contract, a subcontract or a purchase order in support of an approved program issued in accordance with the provisions of the part, whereas an allocation order is an official action to control the distribution of materials, services or facilities for a purpose deemed necessary or appropriate to promote the national defense [@CL-IND-0079; @CL-IND-0064]. A set-aside is a type of allocation order that requires a person to reserve materials, services or facilities capacity in anticipation of the receipt of rated orders [@CL-IND-0090; @CL-IND-0081]. 15 CFR 700.32 states that no allocation action by the Department of Commerce may be used to control the general distribution of a material in the civilian market unless the conditions of paragraphs (a), (b) and (c) of that section are met [@CL-IND-0086]. 15 CFR 700.30 states when allocation orders will be used and how they will be distributed, and 15 CFR 700.35 states the acceptance, non-discrimination and immediate notification duties of a person that receives an allocation order [@CL-IND-0083; @CL-IND-0084; @CL-IND-0085; @CL-IND-0093; @CL-IND-0094; @CL-IND-0096].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Who owns the response when an allocation order arrives, and how partial complian
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined the two findings in 15 CFR 700.32(a) and aligned the definitions and comparison statements to the cited sections.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for allocation orders under the Defense Priorities and Allocations System.

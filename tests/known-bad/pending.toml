@@ -26,10 +26,6 @@ code = "FB0825"
 card = "review-queue"
 
 [[pending]]
-code = "FB0826"
-card = "pipeline-rules-classify"
-
-[[pending]]
 code = "FB0830"
 card = "r2-pull-and-sync"
 

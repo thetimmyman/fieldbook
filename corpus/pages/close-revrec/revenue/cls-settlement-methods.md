@@ -47,7 +47,7 @@ Suppose instead that the sides agree on 400,000 of the proposal and cannot agree
 
 ## Never confuse
 
-Negotiated agreement and determination by the TCO are separate items in the list of methods [@CL-CLS-1248]. The TCO should negotiate where possible, and shall settle by determination only when the proposal cannot be settled by agreement [@CL-CLS-1250; @CL-CLS-1251]. Costing-out under vouchers is listed as its own method, for cost-reimbursement contracts [@CL-CLS-1249]. The determination route itself is the subject of [Settlement by determination](cls-settlement-by-determination.md).
+Negotiated agreement and determination by the TCO are not interchangeable items in the list of methods [@CL-CLS-1248]: the TCO should negotiate where possible, and shall settle by determination only when the proposal cannot be settled by agreement [@CL-CLS-1250; @CL-CLS-1251]. Costing-out under vouchers is listed as its own method, for cost-reimbursement contracts [@CL-CLS-1249]. The determination route itself is the subject of [Settlement by determination](cls-settlement-by-determination.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which settlement route each open termination will follow, and who approves the n
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrast and gap wording; cited the TCO duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: settlement methods stated as four alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for methods of settling terminated contracts.

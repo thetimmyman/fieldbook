@@ -10,6 +10,7 @@ pub mod bm25_index;
 pub mod candidate;
 pub mod correlate;
 pub mod proposal;
+pub mod rules;
 pub mod suggest;
 pub mod targets;
 pub mod view;

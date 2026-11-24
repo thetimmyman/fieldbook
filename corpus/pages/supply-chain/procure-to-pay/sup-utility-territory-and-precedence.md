@@ -24,7 +24,7 @@ Shows what an offeror of electric service represents about State law on electric
 | Instrument | Codified FAR [@CL-SUP-2661] |
 | Codified citation | FAR 52.241-1 and 52.241-2 [@CL-SUP-2661; @CL-SUP-2664] |
 | RFO citation | RFO FAR 52.241-1 and 52.241-2 [@CL-SUP-2533; @CL-SUP-2536] |
-| Edition date | Not established. |
+| Edition date | MAY 1999 [@CL-SUP-9847] |
 | Text status | Final [@CL-SUP-2661] |
 | Applies to | Procurements that insert the provision and the clause as prescribed [@CL-SUP-2665; @CL-SUP-2712] |
 
@@ -62,6 +62,7 @@ Confirm who signs each offer to sell electricity and where the rationale for the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the territory representation and order of precedence summaries with the cited quotes and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

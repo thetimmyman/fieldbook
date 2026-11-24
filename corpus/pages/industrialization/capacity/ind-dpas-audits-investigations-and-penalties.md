@@ -44,7 +44,7 @@ Commerce serves a supplier with a demand for information asking for its records 
 
 ## Never confuse
 
-Audits and investigations are official actions involving the examination of books, records, documents, other writings and information to ensure that the Defense Production Act, the Selective Service Act and related statutes, and the part have been properly followed [@CL-IND-0193]. Under the remedies section, willful violation is a crime punishable upon conviction by fine or imprisonment, or both, and the government may also seek an injunction from a court of appropriate jurisdiction to prohibit the continuance of any violation of, or to enforce compliance with, the Defense Production Act, the part, or an official action [@CL-IND-0196; @CL-IND-0197].
+An audit is a look rather than a penalty: audits and investigations are official actions involving the examination of books, records, documents, other writings and information to ensure that the Defense Production Act, the Selective Service Act and related statutes, and the part have been properly followed [@CL-IND-0193]. Under the remedies section, willful violation is a crime punishable upon conviction by fine or imprisonment, or both, and the government may also seek an injunction from a court of appropriate jurisdiction to prohibit the continuance of any violation of, or to enforce compliance with, the Defense Production Act, the part, or an official action [@CL-IND-0196; @CL-IND-0197].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Who owns the response to a Commerce request for information, and where the compa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Named Title I and sections 705 and 707 of the Defense Production Act in the willful violation rule and aligned the audit and remedy descriptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notice duty that follows the delivery prohibition.

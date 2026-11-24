@@ -25,7 +25,7 @@ Shows what the Buy American supplies clause requires a contractor to deliver, ho
 | Instrument | Codified FAR [@CL-SUP-1226] |
 | Codified citation | FAR 52.225-1 [@CL-SUP-1226] |
 | RFO citation | RFO FAR 52.225-1 [@CL-SUP-3530; @CL-SUP-3531; @CL-SUP-3532; @CL-SUP-3533; @CL-SUP-3534; @CL-SUP-3535; @CL-SUP-3536; @CL-SUP-3537]; Alternate I [@CL-SUP-3538] |
-| Edition date | Not established. |
+| Edition date | Oct 2022 [@CL-SUP-3538] |
 | Text status | Final [@CL-SUP-1226] |
 | Applies to | Contracts where the clause is inserted as prescribed in FAR 25.1101(a)(1) [@CL-SUP-1226] |
 
@@ -64,6 +64,7 @@ Which executed contracts and modifications carry the clause, and who confirms th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Free Trade Agreements clause wording with its quote.

@@ -25,7 +25,7 @@ Shows what an offeror certifies in the DoD Buy American, Free Trade Agreements a
 | Instrument | Codified DFARS [@CL-SUP-1847] |
 | Codified citation | DFARS 252.225-7035 [@CL-SUP-1847] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | FEB 2024 [@CL-SUP-9913] |
 | Text status | Final [@CL-SUP-1847] |
 | Applies to | Line items subject to the Buy American, Free Trade Agreements and Balance of Payments Program basic clause of the solicitation [@CL-SUP-1850; @CL-SUP-1848] |
 
@@ -58,6 +58,7 @@ Which line items of each executed contract carry this provision or an alternate,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the three listing places and the alternates; completed the Alternate V restrictions wording; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American, Free Trade Agreements and Balance of Payments Program certificate.

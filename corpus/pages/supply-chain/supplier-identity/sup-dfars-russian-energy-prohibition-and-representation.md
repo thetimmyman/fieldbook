@@ -25,7 +25,7 @@ Shows what energy furnished to covered military installations may not be sourced
 | Instrument | Codified DFARS [@CL-SUP-1706] |
 | Codified citation | DFARS 252.225-7053 [@CL-SUP-1709] and DFARS 252.225-7054 [@CL-SUP-1710] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7053: AUG 2021 [@CL-SUP-9939]; DFARS 252.225-7054: JAN 2023 [@CL-SUP-9940] |
 | Text status | Final [@CL-SUP-1710] |
 | Applies to | Solicitations with the provision [@CL-SUP-1709], and contracts with the clause where DFARS 225.7019-4(b) prescribes it [@CL-SUP-1765], for furnished energy at a covered military installation [@CL-SUP-1710] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry the clause and which subcontracts for furnished e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned flowdown wording; replaced uncited contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: representation covers instruments resulting from the solicitation; waiver and scope limit separated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Russian Federation energy representation and prohibition.

@@ -45,7 +45,7 @@ A contract names a harbor town as the place for part of its work. That part need
 
 ## Never confuse
 
-For the Guam clause on workers holding a particular nonimmigrant status, see [Prohibition on use of nonimmigrant aliens on Guam](cmp-dfars-guam-nonimmigrant-alien-prohibition.md). For the rule on named individuals in roles on a contract, see [Felony-convicted persons prohibition](cmp-felony-convicted-persons-prohibition.md). For duties to follow local labor law and union agreements overseas, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md).
+The residency requirement is not the Guam nonimmigrant bar: the Contractor shall employ, for the part of the contract work in the place named in the clause, individuals who are residents of that place and who, for any craft or trade, have or could promptly acquire the skills needed to perform the contract [@CL-CMP-4417]. For the Guam clause on workers holding a particular nonimmigrant status, see [Prohibition on use of nonimmigrant aliens on Guam](cmp-dfars-guam-nonimmigrant-alien-prohibition.md). For the rule on named individuals in roles on a contract, see [Felony-convicted persons prohibition](cmp-felony-convicted-persons-prohibition.md). For duties to follow local labor law and union agreements overseas, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which executed contracts carry this clause, and which place each contract names.
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast sentences; replaced with cited statement and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restrictions on employment of personnel.

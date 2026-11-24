@@ -54,11 +54,7 @@ If no bids were solicited, the Government would prepare its own estimate of cons
 
 ## Never confuse
 
-Where bids or proposals for the construction contract exceed the estimated price, the contractor performs the redesign and other services necessary to permit award within the funding limitation [@CL-CMP-4915]. Those additional services are performed at no increase in the price of the contract, unless the unfavorable bids or proposals result from conditions beyond the contractor's reasonable control [@CL-CMP-4916]. Neither the Government's review, approval or acceptance of the services nor payment for them is a waiver of rights under the contract or of a cause of action arising out of performance, and the contractor remains liable to the Government, in accordance with applicable law, for all damages to the Government caused by its negligent performance of any of the services [@CL-CMP-4922; @CL-CMP-4923]. The contractor corrects or revises any errors or deficiencies in its designs, drawings, specifications and other services without additional compensation [@CL-CMP-4921].
-
-The estimated construction contract price is in paragraph (c) of the codified clause [@CL-CMP-5118] and in paragraph (d) of the RFO clause [@CL-CMP-1061], and the RFO clause asks for written notice where the codified clause asks the contractor to advise [@CL-CMP-1056; @CL-CMP-4917].
-
-The clauses on work oversight and designer registration are covered in [Work oversight, designer registration and the preconstruction conference](cmp-construction-work-oversight-and-designer-registration.md), and the construction specifications and drawings clause is covered in [Specifications and drawings for construction](cmp-specifications-and-drawings-construction.md).
+The no-cost redesign is not a waiver of the contractor's liability: where bids or proposals for the construction contract exceed the estimated price, the contractor performs the redesign and other services necessary to permit award within the funding limitation [@CL-CMP-4915], and those additional services are performed at no increase in the price of the contract, unless the unfavorable bids or proposals result from conditions beyond the contractor's reasonable control [@CL-CMP-4916]; yet neither the Government's review, approval or acceptance of the services nor payment for them is a waiver of rights under the contract or of a cause of action arising out of performance, and the contractor remains liable to the Government, in accordance with applicable law, for all damages to the Government caused by its negligent performance of any of the services [@CL-CMP-4922; @CL-CMP-4923]. The contractor corrects or revises any errors or deficiencies in its designs, drawings, specifications and other services without additional compensation [@CL-CMP-4921]. The estimated construction contract price is in paragraph (c) of the codified clause [@CL-CMP-5118] and in paragraph (d) of the RFO clause [@CL-CMP-1061], and the RFO clause asks for written notice where the codified clause asks the contractor to advise [@CL-CMP-1056; @CL-CMP-4917]. The clauses on work oversight and designer registration are covered in [Work oversight, designer registration and the preconstruction conference](cmp-construction-work-oversight-and-designer-registration.md), and the construction specifications and drawings clause is covered in [Specifications and drawings for construction](cmp-specifications-and-drawings-construction.md).
 
 ## Company calibration
 
@@ -68,6 +64,7 @@ Which design entities in the finance remit hold these clauses, and who confirms 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and added the construction price limit to the RFO summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on work oversight and construction specifications.

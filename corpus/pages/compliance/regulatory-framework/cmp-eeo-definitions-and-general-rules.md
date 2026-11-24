@@ -46,7 +46,7 @@ A contractor holds a nonexempt prime contract and asks the contracting officer t
 
 ## Never confuse
 
-An affirmative action program is a contractor's program that complies with Department of Labor regulations [@CL-CMP-3050], and a compliance evaluation is an action the Office of Federal Contract Compliance Programs may take [@CL-CMP-3051]. For the Executive Orders on minimum wage and paid sick leave, see [Executive Order minimum wage and paid sick leave: annual rate notice, enforcement and accrual](cmp-eo-minimum-wage-and-paid-sick-leave.md).
+The affirmative action program is not the compliance evaluation: an affirmative action program is a contractor's program that complies with Department of Labor regulations [@CL-CMP-3050], while a compliance evaluation is an action the Office of Federal Contract Compliance Programs may take [@CL-CMP-3051]. For the Executive Orders on minimum wage and paid sick leave, see [Executive Order minimum wage and paid sick leave: annual rate notice, enforcement and accrual](cmp-eo-minimum-wage-and-paid-sick-leave.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which compliance evaluations or other requests from the Office of Federal Contra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the compliance evaluation actor, the agency requirement, and cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the equal employment opportunity subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for equal employment opportunity definitions and general rules.

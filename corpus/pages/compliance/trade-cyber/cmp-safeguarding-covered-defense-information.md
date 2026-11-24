@@ -45,7 +45,7 @@ A contractor discovers an incident that affects an unclassified server holding c
 
 ## Never confuse
 
-The 72-hour limit runs from discovery of any cyber incident [@CL-CMP-1002]. The 90-day preservation period runs from the submission of the cyber incident report [@CL-CMP-1004]. For the wider structure of the regulations, see [Acquisition regulations](../regulatory-framework/cmp-acquisition-regulations.md) and [Oversight roles](../audit-retention/cmp-oversight-roles.md).
+The two clocks start differently: the 72-hour limit runs from discovery of any cyber incident [@CL-CMP-1002], while the 90-day preservation period runs from the submission of the cyber incident report [@CL-CMP-1004]. For the wider structure of the regulations, see [Acquisition regulations](../regulatory-framework/cmp-acquisition-regulations.md) and [Oversight roles](../audit-retention/cmp-oversight-roles.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Confirming which systems process, store or transmit covered defense information,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added compromise review examples and subcontracts paragraph scope, and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the actor who submits malicious software.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the other-reporting sentence so the clause rule keeps the statutory and regulatory alternative.

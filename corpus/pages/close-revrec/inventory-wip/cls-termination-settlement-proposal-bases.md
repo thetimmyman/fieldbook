@@ -49,7 +49,7 @@ A contractor suffers a complete termination on a production line where unit cost
 
 ## Never confuse
 
-The inventory basis confines the proposal to costs allocable to the terminated portion, whereas the total-cost basis under a complete termination starts from all costs incurred under the contract up to the effective date of termination and deducts the contract price of delivered and accepted end items [@CL-CLS-0508; @CL-CLS-0651; @CL-CLS-0653]. For how profit and loss are set, see [Termination settlements: profit allowance and adjustment for loss](../revenue/cls-termination-settlements-profit-and-loss.md). For the deduction and ceiling rules that apply to the settlement amount, see [Termination settlements: deductions, completed end items, and settlement limitation](../revenue/cls-termination-settlement-deductions-and-limitations.md). For allowability of the costs themselves, see [Termination costs](cls-termination-costs.md). For progress payment title and recovery, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md). For the clause that sets deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+The inventory basis and the total-cost basis are not interchangeable: the inventory basis confines the proposal to costs allocable to the terminated portion, whereas the total-cost basis under a complete termination starts from all costs incurred under the contract up to the effective date of termination and deducts the contract price of delivered and accepted end items [@CL-CLS-0508; @CL-CLS-0651; @CL-CLS-0653]. For how profit and loss are set, see [Termination settlements: profit allowance and adjustment for loss](../revenue/cls-termination-settlements-profit-and-loss.md). For the deduction and ceiling rules that apply to the settlement amount, see [Termination settlements: deductions, completed end items, and settlement limitation](../revenue/cls-termination-settlement-deductions-and-limitations.md). For allowability of the costs themselves, see [Termination costs](cls-termination-costs.md). For progress payment title and recovery, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md). For the clause that sets deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Who selects the proposal basis and reconciles unliquidated financing balances an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.100 to the citation row and restored section cross-references and shall modal.
 - COMPATIBLE_EXTENSION, 2026-10-31: scoped the applies-to row and the total-cost basis, added the examples lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inventory basis and total-cost basis termination settlement proposals.

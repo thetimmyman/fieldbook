@@ -45,7 +45,7 @@ An engineer takes a part-time graduate course in systems engineering. Classes me
 
 ## Never confuse
 
-Grants to educational or training institutions, including the donation of facilities or other properties, scholarships, and fellowships are considered contributions and are unallowable [@CL-CMP-8489]. For unallowable costs in rate pools, see [Penalties for unallowable costs](cmp-unallowable-cost-penalty.md). The codified exception for unusual circumstances refers to attendance outside of regular working hours [@CL-CMP-0456], and the RFO text refers to attendance outside of working hours [@CL-CMP-9537].
+Training the workforce and granting to institutions are different costs: grants to educational or training institutions, including the donation of facilities or other properties, scholarships, and fellowships are considered contributions and are unallowable [@CL-CMP-8489]. For unallowable costs in rate pools, see [Penalties for unallowable costs](cmp-unallowable-cost-penalty.md). The codified exception for unusual circumstances refers to attendance outside of regular working hours [@CL-CMP-0456], and the RFO text refers to attendance outside of working hours [@CL-CMP-9537].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How unallowable training and education costs are kept out of rate and billing po
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the codified two-school-year limit claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated training and education rules from the quotes; added companions for codified items (c), (d) and (f); RFO-only paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

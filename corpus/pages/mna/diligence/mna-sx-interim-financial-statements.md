@@ -46,7 +46,7 @@ A registrant files a quarterly report. A major balance sheet caption is 6% of to
 
 ## Never confuse
 
-Under § 210.10-01(a)(1) and (d), interim financial statements required by the section may be unaudited, but prior to filing, interim financial statements included in quarterly reports on Form 10-Q must be reviewed by an independent public accountant using applicable professional standards and procedures for conducting such reviews, as may be modified or supplemented by the Commission, and if in any filing the company states that interim financial statements have been reviewed by an independent public accountant, a report of the accountant on the review must be filed with the interim financial statements [@CL-MNA-0708; @CL-MNA-0713; @CL-MNA-1583; @CL-MNA-0133]. Under paragraph (c), the periods in paragraphs (c)(1) through (4) apply to filings on Form 10-Q, whereas the periods for which interim financial statements are to be provided in registration statements are prescribed elsewhere in Regulation S-X [@CL-MNA-0710; @CL-MNA-0786]. The accountant's report and record retention rules are on [Accountants' reports and retention of audit records](mna-sx-accountants-reports-and-record-retention.md).
+Unaudited status and no review are not the same thing: under § 210.10-01(a)(1) and (d), interim financial statements required by the section may be unaudited, but prior to filing, interim financial statements included in quarterly reports on Form 10-Q must be reviewed by an independent public accountant using applicable professional standards and procedures for conducting such reviews, as may be modified or supplemented by the Commission, and if in any filing the company states that interim financial statements have been reviewed by an independent public accountant, a report of the accountant on the review must be filed with the interim financial statements [@CL-MNA-0708; @CL-MNA-0713; @CL-MNA-1583; @CL-MNA-0133]. Under paragraph (c), the periods in paragraphs (c)(1) through (4) apply to filings on Form 10-Q, whereas the periods for which interim financial statements are to be provided in registration statements are prescribed elsewhere in Regulation S-X [@CL-MNA-0710; @CL-MNA-0786]. The accountant's report and record retention rules are on [Accountants' reports and retention of audit records](mna-sx-accountants-reports-and-record-retention.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which accounting frameworks and approved revenue policies govern the interim sta
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0133 for filing the accountant's review report under § 210.10-01(d) and combined the seasonal single-crop sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: review standards qualifier added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the cash flow test.

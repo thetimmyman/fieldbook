@@ -49,7 +49,7 @@ Answer: the preliminary notice must be given at least 60 days before expiry, so 
 
 ## Never confuse
 
-This clause extends the term of the contract and requires a preliminary written notice of intent to extend [@CL-CTF-2308; @CL-CTF-2309]. The clause to extend services allows continued performance of services with a total extension of no more than 6 months [@CL-CTF-2305; @CL-CTF-2306]. See [Option to extend services](ctf-option-to-extend-services-clause.md).
+This clause extends the term of the contract and requires a preliminary written notice of intent to extend [@CL-CTF-2308; @CL-CTF-2309] rather than continuing performance itself, unlike the clause to extend services, which instead allows continued performance of services with a total extension of no more than 6 months [@CL-CTF-2305; @CL-CTF-2306]. See [Option to extend services](ctf-option-to-extend-services-clause.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Confirm which contracts carry this clause, the exercise window, preliminary noti
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality in How it works, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Clarified who the preliminary notice does not commit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

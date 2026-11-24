@@ -60,6 +60,14 @@
             <span class="meta">{{ registers_line }}</span>
             {% endif %}
           </li>
+          <li class="tu-item">
+            {% if let Some(href) = &decision_href %}
+            <a href="{{ href }}">Decision package (preview)</a>
+            <span class="meta">A synthetic example decision package workbook with cached formulas.</span>
+            {% else %}
+            <span class="meta">{{ decision_line }}</span>
+            {% endif %}
+          </li>
         </ul>
       </section>
       {% if !next_up.is_empty() %}

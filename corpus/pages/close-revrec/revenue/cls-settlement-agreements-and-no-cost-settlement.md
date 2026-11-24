@@ -56,7 +56,7 @@ On a different contract the contractor has incurred 40,000 of cost on the termin
 
 ## Never confuse
 
-The agreement text is set out in [No-cost settlement agreements](cls-no-cost-settlement-agreements.md).
+Settlement by agreement and settlement by determination are not the same route: the agreement text is set out in [No-cost settlement agreements](cls-no-cost-settlement-agreements.md).
 
 The DFARS directs that the procedures at PGI 249.109-7 be followed for settlement of a convenience termination by determination [@CL-CLS-1302]; it is described in [Settlement by determination](cls-settlement-by-determination.md).
 
@@ -67,6 +67,7 @@ Whether every required review is obtained and evidenced before a settlement agre
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: settlement agreements and no-cost settlement: uncited absence statements, contrasts and meta wording removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: no-cost conditions and actor stated as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for settlement agreements in general and the no-cost settlement.

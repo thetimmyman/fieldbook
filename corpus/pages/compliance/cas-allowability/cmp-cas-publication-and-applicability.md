@@ -49,7 +49,7 @@ A company has 2 proposed negotiated contracts, A and B. Under 48 CFR 9903.201-1(
 
 ## Never confuse
 
-Title 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. The rules for determining whether full or modified coverage applies are in 48 CFR 9903.201-2 [@CL-CMP-8682]. For the exemption detail, see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
+Exemption and coverage are different determinations: title 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679], and the rules for determining whether full or modified coverage applies are in 48 CFR 9903.201-2 [@CL-CMP-8682]. For the exemption detail, see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether the company has an advance agreement with the government on any cost. [@
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal ordering-desk telephone number with a reference to the telephone number printed in FAR 30.102.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed statute citations in rule and how-it-works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, negative glosses and uncited contrasts; restated provisions as the quotes read.

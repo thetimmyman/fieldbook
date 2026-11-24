@@ -51,7 +51,7 @@ A research and development program involves other radiological source materials,
 
 ## Never confuse
 
-The clause prescription concerns contractor notification [@CL-CMP-7899]. The exclusion is a United States declaration that excludes access by the IAEA at a location [@CL-CMP-7895; @CL-CMP-7898]. A program manager who receives such a notification will either conduct a security assessment or provide written justification for application of the national security exclusion [@CL-CMP-7897; @CL-CMP-7898].
+The notification clause is not the exclusion itself: the clause prescription concerns contractor notification [@CL-CMP-7899], while the exclusion is a United States declaration that excludes access by the IAEA at a location [@CL-CMP-7895; @CL-CMP-7898]. A program manager who receives such a notification will either conduct a security assessment or provide written justification for application of the national security exclusion [@CL-CMP-7897; @CL-CMP-7898].
 
 ## Company calibration
 
@@ -61,6 +61,7 @@ Whether any activity or location in the company's programs is reportable under t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the program manager steps as alternatives and cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the general statement of the declaration and access obligations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the national security exclusion under the United States-IAEA Additional Protocol and its contract clause.

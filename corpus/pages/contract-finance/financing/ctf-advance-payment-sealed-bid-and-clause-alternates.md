@@ -49,7 +49,7 @@ An invitation for bids says nothing about advance payments. One bidder asks for 
 
 ## Never confuse
 
-The clause at FAR 52.232-12, Advance Payments, is inserted in solicitations and contracts under which the Government will provide advance payments [@CL-CTF-3091]. The alternates apply to different circumstances: a waiver of the countersignature requirement, a contemplated cost-reimbursement contract, a more rapid liquidation, advance payments at no interest to the prime contractor, and elimination of the special account [@CL-CTF-3186; @CL-CTF-3187; @CL-CTF-3188; @CL-CTF-3189; @CL-CTF-3092]. The [advance payments clause](ctf-advance-payments-clause.md) card covers the clause itself. The codified FAR 32.405(c)(3) points to FAR 32.409-2 for the disapproved request [@CL-CTF-3185], while RFO FAR 32.405(c)(3) points to 32.408-2 [@CL-CTF-4182].
+The basic clause and its alternates differ in circumstance rather than applying to the same case: the clause at FAR 52.232-12, Advance Payments, is inserted in solicitations and contracts under which the Government will provide advance payments [@CL-CTF-3091], while the alternates instead attach to different circumstances — a waiver of the countersignature requirement, a contemplated cost-reimbursement contract, a more rapid liquidation, advance payments at no interest to the prime contractor, and elimination of the special account [@CL-CTF-3186; @CL-CTF-3187; @CL-CTF-3188; @CL-CTF-3189; @CL-CTF-3092]. The [advance payments clause](ctf-advance-payments-clause.md) card covers the clause itself. The codified FAR 32.405(c)(3) points to FAR 32.409-2 for the disapproved request [@CL-CTF-3185], while RFO FAR 32.405(c)(3) points to 32.408-2 [@CL-CTF-4182].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which awarded contracts provide advance payments, and which clause alternates we
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the sealed bid and clause alternate wording with the cited paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text on actions designated agencies may take to facilitate advance payments and the agency steps when advance payments are requested.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

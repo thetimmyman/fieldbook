@@ -25,7 +25,7 @@ Shows what the bearings clause restricts, what the Communist Chinese military co
 | Instrument | Codified DFARS [@CL-SUP-1340; @CL-SUP-1343] |
 | Codified citation | DFARS 252.225-7016 and DFARS 252.225-7007 [@CL-SUP-1340; @CL-SUP-1343] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7016: JAN 2023 [@CL-SUP-9905]; DFARS 252.225-7007: DEC 2018 [@CL-SUP-9906] |
 | Text status | Final [@CL-SUP-1340] |
 | Applies to | Ball and roller bearings delivered under a contract with the bearings clause, and munitions items delivered under a contract with the other clause [@CL-SUP-1340; @CL-SUP-1343] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry either clause, and whether the matching subcontra
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and uncited contrasts; cited the never-confuse statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the restrictions on ball and roller bearings and on items from Communist Chinese military companies.

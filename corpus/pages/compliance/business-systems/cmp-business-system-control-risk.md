@@ -45,7 +45,7 @@ DCAA tests the receiving and matching controls in a contractor's material manage
 
 ## Never confuse
 
-Assessments of low risk for specific control objectives mean the auditor can rely on the contractor's internal controls and can reduce testing in other related audits to analytical procedures and/or a combination of tests of details [@CL-CMP-1671]. For findings and their classes, see [Audit reporting and deficiency classes](cmp-business-system-audit-reporting.md).
+A low risk assessment is not a decision to skip testing: it means the auditor can rely on the contractor's internal controls and can reduce testing in other related audits to analytical procedures and/or a combination of tests of details [@CL-CMP-1671]. For findings and their classes, see [Audit reporting and deficiency classes](cmp-business-system-audit-reporting.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Gather and keep evidence that shows each control working, so that the auditor ca
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicable audit area scope and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the analytical procedures and/or tests of details wording to the quote.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.

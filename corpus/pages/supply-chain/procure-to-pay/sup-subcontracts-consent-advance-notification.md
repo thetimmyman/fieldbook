@@ -25,7 +25,7 @@ Shows when a Contractor needs the Contracting Officer's consent before placing a
 | Instrument | Codified FAR [@CL-SUP-0201] |
 | Codified citation | FAR 52.244-2 [@CL-SUP-0201] |
 | RFO citation | RFO FAR 52.244-2 [@CL-SUP-0547; @CL-SUP-0548; @CL-SUP-0549; @CL-SUP-0581; @CL-SUP-0582; @CL-SUP-0583; @CL-SUP-0584; @CL-SUP-0585; @CL-SUP-0586; @CL-SUP-0587; @CL-SUP-0588; @CL-SUP-0589; @CL-SUP-0590] and RFO FAR 52.244-2 Alternate I [@CL-SUP-0591; @CL-SUP-0592; @CL-SUP-0593; @CL-SUP-0594] |
-| Edition date | Not established. |
+| Edition date | Jun 2020 [@CL-SUP-0586] |
 | Text status | Final [@CL-SUP-0201] |
 | Applies to | Subcontracts for which consent is required under paragraph (b), (c), or (d) [@CL-SUP-0207] |
 
@@ -59,6 +59,7 @@ Whether the purchasing system is approved, and which subcontracts need customer 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added parenthetical unpriced action examples, negotiation memorandum elements, and FAR 15.404-4(c)(4)(i) fee reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated consent triggers as alternatives; added paragraph (c) or (d) to Alternate I.

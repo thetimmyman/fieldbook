@@ -24,7 +24,7 @@ Sets out what a transportation contract leaves out of scope, how little an estim
 | Instrument | Codified FAR [@CL-SUP-2212] |
 | Codified citation | FAR 52.247-7, FAR 52.247-8 and FAR 52.247-9 [@CL-SUP-2213; @CL-SUP-2210; @CL-SUP-2212] |
 | RFO citation | RFO FAR 52.247-8 [@CL-SUP-0380; @CL-SUP-0381]; No RFO equivalent for FAR 52.247-7 and FAR 52.247-9, which RFO part 52 lists as [Reserved] [@CL-SUP-0378; @CL-SUP-0379] |
-| Edition date | Not established. |
+| Edition date | FAR 52.247-7: APR 1984 [@CL-SUP-9814]; FAR 52.247-8: Apr 1984 [@CL-SUP-0380]; FAR 52.247-9: APR 1984 [@CL-SUP-9815] |
 | Text status | Final [@CL-SUP-2213; @CL-SUP-2210; @CL-SUP-2212] |
 | Applies to | The freight excluded clause when any commodities or types of shipments have been identified for exclusion [@CL-SUP-2251]; the estimated weights or quantities clause when weights or quantities are estimates [@CL-SUP-2209]; the agreed weight clause when the shipping activity determines the weight of shipments of freight other than household goods or office furniture [@CL-SUP-2252] |
 
@@ -57,6 +57,7 @@ Confirm how the company sizes capacity when estimated volume is not guaranteed a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the codified orders sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the shall wording, However qualifier and RFO paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the net weight clause as its prescription and its calculation.

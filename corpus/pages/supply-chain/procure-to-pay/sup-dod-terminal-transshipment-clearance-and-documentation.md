@@ -25,7 +25,7 @@ Explains the Export Release and the movement data a contractor must obtain and m
 | Instrument | Codified FAR [@CL-SUP-2043] |
 | Codified citation | FAR 52.247-52 [@CL-SUP-2043] |
 | RFO citation | RFO FAR 52.247-52 [@CL-SUP-0173] |
-| Edition date | Not established. |
+| Edition date | FEB 2006 [@CL-SUP-9808] |
 | Text status | Final [@CL-SUP-2043] |
 | Applies to | Solicitations and contracts under which shipments will be consigned to Department of Defense air or water terminal transshipment points [@CL-SUP-2172], unless clearance and documentation requirements have been expressly delegated to the contractor [@CL-SUP-2043] |
 
@@ -58,6 +58,7 @@ Which shipments the company routes through Department of Defense transshipment p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned release cases, RFO wording and notice basis with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added when the information list is furnished.

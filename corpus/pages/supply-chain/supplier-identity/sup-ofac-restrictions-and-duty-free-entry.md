@@ -25,7 +25,7 @@ Shows the OFAC purchase prohibition and its flowdown to subcontracts, and when s
 | Instrument | Codified FAR [@CL-SUP-1262; @CL-SUP-1265] |
 | Codified citation | FAR 52.225-13 [@CL-SUP-1262]; FAR 52.225-8 [@CL-SUP-1265] |
 | RFO citation | RFO FAR 52.240-91(d)(2)(i) [@CL-SUP-3718; @CL-SUP-3719], as RFO FAR part 52 lists FAR 52.225-13 as [Reserved] [@CL-SUP-3717]; RFO FAR 52.225-8 [@CL-SUP-3721] |
-| Edition date | Not established. |
+| Edition date | FAR 52.225-13: FEB 2021 [@CL-SUP-9955]; FAR 52.225-8: OCT 2025 (codified) [@CL-SUP-9956]; FAR 52.225-8: Oct 2010 (basic) [@CL-SUP-3721] |
 | Text status | Final [@CL-SUP-1262; @CL-SUP-1265] |
 | Applies to | Contracts that include either clause [@CL-SUP-1262; @CL-SUP-1265] |
 
@@ -59,6 +59,7 @@ Whether the purchasing system passes the restrictions clause to every subcontrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added without-limitation parenthetical on foreign supplies and removed uncited commentary and RFO meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: OFAC clause: stated the authorization as an exception, not the only route.

@@ -25,7 +25,7 @@ Shows who gets the evaluation preference for military construction on Kwajalein 
 | Instrument | Codified DFARS [@CL-SUP-1817; @CL-SUP-1820] |
 | Codified citation | DFARS 252.236-7012 [@CL-SUP-1817; @CL-SUP-1845]; DFARS 252.236-7013 [@CL-SUP-1820; @CL-SUP-1846] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.236-7012: MAR 1998 [@CL-SUP-9929]; DFARS 252.236-7013: JAN 2023 [@CL-SUP-9930] |
 | Text status | Final [@CL-SUP-1817; @CL-SUP-1820] |
 | Applies to | Solicitations that include the Kwajalein provision [@CL-SUP-1818; @CL-SUP-1845], and contracts that include the steel clause [@CL-SUP-1820; @CL-SUP-1846] |
 
@@ -56,6 +56,7 @@ Whether subcontracts that acquire steel as a construction material carry the ste
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned flowdown wording and replaced uncited contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said all of the further Marshallese firm conditions must be met.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Kwajalein Atoll evaluation preference and American steel competition.

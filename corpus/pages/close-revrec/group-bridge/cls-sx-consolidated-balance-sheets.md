@@ -46,7 +46,7 @@ A new registrant has existed for 8 months and files a registration statement. It
 
 ## Never confuse
 
-The 135 days measure the age of a new registrant's audited balance sheet at the filing date, and the 45 days measure how soon after year end a filing may use the earlier year-end balance sheets [@CL-CLS-0801; @CL-CLS-0802]. The statements of comprehensive income and cash flows follow their own period rule, covered in [Statements of comprehensive income, cash flows and equity under Regulation S-X](cls-sx-income-cash-flow-equity-statements.md). Article 4 and other articles of Regulation S-X clarify disclosures that must be included in any event in financial statements filed with the Commission [@CL-CLS-0850]. For the management discussion that accompanies the financial statements, see [MD&A objective and liquidity](../../fpa/planning-chain/fpa-mdna-objective-and-liquidity.md).
+The 135-day and 45-day tests are not interchangeable: the 135 days measure the age of a new registrant's audited balance sheet at the filing date, and the 45 days measure how soon after year end a filing may use the earlier year-end balance sheets [@CL-CLS-0801; @CL-CLS-0802]. The statements of comprehensive income and cash flows follow their own period rule, covered in [Statements of comprehensive income, cash flows and equity under Regulation S-X](cls-sx-income-cash-flow-equity-statements.md). Article 4 and other articles of Regulation S-X clarify disclosures that must be included in any event in financial statements filed with the Commission [@CL-CLS-0850]. For the management discussion that accompanies the financial statements, see [MD&A objective and liquidity](../../fpa/planning-chain/fpa-mdna-objective-and-liquidity.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Whether the company is a registrant, and if not, which lender or investor calend
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must and shall modals, added full qualifiers in § 210.3-01, and removed uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the three paragraph (c) conditions as all required.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the unaudited interim balance sheet rule.

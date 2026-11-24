@@ -51,7 +51,7 @@ A department's remedy coordination official made two recommendations during the 
 
 ## Never confuse
 
-Departments and agencies shall prepare and submit annual reports [@CL-CTF-3786]. The decision to reduce or suspend payments is covered on [Financing consideration and fraud payment procedures](ctf-financing-consideration-and-fraud-payment-procedures.md).
+The DFARS reporting section and the FAR content rule differ in what each sets rather than duplicating each other: departments and agencies shall prepare and submit annual reports [@CL-CTF-3786], and each report contains the information required by FAR 32.006-5 [@CL-CTF-3787]. The decision to reduce or suspend payments is covered on [Financing consideration and fraud payment procedures](ctf-financing-consideration-and-fraud-payment-procedures.md).
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Which contracts sit with a DoD department or agency that files these reports, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed added negatives; aligned report wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD reporting of suspected contractor fraud and the financing remedies it reports on.

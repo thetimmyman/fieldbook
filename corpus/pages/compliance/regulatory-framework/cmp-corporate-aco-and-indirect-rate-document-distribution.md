@@ -53,9 +53,7 @@ A county government has 3 federally-funded programs and holds contracts from 2 F
 
 ## Never confuse
 
-A corporate administrative contracting officer deals with corporate management and corporate-wide functions across locations [@CL-CMP-7815]. The cognizant agency is the agency for approving State and local government indirect costs associated with federally-funded programs and activities [@CL-CMP-7816; @CL-CMP-7991].
-
-Codified FAR 42.706 puts the distribution of the rate agreement and of the memorandum or audit report in one section [@CL-CMP-7818; @CL-CMP-7819], while the RFO text states distribution steps within the contracting officer determination procedure at FAR 42.505-1(b)(5)(iv) [@CL-CMP-0118; @CL-CMP-0119] and the auditor determination procedure at FAR 42.505-2(b)(2) [@CL-CMP-0120; @CL-CMP-0121; @CL-CMP-0122]. Rates approved by the cognizant agency for State and local government indirect costs must be used by all Federal agencies that also award contracts to those governments under the RFO text [@CL-CMP-0117], where the codified text says the rates will be used [@CL-CMP-7817].
+A corporate administrative contracting officer deals with corporate management and corporate-wide functions across locations, rather than with a single office's work [@CL-CMP-7815]. The cognizant agency is the agency for approving State and local government indirect costs associated with federally-funded programs and activities [@CL-CMP-7816; @CL-CMP-7991]. Where the rate agreement documents go differs between the texts: codified FAR 42.706 puts the distribution of the rate agreement and of the memorandum or audit report in one section [@CL-CMP-7818; @CL-CMP-7819], while the RFO text states distribution steps within the contracting officer determination procedure at FAR 42.505-1(b)(5)(iv) [@CL-CMP-0118; @CL-CMP-0119] and the auditor determination procedure at FAR 42.505-2(b)(2) [@CL-CMP-0120; @CL-CMP-0121; @CL-CMP-0122]. Rates approved by the cognizant agency for State and local government indirect costs must be used by all Federal agencies that also award contracts to those governments under the RFO text [@CL-CMP-0117], where the codified text says the rates will be used [@CL-CMP-7817].
 
 ## Company calibration
 
@@ -65,6 +63,7 @@ Which locations sit under a corporate administrative contracting officer, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: assignment, example and contrast wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for corporate administrative contracting officers, State and local government indirect cost rates and the distribution of indirect cost rate documents.

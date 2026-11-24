@@ -45,7 +45,7 @@ An offeror proposes 40 serialized warranted items. It completes the Warranty Tra
 
 ## Never confuse
 
-Warranty criteria and remedies are on [Warranties: criteria, terms and remedies](../../supply-chain/sourcing-evidence/sup-warranties.md), a construction warranty with a remedy is on [Warranty of construction (Germany) (DFARS)](cls-dfars-warranty-of-construction-germany.md), and warranty cost is on [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md). The notice of a potential safety issue is covered on [Notification of potential safety issues and warranty tracking of serialized items (DFARS)](../../compliance/business-systems/cmp-dfars-safety-notification-and-warranty-tracking.md). The unique item identifier itself is on [Item unique identification and valuation clause (DFARS)](../../compliance/business-systems/cmp-dfars-item-unique-identification.md).
+Warranty tracking here differs from the safety-issue notice: warranty criteria and remedies are on [Warranties: criteria, terms and remedies](../../supply-chain/sourcing-evidence/sup-warranties.md), a construction warranty with a remedy is on [Warranty of construction (Germany) (DFARS)](cls-dfars-warranty-of-construction-germany.md), and warranty cost is on [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md). The notice of a potential safety issue is covered on [Notification of potential safety issues and warranty tracking of serialized items (DFARS)](../../compliance/business-systems/cmp-dfars-safety-notification-and-warranty-tracking.md). The unique item identifier itself is on [Item unique identification and valuation clause (DFARS)](../../compliance/business-systems/cmp-dfars-item-unique-identification.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which solicitations and contracts carry these clauses, who completes the warrant
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: warranty tracking and military safety: standard stated in one sentence, uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the inspection clause qualifier and limited the alternate standard.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the warranty tracking notice and safety of facilities, infrastructure and equipment for military operations.

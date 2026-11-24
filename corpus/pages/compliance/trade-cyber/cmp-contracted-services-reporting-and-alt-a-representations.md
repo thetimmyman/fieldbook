@@ -45,7 +45,7 @@ A contractor holds a services order. For the preceding fiscal year it invoiced 2
 
 ## Never confuse
 
-Under Alternate I, the contractor reports on each order which exceeds $3 million for services in the listed service acquisition portfolio groups [@CL-CMP-2872]. Alternate A substitutes its paragraphs (b), (d), and (e) for paragraphs (b) and (d) of the provision at FAR 52.204-8 [@CL-CMP-2873].
+The two alternates do different things: under Alternate I, the contractor reports on each order which exceeds $3 million for services in the listed service acquisition portfolio groups [@CL-CMP-2872], while Alternate A substitutes its paragraphs (b), (d), and (e) for paragraphs (b) and (d) of the provision at FAR 52.204-8 [@CL-CMP-2873].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which orders need services reports, where invoiced amounts and labor hours are c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added Alternate I reporting lead-in and Alternate A verification qualifiers; removed absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the Alternate I claim for the Alternate I statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the verification sentence so the offeror's verification keeps its exception for the changes identified in the provision.

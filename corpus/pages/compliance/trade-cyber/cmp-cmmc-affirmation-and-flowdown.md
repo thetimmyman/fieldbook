@@ -44,7 +44,7 @@ A prime holds a contract that requires Level 3 (DIBCAC). Subcontractor A will re
 
 ## Never confuse
 
-For a subcontractor that will process, store, or transmit CUI in performance of the subcontract, under a prime contract that requires Level 3 (DIBCAC) status, the minimum is Level 2 (C3PAO) status [@CL-CMP-2099]. Affirmation follows every assessment and recurs annually [@CL-CMP-2094], and before award of a contract or subcontract with a Level 1 (Self) requirement, the OSA must both achieve that status and have submitted an affirmation of compliance into SPRS for all information systems within the CMMC Assessment Scope [@CL-CMP-2068].
+The subcontractor minimum differs from the prime's level: for a subcontractor that will process, store, or transmit CUI in performance of the subcontract, under a prime contract that requires Level 3 (DIBCAC) status, the minimum is Level 2 (C3PAO) status [@CL-CMP-2099]. Affirmation follows every assessment and recurs annually [@CL-CMP-2094], and before award of a contract or subcontract with a Level 1 (Self) requirement, the OSA must both achieve that status and have submitted an affirmation of compliance into SPRS for all information systems within the CMMC Assessment Scope [@CL-CMP-2068].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Which subcontracts pass FCI or CUI, who signs as Affirming Official for each ent
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the CUI condition on the Level 3 flowdown minimum and cited the minimum-status sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Level 1 pre-award sentence with its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Affirming Official definition so the rule keeps the specified security requirements for the respective organizations.

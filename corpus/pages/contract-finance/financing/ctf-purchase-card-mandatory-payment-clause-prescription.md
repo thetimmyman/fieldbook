@@ -47,7 +47,7 @@ The applicable micro-purchase threshold is taken to be 10,000. An agreement is e
 
 ## Never confuse
 
-The prescription of the mandatory card payment clause is a different rule from the prohibition on card payment where the foreign procurement tax clause applies, which is on [Prohibition on purchase card payment when the foreign procurement tax clause applies](ctf-purchase-card-foreign-tax-prohibition.md) [@CL-CTF-3838]. DFARS 232.1110 directs use of the clause at 252.232-7009 when both conditions on orders or calls at or below the micro-purchase threshold are met [@CL-CTF-3840; @CL-CTF-3841], whereas DFARS 232.1108-70 bars the contracting officer from authorizing the card as a method of payment during any contract period of performance if the contract includes FAR 52.229-12 without 252.229-7014 [@CL-CTF-3838; @CL-CTF-3839].
+The prescription of the mandatory card payment clause differs from the prohibition on card payment rather than matching it: the prescription is one rule, and the prohibition on card payment where the foreign procurement tax clause applies, which is on [Prohibition on purchase card payment when the foreign procurement tax clause applies](ctf-purchase-card-foreign-tax-prohibition.md), is another [@CL-CTF-3838]. DFARS 232.1110 directs use of the clause at 252.232-7009 when both conditions on orders or calls at or below the micro-purchase threshold are met [@CL-CTF-3840; @CL-CTF-3841], whereas DFARS 232.1108-70 instead bars the contracting officer from authorizing the card as a method of payment during any contract period of performance if the contract includes FAR 52.229-12 without 252.229-7014 [@CL-CTF-3838; @CL-CTF-3839].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Whether each solicitation, contract and agreement expected to produce orders at 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta commentary and cited the comparison with DFARS 232.1108-70.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD prescription of the mandatory purchase card payment clause.

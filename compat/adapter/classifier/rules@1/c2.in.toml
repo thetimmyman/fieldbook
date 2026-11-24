@@ -1,0 +1,26 @@
+rules_toml = """
+[[rule]]
+id = "kind-fixture"
+when = { phrase = "Fixture Notice" }
+set = { field = "source_kind", value = "synthetic_fixture" }
+example = "Fixture Notice"
+expect = { field = "source_kind", value = "synthetic_fixture" }
+
+[[rule]]
+id = "tier-d"
+when = { phrase = "Tier D", pages = "any" }
+set = { field = "authority_tier", value = "D" }
+example = "Tier D"
+expect = { field = "authority_tier", value = "D" }
+
+[[rule]]
+id = "later-licence"
+when = { phrase = "CC0-1.0", pages = "any" }
+set = { field = "licence", value = "Synthetic CC0-1.0" }
+example = "CC0-1.0"
+expect = { field = "licence", value = "Synthetic CC0-1.0" }
+"""
+pages = [
+  "Fixture Notice with an intentionally overlong opening line exceeding one hundred and sixty characters so that the automatic title fallback does not trigger for this candidate document in compat replay.",
+  "Page two carries Tier D and CC0-1.0.",
+]

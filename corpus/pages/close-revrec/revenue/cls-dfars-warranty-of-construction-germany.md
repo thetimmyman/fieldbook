@@ -47,7 +47,7 @@ A construction contract in Germany is finally accepted, and a defective drain is
 
 ## Never confuse
 
-The warranty period here is set by reference to the VOB, and it starts at final acceptance or at possession if the Government takes part of the work earlier [@CL-CLS-1184; @CL-CLS-1185]. The warranty shall not limit the Government's right under the Inspection clause of the contract with respect to latent defects, gross mistakes, or fraud [@CL-CLS-1191]. General warranty clauses for construction are on [Warranty of services and warranty of construction](../../supply-chain/sourcing-evidence/sup-warranty-services-and-construction.md), warranty criteria and remedies are on [Warranties: criteria, terms and remedies](../../supply-chain/sourcing-evidence/sup-warranties.md), the offer-stage warranty tracking data is on [Warranty tracking notice and safety of facilities for military operations (DFARS)](cls-dfars-warranty-tracking-notice-and-military-safety.md), warranty cost is on [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md), and disputes are on [Disputes clause, claims and certification](cls-disputes-clause.md).
+The warranty period and the inspection rights are not the same protection: the warranty period here is set by reference to the VOB, and it starts at final acceptance or at possession if the Government takes part of the work earlier [@CL-CLS-1184; @CL-CLS-1185], and the warranty shall not limit the Government's right under the Inspection clause of the contract with respect to latent defects, gross mistakes, or fraud [@CL-CLS-1191]. General warranty clauses for construction are on [Warranty of services and warranty of construction](../../supply-chain/sourcing-evidence/sup-warranty-services-and-construction.md), warranty criteria and remedies are on [Warranties: criteria, terms and remedies](../../supply-chain/sourcing-evidence/sup-warranties.md), the offer-stage warranty tracking data is on [Warranty tracking notice and safety of facilities for military operations (DFARS)](cls-dfars-warranty-tracking-notice-and-military-safety.md), warranty cost is on [Service and warranty costs](../../compliance/cas-allowability/cmp-service-and-warranty-costs.md), and disputes are on [Disputes clause, claims and certification](cls-disputes-clause.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which executed overseas construction contracts carry the clause, and who tracks 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: German construction warranty: uncited gap statements removed, Inspection clause wording tied to the quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: listed causes as alternatives and added the damage limb of the Government-furnished limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the warranty of construction (Germany) clause.

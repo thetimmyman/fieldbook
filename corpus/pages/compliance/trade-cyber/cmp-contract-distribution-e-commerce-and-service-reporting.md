@@ -44,7 +44,7 @@ A contract is signed by all parties on a Monday, and the contracting officer sen
 
 ## Never confuse
 
-Distribution of a signed contract is a duty of the contracting officer to send copies [@CL-CMP-2993]. Service contract reporting is a duty of the contractor to provide information that FPDS does not already hold [@CL-CMP-2999].
+The two duties belong to different parties: distribution of a signed contract is a duty of the contracting officer to send copies [@CL-CMP-2993], while service contract reporting is a duty of the contractor to provide information that FPDS does not already hold [@CL-CMP-2999].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which service contracts and orders meet the reporting thresholds, who submits th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the clause exclusion to the clause paragraph that states it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the electronic commerce subpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS rule on distributing a signed contract copy to the contractor.

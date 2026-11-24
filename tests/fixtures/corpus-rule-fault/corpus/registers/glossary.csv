@@ -1,0 +1,5 @@
+term_id,label,definition,boundary_rule,owner_area,source_ref,definition_status,aliases,superseded_by
+billing_withhold,billing withhold,Synthetic retention of a percentage of interim payments pending system correction.,Do not confuse with synthetic liquidated damages or final price adjustments.,cmp,CL-CMP-0002,public_reference,withholding holdback,
+cost_baseline,cost baseline,Synthetic time-phased budget basis used to measure synthetic estimating variance.,Excludes synthetic management reserve and unpriced change orders.,est,,general_practice,,
+rate_window,rate window,Synthetic period allowed to complete a forward pricing rate check.,Distinct from the synthetic billing cycle review interval.,est,CL-EST-0003,public_reference,,
+system_review,system review,Synthetic periodic assessment of business-system control operation.,Does not include synthetic external financial statement audits.,cmp,CL-CMP-0001,public_reference,,

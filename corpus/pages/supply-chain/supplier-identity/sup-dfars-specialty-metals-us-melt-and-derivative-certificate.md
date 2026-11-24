@@ -25,7 +25,7 @@ Shows the melted or produced rule in the specialty metals clause that names only
 | Instrument | Codified DFARS [@CL-SUP-1696] |
 | Codified citation | DFARS 252.225-7008 [@CL-SUP-1696] and DFARS 252.225-7010 [@CL-SUP-1701] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7008: MAR 2013 [@CL-SUP-9942]; DFARS 252.225-7010: JUL 2009 [@CL-SUP-9943] |
 | Text status | Final [@CL-SUP-1696] |
 | Applies to | Contracts with the clause where DFARS 225.7003-5(a)(1) prescribes it [@CL-SUP-1764], and solicitations with the provision for offerors that list commercial derivative military articles [@CL-SUP-1701] |
 
@@ -57,6 +57,7 @@ Which executed contracts and modifications carry the clause or the provision, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for paragraph (b), (c), (c)(1), and (d) of DFARS 252.225-7010 and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: definition items worded as alternatives; offer listing and certification scope stated.

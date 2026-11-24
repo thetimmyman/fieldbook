@@ -45,7 +45,7 @@ A fixed-price contract has the Government supplying a test fixture. The answer: 
 
 ## Never confuse
 
-Except as provided in paragraph (d) of FAR 45.107, the contracting officer shall insert the clause at 52.245-1, Government Property, in fixed-price solicitations and contracts when the Government will provide Government property [@CL-CLS-0723; @CL-CLS-0725], and the contracting officer shall also insert the clause at 52.245-2, Government Property (Installation Operation Services), in fixed-price service contracts to be performed on a Government installation when Government-furnished property will be provided for initial provisioning only and the Government is not responsible for repair or replacement [@CL-CLS-0075; @CL-CLS-0729], whereas purchase orders for property repair need not include a Government property clause when the unit acquisition cost of Government property to be repaired does not exceed the simplified acquisition threshold, unless other Government property (not for repair) is provided [@CL-CLS-0732]. Duties under the clause are on [Government Property clause](cls-government-property-clause.md), and rental use is on [Use and Charges clause for Government property](cls-use-and-charges-government-property.md).
+The two clauses are prescribed for different settings rather than the same one: except as provided in paragraph (d) of FAR 45.107, the contracting officer shall insert the clause at 52.245-1, Government Property, in fixed-price solicitations and contracts when the Government will provide Government property [@CL-CLS-0723; @CL-CLS-0725], and the contracting officer shall also insert the clause at 52.245-2, Government Property (Installation Operation Services), in fixed-price service contracts to be performed on a Government installation when Government-furnished property will be provided for initial provisioning only and the Government is not responsible for repair or replacement [@CL-CLS-0075; @CL-CLS-0729], whereas purchase orders for property repair need not include a Government property clause when the unit acquisition cost of Government property to be repaired does not exceed the simplified acquisition threshold, unless other Government property (not for repair) is provided [@CL-CLS-0732]. Duties under the clause are on [Government Property clause](cls-government-property-clause.md), and rental use is on [Use and Charges clause for Government property](cls-use-and-charges-government-property.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which of the company's contracts and solicitations fall in a listed situation, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 45.107(b) lead-in companion (CL-CLS-0075), restored FAR 35.014 cross-reference and Government-property qualifier, and cited Never confuse rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened the Part 12, Alternate I and Alternate II wording to match the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government property contract clauses.

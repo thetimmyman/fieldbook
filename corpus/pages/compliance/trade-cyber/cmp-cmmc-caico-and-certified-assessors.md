@@ -44,7 +44,7 @@ A CCA is certified by the CAICO at the start of year 1. Under the 3-year validit
 
 ## Never confuse
 
-The Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218]. The CAICO is responsible for training, testing, authorizing, certifying, and recertifying CMMC assessors, instructors, and related professionals [@CL-CMP-3232]. CCAs, in support of a C3PAO, conduct Level 2 certification assessments of OSCs [@CL-CMP-3234]. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the people the CAICO certifies as instructors and professionals are on the [instructors and certified professionals](cmp-cmmc-instructors-and-certified-professionals.md) card.
+The Accreditation Body accredits, the CAICO certifies people, and CCAs assess: the Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218], the CAICO is responsible for training, testing, authorizing, certifying, and recertifying CMMC assessors, instructors, and related professionals [@CL-CMP-3232], and CCAs, in support of a C3PAO, conduct Level 2 certification assessments of OSCs [@CL-CMP-3234]. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the people the CAICO certifies as instructors and professionals are on the [instructors and certified professionals](cmp-cmmc-instructors-and-certified-professionals.md) card.
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which assessors the company relies on, and who confirms that their certification
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrasts with cited role statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CMMC Assessor and Instructor Certification Organization and Certified Assessors.

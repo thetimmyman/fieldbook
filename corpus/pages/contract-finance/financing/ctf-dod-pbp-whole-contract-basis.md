@@ -47,7 +47,7 @@ A supply contract with a single price carries a payment schedule with three even
 
 ## Never confuse
 
-This clause applies to the whole contract [@CL-CTF-1725], while the deliverable-item clause applies to the contract line items that the Contracting Officer inserts [@CL-CTF-1731] and its schedule identifies the CLINs to which each event applies [@CL-CTF-1732]. For that clause, see [DoD performance-based payments: deliverable-item basis](ctf-dod-pbp-deliverable-item-basis.md). For whether a contract carries performance-based payments or progress payments, see [DoD financing notice and progress payments for multiple lots](ctf-dod-financing-notice-and-multiple-lot-progress-payments.md). For the title and risk of loss rules, see [Title and risk of loss under performance-based payments](ctf-pbp-title-and-risk-of-loss.md). For the Contracting Officer's approval duties, see [Administration and payment of performance-based payments](ctf-pbp-administration-and-payment.md).
+This clause applies to the whole contract rather than to individual line items [@CL-CTF-1725], unlike the deliverable-item clause, which applies to the contract line items that the Contracting Officer inserts and whose schedule identifies the CLINs to which each event applies [@CL-CTF-1731; @CL-CTF-1732]. For that clause, see [DoD performance-based payments: deliverable-item basis](ctf-dod-pbp-deliverable-item-basis.md). For whether a contract carries performance-based payments or progress payments, see [DoD financing notice and progress payments for multiple lots](ctf-dod-financing-notice-and-multiple-lot-progress-payments.md). For the title and risk of loss rules, see [Title and risk of loss under performance-based payments](ctf-pbp-title-and-risk-of-loss.md). For the Contracting Officer's approval duties, see [Administration and payment of performance-based payments](ctf-pbp-administration-and-payment.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Which contracts use the whole-contract clause, and what events, amounts and secu
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: added solicitation scope and security qualifiers; removed uncited comparisons.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD performance-based payments on a whole-contract basis.

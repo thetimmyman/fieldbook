@@ -49,7 +49,7 @@ A gain of 30 is measured for a period beginning on or after the Applicability Da
 
 ## Never confuse
 
-The corridor requires the actuarial value of the assets of the pension plan to fall within 80 to 120 percent of market [@CL-CMP-3412]; in the illustration, a value that falls outside the corridor must be adjusted to the nearest boundary of the corridor [@CL-CMP-3441]. All adjustments under the transition rule shall be prospective only, but costs and prices of prior and existing contracts not subject to price adjustment may be considered in determining the appropriate transition method or adjustment amount [@CL-CMP-3414].
+Inside and outside the corridor are treated differently: the corridor requires the actuarial value of the assets of the pension plan to fall within 80 to 120 percent of market [@CL-CMP-3412], and in the illustration, a value that falls outside the corridor must be adjusted to the nearest boundary of the corridor [@CL-CMP-3441]. All adjustments under the transition rule shall be prospective only, but costs and prices of prior and existing contracts not subject to price adjustment may be considered in determining the appropriate transition method or adjustment amount [@CL-CMP-3414].
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Which contracts are subject to the pension adjustment standard and who confirms 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and uncited contrasts, matched transition wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 413.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 413 illustrations, effective date and transition.

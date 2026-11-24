@@ -25,7 +25,7 @@ Shows how offers are evaluated under the Afghanistan preference provision, what 
 | Instrument | Codified DFARS [@CL-SUP-1797; @CL-SUP-1802] |
 | Codified citation | DFARS 252.225-7023 [@CL-SUP-1797; @CL-SUP-1799; @CL-SUP-1840]; DFARS 252.225-7024 [@CL-SUP-1802; @CL-SUP-1841] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.225-7023: SEP 2013 [@CL-SUP-9896]; DFARS 252.225-7024: SEP 2013 [@CL-SUP-9897] |
 | Text status | Final [@CL-SUP-1797; @CL-SUP-1802] |
 | Applies to | Solicitations that include the provision [@CL-SUP-1797; @CL-SUP-1840], and contracts that include the clause [@CL-SUP-1802; @CL-SUP-1841] |
 
@@ -56,6 +56,7 @@ Whether the solicitation or contract includes these Afghanistan provisions, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the prescribing sections; removed an uncited contrast; reworded the restriction clause pointer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word 'only' from the price-increase sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Afghanistan preference provision and requirement clause.

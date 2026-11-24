@@ -45,7 +45,7 @@ An undefinitized action has a qualifying proposal date in the schedule, and the 
 
 ## Never confuse
 
-The definitization clause withhold applies notwithstanding FAR 52.216-26, Payments of Allowable Costs Before Definitization [@CL-CTF-1798]; for that FAR clause, see [Payments of Allowable Costs Before Definitization](../billing-payment/ctf-payments-allowable-costs-before-definitization.md). For letter contracts, see [Contract definitization for letter contracts](../funding/ctf-contract-definitization.md). The request clause covers the costs a request may include and the certificate a request above the simplified acquisition threshold must bear [@CL-CTF-1771; @CL-CTF-1772]; for the right to an adjustment itself, see [Changes, Fixed-Price clause and equitable adjustment](../funding/ctf-changes-fixed-price-equitable-adjustment.md).
+The definitization clause withhold differs from the FAR financing rule rather than replacing it: the definitization clause withhold applies notwithstanding FAR 52.216-26, Payments of Allowable Costs Before Definitization [@CL-CTF-1798]; for that FAR clause, see [Payments of Allowable Costs Before Definitization](../billing-payment/ctf-payments-allowable-costs-before-definitization.md). For letter contracts, see [Contract definitization for letter contracts](../funding/ctf-contract-definitization.md). The request clause differs from the adjustment right rather than granting it: it covers the costs a request may include and the certificate a request above the simplified acquisition threshold must bear [@CL-CTF-1771; @CL-CTF-1772]; for the right to an adjustment itself, see [Changes, Fixed-Price clause and equitable adjustment](../funding/ctf-changes-fixed-price-equitable-adjustment.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which contracts are undefinitized and what their schedules and financing say, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added unpriced change orders; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Price determination carries FAR 15.4 and part 31 and extension actor; exemptions stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract definitization and requests for equitable adjustment.

@@ -45,7 +45,7 @@ A company submits an offer that includes a technical approach. Before award the 
 
 ## Never confuse
 
-The clause provides that the Government's rights in information that is technical data or computer software required to be delivered under the contract are determined by one of three alternative clauses of the contract: DFARS 252.227-7013, DFARS 252.227-7014, or DFARS 252.227-7018 [@CL-CMP-3981; @CL-CMP-8621]. Data rights are covered on [Rights in data, general: definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md), and the clause for SBIR and STTR data is covered on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md). Under the special works clause, the Contractor shall assign copyright in the covered works to the Government [@CL-CMP-3956]. The FAR special works clause is covered on [Additional data requirements and rights in data for special works](cmp-additional-data-requirements-and-special-works.md).
+The bid or proposal information clause is not the special works clause: the clause provides that the Government's rights in information that is technical data or computer software required to be delivered under the contract are determined by one of three alternative clauses of the contract: DFARS 252.227-7013, DFARS 252.227-7014, or DFARS 252.227-7018 [@CL-CMP-3981; @CL-CMP-8621]. Data rights are covered on [Rights in data, general: definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md), and the clause for SBIR and STTR data is covered on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md). Under the special works clause, the Contractor shall assign copyright in the covered works to the Government [@CL-CMP-3956]. The FAR special works clause is covered on [Additional data requirements and rights in data for special works](cmp-additional-data-requirements-and-special-works.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which executed contracts carry these clauses, which deliverables are special wor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the third data rights clause alternative, carried the disclosure exception and authorizer, and removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rights in bid or proposal information and rights in special works.
