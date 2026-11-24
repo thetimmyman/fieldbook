@@ -24,7 +24,7 @@ Shows what a contractor must notify to DoD under the Additional Protocol clause 
 | Instrument | Codified DFARS [@CL-CMP-2863; @CL-CMP-2866] |
 | Codified citation | DFARS 252.204-7010(a) [@CL-CMP-2863]; DFARS 252.204-7000(a) [@CL-CMP-2866] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7010: JAN 2009 [@CL-CMP-10306]; DFARS 252.204-7000: OCT 2016 [@CL-CMP-10307] |
 | Text status | Final [@CL-CMP-2863; @CL-CMP-2866] |
 | Applies to | Contractors required to report activities under Department of Commerce or Nuclear Regulatory Commission regulations in order to implement the declarations required by the Additional Protocol [@CL-CMP-2863; @CL-CMP-2864]; unclassified information pertaining to the contract or related programs [@CL-CMP-2866] |
 
@@ -53,6 +53,7 @@ Which public files and company data the contractor may release, who asks the con
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: replaced uncited contrast with cited clause statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Flagged the policy references that finish the third exception.

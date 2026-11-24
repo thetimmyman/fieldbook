@@ -25,7 +25,7 @@ Shows two employment duties that ride with a contract: reporting a labor dispute
 | Instrument | Codified FAR [@CL-CMP-5214] |
 | Codified citation | FAR 52.222-1 and 52.222-3 [@CL-CMP-5214; @CL-CMP-5215] |
 | RFO citation | RFO FAR 52.222-1 [@CL-CMP-1464] and RFO FAR 52.222-3 [@CL-CMP-1465; @CL-CMP-1466] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-1: FEB 1997 [@CL-CMP-10236]; FAR 52.222-3: JUN 2003 [@CL-CMP-10237] |
 | Text status | Final [@CL-CMP-5214] |
 | Applies to | Contracts that carry the labor dispute notice clause or the convict labor clause [@CL-CMP-5214; @CL-CMP-5215] |
 
@@ -56,6 +56,7 @@ Which contracts carry these clauses, and who confirms that each new hire clears 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts; restated notice trigger and exceptions; fixed RFO wording.

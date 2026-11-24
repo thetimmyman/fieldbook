@@ -25,7 +25,7 @@ Shows when the private security clause applies, what the contractor must do, whi
 | Instrument | Codified DFARS [@CL-CMP-4175] |
 | Codified citation | DFARS 252.225-7039 [@CL-CMP-4175] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10258] |
 | Text status | Final [@CL-CMP-4175] |
 | Applies to | Contracts that include the clause, for performance in a designated area outside the United States [@CL-CMP-4175] |
 
@@ -68,6 +68,7 @@ Which contracts include private security functions in designated areas, and who 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the reporting lead-in of the incident list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Incident reporting stated as orders its personnel must follow; incident list shown as alternatives.

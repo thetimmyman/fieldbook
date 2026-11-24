@@ -24,7 +24,7 @@ Shows how long SBIR data is protected, how it is marked, and what the Government
 | Instrument | Codified FAR [@CL-CMP-3716] |
 | Codified citation | FAR 52.227-20 [@CL-CMP-3716; @CL-CMP-3717] |
 | RFO citation | RFO FAR 52.227-20 [@CL-CMP-2293; @CL-CMP-2294; @CL-CMP-2295; @CL-CMP-2296; @CL-CMP-2297; @CL-CMP-2298; @CL-CMP-2299] |
-| Edition date | Not established. |
+| Edition date | May 2014 [@CL-CMP-2293] |
 | Text status | Final [@CL-CMP-3716] |
 | Applies to | Not established. |
 
@@ -55,6 +55,7 @@ Which executed SBIR or STTR contracts carry this clause, and who confirms the ac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rights in data under the SBIR and STTR program.

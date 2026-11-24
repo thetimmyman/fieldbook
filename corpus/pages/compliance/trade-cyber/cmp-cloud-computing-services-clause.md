@@ -25,7 +25,7 @@ Shows what the contractor must do when it uses cloud computing in a defense cont
 | Instrument | Codified DFARS [@CL-CMP-3989] |
 | Codified citation | DFARS 252.239-7010 [@CL-CMP-3989] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10294] |
 | Text status | Final [@CL-CMP-3989] |
 | Applies to | Contracts with the clause, when cloud computing is used to provide information technology services in the performance of the contract [@CL-CMP-3989] |
 
@@ -58,6 +58,7 @@ Which contracts use cloud services for DoD information, what each cloud provider
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the representation provision to the offer condition and cited the contrast section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened two summaries to match the clause.

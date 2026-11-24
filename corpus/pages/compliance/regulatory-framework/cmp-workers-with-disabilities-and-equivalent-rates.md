@@ -24,7 +24,7 @@ Shows the disability equal opportunity duties, how the clause flows into subcont
 | Instrument | Codified FAR [@CL-CMP-5891] |
 | Codified citation | FAR 22.1406, FAR 22.1407, FAR 52.222-36 and 52.222-42 [@CL-CMP-8826; @CL-CMP-8827; @CL-CMP-8828; @CL-CMP-5891; @CL-CMP-5894] |
 | RFO citation | RFO FAR 52.222-36 [@CL-CMP-6609; @CL-CMP-6610; @CL-CMP-6611; @CL-CMP-6612; @CL-CMP-6613; @CL-CMP-6614; @CL-CMP-6615] and RFO FAR 52.222-42 [@CL-CMP-6616; @CL-CMP-6617] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-36: Jul 2014 [@CL-CMP-6615]; FAR 52.222-42: May 2014 [@CL-CMP-6616] |
 | Text status | Final [@CL-CMP-5891] |
 | Applies to | Contracts carrying the disability equal opportunity clause, and contracts that carry the equivalent rates statement [@CL-CMP-5892; @CL-CMP-5894] |
 
@@ -59,6 +59,7 @@ Which service contracts carry the equivalent rates statement and who reconciles 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: added the agency procedures lead-in for forwarding complaints.
 - COMPATIBLE_EXTENSION, 2026-10-31: workers with disabilities and equivalent rates: unsupported remarks removed.

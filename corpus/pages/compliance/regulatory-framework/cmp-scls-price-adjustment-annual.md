@@ -25,7 +25,7 @@ Shows how the price of a service contract is adjusted when a wage determination 
 | Instrument | Codified FAR [@CL-CMP-4815] |
 | Codified citation | FAR 52.222-44 [@CL-CMP-4815] |
 | RFO citation | RFO FAR 52.222-44 [@CL-CMP-5020; @CL-CMP-5021; @CL-CMP-5022; @CL-CMP-5023; @CL-CMP-5093; @CL-CMP-5154; @CL-CMP-5155; @CL-CMP-5156; @CL-CMP-5157; @CL-CMP-5158] |
-| Edition date | Not established. |
+| Edition date | MAY 2014 [@CL-CMP-10269] |
 | Text status | Final [@CL-CMP-4815] |
 | Applies to | Contracts subject to area prevailing wage determinations and contracts subject to contractor collective bargaining agreements [@CL-CMP-4815] |
 
@@ -58,6 +58,7 @@ Which contracts carry the clause and who confirms the wage determination that ap
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's "shall be modified in writing".

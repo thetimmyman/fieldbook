@@ -24,7 +24,7 @@ Shows what the contractor indemnifies under the patent indemnity clause, where t
 | Instrument | Codified FAR [@CL-CMP-3611; @CL-CMP-3619] |
 | Codified citation | FAR 52.227-3 and FAR 52.227-9 [@CL-CMP-3611; @CL-CMP-3619] |
 | RFO citation | RFO FAR 52.227-3 [@CL-CMP-1807] and RFO FAR 52.227-9 [@CL-CMP-1817] |
-| Edition date | Not established. |
+| Edition date | FAR 52.227-3: Apr 1984 [@CL-CMP-1807]; FAR 52.227-9: Apr 1984 [@CL-CMP-1817] |
 | Text status | Final [@CL-CMP-3611; @CL-CMP-3619] |
 | Applies to | Work under the contract for the indemnity, and royalties included in the contract price for the refund [@CL-CMP-3613; @CL-CMP-3620] |
 
@@ -59,6 +59,7 @@ Which executed contracts carry the indemnity and refund clauses, with any altern
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the suit or action alleging infringement wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate III threshold date and the price-reduction sentence now carry the quoted qualifiers and actor.

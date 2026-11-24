@@ -25,7 +25,7 @@ Shows what the clause requires for adequate security on covered contractor infor
 | Instrument | Codified DFARS [@CL-CMP-1001] |
 | Codified citation | DFARS 252.204-7012 [@CL-CMP-1001] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAY 2024 [@CL-CMP-10312] |
 | Text status | Final [@CL-CMP-1001] |
 | Applies to | The clause as prescribed in DFARS 204.7304(c) [@CL-CMP-1001] |
 
@@ -54,6 +54,7 @@ Confirming which systems process, store or transmit covered defense information,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added compromise review examples and subcontracts paragraph scope, and removed uncited contrasts.

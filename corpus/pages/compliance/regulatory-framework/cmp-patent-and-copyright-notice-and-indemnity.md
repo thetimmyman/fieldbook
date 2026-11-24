@@ -23,7 +23,7 @@ Explains the reporting and assistance duties that apply when performance of a co
 | Instrument | Codified FAR [@CL-CMP-5598; @CL-CMP-5744; @CL-CMP-5746] |
 | Codified citation | FAR 52.227-2, FAR 52.227-4 and FAR 52.227-5 [@CL-CMP-5598; @CL-CMP-5744; @CL-CMP-5746] |
 | RFO citation | RFO FAR 52.227-2 [@CL-CMP-1747], RFO FAR 52.227-4 [@CL-CMP-1800] and RFO FAR 52.227-5 [@CL-CMP-1804] |
-| Edition date | Not established. |
+| Edition date | FAR 52.227-2: Jun 2020 [@CL-CMP-1747]; FAR 52.227-4: Dec 2007 [@CL-CMP-1800]; FAR 52.227-5: Apr 1984 [@CL-CMP-1804] |
 | Text status | Final [@CL-CMP-5598; @CL-CMP-5744; @CL-CMP-5746] |
 | Applies to | Contracts in which a clause is inserted as prescribed [@CL-CMP-5598; @CL-CMP-5744; @CL-CMP-5746] |
 
@@ -60,6 +60,7 @@ Which contracts carry the notice clause, the construction indemnity or a waiver,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the Government as the actor in the waiver sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Indemnity sentence now says any United States patent, as the clause does.

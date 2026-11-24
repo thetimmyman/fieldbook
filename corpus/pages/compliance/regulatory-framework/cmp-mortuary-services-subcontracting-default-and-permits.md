@@ -25,7 +25,7 @@ Shows the approval a mortuary services contractor needs before subcontracting, t
 | Instrument | Codified DFARS [@CL-CMP-4401] |
 | Codified citation | DFARS 252.237-7006, DFARS 252.237-7007 and DFARS 252.237-7009 [@CL-CMP-4401; @CL-CMP-4402; @CL-CMP-4403] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7006: DEC 1991 [@CL-CMP-10233]; DFARS 252.237-7007: DEC 1991 [@CL-CMP-10234]; DFARS 252.237-7009: DEC 1991 [@CL-CMP-10235] |
 | Text status | Final [@CL-CMP-4401] |
 | Applies to | Contracts that include the subcontracting, termination for default and permits clauses, each used as prescribed in DFARS 237.7003(a) [@CL-CMP-4401; @CL-CMP-4402; @CL-CMP-4403] |
 
@@ -54,6 +54,7 @@ Which mortuary services contracts the company holds, who approves any subcontrac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced contrast statements with cited clause text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mortuary services subcontracting, termination for default and permits.

@@ -24,7 +24,7 @@ Shows what the materials and supplies clause requires when a contract crosses th
 | Instrument | Codified FAR [@CL-CMP-5221] |
 | Codified citation | FAR 52.222-20, 52.222-22 and 52.222-25 [@CL-CMP-5221; @CL-CMP-5226; @CL-CMP-5228] |
 | RFO citation | RFO FAR 52.222-20 [@CL-CMP-6560; @CL-CMP-6561; @CL-CMP-6562; @CL-CMP-6563; @CL-CMP-6564]; No RFO equivalent for FAR 52.222-22 or FAR 52.222-25, which RFO part 52 lists as [Reserved] [@CL-CMP-6565; @CL-CMP-6602] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-20: JUN 2020 [@CL-CMP-10285]; FAR 52.222-22: FEB 1999 [@CL-CMP-10286]; FAR 52.222-25: APR 1984 [@CL-CMP-10287] |
 | Text status | Final [@CL-CMP-5221] |
 | Applies to | Contracts for materials, supplies, articles or equipment above the Walsh-Healey threshold, plus two offeror representation provisions [@CL-CMP-5221] |
 
@@ -59,6 +59,7 @@ Which orders cross the threshold and carry the labor standards statute, and who 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Walsh-Healey: shall be paid wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

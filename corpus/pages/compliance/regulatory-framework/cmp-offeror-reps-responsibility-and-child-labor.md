@@ -25,7 +25,7 @@ Explains the certification regarding responsibility matters in paragraph (h) of 
 | Instrument | Codified FAR [@CL-CMP-8991] |
 | Codified citation | FAR 52.212-3(h) and (i) [@CL-CMP-8991; @CL-CMP-8998] |
 | RFO citation | Paragraph (h): RFO FAR 52.209-5 [@CL-CMP-1610; @CL-CMP-9331; @CL-CMP-9327; @CL-CMP-9328; @CL-CMP-9329; @CL-CMP-9330; @CL-CMP-1611; @CL-CMP-1612; @CL-CMP-1613; @CL-CMP-1614; @CL-CMP-1615]; paragraph (i): RFO FAR 52.222-18(b) and (c) [@CL-CMP-1616; @CL-CMP-1617; @CL-CMP-1618; @CL-CMP-1619; @CL-CMP-1620] |
-| Edition date | Not established. |
+| Edition date | FAR 52.212-3: OCT 2025 [@CL-CMP-10246]; FAR 52.209-5: AUG 2020 [@CL-CMP-10247]; FAR 52.222-18: Feb 2021 [@CL-CMP-1616] |
 | Text status | Final [@CL-CMP-8991] |
 | Applies to | Paragraph (h): applies only if the contract value is expected to exceed the simplified acquisition threshold [@CL-CMP-8991]. Paragraph (i): if the Contracting Officer has identified end products and countries of origin in paragraph (i)(1), the offeror must certify to either (i)(2)(i) or (i)(2)(ii) [@CL-CMP-9170] |
 
@@ -90,6 +90,7 @@ Who checks tax notices and responsibility disclosures across the group before an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned responsibility and child labor wording with cited text; added tax delinquency notification; removed contrasts and meta wording.

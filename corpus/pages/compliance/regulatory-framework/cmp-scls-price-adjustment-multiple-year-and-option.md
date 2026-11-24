@@ -25,7 +25,7 @@ Shows how the price of a multiple year or option year service contract is adjust
 | Instrument | Codified FAR [@CL-CMP-4804] |
 | Codified citation | FAR 52.222-43 [@CL-CMP-4804] |
 | RFO citation | RFO FAR 52.222-43 [@CL-CMP-5159; @CL-CMP-5160; @CL-CMP-9808; @CL-CMP-9809; @CL-CMP-5161; @CL-CMP-5162; @CL-CMP-5163; @CL-CMP-5308; @CL-CMP-5309; @CL-CMP-5310; @CL-CMP-5311; @CL-CMP-5312; @CL-CMP-5313; @CL-CMP-5314; @CL-CMP-5315] |
-| Edition date | Not established. |
+| Edition date | AUG 2018 [@CL-CMP-10270] |
 | Text status | Final [@CL-CMP-4804] |
 | Applies to | Contracts subject to area prevailing wage determinations and contracts subject to collective bargaining agreements [@CL-CMP-4804] |
 
@@ -62,6 +62,7 @@ Which contracts carry the clause and who confirms the wage determination that ap
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's "shall be modified in writing".
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

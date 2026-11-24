@@ -24,7 +24,7 @@ Sets out the notice a contractor owes its workforce under the Recovery Act whist
 | Instrument | Codified FAR [@CL-CMP-5561] |
 | Codified citation | FAR 52.203-15 and 52.203-17 [@CL-CMP-5561; @CL-CMP-5563]; FAR 3.906 [@CL-CMP-9717]; FAR 3.907-7 [@CL-CMP-9719] |
 | RFO citation | RFO FAR 52.203-17 [@CL-CMP-6604; @CL-CMP-6605; @CL-CMP-6607; @CL-CMP-6608]; No RFO equivalent for FAR 52.203-15, which RFO part 52 lists as [Reserved] [@CL-CMP-6603] |
-| Edition date | Not established. |
+| Edition date | FAR 52.203-15: JUN 2010 [@CL-CMP-10288]; FAR 52.203-17: Nov 2023 [@CL-CMP-6604] |
 | Text status | Final [@CL-CMP-5561] |
 | Applies to | Contracts that include the Recovery Act whistleblower clause, prescribed by FAR 3.907-7, or the contractor employee whistleblower rights clause, prescribed by FAR 3.906 [@CL-CMP-5649; @CL-CMP-5650] |
 
@@ -59,6 +59,7 @@ Confirm where the notice is posted and who verifies the written employee notice 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified citations and removed meta wording.
