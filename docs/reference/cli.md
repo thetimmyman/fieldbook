@@ -237,8 +237,56 @@ Inspect AI settings, adapter readiness, policy allow sets and key state
   "policy": "floor",
   "adapters": [
     {
+      "port": "index",
+      "adapter": "bm25f@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
       "port": "extractor",
       "adapter": "plain@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "classifier",
+      "adapter": "rules@1",
+      "state": {
+        "kind": "Ready"
+      },
+      "allow": [],
+      "key": "NotNeeded",
+      "caps": {
+        "network": false,
+        "structured": false,
+        "embeddings": false,
+        "streaming": false,
+        "max_prompt_chars": 0
+      }
+    },
+    {
+      "port": "correlator",
+      "adapter": "exact-ids+bm25@1",
       "state": {
         "kind": "Ready"
       },
