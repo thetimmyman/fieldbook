@@ -25,7 +25,7 @@ Shows the restricted areas, the height and marking limits and the approvals a co
 | Instrument | Codified DFARS [@CL-CMP-4679; @CL-CMP-4681; @CL-CMP-4682] |
 | Codified citation | DFARS 252.236-7005 [@CL-CMP-4679; @CL-CMP-4681; @CL-CMP-4682] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-CMP-10124] |
 | Text status | Final [@CL-CMP-4679; @CL-CMP-4681; @CL-CMP-4682] |
 | Applies to | Contracts that include the Airfield Safety Precautions clause [@CL-CMP-4679; @CL-CMP-4681; @CL-CMP-4682] |
 
@@ -58,6 +58,7 @@ Which contracts carry this clause, at which airfields, and who confirms the widt
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the landing areas definition lead-in and removed uncited contrasts and a rule count.

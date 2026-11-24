@@ -25,7 +25,7 @@ States what materials may go into the work, which approvals the contracting offi
 | Instrument | Codified FAR [@CL-CMP-4871] |
 | Codified citation | FAR 52.236-5 and FAR 52.236-7 [@CL-CMP-4871; @CL-CMP-4874] |
 | RFO citation | RFO FAR 52.236-5 [@CL-CMP-0668]; RFO FAR 52.236-7 [@CL-CMP-0677] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-5: APR 1984 [@CL-CMP-10091]; FAR 52.236-7: NOV 1991 [@CL-CMP-10092] |
 | Text status | Final [@CL-CMP-4871] |
 | Applies to | Contracts that include the clauses [@CL-CMP-4871; @CL-CMP-4874] |
 
@@ -70,6 +70,7 @@ Which construction contracts carry these clauses, and who holds the equipment ap
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: example citations, exception and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

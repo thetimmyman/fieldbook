@@ -24,7 +24,7 @@ Explains what an alternate is, how it is titled, dated and cited, and the limit 
 | Instrument | Codified FAR [@CL-CMP-8870] |
 | Codified citation | FAR 52.105 [@CL-CMP-8870] |
 | RFO citation | RFO FAR 52.105 [@CL-CMP-6339; @CL-CMP-6341; @CL-CMP-6343] |
-| Edition date | Not established. |
+| Edition date | Oct 1983 [@CL-CMP-6339] |
 | Text status | Final [@CL-CMP-8870] |
 | Applies to | Provisions and clauses that the FAR prescribes with one or more alternates [@CL-CMP-8870; @CL-CMP-8872] |
 
@@ -67,6 +67,7 @@ Which executed contracts and modifications the company holds, and who confirms w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: using alternates: each applicable alternate shall be cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

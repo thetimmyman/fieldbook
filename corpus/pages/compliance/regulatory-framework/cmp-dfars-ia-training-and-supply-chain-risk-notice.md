@@ -25,7 +25,7 @@ Shows which contractor personnel must hold information assurance certifications,
 | Instrument | Codified DFARS [@CL-CMP-4602; @CL-CMP-4606] |
 | Codified citation | DFARS 252.239-7001 [@CL-CMP-4602]; DFARS 252.239-7017 [@CL-CMP-4606] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.239-7001: JAN 2008 [@CL-CMP-10145]; DFARS 252.239-7017: DEC 2022 [@CL-CMP-10146] |
 | Text status | Final [@CL-CMP-4602; @CL-CMP-4606] |
 | Applies to | Contractor personnel accessing information systems to perform information assurance functions [@CL-CMP-4602], and offerors and their supply chains under the notice provision [@CL-CMP-4606] |
 
@@ -54,6 +54,7 @@ Which contracts carry the training clause or the notice provision, and who track
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added certification lead-in, statute and no review wording; cut uncited contrasts.

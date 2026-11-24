@@ -25,7 +25,7 @@ Shows how the Government exercises an option that is a numbered line item in the
 | Instrument | Codified FAR [@CL-CTF-2302] |
 | Codified citation | FAR 52.217-7 [@CL-CTF-2302] |
 | RFO citation | RFO FAR 52.217-7 [@CL-CTF-1275] |
-| Edition date | Not established. |
+| Edition date | Mar 1989 [@CL-CTF-1275] |
 | Text status | Final [@CL-CTF-2302] |
 | Applies to | Contracts that include the separately priced line item clause [@CL-CTF-2302] |
 
@@ -56,6 +56,7 @@ Confirm which contracts carry this clause, which line items are option items and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality for delivery rate, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Line item clause wording now matches may exercise and may increase.

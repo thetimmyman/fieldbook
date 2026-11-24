@@ -25,7 +25,7 @@ Explains how an offeror answers the offeror representations and certifications p
 | Instrument | Codified FAR [@CL-CMP-8960] |
 | Codified citation | FAR 52.212-3, paragraphs (a) and (b) [@CL-CMP-8960; @CL-CMP-9110] |
 | RFO citation | Paragraph (a): RFO FAR 52.219-1(a) [@CL-CMP-9324; @CL-CMP-1575; @CL-CMP-1576; @CL-CMP-1577; @CL-CMP-1578; @CL-CMP-1579; @CL-CMP-1580; @CL-CMP-1581], RFO FAR 52.204-5(a) [@CL-CMP-1582], RFO FAR 52.222-18(a) [@CL-CMP-1583; @CL-CMP-1584] and RFO FAR 52.225-18(a) [@CL-CMP-1585; @CL-CMP-1586; @CL-CMP-1587; @CL-CMP-1588]; paragraph (b): the RFO text marks FAR 52.212-3 as reserved [@CL-CMP-1531], and RFO FAR 52.204-7(c)(1) has the Offeror submit entity-level representations with its SAM registration [@CL-CMP-1574] |
-| Edition date | Not established. |
+| Edition date | FAR 52.212-3: OCT 2025 [@CL-CMP-10240]; FAR 52.219-1: FEB 2024 [@CL-CMP-10241]; FAR 52.204-5: Oct 2014 [@CL-CMP-1582]; FAR 52.222-18: Feb 2021 [@CL-CMP-1583]; FAR 52.225-18: Aug 2018 [@CL-CMP-1585]; FAR 52.204-7: NOV 2024 [@CL-CMP-10242] |
 | Text status | Final [@CL-CMP-8960] |
 | Applies to | Offerors that complete the provision titled Offeror Representations and Certifications—Commercial Products and Commercial Services [@CL-CMP-8962] |
 
@@ -78,6 +78,7 @@ Which entity owns the annual SAM entry and who confirms solicitation-specific am
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

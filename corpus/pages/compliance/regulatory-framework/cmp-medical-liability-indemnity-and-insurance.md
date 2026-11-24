@@ -23,7 +23,7 @@ Explains the indemnity and the medical liability insurance a contractor carries 
 | Instrument | Codified FAR [@CL-CMP-5612] |
 | Codified citation | FAR 52.237-7 [@CL-CMP-5612] |
 | RFO citation | RFO FAR 52.237-7 [@CL-CMP-1418; @CL-CMP-1446; @CL-CMP-1447] |
-| Edition date | Not established. |
+| Edition date | JAN 1997 [@CL-CMP-10229] |
 | Text status | Final [@CL-CMP-5612] |
 | Applies to | Contracts in which the clause is inserted as prescribed [@CL-CMP-5612] |
 
@@ -62,6 +62,7 @@ Which health care contracts and subcontracts are in scope, and who confirms the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated insurance amount and provider change text; removed contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a pointer so no figure remains.

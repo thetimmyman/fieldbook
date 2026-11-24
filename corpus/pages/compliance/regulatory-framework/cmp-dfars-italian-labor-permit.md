@@ -25,7 +25,7 @@ Shows which permit the Contractor needs before work starts at an Italian work si
 | Instrument | Codified DFARS [@CL-CMP-4428] |
 | Codified citation | DFARS 252.222-7003 [@CL-CMP-4428] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 1997 [@CL-CMP-10147] |
 | Text status | Final [@CL-CMP-4428] |
 | Applies to | Contracts with the Permit From Italian Inspectorate of Labor clause, used as prescribed in section 222.7201(b) [@CL-CMP-4428] |
 
@@ -54,6 +54,7 @@ Which Italian work sites are covered, and where each permit and its copy are kep
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated failure consequence in the clause words; cut uncited contrasts.

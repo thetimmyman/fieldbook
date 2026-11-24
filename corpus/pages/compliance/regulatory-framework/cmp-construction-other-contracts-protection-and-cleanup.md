@@ -25,7 +25,7 @@ States the duty to cooperate with other contractors at the site, what existing p
 | Instrument | Codified FAR [@CL-CMP-4877] |
 | Codified citation | FAR 52.236-8, FAR 52.236-9 and FAR 52.236-12 [@CL-CMP-4877; @CL-CMP-4878; @CL-CMP-4881] |
 | RFO citation | RFO FAR 52.236-8 [@CL-CMP-0728], RFO FAR 52.236-9 [@CL-CMP-0731] and RFO FAR 52.236-12 [@CL-CMP-0737] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-8: APR 1984 [@CL-CMP-10096]; FAR 52.236-9: APR 1984 [@CL-CMP-10097]; FAR 52.236-12: APR 1984 [@CL-CMP-10098] |
 | Text status | Final [@CL-CMP-4877] |
 | Applies to | Contracts that include the clauses [@CL-CMP-4877; @CL-CMP-4878; @CL-CMP-4881] |
 
@@ -72,6 +72,7 @@ Which contracts share the site, and who owns the protection and repair record fo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: worked example and contrasts tied to cited text.

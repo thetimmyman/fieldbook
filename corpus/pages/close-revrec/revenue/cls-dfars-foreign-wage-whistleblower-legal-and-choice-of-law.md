@@ -25,7 +25,7 @@ Shows what an offeror represents about prices tied to foreign-government-control
 | Instrument | Codified DFARS [@CL-CLS-1192; @CL-CLS-1195; @CL-CLS-1197] |
 | Codified citation | DFARS 252.216-7008, 252.216-7009 and 252.233-7001 [@CL-CLS-1192; @CL-CLS-1195; @CL-CLS-1197] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.216-7008: MAR 2012 [@CL-CLS-1618]; DFARS 252.216-7009: DEC 2022 [@CL-CLS-1619]; DFARS 252.233-7001: JUN 1997 [@CL-CLS-1620] |
 | Text status | Final [@CL-CLS-1192; @CL-CLS-1195; @CL-CLS-1197] |
 | Applies to | Offers with the representation provision, which DFARS 216.203-4-70(c)(2) prescribes, and contracts with the legal costs clause, which DFARS 216.307(a) prescribes, and the choice of law clause [@CL-CLS-1214; @CL-CLS-1215; @CL-CLS-1197] |
 
@@ -56,6 +56,7 @@ Which overseas contracts and offers carry these clauses, and how whistleblower p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: foreign wage and price representation, legal costs and choice of law: uncited inferences and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the foreign-government-controlled price representation, whistleblower proceeding legal costs and overseas choice of law.

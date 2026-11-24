@@ -25,7 +25,7 @@ Shows what license the contractor grants the Government in a patent release, lic
 | Instrument | Codified DFARS [@CL-CMP-4249] |
 | Codified citation | DFARS 252.227-7004, 252.227-7005 and 252.227-7003 [@CL-CMP-4250; @CL-CMP-4253; @CL-CMP-4256] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | AUG 1984 [@CL-CMP-10162] |
 | Text status | Final [@CL-CMP-4250] |
 | Applies to | Patent releases, license agreements and assignments, for the License Grant clause [@CL-CMP-4249]; the License Term clause is prescribed with an instruction to insert one of its alternates in the same kinds of agreement [@CL-CMP-4373] |
 
@@ -54,6 +54,7 @@ Which patent releases, license agreements and assignments carry these clauses, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated other-patents wording and how-it-works as cited facts; cut uncited contrasts.

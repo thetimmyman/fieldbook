@@ -25,7 +25,7 @@ Shows what an offeror discloses about foreign government ownership or control, a
 | Instrument | Codified DFARS [@CL-CMP-4083; @CL-CMP-4087] |
 | Codified citation | DFARS 252.209-7002 and DFARS 252.209-7004 [@CL-CMP-4083; @CL-CMP-4087] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.209-7002: DEC 2022 [@CL-CMP-10205]; DFARS 252.209-7004: MAY 2019 [@CL-CMP-10206] |
 | Text status | Final [@CL-CMP-4083; @CL-CMP-4087] |
 | Applies to | Solicitations with the disclosure provision, as prescribed in DFARS 209.104-70 [@CL-CMP-4083], and contracts with the subcontracting clause, as prescribed in DFARS 209.409 [@CL-CMP-4087] |
 
@@ -58,6 +58,7 @@ Which legal entities and parents have to be screened for foreign government inte
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

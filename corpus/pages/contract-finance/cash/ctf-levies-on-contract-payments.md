@@ -25,7 +25,7 @@ Explains contractor notification duties and DoD evaluation standards when contin
 | Instrument | Codified DFARS [@CL-CTF-0776] |
 | Codified citation | DFARS 252.232-7010 [@CL-CTF-0776] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2006 [@CL-CTF-9710] |
 | Text status | Final [@CL-CTF-0776] |
 | Applies to | Contracts that use the Levies on Contract Payments clause as prescribed in DFARS 232.7102 [@CL-CTF-0776] |
 
@@ -54,6 +54,7 @@ Confirm procedures for handling tax levies and identifying potential operational
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the contractor notification items and DoD written notification items strictly with the text of DFARS 252.232-7010(b) and (c).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statement item and the alternatives of the DoD notification; tied the never-confuse text to its quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notice lead-in and the supporting documentation for the national security advice.

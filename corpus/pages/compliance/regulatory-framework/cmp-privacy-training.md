@@ -24,7 +24,7 @@ Sets out who must complete privacy training, when it is repeated, what the basic
 | Instrument | Codified FAR [@CL-CMP-5533] |
 | Codified citation | FAR 52.224-3 and Alternate I [@CL-CMP-5533; @CL-CMP-5639] |
 | RFO citation | RFO FAR 52.224-3 and Alternate I [@CL-CMP-1935; @CL-CMP-1948] |
-| Edition date | Not established. |
+| Edition date | Jan 2017 [@CL-CMP-1935] |
 | Text status | Final [@CL-CMP-5533] |
 | Applies to | Contracts that include the clause, whose training duty reaches contractor employees who have access to a system of records, handle personally identifiable information on behalf of an agency, or design, develop, maintain or operate a system of records [@CL-CMP-5534] |
 
@@ -75,6 +75,7 @@ Confirm who owns the training roster, the completion records and the subcontract
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Subcontract flowdown triggers stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on Privacy Act clauses and information assurance training.

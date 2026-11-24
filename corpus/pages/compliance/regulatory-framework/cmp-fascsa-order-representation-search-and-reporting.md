@@ -24,7 +24,7 @@ Shows what an offeror represents under the FASCSA representation provision, how 
 | Instrument | Codified FAR [@CL-CMP-3570] |
 | Codified citation | FAR 52.204-28; FAR 52.204-29; FAR 52.204-30 [@CL-CMP-3599; @CL-CMP-3572; @CL-CMP-3573] |
 | RFO citation | RFO FAR 52.240-90 [@CL-CMP-1232] and RFO FAR 52.240-91 [@CL-CMP-1237] carry the provision and clause topics; the RFO text lists FAR 52.204-28, FAR 52.204-29 and FAR 52.204-30 as reserved [@CL-CMP-1246; @CL-CMP-1247; @CL-CMP-1248] |
-| Edition date | Not established. |
+| Edition date | FAR 52.204-28: DEC 2023 [@CL-CMP-10201]; FAR 52.204-29: DEC 2023 [@CL-CMP-10202]; FAR 52.204-30: DEC 2023 [@CL-CMP-10203] |
 | Text status | Final [@CL-CMP-3570] |
 | Applies to | Offerors on solicitations with the representation provision, and contractors under contracts with the prohibition clause [@CL-CMP-3570; @CL-CMP-3573] |
 
@@ -55,6 +55,7 @@ Which FASCSA orders apply to each company contract, who runs the periodic review
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

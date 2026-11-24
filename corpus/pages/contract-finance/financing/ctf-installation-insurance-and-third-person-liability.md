@@ -24,7 +24,7 @@ Shows the insurance a contractor keeps for work on a Government installation, th
 | Instrument | Codified FAR [@CL-CTF-2497] |
 | Codified citation | FAR 52.228-5 and FAR 52.228-7 [@CL-CTF-2497; @CL-CTF-2499] |
 | RFO citation | RFO FAR 52.228-5(a) [@CL-CTF-0993]; RFO FAR 52.228-5(b) [@CL-CTF-0994; @CL-CTF-0995; @CL-CTF-0996]; RFO FAR 52.228-5(c) [@CL-CTF-0997]; RFO FAR 52.228-7(a) [@CL-CTF-0998; @CL-CTF-0999]; RFO FAR 52.228-7(c) [@CL-CTF-1020; @CL-CTF-1021]; RFO FAR 52.228-7(d) [@CL-CTF-1022]; RFO FAR 52.228-7(e) [@CL-CTF-1023; @CL-CTF-1024]; RFO FAR 52.228-7(g) [@CL-CTF-1025] |
-| Edition date | Not established. |
+| Edition date | FAR 52.228-5: Jan 1997 [@CL-CTF-0993]; FAR 52.228-7: Mar 1996 [@CL-CTF-1022] |
 | Text status | Final [@CL-CTF-2497] |
 | Applies to | Contracts with the installation insurance clause or the third persons liability clause [@CL-CTF-2497; @CL-CTF-2499] |
 
@@ -69,6 +69,7 @@ Which contracts carry these clauses, what kinds and amounts of insurance the sch
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

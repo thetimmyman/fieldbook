@@ -25,7 +25,7 @@ Shows what the Government orders under the mortuary services clauses, where the 
 | Instrument | Codified DFARS [@CL-CMP-4398] |
 | Codified citation | DFARS 252.237-7003, DFARS 252.237-7004 and DFARS 252.237-7005 [@CL-CMP-4398; @CL-CMP-4399; @CL-CMP-4400] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7003: DEC 1991 [@CL-CMP-10230]; DFARS 252.237-7004: DEC 1991 [@CL-CMP-10231]; DFARS 252.237-7005: DEC 1991 [@CL-CMP-10232] |
 | Text status | Final [@CL-CMP-4398] |
 | Applies to | Contracts that include the requirements, area of performance, and performance and delivery clauses, each used as prescribed in DFARS 237.7003(a), for the supplies and services listed in the schedule [@CL-CMP-4398; @CL-CMP-4399; @CL-CMP-4400; @CL-CMP-4349] |
 
@@ -56,6 +56,7 @@ Which mortuary services contracts the company holds, and who confirms the area o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta paragraph and contrasts; restated delivery and ordering rules with cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mortuary services requirements, area of performance, and performance and delivery.

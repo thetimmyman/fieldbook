@@ -25,7 +25,7 @@ Shows what the Contractor must comply with overseas, who bears claims about loca
 | Instrument | Codified DFARS [@CL-CMP-4422] |
 | Codified citation | DFARS 252.222-7002 [@CL-CMP-4422] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 1997 [@CL-CMP-10152] |
 | Text status | Final [@CL-CMP-4422] |
 | Applies to | Contracts with the Compliance With Local Labor Laws (Overseas) clause, used as prescribed in section 222.7201(a) [@CL-CMP-4422] |
 
@@ -54,6 +54,7 @@ Which local labor claims or litigation are open under overseas contracts, and wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added indemnity lead-in, named FAR paragraphs; cut uncited contrasts and unsupported example sentence.

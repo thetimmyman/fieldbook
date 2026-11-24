@@ -24,7 +24,7 @@ Shows what it means when a solicitation or contract lists provisions or clauses 
 | Instrument | Codified FAR [@CL-CMP-5998] |
 | Codified citation | FAR 52.252-1; FAR 52.252-2; FAR 52.252-3 [@CL-CMP-5998; @CL-CMP-5999; @CL-CMP-6004] |
 | RFO citation | RFO FAR 52.252-1 [@CL-CMP-1333]; RFO FAR 52.252-2 [@CL-CMP-1337]; RFO FAR 52.252-3 [@CL-CMP-1339] |
-| Edition date | Not established. |
+| Edition date | FAR 52.252-1: Feb 1998 [@CL-CMP-1333]; FAR 52.252-2: Feb 1998 [@CL-CMP-1337]; FAR 52.252-3: Apr 1984 [@CL-CMP-1339] |
 | Text status | Final [@CL-CMP-5998] |
 | Applies to | Solicitations that incorporate provisions by reference, contracts that incorporate clauses by reference, and solicitations that carry an alteration [@CL-CMP-5998; @CL-CMP-5999; @CL-CMP-6004] |
 
@@ -69,6 +69,7 @@ Who checks each offer against the provisions listed by reference, where the comp
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording, unsupported contrasts and the unquoted ends-at statement.

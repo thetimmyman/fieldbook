@@ -25,7 +25,7 @@ Shows how a contractor is paid when a third party, such as a purchase card issue
 | Instrument | Codified FAR [@CL-CTF-2094] |
 | Codified citation | FAR 52.232-36 and FAR 52.232-37 [@CL-CTF-2094; @CL-CTF-2100] |
 | RFO citation | RFO FAR 52.232-36 [@CL-CTF-0450]; RFO FAR 52.232-37 [@CL-CTF-0468] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-36: MAY 2014 [@CL-CTF-9703]; FAR 52.232-37: May 1999 [@CL-CTF-0468] |
 | Text status | Final [@CL-CTF-2094] |
 | Applies to | If payment under a written contract will be made by a charge to a Government account with a third party such as a Governmentwide commercial purchase card, the contracting officer must insert the clause at FAR 52.232-36, Payment by Third Party, in solicitations and contracts [@CL-CTF-1546]. If the contract or agreement provides for the use of delivery orders and provides that the ordering office designate the method of payment for individual orders, the contracting officer must insert the clause at FAR 52.232-37 in the solicitation and contract or agreement [@CL-CTF-1547] |
 
@@ -56,6 +56,7 @@ Which payment methods the contracts allow, how they are designated, and how that
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added third-party payment agreement lead-ins, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the third-party payment and assignment rules as the clause words them.

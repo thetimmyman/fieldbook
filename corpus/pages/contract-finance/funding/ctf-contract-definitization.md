@@ -25,7 +25,7 @@ Shows what the definitization clause requires after a letter contract is awarded
 | Instrument | Codified FAR [@CL-CTF-0412] |
 | Codified citation | FAR 52.216-25 [@CL-CTF-0412] |
 | RFO citation | RFO FAR 52.216-25 [@CL-CTF-1134; @CL-CTF-1135; @CL-CTF-1136] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CTF-1140] |
 | Text status | Final [@CL-CTF-0412] |
 | Applies to | Contracts in which a definitive contract is contemplated to supersede a letter contract [@CL-CTF-0412] |
 
@@ -70,6 +70,7 @@ Whether each letter contract has a target date, a proposal carrying both kinds o
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, removed meta-wording, and added citation to the first sentence of How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added contrast about funding ceilings from the duty-to-proceed sentence.

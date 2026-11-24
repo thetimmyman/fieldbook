@@ -25,7 +25,7 @@ Shows which manual applies to ammunition and explosives work, the contractor's s
 | Instrument | Codified DFARS [@CL-CMP-4500] |
 | Codified citation | DFARS 252.223-7002 [@CL-CMP-4500] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CMP-10126] |
 | Text status | Final [@CL-CMP-4500] |
 | Applies to | Contracts that include the clause; the clause text names the DFARS section that prescribes its use [@CL-CMP-4552] |
 
@@ -56,6 +56,7 @@ Which contracts carry the clause, who owns each open noncompliance notice and th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed the exclusion list conjunction, the equitable adjustment condition and uncited contrasts.

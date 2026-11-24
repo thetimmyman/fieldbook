@@ -24,7 +24,7 @@ Shows what an offeror represents about inverted domestic corporations, what the 
 | Instrument | Codified FAR [@CL-CMP-5566] |
 | Codified citation | FAR 52.209-2 and 52.209-12 [@CL-CMP-5566; @CL-CMP-5568] |
 | RFO citation | RFO FAR 52.209-2 [@CL-CMP-1358; @CL-CMP-1359] and RFO FAR 52.209-12 [@CL-CMP-1364; @CL-CMP-1365] |
-| Edition date | Not established. |
+| Edition date | NOV 2015 [@CL-CMP-10218] |
 | Text status | Final [@CL-CMP-5566] |
 | Applies to | Offerors that receive the inverted domestic corporations representation provision prescribed by FAR 9.108-5(a) and the tax matters certification provision prescribed by FAR 9.104-7(e) [@CL-CMP-5651; @CL-CMP-5661] |
 
@@ -67,6 +67,7 @@ Confirm which legal entity signs the representation and the tax certification, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported statements, unsupported contrast and RFO text-of wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

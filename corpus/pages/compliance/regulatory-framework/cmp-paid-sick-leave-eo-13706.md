@@ -24,7 +24,7 @@ Shows who is covered by the paid sick leave clause, the accrual rate and the fur
 | Instrument | Codified FAR [@CL-CMP-5910] |
 | Codified citation | FAR 52.222-62 [@CL-CMP-5910] |
 | RFO citation | RFO FAR 52.222-62 [@CL-CMP-1699] [@CL-CMP-1695] [@CL-CMP-1696] [@CL-CMP-1697] [@CL-CMP-1698] |
-| Edition date | Not established. |
+| Edition date | JAN 2022 [@CL-CMP-10253] |
 | Text status | Final [@CL-CMP-5910] |
 | Applies to | Employees performing work on or in connection with the covered contract [@CL-CMP-5910; @CL-CMP-6396] |
 
@@ -71,6 +71,7 @@ Which payroll and timekeeping systems hold covered hours and accrued leave, and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

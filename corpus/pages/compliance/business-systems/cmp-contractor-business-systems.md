@@ -25,7 +25,7 @@ Defines the contractor business systems that the umbrella clause covers, sets ou
 | Instrument | Codified DFARS [@CL-CMP-0901] |
 | Codified citation | DFARS 252.242-7005 [@CL-CMP-0901] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-CMP-10052] |
 | Text status | Final [@CL-CMP-0901] |
 | Applies to | Covered contracts subject to the Cost Accounting Standards [@CL-CMP-0901] |
 
@@ -56,6 +56,7 @@ Determining the current approval status of each contractor business system, moni
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the title 41 chapter 15 reference and the final-determination notice-to-withhold sentence, named each system clause in the definition, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: 45-day condition uses the source term, a final determination with a notice to withhold payments.

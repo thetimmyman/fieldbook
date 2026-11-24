@@ -25,7 +25,7 @@ Shows which cost rules apply to price adjustments under the modification pricing
 | Instrument | Codified DFARS [@CL-CLS-1165; @CL-CLS-1166; @CL-CLS-1168] |
 | Codified citation | DFARS 252.243-7001, 252.241-7000 and 252.241-7001 [@CL-CLS-1165; @CL-CLS-1166; @CL-CLS-1168] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.243-7001: DEC 1991 [@CL-CLS-1621]; DFARS 252.241-7000: DEC 1991 [@CL-CLS-1622]; DFARS 252.241-7001: DEC 1991 [@CL-CLS-1623] |
 | Text status | Final [@CL-CLS-1165; @CL-CLS-1166; @CL-CLS-1168] |
 | Applies to | Contracts with any of the three clauses, each prescribed at its own DFARS section [@CL-CLS-1165; @CL-CLS-1166; @CL-CLS-1168] |
 
@@ -54,6 +54,7 @@ Which executed contracts and modifications carry these clauses, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

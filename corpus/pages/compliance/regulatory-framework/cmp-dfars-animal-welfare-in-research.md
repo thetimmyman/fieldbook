@@ -25,7 +25,7 @@ Shows which registration and approval a contractor needs before animal work star
 | Instrument | Codified DFARS [@CL-CMP-4566] |
 | Codified citation | DFARS 252.235-7002 [@CL-CMP-4566] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2014 [@CL-CMP-10127] |
 | Text status | Final [@CL-CMP-4566] |
 | Applies to | Contracts with the animal welfare clause [@CL-CMP-4566], and subcontracts involving research, development, test, and evaluation or training that use live vertebrate animals [@CL-CMP-4574] |
 
@@ -54,6 +54,7 @@ Which research contracts and subcontracts use live vertebrate animals, and who c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and tied the approval and inspection statements to the clause text.

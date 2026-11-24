@@ -25,7 +25,7 @@ Shows what the commercial products and services terms clause lets the Government
 | Instrument | Codified FAR [@CL-CTF-2421] |
 | Codified citation | FAR 52.212-4(a), (o) and (p) [@CL-CTF-2421; @CL-CTF-2425; @CL-CTF-2426] |
 | RFO citation | RFO FAR 52.212-4(b) [@CL-CTF-0062; @CL-CTF-0063; @CL-CTF-0064; @CL-CTF-0065]; RFO FAR 52.212-4(o) [@CL-CTF-0066]; RFO FAR 52.212-4(p) [@CL-CTF-0067]; RFO FAR 52.212-4 Alternate I [@CL-CTF-0068; @CL-CTF-0069; @CL-CTF-0171] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CTF-9644] |
 | Text status | Final [@CL-CTF-2421] |
 | Applies to | Contracts that contain the commercial products and services terms clause, as to the paragraphs quoted [@CL-CTF-2421] |
 
@@ -60,6 +60,7 @@ Confirm which executed contracts carry this clause, and whether any express warr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored equitable price reduction and contractor-liability wording; cited the Alternate I inspection text; cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commercial contract terms on inspection, acceptance, warranty and limitation of liability.

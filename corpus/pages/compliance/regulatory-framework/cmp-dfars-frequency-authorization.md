@@ -25,7 +25,7 @@ Shows when a contractor must obtain radio frequency authorization, what it must 
 | Instrument | Codified DFARS [@CL-CMP-4575] |
 | Codified citation | DFARS 252.235-7003 [@CL-CMP-4575] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 2014 [@CL-CMP-10139] |
 | Text status | Final [@CL-CMP-4575] |
 | Applies to | Contracts with the frequency authorization clause, in the basic version [@CL-CMP-4578] or Alternate I [@CL-CMP-4579], and subcontracts requiring the development, production, construction, testing, or operation of a device for which a radio frequency authorization is required [@CL-CMP-4580] |
 
@@ -54,6 +54,7 @@ Which equipment under which contracts radiates and needs a frequency authorizati
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated early report and version rules in the clause words; cut uncited contrasts.

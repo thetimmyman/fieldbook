@@ -25,7 +25,7 @@ Shows the penalty amounts in the unallowable cost penalty clause and the wording
 | Instrument | Codified FAR [@CL-CTF-1685; @CL-CTF-1689] |
 | Codified citation | FAR 52.242-3 [@CL-CTF-1685]; FAR 52.242-4 [@CL-CTF-1689]; FAR 2.101 [@CL-CTF-9426] |
 | RFO citation | RFO FAR 52.242-3 [@CL-CTF-0789]; RFO FAR 52.242-4 [@CL-CTF-0795]; RFO FAR 2.101 [@CL-CTF-9457] |
-| Edition date | Not established. |
+| Edition date | FAR 52.242-3: DEC 2022 [@CL-CTF-9708]; FAR 52.242-4: Jan 1997 [@CL-CTF-0795] |
 | Text status | Final [@CL-CTF-1685; @CL-CTF-1689] |
 | Applies to | Costs submitted in a proposal under the penalty clause, and proposals to establish final indirect cost rates under the certification clause [@CL-CTF-1685; @CL-CTF-1716] |
 
@@ -58,6 +58,7 @@ Confirm who signs the certificate, who screens costs for expressly unallowable i
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the Public Law 92-41 interest-rate subparagraph in FAR 52.242-3(d)(2)(ii), stated all three certification duties in FAR 52.242-4(a), separated RFO and codified citations, and removed meta comparisons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the certificate and the penalty scopes separately instead of calling them the same kind of cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of unallowable cost.

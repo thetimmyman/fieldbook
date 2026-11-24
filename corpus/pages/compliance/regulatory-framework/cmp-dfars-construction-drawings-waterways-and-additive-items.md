@@ -25,7 +25,7 @@ Shows the contractor's duties to check drawings and to clear navigable waterways
 | Instrument | Codified DFARS [@CL-CMP-4671; @CL-CMP-4673; @CL-CMP-4675] |
 | Codified citation | DFARS 252.236-7001, DFARS 252.236-7002 and DFARS 252.236-7007 [@CL-CMP-4671; @CL-CMP-4673; @CL-CMP-4675] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.236-7001: AUG 2000 [@CL-CMP-10129]; DFARS 252.236-7002: DEC 1991 [@CL-CMP-10130]; DFARS 252.236-7007: DEC 1991 [@CL-CMP-10131] |
 | Text status | Final [@CL-CMP-4671; @CL-CMP-4673; @CL-CMP-4675] |
 | Applies to | Contracts that include the Contract Drawings and Specifications or Obstruction of Navigable Waterways clause, and solicitations that include the Additive or Deductive Items provision [@CL-CMP-4671; @CL-CMP-4673; @CL-CMP-4675] |
 
@@ -56,6 +56,7 @@ Which construction contracts and solicitations carry these clauses, and who conf
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the low offeror lead-in and the bond alternative and removed uncited contrasts.

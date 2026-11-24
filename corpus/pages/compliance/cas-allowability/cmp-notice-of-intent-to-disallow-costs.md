@@ -25,7 +25,7 @@ Shows when a contracting officer may warn a contractor that costs will be disall
 | Instrument | Codified FAR and DFARS [@CL-CMP-0651; @CL-CMP-2582] |
 | Codified citation | FAR 42.800 [@CL-CMP-10012]; FAR 42.801, FAR 42.802, FAR 52.242-1 and DFARS 242.803 [@CL-CMP-0651; @CL-CMP-2581; @CL-CMP-2671; @CL-CMP-2582] |
 | RFO citation | RFO FAR 42.600 [@CL-CMP-8954]; RFO FAR 42.601 [@CL-CMP-6714; @CL-CMP-6715; @CL-CMP-6716; @CL-CMP-6717; @CL-CMP-6718; @CL-CMP-6719; @CL-CMP-6720; @CL-CMP-6721; @CL-CMP-9869]; RFO FAR 42.602 [@CL-CMP-6722]; RFO FAR 52.242-1 [@CL-CMP-6723; @CL-CMP-6724] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CMP-6723] |
 | Text status | Final [@CL-CMP-0651; @CL-CMP-2582] |
 | Applies to | Notice of intent: contracts of a type referred to in the clause prescription, which calls for the clause when a cost-reimbursement contract, a fixed-price incentive contract or a contract providing for price redetermination is contemplated [@CL-CMP-0651; @CL-CMP-2581]. Voucher duties: the contract auditor and the administrative contracting officer in DoD [@CL-CMP-2582; @CL-CMP-2584] |
 
@@ -60,6 +60,7 @@ Whether any notice of intent to disallow costs, or any notice suspending or disa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the codified FAR 42.800 scope of the subpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the worked example with the clause timing for the response and the decision.

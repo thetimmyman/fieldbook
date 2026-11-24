@@ -25,7 +25,7 @@ Shows the DoD definitization schedule, the financing withhold that can follow a 
 | Instrument | Codified DFARS [@CL-CTF-1767; @CL-CTF-1771] |
 | Codified citation | DFARS 252.217-7027 and DFARS 252.243-7002 [@CL-CTF-1767; @CL-CTF-1771] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.217-7027: MAY 2023 [@CL-CTF-9714]; DFARS 252.243-7002: DEC 2022 [@CL-CTF-9715] |
 | Text status | Final [@CL-CTF-1767; @CL-CTF-1771] |
 | Applies to | Among others, all UCAs and solicitations associated with UCAs for the definitization clause [@CL-CTF-1797]; requests for equitable adjustment under contracts with the request clause [@CL-CTF-1771] |
 
@@ -54,6 +54,7 @@ Which contracts are undefinitized and what their schedules and financing say, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added unpriced change orders; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Price determination carries FAR 15.4 and part 31 and extension actor; exemptions stated as alternatives.

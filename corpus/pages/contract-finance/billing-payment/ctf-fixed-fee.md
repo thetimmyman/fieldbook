@@ -25,7 +25,7 @@ Explains payment of fixed fee on cost-reimbursement contracts, withholding of fe
 | Instrument | Codified FAR [@CL-CTF-0263] |
 | Codified citation | FAR 52.216-8 [@CL-CTF-0263] |
 | RFO citation | RFO FAR 52.216-8 [@CL-CTF-0292] |
-| Edition date | Not established. |
+| Edition date | Jun 2011 [@CL-CTF-0292] |
 | Text status | Final [@CL-CTF-0263] |
 | Applies to | Cost-plus-fixed-fee contracts other than facilities or construction [@CL-CTF-0263] |
 
@@ -54,6 +54,7 @@ The billing-to-collection workflow for fee billings and tracking requirements fo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrast from the never-confuse sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the release conditions in the never-confuse sentence.

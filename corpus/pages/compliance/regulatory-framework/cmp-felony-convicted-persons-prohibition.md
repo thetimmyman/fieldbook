@@ -25,7 +25,7 @@ Shows who may not serve in which roles on a DoD contract after a fraud or felony
 | Instrument | Codified DFARS [@CL-CMP-4069] |
 | Codified citation | DFARS 252.203-7001 [@CL-CMP-4069] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10204] |
 | Text status | Final [@CL-CMP-4069] |
 | Applies to | Contracts that include the clause, used as prescribed in DFARS 203.570-3 [@CL-CMP-4069] |
 
@@ -62,6 +62,7 @@ Which contracts carry the clause and who checks board members, consultants and a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the remedies to the statutory penalty, and removed unsupported explanation and contrast.

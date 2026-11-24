@@ -25,7 +25,7 @@ Explains when an invoice payment is due, when a late payment interest penalty ar
 | Instrument | Codified FAR [@CL-CTF-0129] |
 | Codified citation | FAR 52.232-25 [@CL-CTF-0129] |
 | RFO citation | RFO FAR 52.232-25 [@CL-CTF-0642; @CL-CTF-0643; @CL-CTF-0644; @CL-CTF-0645; @CL-CTF-0646; @CL-CTF-0647; @CL-CTF-0648; @CL-CTF-0649; @CL-CTF-0650; @CL-CTF-0651; @CL-CTF-0652; @CL-CTF-9132; @CL-CTF-3205; @CL-CTF-3206; @CL-CTF-3207] |
-| Edition date | Not established. |
+| Edition date | Jan 2017 [@CL-CTF-0642] |
 | Text status | Final [@CL-CTF-0129] |
 | Applies to | Contracts in which the Prompt Payment clause is inserted as prescribed in FAR 32.908(c) [@CL-CTF-0129] |
 
@@ -60,6 +60,7 @@ Confirm the billing-to-collection workflow, who tracks invoice due dates, and wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 52.232-25 calendar-days and additional-penalty conditions (CL-CTF-3205, CL-CTF-3206, CL-CTF-3207), restored full clause qualifiers, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the exceptions to the invoice due date (new companions CL-CTF-9633 and CL-CTF-9634), the may wording for holiday payment, the billing-office actor on invoice returns and the liquidation terms of progress payments.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text of each additional penalty condition; cited the lead-in of those conditions.

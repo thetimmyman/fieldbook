@@ -25,7 +25,7 @@ Shows what the clause prohibits, the exceptions, and the indemnification terms t
 | Instrument | Codified DFARS [@CL-CMP-4521] |
 | Codified citation | DFARS 252.223-7006 [@CL-CMP-4521] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | SEP 2014 [@CL-CMP-10180] |
 | Text status | Final [@CL-CMP-4521] |
 | Applies to | Contracts that include the basic clause, used as prescribed in DFARS 223.7106 and 223.7106(a) [@CL-CMP-4556], or Alternate I, used as prescribed in DFARS 223.7106 and 223.7106(b) [@CL-CMP-4557] |
 
@@ -56,6 +56,7 @@ Which contracts carry the basic clause or the alternate, and which subcontractor
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the Alternate I paragraph (c) scope for treatment or disposal of toxic or hazardous materials not owned by DoD on a military installation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated definition as alternatives, removed meta wording, replaced contrast with cited statements.

@@ -24,7 +24,7 @@ Shows when an apprentice or trainee may be paid below the determined rate, the r
 | Instrument | Codified FAR [@CL-CMP-5832] |
 | Codified citation | FAR 22.406-4, FAR 52.222-9 and FAR 52.222-10 [@CL-CMP-5832; @CL-CMP-5838; @CL-CMP-7625; @CL-CMP-7626; @CL-CMP-7627] |
 | RFO citation | RFO FAR 52.222-9 [@CL-CMP-0386] and RFO FAR 52.222-10 [@CL-CMP-0387] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-9: JUL 2005 [@CL-CMP-10072]; FAR 52.222-10: FEB 1988 [@CL-CMP-10073] |
 | Text status | Final [@CL-CMP-5832] |
 | Applies to | Contracts that carry the apprentices clause as prescribed at FAR 22.407(a) [@CL-CMP-5832] |
 
@@ -73,6 +73,7 @@ Which covered contracts use apprentices or trainees, and who confirms program re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included the subcontractor's registered program in the locality rule.

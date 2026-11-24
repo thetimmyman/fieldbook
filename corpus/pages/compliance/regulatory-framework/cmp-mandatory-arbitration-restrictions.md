@@ -25,7 +25,7 @@ Shows which employee claims the contractor may not force into arbitration, the s
 | Instrument | Codified DFARS [@CL-CMP-4185] |
 | Codified citation | DFARS 252.222-7006 [@CL-CMP-4185] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10226] |
 | Text status | Final [@CL-CMP-4185] |
 | Applies to | Contracts that include the clause, with a certification covering covered subcontractors [@CL-CMP-4185; @CL-CMP-4188] |
 
@@ -60,6 +60,7 @@ Which employee and independent contractor agreements contain arbitration terms, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated exception and waiver text; removed absence statements and contrasts.

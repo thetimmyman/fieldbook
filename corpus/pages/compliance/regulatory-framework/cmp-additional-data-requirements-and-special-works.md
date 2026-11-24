@@ -24,7 +24,7 @@ Shows how long the Government may order additional data, who pays for it, and wh
 | Instrument | Codified FAR [@CL-CMP-3705] |
 | Codified citation | FAR 52.227-16 and FAR 52.227-17 [@CL-CMP-3705; @CL-CMP-3708] |
 | RFO citation | RFO FAR 52.227-16 [@CL-CMP-0299] and RFO FAR 52.227-17 [@CL-CMP-0300] |
-| Edition date | Not established. |
+| Edition date | FAR 52.227-16: Jun 1987 [@CL-CMP-0299]; FAR 52.227-17: Dec 2007 [@CL-CMP-0300] |
 | Text status | Final [@CL-CMP-3705] |
 | Applies to | Not established. |
 
@@ -55,6 +55,7 @@ Which executed contracts carry the ordering clause or the special works clause, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

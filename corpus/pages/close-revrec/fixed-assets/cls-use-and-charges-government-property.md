@@ -25,7 +25,7 @@ Explains when a contractor may use Government property for commercial or other n
 | Instrument | Codified FAR [@CL-CLS-0222] |
 | Codified citation | FAR 52.245-9 [@CL-CLS-0222] |
 | RFO citation | RFO FAR 52.245-9 [@CL-CLS-0010] |
-| Edition date | Not established. |
+| Edition date | Apr 2012 [@CL-CLS-0010] |
 | Text status | Final [@CL-CLS-0222] |
 | Applies to | Contractor use of Government property for work other than rent-free work, with the contracting officer's written permission or a Schedule provision [@CL-CLS-0222] |
 
@@ -60,6 +60,7 @@ Who maintains Government property usage logs and reconciles commercial rental ho
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for the rental-request formula reference, restored shall modals, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subcontract case to the rent-free uses.

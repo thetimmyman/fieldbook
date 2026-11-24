@@ -25,7 +25,7 @@ Shows the reimbursement rates and caps for allowable costs paid on a letter cont
 | Instrument | Codified FAR [@CL-CTF-0318] |
 | Codified citation | FAR 52.216-26 [@CL-CTF-0318] |
 | RFO citation | RFO FAR 52.216-26 [@CL-CTF-0469] |
-| Edition date | Not established. |
+| Edition date | Dec 2002 [@CL-CTF-0469] |
 | Text status | Final [@CL-CTF-0318] |
 | Applies to | Letter contracts, pending the definitive contract [@CL-CTF-0703] |
 
@@ -54,6 +54,7 @@ Which financing, acceptance, and invoicing terms drive the cash forecast during 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored cost-reimbursement subcontract, payable-amount determination, audit-timing, and Contracting Officer finding qualifiers, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an after-audit qualifier the cited paragraph does not state and stated the 85 percent cap.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

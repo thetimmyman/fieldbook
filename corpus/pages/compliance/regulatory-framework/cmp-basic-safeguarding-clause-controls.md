@@ -24,7 +24,7 @@ Shows what a covered contractor information system is, the minimum security cont
 | Instrument | Codified FAR [@CL-CMP-3546] |
 | Codified citation | FAR 52.204-21 [@CL-CMP-3546; @CL-CMP-3547] |
 | RFO citation | RFO FAR 52.240-93 [@CL-CMP-0495; @CL-CMP-0498] |
-| Edition date | Not established. |
+| Edition date | NOV 2021 [@CL-CMP-10080] |
 | Text status | Final [@CL-CMP-3546] |
 | Applies to | Contractors with covered contractor information systems [@CL-CMP-3547] |
 
@@ -55,6 +55,7 @@ Which company systems process, store or transmit Federal contract information, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: corrected the scan wording and removed uncited contrasts.

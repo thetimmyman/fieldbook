@@ -25,7 +25,7 @@ Shows the conditions an offeror certifies to exempt certain services from Servic
 | Instrument | Codified FAR [@CL-CMP-4840] |
 | Codified citation | FAR 52.222-52 and FAR 52.222-53 [@CL-CMP-4988; @CL-CMP-4846] |
 | RFO citation | RFO FAR 52.222-52 [@CL-CMP-5316; @CL-CMP-5317; @CL-CMP-9802; @CL-CMP-9803; @CL-CMP-9804; @CL-CMP-5318; @CL-CMP-5319; @CL-CMP-5320; @CL-CMP-5321; @CL-CMP-5322; @CL-CMP-9805; @CL-CMP-9806; @CL-CMP-9807; @CL-CMP-5323]; RFO FAR 52.222-53 [@CL-CMP-5324; @CL-CMP-5325; @CL-CMP-5326; @CL-CMP-5327; @CL-CMP-5328; @CL-CMP-5329; @CL-CMP-5330; @CL-CMP-5331] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-52: MAY 2014 [@CL-CMP-10271]; FAR 52.222-53: MAY 2014 [@CL-CMP-10272] |
 | Text status | Final [@CL-CMP-4840] |
 | Applies to | Offerors, who check a certification that they do or do not certify to the listed exemption conditions [@CL-CMP-4840; @CL-CMP-4988] |
 
@@ -64,6 +64,7 @@ How the government share of each service employee's hours is measured and who ce
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

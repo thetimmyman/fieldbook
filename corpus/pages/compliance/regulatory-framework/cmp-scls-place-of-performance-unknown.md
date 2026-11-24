@@ -25,7 +25,7 @@ Shows how wage determinations are handled when the place of performance of a Ser
 | Instrument | Codified FAR [@CL-CMP-4851] |
 | Codified citation | FAR 52.222-49 [@CL-CMP-4851] |
 | RFO citation | RFO FAR 52.222-49 [@CL-CMP-5015; @CL-CMP-5016; @CL-CMP-5017; @CL-CMP-5018; @CL-CMP-5019] |
-| Edition date | Not established. |
+| Edition date | MAY 2014 [@CL-CMP-10268] |
 | Text status | Final [@CL-CMP-4851] |
 | Applies to | Contracts subject to the statute where the place of performance was unknown at solicitation [@CL-CMP-4851] |
 
@@ -56,6 +56,7 @@ Which solicitations leave the place of performance open and who tracks the deter
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's "shall" for requesting the wage determination and for no price adjustment, and stopped naming who asks for added places.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

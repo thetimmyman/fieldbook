@@ -25,7 +25,7 @@ Shows how option prices are added in evaluation under the two provisions that co
 | Instrument | Codified FAR [@CL-CTF-2296; @CL-CTF-2297] |
 | Codified citation | FAR 52.217-4 and FAR 52.217-5 [@CL-CTF-2296; @CL-CTF-2297] |
 | RFO citation | RFO FAR 52.217-4 [@CL-CTF-1269] and RFO FAR 52.217-5 [@CL-CTF-1270; @CL-CTF-1271] |
-| Edition date | Not established. |
+| Edition date | FAR 52.217-4: JUN 1988 [@CL-CTF-9730]; FAR 52.217-5: JUL 1990 [@CL-CTF-9731] |
 | Text status | Final [@CL-CTF-2296; @CL-CTF-2297] |
 | Applies to | Solicitations that include either provision [@CL-CTF-2296; @CL-CTF-2297] |
 
@@ -58,6 +58,7 @@ Confirm which option evaluation provision each executed contract carries and how
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed meta-wording and uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected three sentences to say the FAR 17.206(b) reference is in the codified provisions; the RFO provisions refer to FAR 17.202(b).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

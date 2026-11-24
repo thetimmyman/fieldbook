@@ -24,7 +24,7 @@ Shows how much payment protection a contractor submits, how a supplier's nonpaym
 | Instrument | Codified FAR [@CL-CTF-2483] |
 | Codified citation | FAR 52.228-13 and FAR 52.228-14 [@CL-CTF-2483; @CL-CTF-2485]; FAR 52.228-2(d) [@CL-CTF-2478]; FAR 2.101 [@CL-CTF-9410] |
 | RFO citation | RFO FAR 52.228-13(a)-(c) [@CL-CTF-0822; @CL-CTF-0823]; RFO FAR 52.228-13(d) [@CL-CTF-0824]; RFO FAR 52.228-13(e) [@CL-CTF-0825; @CL-CTF-0826]; RFO FAR 52.228-14(a) [@CL-CTF-0827; @CL-CTF-0828]; RFO FAR 52.228-14(b) [@CL-CTF-0829]; RFO FAR 52.228-14(c) [@CL-CTF-0830; @CL-CTF-0831; @CL-CTF-0832; @CL-CTF-0833; @CL-CTF-0834; @CL-CTF-0835; @CL-CTF-0836]; RFO FAR 52.228-14(d) [@CL-CTF-0837; @CL-CTF-0838]; RFO FAR 2.101 [@CL-CTF-9445; @CL-CTF-9482] |
-| Edition date | Not established. |
+| Edition date | FAR 52.228-13: Jul 2000 [@CL-CTF-0824]; FAR 52.228-14: Nov 2014 [@CL-CTF-0829]; FAR 52.228-2: OCT 1997 [@CL-CTF-9711] |
 | Text status | Final [@CL-CTF-2483] |
 | Applies to | Contracts with the alternative payment protections clause or the irrevocable letter of credit clause [@CL-CTF-2483; @CL-CTF-2485] |
 
@@ -77,6 +77,7 @@ Which contracts require payment protection or a letter of credit, in what form, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the payment protection and letter of credit wording with the cited paragraphs.

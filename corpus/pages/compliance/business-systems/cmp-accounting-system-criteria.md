@@ -24,7 +24,7 @@ Shows the criteria an acceptable accounting system must meet, and how the Govern
 | Instrument | Codified DFARS [@CL-CMP-0403] |
 | Codified citation | DFARS 252.242-7006(c) [@CL-CMP-0403] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-CMP-10050] |
 | Text status | Final [@CL-CMP-0403] |
 | Applies to | Contracts that include the accounting system administration clause [@CL-CMP-0403] |
 
@@ -51,6 +51,7 @@ The current government status of each contractor business system: approved, disa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the accounting system definition, added the system criteria and final-determination lead-ins, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed citations for the acceptable-system definition, timekeeping and withholding sentences and kept the written determination and corrective action plan wording.

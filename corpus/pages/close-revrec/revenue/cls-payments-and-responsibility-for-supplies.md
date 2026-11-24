@@ -25,7 +25,7 @@ Explains what the Payments clause pays for, namely supplies delivered and accept
 | Instrument | Codified FAR [@CL-CLS-0200] |
 | Codified citation | FAR 52.232-1 [@CL-CLS-0200] and FAR 46.316 [@CL-CLS-1232; @CL-CLS-1233; @CL-CLS-1234] |
 | RFO citation | RFO FAR 52.232-1 [@CL-CLS-0140]; the title and risk-of-loss paragraphs described on this page are in RFO FAR 52.246-16 [@CL-CLS-0142] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-1: Apr 1984 [@CL-CLS-0140]; FAR 52.246-16: Apr 1984 [@CL-CLS-0142] |
 | Text status | Final [@CL-CLS-0200] |
 | Applies to | Fixed-price supply contracts, fixed-price service contracts and contracts for nonregulated communication services [@CL-CLS-0300] |
 
@@ -64,6 +64,7 @@ How accounting revenue recognition criteria align with formal Government accepta
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: payments and responsibility for supplies: wording matched to clause text, RFO paragraph cites RFO claims only, uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: partial-delivery grounds stated as alternatives and risk-of-loss lead-in as quoted.

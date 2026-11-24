@@ -24,7 +24,7 @@ Shows what a subject invention is, that the contractor may retain ownership of i
 | Instrument | Codified FAR [@CL-CMP-3629] |
 | Codified citation | FAR 52.227-11 [@CL-CMP-3629] |
 | RFO citation | RFO FAR 52.227-11 [@CL-CMP-1846; @CL-CMP-1847] |
-| Edition date | Not established. |
+| Edition date | May 2014 [@CL-CMP-1846] |
 | Text status | Final [@CL-CMP-3629] |
 | Applies to | Subject inventions made in the performance of work under the contract [@CL-CMP-3629] |
 
@@ -55,6 +55,7 @@ Which contracts carry this clause, and which inventions the company treats as ma
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor ownership of subject inventions and the licenses.

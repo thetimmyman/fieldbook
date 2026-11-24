@@ -25,7 +25,7 @@ Shows when a contract's unit prices adjust for changes in scheduled labor rates 
 | Instrument | Codified FAR [@CL-CTF-0301] |
 | Codified citation | FAR 52.216-4 [@CL-CTF-0301] |
 | RFO citation | RFO FAR 52.216-4 [@CL-CTF-0189] |
-| Edition date | Not established. |
+| Edition date | Jan 2017 [@CL-CTF-0189] |
 | Text status | Final [@CL-CTF-0301] |
 | Applies to | Contracts with the Economic Price Adjustment—Labor and Material clause [@CL-CTF-0301] |
 
@@ -58,6 +58,7 @@ Which financing, acceptance, and invoicing terms drive the cash forecast when a 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notice-and-data condition, limits lead-in and request wording; cut uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the negotiation of the price adjustment.

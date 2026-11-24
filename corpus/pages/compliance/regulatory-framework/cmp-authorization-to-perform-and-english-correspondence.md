@@ -25,7 +25,7 @@ Shows what an offeror represents about authority to do business where the contra
 | Instrument | Codified DFARS [@CL-CMP-4182; @CL-CMP-4183] |
 | Codified citation | DFARS 252.225-7042 and 252.225-7041 [@CL-CMP-4182; @CL-CMP-4183] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | APR 2003 [@CL-CMP-10079] |
 | Text status | Final [@CL-CMP-4182; @CL-CMP-4183] |
 | Applies to | Offerors, for the authorization representation, and the Contractor, for correspondence addressed to the United States Government [@CL-CMP-4182; @CL-CMP-4183] |
 
@@ -54,5 +54,6 @@ Which countries of performance each offer covers and whether authorization to do
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for authorization to perform and correspondence in English.

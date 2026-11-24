@@ -25,7 +25,7 @@ Shows how the Government pays for group interments, what certificate the contrac
 | Instrument | Codified DFARS [@CL-CMP-4667; @CL-CMP-4668; @CL-CMP-4669] |
 | Codified citation | DFARS 252.237-7008, DFARS 252.237-7011 and DFARS 252.237-7027 [@CL-CMP-4667; @CL-CMP-4668; @CL-CMP-4669] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7008: DEC 1991 [@CL-CMP-10155]; DFARS 252.237-7011: DEC 1991 [@CL-CMP-10156]; DFARS 252.237-7027: FEB 2024 [@CL-CMP-10157] |
 | Text status | Final [@CL-CMP-4667; @CL-CMP-4668; @CL-CMP-4669] |
 | Applies to | Contracts that include the Group Interment, Preparation History, or Transfer and Adoption of Military Animals clause [@CL-CMP-4667; @CL-CMP-4668; @CL-CMP-4669] |
 
@@ -54,6 +54,7 @@ Which contracts and modifications carry these clauses, and who confirms it. [@Q-
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory references for dog transfer; cut uncited contrasts.

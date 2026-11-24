@@ -25,7 +25,7 @@ Shows when a multiyear contract is cancelled, what the cancellation charge may c
 | Instrument | Codified FAR [@CL-CTF-2276] |
 | Codified citation | FAR 52.217-2 [@CL-CTF-2276] |
 | RFO citation | RFO FAR 52.217-2 [@CL-CTF-1183] |
-| Edition date | Not established. |
+| Edition date | Oct 1997 [@CL-CTF-1183] |
 | Text status | Final [@CL-CTF-2276] |
 | Applies to | Contracts that include the cancellation clause [@CL-CTF-2276] |
 
@@ -68,6 +68,7 @@ Confirm which multiyear contracts carry this clause, the ceiling in each Schedul
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, added the Subpart 15.4 cross-reference in FAR 52.217-2(f)(1), and removed meta-wording and uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a connecting word the facility-cost item does not contain.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

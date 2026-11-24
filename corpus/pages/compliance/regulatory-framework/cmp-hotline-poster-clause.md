@@ -24,7 +24,7 @@ Shows when the fraud hotline poster must be displayed, where it goes, and when a
 | Instrument | Codified FAR [@CL-CMP-2637] |
 | Codified citation | FAR 52.203-14 [@CL-CMP-2637] |
 | RFO citation | RFO FAR 52.203-14 [@CL-CMP-1280; @CL-CMP-1281] |
-| Edition date | Not established. |
+| Edition date | Nov 2021 [@CL-CMP-1286] |
 | Text status | Final [@CL-CMP-2637] |
 | Applies to | Contracts that exceed $7.5 million or a lesser amount established by the agency, not for commercial products or commercial services and not performed entirely outside the United States, where the agency has a fraud hotline poster or the contract is funded with disaster assistance funds, subject to the exception for an existing awareness program [@CL-CMP-2676; @CL-CMP-2677; @CL-CMP-2639] |
 
@@ -55,6 +55,7 @@ Which contracts carry the poster clause, where the company performs work on them
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

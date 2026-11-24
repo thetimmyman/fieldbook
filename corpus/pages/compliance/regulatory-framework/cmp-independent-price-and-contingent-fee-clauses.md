@@ -24,7 +24,7 @@ Shows what an offeror certifies about how its prices were reached, what a contra
 | Instrument | Codified FAR [@CL-CMP-2600; @CL-CMP-2605] |
 | Codified citation | FAR 52.203-2 and FAR 52.203-5 [@CL-CMP-2600; @CL-CMP-2605] |
 | RFO citation | RFO FAR 52.203-2 [@CL-CMP-1342; @CL-CMP-1343] and RFO FAR 52.203-5 [@CL-CMP-1349; @CL-CMP-1350] |
-| Edition date | Not established. |
+| Edition date | FAR 52.203-2: APR 1985 [@CL-CMP-10214]; FAR 52.203-5: MAY 2014 [@CL-CMP-10215] |
 | Text status | Final [@CL-CMP-2600; @CL-CMP-2605] |
 | Applies to | Solicitations where a firm-fixed-price contract or fixed-price contract with economic price adjustment is contemplated, subject to listed exceptions, and solicitations and contracts exceeding the simplified acquisition threshold other than those for commercial products or commercial services [@CL-CMP-2679; @CL-CMP-2680; @CL-CMP-2681] |
 
@@ -57,6 +57,7 @@ Which solicitations carry the price certification provision, which contracts car
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the certifications as an all-required list; removed meta wording, unsupported contrasts and RFO text-of wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

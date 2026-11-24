@@ -24,7 +24,7 @@ Shows the veterans equal opportunity duties, the annual veterans employment repo
 | Instrument | Codified FAR [@CL-CMP-5884] |
 | Codified citation | FAR 52.222-35, 52.222-37 and 52.222-38 [@CL-CMP-5884; @CL-CMP-5886; @CL-CMP-5890] |
 | RFO citation | RFO FAR 52.222-35 [@CL-CMP-6345; @CL-CMP-6472; @CL-CMP-6474]; RFO FAR 52.222-37 [@CL-CMP-6475; @CL-CMP-6479; @CL-CMP-6480]; FAR 52.222-38: No RFO equivalent [@CL-CMP-6484] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-35: Jul 2014 [@CL-CMP-6474]; FAR 52.222-37: JUN 2020 [@CL-CMP-10281]; FAR 52.222-38: FEB 2016 [@CL-CMP-10282] |
 | Text status | Final [@CL-CMP-5884] |
 | Applies to | Contracts carrying the veterans equal opportunity clause and subcontracts at or above its dollar threshold [@CL-CMP-5885] |
 
@@ -65,6 +65,7 @@ Who owns the annual veterans report, where the filed copy is kept, and who signs
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: veterans employment: removed unsupported opening sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the condition from the list lead-in for the protected veteran count in the report.

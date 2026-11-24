@@ -24,7 +24,7 @@ Shows the two routes to a change under the construction changes clause, the writ
 | Instrument | Codified FAR [@CL-CLS-1088] |
 | Codified citation | FAR 52.243-4 [@CL-CLS-1088] |
 | RFO citation | RFO FAR 52.243-4 [@CL-CLS-0047] |
-| Edition date | Not established. |
+| Edition date | JUN 2007 [@CL-CLS-1613] |
 | Text status | Final [@CL-CLS-1088] |
 | Applies to | Contracts containing the Changes clause for construction [@CL-CLS-1088] |
 
@@ -63,6 +63,7 @@ Where the executed construction contracts and modifications are kept, and who co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: construction changes: order definition, proviso wording, cited paragraph contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: wrote the listed changes as a list joined by or.

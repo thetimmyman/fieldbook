@@ -24,7 +24,7 @@ Shows what use of a patented invention the Government authorizes and consents to
 | Instrument | Codified FAR [@CL-CMP-3604] |
 | Codified citation | FAR 52.227-1 [@CL-CMP-3604] |
 | RFO citation | RFO FAR 52.227-1 [@CL-CMP-0485; @CL-CMP-0486; @CL-CMP-0487] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-CMP-10078] |
 | Text status | Final [@CL-CMP-3604] |
 | Applies to | Use and manufacture in performing the contract or any subcontract at any tier [@CL-CMP-3604] |
 
@@ -59,6 +59,7 @@ Which executed contracts and subcontracts carry the basic clause or an alternate
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the subcontract wording of Alternate II and removed uncited contrasts.

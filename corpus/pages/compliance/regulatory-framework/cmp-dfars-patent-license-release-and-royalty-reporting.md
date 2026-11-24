@@ -25,7 +25,7 @@ Shows what the Government receives and pays under a DoD patent license and relea
 | Instrument | Codified DFARS [@CL-CMP-3958] |
 | Codified citation | DFARS 252.227-7012, 252.227-7002 and 252.227-7009 [@CL-CMP-3958; @CL-CMP-3959; @CL-CMP-3961] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2022 [@CL-CMP-10163] |
 | Text status | Final [@CL-CMP-3958] |
 | Applies to | Patent releases, license agreements and assignments [@CL-CMP-3958] |
 
@@ -56,6 +56,7 @@ Which executed licenses, releases and assignments carry these clauses, and who p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.

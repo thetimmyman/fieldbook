@@ -25,7 +25,7 @@ Shows when the Government may terminate a fixed-price supply or service contract
 | Instrument | Codified FAR [@CL-CTF-2082] |
 | Codified citation | FAR 52.249-8 [@CL-CTF-2082] |
 | RFO citation | RFO FAR 52.249-8 [@CL-CTF-0172] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CTF-0172] |
 | Text status | Final [@CL-CTF-2082] |
 | Applies to | Solicitations and contracts when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1024]. The contracting officer may use it at or below that threshold, if appropriate, for example for items with a history of unsatisfactory quality [@CL-CLS-1025]. For transportation or transportation-related services, the contracting officer shall use it with its Alternate I [@CL-CLS-1060] |
 
@@ -72,6 +72,7 @@ The share of fixed-price supply and service contracts in the contract mix, by re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts and meta wording; restated cure period, termination scope and deviation actor.
 - COMPATIBLE_EXTENSION, 2026-10-31: reprocurement liability tied to paragraphs (c) and (d).
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.

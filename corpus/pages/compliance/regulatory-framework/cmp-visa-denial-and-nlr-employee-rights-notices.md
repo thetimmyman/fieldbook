@@ -25,7 +25,7 @@ Shows the two notification duties that run outside the wage flow: a report to tw
 | Instrument | Codified FAR [@CL-CMP-5237] |
 | Codified citation | FAR 52.222-29 and 52.222-40 [@CL-CMP-5237; @CL-CMP-5241] |
 | RFO citation | RFO FAR 52.222-40 [@CL-CMP-6540; @CL-CMP-6541]; FAR 52.222-29: No RFO equivalent [@CL-CMP-6485] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-29: APR 2015 [@CL-CMP-10283]; FAR 52.222-40: DEC 2010 [@CL-CMP-10284] |
 | Text status | Final [@CL-CMP-5237] |
 | Applies to | Contracts that carry the visa denial clause or the employee rights notice clause [@CL-CMP-5239; @CL-CMP-5241] |
 
@@ -62,6 +62,7 @@ Who receives and files the two-office notice, and where the poster and the elect
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the must-for-shall remark to several paragraphs.

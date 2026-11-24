@@ -24,7 +24,7 @@ Explains how performance-based payment requests relate to contractual payment ev
 | Instrument | Codified FAR [@CL-CTF-0201] |
 | Codified citation | FAR 52.232-32 [@CL-CTF-0201] |
 | RFO citation | RFO FAR 52.232-32 [@CL-CTF-1107] |
-| Edition date | Not established. |
+| Edition date | Apr 2012 [@CL-CTF-1107] |
 | Text status | Final [@CL-CTF-0201] |
 | Applies to | Contracts containing this clause [@CL-CTF-0201] |
 
@@ -53,6 +53,7 @@ Which contracts receive performance-based payments, and at what liquidation rate
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed dual codified-on-RFO citations and contrast wording in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Request frequency stated as a permission; authorizing official named.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

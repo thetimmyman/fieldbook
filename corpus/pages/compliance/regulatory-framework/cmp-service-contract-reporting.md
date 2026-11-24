@@ -25,7 +25,7 @@ Shows what a contractor reports each year about services performed under the con
 | Instrument | Codified FAR [@CL-CMP-5945] |
 | Codified citation | FAR 52.204-14 [@CL-CMP-5945] |
 | RFO citation | RFO FAR 52.204-14 [@CL-CMP-5687] |
-| Edition date | Not established. |
+| Edition date | OCT 2016 [@CL-CMP-10276] |
 | Text status | Final [@CL-CMP-5945] |
 | Applies to | Contracts that carry the clause, for services performed under the contract [@CL-CMP-5947] |
 
@@ -70,6 +70,7 @@ Which contracts for services sit inside the remit, who assembles the annual repo
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: service contract reporting: shall report, and/or in supplier-agreement exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

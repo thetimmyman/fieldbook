@@ -23,7 +23,7 @@ Explains the contractor's duties for personnel who perform outside the United St
 | Instrument | Codified FAR [@CL-CMP-5418] |
 | Codified citation | FAR 52.225-19 [@CL-CMP-5418] |
 | RFO citation | RFO FAR 52.225-19 [@CL-CMP-1636] [@CL-CMP-1637] [@CL-CMP-1638] |
-| Edition date | Not established. |
+| Edition date | May 2020 [@CL-CMP-1636] |
 | Text status | Final [@CL-CMP-5418] |
 | Applies to | Contractor personnel required to perform outside the United States in a designated operational area, or when supporting a diplomatic or consular mission [@CL-CMP-5418; @CL-CMP-5454] |
 
@@ -89,6 +89,7 @@ Which personnel deploy under this clause and who keeps their clearances, trainin
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

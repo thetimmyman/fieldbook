@@ -25,7 +25,7 @@ Shows when the Comptroller General record examination paragraph applies to a com
 | Instrument | Codified FAR [@CL-CMP-9051] |
 | Codified citation | FAR 52.212-5(d) and (e) [@CL-CMP-9051; @CL-CMP-9057] |
 | RFO citation | RFO FAR 52.212-4(t) [@CL-CMP-0633]; RFO FAR 52.244-6 [@CL-CMP-0641]; RFO FAR 52.212-5 is [Reserved] [@CL-CMP-0632] |
-| Edition date | Not established. |
+| Edition date | MAR 2026 [@CL-CMP-10086] |
 | Text status | Final [@CL-CMP-9051] |
 | Applies to | Paragraph (d): contracts that meet three conditions. Paragraph (e): subcontracts for commercial products or commercial services [@CL-CMP-9051; @CL-CMP-9052; @CL-CMP-9057] |
 
@@ -72,6 +72,7 @@ The company must confirm which of its commercial contracts fall inside paragraph
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate II wording and retention text tied to cited provisions.

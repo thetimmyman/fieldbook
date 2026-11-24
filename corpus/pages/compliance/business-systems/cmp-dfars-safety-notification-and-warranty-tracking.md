@@ -25,7 +25,7 @@ Shows when the contractor must notify the Government of a potential safety issue
 | Instrument | Codified DFARS [@CL-CMP-3878; @CL-CMP-3881] |
 | Codified citation | DFARS 252.246-7003 and 252.246-7006 [@CL-CMP-3878; @CL-CMP-3881] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10057] |
 | Text status | Final [@CL-CMP-3878; @CL-CMP-3881] |
 | Applies to | Contracts with either clause [@CL-CMP-3878; @CL-CMP-3881] |
 
@@ -54,6 +54,7 @@ Which contracts carry either clause and who files the safety notices and the war
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the 5-working-day written notification items and the subcontract flowdown categories, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Notification list stated as two required items; subcontract list as alternatives.

@@ -25,7 +25,7 @@ Shows how monthly estimates are paid under the fixed-price architect-engineer pa
 | Instrument | Codified FAR [@CL-CTF-2021; @CL-CTF-2022] |
 | Codified citation | FAR 52.232-10 [@CL-CTF-2021; @CL-CTF-2022] |
 | RFO citation | RFO FAR 52.232-10 [@CL-CTF-0478] |
-| Edition date | Not established. |
+| Edition date | Apr 2010 [@CL-CTF-0478] |
 | Text status | Final [@CL-CTF-2021; @CL-CTF-2022] |
 | Applies to | Fixed-price architect-engineer contracts, appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1521] |
 
@@ -60,6 +60,7 @@ Whether the company holds architect-engineer contracts and how monthly estimates
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and payment-due-date prescription qualifier, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the Contracting Officer's determination before release of excess withholding and the until-progress-is-achieved limit on construction retention.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

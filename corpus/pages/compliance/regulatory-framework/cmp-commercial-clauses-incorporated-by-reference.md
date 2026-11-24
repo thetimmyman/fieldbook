@@ -25,7 +25,7 @@ Shows the seven FAR clauses that paragraph (a) of the clause on contract terms a
 | Instrument | Codified FAR [@CL-CMP-9039] |
 | Codified citation | FAR 52.212-5(a) [@CL-CMP-9039] |
 | RFO citation | RFO FAR 52.212-5 is [Reserved] [@CL-CMP-0644] |
-| Edition date | Not established. |
+| Edition date | MAR 2026 [@CL-CMP-10088] |
 | Text status | Final [@CL-CMP-9039] |
 | Applies to | Contracts in which the clause is inserted as prescribed in FAR 12.301(b)(4) [@CL-CMP-9201] |
 
@@ -58,6 +58,7 @@ The company must confirm that its contract register records these by-reference c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: uncited inferences and contrasts replaced with cited text.

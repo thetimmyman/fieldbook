@@ -25,7 +25,7 @@ Tells what each of the three progress payment notices in a solicitation says to 
 | Instrument | Codified FAR [@CL-CTF-2027; @CL-CTF-2029; @CL-CTF-2030] |
 | Codified citation | FAR 52.232-13, FAR 52.232-14 and FAR 52.232-15 [@CL-CTF-2027; @CL-CTF-2029; @CL-CTF-2030] |
 | RFO citation | RFO FAR 52.232-13 [@CL-CTF-0586; @CL-CTF-0587; @CL-CTF-0588]; RFO FAR 52.232-14 [@CL-CTF-0589; @CL-CTF-0590]; RFO FAR 52.232-15 [@CL-CTF-0591; @CL-CTF-0592] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-13: Apr 1984 [@CL-CTF-0586]; FAR 52.232-14: Apr 1984 [@CL-CTF-0589]; FAR 52.232-15: Apr 1984 [@CL-CTF-0591] |
 | Text status | Final [@CL-CTF-2027; @CL-CTF-2029; @CL-CTF-2030] |
 | Applies to | Invitations for bids and requests for proposals that include a Progress Payments clause [@CL-CTF-2148]; invitations for bids where it is anticipated that both small business concerns and others may submit bids and only the small business bidders would need progress payments [@CL-CTF-2149]; invitations for bids whose solicitation will not contain one of the provisions prescribed in paragraphs (a) and (b) of FAR 32.502-3 [@CL-CTF-2150] |
 
@@ -56,6 +56,7 @@ Which solicitations carry each notice and which resulting contracts have progres
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full provision qualifiers, separated RFO and codified citations, and removed uncited commentary and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the anticipated-bidders condition of the small business notice and tightened the prescription-line and nonresponsive-bid wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

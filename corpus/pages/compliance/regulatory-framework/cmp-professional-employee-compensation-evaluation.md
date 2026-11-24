@@ -25,7 +25,7 @@ Shows what an offeror submits about professional employee pay and how the govern
 | Instrument | Codified FAR [@CL-CMP-4823] |
 | Codified citation | FAR 52.222-46 [@CL-CMP-4823] |
 | RFO citation | No RFO equivalent: the RFO FAR part 52 text lists section 52.222-46 as reserved [@CL-CMP-2118] |
-| Edition date | Not established. |
+| Edition date | FEB 1993 [@CL-CMP-10259] |
 | Text status | Final [@CL-CMP-4823] |
 | Applies to | Offerors that submit a total compensation plan for professional employees with their proposals [@CL-CMP-4823] |
 
@@ -58,6 +58,7 @@ Who prepares the total compensation plan and the survey data behind each profess
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Low-compensation sentence now says professional compensation.
