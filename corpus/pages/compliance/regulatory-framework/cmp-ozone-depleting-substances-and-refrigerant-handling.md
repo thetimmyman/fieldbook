@@ -24,7 +24,7 @@ Explains the ozone-depleting substance labeling duty, the direction to EPA's alt
 | Instrument | Codified FAR [@CL-CMP-5197] |
 | Codified citation | FAR 52.223-11 and FAR 52.223-12 [@CL-CMP-5197; @CL-CMP-5201] |
 | RFO citation | RFO FAR 52.223-11 [@CL-CMP-1648] [@CL-CMP-1649] [@CL-CMP-1690] [@CL-CMP-1691] [@CL-CMP-1692] and RFO FAR 52.223-12 [@CL-CMP-1693] [@CL-CMP-1694] |
-| Edition date | Not established. |
+| Edition date | FAR 52.223-11: MAY 2024 [@CL-CMP-10251]; FAR 52.223-12: MAY 2024 [@CL-CMP-10252] |
 | Text status | Final [@CL-CMP-5197] |
 | Applies to | Contractors whose contracts carry the ozone-depleting substances clause or the refrigeration and air conditioning clause [@CL-CMP-5197; @CL-CMP-5201] |
 
@@ -61,6 +61,7 @@ Whether the company tracks which supplied products contain or are manufactured w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated labeling, reduction list and contrasts as cited text; RFO wording aligned.

@@ -25,7 +25,7 @@ Shows how the DFARS tax relief clause keeps exempt taxes out of the price, how t
 | Instrument | Codified DFARS [@CL-CTF-1851] |
 | Codified citation | DFARS 252.229-7001, 252.229-7002 and 252.229-7007 [@CL-CTF-1851; @CL-CTF-1859; @CL-CTF-1860] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.229-7001: APR 2020 [@CL-CTF-9656]; DFARS 252.229-7002: JUN 1997 [@CL-CTF-9657]; DFARS 252.229-7007: JUN 1997 [@CL-CTF-9658] |
 | Text status | Final [@CL-CTF-1851] |
 | Applies to | Contracts that include the tax relief clause [@CL-CTF-1916], its Alternate I [@CL-CTF-1855], the German customs exemption clause [@CL-CTF-1859] or the receipt verification clause [@CL-CTF-1860] |
 
@@ -54,5 +54,6 @@ Which contracts carry the tax relief, German customs exemption and receipt verif
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts; restated customs, receipt and Alternate I points.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax relief, customs exemptions in Germany and verification of United States receipt of goods.

@@ -25,7 +25,7 @@ Shows how the DoD clause on bid or proposal information limits what the Governme
 | Instrument | Codified DFARS [@CL-CMP-3950; @CL-CMP-3955] |
 | Codified citation | DFARS 252.227-7016 and 252.227-7020 [@CL-CMP-3950; @CL-CMP-3955] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-CMP-10128] |
 | Text status | Final [@CL-CMP-3950; @CL-CMP-3955] |
 | Applies to | Offers, by their submission, and works first produced, created or generated and required to be delivered under the contract [@CL-CMP-3950; @CL-CMP-3955] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry these clauses, which deliverables are special wor
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the third data rights clause alternative, carried the disclosure exception and authorizer, and removed uncited contrasts.

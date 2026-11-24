@@ -25,7 +25,7 @@ Shows what the offeror's additional representation covers, what the contractor m
 | Instrument | Codified DFARS [@CL-CMP-2857; @CL-CMP-2858] |
 | Codified citation | DFARS 252.204-7017(d) [@CL-CMP-2857]; DFARS 252.204-7018(b) [@CL-CMP-2858] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7017: May 2021 [@CL-CMP-10300]; DFARS 252.204-7018: JAN 2023 [@CL-CMP-10301] |
 | Text status | Final [@CL-CMP-2858] |
 | Applies to | Offerors whose annual SAM representations say they provide covered equipment or services [@CL-CMP-2856]; contractors providing equipment, systems, or services to carry out covered missions [@CL-CMP-2858] |
 
@@ -54,6 +54,7 @@ Which products and services in the bill of materials could use covered equipment
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: restated representation condition; removed contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Marked the three-day report items as a partial list.

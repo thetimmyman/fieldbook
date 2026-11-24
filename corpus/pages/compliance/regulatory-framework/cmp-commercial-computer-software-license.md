@@ -24,7 +24,7 @@ Shows what the Government may do with commercial computer software delivered und
 | Instrument | Codified FAR [@CL-CMP-3711] |
 | Codified citation | FAR 52.227-19 [@CL-CMP-3711; @CL-CMP-3712] |
 | RFO citation | No RFO equivalent in part 52: RFO FAR 52.227-19 is [Reserved] [@CL-CMP-0645] |
-| Edition date | Not established. |
+| Edition date | DEC 2007 [@CL-CMP-10089] |
 | Text status | Final [@CL-CMP-3711] |
 | Applies to | Commercial computer software delivered under the contract [@CL-CMP-3712] |
 
@@ -55,6 +55,7 @@ Which executed contracts carry this clause, and who confirms what software was d
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

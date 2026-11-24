@@ -24,7 +24,7 @@ Shows what an offeror must disclose when its response includes royalty costs ove
 | Instrument | Codified FAR [@CL-CMP-3651] |
 | Codified citation | FAR 52.227-6 [@CL-CMP-3651] |
 | RFO citation | RFO FAR 52.227-6 [@CL-CMP-2530; @CL-CMP-2531; @CL-CMP-2532; @CL-CMP-2533; @CL-CMP-2534; @CL-CMP-9777] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CMP-2530] |
 | Text status | Final [@CL-CMP-3651] |
 | Applies to | Solicitation responses with royalty costs or charges totaling more than $250 [@CL-CMP-3651] |
 
@@ -57,6 +57,7 @@ How the company totals royalty charges in each response, and who confirms that t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on Government licensee notice and data rights.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

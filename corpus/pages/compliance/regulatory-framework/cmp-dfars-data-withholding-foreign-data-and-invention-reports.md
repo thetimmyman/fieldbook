@@ -25,7 +25,7 @@ Shows when the Contracting Officer may withhold payment for technical data and h
 | Instrument | Codified DFARS [@CL-CMP-4292] |
 | Codified citation | DFARS 252.227-7030, 252.227-7032 and 252.227-7039 [@CL-CMP-4293; @CL-CMP-4295; @CL-CMP-4297] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAR 2000 [@CL-CMP-10132] |
 | Text status | Final [@CL-CMP-4292] |
 | Applies to | Contracts using the withholding clause where DFARS 227.7103-6(e)(2) or 227.7104-4(b)(6) prescribes it [@CL-CMP-4386], for technical data specified for delivery [@CL-CMP-4292] |
 
@@ -56,6 +56,7 @@ Which contracts carry these clauses, and who tracks data delivery dates and inve
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who furnishes the invention reports and removed uncited contrasts.

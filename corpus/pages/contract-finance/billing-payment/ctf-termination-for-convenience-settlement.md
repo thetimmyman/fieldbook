@@ -25,7 +25,7 @@ Explains how a termination for the convenience of the Government under a fixed-p
 | Instrument | Codified FAR [@CL-CTF-0351] |
 | Codified citation | FAR 52.249-2 [@CL-CTF-0351] |
 | RFO citation | RFO FAR 52.249-2 [@CL-CTF-0725] |
-| Edition date | Not established. |
+| Edition date | Apr 2012 [@CL-CTF-0725] |
 | Text status | Final [@CL-CTF-0351] |
 | Applies to | Contracts that include the fixed-price termination for convenience clause, which is inserted as prescribed in FAR 49.502(b)(1)(i) [@CL-CTF-0351] |
 
@@ -64,6 +64,7 @@ Tracking termination inventory schedules, settlement proposal submission deadlin
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the without-duplication qualifier on the amounts the contracting officer determines.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the contracting officer determines condition for late proposals, the paragraph (f) or (g) and (g)(3) scope of the cap, the subject-to and remaining-to-be-paid wording, and must wording.

@@ -25,7 +25,7 @@ Shows the conditions an offeror certifies to exempt equipment maintenance, calib
 | Instrument | Codified FAR [@CL-CMP-4832] |
 | Codified citation | FAR 52.222-48 and FAR 52.222-51 [@CL-CMP-4972; @CL-CMP-4983] |
 | RFO citation | RFO FAR 52.222-48 [@CL-CMP-4639; @CL-CMP-4640; @CL-CMP-9796; @CL-CMP-9797; @CL-CMP-9798; @CL-CMP-4952; @CL-CMP-4953; @CL-CMP-5006; @CL-CMP-9799; @CL-CMP-9800; @CL-CMP-9801; @CL-CMP-5007]; RFO FAR 52.222-51 [@CL-CMP-5008; @CL-CMP-5009; @CL-CMP-5010; @CL-CMP-5011; @CL-CMP-5012; @CL-CMP-5013; @CL-CMP-5014] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-48: MAY 2014 [@CL-CMP-10266]; FAR 52.222-51: MAY 2014 [@CL-CMP-10267] |
 | Text status | Final [@CL-CMP-4832] |
 | Applies to | Solicitations and contracts for maintenance, calibration or repair of equipment that meets the certified exemption conditions [@CL-CMP-4832; @CL-CMP-4972] |
 
@@ -62,6 +62,7 @@ Which equipment service lines are priced from catalog or market prices and who s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the equipment exemption certification and requirements clause.

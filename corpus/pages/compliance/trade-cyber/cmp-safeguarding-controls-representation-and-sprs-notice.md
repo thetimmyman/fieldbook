@@ -25,7 +25,7 @@ Shows what an offeror represents about implementing the security controls and ho
 | Instrument | Codified DFARS [@CL-CMP-2842] |
 | Codified citation | DFARS 252.204-7008(c)(1) [@CL-CMP-2842]; DFARS 252.204-7024(c)(1) [@CL-CMP-2846] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7008: OCT 2016 [@CL-CMP-10310]; DFARS 252.204-7024: MAR 2023 [@CL-CMP-10311] |
 | Text status | Final [@CL-CMP-2842] |
 | Applies to | Offerors, for covered contractor information systems not part of an information technology service or system operated on behalf of the Government [@CL-CMP-2842] |
 
@@ -54,6 +54,7 @@ Whether the offer's representation matches the controls actually in place, any p
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added solicitation scope to SPRS evaluation sentence and removed meta prose.

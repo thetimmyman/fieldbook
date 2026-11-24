@@ -6,8 +6,11 @@
 //! store admission plans and `corpus-add@1` ([`admit`]), and the closed target registry ([`targets`]).
 
 pub mod admit;
+pub mod bm25_index;
 pub mod candidate;
+pub mod correlate;
 pub mod proposal;
+pub mod rules;
 pub mod suggest;
 pub mod targets;
 pub mod view;

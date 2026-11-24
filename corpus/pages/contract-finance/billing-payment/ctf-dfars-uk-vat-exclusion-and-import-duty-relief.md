@@ -25,7 +25,7 @@ Shows what the price excludes under the United Kingdom value added tax and impor
 | Instrument | Codified DFARS [@CL-CTF-1883] |
 | Codified citation | DFARS 252.229-7006 and 252.229-7008 [@CL-CTF-1883; @CL-CTF-1885] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.229-7006: DEC 2011 [@CL-CTF-9690]; DFARS 252.229-7008: DEC 2011 [@CL-CTF-9691] |
 | Text status | Final [@CL-CTF-1883] |
 | Applies to | Contracts that include the United Kingdom value added tax exclusion clause [@CL-CTF-1922] or the import duty relief clause [@CL-CTF-1923] |
 
@@ -54,6 +54,7 @@ Which United Kingdom contracts carry these clauses, and how duty paid on imports
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast; restated the refund advice with its timing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for value added tax exclusion and relief from import duty in the United Kingdom.

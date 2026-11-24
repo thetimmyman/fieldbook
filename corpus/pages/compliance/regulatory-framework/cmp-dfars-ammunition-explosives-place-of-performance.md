@@ -25,7 +25,7 @@ Shows what the offeror identifies for ammunition and explosives work and when wr
 | Instrument | Codified DFARS [@CL-CMP-4513] |
 | Codified citation | DFARS 252.223-7003 [@CL-CMP-4513] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-CMP-10125] |
 | Text status | Final [@CL-CMP-4513] |
 | Applies to | Contracts that include the clause; the clause text names the DFARS section that prescribes its use [@CL-CMP-4553] |
 
@@ -54,6 +54,7 @@ Which contracts carry the clause, and where the company names and tracks the pla
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited contrast and carried the offer and approval conditions into the summary.

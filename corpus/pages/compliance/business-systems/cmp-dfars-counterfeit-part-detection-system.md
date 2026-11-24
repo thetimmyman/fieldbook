@@ -25,7 +25,7 @@ Shows who must keep a counterfeit electronic part detection and avoidance system
 | Instrument | Codified DFARS [@CL-CMP-3851] |
 | Codified citation | DFARS 252.246-7007 [@CL-CMP-3851] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10054] |
 | Text status | Final [@CL-CMP-3851] |
 | Applies to | Contractors subject to the Cost Accounting Standards [@CL-CMP-3850] |
 
@@ -58,6 +58,7 @@ Whether the company is subject to the Cost Accounting Standards, and the current
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the title 41 chapter 15 reference, the inspection and testing techniques sentence, the risk-based tracking lead-in and discrete-or-assembly scope, the applicable system criteria flowdown phrase, and the Government review lead-in, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statute reference and Government as reviewer.

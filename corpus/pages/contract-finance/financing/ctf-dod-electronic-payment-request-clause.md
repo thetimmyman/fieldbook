@@ -25,7 +25,7 @@ Shows the system DoD requires for payment requests and receiving reports, the ca
 | Instrument | Codified DFARS [@CL-CTF-1745] |
 | Codified citation | DFARS 252.232-7003 [@CL-CTF-1745] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 2018 [@CL-CTF-9716] |
 | Text status | Final [@CL-CTF-1745] |
 | Applies to | Solicitations and contracts, including those using FAR part 12 procedures for commercial products and commercial services, unless an exception to electronic submission applies and invoice instructions are in the contract administration data section [@CL-CTF-1788; @CL-CTF-3003]; payment requests and receiving reports under the clause, subject to the listed exceptions [@CL-CTF-1745; @CL-CTF-1748] |
 
@@ -54,6 +54,7 @@ Who submits payment requests and receiving reports in Wide Area WorkFlow for eac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added part 12 scope and alternative-method detail; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for electronic submission of payment requests and receiving reports.

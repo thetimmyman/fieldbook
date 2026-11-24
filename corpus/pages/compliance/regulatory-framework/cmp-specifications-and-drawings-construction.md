@@ -24,7 +24,7 @@ Shows how the construction specifications and drawings clause treats gaps, confl
 | Instrument | Codified FAR [@CL-CMP-4904] |
 | Codified citation | FAR 52.236-21 [@CL-CMP-4904] |
 | RFO citation | RFO FAR 52.236-21 [@CL-CMP-6040] |
-| Edition date | Not established. |
+| Edition date | FEB 1997 [@CL-CMP-10279] |
 | Text status | Final [@CL-CMP-4904] |
 | Applies to | Solicitations and contracts where the prescription directs insertion of the clause [@CL-CMP-4904] |
 
@@ -75,6 +75,7 @@ Which executed construction contracts in the finance remit carry this clause, wh
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: specifications and drawings: shall wording restored for contractor and officer duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on architect-engineer design and DFARS drawings.

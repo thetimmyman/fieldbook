@@ -23,7 +23,7 @@ Explains the clause under which the Government indemnifies a contractor against 
 | Instrument | Codified FAR [@CL-CMP-5574] |
 | Codified citation | FAR 52.250-1, including Alternate I [@CL-CMP-5574; @CL-CMP-5706] |
 | RFO citation | RFO FAR 52.250-1, including Alternate I [@CL-CMP-2119; @CL-CMP-2152] |
-| Edition date | Not established. |
+| Edition date | Apr 1984 [@CL-CMP-2119] |
 | Text status | Final [@CL-CMP-5574] |
 | Applies to | Contracts in which the clause is inserted as prescribed; Alternate I applies in cost-reimbursement contracts [@CL-CMP-5574; @CL-CMP-5706] |
 
@@ -72,6 +72,7 @@ Which contracts contain the clause and who confirms that the defined risk and th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on DFARS indemnification and insurance costs.

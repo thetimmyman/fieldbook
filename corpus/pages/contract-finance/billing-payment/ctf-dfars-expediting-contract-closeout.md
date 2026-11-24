@@ -25,7 +25,7 @@ Shows how the DFARS closeout clause treats a small residual balance at closeout,
 | Instrument | Codified DFARS [@CL-CTF-1806] |
 | Codified citation | DFARS 252.204-7022 [@CL-CTF-1806] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAY 2021 [@CL-CTF-9651] |
 | Text status | Final [@CL-CTF-1806] |
 | Applies to | Contracts that include the clause, at the conclusion of the applicable closeout requirements [@CL-CTF-1806] |
 
@@ -54,6 +54,7 @@ How residual balances are found and agreed at closeout, and who resolves the bil
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inferences and meta wording; restated residual amount and offsets rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for expediting contract closeout.

@@ -25,7 +25,7 @@ Shows when the contractor indemnifies the Government for infringement claims, wh
 | Instrument | Codified FAR [@CL-CTF-2439] |
 | Codified citation | FAR 52.212-4(h), (j), (k) and (n) [@CL-CTF-2439; @CL-CTF-2441; @CL-CTF-2442; @CL-CTF-2443] |
 | RFO citation | RFO FAR 52.212-4(h) [@CL-CTF-0140; @CL-CTF-0141]; RFO FAR 52.212-4(j) [@CL-CTF-0142; @CL-CTF-0143]; RFO FAR 52.212-4(k) [@CL-CTF-0143]; RFO FAR 52.212-4(n) [@CL-CTF-0144] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CTF-9647] |
 | Text status | Final [@CL-CTF-2439] |
 | Applies to | Contracts that contain the commercial products and services terms clause, as to the paragraphs quoted [@CL-CTF-2439] |
 
@@ -56,6 +56,7 @@ Confirm the transportation term and any title term in each executed contract. [@
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated title, price and indemnity wording to match the clause; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Patent indemnity summary now carries the performance scope.

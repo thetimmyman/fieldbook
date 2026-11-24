@@ -25,7 +25,7 @@ Shows what the contractor is paid when the Government terminates a commercial co
 | Instrument | Codified FAR [@CL-CTF-2444] |
 | Codified citation | FAR 52.212-4(l) and (m) [@CL-CTF-2444; @CL-CTF-2448] |
 | RFO citation | RFO FAR 52.212-4(l) [@CL-CTF-0145; @CL-CTF-0146; @CL-CTF-0147; @CL-CTF-0148]; RFO FAR 52.212-4(m) [@CL-CTF-0149; @CL-CTF-0150; @CL-CTF-0151; @CL-CTF-0152]; RFO FAR 52.212-4 Alternate I [@CL-CTF-0068; @CL-CTF-0153] |
-| Edition date | Not established. |
+| Edition date | NOV 2023 [@CL-CTF-9648] |
 | Text status | Final [@CL-CTF-2444] |
 | Applies to | Contracts that contain the commercial products and services terms clause, as to the paragraphs quoted [@CL-CTF-2444] |
 
@@ -60,6 +60,7 @@ Confirm which executed contracts allow these terminations and how termination ch
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inference and contrast; restated the improper default termination condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Convenience payment summary now keeps the subject-to-contract-terms qualifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

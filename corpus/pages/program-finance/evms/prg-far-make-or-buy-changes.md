@@ -25,7 +25,7 @@ Shows when the contractor must notify the contracting officer of a change or add
 | Instrument | Codified FAR [@CL-PRG-0935] |
 | Codified citation | FAR 52.215-9 [@CL-PRG-0935] |
 | RFO citation | RFO FAR 52.215-9 [@CL-PRG-0017; @CL-PRG-0018; @CL-PRG-0019; @CL-PRG-0020], with Alternate I [@CL-PRG-0021; @CL-PRG-0022; @CL-PRG-0023] and Alternate II [@CL-PRG-0024; @CL-PRG-0025; @CL-PRG-0026] |
-| Edition date | Not established. |
+| Edition date | Oct 1997 [@CL-PRG-0017] |
 | Text status | Final [@CL-PRG-0935] |
 | Applies to | Contracts that include the clause [@CL-PRG-0935] |
 
@@ -58,6 +58,7 @@ Who decides and approves a change to the make-or-buy program, and whether any co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for codified Alternate II support-data items, separated RFO and codified citations, and removed meta-wording.

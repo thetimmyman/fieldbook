@@ -1321,6 +1321,8 @@ fn published_adapters_and_templates_replay() {
         ("adapter", Some("backup"), "folder@1"),
         ("adapter", Some("store"), "folder@1"),
         ("adapter", Some("authz"), "policy-readers@1"),
+        ("adapter", Some("index"), "bm25f@1"),
+        ("adapter", Some("correlator"), "exact-ids+bm25@1"),
         ("template", None, "ask@1"),
     ];
 

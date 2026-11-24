@@ -25,7 +25,7 @@ Sets out the two kinds of differing site condition, the notice and adjustment ru
 | Instrument | Codified FAR [@CL-CMP-4861] |
 | Codified citation | FAR 52.236-2, FAR 52.236-3 and FAR 52.236-4 [@CL-CMP-4861; @CL-CMP-4867; @CL-CMP-4870] |
 | RFO citation | RFO FAR 52.236-2 [@CL-CMP-1068]; RFO FAR 52.236-3 [@CL-CMP-1074]; no RFO equivalent for FAR 52.236-4, which the RFO text prints as reserved [@CL-CMP-1081] |
-| Edition date | Not established. |
+| Edition date | FAR 52.236-2: APR 1984 [@CL-CMP-10181]; FAR 52.236-3: APR 1984 [@CL-CMP-10182]; FAR 52.236-4: APR 1984 [@CL-CMP-10183] |
 | Text status | Final [@CL-CMP-4861] |
 | Applies to | Contracts that include the clauses. The physical data clause is prescribed for solicitations and contracts when a fixed-price construction contract is contemplated and physical data will be furnished or made available to offerors [@CL-CMP-4861; @CL-CMP-5033] |
 
@@ -76,6 +76,7 @@ Which construction contracts carry these clauses, where each notice was filed, a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated notice conditions as alternatives, kept RFO and codified citations separate, removed uncited contrast and added wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

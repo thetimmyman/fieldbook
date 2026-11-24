@@ -25,7 +25,7 @@ Shows what the Accounting System Administration clause requires of the contracto
 | Instrument | Codified DFARS [@CL-CMP-1602] |
 | Codified citation | DFARS 252.242-7006 [@CL-CMP-1602] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-CMP-10059] |
 | Text status | Final [@CL-CMP-1602] |
 | Applies to | Contracts that include the clause [@CL-CMP-1602] |
 
@@ -54,6 +54,7 @@ The current government status of each accounting system: approved, disapproved, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the final-determination evaluation lead-in and the 45-day final-determination condition, completed the initial-determination detail sentence, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Accounting system definition keeps its reporting purpose.

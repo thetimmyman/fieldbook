@@ -25,7 +25,7 @@ Shows the contractor duties under the earned value management system clause: the
 | Instrument | Codified FAR [@CL-PRG-0909] |
 | Codified citation | FAR 52.234-4 [@CL-PRG-0909] |
 | RFO citation | RFO FAR 52.234-4 [@CL-PRG-0005; @CL-PRG-0006; @CL-PRG-0007; @CL-PRG-0008; @CL-PRG-0009; @CL-PRG-0010; @CL-PRG-0011; @CL-PRG-0012; @CL-PRG-0013; @CL-PRG-0014] |
-| Edition date | Not established. |
+| Edition date | NOV 2016 [@CL-PRG-9165] |
 | Text status | Final [@CL-PRG-0909] |
 | Applies to | Contracts that include the clause [@CL-PRG-0909] |
 
@@ -56,6 +56,7 @@ Whether the cognizant agency has determined the contract's system compliant, whi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for paragraph (a) performance criteria reference, separated RFO and codified citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored surveillance purpose; separated waiver from advice duty.

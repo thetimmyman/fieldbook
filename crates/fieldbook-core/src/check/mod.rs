@@ -19,6 +19,7 @@ pub mod page_body;
 pub mod page_links;
 pub mod page_parts;
 pub mod pages;
+pub mod pipeline;
 pub mod promotion;
 pub mod quotes;
 pub mod register_cells;
@@ -90,6 +91,7 @@ const PASSES: &[Pass] = &[
     citation_rules::check,
     scans::check,
     regression::check,
+    pipeline::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {

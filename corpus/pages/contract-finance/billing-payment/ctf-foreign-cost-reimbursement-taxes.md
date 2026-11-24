@@ -25,7 +25,7 @@ Shows which foreign taxes and duties are not an allowable cost under the foreign
 | Instrument | Codified FAR [@CL-CTF-2549] |
 | Codified citation | FAR 52.229-8 and FAR 52.229-9 [@CL-CTF-2549; @CL-CTF-2551] |
 | RFO citation | RFO FAR 52.229-8 and RFO FAR 52.229-9 [@CL-CTF-0336; @CL-CTF-0340] |
-| Edition date | Not established. |
+| Edition date | FAR 52.229-8: MAR 1990 [@CL-CTF-9695]; FAR 52.229-9: MAR 1990 [@CL-CTF-9696] |
 | Text status | Final [@CL-CTF-2549] |
 | Applies to | Not established. |
 
@@ -66,6 +66,7 @@ Whether each foreign cost-reimbursement contract carries the general or the fore
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited summary and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxes under foreign cost-reimbursement contracts.

@@ -24,7 +24,7 @@ Shows what the segregated facilities prohibition bans, how the construction affi
 | Instrument | Codified FAR [@CL-CMP-5876] |
 | Codified citation | FAR 52.222-21, 52.222-23 and 52.222-24 [@CL-CMP-5876; @CL-CMP-5880; @CL-CMP-5882] |
 | RFO citation | RFO part 52 prints FAR 52.222-21, 52.222-23 and 52.222-24 as reserved [@CL-CMP-5684; @CL-CMP-5685; @CL-CMP-5686] |
-| Edition date | Not established. |
+| Edition date | APR 2015 [@CL-CMP-10274] |
 | Text status | Final [@CL-CMP-5876] |
 | Applies to | Solicitations carrying the construction affirmative action notice or the preaward evaluation provision, and subcontracts subject to the equal opportunity clause [@CL-CMP-5880; @CL-CMP-5882; @CL-CMP-5879] |
 
@@ -61,6 +61,7 @@ Whether each covered construction subcontract carries the segregated facilities 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added what the compliance basis applies to and the OFCCP actor on the preaward evaluation.

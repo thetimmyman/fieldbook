@@ -1250,6 +1250,26 @@ fn scan_sources(repo: &Path, rows: &[Row]) -> Result<(), String> {
     Ok(())
 }
 
+/// Searches `dir` recursively for a `.rs` file whose text contains `needle`.
+fn dir_has_contract(dir: &Path, needle: &str) -> bool {
+    let Ok(entries) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    for entry in entries.flatten() {
+        let path = entry.path();
+        if path.is_dir() {
+            if dir_has_contract(&path, needle) {
+                return true;
+            }
+        } else if path.extension().and_then(|ext| ext.to_str()) == Some("rs")
+            && std::fs::read_to_string(&path).is_ok_and(|content| content.contains(needle))
+        {
+            return true;
+        }
+    }
+    false
+}
+
 /// Pure registry drift verification function.
 pub fn registry_drift(
     rows: &[Row],
@@ -1274,24 +1294,28 @@ pub fn registry_drift(
         }
 
         if row.state == State::Built {
-            // Check contract test function exists
+            // Check contract test function exists in the named file or the owning crate's tests.
             let contract_fn = format!("fn {}(", row.contract_name());
             let test_file = if row.krate == "xtask" {
                 repo.join("xtask/src/extract.rs")
             } else if row.port == Port::Admit && row.krate == "fieldbook-core" {
                 repo.join("crates/fieldbook-core/tests/pipeline.rs")
+            } else if row.port == Port::Classifier && row.krate == "fieldbook-core" {
+                repo.join("crates/fieldbook-core/tests/contract_rules.rs")
             } else {
                 repo.join("crates/fieldbook/tests/adapters.rs")
             };
+            let crate_tests = repo.join("crates").join(row.krate).join("tests");
 
-            let test_content = std::fs::read_to_string(&test_file)
-                .map_err(|e| format!("read {}: {e}", test_file.display()))?;
-            if !test_content.contains(&contract_fn) {
+            let found_in_named = std::fs::read_to_string(&test_file)
+                .is_ok_and(|content| content.contains(&contract_fn));
+            if !found_in_named && !dir_has_contract(&crate_tests, &contract_fn) {
                 return Err(format!(
-                    "row {}: contract test {} not found in {}",
+                    "row {}: contract test {} not found in {} or {}",
                     row.id,
                     contract_fn,
-                    test_file.display()
+                    test_file.display(),
+                    crate_tests.display()
                 ));
             }
 

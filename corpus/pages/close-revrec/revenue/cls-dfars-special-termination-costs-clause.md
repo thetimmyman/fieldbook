@@ -25,7 +25,7 @@ Shows which costs the special termination costs clause covers, how the dollar am
 | Instrument | Codified DFARS [@CL-CLS-1150] |
 | Codified citation | DFARS 252.249-7000 [@CL-CLS-1150] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DEC 1991 [@CL-CLS-1624] |
 | Text status | Final [@CL-CLS-1150] |
 | Applies to | Contracts with the special termination costs clause, which DFARS 249.501-70 prescribes [@CL-CLS-1200] |
 
@@ -54,6 +54,7 @@ Which executed contracts carry the clause and the amount inserted in each, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: special termination costs clause: category cross-references, uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special termination costs.

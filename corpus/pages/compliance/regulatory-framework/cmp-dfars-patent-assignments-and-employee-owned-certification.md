@@ -25,7 +25,7 @@ Shows what a contractor conveys in a patent assignment, what list it gives coope
 | Instrument | Codified DFARS [@CL-CMP-4608; @CL-CMP-4611; @CL-CMP-4614] |
 | Codified citation | DFARS 252.227-7011 [@CL-CMP-4608]; DFARS 252.205-7000 [@CL-CMP-4611]; DFARS 252.270-7001 [@CL-CMP-4614] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.227-7011: AUG 1984 [@CL-CMP-10159]; DFARS 252.205-7000: OCT 2024 [@CL-CMP-10160]; DFARS 252.270-7001: NOV 2024 [@CL-CMP-10161] |
 | Text status | Final [@CL-CMP-4608; @CL-CMP-4611; @CL-CMP-4614] |
 | Applies to | Assignments, for the assignment clause [@CL-CMP-4608]; solicitations and contracts expected to exceed $1.5 million, except those solely for the acquisition of commercially available off-the-shelf items, for the cooperative agreement holder clause [@CL-CMP-4740]; offerors under the employee-owned business certification provision [@CL-CMP-4614] |
 
@@ -54,6 +54,7 @@ Which contracts, assignments and solicitations carry these clauses and provision
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated holder definition and certification exceptions as alternatives, named tax provisions; cut uncited contrasts.

@@ -25,7 +25,7 @@ Shows what the contractor may not do about its subcontractors' direct sales to t
 | Instrument | Codified FAR [@CL-CMP-2645] |
 | Codified citation | FAR 52.203-6 [@CL-CMP-2645] |
 | RFO citation | RFO FAR 52.203-6 [@CL-CMP-6214; @CL-CMP-6215; @CL-CMP-6259; @CL-CMP-6260] and Alternate I [@CL-CMP-6296; @CL-CMP-6297] |
-| Edition date | Not established. |
+| Edition date | Jun 2020 [@CL-CMP-6214] |
 | Text status | Final [@CL-CMP-2645] |
 | Applies to | Solicitations and contracts exceeding the simplified acquisition threshold, with Alternate I for commercial products or commercial services [@CL-CMP-2685; @CL-CMP-2686] |
 
@@ -56,6 +56,7 @@ Which contracts carry the clause, and whether prime and subcontract agreements c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed the uncited flowdown pointer; paragraph (c) is set out below.
 - COMPATIBLE_EXTENSION, 2026-10-31: subcontractor sales restriction: shall wording, paragraph (b) exception named.

@@ -25,7 +25,7 @@ Shows when amounts the contractor owes the Government start to bear interest and
 | Instrument | Codified FAR [@CL-CTF-1671; @CL-CTF-1675] |
 | Codified citation | FAR 52.232-17 [@CL-CTF-1671]; FAR 52.232-23 [@CL-CTF-1675] |
 | RFO citation | RFO FAR 52.232-17 [@CL-CTF-0383]; RFO FAR 52.232-23 [@CL-CTF-0387] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-17: May 2014 [@CL-CTF-0383]; FAR 52.232-23: May 2014 [@CL-CTF-0387] |
 | Text status | Final [@CL-CTF-1671; @CL-CTF-1675] |
 | Applies to | Amounts payable by the contractor to the Government under the contract, and the contractor's right to be paid under the contract [@CL-CTF-1671; @CL-CTF-1675] |
 
@@ -58,6 +58,7 @@ Confirm whether financing arrangements assign contract payments, who handles Gov
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named 41 U.S.C. 7109 and FAR 32.608-2, restored all due-date and simple-interest qualifiers in How it works, separated RFO citations, and cut meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Federal lending agency and further-assignment sentence, the financing-participants qualifier on agent or trustee assignments, and the no-setoff-commitment condition for Alternate I.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the interest penalty rule.

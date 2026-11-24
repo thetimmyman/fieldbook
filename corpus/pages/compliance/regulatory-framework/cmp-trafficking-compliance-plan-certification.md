@@ -24,7 +24,7 @@ Shows when the trafficking compliance plan certification applies, what the offer
 | Instrument | Codified FAR [@CL-CMP-5905] |
 | Codified citation | FAR 52.222-56 [@CL-CMP-5905] |
 | RFO citation | RFO FAR 52.222-56 [@CL-CMP-6333; @CL-CMP-6334] |
-| Edition date | Not established. |
+| Edition date | OCT 2025 [@CL-CMP-10280] |
 | Text status | Final [@CL-CMP-5905] |
 | Applies to | The apparent successful offeror, for the contract portion for supplies, other than commercially available off-the-shelf items, acquired outside the United States or services performed outside the United States above the value threshold [@CL-CMP-5906; @CL-CMP-5905] |
 
@@ -53,6 +53,7 @@ Which overseas contract portions cross the value threshold and who signs the pre
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: trafficking certification: cited the claim stating the conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: trafficking certification: shall submit stated with paragraph (c).

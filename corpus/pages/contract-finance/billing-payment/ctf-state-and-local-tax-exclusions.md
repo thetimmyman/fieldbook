@@ -25,7 +25,7 @@ Explains how the State and Local Taxes clause takes State and local taxes out of
 | Instrument | Codified FAR [@CL-CTF-2521] |
 | Codified citation | FAR 52.229-1 and FAR 52.229-4 [@CL-CTF-2521; @CL-CTF-2523]; FAR 2.101 [@CL-CTF-9466] |
 | RFO citation | RFO FAR 52.229-1 [@CL-CTF-0660; @CL-CTF-0661]; RFO FAR 52.229-4 [@CL-CTF-0662; @CL-CTF-0663; @CL-CTF-0664; @CL-CTF-0665; @CL-CTF-0666; @CL-CTF-0667; @CL-CTF-0668; @CL-CTF-0669; @CL-CTF-0670; @CL-CTF-0671; @CL-CTF-0672; @CL-CTF-0673; @CL-CTF-0674; @CL-CTF-0675; @CL-CTF-0676; @CL-CTF-0677; @CL-CTF-0678; @CL-CTF-9127; @CL-CTF-9128; @CL-CTF-9129; @CL-CTF-9130; @CL-CTF-3208]; RFO FAR 2.101 [@CL-CTF-9467] |
-| Edition date | Not established. |
+| Edition date | FAR 52.229-1: Apr 1984 [@CL-CTF-0660]; FAR 52.229-4: FEB 2013 [@CL-CTF-9707] |
 | Text status | Final [@CL-CTF-2521] |
 | Applies to | Contracts that include the State and Local Taxes clause or the clause with State and local adjustments [@CL-CTF-2521; @CL-CTF-2523] |
 
@@ -80,6 +80,7 @@ Whether each contract carries the State and Local Taxes clause or the clause wit
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 52.229-4(g) equitable adjustment companion (CL-CTF-3208), restored mandatory shall/must modals across price-adjustment paragraphs, separated RFO and codified citations, and removed uncited sentences and meta wording.

@@ -23,7 +23,7 @@ Shows where labor standards disputes are routed, what the eligibility certificat
 | Instrument | Codified FAR [@CL-CMP-5845] |
 | Codified citation | FAR 52.222-14, FAR 52.222-15 and FAR 52.222-16 [@CL-CMP-5845; @CL-CMP-5847; @CL-CMP-5851] |
 | RFO citation | RFO FAR 52.222-14 [@CL-CMP-1387], RFO FAR 52.222-15 [@CL-CMP-1389; @CL-CMP-1390; @CL-CMP-1391] and RFO FAR 52.222-16 [@CL-CMP-1392; @CL-CMP-1393; @CL-CMP-1394; @CL-CMP-1395] |
-| Edition date | Not established. |
+| Edition date | FAR 52.222-14: FEB 1988 [@CL-CMP-10221]; FAR 52.222-15: May 2014 [@CL-CMP-1389]; FAR 52.222-16: MAY 2014 [@CL-CMP-10222] |
 | Text status | Final [@CL-CMP-5845] |
 | Applies to | Contracts that carry the disputes clause as prescribed at FAR 22.407(a), and the approval of wage rates clause as prescribed at FAR 22.407(b) [@CL-CMP-5845; @CL-CMP-6194] |
 
@@ -60,6 +60,7 @@ Which covered contracts pay rates above the determination, and who confirms the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts and explanation; restated clause rules; replaced RFO text-of wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

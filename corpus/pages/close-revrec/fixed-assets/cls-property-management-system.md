@@ -25,7 +25,7 @@ Explains the clause that tests the contractor's system for managing and controll
 | Instrument | Codified DFARS [@CL-CLS-0101] |
 | Codified citation | DFARS 252.245-7003 [@CL-CLS-0101] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-CLS-1608] |
 | Text status | Final [@CL-CLS-0101] |
 | Applies to | Contracts carrying the Contractor Property Management System Administration clause [@CL-CLS-0101] |
 
@@ -62,6 +62,7 @@ Who owns the property title and inventory records, and how physical and accounti
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and clause qualifiers, and replaced uncited Never confuse commentary with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the 45-day lead-in and the contracting officer as the actor on determinations and withholding.

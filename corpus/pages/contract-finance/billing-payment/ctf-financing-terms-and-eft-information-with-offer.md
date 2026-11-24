@@ -25,7 +25,7 @@ Shows what an offeror may propose for contract financing and what electronic fun
 | Instrument | Codified FAR [@CL-CTF-1678; @CL-CTF-1682] |
 | Codified citation | FAR 52.232-31 [@CL-CTF-1678]; FAR 52.232-38 [@CL-CTF-1682] |
 | RFO citation | RFO FAR 52.232-31 [@CL-CTF-0250]; RFO FAR 52.232-38 [@CL-CTF-0287] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-31: Dec 2022 [@CL-CTF-0250]; FAR 52.232-38: Jul 2013 [@CL-CTF-0287] |
 | Text status | Final [@CL-CTF-1678; @CL-CTF-1682] |
 | Applies to | Offerors responding to a solicitation that contains the provisions [@CL-CTF-1678; @CL-CTF-1682] |
 
@@ -58,6 +58,7 @@ Confirm which financing terms the company proposes in offers and who prepares an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the correspondent-institution item; cut meta and uncited wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the lead-in that the proposal shall include the two listed financing items, and the delivery-payment amount in the codified listing; paired the RFO listing with its codified counterpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -25,7 +25,7 @@ Shows what a contractor must do after a termination notice on a dismantling, dem
 | Instrument | Codified FAR [@CL-CTF-2058] |
 | Codified citation | FAR 52.249-3 [@CL-CTF-2058] |
 | RFO citation | RFO FAR 52.249-3 [@CL-CTF-0696; @CL-CTF-0713] |
-| Edition date | Not established. |
+| Edition date | Apr 2012 [@CL-CTF-0696] |
 | Text status | Final [@CL-CTF-2058] |
 | Applies to | Solicitations and contracts for dismantling, demolition or removal of improvements [@CL-CLS-1017], when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1018] |
 
@@ -70,6 +70,7 @@ Whether any contract carries this clause and who tracks the schedule and proposa
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.249-3(g)(1)(ii), (b)(9) sale proceeds, (k)(3) deductions, (l) agreed adjustment, and (m)(1) partial payments, separated RFO and codified citations, and removed unbacked contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the second delivery item and the right-of-appeal lead-in for the appeal exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the by-the-contracting-officer profit determination, the must wording, the paragraph (f) or (g) scope of the cap, the among-other-items scope of delivery and the paragraph (e) or (f) appeal exception.

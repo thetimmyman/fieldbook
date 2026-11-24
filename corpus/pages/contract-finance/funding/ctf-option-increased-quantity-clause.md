@@ -25,7 +25,7 @@ Shows how the Government increases the supply quantity under this option, how it
 | Instrument | Codified FAR [@CL-CTF-2299] |
 | Codified citation | FAR 52.217-6 [@CL-CTF-2299] |
 | RFO citation | RFO FAR 52.217-6 [@CL-CTF-1272] |
-| Edition date | Not established. |
+| Edition date | Mar 1989 [@CL-CTF-1272] |
 | Text status | Final [@CL-CTF-2299] |
 | Applies to | Contracts that include the increased quantity clause [@CL-CTF-2299] |
 
@@ -56,6 +56,7 @@ Confirm which contracts carry this clause and the notice period inserted in each
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality for delivery rate, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed words about the Schedule that the unit-price quote does not contain.

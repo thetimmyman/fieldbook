@@ -24,7 +24,7 @@ Shows what production surveillance is, which contracts the subpart covers, and w
 | Instrument | Codified FAR [@CL-CMP-2569] |
 | Codified citation | FAR 42.1101, FAR 42.1102, FAR 42.1107 and FAR 52.242-2 [@CL-CMP-2569; @CL-CMP-2571; @CL-CMP-2572; @CL-CMP-2654] |
 | RFO citation | RFO FAR 42.801 [@CL-CMP-6959; @CL-CMP-6960], RFO FAR 42.802 [@CL-CMP-6961], RFO FAR 42.805 [@CL-CMP-6962; @CL-CMP-6963] and RFO FAR 52.242-2 [@CL-CMP-6964; @CL-CMP-6965] |
-| Edition date | Not established. |
+| Edition date | Apr 1991 [@CL-CMP-6964] |
 | Text status | Final [@CL-CMP-2569] |
 | Applies to | Surveillance subpart: all contracts for supplies or services other than construction contracts, and Federal Supply Schedule contracts [@CL-CMP-2571]. Progress reports clause: solicitations and contracts when production progress reporting is required, unless a construction contract or a Federal Supply Schedule contract is contemplated [@CL-CMP-2572] |
 
@@ -55,6 +55,7 @@ Which executed contracts carry the Production Progress Reports clause, and who c
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 42 and part 52 citations and how DoD's class deviations apply them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for production surveillance applicability and the production progress reports clause.

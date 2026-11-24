@@ -25,7 +25,7 @@ Shows what an offeror proposes under the invitation to propose performance-based
 | Instrument | Codified FAR [@CL-CTF-2031; @CL-CTF-2035; @CL-CTF-2038] |
 | Codified citation | FAR 52.232-28, FAR 52.232-29 and FAR 52.232-30 [@CL-CTF-2031; @CL-CTF-2035; @CL-CTF-2038] |
 | RFO citation | RFO FAR 52.232-28 [@CL-CTF-0549]; RFO FAR 52.232-29 [@CL-CTF-0555]; RFO FAR 52.232-30 [@CL-CTF-0569] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-28: Mar 2000 [@CL-CTF-0549]; FAR 52.232-29: Nov 2021 [@CL-CTF-0555]; FAR 52.232-30: Nov 2021 [@CL-CTF-0569] |
 | Text status | Final [@CL-CTF-2031; @CL-CTF-2035; @CL-CTF-2038] |
 | Applies to | Offerors responding to a solicitation that includes the invitation provision [@CL-CTF-2031]; each contract financing clause for commercial purchases must include, unless agency regulations authorize alterations, the unaltered text of the clause at FAR 52.232-29 [@CL-CTF-1420], and contracting officers may insert the clause at FAR 52.232-30 in solicitations and contracts in lieu of constructing a specific clause in accordance with FAR 32.206(b) through (e) [@CL-CTF-1421] if the contract action qualifies under the criteria at FAR 32.202-1(b) and installment payments for the item are either customary or are authorized in accordance with agency procedures [@CL-CTF-1422] |
 
@@ -68,6 +68,7 @@ Which offers propose performance-based payments or use commercial financing, and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and prescription qualifiers, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the entitlement lead-in for commercial financing payments (new companions CL-CTF-9624 and CL-CTF-9625) and the when-requested and contract-financing-terms qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the monthly installment request rule.

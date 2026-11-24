@@ -24,7 +24,7 @@ Shows what an offeror must describe and submit about cost and software data repo
 | Instrument | Codified DFARS [@CL-CMP-3842; @CL-CMP-3846] |
 | Codified citation | DFARS 252.234-7003 and 252.234-7004 [@CL-CMP-3842; @CL-CMP-3846] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | NOV 2014 [@CL-CMP-10053] |
 | Text status | Final [@CL-CMP-3842; @CL-CMP-3846] |
 | Applies to | Offerors on solicitations with the provision, and contractors under contracts with the clause [@CL-CMP-3842; @CL-CMP-3846] |
 
@@ -55,6 +55,7 @@ Which solicitations and contracts carry the basic or the Alternate I text, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the Alternate I subcontractor wording to the cited text and removed meta-wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS cost and software data reporting.

@@ -24,7 +24,7 @@ Explains how a solicitation shows that an award will be a rated order, what the 
 | Instrument | Codified FAR [@CL-CMP-5995] |
 | Codified citation | FAR 52.211-14; FAR 52.211-15 [@CL-CMP-5995; @CL-CMP-5997] |
 | RFO citation | RFO FAR 52.211-14; RFO FAR 52.211-15 [@CL-CMP-2155; @CL-CMP-2157] |
-| Edition date | Not established. |
+| Edition date | FAR 52.211-14: Apr 2008 [@CL-CMP-2155]; FAR 52.211-15: Apr 2008 [@CL-CMP-2157] |
 | Text status | Final [@CL-CMP-5995] |
 | Applies to | Any contract awarded as a result of a solicitation that carries the notice, and contracts that carry the clause [@CL-CMP-5995; @CL-CMP-5997] |
 
@@ -57,6 +57,7 @@ Which awards carry a rating, which box was checked on each solicitation, and who
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified citations and removed uncited negative commentary.

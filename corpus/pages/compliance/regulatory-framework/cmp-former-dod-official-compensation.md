@@ -25,7 +25,7 @@ Shows what a contractor must check before it pays a former DoD official, and wha
 | Instrument | Codified DFARS [@CL-CMP-4064] |
 | Codified citation | DFARS 252.203-7000 [@CL-CMP-4064] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | SEP 2011 [@CL-CMP-10207] |
 | Text status | Final [@CL-CMP-4064] |
 | Applies to | Contracts that include the clause, used as prescribed in DFARS 203.171-4(a) [@CL-CMP-4064] |
 
@@ -58,6 +58,7 @@ Which contracts carry the clause and which new hires or consultants may be cover
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the position lists as alternatives, kept the knowingly and statute wording, and removed unsupported explanation.

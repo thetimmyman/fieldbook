@@ -25,7 +25,7 @@ Explains the cap on withholding when several clauses allow it, when extras are p
 | Instrument | Codified FAR [@CL-CTF-2017; @CL-CTF-2019; @CL-CTF-2020] |
 | Codified citation | FAR 52.232-9, FAR 52.232-11 and FAR 52.232-24 [@CL-CTF-2017; @CL-CTF-2019; @CL-CTF-2020] |
 | RFO citation | RFO FAR 52.232-9 [@CL-CTF-0805; @CL-CTF-0806]; RFO FAR 52.232-9(a)-(d) [@CL-CTF-0807]; RFO FAR 52.232-11 [@CL-CTF-0808]; RFO FAR 52.232-24 [@CL-CTF-0809] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-9: Apr 1984 [@CL-CTF-0807]; FAR 52.232-11: Apr 1984 [@CL-CTF-0808]; FAR 52.232-24: May 2014 [@CL-CTF-0809] |
 | Text status | Final [@CL-CTF-2017; @CL-CTF-2019; @CL-CTF-2020] |
 | Applies to | For the withholding limit and for extras, the contracting officer shall insert the clauses, appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1562; @CL-CTF-1521]: a clause, substantially the same as the clause at FAR 52.232-9, in solicitations and contracts when a supply contract, research and development contract, service contract, time-and-materials contract, or labor-hour contract is contemplated that includes two or more terms authorizing the temporary withholding of amounts otherwise payable to the contractor for supplies delivered or services performed [@CL-CTF-1564; @CL-CTF-1565], and the clause at FAR 52.232-11, Extras, in solicitations and contracts when a fixed-price supply contract, fixed-price service contract, or transportation contract is contemplated [@CL-CTF-1522]. For the prohibition of assignment of claims, the contracting officer shall insert the clause at FAR 52.232-24 in solicitations and contracts for which a determination has been made under agency regulations that the prohibition of assignment of claims is in the Government's interest [@CL-CTF-3380] |
 
@@ -58,6 +58,7 @@ Which contracts carry two or more withholding terms, who authorizes extras in wr
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the FAR 32.806(b) prescription for FAR 52.232-24 and the $50,000 cap and release retention in FAR 32.111(a)(7), separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the appropriately-modified payment due date wording and the substantially-the-same scope of the withholding limit clause prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

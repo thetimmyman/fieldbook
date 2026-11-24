@@ -25,7 +25,7 @@ Shows what the clause prohibits in deliverables, the exceptions and the authorit
 | Instrument | Codified DFARS [@CL-CMP-4533] |
 | Codified citation | DFARS 252.223-7008 [@CL-CMP-4533] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2023 [@CL-CMP-10143] |
 | Text status | Final [@CL-CMP-4533] |
 | Applies to | Contracts with the clause, used as prescribed in DFARS 223.7306 [@CL-CMP-4563] |
 
@@ -54,6 +54,7 @@ Which contracts carry the clause, and which deliverables and construction materi
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the two prohibited items as alternatives under the exception; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition of hexavalent chromium.

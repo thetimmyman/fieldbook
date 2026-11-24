@@ -25,7 +25,7 @@ Shows the license the Government holds when the contractor keeps title, the case
 | Instrument | Codified DFARS [@CL-CMP-3935] |
 | Codified citation | DFARS 252.227-7038 [@CL-CMP-3935] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 2012 [@CL-CMP-10164] |
 | Text status | Final [@CL-CMP-3935] |
 | Applies to | Subject inventions in which the Contractor retains ownership [@CL-CMP-3935] |
 
@@ -56,6 +56,7 @@ Which executed contracts carry this clause, who prepares the interim and utiliza
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

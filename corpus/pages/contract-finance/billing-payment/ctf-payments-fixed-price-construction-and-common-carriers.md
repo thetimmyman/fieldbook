@@ -25,7 +25,7 @@ Shows how progress payments are requested, certified, retained and refunded unde
 | Instrument | Codified FAR [@CL-CTF-2006; @CL-CTF-2015] |
 | Codified citation | FAR 52.232-5 and FAR 52.232-6 [@CL-CTF-2006; @CL-CTF-2015] |
 | RFO citation | RFO FAR 52.232-5 [@CL-CTF-0502]; RFO FAR 52.232-6 [@CL-CTF-0520] |
-| Edition date | Not established. |
+| Edition date | FAR 52.232-5: May 2014 [@CL-CTF-0502]; FAR 52.232-6: Apr 1984 [@CL-CTF-0520] |
 | Text status | Final [@CL-CTF-2006; @CL-CTF-2015] |
 | Applies to | Solicitations and contracts for construction when a fixed-price contract is contemplated [@CL-CTF-1518], and for regulated communication services by common carriers [@CL-CTF-1519], appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1514] |
 
@@ -74,6 +74,7 @@ Which construction contracts carry this clause, who prepares the monthly estimat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and clause qualifiers, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored retention, release, title and notwithstanding qualifiers on construction payments, and added companions CL-CTF-9622 and CL-CTF-9623 for the title paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

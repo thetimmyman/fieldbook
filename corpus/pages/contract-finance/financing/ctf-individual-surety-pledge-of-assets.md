@@ -24,7 +24,7 @@ Shows what a contractor must obtain from an individual surety, how long the pled
 | Instrument | Codified FAR [@CL-CTF-2480] |
 | Codified citation | FAR 52.228-11 and FAR 52.228-17 [@CL-CTF-2219; @CL-CTF-2480; @CL-CTF-2518]; FAR 2.101 [@CL-CTF-9425; @CL-CTF-2222; @CL-CTF-2223] |
 | RFO citation | RFO FAR 52.228-11(a) [@CL-CTF-2220; @CL-CTF-0896]; RFO FAR 52.228-11(b) [@CL-CTF-0897; @CL-CTF-0898; @CL-CTF-9202; @CL-CTF-0899]; RFO FAR 52.228-11(c) [@CL-CTF-0984; @CL-CTF-0985; @CL-CTF-0986; @CL-CTF-0987; @CL-CTF-0988]; RFO FAR 52.228-11(d) [@CL-CTF-0989]; RFO FAR 52.228-17 [@CL-CTF-0990; @CL-CTF-0991; @CL-CTF-0992]; RFO FAR 2.101 [@CL-CTF-9455; @CL-CTF-9483; @CL-CTF-9484] |
-| Edition date | Not established. |
+| Edition date | FAR 52.228-11: Feb 2021 [@CL-CTF-0989]; FAR 52.228-17: FEB 2021 [@CL-CTF-9722] |
 | Text status | Final [@CL-CTF-2480] |
 | Applies to | Contracts with an individual surety on a performance or payment bond, and offers with an individual surety on a bid guarantee [@CL-CTF-2219; @CL-CTF-2480; @CL-CTF-2518] |
 
@@ -69,6 +69,7 @@ Which contracts and offers rely on individual sureties, and who holds the pledge
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the lead-in claims for FAR 52.228-11(a) and RFO FAR 52.228-11(a), the codified FAR 2.101 surety types, separated codified and RFO citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now follows the contract-type periods and the discretionary bid release.

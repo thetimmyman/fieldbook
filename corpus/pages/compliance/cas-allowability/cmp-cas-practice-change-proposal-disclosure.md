@@ -25,7 +25,7 @@ Shows what an offeror states in a proposal when award would change a cost accoun
 | Instrument | Codified FAR [@CL-CMP-5942] |
 | Codified citation | FAR 52.230-7 [@CL-CMP-5942] |
 | RFO citation | RFO FAR 52.230-7 [@CL-CMP-0272] |
-| Edition date | Not established. |
+| Edition date | Apr 2005 [@CL-CMP-0272] |
 | Text status | Final [@CL-CMP-5942] |
 | Applies to | Offerors whose contract award will result in a required or unilateral change in cost accounting practice [@CL-CMP-5942] |
 
@@ -56,6 +56,7 @@ Who decides that a bid will change a practice, who confirms the period of perfor
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated the duties as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording for the yes check.

@@ -24,7 +24,7 @@ Shows how the value engineering clause sets the contractor share of savings, off
 | Instrument | Codified FAR [@CL-PRG-0919] |
 | Codified citation | FAR 52.248-1 [@CL-PRG-0919] |
 | RFO citation | RFO FAR 52.248-1 [@CL-PRG-0049; @CL-PRG-0091; @CL-PRG-0050; @CL-PRG-9002; @CL-PRG-0051; @CL-PRG-0052; @CL-PRG-0053; @CL-PRG-0054; @CL-PRG-0055; @CL-PRG-0056; @CL-PRG-0057; @CL-PRG-0058; @CL-PRG-0059; @CL-PRG-0060; @CL-PRG-0094; @CL-PRG-0095; @CL-PRG-0061; @CL-PRG-0062; @CL-PRG-0063; @CL-PRG-9000; @CL-PRG-0064; @CL-PRG-9001; @CL-PRG-0065; @CL-PRG-0066] |
-| Edition date | Not established. |
+| Edition date | JUN 2020 [@CL-PRG-9171] |
 | Text status | Final [@CL-PRG-0919] |
 | Applies to | Contracts that include the clause [@CL-PRG-0919] |
 
@@ -65,6 +65,7 @@ Where accepted proposal shares are booked, and how the price or fee adjustment a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-15: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for source of savings and contract adjustment items (2) through (4), separated RFO and codified citations, and removed meta-wording.

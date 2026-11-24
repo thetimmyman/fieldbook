@@ -24,7 +24,7 @@ Shows what the Privacy Act notification and the Privacy Act clause require of a 
 | Instrument | Codified FAR [@CL-CMP-5524] |
 | Codified citation | FAR 52.224-1 and 52.224-2 [@CL-CMP-5524; @CL-CMP-5625] |
 | RFO citation | RFO FAR 52.224-1 [@CL-CMP-1910] and RFO FAR 52.224-2 [@CL-CMP-1912] |
-| Edition date | Not established. |
+| Edition date | FAR 52.224-1: Apr 1984 [@CL-CMP-1910]; FAR 52.224-2: Apr 1984 [@CL-CMP-1912] |
 | Text status | Final [@CL-CMP-5524] |
 | Applies to | Solicitations and contracts where the design, development or operation of a system of records on individuals is required to accomplish an agency function [@CL-CMP-5524; @CL-CMP-5625] |
 
@@ -73,6 +73,7 @@ Confirm which contracts call for designing, developing or operating a system of 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the in-the-event-of-violations lead-in.

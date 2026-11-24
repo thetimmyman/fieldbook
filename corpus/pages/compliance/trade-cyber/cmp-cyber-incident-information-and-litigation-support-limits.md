@@ -25,7 +25,7 @@ Shows what a contractor may and may not do with information obtained from a thir
 | Instrument | Codified DFARS [@CL-CMP-2849; @CL-CMP-2853] |
 | Codified citation | DFARS 252.204-7009(b) [@CL-CMP-2849]; DFARS 252.204-7014(b)(1) [@CL-CMP-2853] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.204-7009: JAN 2023 [@CL-CMP-10302]; DFARS 252.204-7014: JAN 2023 [@CL-CMP-10303] |
 | Text status | Final [@CL-CMP-2849; @CL-CMP-2853] |
 | Applies to | Information obtained from a third party's reporting of a cyber incident under the safeguarding clause [@CL-CMP-2849]; litigation information under the litigation support clause [@CL-CMP-2853] |
 
@@ -54,6 +54,7 @@ Which storage, transfer and assistant tools IT approves for incident and litigat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored return-to-Government wording; replaced uncited contrasts with cited purposes.

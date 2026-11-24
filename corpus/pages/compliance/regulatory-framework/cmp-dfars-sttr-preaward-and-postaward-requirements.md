@@ -25,7 +25,7 @@ Shows what an STTR offer must contain about its agreement with a research instit
 | Instrument | Codified DFARS [@CL-CMP-3922] |
 | Codified citation | DFARS 252.227-7040 and 252.227-7041 [@CL-CMP-3922; @CL-CMP-3926] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-CMP-10173] |
 | Text status | Final [@CL-CMP-3922] |
 | Applies to | Offers in response to a solicitation with the preaward provision [@CL-CMP-3922] |
 
@@ -54,6 +54,7 @@ Which executed STTR contracts carry these provisions, where the agreement and re
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the preaward and postaward agreement sentences and recast the contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the scope of the preaward intellectual property allocation.

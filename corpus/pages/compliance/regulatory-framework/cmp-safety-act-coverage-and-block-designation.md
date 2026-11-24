@@ -23,7 +23,7 @@ Explains the two SAFETY Act solicitation provisions, what an offeror may submit 
 | Instrument | Codified FAR [@CL-CMP-5584; @CL-CMP-5587] |
 | Codified citation | FAR 52.250-2 and FAR 52.250-3 [@CL-CMP-5584; @CL-CMP-5587] |
 | RFO citation | RFO FAR 52.250-2 [@CL-CMP-2535; @CL-CMP-2536; @CL-CMP-2537; @CL-CMP-9778]; RFO FAR 52.250-3 [@CL-CMP-2538; @CL-CMP-2539; @CL-CMP-2540; @CL-CMP-2541; @CL-CMP-2542; @CL-CMP-2543; @CL-CMP-2544; @CL-CMP-2545; @CL-CMP-2546; @CL-CMP-2547; @CL-CMP-2548; @CL-CMP-2549; @CL-CMP-2574; @CL-CMP-2575; @CL-CMP-2580; @CL-CMP-3756; @CL-CMP-3757; @CL-CMP-3758; @CL-CMP-9779; @CL-CMP-9780] |
-| Edition date | Not established. |
+| Edition date | FAR 52.250-2: Feb 2009 [@CL-CMP-2535]; FAR 52.250-3: Feb 2009 [@CL-CMP-2538] |
 | Text status | Final [@CL-CMP-5584; @CL-CMP-5587] |
 | Applies to | Solicitations in which a provision is inserted as prescribed [@CL-CMP-5584; @CL-CMP-5587] |
 
@@ -72,6 +72,7 @@ Whether the solicitation carries either SAFETY Act provision and which alternate
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the for-purposes-of-the-solicitation scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on SAFETY Act pre-qualification and equitable adjustment.

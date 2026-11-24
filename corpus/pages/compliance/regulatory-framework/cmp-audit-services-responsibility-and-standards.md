@@ -25,7 +25,7 @@ Shows what an offeror for audit services must meet and show to be found responsi
 | Instrument | Codified DFARS [@CL-CMP-4396] |
 | Codified citation | DFARS 252.237-7000 and DFARS 252.237-7001 [@CL-CMP-4396; @CL-CMP-4397] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.237-7000: DEC 1991 [@CL-CMP-10074]; DFARS 252.237-7001: MAY 2000 [@CL-CMP-10075] |
 | Text status | Final [@CL-CMP-4396] |
 | Applies to | Offerors responding to a solicitation that includes the provision, which is used as prescribed in DFARS 237.270(e)(1), and contractors under contracts that include the clause, which is used as prescribed in DFARS 237.270(e)(2), for audit services [@CL-CMP-4396; @CL-CMP-4397; @CL-CMP-4348] |
 
@@ -54,6 +54,7 @@ Whether the company offers audit services to the Department of Defense, and who 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrasts.

@@ -23,7 +23,7 @@ Explains what a pre-qualification designation notice does for an offeror, how it
 | Instrument | Codified FAR [@CL-CMP-5592; @CL-CMP-5595] |
 | Codified citation | FAR 52.250-4 and FAR 52.250-5 [@CL-CMP-5592; @CL-CMP-5595] |
 | RFO citation | RFO FAR 52.250-4 [@CL-CMP-4487; @CL-CMP-4488; @CL-CMP-4489; @CL-CMP-4490; @CL-CMP-4616; @CL-CMP-4617; @CL-CMP-4618]; RFO FAR 52.250-5 [@CL-CMP-4619; @CL-CMP-4620; @CL-CMP-4621; @CL-CMP-4622; @CL-CMP-4623; @CL-CMP-4624; @CL-CMP-4625] |
-| Edition date | Not established. |
+| Edition date | FAR 52.250-4: Feb 2009 [@CL-CMP-4487]; FAR 52.250-5: FEB 2009 [@CL-CMP-10263] |
 | Text status | Final [@CL-CMP-5592; @CL-CMP-5595] |
 | Applies to | Solicitations and contracts in which the provision or clause is inserted as prescribed [@CL-CMP-5592; @CL-CMP-5595] |
 
@@ -70,6 +70,7 @@ Which contracts were priced on an expected SAFETY Act designation, and who track
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched who may terminate in place of an adjustment.

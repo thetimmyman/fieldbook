@@ -25,7 +25,7 @@ Explains how an incrementally funded contract limits the work the contractor mus
 | Instrument | Codified FAR [@CL-CTF-0114] |
 | Codified citation | FAR 52.232-22 [@CL-CTF-0114] |
 | RFO citation | RFO FAR 52.232-22 [@CL-CTF-1171] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-CTF-9729] |
 | Text status | Final [@CL-CTF-0114] |
 | Applies to | Contracts in which the Limitation of Funds clause is inserted as prescribed in FAR 32.706-2(b) [@CL-CTF-0114] |
 
@@ -66,6 +66,7 @@ Confirm which contracts are incrementally funded, which notice dates and thresho
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.232-22(c) and RFO FAR 52.232-22(c) required notice content, separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's wording for the later termination date condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the 75 percent base, the funds-notice scope and the Termination clause tie.

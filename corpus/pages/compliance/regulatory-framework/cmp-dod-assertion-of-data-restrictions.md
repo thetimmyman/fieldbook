@@ -25,7 +25,7 @@ Shows what an offeror must list in its offer when it wants the Government's righ
 | Instrument | Codified DFARS [@CL-CMP-3788] |
 | Codified citation | DFARS 252.227-7017 [@CL-CMP-3788] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JAN 2025 [@CL-CMP-10184] |
 | Text status | Final [@CL-CMP-3788] |
 | Applies to | Technical data, including computer software documentation, or computer software to be delivered with other than unlimited rights [@CL-CMP-3788] |
 
@@ -60,6 +60,7 @@ Who prepares and signs the assertion list for each offer, and where the funding 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording, kept the provision scope and recast the confusion paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: added release and disclosure restrictions to the offer identification rule.

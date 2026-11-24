@@ -25,7 +25,7 @@ Shows what the DFARS cost voucher billing clause requires a contractor to put on
 | Instrument | Codified DFARS [@CL-CTF-1801] |
 | Codified citation | DFARS 252.204-7006 [@CL-CTF-1801] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | MAY 2023 [@CL-CTF-9650] |
 | Text status | Final [@CL-CTF-1801] |
 | Applies to | Payment requests submitted using a cost voucher [@CL-CTF-1801] |
 
@@ -56,5 +56,6 @@ How each voucher amount is assigned to a contract line item, and who corrects a 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited negatives; restated the second duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for billing instructions for cost vouchers.

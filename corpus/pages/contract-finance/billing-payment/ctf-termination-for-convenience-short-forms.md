@@ -25,7 +25,7 @@ Shows how the two short-form clauses let the contracting officer end a fixed-pri
 | Instrument | Codified FAR [@CL-CTF-2051] |
 | Codified citation | FAR 52.249-1 and FAR 52.249-4 [@CL-CTF-2051; @CL-CTF-2056] |
 | RFO citation | RFO FAR 52.249-1 and RFO FAR 52.249-4 [@CL-CTF-0736; @CL-CTF-0739] |
-| Edition date | Not established. |
+| Edition date | FAR 52.249-1: Apr 1984 [@CL-CTF-0736]; FAR 52.249-4: Apr 1984 [@CL-CTF-0739] |
 | Text status | Final [@CL-CTF-2051] |
 | Applies to | The fixed-price short form goes into solicitations and contracts when a fixed-price contract is contemplated and the contract amount is not expected to exceed the simplified acquisition threshold, except in one of the listed alternative cases [@CL-CLS-1014; @CL-CLS-1051; @CL-CLS-1052]. The services short form goes into solicitations and contracts for services, regardless of value, when a fixed-price contract is contemplated and the contracting officer determines that, because of the kind of services required, the successful offeror will not incur substantial charges in preparation for and in carrying out the contract, and would, if terminated for the convenience of the Government, limit termination settlement charges to services rendered before the date of termination [@CL-CTF-1494; @CL-CTF-2053; @CL-CTF-2054; @CL-CTF-2055; @CL-CLS-1019; @CL-CLS-1020; @CL-CLS-1073] |
 
@@ -64,6 +64,7 @@ Which short form, if either, each fixed-price contract actually carries, and who
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the FAR 52.249-4 prescription lead-in and Alternate I lead-ins to FAR 52.249-1 and RFO FAR 52.249-1, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the short-form exceptions as alternatives and cited the architect-engineer and other-clause alternatives, and restored must for the Alternate I use.

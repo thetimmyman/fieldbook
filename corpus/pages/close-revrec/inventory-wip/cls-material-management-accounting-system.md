@@ -25,7 +25,7 @@ Explains the clause that tests the contractor's system for planning, controlling
 | Instrument | Codified DFARS [@CL-CLS-0109] |
 | Codified citation | DFARS 252.242-7004 [@CL-CLS-0109] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | Jan 2025 [@CL-CLS-1609] |
 | Text status | Final [@CL-CLS-0109] |
 | Applies to | Business units as defined in FAR 2.101 [@CL-CLS-0122] |
 
@@ -64,6 +64,7 @@ Who owns the inventory and Government property title records, and how physical a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers on accuracy goals, internal reviews, and 252.242-7005, and replaced uncited Never confuse commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the continuation of the corrective action rule.

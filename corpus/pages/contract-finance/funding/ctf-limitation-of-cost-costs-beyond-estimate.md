@@ -25,7 +25,7 @@ Shows what the Limitation of Cost clause does when costs pass the estimated cost
 | Instrument | Codified FAR [@CL-CTF-2916] |
 | Codified citation | FAR 52.232-20 [@CL-CTF-2916] |
 | RFO citation | RFO FAR 52.232-20 [@CL-CTF-1152] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-CTF-9728] |
 | Text status | Final [@CL-CTF-2916] |
 | Applies to | Contracts in which the clause is inserted under its own prescription [@CL-CTF-2916] |
 
@@ -68,6 +68,7 @@ How the company records the Contracting Officer's written increase and revised e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed meta-wording and uncited sentences in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

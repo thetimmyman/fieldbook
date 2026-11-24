@@ -25,7 +25,7 @@ Explains the solicitation representation in which a DoD offeror states whether i
 | Instrument | Codified DFARS [@CL-CMP-9075] |
 | Codified citation | DFARS 252.239-7009 [@CL-CMP-9075] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | SEP 2015 [@CL-CMP-10304] |
 | Text status | Final [@CL-CMP-9075] |
 | Applies to | Offerors responding to a solicitation that includes the provision [@CL-CMP-9077; @CL-CMP-9075] |
 
@@ -64,6 +64,7 @@ Which solicitations this company bids, and whether its technical solution or its
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed absence and inference wording; replaced contrasts with cited statements.

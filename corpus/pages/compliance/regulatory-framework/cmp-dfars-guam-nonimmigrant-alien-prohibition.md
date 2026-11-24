@@ -25,7 +25,7 @@ Shows which workers may not perform the contract work under the Guam clause, and
 | Instrument | Codified DFARS [@CL-CMP-4419] |
 | Codified citation | DFARS 252.222-7005 [@CL-CMP-4419] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | SEP 1999 [@CL-CMP-10141] |
 | Text status | Final [@CL-CMP-4419] |
 | Applies to | Contracts with the Prohibition on Use of Nonimmigrant Aliens—Guam clause, used as prescribed in section 222.7302 [@CL-CMP-4419] |
 
@@ -54,6 +54,7 @@ Which executed contracts include the Guam clause, and who confirms it. [@Q-004]
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated rule as cited facts; cut uncited contrasts.

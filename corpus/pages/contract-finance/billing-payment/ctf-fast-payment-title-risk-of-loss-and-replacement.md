@@ -25,7 +25,7 @@ Shows when title passes, who bears responsibility and risk of loss under the Fas
 | Instrument | Codified FAR [@CL-CTF-2930] |
 | Codified citation | FAR 52.213-1 [@CL-CTF-2930] |
 | RFO citation | RFO FAR 52.232-90 [@CL-CTF-0222]; FAR 52.213-1 is [Reserved] in the RFO text [@CL-CTF-0241] |
-| Edition date | Not established. |
+| Edition date | MAY 2006 [@CL-CTF-9693] |
 | Text status | Final [@CL-CTF-2930] |
 | Applies to | Purchases in which the clause is inserted under FAR 13.404 [@CL-CTF-2930] |
 
@@ -62,6 +62,7 @@ Who receives a replacement instruction, how the date title vests is recorded, an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the notwithstanding lead-in to the replacement duty; cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fast payment title, risk of loss and replacement.

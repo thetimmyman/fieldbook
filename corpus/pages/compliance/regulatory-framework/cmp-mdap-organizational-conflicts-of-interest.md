@@ -25,7 +25,7 @@ Shows the prohibition that follows a systems engineering and technical assistanc
 | Instrument | Codified DFARS [@CL-CMP-4099; @CL-CMP-4135] |
 | Codified citation | DFARS 252.209-7008 and DFARS 252.209-7009 [@CL-CMP-4099; @CL-CMP-4135] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | DFARS 252.209-7008: DEC 2010 [@CL-CMP-10227]; DFARS 252.209-7009: MAY 2019 [@CL-CMP-10228] |
 | Text status | Final [@CL-CMP-4099; @CL-CMP-4135] |
 | Applies to | Solicitations with the provision, as prescribed in DFARS 209.571-8(a) [@CL-CMP-4099], and contracts with the clause, as prescribed in DFARS 209.571-8(b) [@CL-CMP-4135]. The provision states that the solicitation is for the performance of systems engineering and technical assistance for a major defense acquisition program or a pre-major defense acquisition program [@CL-CMP-4100] |
 
@@ -58,6 +58,7 @@ Which solicitations and contracts are systems engineering and technical assistan
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.

@@ -25,7 +25,7 @@ Explains when the contracting officer may require separate cost accounts for inc
 | Instrument | Codified FAR [@CL-CLS-0207] |
 | Codified citation | FAR 52.243-6 [@CL-CLS-0207] |
 | RFO citation | RFO FAR 52.243-6 [@CL-CLS-0021] |
-| Edition date | Not established. |
+| Edition date | APR 1984 [@CL-CLS-1612] |
 | Text status | Final [@CL-CLS-0207] |
 | Applies to | Contracts with the Change Order Accounting clause, under which the contracting officer may require change order accounting whenever the estimated cost of a change or series of related changes exceeds $100,000 [@CL-CLS-0207] |
 
@@ -58,6 +58,7 @@ How change order accounts and project work breakdown structures are opened and r
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-23: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: stopped the page implying the accounts follow a contracting officer requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the allocable-credits netting.

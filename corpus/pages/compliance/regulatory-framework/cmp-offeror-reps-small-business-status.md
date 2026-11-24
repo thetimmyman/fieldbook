@@ -25,7 +25,7 @@ Shows the size and socioeconomic status representations an offeror makes in para
 | Instrument | Codified FAR [@CL-CMP-8968] |
 | Codified citation | FAR 52.212-3(c) [@CL-CMP-8968] |
 | RFO citation | RFO FAR 52.219-1(c) [@CL-CMP-1622; @CL-CMP-1623; @CL-CMP-1624; @CL-CMP-1625; @CL-CMP-1626; @CL-CMP-1627; @CL-CMP-1628; @CL-CMP-1629; @CL-CMP-1630; @CL-CMP-1631; @CL-CMP-1632]; RFO FAR 52.204-5(b) [@CL-CMP-1633]; RFO FAR 52.219-2(b) [@CL-CMP-1634]; RFO FAR 52.212-3 and its Alternate I are reserved [@CL-CMP-1621; @CL-CMP-1635]; RFO FAR 52.219-1(c) opening [@CL-CMP-9281]; RFO FAR 52.219-1(c)(1)(ii) and (c)(2) [@CL-CMP-9282]; RFO FAR 52.204-5 end of provision [@CL-CMP-9283]; RFO FAR 52.219-2(a) and (b) [@CL-CMP-9284] |
-| Edition date | Not established. |
+| Edition date | FAR 52.212-3: OCT 2025 [@CL-CMP-10248]; FAR 52.219-1: FEB 2024 [@CL-CMP-10249]; FAR 52.204-5: Oct 2014 [@CL-CMP-1633]; FAR 52.219-2: OCT 1995 [@CL-CMP-10250] |
 | Text status | Final [@CL-CMP-8968] |
 | Applies to | Contracts for supplies to be delivered or services to be performed in the United States or its outlying areas, or contracts where the contracting officer has applied FAR part 19 in accordance with FAR 19.000(b)(1)(ii) [@CL-CMP-8968] |
 
@@ -84,6 +84,7 @@ Which entity in the group is the offeror for size purposes and who signs each st
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated gating and trigger wording as cited conditions; removed inferences and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

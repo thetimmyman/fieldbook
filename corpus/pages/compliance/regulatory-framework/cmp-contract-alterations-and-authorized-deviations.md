@@ -24,7 +24,7 @@ Shows how an alteration to a contract is introduced, and how a provision or clau
 | Instrument | Codified FAR [@CL-CMP-6005] |
 | Codified citation | FAR 52.252-4; FAR 52.252-5; FAR 52.252-6 [@CL-CMP-6005; @CL-CMP-6007; @CL-CMP-6010] |
 | RFO citation | RFO FAR 52.252-4 [@CL-CMP-0996]; RFO FAR 52.252-5 [@CL-CMP-0999]; RFO FAR 52.252-6 [@CL-CMP-1014] |
-| Edition date | Not established. |
+| Edition date | FAR 52.252-4: Apr 1984 [@CL-CMP-0996]; FAR 52.252-5: Nov 2020 [@CL-CMP-0999]; FAR 52.252-6: Nov 2020 [@CL-CMP-1014] |
 | Text status | Final [@CL-CMP-6005] |
 | Applies to | Solicitations and contracts that carry an alteration, and solicitations and contracts that use a provision or clause with an authorized deviation [@CL-CMP-6005; @CL-CMP-6702; @CL-CMP-6703] |
 
@@ -75,6 +75,7 @@ Which deviations are in force on each contract, who authorized them, and where t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: opening note, example and contrast wording tied to cited text.

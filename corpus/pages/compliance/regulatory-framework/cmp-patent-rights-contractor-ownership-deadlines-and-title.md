@@ -24,7 +24,7 @@ Shows the deadlines for disclosing, electing and filing on a subject invention, 
 | Instrument | Codified FAR [@CL-CMP-3632] |
 | Codified citation | FAR 52.227-11 [@CL-CMP-3632] |
 | RFO citation | RFO FAR 52.227-11 [@CL-CMP-1829; @CL-CMP-1830; @CL-CMP-1832] |
-| Edition date | Not established. |
+| Edition date | May 2014 [@CL-CMP-1829] |
 | Text status | Final [@CL-CMP-3632] |
 | Applies to | Each subject invention under the clause [@CL-CMP-3632] |
 
@@ -61,6 +61,7 @@ Who tracks the disclosure, election and filing dates for each subject invention,
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure, election and filing deadlines and the agency's right to title.

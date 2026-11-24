@@ -25,7 +25,7 @@ Shows what the Contractor must pay, prove and insure in Spain under the two Span
 | Instrument | Codified DFARS [@CL-CMP-4432; @CL-CMP-4438] |
 | Codified citation | DFARS 252.222-7004 and 252.228-7006 [@CL-CMP-4432; @CL-CMP-4438] |
 | RFO citation | Not established. |
-| Edition date | Not established. |
+| Edition date | JUN 1997 [@CL-CMP-10172] |
 | Text status | Final [@CL-CMP-4432; @CL-CMP-4438] |
 | Applies to | Contracts with the social security clause, used as prescribed in section 222.7201(c), and, for the insurance clause, contracts where the Contractor is not a Spanish concern, used as prescribed at section 228.371(e) [@CL-CMP-4432; @CL-CMP-4438; @CL-CMP-4439] |
 
@@ -66,6 +66,7 @@ Which executed contracts carry either Spanish clause, and whether the Contractor
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced characterizations and uncited contrasts with cited statements and pointers.

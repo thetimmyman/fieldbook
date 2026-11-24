@@ -23,7 +23,7 @@ Explains the two encouraged practices in this pair of clauses, donating excess f
 | Instrument | Codified FAR [@CL-CMP-5441] |
 | Codified citation | FAR 52.226-6 and FAR 52.226-8 [@CL-CMP-5441; @CL-CMP-5444] |
 | RFO citation | RFO FAR 52.226-6 [@CL-CMP-1122]; RFO FAR 52.226-8 [@CL-CMP-1155] |
-| Edition date | Not established. |
+| Edition date | FAR 52.226-6: JUN 2020 [@CL-CMP-10198]; FAR 52.226-8: MAY 2024 [@CL-CMP-1155] |
 | Text status | Final [@CL-CMP-5441] |
 | Applies to | Contracts that carry either clause, and the subcontracts they cover [@CL-CMP-5443; @CL-CMP-5445] |
 
@@ -64,6 +64,7 @@ Which subcontracts cross the flowdown thresholds and who confirms each clause is
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-24: Filled the Edition date row with cited clause edition dates.
 
 - COMPATIBLE_EXTENSION, 2026-11-23: Never confuse states a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Federal Food Donation Act premise and the navigational device lead-in, and removed unsupported explanation.
