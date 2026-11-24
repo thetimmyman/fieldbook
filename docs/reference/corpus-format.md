@@ -283,7 +283,7 @@ corpus/
 | `templates/<type>.md` | One page template per v1 page type | Hand | No |
 | `templates/workbooks/*.csv` | Synthetic sources of the data-only workbooks | Hand | No; `fieldbook build` writes `templates/<name>.xlsx` from them (E1) |
 | `eval/regression.toml` | The search regression questions, run by `check` | Hand | No |
-| `pipeline/rules.toml` | Optional. The intake classification rules, each with an `example` that `check` replays (FB0826) | Hand; the lead writes it | No |
+| `pipeline/rules.toml` | Optional. One `[[rule]]` per intake rule, each with `id`, `when`, `set`, `example` and `expect`; `check` replays each rule on its own `example`, and a rule that does not reproduce its `expect` is FB0826 | Hand; the lead writes it | No |
 
 **Three kinds of data.**
 - **Hand-written:** pages, registers, `corpus.toml`, `changes.md`, `scan-allow.toml`, the templates, the rule files and `pipeline/rules.toml`.

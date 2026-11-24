@@ -160,6 +160,58 @@ sha256 = "d472710af9d49d751522784376af82cd7b1a2ac607a042b12fc48774477ab953"
 
 [[binding]]
 kind = "adapter"
+port = "classifier"
+id = "rules@1"
+runner = "adapter"
+
+[[binding.files]]
+role = "contract"
+path = "compat/adapter/classifier/rules@1/contract.toml"
+sha256 = "df965ab1c425d9c3c6e4ea6cafe9a5aaf995a1d27ca5c653131dd3118fb4eb31"
+
+[[binding.files]]
+role = "expected"
+case = "c1"
+path = "compat/adapter/classifier/rules@1/c1.out.txt"
+sha256 = "319ae2b117d0d79437faa26f0d3dc8b2b86bf805572920212dcc1738b988f6d8"
+
+[[binding.files]]
+role = "expected"
+case = "c2"
+path = "compat/adapter/classifier/rules@1/c2.out.txt"
+sha256 = "189d588acfe2ce52fc38c03b7f6884d1715efd36fe920e385c58949c4320212d"
+
+[[binding.files]]
+role = "expected"
+case = "c3"
+path = "compat/adapter/classifier/rules@1/c3.out.txt"
+sha256 = "641a4b4843318998fbddb7b205f1e5c37b8591ab56797e1c42be78cf524223cf"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/versions/rules_v1.rs"
+sha256 = "497d229f5f942c9a3797ed9766fd956f8a14345d232db2e6c1d3ca4077179162"
+
+[[binding.files]]
+role = "input"
+case = "c1"
+path = "compat/adapter/classifier/rules@1/c1.in.toml"
+sha256 = "e44ca3ead136f67001768b63747805e8ea95b2ea6014ebfacc242ca48e264212"
+
+[[binding.files]]
+role = "input"
+case = "c2"
+path = "compat/adapter/classifier/rules@1/c2.in.toml"
+sha256 = "7b03206d625c536a3309e4d7a1335dad2733db752451a625603bb9a9d547aeb0"
+
+[[binding.files]]
+role = "input"
+case = "c3"
+path = "compat/adapter/classifier/rules@1/c3.in.toml"
+sha256 = "6373af5de44e729c0f1a29152ab97a6e1a5dccbf2383c47e3cde34543f4a7d57"
+
+[[binding]]
+kind = "adapter"
 port = "extractor"
 id = "html-strip@1"
 runner = "adapter"

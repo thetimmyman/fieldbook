@@ -867,6 +867,13 @@ struct AdmitCaseInput {
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
+struct ClassifierCaseInput {
+    rules_toml: String,
+    pages: Vec<String>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct AuthzCaseInput {
     #[serde(default)]
     groups: BTreeMap<String, toml::Value>,
@@ -1571,6 +1578,74 @@ fn run_vector(
                         }
                     }
                     out
+                }
+                ("classifier", "rules@1") => {
+                    let parsed: ClassifierCaseInput = toml::from_str(input_str).map_err(|e| {
+                        format!(
+                            "binding `{}` case `{case_id}` invalid classifier input: {e}",
+                            binding.id
+                        )
+                    })?;
+                    let joined = parsed.pages.concat();
+                    let cand = fieldbook_core::pipeline::Candidate {
+                        file: "compat.txt".to_owned(),
+                        sha256: sha256_hex(joined.as_bytes()),
+                        bytes: u64::try_from(joined.len()).unwrap_or(u64::MAX),
+                        ext: "txt".to_owned(),
+                        labels: fieldbook_core::labels::LabelSet::public(),
+                        origin: None,
+                        extraction: Some(fieldbook_core::extraction::Extraction {
+                            method: "plain",
+                            pages: parsed
+                                .pages
+                                .into_iter()
+                                .enumerate()
+                                .map(|(idx, text)| fieldbook_core::extraction::PageText {
+                                    number: u32::try_from(idx + 1).unwrap_or(u32::MAX),
+                                    text,
+                                })
+                                .collect(),
+                        }),
+                    };
+                    let vocab = fieldbook_core::pipeline::Vocab::from_schema();
+                    match fieldbook_core::versions::rules_v1::parse_and_classify(
+                        &parsed.rules_toml,
+                        &cand,
+                        &vocab,
+                    ) {
+                        Ok(Ok(suggestions)) => {
+                            let mut out = format!("ok\nfields {}\n", suggestions.fields.len());
+                            for s in &suggestions.fields {
+                                let rule_desc = match &s.rule {
+                                    Some(r) => format!("{}:{}", r.id, r.kind.as_str()),
+                                    None => "-".to_owned(),
+                                };
+                                let quote_desc = match s.support.first() {
+                                    Some(fieldbook_core::pipeline::Support::Quote {
+                                        page,
+                                        quote,
+                                    }) => format!("p{page}:{quote}"),
+                                    Some(other) => format!("{other:?}"),
+                                    None => "-".to_owned(),
+                                };
+                                out.push_str(&format!(
+                                    "field {} value={} by={} rule={rule_desc} support={quote_desc}\n",
+                                    s.field.as_str(),
+                                    s.value,
+                                    s.by.format(),
+                                ));
+                            }
+                            out
+                        }
+                        Ok(Err(errors)) => {
+                            let mut out = String::new();
+                            for err in errors {
+                                out.push_str(&format!("refuse {}:{}\n", err.line, err.message));
+                            }
+                            out
+                        }
+                        Err(err) => format!("refuse {err:?}\n"),
+                    }
                 }
                 _ => {
                     return Err(format!(
