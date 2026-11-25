@@ -635,69 +635,6 @@ pub fn context_pack_for(
     let mut non_budget_excluded: BTreeSet<String> = BTreeSet::new();
     let mut conflict_opponents: BTreeMap<String, ConflictId> = BTreeMap::new();
 
-    // Helper: add a claim's conflict dependencies (conflict row + opposing claims).
-    // Conflict dependencies of a selected claim are included even when contradicted.
-    let add_claim_conflicts =
-        |claim_id: &str,
-         items: &mut Vec<ContextItem>,
-         seen: &mut BTreeSet<String>,
-         non_budget_excluded: &mut BTreeSet<String>,
-         conflict_opponents: &mut BTreeMap<String, ConflictId>| {
-            // A conflict dependency seen earlier as a default exclusion (contradicted,
-            // superseded, Tier D) is kept with the claim that needs it: HG-02 keeps a claim and
-            // its conflict together, whichever of them the walk reached first.
-            let promote = |id: &str,
-                           items: &mut Vec<ContextItem>,
-                           non_budget_excluded: &mut BTreeSet<String>| {
-                if non_budget_excluded.remove(id)
-                    && let Some(item) = items
-                        .iter_mut()
-                        .find(|item| item.unit == id && !item.included)
-                {
-                    item.included = true;
-                }
-            };
-            if let Some(entries) = catalog.claim_conflicts.get(claim_id) {
-                for (xid, opponents) in entries {
-                    let xid_str = xid.as_str().to_owned();
-                    if catalog.units.contains_key(&xid_str) {
-                        if seen.insert(xid_str.clone()) {
-                            items.push(ContextItem {
-                                unit: xid_str,
-                                origin: Origin::Auto,
-                                why: Why::Closure,
-                                via: Some(claim_id.to_owned()),
-                                included: true,
-                                stale: false,
-                            });
-                        } else {
-                            promote(&xid_str, items, non_budget_excluded);
-                        }
-                    }
-                    for opp in opponents {
-                        let opp_str = opp.as_str().to_owned();
-                        conflict_opponents
-                            .entry(opp_str.clone())
-                            .or_insert_with(|| xid.clone());
-                        if catalog.units.contains_key(&opp_str) {
-                            if seen.insert(opp_str.clone()) {
-                                items.push(ContextItem {
-                                    unit: opp_str,
-                                    origin: Origin::Auto,
-                                    why: Why::Closure,
-                                    via: Some(claim_id.to_owned()),
-                                    included: true,
-                                    stale: false,
-                                });
-                            } else {
-                                promote(&opp_str, items, non_budget_excluded);
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
     // Helper: add a claim's source version and linked terms as Closure items.
     let add_claim_closure =
         |claim_id: &str,
@@ -742,6 +679,73 @@ pub fn context_pack_for(
                         included: true,
                         stale: false,
                     });
+                }
+            }
+        };
+
+    // Helper: add a claim's conflict dependencies (conflict row + opposing claims).
+    // Conflict dependencies of a selected claim are included even when contradicted.
+    let add_claim_conflicts =
+        |claim_id: &str,
+         items: &mut Vec<ContextItem>,
+         seen: &mut BTreeSet<String>,
+         non_budget_excluded: &mut BTreeSet<String>,
+         conflict_opponents: &mut BTreeMap<String, ConflictId>| {
+            // A conflict dependency seen earlier as a default exclusion (contradicted,
+            // superseded, Tier D) is kept with the claim that needs it: HG-02 keeps a claim and
+            // its conflict together, whichever of them the walk reached first. A promoted claim
+            // is then treated like a freshly included one: its own source and terms and its own
+            // conflicts come along. Promotion happens once per unit, so cycles end.
+            let mut pending: Vec<String> = vec![claim_id.to_owned()];
+            while let Some(current) = pending.pop() {
+                let Some(entries) = catalog.claim_conflicts.get(&current) else {
+                    continue;
+                };
+                let mut needed: Vec<String> = Vec::new();
+                for (xid, opponents) in entries {
+                    let xid_str = xid.as_str().to_owned();
+                    if catalog.units.contains_key(&xid_str) {
+                        needed.push(xid_str);
+                    }
+                    for opp in opponents {
+                        let opp_str = opp.as_str().to_owned();
+                        // A claim already in the pack is never relabelled as an opponent by a
+                        // promoted claim's walk (that would mark the selected claim itself); a
+                        // newly reached opponent is labelled as an opponent of the claim that
+                        // needed it, as for a selected claim.
+                        if current == claim_id || !seen.contains(&opp_str) {
+                            conflict_opponents
+                                .entry(opp_str.clone())
+                                .or_insert_with(|| xid.clone());
+                        }
+                        if catalog.units.contains_key(&opp_str) {
+                            needed.push(opp_str);
+                        }
+                    }
+                }
+                for id in needed {
+                    if seen.insert(id.clone()) {
+                        items.push(ContextItem {
+                            unit: id,
+                            origin: Origin::Auto,
+                            why: Why::Closure,
+                            via: Some(current.clone()),
+                            included: true,
+                            stale: false,
+                        });
+                    } else if non_budget_excluded.remove(&id)
+                        && let Some(item) = items
+                            .iter_mut()
+                            .find(|item| item.unit == id && !item.included)
+                    {
+                        item.included = true;
+                        item.why = Why::Closure;
+                        item.via = Some(current.clone());
+                        if catalog.units.get(&id).is_some_and(|u| u.kind == "claim") {
+                            add_claim_closure(&id, items, seen, non_budget_excluded);
+                            pending.push(id);
+                        }
+                    }
                 }
             }
         };
