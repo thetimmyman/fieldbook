@@ -91,6 +91,8 @@ pub enum Commands {
     Policy(PolicyArgs),
     /// Inspect AI settings, adapter readiness, policy allow sets and key state.
     Ai(AiArgs),
+    /// Build a plain-text context pack for a question from the permitted view.
+    Context(ContextArgs),
 }
 
 /// Arguments for `fieldbook fmt`.
@@ -543,6 +545,30 @@ pub enum AiSubcommand {
 #[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
 pub struct AiStatusArgs {
     /// Print the AI status report as a JSON object.
+    #[arg(long)]
+    pub json: bool,
+}
+
+/// Arguments for `fieldbook context`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct ContextArgs {
+    /// Question text used to select and budget the context pack.
+    #[arg(value_name = "QUESTION")]
+    pub question: String,
+
+    /// Restrict selection to one area (`area:<code>`) or lead with one page (`page:<id>`).
+    #[arg(long, value_name = "SCOPE")]
+    pub scope: Option<String>,
+
+    /// Maximum Unicode-scalar character budget (defaults to `[assistant] pack_budget_chars`).
+    #[arg(long, value_name = "N", allow_hyphen_values = true)]
+    pub budget: Option<String>,
+
+    /// Comma-separated exclusion overrides (`tier-d`, `superseded`, `contradicted`).
+    #[arg(long, value_name = "CLASSES")]
+    pub include: Option<String>,
+
+    /// Print the context report as a JSON object.
     #[arg(long)]
     pub json: bool,
 }

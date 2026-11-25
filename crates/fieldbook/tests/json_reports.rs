@@ -35,6 +35,7 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("search-pages", generate_search_pages_report),
     ("policy-show", generate_policy_show_report),
     ("ai-status", generate_ai_status_report),
+    ("context", generate_context_report),
 ];
 
 fn repo_root() -> PathBuf {
@@ -218,6 +219,22 @@ fn generate_ai_status_report() -> String {
         "ai status --json failed: {}",
         outcome.stderr
     );
+    outcome.stdout
+}
+
+fn generate_context_report() -> String {
+    let root = repo_root();
+    let tmp = support::temp_copy(&root.join("tests/fixtures/corpus-mini"));
+    let world = TestWorld::new(tmp.path());
+    let args = vec![
+        "context".to_owned(),
+        "synthetic".to_owned(),
+        "--scope".to_owned(),
+        "area:cmp".to_owned(),
+        "--json".to_owned(),
+    ];
+    let outcome = fieldbook::run(&args, &world);
+    assert_eq!(outcome.code, 0, "context --json failed: {}", outcome.stderr);
     outcome.stdout
 }
 

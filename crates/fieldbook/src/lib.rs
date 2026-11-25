@@ -17,6 +17,7 @@ pub mod audit;
 pub mod backup;
 pub mod build;
 pub mod cli;
+pub mod context;
 pub mod ctx;
 mod fmt;
 pub mod io;
@@ -425,6 +426,7 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
             policy::run(&policy_args, &policy_ctx, &state_dir, &run_world)
         }
         Commands::Ai(ai_args) => ai_status::run(&ai_args, &policy_ctx, &state_dir, &run_world),
+        Commands::Context(context_args) => context::run(&context_args, &policy_ctx, &run_world),
     });
 
     if !is_closed_warn_exempt && let Some(warn_line) = policy_ctx.closed_warning_line() {

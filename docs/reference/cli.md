@@ -133,6 +133,18 @@ Inspect AI settings, adapter readiness, policy allow sets and key state
 | Argument / flag | Value | Default | Help |
 |---|---|---|---|
 
+### `fieldbook context`
+
+Build a plain-text context pack for a question from the permitted view
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `<QUESTION>` | `QUESTION` | - | Question text used to select and budget the context pack |
+| `--scope` | `SCOPE` | - | Restrict selection to one area (`area:<code>`) or lead with one page (`page:<id>`) |
+| `--budget` | `N` | - | Maximum Unicode-scalar character budget (defaults to `[assistant] pack_budget_chars`) |
+| `--include` | `CLASSES` | - | Comma-separated exclusion overrides (`tier-d`, `superseded`, `contradicted`) |
+| `--json` | - | - | Print the context report as a JSON object |
+
 ## Exit codes
 
 | Code | Meaning |
@@ -539,6 +551,113 @@ Inspect AI settings, adapter readiness, policy allow sets and key state
       "help": "Fix corpus/corpus.toml (or store.toml in a company store) so it is valid TOML at a supported schema_version with well-formed areas and views."
     }
   ]
+}
+```
+
+### `context`
+
+```json
+{
+  "report_version": 1,
+  "verb": "context",
+  "pack": {
+    "request_budget": {
+      "limit": 12000,
+      "rules": 303,
+      "question": 21,
+      "history": 0,
+      "context": 1935,
+      "total": 2259,
+      "sendable": true,
+      "over_by": 0
+    },
+    "question": "synthetic",
+    "scope": "area:cmp",
+    "items": [
+      {
+        "unit": "XC-01",
+        "origin": "auto",
+        "why": "hit",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "Q-001",
+        "origin": "auto",
+        "why": "hit",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "CL-CMP-0002",
+        "origin": "auto",
+        "why": "hit",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "CL-CMP-0001",
+        "origin": "auto",
+        "why": "closure",
+        "via": "CL-CMP-0002",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "S-0001-v1",
+        "origin": "auto",
+        "why": "closure",
+        "via": "CL-CMP-0002",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "billing_withhold",
+        "origin": "auto",
+        "why": "closure",
+        "via": "CL-CMP-0002",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "cmp-system-review#purpose",
+        "origin": "auto",
+        "why": "hit",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "system_review",
+        "origin": "auto",
+        "why": "closure",
+        "via": "cmp-system-review#purpose",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "cmp-onboarding-checklist#how-it-works",
+        "origin": "auto",
+        "why": "hit",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "cmp-review-steps#how-it-works",
+        "origin": "auto",
+        "why": "hit",
+        "included": true,
+        "stale": false
+      }
+    ],
+    "chars": 2259,
+    "budget": 12000,
+    "labels": [
+      "owner-supplied"
+    ],
+    "left_out_line": "Left out (policy): 0 records",
+    "view_fingerprint": "8b1eb3bd631f020960ee65e04fb9712cf057d069f00399f493912b06b6668f7d"
+  },
+  "pack_text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: synthetic\n\n--- conflict XC-01 ---\nTitle: Synthetic review interval versus withholding check timing\nAs of: unknown\nStatus: unresolved\nPosition: Synthetic review runs every 30 days\nPosition: Synthetic withholding check runs at each billing cycle\nClaims: CL-CMP-0001, CL-CMP-0002\ncite as: [@XC-01]\n\n--- question Q-001 ---\nTitle: Which synthetic business-system control owner approves the monthly compliance review?\nAs of: unknown\nStatus: open\nText: Synthetic withholding exposure depends on timely review sign-off.\ncite as: [@Q-001]\n\n--- claim CL-CMP-0002 ---\nTitle: Synthetic withholding threshold is 5 percent of billed amounts.\nAs of: 2026-02-01\nStatus: unchecked\nSource: S-0001-v1, sec. 2\nQuote: \"Synthetic withholding threshold is 5 percent.\"\ncite as: [@CL-CMP-0002]\n\n--- claim CL-CMP-0001 ---\nTitle: Synthetic compliance reviews occur every 30 days under the synthetic rule.\nAs of: 2026-02-01\nStatus: contradicted (conflict XC-01)\nSource: S-0001-v1, sec. 1\nQuote: \"Synthetic compliance reviews occur every 30 days.\"\ncite as: [@CL-CMP-0001]\n\n--- source S-0001-v1 ---\nTitle: Synthetic Cost Rule, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture source for automated tests.\ncite as: [@S-0001-v1]\n\n--- term billing_withhold ---\nTitle: billing withhold\nAs of: unknown\nStatus: public_reference\nText: Synthetic retention of a percentage of interim payments pending system correction.\n\n--- page cmp-system-review#purpose ---\nTitle: Purpose\nAs of: 2026-02-01\nStatus: draft\nText: Explain how a synthetic system review interacts with a synthetic billing withhold.\n\n--- term system_review ---\nTitle: system review\nAs of: unknown\nStatus: public_reference\nText: Synthetic periodic assessment of business-system control operation.\n\n--- page cmp-onboarding-checklist#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\n\n--- page cmp-review-steps#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\n\nLeft out (policy): 0 records\n"
 }
 ```
 

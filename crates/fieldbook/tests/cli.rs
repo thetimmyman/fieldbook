@@ -22,7 +22,6 @@ const ADR_0001: &str = include_str!("../../../docs/decisions/0001-foundation.md"
 const NOT_BUILT: &[&str] = &[
     "new note",
     "audit export",
-    "context",
     "cite-check",
     "queue list",
     "queue show",
