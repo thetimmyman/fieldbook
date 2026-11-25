@@ -896,6 +896,11 @@ fn a_promoted_conflict_group_is_dropped_together_under_a_tight_budget() {
         "CL-CMP-0003",
     ];
     let total: usize = group.iter().map(|id| len_of(id)).sum();
+    let full_kept: Vec<&str> = full.blocks().iter().map(|b| b.id.as_str()).collect();
+    assert!(
+        group.iter().all(|g| full_kept.contains(g)),
+        "the group is kept whole when it fits: {full_kept:?}"
+    );
     let mut dropped_somewhere = false;
     for tight in (base..base + total + 400).step_by(7) {
         let pack = context_pack(

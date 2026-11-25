@@ -709,8 +709,10 @@ pub fn context_pack_for(
                     }
                     for opp in opponents {
                         let opp_str = opp.as_str().to_owned();
-                        // Only the selected claim's opponents carry the opponent status line;
-                        // a unit reached through a promoted claim keeps its own status.
+                        // A claim already in the pack is never relabelled as an opponent by a
+                        // promoted claim's walk (that would mark the selected claim itself); a
+                        // newly reached opponent is labelled as an opponent of the claim that
+                        // needed it, as for a selected claim.
                         if current == claim_id || !seen.contains(&opp_str) {
                             conflict_opponents
                                 .entry(opp_str.clone())
