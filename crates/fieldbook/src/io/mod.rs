@@ -340,9 +340,19 @@ pub fn write_export(
         Ok(None) => {}
         Err(err) => return Err(WriteExportError::Io(err)),
     }
-    world
-        .write_outside(allowed, audited, path, bytes)
-        .map_err(WriteExportError::Io)?;
+    match world.write_outside(allowed, audited, path, bytes) {
+        Ok(_) => {}
+        Err(err) if err.to_string().ends_with(atomic::ALREADY_EXISTS) => {
+            // Another program created the name after the check above: the same bytes are
+            // fine, other bytes are a conflict, and nothing was replaced either way.
+            return match world.read_file(path) {
+                Ok(Some(existing)) if existing == bytes => Ok(false),
+                Ok(_) => Err(WriteExportError::Conflict),
+                Err(read_err) => Err(WriteExportError::Io(read_err)),
+            };
+        }
+        Err(err) => return Err(WriteExportError::Io(err)),
+    }
     Ok(true)
 }
 

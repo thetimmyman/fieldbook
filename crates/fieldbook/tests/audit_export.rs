@@ -332,6 +332,124 @@ fn a_sink_inside_the_data_root_is_refused() {
     assert_eq!(err.reason, "store");
 }
 
+fn refuse_events(fx: &Fx) -> usize {
+    events(fx)
+        .iter()
+        .filter(|event| matches!(event.payload, EventPayload::Refuse { .. }))
+        .count()
+}
+
+#[test]
+fn a_sink_that_holds_the_data_root_is_refused_and_journaled() {
+    let fx = fixture();
+    let world = TestWorld::with_state(&corpus_mini(), &fx.state);
+    // The state folder lies below the temp folder, so a sink at the temp folder holds it.
+    let text = AUDIT_POLICY.replace("SINK", &toml_escape(fx.tmp.path()));
+    let ctx = PolicyCtx::loaded(Policy::parse(&text, None).expect("parse policy"));
+    let mut journal = open(&world, &fx);
+    let before = refuse_events(&fx);
+    let err = export(&world, &Layout::of(&world), &ctx, &mut journal, None, None)
+        .expect_err("a sink above the data root must be refused");
+    assert_eq!(err.code, Code::Fb0806);
+    assert_eq!(err.reason, "store");
+    assert_eq!(refuse_events(&fx), before + 1);
+    assert!(
+        std::fs::read_dir(fx.tmp.path())
+            .expect("read")
+            .flatten()
+            .all(|entry| !entry.file_name().to_string_lossy().ends_with(".jsonl")),
+        "nothing was written beside the data root"
+    );
+}
+
+#[test]
+fn a_target_with_dot_dot_that_leaves_the_sink_is_refused() {
+    let fx = fixture();
+    let world = TestWorld::with_state(&corpus_mini(), &fx.state);
+    let outside = fx.tmp.path().join("elsewhere");
+    std::fs::create_dir_all(&outside).expect("create");
+    let sneaky = fx.sink.join("..").join("elsewhere");
+    let mut journal = open(&world, &fx);
+    let err = export(
+        &world,
+        &Layout::of(&world),
+        &fx.policy_ctx,
+        &mut journal,
+        Some(&sneaky),
+        None,
+    )
+    .expect_err("a .. path out of the sink must be refused");
+    assert_eq!(err.code, Code::Fb0806);
+    assert!(matches!(err.reason, "no-row" | "store"), "{}", err.reason);
+    assert_eq!(std::fs::read_dir(&outside).expect("read").count(), 0);
+}
+
+#[cfg(unix)]
+#[test]
+fn a_symlinked_folder_below_the_sink_that_leaves_it_is_refused() {
+    let fx = fixture();
+    let world = TestWorld::with_state(&corpus_mini(), &fx.state);
+    let outside = fx.tmp.path().join("elsewhere");
+    std::fs::create_dir_all(&outside).expect("create");
+    std::os::unix::fs::symlink(&outside, fx.sink.join("link")).expect("symlink");
+    let mut journal = open(&world, &fx);
+    let err = export(
+        &world,
+        &Layout::of(&world),
+        &fx.policy_ctx,
+        &mut journal,
+        Some(&fx.sink.join("link")),
+        None,
+    )
+    .expect_err("a symlink out of the sink must be refused");
+    assert_eq!(err.reason, "no-row");
+    assert_eq!(std::fs::read_dir(&outside).expect("read").count(), 0);
+}
+
+#[cfg(unix)]
+#[test]
+fn a_symlink_at_a_planned_file_name_is_never_followed() {
+    let fx = fixture();
+    let world = TestWorld::with_state(&corpus_mini(), &fx.state);
+    let mut journal = open(&world, &fx);
+    let planned = planned_name(&journal, &fx.policy_ctx);
+    let victim = fx.tmp.path().join("victim.txt");
+    std::fs::write(&victim, b"keep me\n").expect("victim");
+    std::os::unix::fs::symlink(&victim, fx.sink.join(&planned)).expect("symlink");
+    let result = export(
+        &world,
+        &Layout::of(&world),
+        &fx.policy_ctx,
+        &mut journal,
+        None,
+        None,
+    );
+    assert!(result.is_err(), "a planted symlink must stop the export");
+    assert_eq!(std::fs::read(&victim).expect("read"), b"keep me\n");
+}
+
+#[test]
+fn an_unreadable_planned_file_is_refused_and_journaled() {
+    let fx = fixture();
+    let world = TestWorld::with_state(&corpus_mini(), &fx.state);
+    let mut journal = open(&world, &fx);
+    let planned = planned_name(&journal, &fx.policy_ctx);
+    // A folder at the planned name cannot be read as a file.
+    std::fs::create_dir_all(fx.sink.join(&planned)).expect("create");
+    let before = refuse_events(&fx);
+    let err = export(
+        &world,
+        &Layout::of(&world),
+        &fx.policy_ctx,
+        &mut journal,
+        None,
+        None,
+    )
+    .expect_err("an unreadable target must be refused");
+    assert_eq!(err.code, Code::Fb0806);
+    assert_eq!(refuse_events(&fx), before + 1);
+}
+
 #[test]
 fn a_sink_in_a_sync_root_is_refused() {
     let fx = fixture();
@@ -1036,6 +1154,37 @@ fn file_created_after_export_preflight_is_not_overwritten() {
         std::fs::read(&manifest_path).expect("read conflicting file"),
         b"other-bytes\n"
     );
+    assert!(audit_export_events(&fx).is_empty());
+}
+
+#[test]
+fn a_first_file_created_in_the_race_window_is_not_replaced() {
+    let fx = fixture();
+    let world = TestWorld::with_state(&corpus_mini(), &fx.state);
+    let mut journal = open(&world, &fx);
+    let planned = planned_name(&journal, &fx.policy_ctx);
+    let target = fx.sink.join(&planned);
+    let for_hook = target.clone();
+    let name = planned.clone();
+    set_atomic_stage_hook(Some(std::sync::Arc::new(move |stage, path| {
+        if stage == AtomicStage::BeforeRename
+            && path.file_name().and_then(|n| n.to_str()) == Some(name.as_str())
+        {
+            let _ = std::fs::write(&for_hook, b"first writer\n");
+        }
+    })));
+    let result = export(
+        &world,
+        &Layout::of(&world),
+        &fx.policy_ctx,
+        &mut journal,
+        None,
+        None,
+    );
+    set_atomic_stage_hook(None);
+    let err = result.expect_err("a file that appeared first must win");
+    assert_eq!(err.reason, "mismatch");
+    assert_eq!(std::fs::read(&target).expect("read"), b"first writer\n");
     assert!(audit_export_events(&fx).is_empty());
 }
 

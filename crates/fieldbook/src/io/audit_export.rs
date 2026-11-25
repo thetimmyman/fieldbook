@@ -104,24 +104,16 @@ fn refusal(journal: &Journal<'_>, reason: &'static str, message: &str) -> Refusa
     }
 }
 
-fn plain_refusal(reason: &'static str, message: &str) -> Refusal {
-    Refusal {
-        code: Code::Fb0806,
-        reason,
-        message: message.to_owned(),
-    }
+fn canonical(path: &Path) -> Option<PathBuf> {
+    crate::io::root::resolve_outside_path(path).ok()
 }
 
-fn canonical(path: &Path) -> Result<PathBuf, Refusal> {
-    crate::io::root::resolve_outside_path(path)
-        .map_err(|_| plain_refusal("store", "the sink folder cannot be resolved"))
-}
-
-fn inside(path: &Path, root: &Path) -> bool {
-    // The same resolver as the target, so a Windows verbatim prefix cannot make them differ.
-    let canon_root =
-        crate::io::root::resolve_outside_path(root).unwrap_or_else(|_| root.to_path_buf());
-    path.starts_with(&canon_root)
+/// Whether one folder is the other or lies below it, in either direction. Both are resolved by
+/// the same resolver as the target, so a Windows verbatim prefix cannot make them differ.
+fn overlaps(a: &Path, b: &Path) -> bool {
+    let a = canonical(a).unwrap_or_else(|| a.to_path_buf());
+    let b = canonical(b).unwrap_or_else(|| b.to_path_buf());
+    a.starts_with(&b) || b.starts_with(&a)
 }
 
 fn journal_refusal(journal: &Journal<'_>, err: &JournalError) -> Refusal {
@@ -153,7 +145,7 @@ pub fn export(
     let Some(sink) = policy.audit_sink() else {
         return Err(refusal(journal, "no-row", NO_SINK));
     };
-    let Ok(sink_canon) = canonical(&sink) else {
+    let Some(sink_canon) = canonical(&sink) else {
         return Err(refusal(
             journal,
             "store",
@@ -168,7 +160,7 @@ pub fn export(
         Some(path) => path.to_path_buf(),
         None => sink.clone(),
     };
-    let Ok(target_canon) = canonical(&target) else {
+    let Some(target_canon) = canonical(&target) else {
         return Err(refusal(
             journal,
             "store",
@@ -189,15 +181,17 @@ pub fn export(
             "the export target lies outside the policy's audit sink",
         ));
     }
-    if inside(&target_canon, &layout.tree_root) || inside(&target_canon, &layout.state_dir) {
+    // The target may be neither inside the data root nor an ancestor of it (a sink that holds the
+    // data root would otherwise export into the data it describes).
+    if overlaps(&target_canon, &layout.tree_root) || overlaps(&target_canon, &layout.state_dir) {
         return Err(refusal(
             journal,
             "store",
-            "the export target lies inside the data root",
+            "the export target lies inside, or holds, the data root",
         ));
     }
     let git = crate::io::root::git_context(world, &target_canon)
-        .map_err(|_| plain_refusal("store", "the export target cannot be inspected"))?;
+        .map_err(|_| refusal(journal, "store", "the export target cannot be inspected"))?;
     if labels::placement(Placement {
         laptop: false,
         under_git: git.under_git,
@@ -284,7 +278,8 @@ pub fn export(
             }
             Ok(_) => {}
             Err(err) => {
-                return Err(plain_refusal(
+                return Err(refusal(
+                    journal,
                     "store",
                     &format!("the export target cannot be read: {err}"),
                 ));
@@ -348,7 +343,7 @@ pub fn export(
     };
     let audited = journal
         .begin_export("audit export", &write_set, &allowed, &target_canon)
-        .map_err(|err| plain_refusal("store", &format!("the export cannot begin: {err}")))?;
+        .map_err(|err| refusal(journal, "store", &format!("the export cannot begin: {err}")))?;
 
     for (path, bytes) in [
         (&journal_path, planned.bytes.as_slice()),
@@ -366,7 +361,8 @@ pub fn export(
             }
             Err(crate::io::WriteExportError::Io(err)) => {
                 let _ = journal.end(audited, Word::new_static("failed"));
-                return Err(plain_refusal(
+                return Err(refusal(
+                    journal,
                     "store",
                     &format!("the export cannot be written: {err}"),
                 ));
@@ -375,7 +371,7 @@ pub fn export(
     }
     journal
         .end(audited, Word::new_static("ok"))
-        .map_err(|err| plain_refusal("store", &format!("the export cannot end: {err}")))?;
+        .map_err(|err| refusal(journal, "store", &format!("the export cannot end: {err}")))?;
 
     let store_uid_typed = StoreUid::parse(&store_uid).unwrap_or_else(|_| StoreUid::nil());
     journal
@@ -386,7 +382,13 @@ pub fn export(
             policy: policy.hash.clone(),
             store_uid: store_uid_typed,
         })
-        .map_err(|err| plain_refusal("store", &format!("the export cannot be recorded: {err}")))?;
+        .map_err(|err| {
+            refusal(
+                journal,
+                "store",
+                &format!("the export cannot be recorded: {err}"),
+            )
+        })?;
 
     Ok(ExportReport {
         written: true,

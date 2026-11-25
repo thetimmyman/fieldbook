@@ -893,6 +893,15 @@ impl Audited {
         self.state_only
     }
 
+    /// Return `true` when this token is the `audit export` transaction, whose files are only ever
+    /// created: a name that exists is never replaced (see `atomic::write_outside`).
+    #[must_use]
+    pub fn creates_only(&self) -> bool {
+        self.verb
+            .as_ref()
+            .is_some_and(|verb| verb.as_str() == "audit export")
+    }
+
     /// Return `true` when this token represents recovery-only authority ([`BackupRecovery`]).
     #[must_use]
     pub const fn is_recovery_only(&self) -> bool {
