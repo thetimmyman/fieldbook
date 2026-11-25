@@ -757,7 +757,7 @@ pub const BACKUP_PRUNE_REASONS: &[&str] = &["retention"];
 /// Closed restore modes for `restore.begin` and `restore.end`.
 pub const RESTORE_MODES: &[&str] = &["drill", "real"];
 /// Closed purge targets for `purge`.
-pub const PURGE_TARGETS: &[&str] = &["asked"];
+pub const PURGE_TARGETS: &[&str] = &["asked", "calls"];
 /// Closed policy resolution outcomes for `policy.change`.
 pub const POLICY_OUTCOMES: &[&str] = &["ok", "failed", "loaded", "absent", "invalid"];
 /// Closed label-change origins for `label.change`.

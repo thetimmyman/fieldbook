@@ -10,6 +10,8 @@ publish.workspace = true
 [features]
 default = []
 test-hooks = []
+net = []
+bridge = ["net"]
 
 [dependencies]
 fieldbook-calc = { path = "../fieldbook-calc" }

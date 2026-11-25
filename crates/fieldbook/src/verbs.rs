@@ -67,4 +67,4 @@ pub const DETERMINISTIC_VERBS: &[&str] = &[
 /// Source files, relative to `crates/fieldbook/src`, allowed to name the model gate.
 ///
 /// Each later card that adds a file naming the model gate appends it here.
-pub const AI_VERB_FILES: &[&str] = &[];
+pub const AI_VERB_FILES: &[&str] = &["io/ai_journal.rs", "io/pace.rs", "io/call_store.rs"];

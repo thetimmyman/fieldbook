@@ -739,3 +739,133 @@ fn validate_inner(schema: &Schema, value: &JsonValue, node: usize) -> Result<(),
 pub fn validate(schema: &Schema, value: &JsonValue) -> Result<(), Failure> {
     validate_inner(schema, value, 0)
 }
+
+/// Wrapper around [`Schema`] that serializes and deserializes through the strict JSON Schema
+/// vocabulary, preserving object field order across formats such as TOML.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SchemaToml(pub Schema);
+
+struct OrderedJsonValue<'a>(&'a JsonValue);
+
+impl serde::Serialize for OrderedJsonValue<'_> {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        use serde::ser::{SerializeMap, SerializeSeq};
+        match self.0 {
+            JsonValue::Null => serializer.serialize_unit(),
+            JsonValue::Bool(flag) => serializer.serialize_bool(*flag),
+            JsonValue::Integer(number) => serializer.serialize_i64(*number),
+            JsonValue::String(text) => serializer.serialize_str(text),
+            JsonValue::Array(items) => {
+                let mut seq = serializer.serialize_seq(Some(items.len()))?;
+                for item in items {
+                    seq.serialize_element(&OrderedJsonValue(item))?;
+                }
+                seq.end()
+            }
+            JsonValue::Object(entries) => {
+                let mut map = serializer.serialize_map(Some(entries.len()))?;
+                for (key, value) in entries {
+                    if !matches!(value, JsonValue::Object(_)) {
+                        map.serialize_entry(key, &OrderedJsonValue(value))?;
+                    }
+                }
+                for (key, value) in entries {
+                    if matches!(value, JsonValue::Object(_)) {
+                        map.serialize_entry(key, &OrderedJsonValue(value))?;
+                    }
+                }
+                map.end()
+            }
+        }
+    }
+}
+
+impl serde::Serialize for SchemaToml {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        let json = to_json_schema(&self.0);
+        OrderedJsonValue(&json).serialize(serializer)
+    }
+}
+
+struct RawJsonValue(JsonValue);
+
+impl<'de> serde::Deserialize<'de> for RawJsonValue {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        struct RawVisitor;
+
+        impl<'de> serde::de::Visitor<'de> for RawVisitor {
+            type Value = RawJsonValue;
+
+            fn expecting(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+                f.write_str("a strict schema document value")
+            }
+
+            fn visit_bool<E>(self, v: bool) -> Result<Self::Value, E> {
+                Ok(RawJsonValue(JsonValue::Bool(v)))
+            }
+
+            fn visit_i64<E>(self, v: i64) -> Result<Self::Value, E> {
+                Ok(RawJsonValue(JsonValue::Integer(v)))
+            }
+
+            fn visit_u64<E: serde::de::Error>(self, v: u64) -> Result<Self::Value, E> {
+                integer_from_u64(v)
+                    .map(RawJsonValue)
+                    .map_err(serde::de::Error::custom)
+            }
+
+            fn visit_str<E>(self, v: &str) -> Result<Self::Value, E> {
+                Ok(RawJsonValue(JsonValue::String(v.to_owned())))
+            }
+
+            fn visit_string<E>(self, v: String) -> Result<Self::Value, E> {
+                Ok(RawJsonValue(JsonValue::String(v)))
+            }
+
+            fn visit_seq<A: serde::de::SeqAccess<'de>>(
+                self,
+                mut seq: A,
+            ) -> Result<Self::Value, A::Error> {
+                let mut items = Vec::new();
+                while let Some(item) = seq.next_element::<RawJsonValue>()? {
+                    items.push(item.0);
+                }
+                Ok(RawJsonValue(JsonValue::Array(items)))
+            }
+
+            fn visit_map<A: serde::de::MapAccess<'de>>(
+                self,
+                mut map: A,
+            ) -> Result<Self::Value, A::Error> {
+                let mut entries = Vec::new();
+                let mut seen = BTreeSet::new();
+                while let Some((key, value)) =
+                    map.next_entry::<toml::Spanned<String>, toml::Spanned<RawJsonValue>>()?
+                {
+                    let start = key.span().start.min(value.span().start);
+                    let key_str = key.into_inner();
+                    let val = value.into_inner().0;
+                    if !seen.insert(key_str.clone()) {
+                        return Err(serde::de::Error::custom("duplicate schema key"));
+                    }
+                    entries.push((start, key_str, val));
+                }
+                entries.sort_by_key(|(start, _, _)| *start);
+                Ok(RawJsonValue(JsonValue::Object(
+                    entries.into_iter().map(|(_, k, v)| (k, v)).collect(),
+                )))
+            }
+        }
+
+        deserializer.deserialize_any(RawVisitor)
+    }
+}
+
+impl<'de> serde::Deserialize<'de> for SchemaToml {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        let raw = RawJsonValue::deserialize(deserializer)?;
+        from_json_schema(&raw.0)
+            .map(SchemaToml)
+            .map_err(serde::de::Error::custom)
+    }
+}

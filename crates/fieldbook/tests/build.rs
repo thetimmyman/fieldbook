@@ -419,7 +419,7 @@ mod build {
         let second = run_bin(tmp.path(), &[], &["build", "--out", &out_str]);
         assert_eq!(second.status.code(), Some(0));
         assert!(!stale.exists(), "second build must remove stale.txt");
-        assert!(out_dir.join("edition/index.html").is_file());
+        assert!(out_dir.join("edition/about.html").is_file());
     }
 
     #[test]
@@ -767,14 +767,14 @@ mod build {
             "incomplete release metadata must still succeed with unreleased shell: {}",
             initial.stderr
         );
-        let initial_index = std::fs::read_to_string(out_dir.join("edition/index.html"))
+        let initial_index = std::fs::read_to_string(out_dir.join("edition/about.html"))
             .unwrap_or_else(|e| panic!("{e}"));
         assert!(initial_index.contains(strings::unreleased_build()));
 
         // Plant a known byte snapshot in the owned `out_dir/edition/index.html` so we can verify
         // that a subsequent failed released build preserves every existing output byte.
         let preserved_marker = b"<!-- owned output before failed released build -->\n";
-        std::fs::write(out_dir.join("edition/index.html"), preserved_marker)
+        std::fs::write(out_dir.join("edition/about.html"), preserved_marker)
             .unwrap_or_else(|e| panic!("{e}"));
         let before_files = collect_tree_bytes(&out_dir);
         let events_before = read_journal_events(world.state_dir());
@@ -3007,4 +3007,37 @@ mod build {
         ));
         assert!(!area.contains("A second synthetic sentence"));
     }
+}
+
+#[test]
+fn rendered_profile_matches_build_features() {
+    let tmp = temp_copy(&fixture_root());
+    let out_dir = tmp.path().join("out-profile");
+    let world = TestWorld::new(tmp.path());
+    let expected = if cfg!(feature = "net") {
+        BuildProfile::Ai
+    } else {
+        BuildProfile::Silent
+    };
+
+    let outcome = fieldbook::build::run(
+        &BuildArgs {
+            out: out_dir.clone(),
+            watch: false,
+            since: None,
+        },
+        &world,
+    );
+    assert_eq!(outcome.code, 0, "build failed: {}", outcome.stderr);
+    let about = std::fs::read_to_string(out_dir.join("edition/about.html"))
+        .unwrap_or_else(|e| panic!("read about: {e}"));
+    let expected_text = if expected == BuildProfile::Ai {
+        "AI build"
+    } else {
+        "silent build"
+    };
+    assert!(
+        about.contains(expected_text),
+        "the rendered edition must name `{expected_text}`"
+    );
 }

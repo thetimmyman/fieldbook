@@ -1,0 +1,17 @@
+# Synthetic expected record field values for suite M, made up for tests.
+
+[[record]]
+request = "ask-public"
+adapter = "scripted@1"
+endpoint = "work"
+template = "ask@1"
+purpose = "ask"
+labels = ["public"]
+
+[[record]]
+request = "ask-owner"
+adapter = "scripted@1"
+endpoint = "work"
+template = "ask@1"
+purpose = "ask"
+labels = ["owner-supplied"]

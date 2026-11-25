@@ -3,6 +3,7 @@
 
 #![expect(
     clippy::disallowed_methods,
+    clippy::expect_used,
     reason = "integration tests write and inspect temporary files and real journal segments"
 )]
 
@@ -71,6 +72,7 @@ const BUILT_SINKS: &[&str] = &[
     "decision_package",
     "desk_pages",
     "changes_page",
+    "call_record",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -126,6 +128,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "changes_page",
         run: run_changes_page_surface,
+    },
+    Surface {
+        name: "call_record",
+        run: run_call_record_surface,
     },
 ];
 
@@ -3272,4 +3278,296 @@ fn check_delivered_map_is_public_and_bound() {
 #[test]
 fn delivered_map_is_public_and_bound() {
     check_delivered_map_is_public_and_bound();
+}
+
+fn run_call_record_surface() {
+    use std::sync::{Arc, Mutex};
+
+    use fieldbook::adapters::doubles::{HttpModel, MemJournal, ScriptedPace, test_policy};
+    use fieldbook::adapters::gate::Guarded;
+    use fieldbook::adapters::model::{
+        CallRecord, CallStore, Deps, KeepSettings, ModelAdapter, ModelOutcome, ModelPort,
+        PolicySnapshot, PreparedAttempt, Route, RunBudget,
+    };
+    use fieldbook::io::call_store::DiskCallStore;
+    use fieldbook::io::keys::{KeySource, ScriptedKeys};
+    use fieldbook::io::net::{Avail, HttpReply, ScriptedHttp};
+    use fieldbook_core::audit::{EndpointName, ModelId};
+    use fieldbook_core::labels::LabelAllow;
+    use fieldbook_core::ports::{Limits, ModelRequest, Part, PartKind, Purpose, Template};
+
+    const GATE_POLICY: &str = r#"
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Synthetic supplier terms"
+restricted = true
+
+[[label]]
+id = "bid-0003"
+title = "Synthetic bid cost"
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "model"
+name = "work"
+url = "https://work.example/v1"
+allow = ["public", "owner-supplied", "np-0007"]
+keep_calls_days_max = 14
+ref = "CHG-0001"
+
+[audit]
+require_fresh_export = false
+"#;
+
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let root = tmp.path();
+    let state = root.join("state");
+    std::fs::create_dir_all(&state).expect("state dir");
+    let disk = fieldbook::io::Disk::with_state(root, &state);
+    let store = Arc::new(DiskCallStore::new(disk));
+
+    let now = Now::new(CivilDate::from_ymd(2026, 3, 1).expect("date"), 43_200).expect("now");
+    let mut owner = OwnerSettings::unset();
+    owner.endpoints.insert(
+        "work".to_owned(),
+        LabelAllow::from_ids([
+            LabelId::parse("public").expect("public"),
+            LabelId::parse("owner-supplied").expect("owner-supplied"),
+            LabelId::parse("np-0007").expect("np-0007"),
+        ]),
+    );
+    owner.keep_calls = Some(true);
+    owner.keep_days = Some(30);
+    let eff = test_policy(GATE_POLICY, &owner);
+
+    let http = Arc::new(ScriptedHttp::new());
+    http.push(HttpReply::new(200, b"permitted-reply-canary".to_vec()));
+    http.push(HttpReply::new(
+        200,
+        b"unretained-np0007-reply-canary".to_vec(),
+    ));
+    http.push(HttpReply::new(
+        200,
+        b"forbidden-bid0003-reply-canary".to_vec(),
+    ));
+
+    let keys: Arc<dyn KeySource + Send + Sync> = Arc::new(ScriptedKeys::new());
+    let snap = Arc::new(Mutex::new(PolicySnapshot {
+        policy: eff.clone(),
+        now,
+        shipped: Shipped::Hours(1),
+    }));
+    let snap_for_deps = Arc::clone(&snap);
+    let deps = Deps {
+        journal: Arc::new(MemJournal::new()),
+        keys: keys.clone(),
+        pace: Arc::new(ScriptedPace::default()),
+        policy_provider: Arc::new(move || snap_for_deps.lock().expect("snap").clone()),
+        store: store.clone(),
+        keep: KeepSettings {
+            calls: true,
+            days: 30,
+        },
+        budget: Arc::new(RunBudget::new(100)),
+        avail: Avail {
+            net_built: true,
+            bridge_built: false,
+            cpu_ok: true,
+        },
+        retries: 0,
+        http: Some(http.clone()),
+    };
+    let route = Route {
+        name: EndpointName::parse("work").expect("work"),
+        base_url: "https://work.example/v1".to_owned(),
+        model: ModelId::parse("test-model").expect("model"),
+        timeout_s: 5,
+        max_reply_bytes: 64 * 1024,
+        key_env: None,
+    };
+    let model = Arc::new(HttpModel::new(http.clone(), keys));
+    let gate = Guarded::new(Box::new(model.clone()), route.clone(), deps);
+
+    let source_input = ItemRef::new(StoreId::Corpus, "S-0001-v1");
+    let make_req = |labels: LabelSet, canary: &str| {
+        ModelRequest::new(
+            Purpose::Ask,
+            Template::new("ask@1").expect("template"),
+            vec![
+                Part::new(
+                    PartKind::Context,
+                    labels.clone(),
+                    canary,
+                    vec![source_input.clone()],
+                ),
+                Part::new(PartKind::Question, labels, canary, Vec::new()),
+            ],
+            None,
+            Limits::new(10, 10),
+        )
+        .expect("request")
+    };
+
+    // 1. Permitted public request is sent to the endpoint and written to state/ai/calls/.
+    let outcome = gate
+        .run(
+            &make_req(LabelSet::public(), "permitted-call-canary"),
+            None,
+            &|| false,
+        )
+        .expect("public call succeeds");
+    let ModelOutcome::Answer(answer) = outcome else {
+        panic!("expected answer");
+    };
+    assert_eq!(answer.input_refs(), std::slice::from_ref(&source_input));
+
+    // 2. Request with label allowed by endpoint (`np-0007`) but forbidden in `state` store is
+    //    sent to the endpoint, yet refused by the call store (and refused on direct `put_call`).
+    let np = LabelId::parse("np-0007").expect("np-0007");
+    let _ = gate
+        .run(
+            &make_req(LabelSet::from_ids([np.clone()]), "forbidden-call-canary"),
+            None,
+            &|| false,
+        )
+        .expect("endpoint allows np-0007");
+    let direct_forbidden = CallRecord {
+        adapter: "scripted@1".to_owned(),
+        endpoint: "work".to_owned(),
+        model: "test-model".to_owned(),
+        template: "ask@1".to_owned(),
+        purpose: "ask".to_owned(),
+        labels: LabelSet::from_ids([np.clone()]),
+        inputs: vec![source_input.clone()],
+        policy: Sha256::digest(b"synthetic-policy"),
+        prompt_sha256: Sha256::digest(b"forbidden-call-canary"),
+        output_sha256: Some(Sha256::digest(b"forbidden-call-canary")),
+        system: "synthetic system".to_owned(),
+        prompt: "forbidden-call-canary".to_owned(),
+        reply: "forbidden-call-canary".to_owned(),
+        tokens_in: 1,
+        tokens_out: 1,
+        attempts: 1,
+        outcome: "ok".to_owned(),
+        keep_days: 30,
+        now,
+    };
+    assert!(
+        store.put_call(&direct_forbidden).is_err(),
+        "a record whose labels the state store cannot hold is refused"
+    );
+
+    // 3. Request with label forbidden by the endpoint (`bid-0003`) is refused before any send.
+    let bid = LabelId::parse("bid-0003").expect("bid-0003");
+    assert!(
+        gate.run(
+            &make_req(LabelSet::from_ids([bid]), "forbidden-send-canary"),
+            None,
+            &|| false,
+        )
+        .is_err(),
+        "endpoint refuses bid-0003 before sending"
+    );
+    assert_eq!(http.requests().len(), 2);
+    for sent_req in http.requests() {
+        let body_text = String::from_utf8_lossy(&sent_req.body);
+        assert!(!body_text.contains("forbidden-send-canary"));
+    }
+
+    // 4. Destination and payload binding at the final transport sink: a token bound to one body
+    //    and endpoint refuses changed bytes or a changed endpoint URL.
+    let bound_body = b"{\"system\":\"s\",\"prompt\":\"p\"}".to_vec();
+    let Decision::Allowed(allowed) = check(
+        &eff,
+        &Dest::Model {
+            name: "work".to_owned(),
+            base_url: "https://work.example/v1".to_owned(),
+        },
+        Some(&LabelSet::public()),
+        Some(&Delivery::new(
+            vec![Transfer::post_endpoint(
+                "https://work.example/v1",
+                &bound_body,
+            )],
+            None,
+        )),
+        now,
+        Shipped::Hours(1),
+    ) else {
+        panic!("expected Allowed");
+    };
+    let changed_bytes = PreparedAttempt {
+        target: Target::Endpoint("https://work.example/v1".to_owned()),
+        bytes: b"{\"system\":\"s\",\"prompt\":\"tampered\"}".to_vec(),
+        content_type: "application/json".to_owned(),
+    };
+    assert!(model.attempt(&allowed, &changed_bytes, &route).is_err());
+    let mut wrong_route = route;
+    wrong_route.base_url = "https://other.example/v1".to_owned();
+    let changed_dest = PreparedAttempt {
+        target: Target::Endpoint("https://other.example/v1".to_owned()),
+        bytes: bound_body,
+        content_type: "application/json".to_owned(),
+    };
+    assert!(
+        model
+            .attempt(&allowed, &changed_dest, &wrong_route)
+            .is_err()
+    );
+
+    // 5. Inspect stored call records on disk and verify input ItemRef re-evaluation on relabel.
+    let calls = state.join("ai/calls");
+    let mut text = String::new();
+    for entry in std::fs::read_dir(&calls).expect("calls dir") {
+        text.push_str(&std::fs::read_to_string(entry.expect("entry").path()).expect("call file"));
+    }
+    assert!(text.contains("permitted-call-canary"));
+    assert!(text.contains("S-0001-v1"));
+    assert!(
+        !text.contains("forbidden-call-canary")
+            && !text.contains("unretained-np0007-reply-canary")
+            && !text.contains("forbidden-send-canary"),
+        "the label filter refused forbidden records before they were written"
+    );
+
+    let call_item = ItemRef::new(StoreId::State, "C-0001");
+    let mut nodes = BTreeMap::new();
+    nodes.insert(
+        source_input.clone(),
+        LabelNode::new(LabelSet::public(), Vec::new()),
+    );
+    nodes.insert(
+        call_item.clone(),
+        LabelNode::new(
+            answer.request_labels().clone(),
+            answer.input_refs().to_vec(),
+        ),
+    );
+    let initial_graph = TestProvenanceGraph {
+        nodes: nodes.clone(),
+        ledger: Ledger::default(),
+    };
+    assert_eq!(
+        effective_item(&initial_graph, &call_item),
+        LabelSet::public()
+    );
+    nodes.insert(
+        source_input,
+        LabelNode::new(LabelSet::from_ids([np]), Vec::new()),
+    );
+    let relabelled_graph = TestProvenanceGraph {
+        nodes,
+        ledger: Ledger::default(),
+    };
+    assert!(
+        effective_item(&relabelled_graph, &call_item)
+            .contains(&LabelId::parse("np-0007").expect("np-0007"))
+    );
 }

@@ -764,10 +764,15 @@ fn read_shipped_originals(
 }
 
 /// Run `fieldbook build` reading `SOURCE_DATE_EPOCH` and compile-time `FIELDBOOK_GIT_SHA`
-/// from the process boundary.
+/// from the process boundary, with the profile selected by the compiled features.
 #[must_use]
 pub fn run(args: &BuildArgs, world: &dyn World) -> Outcome {
-    let info = crate::io::build_info_from_env();
+    let mut info = crate::io::build_info_from_env();
+    info.profile = if cfg!(feature = "net") {
+        fieldbook_core::edition::BuildProfile::Ai
+    } else {
+        fieldbook_core::edition::BuildProfile::Silent
+    };
     run_with_info(args, world, &info)
 }
 

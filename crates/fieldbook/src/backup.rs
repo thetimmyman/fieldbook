@@ -550,6 +550,10 @@ pub fn run_backup(world: &dyn World, eff: &EffectivePolicy, options: &BackupOpti
         };
         let cf = if file_rel == QUESTION_LOG {
             question_log_file(model.as_ref(), eff, file_rel, &bytes)
+        } else if file_rel.starts_with(CALL_RECORD_PREFIX) {
+            call_record_file(model.as_ref(), eff, file_rel, &bytes)
+        } else if file_rel.starts_with(HANDOFF_PREFIX) {
+            handoff_file(world, model.as_ref(), eff, file_rel, &bytes)
         } else {
             classify_file(&support_facts, model.as_ref(), eff, file_rel, &bytes)
         };
@@ -1133,6 +1137,12 @@ fn is_inside_or_equal(target: &Path, root: &Path) -> bool {
 /// The question log's path in the backup layout (`ask-log`).
 const QUESTION_LOG: &str = "state/asked/asked.csv";
 
+/// The saved call-record folder in the backup layout (`model-gate`).
+const CALL_RECORD_PREFIX: &str = "state/ai/calls/";
+
+/// The Handoff pack and ticket folder in the backup layout (`model-gate`).
+const HANDOFF_PREFIX: &str = "state/handoff/";
+
 /// The question log as a copied file: each row's own labels, the markings in its question and
 /// the current labels of its inputs in `model`; `unlabelled` when the log does not parse or an
 /// input cannot be resolved.
@@ -1151,6 +1161,96 @@ fn question_log_file(
         &eff.marking_rules(),
     );
     CopiedFile::new(path, BackupFileKind::QuestionLogLine, labels)
+}
+
+/// A saved call record (`state/ai/calls/C-nnnn.json`) as a copied file: its recorded labels,
+/// any markings in its text fields, and the current labels of its inputs in `model`;
+/// `unlabelled` when the file name or schema is invalid or an input cannot be resolved.
+fn call_record_file(
+    model: Option<&Model>,
+    eff: &EffectivePolicy,
+    path: &str,
+    bytes: &[u8],
+) -> CopiedFile {
+    let valid_name = path
+        .strip_prefix(CALL_RECORD_PREFIX)
+        .and_then(|name| name.strip_prefix("C-"))
+        .and_then(|rest| rest.strip_suffix(".json"))
+        .is_some_and(|digits| {
+            digits.len() >= 4
+                && !digits.contains('/')
+                && digits.bytes().all(|b| b.is_ascii_digit())
+                && digits.bytes().any(|b| b != b'0')
+        });
+    if !valid_name {
+        return CopiedFile::new(path, BackupFileKind::CallRecord, LabelSet::unlabelled());
+    }
+    let parsed = std::str::from_utf8(bytes)
+        .ok()
+        .and_then(|text| crate::adapters::schema_json::parse_json_value(text).ok());
+    let Some(value) = parsed else {
+        return CopiedFile::new(path, BackupFileKind::CallRecord, LabelSet::unlabelled());
+    };
+    let graph = model.map(fieldbook_core::asked::InputGraph::new);
+    let labels = fieldbook_core::backup::labels::call_record_labels(
+        &value,
+        graph
+            .as_ref()
+            .map(|graph| graph as &dyn fieldbook_core::labels::LabelGraph),
+        &eff.marking_rules(),
+    );
+    CopiedFile::new(path, BackupFileKind::CallRecord, labels)
+}
+
+/// A Handoff pack (`state/handoff/H-nnnn.txt`) or ticket (`state/handoff/H-nnnn.toml`) as a
+/// copied file: its ticket's labels, any markings in the ticket or pack text, and the current
+/// labels of its inputs in `model`; `unlabelled` for an orphan pack or invalid metadata.
+fn handoff_file(
+    world: &dyn World,
+    model: Option<&Model>,
+    eff: &EffectivePolicy,
+    path: &str,
+    bytes: &[u8],
+) -> CopiedFile {
+    let Some(sub) = path.strip_prefix(HANDOFF_PREFIX) else {
+        return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+    };
+    if sub.contains('/') {
+        return CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled());
+    }
+    let graph = model.map(fieldbook_core::asked::InputGraph::new);
+    let graph_ref = graph
+        .as_ref()
+        .map(|graph| graph as &dyn fieldbook_core::labels::LabelGraph);
+    let rules = eff.marking_rules();
+
+    if let Some(stem) = sub.strip_suffix(".txt")
+        && fieldbook_core::ports::HandoffId::parse(stem).is_ok()
+    {
+        let ticket_rel = format!("{HANDOFF_PREFIX}{stem}.toml");
+        let labels = match read_file_content(world, &ticket_rel) {
+            Ok(ticket_bytes) => fieldbook_core::backup::labels::handoff_ticket_labels(
+                stem,
+                &ticket_bytes,
+                Some(bytes),
+                graph_ref,
+                &rules,
+            ),
+            Err(_) => LabelSet::unlabelled(),
+        };
+        return CopiedFile::new(path, BackupFileKind::HandoffPack, labels);
+    }
+
+    if let Some(stem) = sub.strip_suffix(".toml")
+        && fieldbook_core::ports::HandoffId::parse(stem).is_ok()
+    {
+        let labels = fieldbook_core::backup::labels::handoff_ticket_labels(
+            stem, bytes, None, graph_ref, &rules,
+        );
+        return CopiedFile::new(path, BackupFileKind::HandoffPack, labels);
+    }
+
+    CopiedFile::new(path, BackupFileKind::Stray, LabelSet::unlabelled())
 }
 
 fn load_model_if_available(

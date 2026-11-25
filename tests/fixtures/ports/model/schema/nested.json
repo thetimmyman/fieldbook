@@ -1,0 +1,1 @@
+{"type":"object","properties":{"meta":{"type":"object","properties":{"note":{"type":"boolean"},"count":{"type":"integer","minimum":0,"maximum":10}},"required":["count"],"additionalProperties":false}},"required":["meta"],"additionalProperties":false}

@@ -5,8 +5,71 @@
 
 use serde::{Deserialize, Serialize};
 
-use crate::labels::LabelId;
+use crate::labels::{LabelId, LabelSet};
 use crate::ports::Caps;
+
+/// Marking scan result of a send preview (`model-gate` step 5).
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Scan {
+    /// Marked label ids found in the outbound text, sorted.
+    pub marked: Vec<LabelId>,
+}
+
+impl Scan {
+    /// Builds a [`Scan`] from the marking result of `labels::markings_in`.
+    #[must_use]
+    pub fn from_markings(markings: Option<LabelSet>) -> Self {
+        Self {
+            marked: markings.map(|set| set.ids().to_vec()).unwrap_or_default(),
+        }
+    }
+
+    /// Returns `true` when the outbound text carried no marking.
+    #[must_use]
+    pub fn is_clean(&self) -> bool {
+        self.marked.is_empty()
+    }
+}
+
+/// One label cut from a destination's effective allow set, with the side that cut it.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PreviewCut {
+    /// The label id that was excluded.
+    pub label: LabelId,
+    /// Whether the owner's settings, rather than the policy, cut it.
+    pub by_owner: bool,
+}
+
+/// What a send would do, built without a network call or a journal event (`model-gate` step 5).
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct SendPreview {
+    /// Chosen endpoint name (`handoff` for the copy-paste route).
+    pub route: Option<String>,
+    /// Adapter identifier of the chosen route.
+    pub adapter: Option<String>,
+    /// Request labels, sorted.
+    pub labels: Vec<LabelId>,
+    /// `None` when the request would be allowed, otherwise the denial code (`FBnnnn`).
+    pub verdict: Option<String>,
+    /// Closed denial reason when the request would be refused.
+    pub reason: Option<String>,
+    /// Labels cut from the route's effective allow set.
+    pub cuts: Vec<PreviewCut>,
+    /// Rendered characters of the system and prompt text.
+    pub characters: usize,
+    /// Input reference count of the request.
+    pub items: usize,
+    /// Marking scan of the outbound text.
+    pub scan: Scan,
+    /// Presence state of the endpoint's key variable.
+    pub key: KeyState,
+    /// Budget calls left in the shared run budget.
+    pub budget_left: u32,
+    /// Whether the journal can take the record this route writes before any byte leaves.
+    pub audited: bool,
+    /// Opaque fingerprint of the inputs the preview was built from.
+    pub generation: String,
+}
 
 /// Connection and policy readiness state of an adapter (`ai-config-and-keys` step 1).
 ///
@@ -60,13 +123,14 @@ impl ConnState {
 }
 
 /// Presence state of an endpoint's API key variable (never holds key text).
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub enum KeyState {
     /// The configured environment variable is set to a non-empty value.
     Set,
     /// The configured environment variable is unset or empty.
     Missing,
     /// This adapter or endpoint does not require an environment key.
+    #[default]
     NotNeeded,
 }
 

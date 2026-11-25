@@ -1409,3 +1409,98 @@ fn append_p95() {
         p95.as_secs_f64() * 1000.0
     );
 }
+
+#[test]
+fn audit_reports_a_begin_with_no_call() {
+    use fieldbook_core::audit::{Count, EndpointName, ModelId, SemVer, Word};
+    use fieldbook_core::labels::LabelSet;
+
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let state_dir = tmp.path().join("state-ai-gate");
+    std::fs::create_dir_all(&state_dir).expect("state dir");
+    let world = TestWorld::with_state(tmp.path(), &state_dir);
+    world.set_now(Now::new(CivilDate::from_ymd(2026, 3, 1).expect("date"), 43_200).expect("now"));
+
+    let journal = fieldbook::io::journal::Journal::open_stamped(
+        &world,
+        &state_dir,
+        Via::Cli,
+        SemVer::parse("0.0.0").expect("semver"),
+    )
+    .expect("open journal");
+
+    let last_seq = |dir: &Path| -> u64 {
+        let text = std::fs::read_to_string(dir.join("audit/journal.jsonl")).expect("journal");
+        text.lines()
+            .filter(|line| !line.trim().is_empty())
+            .filter_map(|line| Event::parse_line(line).ok())
+            .map(|(event, _)| event.seq)
+            .max()
+            .unwrap_or(0)
+    };
+
+    let begin = |journal: &fieldbook::io::journal::Journal<'_>| -> u64 {
+        let tx = last_seq(&state_dir) + 1;
+        journal
+            .append_payload(EventPayload::AiBegin {
+                tx: Count(tx),
+                purpose: Word::new_static("ask"),
+                dest: fieldbook_core::audit::DestKind::Model,
+                labels: LabelSet::public(),
+                policy: Sha256::digest(b"synthetic-policy"),
+                adapter: Word::new_static("scripted@1"),
+                endpoint: EndpointName::parse("work").expect("endpoint"),
+                model: ModelId::parse("test-model").expect("model"),
+                template: Word::new_static("ask@1"),
+                prompt_sha256: Sha256::digest(b"synthetic prompt"),
+                context_ids: Vec::new(),
+            })
+            .expect("append ai.begin");
+        tx
+    };
+
+    let finished = begin(&journal);
+    journal
+        .append_payload(EventPayload::AiCall {
+            tx: Count(finished),
+            outcome: Word::new_static("ok"),
+            code: None,
+            attempts: Count(1),
+            output_sha256: Some(Sha256::digest(b"synthetic reply")),
+            tokens_in: Count(1),
+            tokens_out: Count(1),
+        })
+        .expect("append ai.call");
+    let unfinished = begin(&journal);
+    drop(journal);
+    fieldbook::io::journal::cleanup_fixture_locks(&state_dir).expect("cleanup locks");
+    std::fs::write(
+        state_dir.join("settings.toml"),
+        include_str!("../../../tests/fixtures/state-ai-gate/settings.toml"),
+    )
+    .expect("settings");
+
+    let outcome = run_args(&["audit", "verify", "--json"], &world);
+    assert_eq!(
+        outcome.code, 0,
+        "a lone begin is a warning: {}",
+        outcome.stderr
+    );
+    assert!(
+        outcome.stdout.contains("FB0803"),
+        "the lone ai.begin is reported: {}",
+        outcome.stdout
+    );
+    let report: serde_json::Value =
+        serde_json::from_str(&outcome.stdout).expect("audit verify json");
+    assert!(
+        report["findings"]
+            .as_array()
+            .expect("findings")
+            .iter()
+            .any(|finding| finding["code"] == "FB0803"
+                && finding["seq"].as_u64() == Some(unfinished)),
+        "the lone begin's sequence is named: {}",
+        outcome.stdout
+    );
+}

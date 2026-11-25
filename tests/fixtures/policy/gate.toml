@@ -1,0 +1,35 @@
+# Synthetic policy for the model gate tests, made up for tests.
+
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms under an NDA (fixture)"
+banner = "NP-0007: restricted to the named counterparty"
+restricted = true
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007"]
+
+[[destination]]
+kind = "model"
+name = "work"
+url = "https://work.example/v1"
+allow = ["public", "owner-supplied", "np-0007"]
+keep_calls_days_max = 14
+ref = "CHG-0001"
+
+[[destination]]
+kind = "handoff"
+name = "approved-assistant"
+allow = ["public", "owner-supplied", "np-0007"]
+ref = "CHG-0002"
+
+[audit]
+max_unshipped_hours = 24
