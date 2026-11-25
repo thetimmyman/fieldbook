@@ -342,7 +342,7 @@ pub fn write_export(
     }
     match world.write_outside(allowed, audited, path, bytes) {
         Ok(_) => {}
-        Err(err) if err.to_string().ends_with(atomic::ALREADY_EXISTS) => {
+        Err(Error::Io { message, .. }) if message == atomic::ALREADY_EXISTS => {
             // Another program created the name after the check above: the same bytes are
             // fine, other bytes are a conflict, and nothing was replaced either way.
             return match world.read_file(path) {

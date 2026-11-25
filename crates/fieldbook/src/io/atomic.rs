@@ -1044,7 +1044,34 @@ fn write_atomic(path: &Path, bytes: &[u8], replace: bool) -> Result<Sha256, Erro
             Err(err) if err.kind() == std::io::ErrorKind::AlreadyExists => {
                 Err(Error::new(path, ALREADY_EXISTS))
             }
-            Err(err) => Err(Error::new(path, err.to_string())),
+            Err(_) => {
+                // The sink's file system may not support hard links (some network shares and
+                // removable media): create the name exclusively and write it in place. The name
+                // still never replaces a file; a failed write removes the partial file.
+                let entry = bound_parent.entry_path(file_name_os);
+                let created = std::fs::OpenOptions::new()
+                    .write(true)
+                    .create_new(true)
+                    .open(&entry);
+                match created {
+                    Ok(mut out) => {
+                        let written = out
+                            .write_all(bytes)
+                            .and_then(|()| out.flush())
+                            .and_then(|()| out.sync_data());
+                        drop(out);
+                        if let Err(err) = written {
+                            let _ = std::fs::remove_file(&entry);
+                            return Err(Error::new(path, err.to_string()));
+                        }
+                        Ok(Sha256::digest(bytes))
+                    }
+                    Err(err) if err.kind() == std::io::ErrorKind::AlreadyExists => {
+                        Err(Error::new(path, ALREADY_EXISTS))
+                    }
+                    Err(err) => Err(Error::new(path, err.to_string())),
+                }
+            }
         };
     }
 
