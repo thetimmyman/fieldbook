@@ -948,6 +948,20 @@ fn marking_in_a_context_part_is_refused() {
 }
 
 #[test]
+// control: HG-10
+fn marking_added_by_the_adapter_to_the_prepared_body_is_refused() {
+    let h = Harness::shipped(Shipped::Hours(1));
+    let model = Arc::new(
+        ScriptedModel::new("synthetic answer")
+            .with_prepare_suffix("\nNP-0007 NDA added by prepare"),
+    );
+    let gate = h.gate(work(), model.clone());
+    let req = question(LabelSet::public(), "Synthetic question");
+    assert_code(run(&gate, &req), CheckCode::Fb0902);
+    assert_eq!(model.count(), 0);
+}
+
+#[test]
 fn marking_in_the_question_is_refused() {
     let h = Harness::shipped(Shipped::Hours(1));
     let gate = h.gate(work(), scripted());
@@ -1006,6 +1020,16 @@ fn resume_twice_is_fb0916() {
             .map(ModelOutcome::Answer),
         CheckCode::Fb0916,
     );
+}
+
+#[test]
+fn a_failed_pack_write_is_an_error_and_never_an_invented_ticket() {
+    let h = Harness::shipped(Shipped::Hours(1));
+    h.calls.fail_put_pack();
+    let gate = h.gate(handoff(), Arc::new(HandoffAdapter));
+    let req = question(LabelSet::public(), "Synthetic question");
+    assert_code(run(&gate, &req), CheckCode::Fb0916);
+    assert_eq!(h.calls.pack_count(), 0);
 }
 
 #[test]
@@ -1513,6 +1537,49 @@ fn changed_body_token_reuse_is_refused() {
     assert!(model.attempt(&allowed, &prepared, &work()).is_err());
 }
 
+fn token_for(body: &[u8]) -> fieldbook_core::egress::Allowed {
+    let policy = test_policy(POLICY, &default_owner());
+    match egress::check(
+        &policy,
+        &Dest::Model {
+            name: "work".to_owned(),
+            base_url: base_url().to_owned(),
+        },
+        Some(&LabelSet::public()),
+        Some(&Delivery::new(
+            vec![Transfer::post_endpoint(base_url(), body)],
+            None,
+        )),
+        now(),
+        Shipped::Hours(1),
+    ) {
+        Decision::Allowed(allowed) => allowed,
+        Decision::Denied(denial) => panic!("{denial}"),
+    }
+}
+
+#[test]
+fn the_transport_door_refuses_a_token_that_does_not_cover_the_request() {
+    use fieldbook::io::net::{HttpError, HttpPost, HttpReply, HttpRequest};
+    let http = ScriptedHttp::new();
+    http.push(HttpReply::new(200, b"{}".to_vec()));
+    let allowed = token_for(b"{}");
+    // Another body, another URL, and a URL with a query are each refused with no send.
+    let other_body = HttpRequest::new(base_url(), b"changed".to_vec(), 5);
+    let other_url = HttpRequest::new("https://other.example/v1", b"{}".to_vec(), 5);
+    let with_query = HttpRequest::new(format!("{}?x=1", base_url()), b"{}".to_vec(), 5);
+    for request in [other_body, other_url, with_query] {
+        assert!(matches!(
+            http.post(&allowed, &request),
+            Err(HttpError::Other)
+        ));
+    }
+    assert_eq!(http.sends(), 0);
+    let exact = HttpRequest::new(base_url(), b"{}".to_vec(), 5);
+    assert!(http.post(&allowed, &exact).is_ok());
+    assert_eq!(http.sends(), 1);
+}
+
 #[test]
 fn schema_goldens_match_emitted_json() {
     let root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
@@ -1567,6 +1634,32 @@ impl LabelGraph for Graph {
     fn ledger(&self, _store: StoreId) -> &Ledger {
         &self.ledger
     }
+}
+
+#[test]
+fn an_unreadable_handoff_folder_never_yields_ticket_one() {
+    use fieldbook::adapters::model::{CallStore, TicketMeta};
+    use fieldbook::io::call_store::DiskCallStore;
+
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let state = tmp.path().join(".fieldbook");
+    std::fs::create_dir_all(&state).expect("create state dir");
+    // A file where the folder belongs makes the folder unreadable (not merely absent).
+    std::fs::write(state.join("handoff"), b"not a folder").expect("write blocker");
+    let store = DiskCallStore::new(fieldbook::io::Disk::with_state(tmp.path(), &state));
+    let meta = TicketMeta {
+        response_schema: None,
+        pack_seq: 1,
+        template: "ask@1".to_owned(),
+        labels: LabelSet::public(),
+        context_ids: vec!["corpus/S-0001-v1".to_owned()],
+        inputs: Vec::new(),
+    };
+    assert!(store.put_pack(b"synthetic pack", &meta).is_err());
+    assert!(
+        state.join("handoff").is_file(),
+        "nothing replaced the blocker"
+    );
 }
 
 #[test]
@@ -1969,4 +2062,18 @@ fn lock_is_free_during_a_model_call() {
     assert!(kinds.contains(&"ai.begin"), "{kinds:?}");
     assert!(kinds.contains(&"ask"), "{kinds:?}");
     assert!(kinds.contains(&"ai.call"), "{kinds:?}");
+    // The transaction id is the real sequence number of the `ai.begin` line, and `ai.call`
+    // names it, even though an unrelated writer appended between them.
+    let begin = events
+        .iter()
+        .find_map(|e| match &e.payload {
+            EventPayload::AiBegin { tx, .. } => Some((e.seq, tx.0)),
+            _ => None,
+        })
+        .expect("ai.begin event");
+    assert_eq!(begin.0, begin.1, "tx must equal the line's own seq");
+    assert!(events.iter().any(|e| matches!(
+        &e.payload,
+        EventPayload::AiCall { tx, .. } if tx.0 == begin.0
+    )));
 }

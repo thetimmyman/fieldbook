@@ -4,11 +4,11 @@
 //! held for one append and never across a model call. The chain stays whole because the next open
 //! reads the last hash.
 
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::sync::Arc;
 
 use fieldbook_core::audit::kind::{AI_ADAPTERS, AI_PURPOSES, AI_TEMPLATES};
-use fieldbook_core::audit::{Count, DestKind, Event, EventPayload, LabelSet, Sha256, Via, Word};
+use fieldbook_core::audit::{Count, DestKind, EventPayload, LabelSet, Sha256, Via, Word};
 use fieldbook_core::check::Code;
 
 use crate::World;
@@ -44,45 +44,24 @@ const fn finish_error() -> ModelError {
     ModelError::new(Code::Fb0904, ErrorKind::Availability)
 }
 
-/// Reads the last sequence number of a journal under `state_dir`.
-fn last_seq(state_dir: &Path) -> Option<u64> {
-    let audit_dir = state_dir.join("audit");
-    let segments = journal::list_segments(&audit_dir).ok()?;
-    let mut last = None;
-    for (_, path) in segments {
-        let bytes = journal::read_segment_bytes(&path).ok()?;
-        let text = String::from_utf8_lossy(&bytes);
-        for line in text.lines().rev() {
-            if line.trim().is_empty() {
-                continue;
-            }
-            if let Ok((event, _)) = Event::parse_line(line) {
-                last = Some(event.seq);
-                break;
-            }
-        }
-    }
-    last
-}
-
-impl AiJournal for AiJournalWriter {
-    fn begin(&self, record: BeginRecord) -> Result<u64, ModelError> {
-        let journal = self.open()?;
-        let next = last_seq(&self.state_dir).unwrap_or(0) + 1;
-        let payload = match record {
+impl AiJournalWriter {
+    fn begin_payload(
+        record: BeginRecord,
+        next: u64,
+    ) -> Result<EventPayload, journal::JournalError> {
+        let bad = || journal::JournalError::Vocab("invalid ai.begin word".to_owned());
+        Ok(match record {
             BeginRecord::Model(event) => EventPayload::AiBegin {
                 tx: Count(next),
                 purpose: Word::from_closed(event.purpose.as_str(), AI_PURPOSES)
-                    .map_err(|_| begin_error())?,
+                    .map_err(|_| bad())?,
                 dest: DestKind::Model,
                 labels: event.labels,
                 policy: event.policy,
-                adapter: Word::from_closed(&event.adapter, AI_ADAPTERS)
-                    .map_err(|_| begin_error())?,
+                adapter: Word::from_closed(&event.adapter, AI_ADAPTERS).map_err(|_| bad())?,
                 endpoint: event.endpoint,
                 model: event.model,
-                template: Word::from_closed(&event.template, AI_TEMPLATES)
-                    .map_err(|_| begin_error())?,
+                template: Word::from_closed(&event.template, AI_TEMPLATES).map_err(|_| bad())?,
                 prompt_sha256: event.prompt_sha256,
                 context_ids: event.context_ids,
             },
@@ -93,9 +72,18 @@ impl AiJournal for AiJournalWriter {
                 labels: event.labels,
                 policy: event.policy,
             },
-        };
-        journal.append_payload(payload).map_err(|_| begin_error())?;
-        last_seq(&self.state_dir).ok_or_else(begin_error)
+        })
+    }
+}
+
+impl AiJournal for AiJournalWriter {
+    fn begin(&self, record: BeginRecord) -> Result<u64, ModelError> {
+        let journal = self.open()?;
+        // The transaction id is the sequence number of the line being appended, taken under the
+        // journal lock, so it cannot differ from the line's real position.
+        journal
+            .append_payload_with_seq(|next| Self::begin_payload(record, next))
+            .map_err(|_| begin_error())
     }
 
     fn finish(&self, tx: u64, event: CallEvent) -> Result<(), ModelError> {

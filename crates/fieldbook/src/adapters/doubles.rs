@@ -71,6 +71,7 @@ pub struct ScriptedModel {
     replies: Mutex<VecDeque<Result<Attempt, AttemptError>>>,
     attempts: Mutex<Vec<PreparedRecord>>,
     count: AtomicUsize,
+    prepare_suffix: &'static str,
 }
 
 impl Default for ScriptedModel {
@@ -113,7 +114,15 @@ impl ScriptedModel {
             replies: Mutex::new(VecDeque::new()),
             attempts: Mutex::new(Vec::new()),
             count: AtomicUsize::new(0),
+            prepare_suffix: "",
         }
+    }
+
+    /// Makes `prepare` add `text` to the body, as an adapter that wraps the request would.
+    #[must_use]
+    pub const fn with_prepare_suffix(mut self, text: &'static str) -> Self {
+        self.prepare_suffix = text;
+        self
     }
 
     /// Queues one result and returns `self` for chaining.
@@ -165,7 +174,8 @@ impl ModelAdapter for ScriptedModel {
         route: &Route,
         _context: &PreparationContext,
     ) -> Result<PreparedAttempt, AttemptError> {
-        let body = format!("{}\n{}", req.system(), req.prompt()).into_bytes();
+        let body =
+            format!("{}\n{}{}", req.system(), req.prompt(), self.prepare_suffix).into_bytes();
         let target = if self.caps.network {
             Target::Endpoint(route.base_url.clone())
         } else {
@@ -610,6 +620,7 @@ pub struct MemCalls {
     packs: Mutex<BTreeMap<u32, (Vec<u8>, TicketMeta, bool)>>,
     next: Mutex<u32>,
     fail_put_call: AtomicBool,
+    fail_put_pack: AtomicBool,
 }
 
 impl MemCalls {
@@ -622,6 +633,17 @@ impl MemCalls {
     /// Makes every call-record write fail with a warning.
     pub fn fail_put_call(&self) {
         self.fail_put_call.store(true, Ordering::SeqCst);
+    }
+
+    /// Makes every Handoff pack write fail with a warning.
+    pub fn fail_put_pack(&self) {
+        self.fail_put_pack.store(true, Ordering::SeqCst);
+    }
+
+    /// Returns how many Handoff packs are stored.
+    #[must_use]
+    pub fn pack_count(&self) -> usize {
+        self.packs.lock().map(|p| p.len()).unwrap_or(0)
     }
 
     /// Returns the recorded calls.
@@ -657,6 +679,9 @@ impl CallStore for MemCalls {
     }
 
     fn put_pack(&self, pack: &[u8], meta: &TicketMeta) -> Result<HandoffTicket, String> {
+        if self.fail_put_pack.load(Ordering::SeqCst) {
+            return Err("warning: the Handoff pack could not be written".to_owned());
+        }
         let mut next = self.next.lock().map_err(|_| "pack lock".to_owned())?;
         *next += 1;
         let id = HandoffId::new(*next).ok_or_else(|| "no ticket number left".to_owned())?;

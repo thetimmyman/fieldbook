@@ -271,11 +271,9 @@ impl Guarded {
             }
         }
 
-        // G4 Mismatch: scan the final text, prepare the exact body, and bind the delivery.
+        // G4 Mismatch: prepare the exact body, scan the final text (the request and every byte the
+        // adapter will send, since `prepare` may add text), and bind the delivery.
         let rules = snapshot.policy.marking_rules();
-        let text = format!("{}\n{}", req.system(), req.prompt());
-        let markings = labels::markings_in(&text, &rules);
-
         let context = snapshot.preparation_context();
         let prepared = match self.adapter.prepare(req, &self.route, &context) {
             Ok(prepared) => prepared,
@@ -283,6 +281,13 @@ impl Guarded {
                 return Step::Failed(self.attempt_error(error));
             }
         };
+        let text = format!(
+            "{}\n{}\n{}",
+            req.system(),
+            req.prompt(),
+            String::from_utf8_lossy(&prepared.bytes)
+        );
+        let markings = labels::markings_in(&text, &rules);
         let delivery = Delivery {
             entries: vec![transfer_for(&self.route, &prepared)],
             markings,

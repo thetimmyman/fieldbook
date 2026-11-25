@@ -105,6 +105,15 @@ impl CallStore for DiskCallStore {
     }
 
     fn put_pack(&self, pack: &[u8], meta: &TicketMeta) -> Result<HandoffTicket, String> {
+        // A pack holds labelled company text, so the state store must be able to hold its labels,
+        // as for a call record.
+        let rule = fieldbook_core::labels::StoreRule::floor(StoreId::State, false);
+        if fieldbook_core::labels::admit(&meta.labels, &rule).is_err() {
+            return Err(
+                "warning: the Handoff pack was not written (the state store cannot hold the request's labels)"
+                    .to_owned(),
+            );
+        }
         let id = next_handoff_id(self.state_dir())
             .ok_or_else(|| "warning: the handoff folder could not be read".to_owned())?;
         let ticket = HandoffTicket::new(id, Sha256::digest(pack));

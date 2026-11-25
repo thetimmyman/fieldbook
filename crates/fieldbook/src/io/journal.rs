@@ -3120,6 +3120,39 @@ impl<'a> Journal<'a> {
         )?;
         Ok(next.last_hash)
     }
+
+    /// Append one event whose payload is built from the sequence number it is about to get, under
+    /// the same journal lock as the append, and return that sequence number (`model-gate`: the
+    /// `tx` of an `ai.begin` is the sequence of its own line, so a concurrent writer cannot skew
+    /// it).
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if the lock, the tail check or the append fails, or `build` fails.
+    pub fn append_payload_with_seq<F>(&self, build: F) -> Result<u64, JournalError>
+    where
+        F: FnOnce(u64) -> Result<EventPayload, JournalError>,
+    {
+        let has_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        let _short_lock = if has_active {
+            None
+        } else {
+            Some(acquire_journal_lock(&self.state_dir)?)
+        };
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let seq = tail.last_seq + 1;
+        let payload = build(seq)?;
+        append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+        Ok(seq)
+    }
 }
 
 /// Remove transient lock files (`state/lock` and `state/store.lock`) after building a static

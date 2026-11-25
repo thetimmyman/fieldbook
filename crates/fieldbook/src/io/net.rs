@@ -9,7 +9,7 @@ use std::fmt;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-use fieldbook_core::egress::Allowed;
+use fieldbook_core::egress::{Allowed, Operation, Target};
 
 use crate::io::keys::Key;
 
@@ -172,14 +172,47 @@ impl fmt::Display for HttpError {
 
 impl std::error::Error for HttpError {}
 
-/// The one outbound transport door. Every send takes the gate's [`Allowed`] token.
+/// The one outbound transport door. Every send takes the gate's [`Allowed`] token and
+/// [`HttpPost::post`] checks it against the URL and the exact body before any transport code
+/// runs.
+///
+/// An implementation provides [`HttpPost::send`] and must not override [`HttpPost::post`]; a
+/// real transport (`net-stack-spike`) also refuses redirects, a proxy, and a URL with a user,
+/// query or fragment.
 pub trait HttpPost {
-    /// Sends `req` and returns the reply.
+    /// Sends `req` and returns the reply. Called only by [`HttpPost::post`], after the token
+    /// check.
     ///
     /// # Errors
     ///
     /// Returns [`HttpError`] when the request cannot be completed.
-    fn post(&self, allowed: &Allowed, req: &HttpRequest) -> Result<HttpReply, HttpError>;
+    fn send(&self, req: &HttpRequest) -> Result<HttpReply, HttpError>;
+
+    /// Checks that `allowed` covers this endpoint and these exact body bytes, then sends.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`HttpError::Other`] without sending when the token does not cover the request or
+    /// the URL carries a user, a query or a fragment; otherwise the error of
+    /// [`HttpPost::send`].
+    fn post(&self, allowed: &Allowed, req: &HttpRequest) -> Result<HttpReply, HttpError> {
+        let target = Target::Endpoint(req.url.clone());
+        if !url_is_plain(&req.url)
+            || !allowed.permits_transfer(&target, &Operation::Post, &req.body)
+        {
+            return Err(HttpError::Other);
+        }
+        self.send(req)
+    }
+}
+
+/// Whether `url` has no user info, query or fragment.
+fn url_is_plain(url: &str) -> bool {
+    let Some((_, rest)) = url.split_once("://") else {
+        return false;
+    };
+    let authority = rest.split('/').next().unwrap_or("");
+    !authority.contains('@') && !url.contains('?') && !url.contains('#')
 }
 
 /// A request as recorded by [`ScriptedHttp`]: header names only, never a secret value.
@@ -236,7 +269,7 @@ impl ScriptedHttp {
 }
 
 impl HttpPost for ScriptedHttp {
-    fn post(&self, _allowed: &Allowed, req: &HttpRequest) -> Result<HttpReply, HttpError> {
+    fn send(&self, req: &HttpRequest) -> Result<HttpReply, HttpError> {
         self.sends.fetch_add(1, Ordering::SeqCst);
         if let Ok(mut requests) = self.requests.lock() {
             requests.push(RecordedRequest {
@@ -262,7 +295,7 @@ impl HttpPost for ScriptedHttp {
 pub struct PanicHttp;
 
 impl HttpPost for PanicHttp {
-    fn post(&self, _allowed: &Allowed, _req: &HttpRequest) -> Result<HttpReply, HttpError> {
+    fn send(&self, _req: &HttpRequest) -> Result<HttpReply, HttpError> {
         panic!("a send was attempted")
     }
 }
