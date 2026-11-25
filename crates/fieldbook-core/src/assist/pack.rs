@@ -709,9 +709,13 @@ pub fn context_pack_for(
                     }
                     for opp in opponents {
                         let opp_str = opp.as_str().to_owned();
-                        conflict_opponents
-                            .entry(opp_str.clone())
-                            .or_insert_with(|| xid.clone());
+                        // Only the selected claim's opponents carry the opponent status line;
+                        // a unit reached through a promoted claim keeps its own status.
+                        if current == claim_id || !seen.contains(&opp_str) {
+                            conflict_opponents
+                                .entry(opp_str.clone())
+                                .or_insert_with(|| xid.clone());
+                        }
                         if catalog.units.contains_key(&opp_str) {
                             needed.push(opp_str);
                         }

@@ -840,6 +840,16 @@ fn a_promoted_conflict_claim_brings_its_own_conflicts() {
     ] {
         assert!(included.iter().any(|u| u == id), "{id} in {included:?}");
     }
+    let selected = pack
+        .blocks()
+        .iter()
+        .find(|b| b.id == "CL-CMP-0002")
+        .unwrap();
+    assert!(
+        !selected.text.contains("Status: contradicted (conflict"),
+        "the selected claim keeps its own status: {}",
+        selected.text
+    );
     let promoted = pack
         .items()
         .iter()
@@ -875,17 +885,9 @@ fn a_promoted_conflict_group_is_dropped_together_under_a_tight_budget() {
             .chars()
             .count()
     };
-    // Room for the first conflict group only; the second conflict and the third claim do not
-    // fit, so the whole connected group must go.
+    // Sweep budgets across the range where the group no longer fits: at every size the five
+    // connected units are all kept or all dropped, and at least one size drops them.
     let base = full.request_budget().rules + full.request_budget().question;
-    let tight = base + len_of("CL-CMP-0001") + len_of("CL-CMP-0002") + len_of("XC-01");
-    let pack = context_pack(
-        &view,
-        PROMOTE_QUERY,
-        &Scope::All,
-        tight,
-        &Include::default(),
-    );
     let group = [
         "CL-CMP-0001",
         "CL-CMP-0002",
@@ -893,20 +895,35 @@ fn a_promoted_conflict_group_is_dropped_together_under_a_tight_budget() {
         "XC-02",
         "CL-CMP-0003",
     ];
-    let kept: Vec<&str> = pack.blocks().iter().map(|b| b.id.as_str()).collect();
-    let kept_group = group.iter().filter(|g| kept.contains(g)).count();
-    assert_eq!(
-        kept_group, 0,
-        "the whole connected group must be dropped together: {kept:?}"
-    );
-    let left_out: Vec<&str> = pack
-        .left_out_budget()
-        .iter()
-        .map(|b| b.id.as_str())
-        .collect();
-    for id in group {
-        assert!(kept.contains(&id) || left_out.contains(&id), "{id} lost");
+    let total: usize = group.iter().map(|id| len_of(id)).sum();
+    let mut dropped_somewhere = false;
+    for tight in (base..base + total + 400).step_by(7) {
+        let pack = context_pack(
+            &view,
+            PROMOTE_QUERY,
+            &Scope::All,
+            tight,
+            &Include::default(),
+        );
+        let kept: Vec<&str> = pack.blocks().iter().map(|b| b.id.as_str()).collect();
+        let kept_group = group.iter().filter(|g| kept.contains(g)).count();
+        assert!(
+            kept_group == 0 || kept_group == group.len(),
+            "budget {tight}: the group must be kept or dropped together: {kept:?}"
+        );
+        if kept_group == 0 {
+            dropped_somewhere = true;
+            let left_out: Vec<&str> = pack
+                .left_out_budget()
+                .iter()
+                .map(|b| b.id.as_str())
+                .collect();
+            for id in group {
+                assert!(left_out.contains(&id), "budget {tight}: {id} lost");
+            }
+        }
     }
+    assert!(dropped_somewhere, "no budget dropped the group");
 }
 
 #[test]
