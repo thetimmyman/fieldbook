@@ -649,10 +649,6 @@ impl BoundDir {
         }
     }
 
-    fn link_entry(&self, from_name: &OsStr, to_name: &OsStr) -> Result<(), std::io::Error> {
-        std::fs::hard_link(self.entry_path(from_name), self.entry_path(to_name))
-    }
-
     fn rename_entry(&self, from_name: &OsStr, to_name: &OsStr) -> Result<(), std::io::Error> {
         std::fs::rename(self.entry_path(from_name), self.entry_path(to_name))
     }
@@ -911,9 +907,9 @@ pub fn write_outside(
     bytes: &[u8],
     audited: &Audited,
 ) -> Result<Sha256, Error> {
-    // An `audit export` token only creates files: the name is published by a hard link that fails
-    // when the name exists, so a file another program created after the caller looked is never
-    // replaced. Every other token replaces atomically as before.
+    // An `audit export` token only creates files: the name is first reserved by an exclusive
+    // create, so a file another program created after the caller looked is never replaced. Every
+    // other token replaces atomically as before.
     let replace = !audited.creates_only();
     write_outside_with(allowed, path, bytes, audited, replace)
 }
@@ -1027,52 +1023,25 @@ fn write_atomic(path: &Path, bytes: &[u8], replace: bool) -> Result<Sha256, Erro
     tmp_guard.verify_before_rename(path)?;
 
     if !replace {
-        // Publish by a hard link, which fails when the name exists, so a file another program
-        // created after the caller looked is never replaced. The guard removes the temporary name.
-        return match bound_parent.link_entry(&tmp_name, file_name_os) {
-            Ok(()) => {
-                // A second name for the open file: the entry must be a plain file with the
-                // identity of the one this call wrote, not something that raced in.
-                let linked = std::fs::symlink_metadata(bound_parent.entry_path(file_name_os))
-                    .ok()
-                    .and_then(|meta| FileIdentity::from_metadata(&meta));
-                if linked.as_ref() != Some(&tmp_guard.expected_identity) {
-                    return Err(Error::OutOfScope(path.to_path_buf()));
-                }
-                Ok(Sha256::digest(bytes))
-            }
+        // Reserve the name with an exclusive create, which fails when the name exists, so a file
+        // another program created after the caller looked is never replaced; the rename below
+        // then replaces only the empty reservation. A reservation left by a crash is an empty
+        // file, which a re-export treats as absent.
+        match std::fs::OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(bound_parent.entry_path(file_name_os))
+        {
+            Ok(reservation) => drop(reservation),
             Err(err) if err.kind() == std::io::ErrorKind::AlreadyExists => {
-                Err(Error::new(path, ALREADY_EXISTS))
-            }
-            Err(_) => {
-                // The sink's file system may not support hard links (some network shares and
-                // removable media): create the name exclusively and write it in place. The name
-                // still never replaces a file; a failed write removes the partial file.
-                let entry = bound_parent.entry_path(file_name_os);
-                let created = std::fs::OpenOptions::new()
-                    .write(true)
-                    .create_new(true)
-                    .open(&entry);
-                match created {
-                    Ok(mut out) => {
-                        let written = out
-                            .write_all(bytes)
-                            .and_then(|()| out.flush())
-                            .and_then(|()| out.sync_data());
-                        drop(out);
-                        if let Err(err) = written {
-                            let _ = std::fs::remove_file(&entry);
-                            return Err(Error::new(path, err.to_string()));
-                        }
-                        Ok(Sha256::digest(bytes))
-                    }
-                    Err(err) if err.kind() == std::io::ErrorKind::AlreadyExists => {
-                        Err(Error::new(path, ALREADY_EXISTS))
-                    }
-                    Err(err) => Err(Error::new(path, err.to_string())),
+                let empty_file = std::fs::symlink_metadata(bound_parent.entry_path(file_name_os))
+                    .is_ok_and(|meta| meta.is_file() && meta.len() == 0);
+                if !empty_file {
+                    return Err(Error::new(path, ALREADY_EXISTS));
                 }
             }
-        };
+            Err(err) => return Err(Error::new(path, err.to_string())),
+        }
     }
 
     if let Err(first_err) = bound_parent.rename_entry(&tmp_name, file_name_os) {

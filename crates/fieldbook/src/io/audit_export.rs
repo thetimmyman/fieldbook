@@ -269,7 +269,7 @@ pub fn export(
         (&manifest_path, manifest_text.as_bytes()),
     ] {
         match world.read_file(path) {
-            Ok(Some(existing)) if existing != expected => {
+            Ok(Some(existing)) if !existing.is_empty() && existing != expected => {
                 return Err(refusal(
                     journal,
                     "mismatch",

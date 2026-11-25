@@ -1189,6 +1189,30 @@ fn a_first_file_created_in_the_race_window_is_not_replaced() {
 }
 
 #[test]
+fn an_empty_reservation_left_by_a_crash_is_completed_by_the_next_export() {
+    let fx = fixture();
+    let world = TestWorld::with_state(&corpus_mini(), &fx.state);
+    let mut journal = open(&world, &fx);
+    let planned = planned_name(&journal, &fx.policy_ctx);
+    std::fs::write(fx.sink.join(&planned), b"").expect("reservation");
+    let report = export(
+        &world,
+        &Layout::of(&world),
+        &fx.policy_ctx,
+        &mut journal,
+        None,
+        None,
+    )
+    .expect("an empty file is completed");
+    assert!(report.written);
+    assert!(
+        !std::fs::read(fx.sink.join(&planned))
+            .expect("read")
+            .is_empty()
+    );
+}
+
+#[test]
 fn export_anchor_matches_live_prefix() {
     let fx = fixture();
     let world = TestWorld::with_state(&corpus_mini(), &fx.state);

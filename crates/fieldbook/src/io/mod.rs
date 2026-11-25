@@ -331,6 +331,7 @@ pub fn write_export(
     bytes: &[u8],
 ) -> Result<bool, WriteExportError> {
     match world.read_file(path) {
+        Ok(Some(existing)) if existing.is_empty() => {}
         Ok(Some(existing)) => {
             if existing == bytes {
                 return Ok(false);
