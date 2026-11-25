@@ -2,10 +2,6 @@
 
 # Ranges 08 and 09 pending codes
 [[pending]]
-code = "FB0806"
-card = "audit-export"
-
-[[pending]]
 code = "FB0808"
 card = "r2-state-and-journal"
 

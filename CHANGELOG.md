@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: the context command, which builds a context pack from the records the `handoff` destination allows.
+- Added: audit export to the policy's audit sink, and audit verify --export.
 - Added: ai status shows the AI settings, adapters and key state.
 - Added: the company policy is read from the machine-level file; policy show and policy check; the Closed state; policy.change events.
 - Added: check replays each intake rule on its own example.

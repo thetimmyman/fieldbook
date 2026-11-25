@@ -16,12 +16,14 @@ use std::sync::{Arc, Mutex, OnceLock};
 use std::thread::ThreadId;
 use std::time::{Duration, Instant};
 
+use fieldbook_core::audit::export::ExportLine;
 use fieldbook_core::audit::vocab::{OK_FAILED_OUTCOMES, RESTORE_MODES};
 use fieldbook_core::audit::{
     Actor, BackupVerified, Count, DestKind, Event, EventEnvelope, EventPayload, Kind, LabelSet,
     Now, OperationIntent, OperationKey, PendingFile, PendingKey, PendingOperation, PendingWrite,
-    RecordRef, RefuseAbout, SemVer, Sha256, StoreId, Verb, Via, Word, WriteSet, ZERO_HASH,
-    completed_after_hash, compute_file_hashes, normalize_affected, split_hash_suffix, verify_line,
+    RecordRef, RefuseAbout, SemVer, Sha256, StoreId, StoreUid, Verb, Via, Word, WriteSet,
+    ZERO_HASH, completed_after_hash, compute_file_hashes, normalize_affected, split_hash_suffix,
+    verify_line,
 };
 use fieldbook_core::backup::{PlannedFile, RestorePlan};
 use fieldbook_core::check::{Code, Tree};
@@ -43,8 +45,8 @@ pub const JOURNAL_RETRY_INTERVAL: Duration = Duration::from_millis(100);
 /// Retry interval while waiting for the store lock (50 ms).
 pub const STORE_RETRY_INTERVAL: Duration = Duration::from_millis(50);
 
-/// Verbs whose writes all land outside the content store (`backup-snapshot`).
-pub const OUTSIDE_STORE_VERBS: &[&str] = &["build"];
+/// Verbs whose writes all land outside the content store (`backup-snapshot`, `audit-export`).
+pub const OUTSIDE_STORE_VERBS: &[&str] = &["build", "audit export"];
 
 // Thread-local storage tracking whether the current thread appended an in-store `write.begin`.
 //
@@ -1432,6 +1434,91 @@ impl<'a> Journal<'a> {
                 }
                 prev_hex = verified.hash.as_str().to_owned();
                 expected_seq += 1;
+            }
+        }
+        newest
+    }
+
+    /// Return every stored journal line in `seq` order across all segments, exactly as written,
+    /// including each line feed (`audit-export`).
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError::BrokenChain`] when a line does not verify, parse, or follow the
+    /// previous sequence number, or [`JournalError::Io`] when a segment cannot be read.
+    pub fn lines(&self) -> Result<Vec<ExportLine>, JournalError> {
+        let audit_dir = self.state_dir.join("audit");
+        let segments = list_segments(&audit_dir)?;
+        let mut out = Vec::new();
+        let mut prev_hex = ZERO_HASH.to_owned();
+        let mut expected_seq = 1u64;
+
+        for (_, seg_path) in segments {
+            let bytes = std::fs::read(&seg_path)
+                .map_err(|err| JournalError::io(&seg_path, err.to_string()))?;
+            let text = std::str::from_utf8(&bytes).map_err(|_| {
+                JournalError::BrokenChain("journal segment is not UTF-8".to_owned())
+            })?;
+            for chunk in text.split_inclusive('\n') {
+                if chunk.is_empty() || chunk == "\n" {
+                    continue;
+                }
+                let raw_line = chunk.strip_suffix('\n').unwrap_or(chunk);
+                let line = raw_line.strip_suffix('\r').unwrap_or(raw_line);
+                let verified = verify_line(&prev_hex, line)
+                    .map_err(|err| JournalError::BrokenChain(err.to_string()))?;
+                let (event, _) = Event::parse_line(line)
+                    .map_err(|err| JournalError::BrokenChain(err.to_string()))?;
+                if event.seq != expected_seq {
+                    return Err(JournalError::BrokenChain(format!(
+                        "sequence {} does not match expected {expected_seq}",
+                        event.seq
+                    )));
+                }
+                out.push(ExportLine {
+                    seq: event.seq,
+                    hash: verified.hash.clone(),
+                    raw: chunk.to_owned(),
+                });
+                prev_hex = verified.hash.as_str().to_owned();
+                expected_seq = expected_seq.saturating_add(1);
+            }
+        }
+
+        Ok(out)
+    }
+
+    /// Return the `stores` list that this run's `journal.open` event carries, or an empty list.
+    #[must_use]
+    pub fn stores(&self) -> Vec<StoreUid> {
+        let mut stores = Vec::new();
+        for event in read_valid_events_prefix(&self.state_dir) {
+            if let EventPayload::JournalOpen { stores: opened, .. } = event.payload {
+                stores = opened;
+            }
+        }
+        stores
+    }
+
+    /// Return the writer index that this run's `journal.open` event carries (`0` when none).
+    #[must_use]
+    pub fn writer(&self) -> u32 {
+        let mut writer = 0u32;
+        for event in read_valid_events_prefix(&self.state_dir) {
+            if let EventPayload::JournalOpen { writer: count, .. } = event.payload {
+                writer = u32::try_from(count.value()).unwrap_or(0);
+            }
+        }
+        writer
+    }
+
+    /// Return the `to_seq` of the newest `audit.export` event, or `None` when none exists.
+    #[must_use]
+    pub fn last_export_to_seq(&self) -> Option<u64> {
+        let mut newest = None;
+        for event in read_valid_events_prefix(&self.state_dir) {
+            if let EventPayload::AuditExport { to_seq, .. } = event.payload {
+                newest = Some(to_seq.value());
             }
         }
         newest

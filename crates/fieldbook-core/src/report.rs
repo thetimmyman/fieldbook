@@ -322,6 +322,56 @@ pub struct AuditVerifyReport {
     pub exit: u8,
 }
 
+/// The `--json` report produced by `fieldbook audit export` (`audit-export`).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct AuditExport {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Always `"audit export"`.
+    pub verb: &'static str,
+    /// `false` when the journal held nothing at or after `--since`.
+    pub written: bool,
+    /// Number of exported journal lines.
+    pub events: usize,
+    /// First exported sequence number.
+    pub first_seq: u64,
+    /// Last exported sequence number.
+    pub last_seq: u64,
+    /// Chain hash of the last exported line.
+    pub head: String,
+    /// File name of the exported journal segment.
+    pub file: String,
+    /// File name of the manifest.
+    pub manifest: String,
+    /// Process exit code (`0`).
+    pub exit: u8,
+}
+
+/// The `--json` report produced by `fieldbook audit verify --export MANIFEST` (`audit-export`).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct AuditVerifyExport {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Always `"audit verify"`.
+    pub verb: &'static str,
+    /// File name of the verified manifest.
+    pub manifest: String,
+    /// Verification state (`ok` or `broken`).
+    pub state: &'static str,
+    /// Number of journal lines in the exported segment.
+    pub events: usize,
+    /// First sequence number in the exported segment.
+    pub first_seq: u64,
+    /// Last sequence number in the exported segment.
+    pub last_seq: u64,
+    /// Chain hash of the last exported line.
+    pub head: String,
+    /// Findings in the order raised.
+    pub findings: Vec<AuditVerifyFinding>,
+    /// Process exit code (`0` or `1`).
+    pub exit: u8,
+}
+
 /// Store-qualified input reference `{ "store", "id" }` in [`AddReport`].
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct AddInputRef {

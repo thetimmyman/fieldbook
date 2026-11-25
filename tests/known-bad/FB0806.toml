@@ -1,0 +1,4 @@
+verb = "audit"
+args = ["export"]
+state = "state-known-bad/FB0806"
+expect = { code = "FB0806", exit = 1 }

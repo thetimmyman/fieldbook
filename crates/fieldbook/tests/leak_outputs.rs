@@ -13,9 +13,12 @@ use std::path::{Path, PathBuf};
 
 use fieldbook::build::{plan_edition, run_with_info, write_edition_outputs};
 use fieldbook::cli::BuildArgs;
+use fieldbook::io::audit_export::{Layout, export as audit_export};
 use fieldbook::io::state;
+use fieldbook::policy::PolicyCtx;
 use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
+use fieldbook_core::audit::export::Manifest;
 use fieldbook_core::audit::{
     DestKind, Event, EventPayload, Kind, LabelId, LabelSet, Now, RecordRef, Sha256, StoreId, Via,
     Word, WriteFile, WriteSet, sample_payload,
@@ -25,7 +28,9 @@ use fieldbook_core::check::{Host, Model, Options, Severity, Tree, load};
 use fieldbook_core::edition::{EditionCounts, EditionIds, EditionInfo};
 use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Transfer, check};
 use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, effective_item};
-use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
+use fieldbook_core::policy::{
+    ClosedWhy, EffectivePolicy, OwnerSettings, Policy, PolicyState, Seen,
+};
 use fieldbook_core::schema::Register;
 use fieldbook_render::day_one;
 use fieldbook_render::map;
@@ -71,6 +76,7 @@ const BUILT_SINKS: &[&str] = &[
     "decision_package",
     "desk_pages",
     "changes_page",
+    "audit_export",
 ];
 
 /// Registered real-output surfaces (`core-policy` step 17).
@@ -126,6 +132,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "changes_page",
         run: run_changes_page_surface,
+    },
+    Surface {
+        name: "audit_export",
+        run: run_audit_export_surface,
     },
 ];
 
@@ -3101,6 +3111,71 @@ fn run_desk_pages_surface() {
         "expected OutOfScope, got: {err:?}"
     );
     assert!(!outside.exists());
+}
+
+fn run_audit_export_surface() {
+    let state_tmp = temp_copy(&repo_root_from_manifest().join("tests/fixtures/state-mini"));
+    let state_dir = state_tmp.path().to_path_buf();
+    let sink_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let sink = sink_tmp.path().join("sink");
+    std::fs::create_dir_all(&sink).unwrap_or_else(|e| panic!("{e}"));
+
+    let world = TestWorld::with_state(
+        &repo_root_from_manifest().join("tests/fixtures/corpus-mini"),
+        &state_dir,
+    );
+    let mut ctx = PolicyCtx::closed(ClosedWhy::Invalid);
+    ctx.seen_to_record = Some(Seen {
+        revision: 1,
+        hash: Sha256::digest(b"synthetic-policy"),
+        audit_sink: Some(sink.clone()),
+    });
+    let mut journal = state::open(&world, &state_dir, Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let report = audit_export(&world, &Layout::of(&world), &ctx, &mut journal, None, None)
+        .unwrap_or_else(|e| panic!("audit export: {e}"));
+
+    // The surface preserves every selected journal line unchanged, including while Closed.
+    let exported = std::fs::read(sink.join(&report.file)).unwrap_or_else(|e| panic!("{e}"));
+    let selected: String = journal
+        .lines()
+        .unwrap_or_else(|e| panic!("{e}"))
+        .iter()
+        .take(report.events)
+        .map(|line| line.raw.as_str())
+        .collect();
+    assert_eq!(
+        exported,
+        selected.as_bytes(),
+        "the audit export must copy the journal lines byte for byte"
+    );
+
+    // Both actual sink files match the manifest's approved path and hash bindings.
+    let manifest_text =
+        std::fs::read_to_string(sink.join(&report.manifest)).unwrap_or_else(|e| panic!("{e}"));
+    let manifest = Manifest::parse(&manifest_text).unwrap_or_else(|e| panic!("{e:?}"));
+    assert_eq!(manifest.file, report.file);
+    assert_eq!(manifest.lines_sha256, Sha256::digest(&exported));
+    assert_eq!(manifest.head, report.head);
+    assert!(sink.join(&report.file).is_file());
+    assert!(sink.join(&report.manifest).is_file());
+
+    // Text-free: no planted canary reaches the manifest or the exported lines, and a typed
+    // record reference from the journal is present as the permitted content.
+    let text = String::from_utf8_lossy(&exported);
+    for record in load_fixture().record {
+        assert!(
+            !text.contains(&record.canary),
+            "the export must not carry a source canary"
+        );
+        assert!(
+            !manifest_text.contains(&record.canary),
+            "the manifest must not carry a source canary"
+        );
+    }
+    assert!(
+        text.contains("corpus/S-0001"),
+        "the export keeps the journal's typed record references"
+    );
 }
 
 fn repo_root_from_manifest() -> PathBuf {
