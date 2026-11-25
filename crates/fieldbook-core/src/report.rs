@@ -2,6 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
+use crate::assist::ContextPack;
 use crate::audit::chain::RawEventObject;
 use crate::check::{Diagnostic, Report};
 use crate::date::CivilDate;
@@ -747,4 +748,31 @@ pub struct AiStatus {
     pub adapters: Vec<AdapterStatus>,
     /// Process exit code (`0`).
     pub exit: u8,
+}
+
+/// The `--json` report produced by `fieldbook context` (`handoff-context` step 7).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct ContextReport {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Always `"context"`.
+    pub verb: &'static str,
+    /// Built context pack with items, request budget, labels, and view fingerprint.
+    pub pack: ContextPack,
+    /// Exact plain-text rendering of `pack` (`ContextPack::to_text`).
+    pub pack_text: String,
+}
+
+impl ContextReport {
+    /// Builds a [`ContextReport`] from `pack`.
+    #[must_use]
+    pub fn from_pack(pack: ContextPack) -> Self {
+        let pack_text = pack.to_text();
+        Self {
+            report_version: REPORT_VERSION,
+            verb: "context",
+            pack,
+            pack_text,
+        }
+    }
 }

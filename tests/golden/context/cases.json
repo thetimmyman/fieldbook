@@ -1,0 +1,757 @@
+{
+  "cases": [
+    {
+      "budget": 12000,
+      "edits": {
+        "added": [],
+        "pinned": [],
+        "removed": [],
+        "suggested": []
+      },
+      "id": "ctx-01",
+      "include": {
+        "contradicted": false,
+        "superseded": false,
+        "tier_d": false
+      },
+      "items": [
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief#evidence",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0003",
+          "via": "est-rate-window-brief#evidence",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0002-v2",
+          "via": "CL-EST-0003",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "rate_window",
+          "via": "CL-EST-0003",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0001",
+          "via": "est-rate-window-brief#evidence",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cost_baseline",
+          "via": "est-rate-window-brief#evidence",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-reference#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-reference#company-calibration",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-system-review#company-calibration",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0001",
+          "via": "cmp-system-review#company-calibration",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "XC-01",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0002",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0001-v1",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "system_review",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "billing_withhold",
+          "via": "cmp-system-review#company-calibration",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief#unknowns",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-calc-01#company-calibration",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-reference#worked-example",
+          "why": "hit"
+        }
+      ],
+      "note": "Plain question over corpus-mini with default scope and budget.",
+      "question": "escalation placeholder",
+      "scope": "all",
+      "text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: escalation placeholder\n\n--- page est-rate-window-brief#evidence ---\nTitle: Evidence\nAs of: 2026-02-01\nStatus: draft\n\n--- claim CL-EST-0003 ---\nTitle: Synthetic rate review window is 10 days under current guidance.\nAs of: 2026-02-01\nStatus: unchecked\nSource: S-0002-v2, sec. 4\nQuote: \"Synthetic rate review window is 10 days.\"\ncite as: [@CL-EST-0003]\n\n--- source S-0002-v2 ---\nTitle: Synthetic Pricing Guide v2, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture second version superseding S-0002-v1.\ncite as: [@S-0002-v2]\n\n--- term rate_window ---\nTitle: rate window\nAs of: unknown\nStatus: public_reference\nText: Synthetic period allowed to complete a forward pricing rate check.\n\n--- claim CL-EST-0001 ---\nTitle: Synthetic escalation placeholder is 3 percent per year for fixture examples.\nAs of: 2026-02-01\nStatus: unchecked\ncite as: [@CL-EST-0001]\n\n--- term cost_baseline ---\nTitle: cost baseline\nAs of: unknown\nStatus: general_practice\nText: Synthetic time-phased budget basis used to measure synthetic estimating variance.\n\n--- page est-rate-reference#the-rule ---\nTitle: The rule\nAs of: 2026-02-01\nStatus: draft\n\n--- page est-rate-reference#company-calibration ---\nTitle: Company calibration\nAs of: 2026-02-01\nStatus: draft\nText: Confirm the multi-year escalation index [@Q-002].\n\n--- page cmp-system-review#company-calibration ---\nTitle: Company calibration\nAs of: 2026-02-01\nStatus: draft\nText: Confirm the approving role and escalation path [@Q-001; @XC-01].\n\n--- claim CL-CMP-0001 ---\nTitle: Synthetic compliance reviews occur every 30 days under the synthetic rule.\nAs of: 2026-02-01\nStatus: primary_source_supported\nSource: S-0001-v1, sec. 1\nQuote: \"Synthetic compliance reviews occur every 30 days.\"\ncite as: [@CL-CMP-0001]\n\n--- conflict XC-01 ---\nTitle: Synthetic review interval versus withholding check timing\nAs of: unknown\nStatus: unresolved\nPosition: Synthetic review runs every 30 days\nPosition: Synthetic withholding check runs at each billing cycle\nClaims: CL-CMP-0001, CL-CMP-0002\ncite as: [@XC-01]\n\n--- claim CL-CMP-0002 ---\nTitle: Synthetic withholding threshold is 5 percent of billed amounts.\nAs of: 2026-02-01\nStatus: contradicted (conflict XC-01)\nSource: S-0001-v1, sec. 2\nQuote: \"Synthetic withholding threshold is 5 percent.\"\ncite as: [@CL-CMP-0002]\n\n--- source S-0001-v1 ---\nTitle: Synthetic Cost Rule, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture source for automated tests.\ncite as: [@S-0001-v1]\n\n--- term system_review ---\nTitle: system review\nAs of: unknown\nStatus: public_reference\nText: Synthetic periodic assessment of business-system control operation.\n\n--- term billing_withhold ---\nTitle: billing withhold\nAs of: unknown\nStatus: public_reference\nText: Synthetic retention of a percentage of interim payments pending system correction.\n\n--- page est-rate-window-brief#unknowns ---\nTitle: Unknowns\nAs of: 2026-02-01\nStatus: draft\n\n--- page est-calc-01#company-calibration ---\nTitle: Company calibration\nAs of: 2026-02-01\nStatus: draft\nText: Confirm the rate structure and escalation basis for the cost baseline [@Q-002].\n\n--- page est-rate-reference#worked-example ---\nTitle: Worked example\nAs of: 2026-02-01\nStatus: draft\nText: Synthetic example. The numbers are made up.\n\nLeft out (policy): 0 records\n"
+    },
+    {
+      "budget": 12000,
+      "edits": {
+        "added": [],
+        "pinned": [],
+        "removed": [],
+        "suggested": []
+      },
+      "id": "ctx-02",
+      "include": {
+        "contradicted": false,
+        "superseded": false,
+        "tier_d": false
+      },
+      "items": [
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0003",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0002-v2",
+          "via": "CL-EST-0003",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "rate_window",
+          "via": "CL-EST-0003",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cost_baseline",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0002",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0001",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief#recommendation",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief#evidence",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief#unknowns",
+          "why": "hit"
+        }
+      ],
+      "note": "Area scope restricts search hits to estimating units.",
+      "question": "synthetic",
+      "scope": "area:est",
+      "text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: synthetic\n\n--- claim CL-EST-0003 ---\nTitle: Synthetic rate review window is 10 days under current guidance.\nAs of: 2026-02-01\nStatus: unchecked\nSource: S-0002-v2, sec. 4\nQuote: \"Synthetic rate review window is 10 days.\"\ncite as: [@CL-EST-0003]\n\n--- source S-0002-v2 ---\nTitle: Synthetic Pricing Guide v2, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture second version superseding S-0002-v1.\ncite as: [@S-0002-v2]\n\n--- term rate_window ---\nTitle: rate window\nAs of: unknown\nStatus: public_reference\nText: Synthetic period allowed to complete a forward pricing rate check.\n\n--- term cost_baseline ---\nTitle: cost baseline\nAs of: unknown\nStatus: general_practice\nText: Synthetic time-phased budget basis used to measure synthetic estimating variance.\n\n--- claim CL-EST-0001 ---\nTitle: Synthetic escalation placeholder is 3 percent per year for fixture examples.\nAs of: 2026-02-01\nStatus: unchecked\ncite as: [@CL-EST-0001]\n\n--- page est-rate-window-brief#recommendation ---\nTitle: Recommendation\nAs of: 2026-02-01\nStatus: draft\nText: Adopt the synthetic 10 days rate window for all new synthetic cost baseline updates [@CL-EST-0003].\n\n--- page est-rate-window-brief#evidence ---\nTitle: Evidence\nAs of: 2026-02-01\nStatus: draft\n\n--- page est-rate-window-brief#unknowns ---\nTitle: Unknowns\nAs of: 2026-02-01\nStatus: draft\n\nLeft out (policy): 0 records\n"
+    },
+    {
+      "budget": 12000,
+      "edits": {
+        "added": [],
+        "pinned": [],
+        "removed": [],
+        "suggested": []
+      },
+      "id": "ctx-03",
+      "include": {
+        "contradicted": false,
+        "superseded": false,
+        "tier_d": false
+      },
+      "items": [
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-system-review",
+          "why": "scope"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0001",
+          "via": "cmp-system-review",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "XC-01",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0002",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0001-v1",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "system_review",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "billing_withhold",
+          "via": "cmp-system-review",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "rate_window",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0003",
+          "via": "est-rate-window-brief",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0002-v2",
+          "via": "CL-EST-0003",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0001",
+          "via": "est-rate-window-brief",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cost_baseline",
+          "via": "est-rate-window-brief",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-baseline-template#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-reference#never-confuse",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-reference",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0002",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief#question",
+          "why": "hit"
+        }
+      ],
+      "note": "Page scope leads with the page and its cited claims before hits outside the page.",
+      "question": "rate window",
+      "scope": "page:cmp-system-review",
+      "text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: rate window\n\n--- page cmp-system-review ---\nTitle: Synthetic business-system review and withholding overview\nAs of: 2026-02-01\nStatus: draft\nText: Explain how a synthetic system review interacts with a synthetic billing withhold.\n\n--- claim CL-CMP-0001 ---\nTitle: Synthetic compliance reviews occur every 30 days under the synthetic rule.\nAs of: 2026-02-01\nStatus: primary_source_supported\nSource: S-0001-v1, sec. 1\nQuote: \"Synthetic compliance reviews occur every 30 days.\"\ncite as: [@CL-CMP-0001]\n\n--- conflict XC-01 ---\nTitle: Synthetic review interval versus withholding check timing\nAs of: unknown\nStatus: unresolved\nPosition: Synthetic review runs every 30 days\nPosition: Synthetic withholding check runs at each billing cycle\nClaims: CL-CMP-0001, CL-CMP-0002\ncite as: [@XC-01]\n\n--- claim CL-CMP-0002 ---\nTitle: Synthetic withholding threshold is 5 percent of billed amounts.\nAs of: 2026-02-01\nStatus: contradicted (conflict XC-01)\nSource: S-0001-v1, sec. 2\nQuote: \"Synthetic withholding threshold is 5 percent.\"\ncite as: [@CL-CMP-0002]\n\n--- source S-0001-v1 ---\nTitle: Synthetic Cost Rule, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture source for automated tests.\ncite as: [@S-0001-v1]\n\n--- term system_review ---\nTitle: system review\nAs of: unknown\nStatus: public_reference\nText: Synthetic periodic assessment of business-system control operation.\n\n--- term billing_withhold ---\nTitle: billing withhold\nAs of: unknown\nStatus: public_reference\nText: Synthetic retention of a percentage of interim payments pending system correction.\n\n--- term rate_window ---\nTitle: rate window\nAs of: unknown\nStatus: public_reference\nText: Synthetic period allowed to complete a forward pricing rate check.\n\n--- page est-rate-window-brief ---\nTitle: Synthetic decision brief on forward pricing rate review window\nAs of: 2026-02-01\nStatus: draft\nText: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?\n\n--- claim CL-EST-0003 ---\nTitle: Synthetic rate review window is 10 days under current guidance.\nAs of: 2026-02-01\nStatus: unchecked\nSource: S-0002-v2, sec. 4\nQuote: \"Synthetic rate review window is 10 days.\"\ncite as: [@CL-EST-0003]\n\n--- source S-0002-v2 ---\nTitle: Synthetic Pricing Guide v2, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture second version superseding S-0002-v1.\ncite as: [@S-0002-v2]\n\n--- claim CL-EST-0001 ---\nTitle: Synthetic escalation placeholder is 3 percent per year for fixture examples.\nAs of: 2026-02-01\nStatus: unchecked\ncite as: [@CL-EST-0001]\n\n--- term cost_baseline ---\nTitle: cost baseline\nAs of: unknown\nStatus: general_practice\nText: Synthetic time-phased budget basis used to measure synthetic estimating variance.\n\n--- page est-baseline-template#the-rule ---\nTitle: The rule\nAs of: 2026-02-01\nStatus: draft\nText: Submit the completed synthetic form within the 10 days rate window [@CL-EST-0003].\n\n--- page est-rate-reference#never-confuse ---\nTitle: Never confuse\nAs of: 2026-02-01\nStatus: draft\nText: Do not confuse a synthetic rate window with a binding forward pricing rate agreement.\n\n--- page est-rate-reference ---\nTitle: Synthetic reference table of pricing rate windows and placeholders\nAs of: 2026-02-01\nStatus: draft\nText: Provide a synthetic lookup table of pricing rate review parameters.\n\n--- page est-rate-window-brief#question ---\nTitle: Question\nAs of: 2026-02-01\nStatus: draft\nText: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?\n\nLeft out (policy): 0 records\n"
+    },
+    {
+      "budget": 12000,
+      "edits": {
+        "added": [],
+        "pinned": [],
+        "removed": [],
+        "suggested": []
+      },
+      "id": "ctx-04",
+      "include": {
+        "contradicted": false,
+        "superseded": false,
+        "tier_d": false
+      },
+      "items": [
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0001",
+          "why": "named"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "XC-01",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0002",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0001-v1",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "system_review",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-clause-9900-101#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "billing_withhold",
+          "via": "cmp-clause-9900-101#the-rule",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-review-steps#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-onboarding-checklist#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-withhold-case#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-system-review#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-onboarding-checklist#how-it-works",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-withhold-case#how-it-works",
+          "why": "hit"
+        }
+      ],
+      "note": "Selecting a claim in conflict XC-01 brings the conflict row and opposing claim CL-CMP-0002.",
+      "question": "CL-CMP-0001",
+      "scope": "all",
+      "text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: CL-CMP-0001\n\n--- claim CL-CMP-0001 ---\nTitle: Synthetic compliance reviews occur every 30 days under the synthetic rule.\nAs of: 2026-02-01\nStatus: primary_source_supported\nSource: S-0001-v1, sec. 1\nQuote: \"Synthetic compliance reviews occur every 30 days.\"\ncite as: [@CL-CMP-0001]\n\n--- conflict XC-01 ---\nTitle: Synthetic review interval versus withholding check timing\nAs of: unknown\nStatus: unresolved\nPosition: Synthetic review runs every 30 days\nPosition: Synthetic withholding check runs at each billing cycle\nClaims: CL-CMP-0001, CL-CMP-0002\ncite as: [@XC-01]\n\n--- claim CL-CMP-0002 ---\nTitle: Synthetic withholding threshold is 5 percent of billed amounts.\nAs of: 2026-02-01\nStatus: contradicted (conflict XC-01)\nSource: S-0001-v1, sec. 2\nQuote: \"Synthetic withholding threshold is 5 percent.\"\ncite as: [@CL-CMP-0002]\n\n--- source S-0001-v1 ---\nTitle: Synthetic Cost Rule, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture source for automated tests.\ncite as: [@S-0001-v1]\n\n--- term system_review ---\nTitle: system review\nAs of: unknown\nStatus: public_reference\nText: Synthetic periodic assessment of business-system control operation.\n\n--- clause cmp-clause-9900-101#the-rule ---\nTitle: Synthetic clause card for 48 CFR 9900.101 compliance review / The rule\nAs of: 2026-02-01\nStatus: draft\nText: The synthetic clause requires a system review every 30 days [@CL-CMP-0001] and sets a 5 percent billing withhold [@CL-CMP-0002].\n\n--- term billing_withhold ---\nTitle: billing withhold\nAs of: unknown\nStatus: public_reference\nText: Synthetic retention of a percentage of interim payments pending system correction.\n\n--- page cmp-review-steps#the-rule ---\nTitle: The rule\nAs of: 2026-02-01\nStatus: draft\nText: Complete the synthetic review within the 30 days window [@CL-CMP-0001].\n\n--- page cmp-onboarding-checklist#the-rule ---\nTitle: The rule\nAs of: 2026-02-01\nStatus: draft\nText: Complete synthetic compliance checks within the 30 days review cycle [@CL-CMP-0001].\n\n--- page cmp-withhold-case#the-rule ---\nTitle: The rule\nAs of: 2026-02-01\nStatus: draft\nText: Synthetic compliance reviews occur every 30 days [@CL-CMP-0001], and unresolved deficiencies trigger a 5 percent billing withhold [@CL-CMP-0002].\n\n--- page cmp-system-review#the-rule ---\nTitle: The rule\nAs of: 2026-02-01\nStatus: draft\nText: A synthetic system review runs on a recurring cycle of 30 days [@CL-CMP-0001]. When a synthetic deficiency remains open, the synthetic billing withhold rate\u2026\n\n--- page cmp-onboarding-checklist#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\n\n--- page cmp-withhold-case#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\nText: The synthetic review board recorded a 30 days cycle [@CL-CMP-0001] and a 5 percent billing withhold threshold [@CL-CMP-0002].\n\nLeft out (policy): 0 records\n"
+    },
+    {
+      "budget": 876,
+      "edits": {
+        "added": [],
+        "pinned": [],
+        "removed": [],
+        "suggested": []
+      },
+      "id": "ctx-05",
+      "include": {
+        "contradicted": false,
+        "superseded": false,
+        "tier_d": false
+      },
+      "items": [
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0001",
+          "why": "named"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "XC-01",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-CMP-0002",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0001-v1",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "system_review",
+          "via": "CL-CMP-0001",
+          "why": "closure"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-clause-9900-101#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "billing_withhold",
+          "via": "cmp-clause-9900-101#the-rule",
+          "why": "closure"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-review-steps#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-onboarding-checklist#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-withhold-case#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-system-review#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-onboarding-checklist#how-it-works",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cmp-withhold-case#how-it-works",
+          "why": "hit"
+        }
+      ],
+      "note": "Budget that fits CL-CMP-0001 alone drops CL-CMP-0001 together with XC-01 and CL-CMP-0002.",
+      "question": "CL-CMP-0001",
+      "scope": "all",
+      "text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: CL-CMP-0001\n\nLeft out (budget)\n- claim CL-CMP-0001\n- conflict XC-01\n- claim CL-CMP-0002\n- source S-0001-v1\n- term system_review\n- clause cmp-clause-9900-101#the-rule\n- term billing_withhold\n- page cmp-review-steps#the-rule\n- page cmp-onboarding-checklist#the-rule\n- page cmp-withhold-case#the-rule\n- page cmp-system-review#the-rule\n- page cmp-onboarding-checklist#how-it-works\n- page cmp-withhold-case#how-it-works\n\nLeft out (policy): 0 records\n"
+    },
+    {
+      "budget": 12000,
+      "edits": {
+        "added": [
+          "NO-SUCH-9999"
+        ],
+        "pinned": [
+          "est-rate-reference"
+        ],
+        "removed": [
+          "CL-EST-0003"
+        ],
+        "suggested": []
+      },
+      "id": "ctx-06",
+      "include": {
+        "contradicted": false,
+        "superseded": false,
+        "tier_d": false
+      },
+      "items": [
+        {
+          "included": true,
+          "origin": "pinned",
+          "stale": false,
+          "unit": "est-rate-reference",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0003",
+          "via": "est-rate-reference",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "S-0002-v2",
+          "via": "CL-EST-0003",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "rate_window",
+          "via": "CL-EST-0003",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0001",
+          "via": "est-rate-reference",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "cost_baseline",
+          "via": "est-rate-reference",
+          "why": "closure"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-baseline-template#the-rule",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-reference#never-confuse",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "auto",
+          "stale": false,
+          "unit": "CL-EST-0002",
+          "why": "hit"
+        },
+        {
+          "included": true,
+          "origin": "auto",
+          "stale": false,
+          "unit": "est-rate-window-brief#question",
+          "why": "hit"
+        },
+        {
+          "included": false,
+          "origin": "added",
+          "stale": true,
+          "unit": "NO-SUCH-9999",
+          "why": "named"
+        }
+      ],
+      "note": "Applies a pinned item moved first, a removed item kept listed, and an unknown id marked stale.",
+      "question": "rate window",
+      "scope": "all",
+      "text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: rate window\n\n--- page est-rate-reference ---\nTitle: Synthetic reference table of pricing rate windows and placeholders\nAs of: 2026-02-01\nStatus: draft\nText: Provide a synthetic lookup table of pricing rate review parameters.\n\n--- source S-0002-v2 ---\nTitle: Synthetic Pricing Guide v2, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture second version superseding S-0002-v1.\ncite as: [@S-0002-v2]\n\n--- term rate_window ---\nTitle: rate window\nAs of: unknown\nStatus: public_reference\nText: Synthetic period allowed to complete a forward pricing rate check.\n\n--- claim CL-EST-0001 ---\nTitle: Synthetic escalation placeholder is 3 percent per year for fixture examples.\nAs of: 2026-02-01\nStatus: unchecked\ncite as: [@CL-EST-0001]\n\n--- term cost_baseline ---\nTitle: cost baseline\nAs of: unknown\nStatus: general_practice\nText: Synthetic time-phased budget basis used to measure synthetic estimating variance.\n\n--- page est-rate-window-brief ---\nTitle: Synthetic decision brief on forward pricing rate review window\nAs of: 2026-02-01\nStatus: draft\nText: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?\n\n--- page est-baseline-template#the-rule ---\nTitle: The rule\nAs of: 2026-02-01\nStatus: draft\nText: Submit the completed synthetic form within the 10 days rate window [@CL-EST-0003].\n\n--- page est-rate-reference#never-confuse ---\nTitle: Never confuse\nAs of: 2026-02-01\nStatus: draft\nText: Do not confuse a synthetic rate window with a binding forward pricing rate agreement.\n\n--- page est-rate-window-brief#question ---\nTitle: Question\nAs of: 2026-02-01\nStatus: draft\nText: Should the synthetic pricing team adopt the 10 days rate window for baseline updates [@CL-EST-0003]?\n\nLeft out (policy): 0 records\n"
+    }
+  ],
+  "kind": "context",
+  "version": 1
+}

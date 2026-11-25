@@ -158,7 +158,7 @@ test = "changed_file_is_fb0608"
 [[elsewhere]]
 code = "FB0700"
 card = "handoff-context"
-test = ""
+test = "a_question_with_a_marking_the_request_does_not_cover_is_fb0700_and_appends_one_refuse_event"
 
 [[elsewhere]]
 code = "FB0701"

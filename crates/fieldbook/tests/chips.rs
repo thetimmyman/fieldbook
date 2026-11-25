@@ -35,7 +35,6 @@ const NO_CHIP: &[&str] = &[
 ];
 
 const PENDING: &str = r#"
-fieldbook context "<question>"
 fieldbook cite-check <file>
 fieldbook new note --ai-drafted --confirm-public --area <a> --from <file>
 fieldbook add <folder> --propose

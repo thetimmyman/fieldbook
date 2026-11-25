@@ -1,0 +1,34 @@
+# Synthetic policy fixture for handoff-context tests.
+
+policy_schema = 1
+revision = 1
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms under an NDA (synthetic context fixture)"
+banner = "NP-0007: restricted to the named counterparty"
+restricted = true
+
+[[label]]
+id = "bid-0003"
+title = "Bid cost build (synthetic context fixture)"
+banner = "BID-0003: proposal sensitive"
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+[[marking]]
+match = "BID-0003 COST"
+labels = ["bid-0003"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007", "bid-0003"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "handoff"
+name = "approved-assistant"
+allow = ["public", "owner-supplied"]
+ref = "CHG-0002"
