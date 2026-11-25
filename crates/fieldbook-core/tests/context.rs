@@ -95,6 +95,10 @@ struct Plant {
     np_records: bool,
     contradicted_claim: bool,
     contradicted_conflict_claim: bool,
+    /// The contradicted conflict claim cites a source no other planted claim cites.
+    promoted_own_source: bool,
+    /// A third claim conflicts with the contradicted conflict claim in a second conflict.
+    promoted_third_claim: bool,
     quarantined_source: bool,
     extra_pages: usize,
 }
@@ -178,9 +182,91 @@ fn fixture_tree(plant: Plant) -> Tree {
     if plant.contradicted_conflict_claim {
         for row in &mut claims_out {
             if row.starts_with("CL-CMP-0001,") {
-                *row = row.replacen(",primary_source_supported,", ",contradicted,", 1);
+                let next = row.replacen(",primary_source_supported,", ",contradicted,", 1);
+                assert_ne!(next, *row, "the verification column text must have changed");
+                *row = next;
             }
         }
+    }
+
+    if plant.promoted_own_source {
+        sources_out.push(csv_row(
+            &sources_header,
+            &[
+                ("source_id", "S-0009"),
+                ("version", "1"),
+                ("tag", "synthetic-promoted"),
+                ("title", "Synthetic promoted guide, made up for tests"),
+                ("publisher", "Synthetic Board"),
+                ("source_kind", "primary_law"),
+                ("source_role", "primary_evidence"),
+                ("authority_tier", "A"),
+                ("licence", "Synthetic, no restrictions"),
+                ("location", "metadata-only: made up for tests"),
+                ("sha256", &"9".repeat(64)),
+                ("as_of", "2026-02-01"),
+                ("retrieved", "2026-02-01"),
+                ("lifecycle", "active"),
+                ("volatility", "V2"),
+                ("handling", "public"),
+                ("note", "Synthetic source for promotion tests."),
+                ("purpose", "Synthetic purpose for context tests"),
+            ],
+        ));
+        let mut replaced = false;
+        for row in &mut claims_out {
+            if row.starts_with("CL-CMP-0001,") {
+                let next = row.replacen(",S-0001,1,", ",S-0009,1,", 1);
+                replaced = next != *row;
+                *row = next;
+            }
+        }
+        assert!(replaced, "the claim row must change its source");
+    }
+
+    if plant.promoted_third_claim {
+        claims_out.push(csv_row(
+            &claims_header,
+            &[
+                ("claim_id", "CL-CMP-0003"),
+                ("area", "cmp"),
+                ("kind", "fact"),
+                ("statement", "Synthetic zeta marker is 7 units."),
+                ("as_of", "2026-02-01"),
+                ("source_id", "S-0001"),
+                ("version", "1"),
+                ("locator_kind", "text_section"),
+                ("locator", "sec. 3"),
+                ("quote", "Synthetic zeta marker."),
+                ("consequential", "false"),
+                ("drafted_by", "codex"),
+                ("verification", "unchecked"),
+                ("applicability", "pending_company_confirmation"),
+                ("adoption", "proposed"),
+                ("data_origin", "observed"),
+                ("volatility", "V2"),
+            ],
+        ));
+        let path = "corpus/registers/conflicts.csv";
+        let conflicts = std::fs::read_to_string(corpus.join("registers/conflicts.csv")).unwrap();
+        let header = conflicts.lines().next().unwrap().to_owned();
+        let mut rows: Vec<String> = conflicts.lines().map(str::to_owned).collect();
+        rows.push(csv_row(
+            &header,
+            &[
+                ("conflict_id", "XC-02"),
+                ("area", "cmp"),
+                ("topic", "Synthetic zeta marker versus review interval"),
+                (
+                    "positions",
+                    "Synthetic review runs every 30 days|Synthetic zeta marker is 7 units",
+                ),
+                ("status", "unresolved"),
+                ("claim_ids", "CL-CMP-0001|CL-CMP-0003"),
+                ("question_id", "Q-001"),
+            ],
+        ));
+        tree.insert_bytes(path, format!("{}\n", rows.join("\n")).into_bytes());
     }
 
     if plant.contradicted_claim {
@@ -693,6 +779,134 @@ fn over_budget_drops_claim_with_its_conflict() {
         dropped_ids.contains(&"CL-CMP-0002"),
         "dropped={dropped_ids:?}"
     );
+}
+
+const PROMOTE_QUERY: &str = "compliance reviews occur every 30 days withholding threshold";
+
+fn included_units(pack: &ContextPack) -> Vec<String> {
+    pack.items()
+        .iter()
+        .filter(|i| i.included)
+        .map(|i| i.unit.clone())
+        .collect()
+}
+
+// control: HG-02
+#[test]
+fn a_promoted_conflict_claim_brings_its_own_source() {
+    let model = load_model(Plant {
+        contradicted_conflict_claim: true,
+        promoted_own_source: true,
+        ..Plant::default()
+    });
+    let eff = policy_default();
+    let view = view_for(&model, &eff, &Dest::Handoff);
+    let pack = context_pack(
+        &view,
+        PROMOTE_QUERY,
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+    let included = included_units(&pack);
+    assert!(included.iter().any(|u| u == "CL-CMP-0001"), "{included:?}");
+    assert!(included.iter().any(|u| u == "S-0009-v1"), "{included:?}");
+}
+
+// control: HG-02
+#[test]
+fn a_promoted_conflict_claim_brings_its_own_conflicts() {
+    let model = load_model(Plant {
+        contradicted_conflict_claim: true,
+        promoted_third_claim: true,
+        ..Plant::default()
+    });
+    let eff = policy_default();
+    let view = view_for(&model, &eff, &Dest::Handoff);
+    let pack = context_pack(
+        &view,
+        PROMOTE_QUERY,
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+    let included = included_units(&pack);
+    for id in [
+        "CL-CMP-0001",
+        "CL-CMP-0002",
+        "XC-01",
+        "XC-02",
+        "CL-CMP-0003",
+    ] {
+        assert!(included.iter().any(|u| u == id), "{id} in {included:?}");
+    }
+    let promoted = pack
+        .items()
+        .iter()
+        .find(|i| i.unit == "CL-CMP-0001")
+        .unwrap();
+    assert!(matches!(promoted.why, Why::Closure), "{promoted:?}");
+    assert!(promoted.via.is_some(), "{promoted:?}");
+}
+
+// control: HG-02
+#[test]
+fn a_promoted_conflict_group_is_dropped_together_under_a_tight_budget() {
+    let model = load_model(Plant {
+        contradicted_conflict_claim: true,
+        promoted_third_claim: true,
+        ..Plant::default()
+    });
+    let eff = policy_default();
+    let view = view_for(&model, &eff, &Dest::Handoff);
+    let full = context_pack(
+        &view,
+        PROMOTE_QUERY,
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+    let len_of = |id: &str| {
+        full.blocks()
+            .iter()
+            .find(|b| b.id == id)
+            .unwrap_or_else(|| panic!("{id} missing from the full pack"))
+            .text
+            .chars()
+            .count()
+    };
+    // Room for the first conflict group only; the second conflict and the third claim do not
+    // fit, so the whole connected group must go.
+    let base = full.request_budget().rules + full.request_budget().question;
+    let tight = base + len_of("CL-CMP-0001") + len_of("CL-CMP-0002") + len_of("XC-01");
+    let pack = context_pack(
+        &view,
+        PROMOTE_QUERY,
+        &Scope::All,
+        tight,
+        &Include::default(),
+    );
+    let group = [
+        "CL-CMP-0001",
+        "CL-CMP-0002",
+        "XC-01",
+        "XC-02",
+        "CL-CMP-0003",
+    ];
+    let kept: Vec<&str> = pack.blocks().iter().map(|b| b.id.as_str()).collect();
+    let kept_group = group.iter().filter(|g| kept.contains(g)).count();
+    assert_eq!(
+        kept_group, 0,
+        "the whole connected group must be dropped together: {kept:?}"
+    );
+    let left_out: Vec<&str> = pack
+        .left_out_budget()
+        .iter()
+        .map(|b| b.id.as_str())
+        .collect();
+    for id in group {
+        assert!(kept.contains(&id) || left_out.contains(&id), "{id} lost");
+    }
 }
 
 #[test]
