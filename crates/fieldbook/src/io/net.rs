@@ -172,22 +172,27 @@ impl fmt::Display for HttpError {
 
 impl std::error::Error for HttpError {}
 
+/// The transport half of the door, sealed so that only this crate can implement a transport and
+/// no implementation can bypass the check in [`HttpPost::post`] by defining its own `post`.
+pub(crate) mod sealed {
+    use super::{HttpError, HttpReply, HttpRequest};
+
+    /// Sends a request that [`super::HttpPost::post`] has already checked.
+    pub trait Send {
+        /// Sends `req` and returns the reply.
+        ///
+        /// # Errors
+        ///
+        /// Returns [`HttpError`] when the request cannot be completed.
+        fn send(&self, req: &HttpRequest) -> Result<HttpReply, HttpError>;
+    }
+}
+
 /// The one outbound transport door. Every send takes the gate's [`Allowed`] token and
 /// [`HttpPost::post`] checks it against the URL and the exact body before any transport code
-/// runs.
-///
-/// An implementation provides [`HttpPost::send`] and must not override [`HttpPost::post`]; a
-/// real transport (`net-stack-spike`) also refuses redirects, a proxy, and a URL with a user,
-/// query or fragment.
-pub trait HttpPost {
-    /// Sends `req` and returns the reply. Called only by [`HttpPost::post`], after the token
-    /// check.
-    ///
-    /// # Errors
-    ///
-    /// Returns [`HttpError`] when the request cannot be completed.
-    fn send(&self, req: &HttpRequest) -> Result<HttpReply, HttpError>;
-
+/// runs. A transport implements the sealed `send`, never `post`; a real transport
+/// (`net-stack-spike`) also refuses redirects, a proxy, and re-parses the URL itself.
+pub trait HttpPost: sealed::Send {
     /// Checks that `allowed` covers this endpoint and these exact body bytes, then sends.
     ///
     /// # Errors
@@ -268,7 +273,7 @@ impl ScriptedHttp {
     }
 }
 
-impl HttpPost for ScriptedHttp {
+impl sealed::Send for ScriptedHttp {
     fn send(&self, req: &HttpRequest) -> Result<HttpReply, HttpError> {
         self.sends.fetch_add(1, Ordering::SeqCst);
         if let Ok(mut requests) = self.requests.lock() {
@@ -294,7 +299,7 @@ impl HttpPost for ScriptedHttp {
 #[derive(Debug, Clone, Copy, Default)]
 pub struct PanicHttp;
 
-impl HttpPost for PanicHttp {
+impl sealed::Send for PanicHttp {
     fn send(&self, _req: &HttpRequest) -> Result<HttpReply, HttpError> {
         panic!("a send was attempted")
     }
@@ -330,3 +335,7 @@ impl Avail {
 pub const fn cpu_ok() -> bool {
     true
 }
+
+impl HttpPost for ScriptedHttp {}
+
+impl HttpPost for PanicHttp {}

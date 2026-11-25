@@ -1568,7 +1568,9 @@ fn the_transport_door_refuses_a_token_that_does_not_cover_the_request() {
     let other_body = HttpRequest::new(base_url(), b"changed".to_vec(), 5);
     let other_url = HttpRequest::new("https://other.example/v1", b"{}".to_vec(), 5);
     let with_query = HttpRequest::new(format!("{}?x=1", base_url()), b"{}".to_vec(), 5);
-    for request in [other_body, other_url, with_query] {
+    let with_fragment = HttpRequest::new(format!("{}#x", base_url()), b"{}".to_vec(), 5);
+    let with_user = HttpRequest::new(base_url().replacen("://", "://user@", 1), b"{}".to_vec(), 5);
+    for request in [other_body, other_url, with_query, with_fragment, with_user] {
         assert!(matches!(
             http.post(&allowed, &request),
             Err(HttpError::Other)
@@ -1634,6 +1636,36 @@ impl LabelGraph for Graph {
     fn ledger(&self, _store: StoreId) -> &Ledger {
         &self.ledger
     }
+}
+
+#[test]
+fn a_pack_with_a_company_label_is_not_stored_in_the_state_folder() {
+    use fieldbook::adapters::model::{CallStore, TicketMeta};
+    use fieldbook::io::call_store::DiskCallStore;
+
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let state = tmp.path().join(".fieldbook");
+    std::fs::create_dir_all(&state).expect("create state dir");
+    let store = DiskCallStore::new(fieldbook::io::Disk::with_state(tmp.path(), &state));
+    let meta = |labels: LabelSet| TicketMeta {
+        response_schema: None,
+        pack_seq: 1,
+        template: "ask@1".to_owned(),
+        labels,
+        context_ids: vec!["corpus/S-0001-v1".to_owned()],
+        inputs: Vec::new(),
+    };
+    assert!(
+        store
+            .put_pack(b"synthetic pack", &meta(np_labels()))
+            .is_err()
+    );
+    assert!(!state.join("handoff").exists(), "nothing was written");
+    assert!(
+        store
+            .put_pack(b"synthetic pack", &meta(LabelSet::public()))
+            .is_ok()
+    );
 }
 
 #[test]
