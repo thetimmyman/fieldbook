@@ -292,6 +292,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - model-gate: the Model port, `Guarded` (the one audited gate), call records, retry and fallback, contract suite M
 - audit-export: `fieldbook audit export` to the policy's audit sink, the manifest and `audit verify --anchor-seq N --anchor-head HEX`, FB0806
 - handoff-context: `fieldbook context`, the `ai.pack` event, the context items with their reasons, and `apply_edits` and `resolve_pack` for the page and the Bridge
+- context-first-claim-conflicts: a first-time opponent claim in a context pack brings its own source, terms and conflicts, as a selected claim does (HG-02)
 - handoff-cite-check: `fieldbook cite-check` with nine statuses, `outside context` among them; the engine becomes the chat's back end, and its seed cases double as `ask` fixtures and as the vectors of the page's JavaScript port
 - pipeline-ports: the Classifier, Correlator and Admit traits, `staged@1`, the contract suites
 - extract-csv-rows: the `csv-rows` extraction method for tables, FB0311
