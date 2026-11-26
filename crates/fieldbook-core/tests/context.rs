@@ -99,6 +99,10 @@ struct Plant {
     promoted_own_source: bool,
     /// A third claim conflicts with the contradicted conflict claim in a second conflict.
     promoted_third_claim: bool,
+    /// The first-time opponent CL-CMP-0002 cites a source no other planted claim cites.
+    opponent_own_source: bool,
+    /// A fourth claim conflicts with the first-time opponent CL-CMP-0002 in a second conflict.
+    opponent_third_claim: bool,
     quarantined_source: bool,
     extra_pages: usize,
 }
@@ -263,6 +267,86 @@ fn fixture_tree(plant: Plant) -> Tree {
                 ),
                 ("status", "unresolved"),
                 ("claim_ids", "CL-CMP-0001|CL-CMP-0003"),
+                ("question_id", "Q-001"),
+            ],
+        ));
+        tree.insert_bytes(path, format!("{}\n", rows.join("\n")).into_bytes());
+    }
+
+    if plant.opponent_own_source {
+        sources_out.push(csv_row(
+            &sources_header,
+            &[
+                ("source_id", "S-0010"),
+                ("version", "1"),
+                ("tag", "synthetic-opponent"),
+                ("title", "Synthetic opponent guide, made up for tests"),
+                ("publisher", "Synthetic Board"),
+                ("source_kind", "primary_law"),
+                ("source_role", "primary_evidence"),
+                ("authority_tier", "A"),
+                ("licence", "Synthetic, no restrictions"),
+                ("location", "metadata-only: made up for tests"),
+                ("sha256", &"a".repeat(64)),
+                ("as_of", "2026-02-01"),
+                ("retrieved", "2026-02-01"),
+                ("lifecycle", "active"),
+                ("volatility", "V2"),
+                ("handling", "public"),
+                ("note", "Synthetic source for first-time opponent tests."),
+                ("purpose", "Synthetic purpose for context tests"),
+            ],
+        ));
+        let mut replaced = false;
+        for row in &mut claims_out {
+            if row.starts_with("CL-CMP-0002,") {
+                let next = row.replacen(",S-0001,1,", ",S-0010,1,", 1);
+                replaced = next != *row;
+                *row = next;
+            }
+        }
+        assert!(replaced, "the opponent claim row must change its source");
+    }
+
+    if plant.opponent_third_claim {
+        claims_out.push(csv_row(
+            &claims_header,
+            &[
+                ("claim_id", "CL-CMP-0004"),
+                ("area", "cmp"),
+                ("kind", "fact"),
+                ("statement", "Synthetic omega marker is 9 units."),
+                ("as_of", "2026-02-01"),
+                ("source_id", "S-0001"),
+                ("version", "1"),
+                ("locator_kind", "text_section"),
+                ("locator", "sec. 4"),
+                ("quote", "Synthetic omega marker."),
+                ("consequential", "false"),
+                ("drafted_by", "codex"),
+                ("verification", "unchecked"),
+                ("applicability", "pending_company_confirmation"),
+                ("adoption", "proposed"),
+                ("data_origin", "observed"),
+                ("volatility", "V2"),
+            ],
+        ));
+        let path = "corpus/registers/conflicts.csv";
+        let conflicts = std::fs::read_to_string(corpus.join("registers/conflicts.csv")).unwrap();
+        let header = conflicts.lines().next().unwrap().to_owned();
+        let mut rows: Vec<String> = conflicts.lines().map(str::to_owned).collect();
+        rows.push(csv_row(
+            &header,
+            &[
+                ("conflict_id", "XC-03"),
+                ("area", "cmp"),
+                ("topic", "Synthetic omega marker versus withholding threshold"),
+                (
+                    "positions",
+                    "Synthetic withholding threshold is 5 percent|Synthetic omega marker is 9 units",
+                ),
+                ("status", "unresolved"),
+                ("claim_ids", "CL-CMP-0002|CL-CMP-0004"),
                 ("question_id", "Q-001"),
             ],
         ));
@@ -929,6 +1013,57 @@ fn a_promoted_conflict_group_is_dropped_together_under_a_tight_budget() {
         }
     }
     assert!(dropped_somewhere, "no budget dropped the group");
+}
+
+// control: HG-02
+#[test]
+fn a_first_time_opponent_claim_brings_its_own_source() {
+    let model = load_model(Plant {
+        opponent_own_source: true,
+        ..Plant::default()
+    });
+    let eff = policy_default();
+    let view = view_for(&model, &eff, &Dest::Handoff);
+    let pack = context_pack(
+        &view,
+        PROMOTE_QUERY,
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+    let included = included_units(&pack);
+    // CL-CMP-0002 is reached first as a new opponent of CL-CMP-0001, not promoted from an
+    // exclusion. It must still bring its own source version (HG-02).
+    assert!(included.iter().any(|u| u == "CL-CMP-0002"), "{included:?}");
+    assert!(included.iter().any(|u| u == "S-0010-v1"), "{included:?}");
+}
+
+// control: HG-02
+#[test]
+fn a_first_time_opponent_claim_brings_its_own_conflicts() {
+    let model = load_model(Plant {
+        opponent_third_claim: true,
+        ..Plant::default()
+    });
+    let eff = policy_default();
+    let view = view_for(&model, &eff, &Dest::Handoff);
+    let pack = context_pack(
+        &view,
+        PROMOTE_QUERY,
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+    let included = included_units(&pack);
+    for id in [
+        "CL-CMP-0001",
+        "CL-CMP-0002",
+        "XC-01",
+        "XC-03",
+        "CL-CMP-0004",
+    ] {
+        assert!(included.iter().any(|u| u == id), "{id} in {included:?}");
+    }
 }
 
 #[test]

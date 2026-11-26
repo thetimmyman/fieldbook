@@ -726,13 +726,21 @@ pub fn context_pack_for(
                 for id in needed {
                     if seen.insert(id.clone()) {
                         items.push(ContextItem {
-                            unit: id,
+                            unit: id.clone(),
                             origin: Origin::Auto,
                             why: Why::Closure,
                             via: Some(current.clone()),
                             included: true,
                             stale: false,
                         });
+                        // An opponent claim that enters the pack here for the first time is
+                        // treated like a selected claim too: its own source, terms and conflicts
+                        // come with it, whatever the walk order. Without this a claim can appear
+                        // without its source or a further conflicting claim (HG-02).
+                        if catalog.units.get(&id).is_some_and(|u| u.kind == "claim") {
+                            add_claim_closure(&id, items, seen, non_budget_excluded);
+                            pending.push(id);
+                        }
                     } else if non_budget_excluded.remove(&id)
                         && let Some(item) = items
                             .iter_mut()
