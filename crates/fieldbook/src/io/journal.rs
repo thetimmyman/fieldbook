@@ -3528,13 +3528,22 @@ pub fn is_journal_chain_clean(state_dir: &Path) -> bool {
 
 /// Returns `true` when the journal can take one more append under `state_dir`.
 ///
-/// This probes the thing the next append would touch rather than testing a path shape: when a
-/// segment exists it is opened for append, which writes nothing and fails when the segment is
-/// read-only; when the journal is not initialized yet a short probe file is created and removed
-/// in the audit folder (or the state folder, which the open would populate). A preview stays free
-/// of journal events either way.
+/// This probes the things the next append would touch rather than testing a path shape. Every
+/// append first opens `state/lock` read and write, so a lock that cannot open is caught before
+/// the segment is considered. When a segment exists it is then opened for append, which writes
+/// nothing and fails when the segment is read-only; when the journal is not initialized yet a
+/// short probe file is created and removed in the audit folder (or the state folder, which the
+/// open would populate). A preview stays free of journal events either way.
 #[must_use]
 pub fn journal_can_append(state_dir: &Path) -> bool {
+    if OpenOptions::new()
+        .read(true)
+        .write(true)
+        .open(state_dir.join("lock"))
+        .is_err()
+    {
+        return false;
+    }
     let audit_dir = state_dir.join("audit");
     let Ok(segments) = list_segments(&audit_dir) else {
         return false;

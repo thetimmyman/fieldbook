@@ -1655,6 +1655,40 @@ fn a_read_only_journal_is_not_audited() {
     );
 }
 
+#[cfg(unix)]
+#[test]
+fn a_read_only_journal_lock_is_not_audited() {
+    // The append opens `state/lock` read and write before it touches a segment. Probing only the
+    // segment reported `audited=true` for a journal whose next append would fail FB0903, so the
+    // readiness check asks the writer's lock prerequisite too.
+    use fieldbook_core::audit::Via;
+    use std::os::unix::fs::PermissionsExt as _;
+
+    let dir = tempfile::tempdir().expect("tempdir");
+    let world: Arc<dyn fieldbook::World + Send + Sync> =
+        Arc::new(support::world::TestWorld::new(dir.path()));
+    let state_dir = dir.path().join(".fieldbook");
+    fieldbook::io::journal::Journal::open(&*world, &state_dir, Via::Cli).expect("open journal");
+    let journal: Arc<dyn AiJournal> = Arc::new(fieldbook::io::ai_journal::AiJournalWriter::new(
+        Arc::clone(&world),
+        state_dir.clone(),
+    ));
+    assert!(journal.audited(), "a fresh journal can take an append");
+
+    let lock = state_dir.join("lock");
+    let original = std::fs::metadata(&lock).expect("meta").permissions();
+    let mut read_only = original.clone();
+    read_only.set_mode(0o400);
+    std::fs::set_permissions(&lock, read_only).expect("set ro");
+
+    let audited = journal.audited();
+    std::fs::set_permissions(&lock, original).expect("restore perms");
+    assert!(
+        !audited,
+        "a lock that cannot open for writing is not audited"
+    );
+}
+
 #[test]
 fn schema_goldens_match_emitted_json() {
     let root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
