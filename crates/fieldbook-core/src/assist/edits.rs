@@ -14,7 +14,7 @@ use std::collections::{BTreeMap, BTreeSet};
 use serde::{Deserialize, Serialize};
 
 use crate::egress::LabelledView;
-use crate::ids::ConflictId;
+use crate::ids::{ClaimId, ConflictId};
 
 use super::context::{Budget, ContextItem, Origin, Why};
 use super::pack::{ContextPack, finalize_pack};
@@ -36,6 +36,27 @@ pub struct Edits {
     /// Unit ids suggested by a model or helper (`origin = Suggested`, `why = Named`).
     #[serde(default)]
     pub suggested: Vec<String>,
+}
+
+/// Included claim ids of `items`, in list order, excluding anything in `removed_set` and any unit
+/// the current view no longer holds.
+fn claim_ids(
+    items: &[ContextItem],
+    removed_set: &BTreeSet<&str>,
+    catalog: &ViewCatalog,
+) -> Vec<String> {
+    items
+        .iter()
+        .filter(|it| {
+            it.included
+                && !removed_set.contains(it.unit.as_str())
+                && catalog
+                    .units
+                    .get(&it.unit)
+                    .is_some_and(|u| u.kind == "claim")
+        })
+        .map(|it| it.unit.clone())
+        .collect()
 }
 
 /// Applies `edits` to `pack` under `view` and `budget`, returning a rebuilt [`ContextPack`].
@@ -244,13 +265,42 @@ pub fn apply_edits(
         }
     }
 
-    // Ensure any already-present conflict row/opponent for an active included claim remains
-    // included (unless explicitly removed) and opponents after the claim carry conflict styling.
-    // The earliest included claim of a conflict is its anchor; every later included claim of that
-    // conflict is styled as a contradicted opponent, so a claim that is re-added or pinned does not
+    // Ensure any already-present conflict row/opponent for an included claim remains included
+    // (unless explicitly removed). Inclusion is taken to a fixed point first: a claim restored
+    // through another claim's conflict closure can bring further claims with it, and the
+    // positional opponent map below must read the stabilized item set, or a restored opponent is
+    // left unstyled and a later pass relabels it.
+    loop {
+        let included_claims: Vec<String> = claim_ids(&items, &removed_set, &catalog);
+        let mut changed = false;
+        for cid in &included_claims {
+            let Some(entries) = catalog.claim_conflicts.get(cid) else {
+                continue;
+            };
+            for (xid, opponents) in entries {
+                for id in std::iter::once(xid.as_str()).chain(opponents.iter().map(ClaimId::as_str))
+                {
+                    if let Some(item) = items.iter_mut().find(|it| it.unit == id)
+                        && !item.included
+                        && !removed_set.contains(item.unit.as_str())
+                    {
+                        item.included = true;
+                        changed = true;
+                    }
+                }
+            }
+        }
+        if !changed {
+            break;
+        }
+    }
+
+    // Style opponents by position once inclusion is stable. The earliest included claim of a
+    // conflict is its anchor; every later included claim of that conflict is styled as a
+    // contradicted opponent, so a claim that is re-added, pinned or restored by closure does not
     // relabel the claim it was selected against.
     let mut conflict_opponents: BTreeMap<String, ConflictId> = BTreeMap::new();
-    let active_claims: Vec<(usize, String)> = items
+    for (claim_idx, cid) in items
         .iter()
         .enumerate()
         .filter(|(_, it)| {
@@ -262,30 +312,19 @@ pub fn apply_edits(
                     .is_some_and(|u| u.kind == "claim")
         })
         .map(|(idx, it)| (idx, it.unit.clone()))
-        .collect();
-    for (claim_idx, cid) in &active_claims {
-        if let Some(entries) = catalog.claim_conflicts.get(cid) {
-            for (xid, opponents) in entries {
-                if let Some(item) = items.iter_mut().find(|it| it.unit == xid.as_str())
-                    && !removed_set.contains(item.unit.as_str())
+        .collect::<Vec<_>>()
+    {
+        let Some(entries) = catalog.claim_conflicts.get(&cid) else {
+            continue;
+        };
+        for (xid, opponents) in entries {
+            for opp in opponents {
+                if let Some(opp_idx) = items.iter().position(|it| it.unit == opp.as_str())
+                    && opp_idx > claim_idx
                 {
-                    item.included = true;
-                }
-                for opp in opponents {
-                    if let Some((opp_idx, item)) = items
-                        .iter_mut()
-                        .enumerate()
-                        .find(|(_, it)| it.unit == opp.as_str())
-                    {
-                        if opp_idx > *claim_idx {
-                            conflict_opponents
-                                .entry(opp.as_str().to_owned())
-                                .or_insert_with(|| xid.clone());
-                        }
-                        if !removed_set.contains(item.unit.as_str()) {
-                            item.included = true;
-                        }
-                    }
+                    conflict_opponents
+                        .entry(opp.as_str().to_owned())
+                        .or_insert_with(|| xid.clone());
                 }
             }
         }

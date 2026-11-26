@@ -274,6 +274,56 @@ fn a_pinned_opponent_takes_the_status_leaving_the_claim_it_opposes_clean() {
 }
 
 #[test]
+fn a_restored_opponent_still_carries_its_conflict_styling() {
+    let model = load_tree(mini_tree());
+    let view = view_for(&model, &policy_default());
+    let base = context_pack(
+        &view,
+        "CL-CMP-0001",
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+
+    // Remove the anchor; the remaining claim is the only one left.
+    let removed = apply_edits(
+        &view,
+        &base,
+        &Edits {
+            removed: vec!["CL-CMP-0001".to_owned()],
+            ..Edits::default()
+        },
+        BUDGET,
+    );
+
+    // Empty edits re-include the removed claim through `CL-CMP-0002`'s conflict closure. The
+    // restored claim is absent from the snapshot, so an opponent map computed before inclusion
+    // stabilizes leaves both sides unstyled and a later pass relabels them.
+    let restored = apply_edits(&view, &removed, &Edits::default(), BUDGET);
+    assert_eq!(
+        claim_status(&restored, "CL-CMP-0001"),
+        "primary_source_supported",
+        "the original selected claim keeps its own status"
+    );
+    assert_eq!(
+        claim_status(&restored, "CL-CMP-0002"),
+        "contradicted (conflict XC-01)",
+        "a claim re-included by conflict closure is the styled opponent"
+    );
+
+    // Repeated edits must not keep changing the labels.
+    let again = apply_edits(&view, &restored, &Edits::default(), BUDGET);
+    assert_eq!(
+        claim_status(&again, "CL-CMP-0001"),
+        claim_status(&restored, "CL-CMP-0001")
+    );
+    assert_eq!(
+        claim_status(&again, "CL-CMP-0002"),
+        claim_status(&restored, "CL-CMP-0002")
+    );
+}
+
+#[test]
 fn an_unknown_id_is_stale_and_not_included() {
     let model = load_tree(mini_tree());
     let view = view_for(&model, &policy_default());
