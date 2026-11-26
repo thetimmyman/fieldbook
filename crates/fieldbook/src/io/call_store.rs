@@ -3,6 +3,10 @@
 //! A call record is written only when the `state` store holds every label of the request and the
 //! effective retention is on. A write that fails is a warning, never a failure of the call.
 //! `resume` restores the request facts from the saved ticket, not from the caller's input.
+//!
+//! Every id allocation, purge and read-modify-write here happens under one exclusive store lease,
+//! taken before the folder is read. Two writers that looked before they locked picked the same
+//! `C-nnnn` id and the same `H-nnnn` ticket, and the second write replaced the first record.
 
 #![expect(
     clippy::disallowed_methods,
@@ -16,6 +20,7 @@ use fieldbook_core::labels::{ItemRef, LabelId, LabelSet, StoreId, UNLABELLED};
 use fieldbook_core::ports::{HandoffId, HandoffTicket, Template};
 use fieldbook_core::schema_json::SchemaToml;
 
+use crate::StoreLease;
 use crate::World;
 use crate::adapters::model::{CallRecord, CallStore, StoredTicket, TicketMeta};
 use crate::io::Disk;
@@ -23,31 +28,71 @@ use crate::io::atomic;
 use crate::io::journal::Journal;
 
 /// A call store over the state folder of a [`Disk`].
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct DiskCallStore {
     disk: Disk,
+    /// Runs once just before the store takes the write lease, as another writer that committed
+    /// between an unlocked look and the lease does.
+    #[cfg(any(test, feature = "test-hooks"))]
+    before_write_lease: std::sync::Mutex<Option<fn(&Path)>>,
+}
+
+impl Clone for DiskCallStore {
+    fn clone(&self) -> Self {
+        Self {
+            disk: self.disk.clone(),
+            #[cfg(any(test, feature = "test-hooks"))]
+            before_write_lease: std::sync::Mutex::new(None),
+        }
+    }
 }
 
 impl DiskCallStore {
     /// Constructs a store over `disk`.
     #[must_use]
     pub const fn new(disk: Disk) -> Self {
-        Self { disk }
+        Self {
+            disk,
+            #[cfg(any(test, feature = "test-hooks"))]
+            before_write_lease: std::sync::Mutex::new(None),
+        }
+    }
+
+    /// Run `action` once, just before the next write lease is acquired.
+    #[cfg(any(test, feature = "test-hooks"))]
+    pub fn set_before_write_lease(&self, action: fn(&Path)) {
+        if let Ok(mut guard) = self.before_write_lease.lock() {
+            *guard = Some(action);
+        }
     }
 
     fn state_dir(&self) -> &Path {
         self.disk.state_dir()
     }
 
-    fn write_state_file(&self, rel: &str, bytes: &[u8]) -> Result<(), String> {
-        let lease = self
-            .disk
+    /// Take the one exclusive lease that covers the whole operation.
+    fn lease(&self) -> Result<StoreLease, String> {
+        #[cfg(any(test, feature = "test-hooks"))]
+        {
+            let action = self
+                .before_write_lease
+                .lock()
+                .ok()
+                .and_then(|mut g| g.take());
+            if let Some(action) = action {
+                action(self.state_dir());
+            }
+        }
+        self.disk
             .write_lease()
-            .map_err(|err| format!("warning: {err}"))?;
+            .map_err(|err| format!("warning: {err}"))
+    }
+
+    fn write_state_file(&self, lease: &StoreLease, rel: &str, bytes: &[u8]) -> Result<(), String> {
         let journal = Journal::open(&self.disk, self.state_dir(), Via::Cli)
             .map_err(|err| format!("warning: {err}"))?;
         let audited = journal
-            .state_scope(&lease)
+            .state_scope(lease)
             .map_err(|err| format!("warning: {err}"))?;
         atomic::write_in_root(&self.disk.roots().state, Path::new(rel), bytes, &audited)
             .map(|_| ())
@@ -89,6 +134,9 @@ impl CallStore for DiskCallStore {
             return Err("warning: the call record was not written (retention is off)".to_owned());
         }
 
+        // One lease spans the purge, the id choice and the write, so no other writer can pick the
+        // same id or replace the record after this one looked.
+        let lease = self.lease()?;
         self.purge(record);
 
         let next = self
@@ -101,7 +149,11 @@ impl CallStore for DiskCallStore {
         let file = CallRecordFile::from_record(next, record);
         let text = serde_json::to_string_pretty(&file)
             .map_err(|_| "warning: the call record could not be serialized".to_owned())?;
-        self.write_state_file(&format!("ai/calls/C-{next:04}.json"), text.as_bytes())
+        self.write_state_file(
+            &lease,
+            &format!("ai/calls/C-{next:04}.json"),
+            text.as_bytes(),
+        )
     }
 
     fn put_pack(&self, pack: &[u8], meta: &TicketMeta) -> Result<HandoffTicket, String> {
@@ -114,11 +166,14 @@ impl CallStore for DiskCallStore {
                     .to_owned(),
             );
         }
+        // The ticket id is chosen under the same lease that writes the pack and its metadata, so
+        // a second writer cannot choose it as well.
+        let lease = self.lease()?;
         let id = next_handoff_id(self.state_dir())
             .ok_or_else(|| "warning: the handoff folder could not be read".to_owned())?;
         let ticket = HandoffTicket::new(id, Sha256::digest(pack));
         let name = id.format();
-        self.write_state_file(&format!("handoff/{name}.txt"), pack)?;
+        self.write_state_file(&lease, &format!("handoff/{name}.txt"), pack)?;
         let file = TicketFile {
             ticket_version: 1,
             id: name.clone(),
@@ -145,7 +200,7 @@ impl CallStore for DiskCallStore {
         };
         let text = toml::to_string(&file)
             .map_err(|_| "warning: the ticket could not be serialized".to_owned())?;
-        self.write_state_file(&format!("handoff/{name}.toml"), text.as_bytes())?;
+        self.write_state_file(&lease, &format!("handoff/{name}.toml"), text.as_bytes())?;
         Ok(ticket)
     }
 
@@ -198,6 +253,9 @@ impl CallStore for DiskCallStore {
     }
 
     fn mark_used(&self, id: HandoffId) -> Result<(), String> {
+        // The ticket is read and written back under one lease, so a concurrent `mark_used` or a
+        // concurrent pack cannot be lost to the read-modify-write.
+        let lease = self.lease()?;
         let path = self
             .state_dir()
             .join(format!("handoff/{}.toml", id.format()));
@@ -207,11 +265,17 @@ impl CallStore for DiskCallStore {
         file.used = true;
         let text = toml::to_string(&file)
             .map_err(|_| "warning: the ticket could not be serialized".to_owned())?;
-        self.write_state_file(&format!("handoff/{}.toml", id.format()), text.as_bytes())
+        self.write_state_file(
+            &lease,
+            &format!("handoff/{}.toml", id.format()),
+            text.as_bytes(),
+        )
     }
 }
 
 impl DiskCallStore {
+    /// Remove the records past their retention. The caller holds the write lease, so no other
+    /// writer can add or replace a record while this runs.
     fn purge(&self, record: &CallRecord) {
         let today = days_from_civil(record.now.date);
         let mut removed = 0u64;
@@ -230,14 +294,12 @@ impl DiskCallStore {
             }
         }
         if removed > 0
-            && let Ok(lease) = self.disk.write_lease()
             && let Ok(journal) = Journal::open(&self.disk, self.state_dir(), Via::Cli)
         {
             let _ = journal.append_payload(EventPayload::Purge {
                 what: Word::new_static("calls"),
                 count: Count(removed),
             });
-            drop(lease);
         }
     }
 }
