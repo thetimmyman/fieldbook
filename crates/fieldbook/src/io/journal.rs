@@ -3528,22 +3528,31 @@ pub fn is_journal_chain_clean(state_dir: &Path) -> bool {
 
 /// Returns `true` when the journal can take one more append under `state_dir`.
 ///
-/// This probes the things the next append would touch rather than testing a path shape. Every
-/// append first opens `state/lock` read and write, so a lock that cannot open is caught before
-/// the segment is considered. When a segment exists it is then opened for append, which writes
-/// nothing and fails when the segment is read-only; when the journal is not initialized yet a
-/// short probe file is created and removed in the audit folder (or the state folder, which the
-/// open would populate). A preview stays free of journal events either way.
+/// This probes the things the next append would touch rather than testing a path shape. An
+/// existing `state/lock` is opened read and write, as the append does, so one that cannot open
+/// is caught before the segment is considered. A missing lock is the uninitialized-state case:
+/// the writer's `open_stamped` calls `init_state_locks`, which creates `state/`, the lock and
+/// the store lock, so readiness there is whether that initialization can succeed. When a
+/// segment exists it is then opened for append, which writes nothing and fails when the segment
+/// is read-only; when the journal is not initialized yet a short probe file is created and
+/// removed in the audit folder (or the state folder, which the open would populate). A preview
+/// stays free of journal events and lock files either way.
 #[must_use]
 pub fn journal_can_append(state_dir: &Path) -> bool {
-    if OpenOptions::new()
+    let pending_probe = match OpenOptions::new()
         .read(true)
         .write(true)
         .open(state_dir.join("lock"))
-        .is_err()
     {
-        return false;
-    }
+        Ok(_) => None,
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => {
+            match pending_state_probe(state_dir) {
+                Some(dir) => Some(dir),
+                None => return false,
+            }
+        }
+        Err(_) => return false,
+    };
     let audit_dir = state_dir.join("audit");
     let Ok(segments) = list_segments(&audit_dir) else {
         return false;
@@ -3551,12 +3560,57 @@ pub fn journal_can_append(state_dir: &Path) -> bool {
     if let Some((_, active)) = segments.last() {
         return OpenOptions::new().append(true).open(active).is_ok();
     }
-    let probe_dir = if audit_dir.is_dir() {
-        audit_dir
-    } else {
-        state_dir.to_path_buf()
+    let probe_dir = match pending_probe {
+        Some(dir) => dir,
+        None if audit_dir.is_dir() => audit_dir,
+        None => state_dir.to_path_buf(),
     };
     probe_writable(&probe_dir)
+}
+
+/// Returns the folder a preview may probe in place of a not-yet-initialized `state_dir`, or
+/// `None` when [`init_state_locks`] could not create the state folder, the audit folder, the
+/// journal lock and the store lock there.
+///
+/// This must not create any of them the way the writer would: a preview leaves the state folder
+/// unchanged. The prerequisites are that every component below the nearest existing ancestor can
+/// be a folder, that an existing `audit` is a folder, and that an existing `lock`, `store.lock`
+/// or `.init` is not.
+fn pending_state_probe(state_dir: &Path) -> Option<PathBuf> {
+    match std::fs::symlink_metadata(state_dir) {
+        Ok(meta) => {
+            if !meta.is_dir() {
+                return None;
+            }
+            for (name, want_dir) in [
+                ("audit", true),
+                (".init", false),
+                ("lock", false),
+                ("store.lock", false),
+            ] {
+                if let Ok(entry) = std::fs::symlink_metadata(state_dir.join(name))
+                    && entry.is_dir() != want_dir
+                {
+                    return None;
+                }
+            }
+            Some(state_dir.to_path_buf())
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => {
+            let mut ancestor = state_dir.parent();
+            while let Some(candidate) = ancestor {
+                match std::fs::symlink_metadata(candidate) {
+                    Ok(meta) if meta.is_dir() => return Some(candidate.to_path_buf()),
+                    Err(err) if err.kind() == std::io::ErrorKind::NotFound => {
+                        ancestor = candidate.parent();
+                    }
+                    Ok(_) | Err(_) => return None,
+                }
+            }
+            None
+        }
+        Err(_) => None,
+    }
 }
 
 fn probe_writable(dir: &Path) -> bool {
