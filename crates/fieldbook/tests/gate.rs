@@ -1801,6 +1801,118 @@ fn an_unreadable_handoff_folder_never_yields_ticket_one() {
     );
 }
 
+#[cfg(feature = "test-hooks")]
+#[test]
+fn a_call_record_id_is_chosen_under_the_write_lease() {
+    use fieldbook::adapters::model::{CallRecord, CallStore};
+    use fieldbook::io::call_store::DiskCallStore;
+
+    // A record another writer committed between this one's look at the folder and its lease.
+    const COMPETING: &[u8] = br#"{
+        "seq": 1,
+        "adapter": "scripted@1",
+        "endpoint": "work",
+        "model": "test-model",
+        "template": "ask@1",
+        "purpose": "ask",
+        "labels": ["public"],
+        "inputs": [],
+        "policy": "synthetic-policy",
+        "prompt_sha256": "synthetic prompt",
+        "output_sha256": null,
+        "system": "synthetic system",
+        "prompt": "synthetic prompt",
+        "reply": "synthetic reply",
+        "tokens_in": 1,
+        "tokens_out": 1,
+        "attempts": 1,
+        "outcome": "ok",
+        "keep_days": null,
+        "written_on": null
+    }"#;
+
+    fn competing_writer(state: &std::path::Path) {
+        std::fs::write(state.join("ai/calls/C-0001.json"), COMPETING).expect("competing record");
+    }
+
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let state = tmp.path().join(".fieldbook");
+    std::fs::create_dir_all(state.join("ai/calls")).expect("create calls dir");
+    let store = DiskCallStore::new(fieldbook::io::Disk::with_state(tmp.path(), &state));
+    store.set_before_write_lease(competing_writer);
+
+    let record = CallRecord {
+        adapter: "scripted@1".to_owned(),
+        endpoint: "work".to_owned(),
+        model: "test-model".to_owned(),
+        template: "ask@1".to_owned(),
+        purpose: "ask".to_owned(),
+        labels: LabelSet::public(),
+        inputs: Vec::new(),
+        policy: Sha256::digest(b"synthetic-policy"),
+        prompt_sha256: Sha256::digest(b"synthetic prompt"),
+        output_sha256: Some(Sha256::digest(b"synthetic reply")),
+        system: "synthetic system".to_owned(),
+        prompt: "synthetic prompt".to_owned(),
+        reply: "synthetic reply".to_owned(),
+        tokens_in: 1,
+        tokens_out: 1,
+        attempts: 1,
+        outcome: "ok".to_owned(),
+        keep_days: 14,
+        now: now(),
+    };
+    store.put_call(&record).expect("put_call succeeds");
+
+    assert_eq!(
+        std::fs::read(state.join("ai/calls/C-0001.json")).expect("the competing record"),
+        COMPETING,
+        "the competing record was replaced: the id was chosen outside the lease"
+    );
+    assert!(
+        state.join("ai/calls/C-0002.json").is_file(),
+        "the record was written under the id the other writer had already taken"
+    );
+}
+
+#[cfg(feature = "test-hooks")]
+#[test]
+fn a_handoff_ticket_id_is_chosen_under_the_write_lease() {
+    use fieldbook::adapters::model::{CallStore, TicketMeta};
+    use fieldbook::io::call_store::DiskCallStore;
+
+    // A ticket another writer committed between this one's look at the folder and its lease.
+    const COMPETING: &[u8] = b"ticket_version = 1\nid = \"H-0001\"\n";
+
+    fn competing_writer(state: &std::path::Path) {
+        std::fs::write(state.join("handoff/H-0001.toml"), COMPETING).expect("competing ticket");
+    }
+
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let state = tmp.path().join(".fieldbook");
+    std::fs::create_dir_all(state.join("handoff")).expect("create handoff dir");
+    let store = DiskCallStore::new(fieldbook::io::Disk::with_state(tmp.path(), &state));
+    store.set_before_write_lease(competing_writer);
+
+    let meta = TicketMeta {
+        response_schema: None,
+        pack_seq: 1,
+        template: "ask@1".to_owned(),
+        labels: LabelSet::public(),
+        context_ids: vec!["corpus/S-0001-v1".to_owned()],
+        inputs: Vec::new(),
+    };
+    let ticket = store.put_pack(b"synthetic pack", &meta).expect("put_pack");
+
+    assert_eq!(
+        std::fs::read(state.join("handoff/H-0001.toml")).expect("the competing ticket"),
+        COMPETING,
+        "the competing ticket was replaced: the id was chosen outside the lease"
+    );
+    assert_eq!(ticket.id.format(), "H-0002");
+    assert!(state.join("handoff/H-0002.txt").is_file());
+}
+
 #[test]
 fn saved_request_rechecks_relabelled_input() {
     use fieldbook::io::call_store::DiskCallStore;
