@@ -715,6 +715,8 @@ pub struct HttpModel {
     id: &'static str,
     http: Arc<dyn HttpPost + Send + Sync>,
     keys: Arc<dyn KeySource + Send + Sync>,
+    content_type: &'static str,
+    endpoint_suffix: &'static str,
 }
 
 impl HttpModel {
@@ -728,7 +730,27 @@ impl HttpModel {
             id: "scripted@1",
             http,
             keys,
+            content_type: "application/json",
+            endpoint_suffix: "",
         }
+    }
+
+    /// Declares the prepared body's content type, as an adapter that sends plain text would.
+    #[must_use]
+    pub const fn with_content_type(mut self, content_type: &'static str) -> Self {
+        self.content_type = content_type;
+        self
+    }
+
+    /// Appends `suffix` to the route's `base_url`, as an OpenAI-compatible adapter would.
+    #[must_use]
+    pub const fn with_endpoint_suffix(mut self, suffix: &'static str) -> Self {
+        self.endpoint_suffix = suffix;
+        self
+    }
+
+    fn endpoint(&self, route: &Route) -> String {
+        format!("{}{}", route.base_url, self.endpoint_suffix)
     }
 
     fn map_reply(&self, route: &Route, reply: HttpReply) -> Result<Attempt, AttemptError> {
@@ -785,9 +807,9 @@ impl ModelAdapter for HttpModel {
         .to_string()
         .into_bytes();
         Ok(PreparedAttempt {
-            target: Target::Endpoint(route.base_url.clone()),
+            target: Target::Endpoint(self.endpoint(route)),
             bytes: body,
-            content_type: "application/json".to_owned(),
+            content_type: self.content_type.to_owned(),
         })
     }
 
@@ -797,17 +819,14 @@ impl ModelAdapter for HttpModel {
         prepared: &PreparedAttempt,
         route: &Route,
     ) -> Result<Attempt, AttemptError> {
-        let target = Target::Endpoint(route.base_url.clone());
+        let endpoint = self.endpoint(route);
+        let target = Target::Endpoint(endpoint.clone());
         if !allowed.permits_transfer(&target, &Operation::Post, &prepared.bytes) {
             return Err(AttemptError::Permanent(Permanent::Unavailable(
                 Reason::Binding,
             )));
         }
-        let mut request = HttpRequest::new(
-            route.base_url.clone(),
-            prepared.bytes.clone(),
-            route.timeout_s,
-        );
+        let mut request = HttpRequest::new(endpoint, prepared.bytes.clone(), route.timeout_s);
         if let Some(name) = &route.key_env {
             let key = self
                 .keys

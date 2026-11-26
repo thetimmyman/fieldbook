@@ -144,6 +144,6 @@ impl AiJournal for AiJournalWriter {
     }
 
     fn audited(&self) -> bool {
-        !self.state_dir.join("audit").is_file()
+        journal::journal_can_append(&self.state_dir)
     }
 }

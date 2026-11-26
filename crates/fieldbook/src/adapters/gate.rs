@@ -5,7 +5,7 @@
 
 use fieldbook_core::audit::{DestKind, RecordRef, Sha256, Word};
 use fieldbook_core::check::Code;
-use fieldbook_core::egress::{self, Decision, Delivery, Dest, Shipped, Transfer};
+use fieldbook_core::egress::{self, Decision, Delivery, Dest, Shipped, Target, Transfer};
 use fieldbook_core::labels::{self, LabelSet, StoreId};
 use fieldbook_core::policy::{CutBy, EffectivePolicy};
 use fieldbook_core::ports::chat::{PreviewCut, Scan, SendPreview};
@@ -289,7 +289,7 @@ impl Guarded {
         );
         let markings = labels::markings_in(&text, &rules);
         let delivery = Delivery {
-            entries: vec![transfer_for(&self.route, &prepared)],
+            entries: vec![transfer_for(&prepared)],
             markings,
         };
         let allowed = match egress::check(
@@ -730,11 +730,11 @@ impl ModelPort for Guarded {
     }
 }
 
-fn transfer_for(route: &Route, prepared: &PreparedAttempt) -> Transfer {
-    if prepared.content_type.starts_with("text/plain") {
-        Transfer::reply("handoff", &prepared.bytes)
-    } else {
-        Transfer::post_endpoint(route.base_url.clone(), &prepared.bytes)
+fn transfer_for(prepared: &PreparedAttempt) -> Transfer {
+    match &prepared.target {
+        Target::Endpoint(url) => Transfer::post_endpoint(url.clone(), &prepared.bytes),
+        Target::Reply(channel) => Transfer::reply(channel.clone(), &prepared.bytes),
+        Target::Path(path) => Transfer::write_path(path.clone(), &prepared.bytes),
     }
 }
 

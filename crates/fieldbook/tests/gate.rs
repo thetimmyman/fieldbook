@@ -1583,6 +1583,79 @@ fn the_transport_door_refuses_a_token_that_does_not_cover_the_request() {
 }
 
 #[test]
+fn the_bound_transfer_follows_the_adapters_declared_target() {
+    // A network adapter whose prepared body is `text/plain` still binds a post to the endpoint it
+    // declared, not a reply: binding `Transfer::reply` for a `Dest::Model` destination is refused
+    // by `validate_delivery_binding` as FB0902 and blames the request's labels for the gate's own
+    // choice.
+    let http = Arc::new(ScriptedHttp::new());
+    http.push(HttpReply::new(200, b"{\"answer\":\"yes\"}".to_vec()));
+    let keys: Arc<dyn KeySource + Send + Sync> = Arc::new(ScriptedKeys::new());
+    let h = Harness::shipped(Shipped::Hours(1)).with_http(http.clone());
+    let model =
+        Arc::new(HttpModel::new(http.clone(), keys).with_content_type("text/plain; charset=utf-8"));
+    let gate = h.gate(work(), model);
+    assert!(run(&gate, &question(LabelSet::public(), "Synthetic question")).is_ok());
+    assert_eq!(http.sends(), 1);
+    assert_eq!(http.requests()[0].url, base_url());
+}
+
+#[test]
+fn a_suffixed_endpoint_is_bound_as_the_adapter_declares_it() {
+    // `egress::check` allows an endpoint that carries a path suffix of the row's `base_url`, so an
+    // OpenAI-compatible `/chat/completions` is reachable. Binding `base_url` while the adapter
+    // sends the suffix makes the door's exact-target test refuse the send (FB0908) with a token
+    // the policy granted.
+    let http = Arc::new(ScriptedHttp::new());
+    http.push(HttpReply::new(200, b"{\"answer\":\"yes\"}".to_vec()));
+    let keys: Arc<dyn KeySource + Send + Sync> = Arc::new(ScriptedKeys::new());
+    let h = Harness::shipped(Shipped::Hours(1)).with_http(http.clone());
+    let model =
+        Arc::new(HttpModel::new(http.clone(), keys).with_endpoint_suffix("/chat/completions"));
+    let gate = h.gate(work(), model);
+    assert!(run(&gate, &question(LabelSet::public(), "Synthetic question")).is_ok());
+    assert_eq!(http.sends(), 1);
+    assert_eq!(
+        http.requests()[0].url,
+        format!("{}/chat/completions", base_url())
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn a_read_only_journal_is_not_audited() {
+    // `SendPreview.audited` claims the journal can take the record this route writes before any
+    // byte leaves. Probing the directory's shape answered `true` on every real state folder; this
+    // asks the segment the next append would open.
+    use fieldbook_core::audit::Via;
+    use std::os::unix::fs::PermissionsExt as _;
+
+    let dir = tempfile::tempdir().expect("tempdir");
+    let world: Arc<dyn fieldbook::World + Send + Sync> =
+        Arc::new(support::world::TestWorld::new(dir.path()));
+    let state_dir = dir.path().join(".fieldbook");
+    fieldbook::io::journal::Journal::open(&*world, &state_dir, Via::Cli).expect("open journal");
+    let journal: Arc<dyn AiJournal> = Arc::new(fieldbook::io::ai_journal::AiJournalWriter::new(
+        Arc::clone(&world),
+        state_dir.clone(),
+    ));
+    assert!(journal.audited(), "a fresh journal can take an append");
+
+    let segment = state_dir.join("audit/journal.jsonl");
+    let original = std::fs::metadata(&segment).expect("meta").permissions();
+    let mut read_only = original.clone();
+    read_only.set_mode(0o400);
+    std::fs::set_permissions(&segment, read_only).expect("set ro");
+
+    let audited = journal.audited();
+    std::fs::set_permissions(&segment, original).expect("restore perms");
+    assert!(
+        !audited,
+        "a segment that cannot open for append is not audited"
+    );
+}
+
+#[test]
 fn schema_goldens_match_emitted_json() {
     let root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .join("../../tests/fixtures/ports/model/schema");

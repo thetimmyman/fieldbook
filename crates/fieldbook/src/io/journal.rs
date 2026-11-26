@@ -3526,6 +3526,42 @@ pub fn is_journal_chain_clean(state_dir: &Path) -> bool {
     read_verified_events(state_dir).is_ok()
 }
 
+/// Returns `true` when the journal can take one more append under `state_dir`.
+///
+/// This probes the thing the next append would touch rather than testing a path shape: when a
+/// segment exists it is opened for append, which writes nothing and fails when the segment is
+/// read-only; when the journal is not initialized yet a short probe file is created and removed
+/// in the audit folder (or the state folder, which the open would populate). A preview stays free
+/// of journal events either way.
+#[must_use]
+pub fn journal_can_append(state_dir: &Path) -> bool {
+    let audit_dir = state_dir.join("audit");
+    let Ok(segments) = list_segments(&audit_dir) else {
+        return false;
+    };
+    if let Some((_, active)) = segments.last() {
+        return OpenOptions::new().append(true).open(active).is_ok();
+    }
+    let probe_dir = if audit_dir.is_dir() {
+        audit_dir
+    } else {
+        state_dir.to_path_buf()
+    };
+    probe_writable(&probe_dir)
+}
+
+fn probe_writable(dir: &Path) -> bool {
+    let probe = dir.join(format!(".probe-{}", std::process::id()));
+    match OpenOptions::new().create(true).append(true).open(&probe) {
+        Ok(file) => {
+            drop(file);
+            let _ = std::fs::remove_file(&probe);
+            true
+        }
+        Err(_) => false,
+    }
+}
+
 fn read_verified_events(state_dir: &Path) -> Result<Vec<Event>, JournalError> {
     let audit_dir = state_dir.join("audit");
     let segments = list_segments(&audit_dir)?;
