@@ -10,8 +10,8 @@
 use std::path::Path;
 
 use fieldbook_core::assist::{
-    Budget, ContextIds, Edits, Include, NamedPack, Origin, Scope, Why, apply_edits, context_pack,
-    resolve_pack, scalar_count, view_fingerprint,
+    Budget, ContextIds, ContextPack, Edits, Include, NamedPack, Origin, Scope, Why, apply_edits,
+    context_pack, resolve_pack, scalar_count, view_fingerprint,
 };
 use fieldbook_core::audit::Now;
 use fieldbook_core::authz::ReadableStores;
@@ -79,6 +79,21 @@ fn view_for(model: &Model, eff: &EffectivePolicy) -> LabelledView {
         panic!("handoff selection must be allowed");
     };
     LabelledView::new(model, &token, &ReadableStores::corpus())
+}
+
+/// The `Status:` line of a claim's block, which is where an opponent is marked contradicted.
+fn claim_status(pack: &ContextPack, claim_id: &str) -> String {
+    let block = pack
+        .blocks()
+        .iter()
+        .find(|b| b.id == claim_id && b.kind == "claim")
+        .unwrap_or_else(|| panic!("{claim_id} has no block"));
+    block
+        .text
+        .lines()
+        .find_map(|line| line.strip_prefix("Status: "))
+        .unwrap_or_else(|| panic!("{claim_id} has no status line"))
+        .to_owned()
 }
 
 // -----------------------------------------------------------------------------
@@ -179,6 +194,133 @@ fn an_added_claim_brings_its_conflict() {
     assert_eq!(opp.why, Why::Closure);
     assert_eq!(opp.via.as_deref(), Some("CL-CMP-0001"));
     assert!(opp.included);
+}
+
+// control: HG-02
+#[test]
+fn an_added_opponent_does_not_relabel_the_claim_it_opposes() {
+    let model = load_tree(mini_tree());
+    let view = view_for(&model, &policy_default());
+    let question = "CL-CMP-0001";
+    let base = context_pack(&view, question, &Scope::All, BUDGET, &Include::default());
+    assert_eq!(
+        claim_status(&base, "CL-CMP-0001"),
+        "primary_source_supported",
+        "the selected claim starts with its own status"
+    );
+
+    // `CL-CMP-0002` is already the opposing claim of `CL-CMP-0001`. Naming it must not turn the
+    // claim the pack was built around into the contradicted opponent (HG-02).
+    for (name, edits) in [
+        (
+            "added",
+            Edits {
+                added: vec!["CL-CMP-0002".to_owned()],
+                ..Edits::default()
+            },
+        ),
+        (
+            "suggested",
+            Edits {
+                suggested: vec!["CL-CMP-0002".to_owned()],
+                ..Edits::default()
+            },
+        ),
+    ] {
+        let edited = apply_edits(&view, &base, &edits, BUDGET);
+        assert_eq!(
+            claim_status(&edited, "CL-CMP-0001"),
+            "primary_source_supported",
+            "{name} CL-CMP-0002 must not relabel CL-CMP-0001"
+        );
+        assert_eq!(
+            claim_status(&edited, "CL-CMP-0002"),
+            "contradicted (conflict XC-01)",
+            "{name} keeps the opponent its own status line"
+        );
+    }
+}
+
+// control: HG-02
+#[test]
+fn a_pinned_opponent_takes_the_status_leaving_the_claim_it_opposes_clean() {
+    let model = load_tree(mini_tree());
+    let view = view_for(&model, &policy_default());
+    let base = context_pack(
+        &view,
+        "CL-CMP-0001",
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+
+    // Pinning an opponent puts it first, so it becomes the anchor of `XC-01`: it keeps its own
+    // status and the claim it opposes is the one shown as contradicted.
+    let edited = apply_edits(
+        &view,
+        &base,
+        &Edits {
+            pinned: vec!["CL-CMP-0002".to_owned()],
+            ..Edits::default()
+        },
+        BUDGET,
+    );
+    assert_eq!(edited.blocks()[0].id, "CL-CMP-0002");
+    assert_eq!(claim_status(&edited, "CL-CMP-0002"), "unchecked");
+    assert_eq!(
+        claim_status(&edited, "CL-CMP-0001"),
+        "contradicted (conflict XC-01)"
+    );
+}
+
+#[test]
+fn a_restored_opponent_still_carries_its_conflict_styling() {
+    let model = load_tree(mini_tree());
+    let view = view_for(&model, &policy_default());
+    let base = context_pack(
+        &view,
+        "CL-CMP-0001",
+        &Scope::All,
+        BUDGET,
+        &Include::default(),
+    );
+
+    // Remove the anchor; the remaining claim is the only one left.
+    let removed = apply_edits(
+        &view,
+        &base,
+        &Edits {
+            removed: vec!["CL-CMP-0001".to_owned()],
+            ..Edits::default()
+        },
+        BUDGET,
+    );
+
+    // Empty edits re-include the removed claim through `CL-CMP-0002`'s conflict closure. The
+    // restored claim is absent from the snapshot, so an opponent map computed before inclusion
+    // stabilizes leaves both sides unstyled and a later pass relabels them.
+    let restored = apply_edits(&view, &removed, &Edits::default(), BUDGET);
+    assert_eq!(
+        claim_status(&restored, "CL-CMP-0001"),
+        "primary_source_supported",
+        "the original selected claim keeps its own status"
+    );
+    assert_eq!(
+        claim_status(&restored, "CL-CMP-0002"),
+        "contradicted (conflict XC-01)",
+        "a claim re-included by conflict closure is the styled opponent"
+    );
+
+    // Repeated edits must not keep changing the labels.
+    let again = apply_edits(&view, &restored, &Edits::default(), BUDGET);
+    assert_eq!(
+        claim_status(&again, "CL-CMP-0001"),
+        claim_status(&restored, "CL-CMP-0001")
+    );
+    assert_eq!(
+        claim_status(&again, "CL-CMP-0002"),
+        claim_status(&restored, "CL-CMP-0002")
+    );
 }
 
 #[test]

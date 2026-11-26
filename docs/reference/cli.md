@@ -641,7 +641,15 @@ Build a plain-text context pack for a question from the permitted view
         "unit": "S-0001-v1",
         "origin": "auto",
         "why": "closure",
-        "via": "CL-CMP-0002",
+        "via": "CL-CMP-0001",
+        "included": true,
+        "stale": false
+      },
+      {
+        "unit": "system_review",
+        "origin": "auto",
+        "why": "closure",
+        "via": "CL-CMP-0001",
         "included": true,
         "stale": false
       },
@@ -657,14 +665,6 @@ Build a plain-text context pack for a question from the permitted view
         "unit": "cmp-system-review#purpose",
         "origin": "auto",
         "why": "hit",
-        "included": true,
-        "stale": false
-      },
-      {
-        "unit": "system_review",
-        "origin": "auto",
-        "why": "closure",
-        "via": "cmp-system-review#purpose",
         "included": true,
         "stale": false
       },
@@ -691,7 +691,7 @@ Build a plain-text context pack for a question from the permitted view
     "left_out_line": "Left out (policy): 0 records",
     "view_fingerprint": "8b1eb3bd631f020960ee65e04fb9712cf057d069f00399f493912b06b6668f7d"
   },
-  "pack_text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: synthetic\n\n--- conflict XC-01 ---\nTitle: Synthetic review interval versus withholding check timing\nAs of: unknown\nStatus: unresolved\nPosition: Synthetic review runs every 30 days\nPosition: Synthetic withholding check runs at each billing cycle\nClaims: CL-CMP-0001, CL-CMP-0002\ncite as: [@XC-01]\n\n--- question Q-001 ---\nTitle: Which synthetic business-system control owner approves the monthly compliance review?\nAs of: unknown\nStatus: open\nText: Synthetic withholding exposure depends on timely review sign-off.\ncite as: [@Q-001]\n\n--- claim CL-CMP-0002 ---\nTitle: Synthetic withholding threshold is 5 percent of billed amounts.\nAs of: 2026-02-01\nStatus: unchecked\nSource: S-0001-v1, sec. 2\nQuote: \"Synthetic withholding threshold is 5 percent.\"\ncite as: [@CL-CMP-0002]\n\n--- claim CL-CMP-0001 ---\nTitle: Synthetic compliance reviews occur every 30 days under the synthetic rule.\nAs of: 2026-02-01\nStatus: contradicted (conflict XC-01)\nSource: S-0001-v1, sec. 1\nQuote: \"Synthetic compliance reviews occur every 30 days.\"\ncite as: [@CL-CMP-0001]\n\n--- source S-0001-v1 ---\nTitle: Synthetic Cost Rule, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture source for automated tests.\ncite as: [@S-0001-v1]\n\n--- term billing_withhold ---\nTitle: billing withhold\nAs of: unknown\nStatus: public_reference\nText: Synthetic retention of a percentage of interim payments pending system correction.\n\n--- page cmp-system-review#purpose ---\nTitle: Purpose\nAs of: 2026-02-01\nStatus: draft\nText: Explain how a synthetic system review interacts with a synthetic billing withhold.\n\n--- term system_review ---\nTitle: system review\nAs of: unknown\nStatus: public_reference\nText: Synthetic periodic assessment of business-system control operation.\n\n--- page cmp-onboarding-checklist#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\n\n--- page cmp-review-steps#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\n\nLeft out (policy): 0 records\n"
+  "pack_text": "rules_version = 1\n\nSynthetic assistant rules for the mini Corpus fixture.\nUse only the supplied context pack and cite every factual statement exactly as shown.\nIf the context pack does not establish an answer, reply: Not established in the library.\n\nLabels: owner-supplied\n\nQuestion: synthetic\n\n--- conflict XC-01 ---\nTitle: Synthetic review interval versus withholding check timing\nAs of: unknown\nStatus: unresolved\nPosition: Synthetic review runs every 30 days\nPosition: Synthetic withholding check runs at each billing cycle\nClaims: CL-CMP-0001, CL-CMP-0002\ncite as: [@XC-01]\n\n--- question Q-001 ---\nTitle: Which synthetic business-system control owner approves the monthly compliance review?\nAs of: unknown\nStatus: open\nText: Synthetic withholding exposure depends on timely review sign-off.\ncite as: [@Q-001]\n\n--- claim CL-CMP-0002 ---\nTitle: Synthetic withholding threshold is 5 percent of billed amounts.\nAs of: 2026-02-01\nStatus: unchecked\nSource: S-0001-v1, sec. 2\nQuote: \"Synthetic withholding threshold is 5 percent.\"\ncite as: [@CL-CMP-0002]\n\n--- claim CL-CMP-0001 ---\nTitle: Synthetic compliance reviews occur every 30 days under the synthetic rule.\nAs of: 2026-02-01\nStatus: contradicted (conflict XC-01)\nSource: S-0001-v1, sec. 1\nQuote: \"Synthetic compliance reviews occur every 30 days.\"\ncite as: [@CL-CMP-0001]\n\n--- source S-0001-v1 ---\nTitle: Synthetic Cost Rule, made up for tests\nAs of: 2026-02-01\nStatus: active\nText: Synthetic fixture source for automated tests.\ncite as: [@S-0001-v1]\n\n--- term system_review ---\nTitle: system review\nAs of: unknown\nStatus: public_reference\nText: Synthetic periodic assessment of business-system control operation.\n\n--- term billing_withhold ---\nTitle: billing withhold\nAs of: unknown\nStatus: public_reference\nText: Synthetic retention of a percentage of interim payments pending system correction.\n\n--- page cmp-system-review#purpose ---\nTitle: Purpose\nAs of: 2026-02-01\nStatus: draft\nText: Explain how a synthetic system review interacts with a synthetic billing withhold.\n\n--- page cmp-onboarding-checklist#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\n\n--- page cmp-review-steps#how-it-works ---\nTitle: How it works\nAs of: 2026-02-01\nStatus: draft\n\nLeft out (policy): 0 records\n"
 }
 ```
 

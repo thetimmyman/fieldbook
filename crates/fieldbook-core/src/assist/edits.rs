@@ -14,7 +14,7 @@ use std::collections::{BTreeMap, BTreeSet};
 use serde::{Deserialize, Serialize};
 
 use crate::egress::LabelledView;
-use crate::ids::ConflictId;
+use crate::ids::{ClaimId, ConflictId};
 
 use super::context::{Budget, ContextItem, Origin, Why};
 use super::pack::{ContextPack, finalize_pack};
@@ -38,6 +38,27 @@ pub struct Edits {
     pub suggested: Vec<String>,
 }
 
+/// Included claim ids of `items`, in list order, excluding anything in `removed_set` and any unit
+/// the current view no longer holds.
+fn claim_ids(
+    items: &[ContextItem],
+    removed_set: &BTreeSet<&str>,
+    catalog: &ViewCatalog,
+) -> Vec<String> {
+    items
+        .iter()
+        .filter(|it| {
+            it.included
+                && !removed_set.contains(it.unit.as_str())
+                && catalog
+                    .units
+                    .get(&it.unit)
+                    .is_some_and(|u| u.kind == "claim")
+        })
+        .map(|it| it.unit.clone())
+        .collect()
+}
+
 /// Applies `edits` to `pack` under `view` and `budget`, returning a rebuilt [`ContextPack`].
 ///
 /// - `pinned` moves items first with `origin = Pinned`; an id absent from `view` stays listed as
@@ -58,7 +79,6 @@ pub fn apply_edits(
     let catalog = ViewCatalog::from_view(view);
     let budget = budget.into();
     let removed_set: BTreeSet<&str> = edits.removed.iter().map(String::as_str).collect();
-    let mut conflict_opponents: BTreeMap<String, ConflictId> = BTreeMap::new();
 
     // Index existing items from `pack` preserving their order.
     let mut existing: Vec<ContextItem> = pack.items().to_vec();
@@ -75,18 +95,31 @@ pub fn apply_edits(
     let mut seen: BTreeSet<String> = BTreeSet::new();
 
     // Helper: append conflict dependencies (conflict row + opposing claims) for a claim id.
-    let push_conflict_deps =
-        |claim_id: &str,
-         origin: Origin,
-         items: &mut Vec<ContextItem>,
-         seen: &mut BTreeSet<String>,
-         conflict_opponents: &mut BTreeMap<String, ConflictId>| {
-            if let Some(entries) = catalog.claim_conflicts.get(claim_id) {
-                for (xid, opponents) in entries {
-                    let xid_str = xid.as_str().to_owned();
-                    if catalog.units.contains_key(&xid_str) && seen.insert(xid_str.clone()) {
+    // Opponent styling is not recorded here: a claim is styled as the opponent of the
+    // first-selected (earliest included) claim of its conflict, which the positional pass below
+    // decides once the full item list is known.
+    let push_conflict_deps = |claim_id: &str,
+                              origin: Origin,
+                              items: &mut Vec<ContextItem>,
+                              seen: &mut BTreeSet<String>| {
+        if let Some(entries) = catalog.claim_conflicts.get(claim_id) {
+            for (xid, opponents) in entries {
+                let xid_str = xid.as_str().to_owned();
+                if catalog.units.contains_key(&xid_str) && seen.insert(xid_str.clone()) {
+                    items.push(ContextItem {
+                        unit: xid_str,
+                        origin,
+                        why: Why::Closure,
+                        via: Some(claim_id.to_owned()),
+                        included: true,
+                        stale: false,
+                    });
+                }
+                for opp in opponents {
+                    let opp_str = opp.as_str().to_owned();
+                    if catalog.units.contains_key(&opp_str) && seen.insert(opp_str.clone()) {
                         items.push(ContextItem {
-                            unit: xid_str,
+                            unit: opp_str,
                             origin,
                             why: Why::Closure,
                             via: Some(claim_id.to_owned()),
@@ -94,70 +127,51 @@ pub fn apply_edits(
                             stale: false,
                         });
                     }
-                    for opp in opponents {
-                        let opp_str = opp.as_str().to_owned();
-                        conflict_opponents
-                            .entry(opp_str.clone())
-                            .or_insert_with(|| xid.clone());
-                        if catalog.units.contains_key(&opp_str) && seen.insert(opp_str.clone()) {
-                            items.push(ContextItem {
-                                unit: opp_str,
-                                origin,
-                                why: Why::Closure,
-                                via: Some(claim_id.to_owned()),
-                                included: true,
-                                stale: false,
-                            });
-                        }
-                    }
                 }
             }
-        };
+        }
+    };
 
     // Helper: append full required closure for a pinned item (conflict deps + AD-18 closure).
-    let push_pin_closure =
-        |pin_id: &str,
-         items: &mut Vec<ContextItem>,
-         seen: &mut BTreeSet<String>,
-         conflict_opponents: &mut BTreeMap<String, ConflictId>| {
-            push_conflict_deps(pin_id, Origin::Auto, items, seen, conflict_opponents);
-            if let Some(unit) = catalog.units.get(pin_id) {
-                for dep_id in &unit.closure {
-                    if !catalog.units.contains_key(dep_id) {
-                        continue;
-                    }
-                    if seen.insert(dep_id.clone()) {
-                        items.push(ContextItem {
-                            unit: dep_id.clone(),
-                            origin: Origin::Auto,
-                            why: Why::Closure,
-                            via: Some(pin_id.to_owned()),
-                            included: true,
-                            stale: false,
-                        });
-                    }
-                    if catalog.units.get(dep_id).is_some_and(|u| u.kind == "claim") {
-                        push_conflict_deps(dep_id, Origin::Auto, items, seen, conflict_opponents);
-                        if let Some(claim_unit) = catalog.units.get(dep_id) {
-                            for sub_dep in &claim_unit.closure {
-                                if catalog.units.contains_key(sub_dep)
-                                    && seen.insert(sub_dep.clone())
-                                {
-                                    items.push(ContextItem {
-                                        unit: sub_dep.clone(),
-                                        origin: Origin::Auto,
-                                        why: Why::Closure,
-                                        via: Some(dep_id.clone()),
-                                        included: true,
-                                        stale: false,
-                                    });
-                                }
+    let push_pin_closure = |pin_id: &str,
+                            items: &mut Vec<ContextItem>,
+                            seen: &mut BTreeSet<String>| {
+        push_conflict_deps(pin_id, Origin::Auto, items, seen);
+        if let Some(unit) = catalog.units.get(pin_id) {
+            for dep_id in &unit.closure {
+                if !catalog.units.contains_key(dep_id) {
+                    continue;
+                }
+                if seen.insert(dep_id.clone()) {
+                    items.push(ContextItem {
+                        unit: dep_id.clone(),
+                        origin: Origin::Auto,
+                        why: Why::Closure,
+                        via: Some(pin_id.to_owned()),
+                        included: true,
+                        stale: false,
+                    });
+                }
+                if catalog.units.get(dep_id).is_some_and(|u| u.kind == "claim") {
+                    push_conflict_deps(dep_id, Origin::Auto, items, seen);
+                    if let Some(claim_unit) = catalog.units.get(dep_id) {
+                        for sub_dep in &claim_unit.closure {
+                            if catalog.units.contains_key(sub_dep) && seen.insert(sub_dep.clone()) {
+                                items.push(ContextItem {
+                                    unit: sub_dep.clone(),
+                                    origin: Origin::Auto,
+                                    why: Why::Closure,
+                                    via: Some(dep_id.clone()),
+                                    included: true,
+                                    stale: false,
+                                });
                             }
                         }
                     }
                 }
             }
-        };
+        }
+    };
 
     // 1. Pinned items first: explicit `edits.pinned` in order, then any previously-pinned items.
     let mut pin_ids: Vec<String> = Vec::new();
@@ -195,7 +209,7 @@ pub fn apply_edits(
             stale,
         });
         if available {
-            push_pin_closure(pin_id, &mut items, &mut seen, &mut conflict_opponents);
+            push_pin_closure(pin_id, &mut items, &mut seen);
         }
     }
 
@@ -214,19 +228,6 @@ pub fn apply_edits(
         if !next.included && !next.stale && budget_dropped.contains(next.unit.as_str()) {
             next.included = true;
         }
-        // Preserve opponent styling only for claims brought in as conflict closure of an earlier claim.
-        if next.why == Why::Closure
-            && let Some(ref via_id) = next.via
-            && let Some(entries) = catalog.claim_conflicts.get(via_id)
-        {
-            for (xid, opponents) in entries {
-                if opponents.iter().any(|opp| opp.as_str() == next.unit) {
-                    conflict_opponents
-                        .entry(next.unit.clone())
-                        .or_insert_with(|| xid.clone());
-                }
-            }
-        }
         items.push(next);
     }
 
@@ -243,7 +244,7 @@ pub fn apply_edits(
                     if items[pos].origin != Origin::Pinned {
                         items[pos].origin = origin;
                     }
-                    push_conflict_deps(id, origin, &mut items, &mut seen, &mut conflict_opponents);
+                    push_conflict_deps(id, origin, &mut items, &mut seen);
                 }
                 continue;
             }
@@ -259,14 +260,47 @@ pub fn apply_edits(
                 stale: !available,
             });
             if available {
-                push_conflict_deps(id, origin, &mut items, &mut seen, &mut conflict_opponents);
+                push_conflict_deps(id, origin, &mut items, &mut seen);
             }
         }
     }
 
-    // Ensure any already-present conflict row/opponent for an active included claim remains
-    // included (unless explicitly removed) and opponents after the claim carry conflict styling.
-    let active_claims: Vec<(usize, String)> = items
+    // Ensure any already-present conflict row/opponent for an included claim remains included
+    // (unless explicitly removed). Inclusion is taken to a fixed point first: a claim restored
+    // through another claim's conflict closure can bring further claims with it, and the
+    // positional opponent map below must read the stabilized item set, or a restored opponent is
+    // left unstyled and a later pass relabels it.
+    loop {
+        let included_claims: Vec<String> = claim_ids(&items, &removed_set, &catalog);
+        let mut changed = false;
+        for cid in &included_claims {
+            let Some(entries) = catalog.claim_conflicts.get(cid) else {
+                continue;
+            };
+            for (xid, opponents) in entries {
+                for id in std::iter::once(xid.as_str()).chain(opponents.iter().map(ClaimId::as_str))
+                {
+                    if let Some(item) = items.iter_mut().find(|it| it.unit == id)
+                        && !item.included
+                        && !removed_set.contains(item.unit.as_str())
+                    {
+                        item.included = true;
+                        changed = true;
+                    }
+                }
+            }
+        }
+        if !changed {
+            break;
+        }
+    }
+
+    // Style opponents by position once inclusion is stable. The earliest included claim of a
+    // conflict is its anchor; every later included claim of that conflict is styled as a
+    // contradicted opponent, so a claim that is re-added, pinned or restored by closure does not
+    // relabel the claim it was selected against.
+    let mut conflict_opponents: BTreeMap<String, ConflictId> = BTreeMap::new();
+    for (claim_idx, cid) in items
         .iter()
         .enumerate()
         .filter(|(_, it)| {
@@ -278,30 +312,19 @@ pub fn apply_edits(
                     .is_some_and(|u| u.kind == "claim")
         })
         .map(|(idx, it)| (idx, it.unit.clone()))
-        .collect();
-    for (claim_idx, cid) in &active_claims {
-        if let Some(entries) = catalog.claim_conflicts.get(cid) {
-            for (xid, opponents) in entries {
-                if let Some(item) = items.iter_mut().find(|it| it.unit == xid.as_str())
-                    && !removed_set.contains(item.unit.as_str())
+        .collect::<Vec<_>>()
+    {
+        let Some(entries) = catalog.claim_conflicts.get(&cid) else {
+            continue;
+        };
+        for (xid, opponents) in entries {
+            for opp in opponents {
+                if let Some(opp_idx) = items.iter().position(|it| it.unit == opp.as_str())
+                    && opp_idx > claim_idx
                 {
-                    item.included = true;
-                }
-                for opp in opponents {
-                    if let Some((opp_idx, item)) = items
-                        .iter_mut()
-                        .enumerate()
-                        .find(|(_, it)| it.unit == opp.as_str())
-                    {
-                        if opp_idx > *claim_idx {
-                            conflict_opponents
-                                .entry(opp.as_str().to_owned())
-                                .or_insert_with(|| xid.clone());
-                        }
-                        if !removed_set.contains(item.unit.as_str()) {
-                            item.included = true;
-                        }
-                    }
+                    conflict_opponents
+                        .entry(opp.as_str().to_owned())
+                        .or_insert_with(|| xid.clone());
                 }
             }
         }
