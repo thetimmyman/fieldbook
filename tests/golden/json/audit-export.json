@@ -1,0 +1,12 @@
+{
+  "report_version": 1,
+  "verb": "audit export",
+  "written": true,
+  "events": 13,
+  "first_seq": 1,
+  "last_seq": 13,
+  "head": "6f0f368f4aea5c2d06d4ff3d6bd532cc47890bb88219457baf5fd1075950ad39",
+  "file": "journal-w0-5d524e23e0cd-000001-13.jsonl",
+  "manifest": "journal-w0-5d524e23e0cd-000001-13.manifest.toml",
+  "exit": 0
+}

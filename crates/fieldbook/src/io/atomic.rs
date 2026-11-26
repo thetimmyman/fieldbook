@@ -859,7 +859,7 @@ pub fn write_in_root(
     if rechecked != resolved {
         return Err(Error::OutOfScope(raw_path));
     }
-    write_atomic(&resolved, bytes)
+    write_atomic(&resolved, bytes, true)
 }
 
 pub(crate) fn check_outside_write_binding(
@@ -907,6 +907,23 @@ pub fn write_outside(
     bytes: &[u8],
     audited: &Audited,
 ) -> Result<Sha256, Error> {
+    // An `audit export` token only creates files: the name is first reserved by an exclusive
+    // create, so a file another program created after the caller looked is never replaced. Every
+    // other token replaces atomically as before.
+    let replace = !audited.creates_only();
+    write_outside_with(allowed, path, bytes, audited, replace)
+}
+
+/// The message of the [`Error`] for a name that exists when the token only creates files.
+pub const ALREADY_EXISTS: &str = "already exists";
+
+fn write_outside_with(
+    allowed: &Allowed,
+    path: &Path,
+    bytes: &[u8],
+    audited: &Audited,
+    replace: bool,
+) -> Result<Sha256, Error> {
     if audited.is_state_only() || !audited.has_active_lease() {
         return Err(Error::OutOfScope(path.to_path_buf()));
     }
@@ -919,10 +936,10 @@ pub fn write_outside(
     if rechecked != resolved {
         return Err(Error::OutOfScope(path.to_path_buf()));
     }
-    write_atomic(&resolved, bytes)
+    write_atomic(&resolved, bytes, replace)
 }
 
-fn write_atomic(path: &Path, bytes: &[u8]) -> Result<Sha256, Error> {
+fn write_atomic(path: &Path, bytes: &[u8], replace: bool) -> Result<Sha256, Error> {
     let Some(file_name_os) = path.file_name() else {
         return Err(Error::OutOfScope(path.to_path_buf()));
     };
@@ -1004,6 +1021,28 @@ fn write_atomic(path: &Path, bytes: &[u8]) -> Result<Sha256, Error> {
     bound_parent.verify_still_at_path(path)?;
     bound_parent.check_target_not_symlink(file_name_os, path)?;
     tmp_guard.verify_before_rename(path)?;
+
+    if !replace {
+        // Reserve the name with an exclusive create, which fails when the name exists, so a file
+        // another program created after the caller looked is never replaced; the rename below
+        // then replaces only the empty reservation. A reservation left by a crash is an empty
+        // file, which a re-export treats as absent.
+        match std::fs::OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(bound_parent.entry_path(file_name_os))
+        {
+            Ok(reservation) => drop(reservation),
+            Err(err) if err.kind() == std::io::ErrorKind::AlreadyExists => {
+                let empty_file = std::fs::symlink_metadata(bound_parent.entry_path(file_name_os))
+                    .is_ok_and(|meta| meta.is_file() && meta.len() == 0);
+                if !empty_file {
+                    return Err(Error::new(path, ALREADY_EXISTS));
+                }
+            }
+            Err(err) => return Err(Error::new(path, err.to_string())),
+        }
+    }
 
     if let Err(first_err) = bound_parent.rename_entry(&tmp_name, file_name_os) {
         let target_is_dir = bound_parent.target_is_dir(file_name_os);

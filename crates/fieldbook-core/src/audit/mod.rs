@@ -2,6 +2,7 @@
 //! and operation intents (`audit-journal`, AD-16, ADR 0004 §12).
 
 pub mod chain;
+pub mod export;
 pub mod kind;
 pub mod vocab;
 

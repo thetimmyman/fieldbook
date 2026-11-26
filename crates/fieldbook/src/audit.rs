@@ -4,18 +4,21 @@ use std::collections::BTreeMap;
 use std::path::Path;
 
 use fieldbook_core::audit::chain::{self, RawEventObject, parse_json_object};
+use fieldbook_core::audit::export::{Finding, Manifest, verify_export};
 use fieldbook_core::audit::{
     Event, EventPayload, Id, Kind, LabelId, Now, RecordRef, Sha256, Via, ZERO_HASH,
 };
 use fieldbook_core::report::{
-    AuditHead, AuditShowReport, AuditVerifyFinding, AuditVerifyReport, REPORT_VERSION,
+    AuditExport, AuditHead, AuditShowReport, AuditVerifyExport, AuditVerifyFinding,
+    AuditVerifyReport, REPORT_VERSION,
 };
 
 use crate::cli::{
-    AuditArgs, AuditShowArgs, AuditSubcommand, AuditVerifyArgs, EXIT_FINDINGS, EXIT_IO, EXIT_OK,
-    EXIT_USAGE,
+    AuditArgs, AuditExportArgs, AuditShowArgs, AuditSubcommand, AuditVerifyArgs, EXIT_FINDINGS,
+    EXIT_IO, EXIT_OK, EXIT_USAGE,
 };
 use crate::io::journal::{Journal, JournalError, list_segments, read_segment_bytes};
+use crate::policy::PolicyCtx;
 use crate::{Outcome, World};
 
 /// Dispatch `fieldbook audit` subcommands.
@@ -24,6 +27,7 @@ pub fn run(args: &AuditArgs, state_flag: Option<&Path>, world: &dyn World) -> Ou
     match &args.command {
         AuditSubcommand::Verify(verify_args) => run_verify(verify_args, state_flag, world),
         AuditSubcommand::Show(show_args) => run_show(show_args, state_flag, world),
+        AuditSubcommand::Export(export_args) => run_export(export_args, state_flag, world),
     }
 }
 
@@ -472,7 +476,231 @@ fn observe_event(
     }
 }
 
+/// Format an [`AuditExport`] report as pretty JSON with a trailing newline.
+#[must_use]
+pub fn render_export_json(report: &AuditExport) -> String {
+    let mut json = serde_json::to_string_pretty(report).unwrap_or_default();
+    json.push('\n');
+    json
+}
+
+/// Format an [`AuditVerifyExport`] report as pretty JSON with a trailing newline.
+#[must_use]
+pub fn render_verify_export_json(report: &AuditVerifyExport) -> String {
+    let mut json = serde_json::to_string_pretty(report).unwrap_or_default();
+    json.push('\n');
+    json
+}
+
+fn run_export(args: &AuditExportArgs, state_flag: Option<&Path>, world: &dyn World) -> Outcome {
+    let state_dir = resolve_state_dir(state_flag, world);
+    let policy: PolicyCtx = match crate::policy::active_policy() {
+        Some(ctx) => ctx,
+        None => match crate::policy::resolve(world, &state_dir, world.tree_root(), false) {
+            Ok(ctx) => ctx,
+            Err(refusal) => {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("{refusal}\n"),
+                    code: EXIT_USAGE,
+                };
+            }
+        },
+    };
+    let mut journal = match crate::io::state::open(world, &state_dir, Via::Cli) {
+        Ok(journal) => journal,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+    let layout = crate::io::audit_export::Layout::of(world);
+    match crate::io::audit_export::export(
+        world,
+        &layout,
+        &policy,
+        &mut journal,
+        args.to.as_deref(),
+        args.since,
+    ) {
+        Ok(report) => {
+            let stdout = if args.json {
+                render_export_json(&AuditExport {
+                    report_version: REPORT_VERSION,
+                    verb: "audit export",
+                    written: report.written,
+                    events: report.events,
+                    first_seq: report.first_seq,
+                    last_seq: report.last_seq,
+                    head: report.head.as_str().to_owned(),
+                    file: report.file.clone(),
+                    manifest: report.manifest.clone(),
+                    exit: EXIT_OK,
+                })
+            } else if report.written {
+                let short = &report.head.as_str()[..12.min(report.head.as_str().len())];
+                format!(
+                    "audit export: {} events ({} to {}), head {short}, written to {}\n",
+                    report.events, report.first_seq, report.last_seq, report.file
+                )
+            } else {
+                format!(
+                    "audit export: nothing new; the journal ends at {}\n",
+                    report.journal_end
+                )
+            };
+            Outcome {
+                stdout,
+                stderr: String::new(),
+                code: EXIT_OK,
+            }
+        }
+        Err(refusal) => Outcome {
+            stdout: String::new(),
+            stderr: format!("error[{}]: {}\n", refusal.code.id(), refusal.message),
+            code: EXIT_FINDINGS,
+        },
+    }
+}
+
+fn run_verify_export(args: &AuditVerifyArgs, manifest_path: &Path, world: &dyn World) -> Outcome {
+    let manifest_name = manifest_path
+        .file_name()
+        .and_then(|name| name.to_str())
+        .unwrap_or("manifest.toml")
+        .to_owned();
+    let bytes = match world.read_file(manifest_path) {
+        Ok(Some(bytes)) => bytes,
+        Ok(None) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("error: {} cannot be read\n", manifest_path.display()),
+                code: EXIT_IO,
+            };
+        }
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+    let manifest_text = String::from_utf8_lossy(&bytes).into_owned();
+    let parsed = Manifest::parse(&manifest_text);
+
+    let (first_seq, last_seq, head, segment_bytes) = match &parsed {
+        Ok(manifest) => {
+            let folder = manifest_path.parent().unwrap_or_else(|| Path::new("."));
+            let segment_path = folder.join(&manifest.file);
+            match world.read_file(&segment_path) {
+                Ok(Some(bytes)) => (
+                    manifest.first_seq,
+                    manifest.last_seq,
+                    manifest.head.clone(),
+                    bytes,
+                ),
+                Ok(None) => {
+                    return Outcome {
+                        stdout: String::new(),
+                        stderr: format!("error: {} cannot be read\n", segment_path.display()),
+                        code: EXIT_IO,
+                    };
+                }
+                Err(err) => {
+                    return Outcome {
+                        stdout: String::new(),
+                        stderr: format!("{err}\n"),
+                        code: EXIT_IO,
+                    };
+                }
+            }
+        }
+        Err(_) => (0, 0, Sha256::zero(), Vec::new()),
+    };
+
+    let findings = match parsed {
+        Ok(_) => verify_export(
+            &manifest_text,
+            &segment_bytes,
+            args.expect_head.as_deref(),
+            args.expect_seq,
+        ),
+        Err(findings) => findings,
+    };
+    let exit = if findings.is_empty() {
+        EXIT_OK
+    } else {
+        EXIT_FINDINGS
+    };
+
+    if args.json {
+        let events =
+            usize::try_from(last_seq.saturating_sub(first_seq).saturating_add(1)).unwrap_or(0);
+        let report = AuditVerifyExport {
+            report_version: REPORT_VERSION,
+            verb: "audit verify",
+            manifest: manifest_name,
+            state: if findings.is_empty() {
+                "ok"
+            } else {
+                fieldbook_core::strings::cite_statuses()[0]
+            },
+            events: if first_seq == 0 { 0 } else { events },
+            first_seq,
+            last_seq,
+            head: head.as_str().to_owned(),
+            findings: findings.iter().map(report_finding).collect(),
+            exit,
+        };
+        return Outcome {
+            stdout: render_verify_export_json(&report),
+            stderr: String::new(),
+            code: exit,
+        };
+    }
+
+    let mut stdout = String::new();
+    if findings.is_empty() {
+        let events =
+            usize::try_from(last_seq.saturating_sub(first_seq).saturating_add(1)).unwrap_or(0);
+        let short = &head.as_str()[..12.min(head.as_str().len())];
+        stdout.push_str(&format!(
+            "export ok: {events} events ({first_seq} to {last_seq}), head {short}\n"
+        ));
+    } else {
+        for finding in &findings {
+            let line = finding.seq.max(1);
+            stdout.push_str(&format!(
+                "export:{line}:1: error[{}]: {}\n",
+                finding.code.id(),
+                finding.message
+            ));
+        }
+    }
+
+    Outcome {
+        stdout,
+        stderr: String::new(),
+        code: exit,
+    }
+}
+
+fn report_finding(finding: &Finding) -> AuditVerifyFinding {
+    AuditVerifyFinding {
+        code: finding.code.id(),
+        severity: "error",
+        seq: finding.seq,
+    }
+}
+
 fn run_verify(args: &AuditVerifyArgs, state_flag: Option<&Path>, world: &dyn World) -> Outcome {
+    if let Some(manifest) = &args.export {
+        return run_verify_export(args, manifest, world);
+    }
     if args.anchor_seq.is_some() != args.anchor_head.is_some() {
         return Outcome {
             stdout: String::new(),

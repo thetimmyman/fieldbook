@@ -337,11 +337,33 @@ pub enum AuditSubcommand {
     Verify(AuditVerifyArgs),
     /// Show events or the head of the audit journal.
     Show(AuditShowArgs),
+    /// Copy the journal's lines and a manifest to the policy's audit sink.
+    Export(AuditExportArgs),
+}
+
+/// Arguments for `fieldbook audit export`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct AuditExportArgs {
+    /// Write below this folder inside the policy's audit sink.
+    #[arg(long, value_name = "DIR")]
+    pub to: Option<PathBuf>,
+
+    /// Start the export at this journal sequence number.
+    #[arg(long, value_name = "SEQ")]
+    pub since: Option<u64>,
+
+    /// Print the report as a JSON object.
+    #[arg(long)]
+    pub json: bool,
 }
 
 /// Arguments for `fieldbook audit verify`.
 #[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
 pub struct AuditVerifyArgs {
+    /// Verify an exported copy from its manifest instead of the live journal.
+    #[arg(long, value_name = "MANIFEST", conflicts_with_all = ["anchor_seq", "anchor_head", "repair"])]
+    pub export: Option<PathBuf>,
+
     /// Expected 64-character lowercase hexadecimal head hash.
     #[arg(long, value_name = "HEX")]
     pub expect_head: Option<String>,

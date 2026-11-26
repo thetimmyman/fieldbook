@@ -12,6 +12,7 @@
 pub mod ai_settings;
 pub mod asked;
 pub mod atomic;
+pub mod audit_export;
 pub mod backup_classify;
 pub mod backup_folder;
 pub mod dirs;
@@ -302,6 +303,58 @@ impl Disk {
     ) -> Result<fieldbook_core::status::StateSummary, Error> {
         Ok(state_summary(self.state_dir(), today))
     }
+}
+
+/// Why an export file write did not complete (`audit-export`).
+#[derive(Debug)]
+pub enum WriteExportError {
+    /// A file appeared at the target with other bytes after the plan was made.
+    Conflict,
+    /// Reading or writing the target failed.
+    Io(WorldError),
+}
+
+/// Write one export file through the `&Allowed` door, never overwriting other bytes.
+///
+/// A file that already holds `bytes` is left as it is and returns `Ok(false)`; a file that
+/// appeared with other bytes since the plan returns [`WriteExportError::Conflict`].
+///
+/// # Errors
+///
+/// Returns [`WriteExportError::Conflict`] for a file with other bytes and
+/// [`WriteExportError::Io`] when the target cannot be read or written.
+pub fn write_export(
+    world: &dyn World,
+    allowed: &Allowed,
+    audited: &Audited,
+    path: &Path,
+    bytes: &[u8],
+) -> Result<bool, WriteExportError> {
+    match world.read_file(path) {
+        Ok(Some(existing)) if existing.is_empty() => {}
+        Ok(Some(existing)) => {
+            if existing == bytes {
+                return Ok(false);
+            }
+            return Err(WriteExportError::Conflict);
+        }
+        Ok(None) => {}
+        Err(err) => return Err(WriteExportError::Io(err)),
+    }
+    match world.write_outside(allowed, audited, path, bytes) {
+        Ok(_) => {}
+        Err(Error::Io { message, .. }) if message == atomic::ALREADY_EXISTS => {
+            // Another program created the name after the check above: the same bytes are
+            // fine, other bytes are a conflict, and nothing was replaced either way.
+            return match world.read_file(path) {
+                Ok(Some(existing)) if existing == bytes => Ok(false),
+                Ok(_) => Err(WriteExportError::Conflict),
+                Err(read_err) => Err(WriteExportError::Io(read_err)),
+            };
+        }
+        Err(err) => return Err(WriteExportError::Io(err)),
+    }
+    Ok(true)
 }
 
 /// Builds the state lines of `status` from `state_dir`: the backup line first, then the role

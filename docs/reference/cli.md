@@ -381,6 +381,23 @@ Build a plain-text context pack for a question from the permitted view
 }
 ```
 
+### `audit-export`
+
+```json
+{
+  "report_version": 1,
+  "verb": "audit export",
+  "written": true,
+  "events": 13,
+  "first_seq": 1,
+  "last_seq": 13,
+  "head": "6f0f368f4aea5c2d06d4ff3d6bd532cc47890bb88219457baf5fd1075950ad39",
+  "file": "journal-w0-5d524e23e0cd-000001-13.jsonl",
+  "manifest": "journal-w0-5d524e23e0cd-000001-13.manifest.toml",
+  "exit": 0
+}
+```
+
 ### `audit-show`
 
 ```json
@@ -452,6 +469,23 @@ Build a plain-text context pack for a question from the permitted view
       "hash": "333c06e7324ba0462583de262a461c8935ccabd7bbf915ed76d9d7c3989b59bf"
     }
   ],
+  "exit": 0
+}
+```
+
+### `audit-verify-export`
+
+```json
+{
+  "report_version": 1,
+  "verb": "audit verify",
+  "manifest": "journal-w0-5d524e23e0cd-000001-13.manifest.toml",
+  "state": "ok",
+  "events": 13,
+  "first_seq": 1,
+  "last_seq": 13,
+  "head": "6f0f368f4aea5c2d06d4ff3d6bd532cc47890bb88219457baf5fd1075950ad39",
+  "findings": [],
   "exit": 0
 }
 ```

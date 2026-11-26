@@ -153,6 +153,7 @@ fn drill_verify(
     // Step 4: journal
     let audit_args = AuditArgs {
         command: AuditSubcommand::Verify(AuditVerifyArgs {
+            export: None,
             expect_seq: Some(check.info.journal_seq),
             expect_head: Some(check.info.journal_head.clone()),
             anchor_seq: None,

@@ -17,7 +17,8 @@ use fieldbook_core::audit::{
 use fieldbook_core::check::{Code, Diagnostic, Report};
 use fieldbook_core::date::CivilDate;
 use fieldbook_core::report::{
-    BackupLatestVerification, BackupList, BackupListDrill, BackupListSnapshot, BackupListTarget,
+    AuditExport, AuditVerifyExport, BackupLatestVerification, BackupList, BackupListDrill,
+    BackupListSnapshot, BackupListTarget,
 };
 use serde_json::Value;
 
@@ -29,6 +30,8 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("check", generate_check_report),
     ("audit-show", generate_audit_show_report),
     ("audit-verify", generate_audit_verify_report),
+    ("audit-export", generate_audit_export_report),
+    ("audit-verify-export", generate_audit_verify_export_report),
     ("backup-list", generate_backup_list_report),
     ("add", generate_add_report),
     ("search", generate_search_report),
@@ -91,6 +94,38 @@ fn generate_audit_verify_report() -> String {
         outcome.stderr
     );
     outcome.stdout
+}
+
+fn generate_audit_export_report() -> String {
+    let report = AuditExport {
+        report_version: 1,
+        verb: "audit export",
+        written: true,
+        events: 13,
+        first_seq: 1,
+        last_seq: 13,
+        head: "6f0f368f4aea5c2d06d4ff3d6bd532cc47890bb88219457baf5fd1075950ad39".to_owned(),
+        file: "journal-w0-5d524e23e0cd-000001-13.jsonl".to_owned(),
+        manifest: "journal-w0-5d524e23e0cd-000001-13.manifest.toml".to_owned(),
+        exit: 0,
+    };
+    fieldbook::audit::render_export_json(&report)
+}
+
+fn generate_audit_verify_export_report() -> String {
+    let report = AuditVerifyExport {
+        report_version: 1,
+        verb: "audit verify",
+        manifest: "journal-w0-5d524e23e0cd-000001-13.manifest.toml".to_owned(),
+        state: "ok",
+        events: 13,
+        first_seq: 1,
+        last_seq: 13,
+        head: "6f0f368f4aea5c2d06d4ff3d6bd532cc47890bb88219457baf5fd1075950ad39".to_owned(),
+        findings: Vec::new(),
+        exit: 0,
+    };
+    fieldbook::audit::render_verify_export_json(&report)
 }
 
 fn generate_backup_list_report() -> String {

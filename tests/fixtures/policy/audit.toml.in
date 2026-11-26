@@ -1,0 +1,9 @@
+# Synthetic policy fixture for the audit export tests. SINK is replaced with an absolute
+# temporary folder at run time, because a policy sink path must be absolute.
+
+policy_schema = 1
+revision = 1
+
+[audit]
+sink = "SINK"
+max_unshipped_hours = 24
