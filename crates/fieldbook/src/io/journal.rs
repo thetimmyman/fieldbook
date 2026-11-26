@@ -3120,6 +3120,39 @@ impl<'a> Journal<'a> {
         )?;
         Ok(next.last_hash)
     }
+
+    /// Append one event whose payload is built from the sequence number it is about to get, under
+    /// the same journal lock as the append, and return that sequence number (`model-gate`: the
+    /// `tx` of an `ai.begin` is the sequence of its own line, so a concurrent writer cannot skew
+    /// it).
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if the lock, the tail check or the append fails, or `build` fails.
+    pub fn append_payload_with_seq<F>(&self, build: F) -> Result<u64, JournalError>
+    where
+        F: FnOnce(u64) -> Result<EventPayload, JournalError>,
+    {
+        let has_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        let _short_lock = if has_active {
+            None
+        } else {
+            Some(acquire_journal_lock(&self.state_dir)?)
+        };
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let seq = tail.last_seq + 1;
+        let payload = build(seq)?;
+        append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+        Ok(seq)
+    }
 }
 
 /// Remove transient lock files (`state/lock` and `state/store.lock`) after building a static
@@ -3491,6 +3524,146 @@ fn last_recorded_settings_baseline(
 #[must_use]
 pub fn is_journal_chain_clean(state_dir: &Path) -> bool {
     read_verified_events(state_dir).is_ok()
+}
+
+/// Returns `true` when the journal can take one more append under `state_dir`.
+///
+/// This models what the next append does. Its first step is `init_state_locks`: when the shape
+/// it checks is already present it does nothing, and otherwise it creates `state/`, `audit/`,
+/// the journal lock and the store lock, any of which can fail. So readiness asks whether that
+/// initialization could succeed, then opens the journal lock read and write as the append does,
+/// then opens the segment the append would write. When no segment exists the append creates
+/// `audit/journal.jsonl`, so the folder that receives it must accept a file. A preview stays
+/// free of journal events and lock files either way.
+#[must_use]
+pub fn journal_can_append(state_dir: &Path) -> bool {
+    let audit_dir = state_dir.join("audit");
+    let journal_lock = state_dir.join("lock");
+    let store_lock = state_dir.join("store.lock");
+    let init_marker = state_dir.join(".init");
+
+    // The initialization fast path is exactly this shape; anything else makes it create folders
+    // and lock files, and each of those can fail on this state folder.
+    let initialized = audit_dir.is_dir()
+        && journal_lock.is_file()
+        && store_lock.is_file()
+        && !init_marker.exists();
+    if !initialized && !state_initialization_possible(state_dir) {
+        return false;
+    }
+
+    // An existing journal lock is opened read and write before any segment is considered.
+    if journal_lock.is_file()
+        && OpenOptions::new()
+            .read(true)
+            .write(true)
+            .open(&journal_lock)
+            .is_err()
+    {
+        return false;
+    }
+
+    let Ok(segments) = list_segments(&audit_dir) else {
+        return false;
+    };
+    if let Some((_, active)) = segments.last() {
+        return OpenOptions::new().append(true).open(active).is_ok();
+    }
+
+    // No segment yet: the append creates `audit/journal.jsonl`. `init_state_locks` creates the
+    // audit folder when it is missing, so the file lands in `audit` when that folder exists and
+    // in `state_dir` when the folder would be created inside it.
+    if audit_dir.is_dir() {
+        probe_writable(&audit_dir)
+    } else if state_dir.is_dir() {
+        probe_writable(state_dir)
+    } else {
+        // The state folder itself is missing; `state_initialization_possible` already proved its
+        // nearest existing ancestor accepts the chain initialization creates.
+        true
+    }
+}
+
+/// Returns `true` when [`init_state_locks`] could do its work under `state_dir`.
+///
+/// Initialization creates the missing folders and lock files inside the state folder, so a
+/// missing `audit`, `.init`, `lock` or `store.lock` requires the state folder to accept a file,
+/// and an existing `lock`, `store.lock` or `.init` must open the way the writer opens it (read
+/// and write) — a read-only store lock beside a missing journal lock is exactly the partial
+/// state where the writer fails. A missing state folder is initialized under its nearest
+/// existing ancestor, so that ancestor must accept the files it will create.
+fn state_initialization_possible(state_dir: &Path) -> bool {
+    let audit_dir = state_dir.join("audit");
+
+    let state_exists = match std::fs::symlink_metadata(state_dir) {
+        Ok(meta) => {
+            if !meta.is_dir() {
+                return false;
+            }
+            true
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => false,
+        Err(_) => return false,
+    };
+
+    let mut missing = match std::fs::symlink_metadata(&audit_dir) {
+        Ok(meta) => {
+            if !meta.is_dir() {
+                return false;
+            }
+            false
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => true,
+        Err(_) => return false,
+    };
+
+    for name in [".init", "lock", "store.lock"] {
+        let path = state_dir.join(name);
+        match std::fs::symlink_metadata(&path) {
+            Ok(meta) => {
+                if meta.is_dir() || !file_writable(&path) {
+                    return false;
+                }
+            }
+            Err(err) if err.kind() == std::io::ErrorKind::NotFound => missing = true,
+            Err(_) => return false,
+        }
+    }
+
+    if !state_exists {
+        return nearest_existing_dir(state_dir).is_some_and(|dir| probe_writable(&dir));
+    }
+    !missing || probe_writable(state_dir)
+}
+
+fn nearest_existing_dir(path: &Path) -> Option<PathBuf> {
+    let mut ancestor = path.parent();
+    while let Some(candidate) = ancestor {
+        match std::fs::symlink_metadata(candidate) {
+            Ok(meta) if meta.is_dir() => return Some(candidate.to_path_buf()),
+            Err(err) if err.kind() == std::io::ErrorKind::NotFound => {
+                ancestor = candidate.parent();
+            }
+            Ok(_) | Err(_) => return None,
+        }
+    }
+    None
+}
+
+fn file_writable(path: &Path) -> bool {
+    OpenOptions::new().read(true).write(true).open(path).is_ok()
+}
+
+fn probe_writable(dir: &Path) -> bool {
+    let probe = dir.join(format!(".probe-{}", std::process::id()));
+    match OpenOptions::new().create(true).append(true).open(&probe) {
+        Ok(file) => {
+            drop(file);
+            let _ = std::fs::remove_file(&probe);
+            true
+        }
+        Err(_) => false,
+    }
 }
 
 fn read_verified_events(state_dir: &Path) -> Result<Vec<Event>, JournalError> {

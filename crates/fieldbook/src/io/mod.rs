@@ -9,15 +9,19 @@
     reason = "io reads SOURCE_DATE_EPOCH and traverses input folders at the process boundary"
 )]
 
+pub mod ai_journal;
 pub mod ai_settings;
 pub mod asked;
 pub mod atomic;
 pub mod backup_classify;
 pub mod backup_folder;
+pub mod call_store;
 pub mod dirs;
 pub mod journal;
 pub mod keys;
+pub mod net;
 pub mod out;
+pub mod pace;
 pub mod policy;
 pub mod root;
 pub mod state;

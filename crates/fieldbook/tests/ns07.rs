@@ -2,6 +2,9 @@
 //! (`ai-config-and-keys` step 7, control NS-07).
 
 #![allow(
+    clippy::err_expect,
+    clippy::manual_let_else,
+    clippy::needless_borrow,
     clippy::unwrap_used,
     clippy::expect_used,
     clippy::panic,
@@ -461,4 +464,150 @@ fn reveal_is_called_only_in_io_net() {
         offenders.is_empty(),
         ".reveal( is allowed only in crates/fieldbook/src/io/keys.rs and io/net*, found in: {offenders:?}"
     );
+}
+
+#[test]
+fn a_synthetic_key_and_prompt_stay_out_of_gate_failure_paths() {
+    use std::sync::{Arc, Mutex};
+
+    use fieldbook::adapters::doubles::{
+        MemCalls, MemJournal, ScriptedModel, ScriptedPace, pick_schema, test_policy,
+    };
+    use fieldbook::adapters::gate::Guarded;
+    use fieldbook::adapters::model::{
+        Attempt, AttemptError, Deps, KeepSettings, ModelPort, Permanent, PolicySnapshot, RawReply,
+        Route, RunBudget, Transient,
+    };
+    use fieldbook::io::net::Avail;
+    use fieldbook_core::audit::{ModelId, Now};
+    use fieldbook_core::egress::Shipped;
+    use fieldbook_core::labels::{LabelAllow, LabelId, LabelSet};
+    use fieldbook_core::policy::OwnerSettings;
+    use fieldbook_core::ports::{Caps, Limits, ModelRequest, Part, PartKind, Purpose, Template};
+
+    const POLICY: &str = r#"
+policy_schema = 1
+revision = 1
+[[destination]]
+kind = "model"
+name = "work"
+url = "https://work.example/v1"
+allow = ["public"]
+keep_calls_days_max = 14
+[audit]
+require_fresh_export = false
+"#;
+
+    let key_val = synthetic_key();
+    let var_name = "FIELDBOOK_TEST_SYNTHETIC_KEY";
+    let prompt_canary = "SYNTHETIC PROMPT CANARY";
+    let keys = ScriptedKeys::new().with_key(var_name, &key_val);
+
+    let mut owner = OwnerSettings::unset();
+    owner.endpoints.insert(
+        "work".to_owned(),
+        LabelAllow::from_ids([LabelId::parse("public").expect("public")]),
+    );
+    owner.keep_calls = Some(true);
+    owner.keep_days = Some(30);
+    let snapshot = Arc::new(Mutex::new(PolicySnapshot {
+        policy: test_policy(POLICY, &owner),
+        now: Now::new(
+            fieldbook_core::CivilDate::from_ymd(2026, 3, 1).expect("date"),
+            43_200,
+        )
+        .expect("now"),
+        shipped: Shipped::Hours(1),
+    }));
+
+    let route = Route {
+        name: fieldbook_core::audit::EndpointName::parse("work").expect("name"),
+        base_url: "https://work.example/v1".to_owned(),
+        model: ModelId::parse("test-model").expect("model"),
+        timeout_s: 5,
+        max_reply_bytes: 64 * 1024,
+        key_env: Some(var_name.to_owned()),
+    };
+    let request = || {
+        ModelRequest::new(
+            Purpose::Ask,
+            Template::new("ask@1").expect("template"),
+            vec![Part::new(
+                PartKind::Question,
+                LabelSet::public(),
+                prompt_canary,
+                Vec::new(),
+            )],
+            Some(pick_schema()),
+            Limits::new(10, 10),
+        )
+        .expect("request")
+    };
+
+    let scenarios: Vec<Result<Attempt, AttemptError>> = vec![
+        Err(AttemptError::Permanent(Permanent::Auth)),
+        Err(AttemptError::Permanent(Permanent::Rejected(404))),
+        Err(AttemptError::Permanent(Permanent::Tls)),
+        Err(AttemptError::Permanent(Permanent::Truncated)),
+        Err(AttemptError::Permanent(Permanent::TooLarge)),
+        Err(AttemptError::Transient(Transient::Connect)),
+        Ok(Attempt::Reply(RawReply {
+            body: "not json".to_owned(),
+            tokens_in: 1,
+            tokens_out: 1,
+            finish: fieldbook::adapters::model::Finish::Stop,
+        })),
+    ];
+
+    let mut texts: Vec<String> = Vec::new();
+    let mut all_calls = Vec::new();
+    for scenario in scenarios {
+        let model = Arc::new(
+            ScriptedModel::with_caps(Caps::new(true, false, false, false, 1_000_000))
+                .push(scenario)
+                .push_reply("{\"answer\":\"yes\"}"),
+        );
+        let journal = Arc::new(MemJournal::new());
+        let calls = Arc::new(MemCalls::new());
+        let snap = Arc::clone(&snapshot);
+        let deps = Deps {
+            journal: journal.clone(),
+            keys: Arc::new(keys.clone()),
+            pace: Arc::new(ScriptedPace::default()),
+            policy_provider: Arc::new(move || snap.lock().expect("snapshot").clone()),
+            store: calls.clone(),
+            keep: KeepSettings {
+                calls: true,
+                days: 30,
+            },
+            budget: Arc::new(RunBudget::new(100)),
+            avail: Avail {
+                net_built: true,
+                bridge_built: false,
+                cpu_ok: true,
+            },
+            retries: 1,
+            http: None,
+        };
+        let gate = Guarded::new(Box::new(model), route.clone(), deps);
+        let outcome = gate.run(&request(), None, &|| false);
+        if let Err(error) = outcome {
+            texts.push(error.to_string());
+            texts.push(format!("{error:?}"));
+        }
+        texts.push(format!("{:?}", journal.begins()));
+        texts.push(format!("{:?}", journal.calls()));
+        texts.push(format!("{:?}", journal.refusals()));
+        all_calls.extend(calls.calls());
+    }
+
+    for text in &texts {
+        assert_no_key_slice("gate failure path", text, &key_val);
+        assert!(
+            !text.contains(prompt_canary),
+            "NS-07 violation: the prompt text reached an error, journal or Debug output"
+        );
+    }
+    let calls_debug = format!("{all_calls:?}");
+    assert_no_key_slice("call records", &calls_debug, &key_val);
 }

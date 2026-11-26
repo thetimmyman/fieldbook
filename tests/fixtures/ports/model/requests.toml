@@ -1,0 +1,10 @@
+# Synthetic scripted requests for suite M, made up for tests.
+
+[[request]]
+name = "ask-public"
+question = "What does the synthetic fixture say?"
+
+[[request]]
+name = "ask-owner"
+question = "What does the synthetic fixture say?"
+labels = ["owner-supplied"]

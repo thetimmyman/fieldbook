@@ -7372,3 +7372,284 @@ fn backup_refuses_asked_missing_inputs() {
         .expect("a refuse event");
     assert!(refuse.contains("unlabelled"), "{refuse}");
 }
+
+// --- Saved model calls and Handoff packs (`model-gate` steps 13 and 22) ----------------------
+
+fn model_outputs_target(fix: &TestFixture, include: &[&str]) -> BackupOptions {
+    let inc = include
+        .iter()
+        .map(|s| format!("\"{s}\""))
+        .collect::<Vec<_>>()
+        .join(", ");
+    let settings_text = format!(
+        "role = \"lead\"\n\n[[backup.target]]\nid = \"model-out\"\nkind = \"folder\"\npath = \"{}\"\ninclude = [{inc}]\n",
+        fix.target_path().to_string_lossy().replace('\\', "/")
+    );
+    std::fs::write(fix.state_dir().join("settings.toml"), settings_text).expect("write settings");
+    BackupOptions {
+        target: Some("model-out".to_string()),
+        to: None,
+        dry_run: false,
+    }
+}
+
+fn save_call_on_s0001(fix: &TestFixture) {
+    use fieldbook::adapters::model::{CallRecord, CallStore};
+    use fieldbook::io::call_store::DiskCallStore;
+
+    let disk = fieldbook::io::Disk::with_state(fix.tree_root(), fix.state_dir());
+    let store = DiskCallStore::new(disk);
+    let record = CallRecord {
+        adapter: "scripted@1".to_owned(),
+        endpoint: "work".to_owned(),
+        model: "test-model".to_owned(),
+        template: "ask@1".to_owned(),
+        purpose: "ask".to_owned(),
+        labels: LabelSet::public(),
+        inputs: vec![fieldbook_core::labels::ItemRef::new(
+            fieldbook_core::labels::StoreId::Corpus,
+            "S-0001-v1",
+        )],
+        policy: Sha256::digest(b"synthetic-policy"),
+        prompt_sha256: Sha256::digest(b"synthetic prompt"),
+        output_sha256: Some(Sha256::digest(b"synthetic reply")),
+        system: "synthetic system".to_owned(),
+        prompt: "synthetic prompt".to_owned(),
+        reply: "synthetic reply".to_owned(),
+        tokens_in: 10,
+        tokens_out: 5,
+        attempts: 1,
+        outcome: "ok".to_owned(),
+        keep_days: 14,
+        now: default_now(),
+    };
+    store.put_call(&record).expect("put_call succeeds");
+    assert!(fix.state_dir().join("ai/calls/C-0001.json").is_file());
+}
+
+fn save_schema_pack_on_s0001(fix: &TestFixture) {
+    use fieldbook::adapters::doubles::pick_schema;
+    use fieldbook::adapters::model::{CallStore, TicketMeta};
+    use fieldbook::io::call_store::DiskCallStore;
+
+    let disk = fieldbook::io::Disk::with_state(fix.tree_root(), fix.state_dir());
+    let store = DiskCallStore::new(disk);
+    let meta = TicketMeta {
+        response_schema: Some(pick_schema()),
+        pack_seq: 1,
+        template: "ask@1".to_owned(),
+        labels: LabelSet::public(),
+        context_ids: vec!["corpus/S-0001-v1".to_owned()],
+        inputs: vec![fieldbook_core::labels::ItemRef::new(
+            fieldbook_core::labels::StoreId::Corpus,
+            "S-0001-v1",
+        )],
+    };
+    store
+        .put_pack(
+            b"-----BEGIN PACK-----\nsynthetic pack\n-----END PACK-----\n",
+            &meta,
+        )
+        .expect("put_pack succeeds");
+    assert!(fix.state_dir().join("handoff/H-0001.txt").is_file());
+    assert!(fix.state_dir().join("handoff/H-0001.toml").is_file());
+}
+
+fn relabel_s0001_to_np0007(fix: &TestFixture) {
+    let sources = fix.tree_root().join("corpus/registers/sources.csv");
+    let text = std::fs::read_to_string(&sources).expect("read sources");
+    let relabelled = text.replacen(
+        ",V2,public,Synthetic fixture source for automated tests.",
+        ",V2,public|np-0007,Synthetic fixture source for automated tests.",
+        1,
+    );
+    assert_ne!(relabelled, text, "the S-0001 row is relabelled");
+    std::fs::write(&sources, relabelled).expect("write sources");
+}
+
+#[test]
+fn backup_model_output_without_metadata_is_unlabelled() {
+    // 1. Orphan Handoff pack (H-0001.txt without H-0001.toml) is unlabelled and refused.
+    {
+        let fix = TestFixture::new();
+        let pack_path = fix.state_dir().join("handoff/H-0001.txt");
+        std::fs::create_dir_all(pack_path.parent().expect("parent")).expect("create handoff dir");
+        std::fs::write(
+            &pack_path,
+            b"-----BEGIN PACK-----\norphan pack\n-----END PACK-----\n",
+        )
+        .expect("write orphan pack");
+
+        let options = model_outputs_target(&fix, &["handoff"]);
+        let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
+        assert!(outcome.stderr.contains("FB0901"), "{}", outcome.stderr);
+        assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+        let journal =
+            std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+        let refuse = journal
+            .lines()
+            .rev()
+            .find(|line| line.contains("\"kind\":\"refuse\""))
+            .expect("a refuse event");
+        assert!(refuse.contains("unlabelled"), "{refuse}");
+    }
+
+    // 2. Call record missing `inputs` is unlabelled and refused.
+    {
+        let fix = TestFixture::new();
+        save_call_on_s0001(&fix);
+        let call_path = fix.state_dir().join("ai/calls/C-0001.json");
+        let mut json: serde_json::Value =
+            serde_json::from_str(&std::fs::read_to_string(&call_path).expect("read call"))
+                .expect("parse call json");
+        json.as_object_mut()
+            .expect("call object")
+            .remove("inputs")
+            .expect("inputs present");
+        std::fs::write(
+            &call_path,
+            serde_json::to_string_pretty(&json).expect("serialize call"),
+        )
+        .expect("write call without inputs");
+
+        let options = model_outputs_target(&fix, &["ai"]);
+        let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
+        assert!(outcome.stderr.contains("FB0901"), "{}", outcome.stderr);
+        assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+        let journal =
+            std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+        let refuse = journal
+            .lines()
+            .rev()
+            .find(|line| line.contains("\"kind\":\"refuse\""))
+            .expect("a refuse event");
+        assert!(refuse.contains("unlabelled"), "{refuse}");
+    }
+
+    // 3. Schema-bearing Handoff ticket missing `inputs` or `labels` is unlabelled and refused.
+    for missing_field in ["inputs", "labels"] {
+        let fix = TestFixture::new();
+        save_schema_pack_on_s0001(&fix);
+        let ticket_path = fix.state_dir().join("handoff/H-0001.toml");
+        let mut table: toml::Table =
+            toml::from_str(&std::fs::read_to_string(&ticket_path).expect("read ticket"))
+                .expect("parse ticket");
+        table.remove(missing_field).expect("field present");
+        std::fs::write(
+            &ticket_path,
+            toml::to_string(&table).expect("serialize ticket"),
+        )
+        .expect("write ticket without field");
+
+        let options = model_outputs_target(&fix, &["handoff"]);
+        let outcome = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(outcome.code, 2, "{}{}", outcome.stdout, outcome.stderr);
+        assert!(outcome.stderr.contains("FB0901"), "{}", outcome.stderr);
+        assert!(!fix.target_path().join("fieldbook-backup-0001").exists());
+        let journal =
+            std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+        let refuse = journal
+            .lines()
+            .rev()
+            .find(|line| line.contains("\"kind\":\"refuse\""))
+            .expect("a refuse event");
+        assert!(refuse.contains("unlabelled"), "{refuse}");
+    }
+}
+
+#[test]
+fn backup_saved_model_outputs_recheck_inputs() {
+    // 1. Saved call record: permitted when input is public, refused when input is relabelled.
+    {
+        let fix = TestFixture::new();
+        save_call_on_s0001(&fix);
+        let call_path = fix.state_dir().join("ai/calls/C-0001.json");
+        let saved_bytes = std::fs::read(&call_path).expect("read call");
+
+        let options = model_outputs_target(&fix, &["ai"]);
+        let ok_out = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(ok_out.code, 0, "{}{}", ok_out.stdout, ok_out.stderr);
+        let sums =
+            std::fs::read_to_string(fix.target_path().join("fieldbook-backup-0001/SHA256SUMS"))
+                .expect("read sums");
+        assert!(sums.contains("ai/calls/C-0001.json"), "{sums}");
+
+        // Relabel only the source S-0001-v1; the saved call record is untouched.
+        relabel_s0001_to_np0007(&fix);
+        assert_eq!(std::fs::read(&call_path).expect("read call"), saved_bytes);
+
+        let refused = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(refused.code, 2, "{}{}", refused.stdout, refused.stderr);
+        assert!(refused.stderr.contains("FB0901"), "{}", refused.stderr);
+        assert!(!fix.target_path().join("fieldbook-backup-0002").exists());
+        let journal =
+            std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+        let refuse = journal
+            .lines()
+            .rev()
+            .find(|line| line.contains("\"kind\":\"refuse\""))
+            .expect("a refuse event");
+        assert!(refuse.contains("np-0007"), "{refuse}");
+    }
+
+    // 2. Saved Handoff pack and schema-bearing ticket: permitted when input is public, refused
+    //    when input is relabelled (both with the pack text present and for the schema-bearing
+    //    ticket metadata alone, proving schema-bearing tickets are text-bearing backup metadata).
+    {
+        let fix = TestFixture::new();
+        save_schema_pack_on_s0001(&fix);
+        let pack_path = fix.state_dir().join("handoff/H-0001.txt");
+        let ticket_path = fix.state_dir().join("handoff/H-0001.toml");
+        let saved_pack = std::fs::read(&pack_path).expect("read pack");
+        let saved_ticket = std::fs::read(&ticket_path).expect("read ticket");
+
+        let options = model_outputs_target(&fix, &["handoff"]);
+        let ok_out = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(ok_out.code, 0, "{}{}", ok_out.stdout, ok_out.stderr);
+        let sums =
+            std::fs::read_to_string(fix.target_path().join("fieldbook-backup-0001/SHA256SUMS"))
+                .expect("read sums");
+        assert!(sums.contains("handoff/H-0001.txt"), "{sums}");
+        assert!(sums.contains("handoff/H-0001.toml"), "{sums}");
+
+        // Relabel only the source S-0001-v1; the pack and ticket files are untouched.
+        relabel_s0001_to_np0007(&fix);
+        assert_eq!(std::fs::read(&pack_path).expect("read pack"), saved_pack);
+        assert_eq!(
+            std::fs::read(&ticket_path).expect("read ticket"),
+            saved_ticket
+        );
+
+        let refused = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(refused.code, 2, "{}{}", refused.stdout, refused.stderr);
+        assert!(refused.stderr.contains("FB0901"), "{}", refused.stderr);
+        assert!(!fix.target_path().join("fieldbook-backup-0002").exists());
+        let journal =
+            std::fs::read_to_string(fix.state_dir().join("audit/journal.jsonl")).expect("journal");
+        let refuse = journal
+            .lines()
+            .rev()
+            .find(|line| line.contains("\"kind\":\"refuse\""))
+            .expect("a refuse event");
+        assert!(refuse.contains("np-0007"), "{refuse}");
+
+        // Remove H-0001.txt so only the schema-bearing ticket H-0001.toml remains: if a
+        // classifier treated schema-bearing tickets as TextFreeControl, this backup would
+        // succeed instead of refusing np-0007.
+        std::fs::remove_file(&pack_path).expect("remove pack text");
+        let refused_ticket_only = run_backup(&fix.world, &floor_a_effective(), &options);
+        assert_eq!(
+            refused_ticket_only.code, 2,
+            "schema-bearing ticket is text-bearing metadata and must refuse relabelled input: {}{}",
+            refused_ticket_only.stdout, refused_ticket_only.stderr
+        );
+        assert!(
+            refused_ticket_only.stderr.contains("FB0901"),
+            "{}",
+            refused_ticket_only.stderr
+        );
+        assert!(!fix.target_path().join("fieldbook-backup-0002").exists());
+    }
+}
