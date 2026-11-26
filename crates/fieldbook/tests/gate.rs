@@ -1803,6 +1803,115 @@ fn a_missing_lock_with_a_read_only_segment_is_not_audited() {
     );
 }
 
+#[cfg(unix)]
+#[test]
+fn a_missing_lock_with_a_read_only_state_dir_is_not_audited() {
+    // A missing lock still requires the writer's `init_state_locks` to create it before the
+    // append, so a writable segment beside a missing lock and a state folder that rejects the
+    // lock is not audited. The earlier missing-lock case covered only the segment.
+    use std::os::unix::fs::PermissionsExt as _;
+
+    let dir = tempfile::tempdir().expect("tempdir");
+    let world: Arc<dyn fieldbook::World + Send + Sync> =
+        Arc::new(support::world::TestWorld::new(dir.path()));
+    let state_dir = dir.path().join(".fieldbook");
+    fieldbook::io::journal::Journal::open(&*world, &state_dir, fieldbook_core::audit::Via::Cli)
+        .expect("open journal");
+    std::fs::remove_file(state_dir.join("lock")).expect("drop lock");
+
+    let original = std::fs::metadata(&state_dir).expect("meta").permissions();
+    let mut closed = original.clone();
+    closed.set_mode(0o500);
+    std::fs::set_permissions(&state_dir, closed).expect("set ro");
+
+    let journal: Arc<dyn AiJournal> = Arc::new(fieldbook::io::ai_journal::AiJournalWriter::new(
+        Arc::clone(&world),
+        state_dir.clone(),
+    ));
+    let audited = journal.audited();
+    std::fs::set_permissions(&state_dir, original).expect("restore perms");
+    assert!(
+        !audited,
+        "a missing lock the state folder cannot create is not audited"
+    );
+    assert!(
+        !state_dir.join("lock").exists(),
+        "the preview did not create the lock it found missing"
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn a_first_segment_needs_a_writable_audit_dir() {
+    // With no segment yet the append creates `audit/journal.jsonl`. A writable state folder with
+    // a missing lock and an existing read-only empty `audit/` must not report ready, because the
+    // writer fails creating the segment, not the lock.
+    use std::os::unix::fs::PermissionsExt as _;
+
+    let dir = tempfile::tempdir().expect("tempdir");
+    let state_dir = dir.path().join(".fieldbook");
+    let audit_dir = state_dir.join("audit");
+    std::fs::create_dir_all(&audit_dir).expect("audit dir");
+
+    let original = std::fs::metadata(&audit_dir).expect("meta").permissions();
+    let mut closed = original.clone();
+    closed.set_mode(0o500);
+    std::fs::set_permissions(&audit_dir, closed).expect("set ro");
+
+    let journal: Arc<dyn AiJournal> = Arc::new(fieldbook::io::ai_journal::AiJournalWriter::new(
+        Arc::new(support::world::TestWorld::new(dir.path())),
+        state_dir.clone(),
+    ));
+    let audited = journal.audited();
+    std::fs::set_permissions(&audit_dir, original).expect("restore perms");
+    assert!(
+        !audited,
+        "a first segment the audit folder cannot create is not audited"
+    );
+    assert!(
+        !state_dir.join("lock").exists(),
+        "the preview did not create the lock it found missing"
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn a_partial_initialization_with_a_read_only_store_lock_is_not_audited() {
+    // Initialization opens an existing `store.lock` read and write when the journal lock is
+    // missing, so a read-only store lock in that partial state fails the append. Accepting the
+    // path's shape alone reported ready.
+    use std::os::unix::fs::PermissionsExt as _;
+
+    let dir = tempfile::tempdir().expect("tempdir");
+    let world: Arc<dyn fieldbook::World + Send + Sync> =
+        Arc::new(support::world::TestWorld::new(dir.path()));
+    let state_dir = dir.path().join(".fieldbook");
+    fieldbook::io::journal::Journal::open(&*world, &state_dir, fieldbook_core::audit::Via::Cli)
+        .expect("open journal");
+    std::fs::remove_file(state_dir.join("lock")).expect("drop lock");
+
+    let store_lock = state_dir.join("store.lock");
+    let original = std::fs::metadata(&store_lock).expect("meta").permissions();
+    let mut read_only = original.clone();
+    read_only.set_mode(0o400);
+    std::fs::set_permissions(&store_lock, read_only).expect("set ro");
+
+    let journal: Arc<dyn AiJournal> = Arc::new(fieldbook::io::ai_journal::AiJournalWriter::new(
+        Arc::clone(&world),
+        state_dir.clone(),
+    ));
+    let audited = journal.audited();
+    std::fs::set_permissions(&store_lock, original).expect("restore perms");
+    assert!(
+        !audited,
+        "a store lock initialization cannot open is not audited"
+    );
+    assert!(
+        !state_dir.join("lock").exists(),
+        "the preview did not create the lock it found missing"
+    );
+}
+
 fn entries(dir: &std::path::Path) -> Vec<String> {
     let mut names: Vec<String> = std::fs::read_dir(dir)
         .expect("read_dir")
