@@ -709,11 +709,13 @@ pub fn context_pack_for(
                     }
                     for opp in opponents {
                         let opp_str = opp.as_str().to_owned();
-                        // A claim already in the pack is never relabelled as an opponent by a
-                        // promoted claim's walk (that would mark the selected claim itself); a
-                        // newly reached opponent is labelled as an opponent of the claim that
-                        // needed it, as for a selected claim.
-                        if current == claim_id || !seen.contains(&opp_str) {
+                        // A claim already included in the pack is never relabelled as an opponent
+                        // by a promoted claim's walk (that would mark the selected claim itself);
+                        // a newly reached or default-excluded opponent being promoted is labelled
+                        // as an opponent of the claim that needed it, as for a selected claim.
+                        let already_included =
+                            seen.contains(&opp_str) && !non_budget_excluded.contains(&opp_str);
+                        if current == claim_id || !already_included {
                             conflict_opponents
                                 .entry(opp_str.clone())
                                 .or_insert_with(|| xid.clone());

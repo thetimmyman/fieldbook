@@ -99,6 +99,10 @@ struct Plant {
     promoted_own_source: bool,
     /// A third claim conflicts with the contradicted conflict claim in a second conflict.
     promoted_third_claim: bool,
+    /// Marks the planted third claim (`CL-CMP-0003`) as superseded.
+    superseded_third_claim: bool,
+    /// Plants concept pages citing `CL-CMP-0003` before and after `CL-CMP-0002`.
+    secondary_order_pages: bool,
     /// The first-time opponent CL-CMP-0002 cites a source no other planted claim cites.
     opponent_own_source: bool,
     /// A fourth claim conflicts with the first-time opponent CL-CMP-0002 in a second conflict.
@@ -229,6 +233,11 @@ fn fixture_tree(plant: Plant) -> Tree {
     }
 
     if plant.promoted_third_claim {
+        let (third_app, third_adopt) = if plant.superseded_third_claim {
+            ("not_applicable", "superseded")
+        } else {
+            ("pending_company_confirmation", "proposed")
+        };
         claims_out.push(csv_row(
             &claims_header,
             &[
@@ -245,8 +254,8 @@ fn fixture_tree(plant: Plant) -> Tree {
                 ("consequential", "false"),
                 ("drafted_by", "codex"),
                 ("verification", "unchecked"),
-                ("applicability", "pending_company_confirmation"),
-                ("adoption", "proposed"),
+                ("applicability", third_app),
+                ("adoption", third_adopt),
                 ("data_origin", "observed"),
                 ("volatility", "V2"),
             ],
@@ -271,6 +280,31 @@ fn fixture_tree(plant: Plant) -> Tree {
             ],
         ));
         tree.insert_bytes(path, format!("{}\n", rows.join("\n")).into_bytes());
+    }
+
+    if plant.secondary_order_pages {
+        for (pid, cite) in [
+            (
+                "cmp-sec-before",
+                "[@CL-CMP-0003] and [@CL-CMP-0002] (outside [@CL-EST-0002])",
+            ),
+            (
+                "cmp-sec-after",
+                "[@CL-CMP-0002] and [@CL-CMP-0003] (outside [@CL-EST-0002])",
+            ),
+        ] {
+            let page = concept_page(
+                pid,
+                &format!("Synthetic secondary order page {pid}"),
+                "public",
+                "Synthetic secondary conflict citation order test.",
+                cite,
+            );
+            tree.insert_bytes(
+                format!("corpus/pages/compliance/business-systems/{pid}.md"),
+                page.into_bytes(),
+            );
+        }
     }
 
     if plant.opponent_own_source {
@@ -1013,6 +1047,195 @@ fn a_promoted_conflict_group_is_dropped_together_under_a_tight_budget() {
         }
     }
     assert!(dropped_somewhere, "no budget dropped the group");
+}
+
+// control: HG-02
+#[test]
+fn a_promoted_superseded_secondary_opponent_is_contradicted_in_both_citation_orders() {
+    let model = load_model(Plant {
+        np_records: true,
+        contradicted_conflict_claim: true,
+        promoted_third_claim: true,
+        superseded_third_claim: true,
+        secondary_order_pages: true,
+        ..Plant::default()
+    });
+    let eff = policy_default();
+    let view = view_for(&model, &eff, &Dest::Handoff);
+
+    for pid in ["cmp-sec-before", "cmp-sec-after"] {
+        let pack = context_pack_for(
+            &view,
+            &Dest::Handoff,
+            Some(&eff),
+            "zzunusedquery",
+            &LabelSet::owner_supplied(),
+            &Scope::Page(pid.to_owned()),
+            BUDGET,
+            &Include::default(),
+        );
+        let included = included_units(&pack);
+        for id in [
+            "CL-CMP-0001",
+            "CL-CMP-0002",
+            "XC-01",
+            "XC-02",
+            "CL-CMP-0003",
+        ] {
+            assert!(
+                included.iter().any(|u| u == id),
+                "{pid}: {id} in {included:?}"
+            );
+        }
+
+        let secondary_item = pack
+            .items()
+            .iter()
+            .find(|i| i.unit == "CL-CMP-0003")
+            .unwrap();
+        assert!(matches!(secondary_item.why, Why::Closure), "{secondary_item:?}");
+        assert_eq!(secondary_item.via.as_deref(), Some("CL-CMP-0001"));
+
+        let secondary_block = pack
+            .blocks()
+            .iter()
+            .find(|b| b.id == "CL-CMP-0003")
+            .unwrap();
+        assert!(
+            secondary_block
+                .text
+                .contains("Status: contradicted (conflict XC-02)"),
+            "{pid}: promoted secondary opponent must display conflict XC-02 status:\n{}",
+            secondary_block.text
+        );
+
+        let primary_block = pack
+            .blocks()
+            .iter()
+            .find(|b| b.id == "CL-CMP-0001")
+            .unwrap();
+        assert!(
+            primary_block
+                .text
+                .contains("Status: contradicted (conflict XC-01)"),
+            "{pid}: promoted primary opponent must display conflict XC-01 status:\n{}",
+            primary_block.text
+        );
+
+        let selected_block = pack
+            .blocks()
+            .iter()
+            .find(|b| b.id == "CL-CMP-0002")
+            .unwrap();
+        assert!(
+            selected_block.text.contains("Status: unchecked"),
+            "{pid}: selected claim keeps its own status:\n{}",
+            selected_block.text
+        );
+        assert!(
+            !selected_block.text.contains("Status: contradicted (conflict"),
+            "{pid}: selected claim must not be relabelled contradicted:\n{}",
+            selected_block.text
+        );
+
+        // Superseded claim outside the conflict remains excluded by default.
+        let outside = pack
+            .items()
+            .iter()
+            .find(|i| i.unit == "CL-EST-0002")
+            .expect("CL-EST-0002 listed as considered");
+        assert!(
+            !outside.included,
+            "{pid}: outside superseded claim must stay excluded"
+        );
+        assert!(
+            !pack.blocks().iter().any(|b| b.id == "CL-EST-0002"),
+            "{pid}: outside superseded claim must not appear in blocks"
+        );
+        assert!(
+            !pack.left_out_budget().iter().any(|b| b.id == "CL-EST-0002"),
+            "{pid}: outside superseded claim must not appear in left_out_budget"
+        );
+
+        // Destination-filtered view remains intact.
+        let text = pack.to_text();
+        for marker in [MARKER_PAGE, MARKER_SOURCE, MARKER_CLAIM] {
+            assert!(!text.contains(marker), "{pid}: marker `{marker}` leaked");
+        }
+        assert_eq!(last_line(&text), "Left out (policy): 3 records");
+    }
+}
+
+// control: HG-02
+#[test]
+fn a_promoted_superseded_secondary_opponent_group_is_atomic_under_budget_in_both_orders() {
+    let model = load_model(Plant {
+        contradicted_conflict_claim: true,
+        promoted_third_claim: true,
+        superseded_third_claim: true,
+        secondary_order_pages: true,
+        ..Plant::default()
+    });
+    let eff = policy_default();
+    let view = view_for(&model, &eff, &Dest::Handoff);
+    let group = [
+        "CL-CMP-0001",
+        "CL-CMP-0002",
+        "XC-01",
+        "XC-02",
+        "CL-CMP-0003",
+    ];
+
+    for pid in ["cmp-sec-before", "cmp-sec-after"] {
+        let scope = Scope::Page(pid.to_owned());
+        let full = context_pack(
+            &view,
+            "zzunusedquery",
+            &scope,
+            BUDGET,
+            &Include::default(),
+        );
+        let full_kept: Vec<&str> = full.blocks().iter().map(|b| b.id.as_str()).collect();
+        assert!(
+            group.iter().all(|g| full_kept.contains(g)),
+            "{pid}: the group is kept whole when it fits: {full_kept:?}"
+        );
+
+        let base = full.request_budget().rules + full.request_budget().question;
+        let max_budget = full.request_budget().total + 14;
+        let mut dropped_somewhere = false;
+        let mut kept_somewhere = false;
+        for tight in (base..=max_budget).step_by(7) {
+            let pack = context_pack(
+                &view,
+                "zzunusedquery",
+                &scope,
+                tight,
+                &Include::default(),
+            );
+            let kept: Vec<&str> = pack.blocks().iter().map(|b| b.id.as_str()).collect();
+            let kept_group = group.iter().filter(|g| kept.contains(g)).count();
+            assert!(
+                kept_group == 0 || kept_group == group.len(),
+                "{pid} budget {tight}: the group must be kept or dropped together: {kept:?}"
+            );
+            if kept_group == 0 {
+                dropped_somewhere = true;
+                let left_out: Vec<&str> = pack
+                    .left_out_budget()
+                    .iter()
+                    .map(|b| b.id.as_str())
+                    .collect();
+                for id in group {
+                    assert!(left_out.contains(&id), "{pid} budget {tight}: {id} lost");
+                }
+            } else {
+                kept_somewhere = true;
+            }
+        }
+        assert!(dropped_somewhere, "{pid}: no budget dropped the group");
+        assert!(kept_somewhere, "{pid}: no budget kept the group");
+    }
 }
 
 // control: HG-02
